@@ -47,8 +47,10 @@ If this prompt also updates `docs/0-index.md` or other docs as required by other
 ## Order relative to other rules
 
 1. Do the requested work first (including documentation index updates if docs changed).
-2. Then append the project-steps entry as the last maintenance action for the prompt.
-3. Including the project-steps file itself in **Files touched** for that step is expected.
+2. Update `docs/project-tracking/1-project-status.md` when that rule applies.
+3. Append the project-steps entry next-to-last.
+4. Then follow `.cursor/rules/github_commit_workflow.mdc` to **commit locally** (never push unless the user explicitly asks).
+5. Including the project-steps file itself in **Files touched** for that step is expected.
 
 ## Non-negotiable
 

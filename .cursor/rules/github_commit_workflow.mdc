@@ -1,0 +1,96 @@
+---
+description: Auto-commit local changes after each file-changing prompt (never push)
+alwaysApply: true
+---
+
+# Local Git Commit Workflow
+
+At the **very end** of every prompt that **creates, modifies, renames, or deletes** any project file, create a **local git commit** for the changes from that prompt.
+
+## Hard rules
+
+- **Commit locally only.** Never `git push`, never set upstream, never publish.
+- **Never update git config.**
+- **Never use destructive git commands** (`push --force`, `hard reset`, etc.).
+- **Never skip hooks** (`--no-verify`, etc.).
+- **Do not commit secrets** (`.env`, credentials, keys, tokens).
+- Prefer **one commit per prompt** covering that prompt’s work.
+
+## When to commit
+
+Commit when this prompt changed project files.
+
+Do **not** commit when:
+
+- the session is **Ask mode**;
+- no files were changed;
+- the working tree is clean after maintenance writes;
+- the user explicitly says not to commit.
+
+## What to include
+
+Stage the files changed by **this prompt** (including tracker/docs/rule updates made for the same prompt).
+
+Do **not** sweep in unrelated local edits the user made outside this prompt unless the user asked to include them.
+
+If unsure whether an unstaged file belongs to this prompt, leave it unstaged and mention it briefly in the reply.
+
+## Commit message standard
+
+Write a concise, descriptive message that focuses on **why**, not a file dump.
+
+Format:
+
+```text
+<imperative summary in <= ~72 chars>
+
+<optional 1–2 short body lines with context>
+```
+
+Examples:
+
+- `Add local auto-commit Cursor rule for file-changing prompts.`
+- `Fix truncated Beehive 1 Unit 4 extraction JSON.`
+- `Update dataset registry after Beehive 1 SB batch import.`
+
+Use conventional style when natural (`Add`, `Fix`, `Update`, `Refactor`, `Docs:`), but clarity beats rigid prefixes.
+
+## Required commit procedure
+
+Run these in parallel first:
+
+1. `git status`
+2. `git diff` and `git diff --cached`
+3. `git log -5 --oneline` (match repo message style)
+
+Then sequentially:
+
+1. `git add` only the relevant files
+2. Commit with a HEREDOC / PowerShell here-string message (no interactive `-i` flags)
+3. `git status` to confirm success
+
+PowerShell example:
+
+```powershell
+git commit -m @"
+Add local auto-commit Cursor rule for file-changing prompts.
+
+Keep commits local only; do not push unless explicitly requested.
+"@
+```
+
+## Order relative to other rules
+
+1. Do the requested work.
+2. Update `docs/0-index.md` if docs inventory/status changed.
+3. Update `docs/project-tracking/1-project-status.md`.
+4. Append `docs/project-tracking/0-project-steps.md`.
+5. **Then commit locally** as the final action.
+
+## Failure handling
+
+If commit fails (hooks, empty commit, partial stage), fix the issue and create a **new** commit. Do not amend unless the user’s amend conditions are fully met.
+
+## Non-negotiable
+
+Never finish a file-changing Agent prompt with uncommitted changes from that prompt, unless the user forbade committing or Ask mode prevented writes.

@@ -39,7 +39,8 @@ Also refresh:
 
 1. Do the requested work first (including `docs/0-index.md` updates if docs changed).
 2. Update `docs/project-tracking/1-project-status.md`.
-3. Append the step to `docs/project-tracking/0-project-steps.md` last (include this status file in that step’s files-touched list).
+3. Append the step to `docs/project-tracking/0-project-steps.md` (include this status file in that step’s files-touched list).
+4. Then follow `.cursor/rules/github_commit_workflow.mdc` to **commit locally** (never push unless the user explicitly asks).
 
 ## Non-negotiable
 

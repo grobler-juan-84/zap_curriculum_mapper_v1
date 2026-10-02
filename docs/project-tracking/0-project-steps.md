@@ -110,3 +110,16 @@
 - project files committed and pushed to GitHub
 
 ---
+
+### Step 8
+
+**Summary:** Added `.cursor/rules/github_commit_workflow.mdc` so each file-changing Agent prompt ends with a descriptive local git commit (no auto-push). Updated related tracker rules so commit runs after status/steps maintenance.
+
+**Files touched:**
+- `.cursor/rules/github_commit_workflow.mdc` (created)
+- `.cursor/rules/project_steps_rule.mdc` (updated)
+- `.cursor/rules/project_status_rule.mdc` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
