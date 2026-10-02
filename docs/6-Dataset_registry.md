@@ -176,7 +176,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 
 | ID | Series | Level | Book Type | Source | Extraction | Validation | Human Verification | Whole-Book Audit | Canonical JSON | Schema | Open Issues | Schema Gaps | Phase 1 |
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
-| BH1 | Beehive | 1 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -277,6 +277,45 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8A. BH1 — Beehive 1 Student Book (active)
+
+**Registry ID:** BH1  
+**Series:** Beehive (Beehive American)  
+**Level:** 1  
+**Book Type:** Student Book  
+**book_id:** `beehive_1_sb`
+
+### Source
+
+**Source Availability:** AVAILABLE  
+**Source Filename:** `Beehive American Student Book 1.pdf`  
+**Source Format:** PDF  
+**PDF Page Count:** 135  
+
+### Phase 1 Processing
+
+**Extraction Status:** EXTRACTED (unit batches `01–08`)  
+**Batch Path:** `data/phase1/beehive_1_sb/`  
+**Automated Validation:** NOT RUN  
+**Human Verification:** COMPLETE  
+**Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality.  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 31 (mostly `audio_required` / `missing_source` workbook refs — documented, left open)  
+**Schema Gaps:** 8 (recurring SEL / Think–Feel–Grow gap across units — pending schema review)  
+
+### Notes
+
+- Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
+- Next pilot book after this baseline: Big English 1 Student Book.
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.
@@ -372,7 +411,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 
 | Order | Book | Purpose | Status |
 |---:|---|---|---|
-| 1 | Beehive 1 | Existing conceptual baseline / first schema test | NOT STARTED |
+| 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | NOT STARTED |
 | 3 | Reach Higher 2A | Cross-series structural stress test | NOT STARTED |
 | 4 | Schema Review | Review findings across all three series | NOT STARTED |
@@ -499,12 +538,12 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 18 |
-| Phase 1 In Progress | 0 |
+| Phase 1 Not Started | 17 |
+| Phase 1 In Progress | 1 |
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
 | Canonical Datasets Created | 0 |
-| Human Verification Complete | 0 |
+| Human Verification Complete | 1 |
 | Whole-Book Audits Passed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -515,10 +554,10 @@ These counts should be updated whenever a book changes major processing status.
 
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
-| Beehive | 2 | 2 | 0 | 0 | 0 |
+| Beehive | 2 | 1 | 1 | 0 | 0 |
 | Big English | 12 | 12 | 0 | 0 | 0 |
 | Reach Higher | 4 | 4 | 0 | 0 | 0 |
-| **Total** | **18** | **18** | **0** | **0** | **0** |
+| **Total** | **18** | **17** | **1** | **0** | **0** |
 
 ---
 
@@ -528,7 +567,7 @@ Use this section once extraction begins.
 
 | Schema Version | Books Using Version | Migration Needed | Notes |
 |---|---:|---|---|
-| 0.1 | 0 | — | Initial development schema |
+| 0.1 | 1 (BH1 unit batches) | No | Beehive 1 SB unit batches `01–08` under `data/phase1/beehive_1_sb/` |
 
 This becomes increasingly important as the Phase 1 schema evolves.
 

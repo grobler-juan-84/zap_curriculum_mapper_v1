@@ -1,1670 +1,1680 @@
 {
-    "schema": {
-      "name": "general_curriculum_mapper_phase1",
-      "version": "0.1",
-      "status": "development"
-    },
-    "book": {
-      "book_id": "beehive_1_sb",
-      "series": "Beehive American",
-      "level": "1",
-      "book_type": "Student Book",
-      "edition": null,
-      "publisher": "Oxford University Press",
-      "source_filename": "Beehive American Student Book 1.pdf",
-      "source_format": "PDF",
-      "pdf_page_count": 135,
-      "printed_page_start": 4,
-      "printed_page_end": 135,
-      "language": "English",
-      "extraction_status": "in_progress",
-      "verification_status": "unverified"
-    },
-    "batch": {
-      "batch_id": "beehive_1_sb_batch_unit_08",
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "beehive_1_sb",
+    "series": "Beehive American",
+    "level": "1",
+    "book_type": "Student Book",
+    "edition": null,
+    "publisher": "Oxford University Press",
+    "source_filename": "Beehive American Student Book 1.pdf",
+    "source_format": "PDF",
+    "pdf_page_count": 135,
+    "printed_page_start": 4,
+    "printed_page_end": 135,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "beehive_1_sb_batch_unit_08",
+    "unit_id": "beehive_1_sb_u08",
+    "source_section": "Unit 8: Food",
+    "printed_page_start": 96,
+    "printed_page_end": 107,
+    "pdf_page_start": 96,
+    "pdf_page_end": 107,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
       "unit_id": "beehive_1_sb_u08",
-      "source_section": "Unit 8: Food",
+      "book_id": "beehive_1_sb",
+      "unit_number": "8",
+      "title": "Food",
+      "theme": "Fruit, Food, Requests, Likes and Dislikes",
       "printed_page_start": 96,
       "printed_page_end": 107,
       "pdf_page_start": 96,
       "pdf_page_end": 107,
-      "extraction_status": "complete"
+      "source_section_type": "unit",
+      "notes": "Covers fruit vocabulary, counting with 'How many...?', preference grammar ('I like... / I don't like...'), food and drink nouns, polite requests ('Can I have some..., please? / Yes, here you go. / No, sorry!'), fable 'Fox and Stork' (being considerate), breakfast culture in Türkiye and Vietnam, contraction focus (don't = do not), a shopping role-play project, and review.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "beehive_1_sb_p096",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 96,
+      "pdf_page": 96,
+      "section_title": "Lesson 1 Words",
+      "section_type": "vocabulary_presentation",
+      "page_heading": "Words Fruit",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Presents 8 core fruit items in a fruit stand market scene.",
+      "verification_status": "human_verified"
     },
-    "units": [
-      {
-        "unit_id": "beehive_1_sb_u08",
-        "book_id": "beehive_1_sb",
-        "unit_number": "8",
-        "title": "Food",
-        "theme": "Fruit, Food, Requests, Likes and Dislikes",
-        "printed_page_start": 96,
-        "printed_page_end": 107,
-        "pdf_page_start": 96,
-        "pdf_page_end": 107,
-        "source_section_type": "unit",
-        "notes": "Covers fruit vocabulary, counting with 'How many...?', preference grammar ('I like... / I don't like...'), food and drink nouns, polite requests ('Can I have some..., please? / Yes, here you go. / No, sorry!'), fable 'Fox and Stork' (being considerate), breakfast culture in Türkiye and Vietnam, contraction focus (don't = do not), a shopping role-play project, and review.",
-        "verification_status": "unverified"
-      }
-    ],
-    "pages": [
-      {
-        "page_id": "beehive_1_sb_p096",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 96,
-        "pdf_page": 96,
-        "section_title": "Lesson 1 Words",
-        "section_type": "vocabulary_presentation",
-        "page_heading": "Words Fruit",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Presents 8 core fruit items in a fruit stand market scene.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p097",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 97,
-        "pdf_page": 97,
-        "section_title": "Lesson 1 Words / Functional Language",
-        "section_type": "functional_language",
-        "page_heading": "Functional Language How many...?",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Counting and completing fruit baskets, and asking 'How many...?' with numerical answers.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p098",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 98,
-        "pdf_page": 98,
-        "section_title": "Lesson 2 Grammar",
-        "section_type": "grammar_presentation",
-        "page_heading": "Grammar I like... I don't like...",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Presents first-person preference statements: 'I like... / I don't like...'.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p099",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 99,
-        "pdf_page": 99,
-        "section_title": "Lesson 2 Grammar",
-        "section_type": "grammar_practice",
-        "page_heading": "Grammar I like... I don't like...",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": false,
-        "notes": "Reading picture match and personalized fruit salad recipe preference writing.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p100",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 100,
-        "pdf_page": 100,
-        "section_title": "Lesson 3 Words and Grammar",
-        "section_type": "vocabulary_presentation",
-        "page_heading": "Words Food",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Introduces 6 prepared food and beverage items.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p101",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 101,
-        "pdf_page": 101,
-        "section_title": "Lesson 3 Words and Grammar",
-        "section_type": "grammar_and_song",
-        "page_heading": "Grammar Can I have some..., please? Yes, here you go. / No, sorry!",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Polite requests with 'Can I have some..., please?' and song 'The Noodles Song'.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p102",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 102,
-        "pdf_page": 102,
-        "section_title": "Lesson 4 Story",
-        "section_type": "story",
-        "page_heading": "Story Vocabulary and grammar review",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Frames 1–6 of story 'Fox and Stork'.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p103",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 103,
-        "pdf_page": 103,
-        "section_title": "Lesson 4 Story",
-        "section_type": "story_comprehension",
-        "page_heading": "Story Comprehension and discussion",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Frames 7–8, listening sequencing, and 'Think, Feel, Grow' discussion.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p104",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 104,
-        "pdf_page": 104,
-        "section_title": "Lesson 5 Skills and Culture",
-        "section_type": "skills_listening_speaking",
-        "page_heading": "Listening and Speaking Breakfast food",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Breakfast food in Türkiye and Vietnam; introduces 4 breakfast words.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p105",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 105,
-        "pdf_page": 105,
-        "section_title": "Lesson 5 Skills and Culture",
-        "section_type": "skills_reading_writing",
-        "page_heading": "Reading and Writing A personal account",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Personal account by Duong (Vietnam) and contraction writing focus ('don't = do not').",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p106",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 106,
-        "pdf_page": 106,
-        "section_title": "Project",
-        "section_type": "project",
-        "page_heading": "Project A shopping role-play",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": true,
-        "notes": "Team Up! 5: Create a market stand and conduct a shopping role-play.",
-        "verification_status": "unverified"
-      },
-      {
-        "page_id": "beehive_1_sb_p107",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "printed_page": 107,
-        "pdf_page": 107,
-        "section_title": "Review 8",
-        "section_type": "review",
-        "page_heading": "Unit 8 Review",
-        "instructional": true,
-        "visual_dependency": true,
-        "audio_dependency": false,
-        "notes": "Self-testing vocabulary recall and 6 honeycomb review activities.",
-        "verification_status": "unverified"
-      }
-    ],
-    "vocabulary": [
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "bananas",
-        "normalized_term": "banana",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 1",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "pears",
-        "normalized_term": "pear",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 2",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "apples",
-        "normalized_term": "apple",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 3",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0004",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "kiwis",
-        "normalized_term": "kiwi",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 4",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0005",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "oranges",
-        "normalized_term": "orange",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 5",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0006",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "mangoes",
-        "normalized_term": "mango",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 6",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0007",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "grapes",
-        "normalized_term": "grape",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 7",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0008",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "term": "strawberries",
-        "normalized_term": "strawberry",
-        "classification": "target",
-        "source_context": "Labeled fruit stall illustration 8",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0009",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "pizza",
-        "normalized_term": "pizza",
-        "classification": "target",
-        "source_context": "Labeled food photo 1",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0010",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "soup",
-        "normalized_term": "soup",
-        "classification": "target",
-        "source_context": "Labeled food photo 2",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0011",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "noodles",
-        "normalized_term": "noodle",
-        "classification": "target",
-        "source_context": "Labeled food photo 3",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0012",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "salad",
-        "normalized_term": "salad",
-        "classification": "target",
-        "source_context": "Labeled food photo 4",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0013",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "juice",
-        "normalized_term": "juice",
-        "classification": "target",
-        "source_context": "Labeled food photo 5",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0014",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "term": "ice cream",
-        "normalized_term": "ice cream",
-        "classification": "target",
-        "source_context": "Labeled food photo 6",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0015",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "term": "eggs",
-        "normalized_term": "egg",
-        "classification": "target",
-        "source_context": "Skills and Culture labeled photo 1",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0016",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "term": "bread",
-        "normalized_term": "bread",
-        "classification": "target",
-        "source_context": "Skills and Culture labeled photo 2",
-        "explicitly_listed": true,
-        "notes": "Uncountable noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0017",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "term": "cheese",
-        "normalized_term": "cheese",
-        "classification": "target",
-        "source_context": "Skills and Culture labeled photo 3",
-        "explicitly_listed": true,
-        "notes": "Uncountable noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0018",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "term": "olives",
-        "normalized_term": "olive",
-        "classification": "target",
-        "source_context": "Skills and Culture labeled photo 4",
-        "explicitly_listed": true,
-        "notes": "Plural noun.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0019",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "term": "please",
-        "normalized_term": "please",
-        "classification": "supporting_context",
-        "source_context": "Request structure ('Can I have some noodles, please?')",
-        "explicitly_listed": true,
-        "notes": "Polite marker.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0020",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p102",
-        "term": "fox",
-        "normalized_term": "fox",
-        "classification": "recycled",
-        "source_context": "Story title and character ('Fox and Stork')",
-        "explicitly_listed": true,
-        "notes": "Animal character.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0021",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p102",
-        "term": "stork",
-        "normalized_term": "stork",
-        "classification": "supporting_context",
-        "source_context": "Story title and character ('Fox and Stork')",
-        "explicitly_listed": true,
-        "notes": "Fable bird character.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0022",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "term": "pho",
-        "normalized_term": "pho",
-        "classification": "supporting_context",
-        "source_context": "Reading text ('It's pho. Pho is soup.')",
-        "explicitly_listed": false,
-        "notes": "Vietnamese cultural dish.",
-        "verification_status": "unverified"
-      },
-      {
-        "vocabulary_id": "beehive_1_sb_vocab_u08_0023",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "term": "contractions",
-        "normalized_term": "contraction",
-        "classification": "instructional",
-        "source_context": "Syllabus writing focus description ('Writing Focus Contractions (don't)')",
-        "explicitly_listed": true,
-        "notes": null,
-        "verification_status": "unverified"
-      }
-    ],
-    "language": [
-      {
-        "language_id": "beehive_1_sb_lang_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "language_type": "functional_language",
-        "prompt": "How many oranges?",
-        "response": "Fifteen oranges!",
-        "full_text": "How many oranges? Fifteen oranges!",
-        "grammar_label": "Quantifier question with How many + plural noun",
-        "function": "asking_and_answering_about_quantities",
-        "explicit_in_source": true,
-        "notes": "Target functional language on page 97.",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "language_type": "sentence_frame",
-        "prompt": null,
-        "response": null,
-        "full_text": "I like [plural fruit].",
-        "grammar_label": "Present Simple like (affirmative first person singular)",
-        "function": "expressing_food_likes",
-        "explicit_in_source": true,
-        "notes": "Model sentence: 'I like apples.' / 'I like oranges.'",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "language_type": "sentence_frame",
-        "prompt": null,
-        "response": null,
-        "full_text": "I don't like [plural fruit].",
-        "grammar_label": "Present Simple like (negative first person singular)",
-        "function": "expressing_food_dislikes",
-        "explicit_in_source": true,
-        "notes": "Model sentence: 'I don't like apples.'",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0004",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "language_type": "question_answer",
-        "prompt": "Can I have some noodles, please?",
-        "response": "No, sorry! / Yes, here you go.",
-        "full_text": "Can I have some noodles, please? No, sorry! / Yes, here you go.",
-        "grammar_label": "Modal request with Can + some + noun",
-        "function": "making_polite_food_requests",
-        "explicit_in_source": true,
-        "notes": "Lesson 3 comic dialogue frames 1–3.",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0005",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "language_type": "model_exchange",
-        "prompt": "I like eggs for breakfast.",
-        "response": "Me too! / I don't. I like bread.",
-        "full_text": "I like eggs for breakfast. Me too! I don't. I like bread.",
-        "grammar_label": "Prepositional phrase for breakfast + agreement / contrast markers",
-        "function": "discussing_breakfast_preferences",
-        "explicit_in_source": true,
-        "notes": "Lesson 5 speaking model exchange.",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0006",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "language_type": "grammar_pattern",
-        "prompt": null,
-        "response": null,
-        "full_text": "don't = do not",
-        "grammar_label": "Contraction",
-        "function": "language_awareness",
-        "explicit_in_source": true,
-        "notes": "Writing Focus note box.",
-        "verification_status": "unverified"
-      },
-      {
-        "language_id": "beehive_1_sb_lang_u08_0007",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p106",
-        "language_type": "model_exchange",
-        "prompt": "Hello! Can I have some strawberries, please?",
-        "response": "Hello! Yes, here you go. Thank you! Goodbye!",
-        "full_text": "Hello! Can I have some strawberries, please? Hello! Yes, here you go. Thank you! Goodbye!",
-        "grammar_label": "Service encounter dialogue frame",
-        "function": "conducting_shopping_transaction",
-        "explicit_in_source": true,
-        "notes": "Project role-play presentation.",
-        "verification_status": "unverified"
-      }
-    ],
-    "activities": [
-      {
-        "activity_id": "beehive_1_sb_act_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "activity_number": "1",
-        "activity_type": "look_share_learn",
-        "instruction": "Look, share, learn.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Introductory market fruit stall visual discussion.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "activity_number": "2",
-        "activity_type": "listen_point_repeat",
-        "instruction": "Listen, point, and repeat.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 153",
-        "notes": "Presents fruit vocabulary items 1 to 8.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "activity_number": "3",
-        "activity_type": "chant",
-        "instruction": "Say the chant.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": false,
-        "source_dependency_note": "Audio track 154",
-        "notes": "Fruit vocabulary chant.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0004",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "activity_number": "4",
-        "activity_type": "game",
-        "instruction": "Play the Colors game.",
-        "prompt": "Orange and green!",
-        "expected_answer": "Mangoes!",
-        "language_frame": "[Colors]! / [Fruit]!",
-        "items": [],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Color-based fruit deduction game.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0005",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "activity_number": "5",
-        "activity_type": "counting_and_drawing",
-        "instruction": "Count and draw the missing fruit. Then point and say.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "[Number] [fruit].",
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "Target: 3 mangoes (shows 2)",
-            "expected_answer": "Draw 1 mango"
-          },
-          {
-            "item_number": "2",
-            "prompt": "Target: 9 strawberries (shows 3)",
-            "expected_answer": "Draw 6 strawberries"
-          },
-          {
-            "item_number": "3",
-            "prompt": "Target: 2 bananas (shows 1)",
-            "expected_answer": "Draw 1 banana"
-          },
-          {
-            "item_number": "4",
-            "prompt": "Target: 6 oranges (shows 3)",
-            "expected_answer": "Draw 3 oranges"
-          },
-          {
-            "item_number": "5",
-            "prompt": "Target: 8 kiwis (shows 2)",
-            "expected_answer": "Draw 6 kiwis"
-          },
-          {
-            "item_number": "6",
-            "prompt": "Target: 10 grapes (shows 6)",
-            "expected_answer": "Draw 4 grapes"
-          },
-          {
-            "item_number": "7",
-            "prompt": "Target: 7 pears (shows 4)",
-            "expected_answer": "Draw 3 pears"
-          },
-          {
-            "item_number": "8",
-            "prompt": "Target: 5 apples (shows 1)",
-            "expected_answer": "Draw 4 apples"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Mathematical completion of quantities in baskets.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0006",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "activity_number": "6",
-        "activity_type": "visual_counting_quantities",
-        "instruction": "Count the fruit on page 96. Write the numbers.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "oranges",
-            "prompt": "oranges",
-            "expected_answer": "15"
-          },
-          {
-            "item_number": "pears",
-            "prompt": "pears",
-            "expected_answer": "8"
-          },
-          {
-            "item_number": "grapes",
-            "prompt": "grapes",
-            "expected_answer": "2"
-          },
-          {
-            "item_number": "bananas",
-            "prompt": "bananas",
-            "expected_answer": "8"
-          },
-          {
-            "item_number": "mangoes",
-            "prompt": "mangoes",
-            "expected_answer": "12"
-          },
-          {
-            "item_number": "strawberries",
-            "prompt": "strawberries",
-            "expected_answer": "14"
-          },
-          {
-            "item_number": "apples",
-            "prompt": "apples",
-            "expected_answer": "6"
-          },
-          {
-            "item_number": "kiwis",
-            "prompt": "kiwis",
-            "expected_answer": "6"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Visual counting task based on page 96 illustration. Note: grapes count may refer to bunches (2) or berries; UNCERTAIN — manual verification recommended.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0007",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "activity_number": "7",
-        "activity_type": "drilling_pair_work",
-        "instruction": "Listen and repeat. Look at 6. Ask and answer.",
-        "prompt": "How many oranges?",
-        "expected_answer": "Fifteen oranges!",
-        "language_frame": "How many [fruit]? / [Number] [fruit]!",
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 155",
-        "notes": "Model dialogue drilling quantity questions with Activity 6 counts.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0008",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "activity_number": "1",
-        "activity_type": "dialogue_presentation",
-        "instruction": "Listen and follow. Then act.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "I like... / I don't like...",
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 156",
-        "notes": "Comic strip introducing I like and I don't like with apples and oranges.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0009",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "activity_number": "2",
-        "activity_type": "listen_and_number",
-        "instruction": "Listen and number. Then listen and repeat.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "Boy with grapes",
-            "expected_answer": "1"
-          }
-        ],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 157",
-        "notes": "Items 2–7 require audio track 157. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
-        "verification_status": "source_dependency"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0010",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "activity_number": "3",
-        "activity_type": "spoken_deduction_game",
-        "instruction": "Look at 2. Say and point.",
-        "prompt": "I like pears.",
-        "expected_answer": "You're number four!",
-        "language_frame": "I like [fruit]. / You're number [number]!",
-        "items": [],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Character identification by fruit preference from Activity 2.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0011",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p099",
-        "activity_number": "4",
-        "activity_type": "reading_number_match",
-        "instruction": "Read and number.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "I like... / I don't like...",
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "I like pears.",
-            "expected_answer": "c"
-          },
-          {
-            "item_number": "2",
-            "prompt": "I don't like strawberries.",
-            "expected_answer": "a"
-          },
-          {
-            "item_number": "3",
-            "prompt": "I don't like oranges.",
-            "expected_answer": "d"
-          },
-          {
-            "item_number": "4",
-            "prompt": "I like kiwis.",
-            "expected_answer": "b"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Matching preference sentences to facial expressions and thought bubbles.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0012",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p099",
-        "activity_number": "5",
-        "activity_type": "personal_evaluation",
-        "instruction": "What do you like? Draw :-) or :-(.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "apples",
-            "expected_answer": "[:-)] or [:-(]"
-          },
-          {
-            "item_number": "2",
-            "prompt": "pears",
-            "expected_answer": "[:-)] or [:-(]"
-          },
-          {
-            "item_number": "3",
-            "prompt": "bananas",
-            "expected_answer": "[:-)] or [:-(]"
-          },
-          {
-            "item_number": "4",
-            "prompt": "grapes",
-            "expected_answer": "[:-)] or [:-(]"
-          },
-          {
-            "item_number": "5",
-            "prompt": "mangoes",
-            "expected_answer": "[:-)] or [:-(]"
-          },
-          {
-            "item_number": "6",
-            "prompt": "kiwis",
-            "expected_answer": "[:-)] or [:-(]"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": false,
-        "source_dependency_note": null,
-        "notes": "Fruit Salad Recipe personal preference rating.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0013",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p099",
-        "activity_number": "6",
-        "activity_type": "sentence_completion_writing",
-        "instruction": "Write. like / don't like",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "I [like / don't like] [fruit].",
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "I [___] apples.",
-            "expected_answer": "like / don't like"
-          },
-          {
-            "item_number": "2",
-            "prompt": "I [___] pears.",
-            "expected_answer": "like / don't like"
-          },
-          {
-            "item_number": "3",
-            "prompt": "I [___] bananas.",
-            "expected_answer": "like / don't like"
-          },
-          {
-            "item_number": "4",
-            "prompt": "I [___] grapes.",
-            "expected_answer": "like / don't like"
-          },
-          {
-            "item_number": "5",
-            "prompt": "I [___] mangoes.",
-            "expected_answer": "like / don't like"
-          },
-          {
-            "item_number": "6",
-            "prompt": "I [___] kiwis.",
-            "expected_answer": "like / don't like"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": false,
-        "source_dependency_note": null,
-        "notes": "Sentence writing corresponding to Activity 5 ratings.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0014",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "activity_number": "1",
-        "activity_type": "listen_point_repeat",
-        "instruction": "Listen, point, and repeat.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 158",
-        "notes": "Presents 6 food items: pizza, soup, noodles, salad, juice, ice cream.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0015",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "activity_number": "2",
-        "activity_type": "memory_listening",
-        "instruction": "What's missing? Listen and say.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": false,
-        "source_dependency_note": "Audio track 159",
-        "notes": "Auditory food memory drill.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0016",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "activity_number": "3",
-        "activity_type": "logic_preference_game",
-        "instruction": "Look, listen, and follow. Play the game.",
-        "prompt": "I like pizza. I don't like soup. I don't like ice cream. I like juice.",
-        "expected_answer": "You're Olivia.",
-        "language_frame": "I like... I don't like... / You're [Name].",
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 160",
-        "notes": "Deduction game based on 4 children's food like/dislike charts.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0017",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "activity_number": "4",
-        "activity_type": "dialogue_presentation",
-        "instruction": "Listen and follow. Then act.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "Can I have some..., please? / Yes, here you go. / No, sorry!",
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 161",
-        "notes": "Cafeteria comic strip presenting polite food requests and responses.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0018",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "activity_number": "5",
-        "activity_type": "polite_response_writing",
-        "instruction": "Write. Yes, here you go. / No, sorry.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "Yes, here you go. / No, sorry.",
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "Can I have some ice cream, please?",
-            "expected_answer": "[Request prompt]"
-          },
-          {
-            "item_number": "2",
-            "prompt": "[Response to ice cream: server handing ice cream cone]",
-            "expected_answer": "Yes, here you go."
-          },
-          {
-            "item_number": "3",
-            "prompt": "Can I have some pizza, please?",
-            "expected_answer": "[Request prompt]"
-          },
-          {
-            "item_number": "4",
-            "prompt": "[Response to pizza: plate is empty]",
-            "expected_answer": "No, sorry."
-          },
-          {
-            "item_number": "5",
-            "prompt": "Can I have some salad, please?",
-            "expected_answer": "[Request prompt]"
-          },
-          {
-            "item_number": "6",
-            "prompt": "[Response to salad: man serving salad with tongs]",
-            "expected_answer": "Yes, here you go."
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Writing polite responses from situational cafeteria vignettes.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0019",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "activity_number": "6",
-        "activity_type": "song",
-        "instruction": "Listen and follow. Then sing.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "Can I have some [food], please? / Yes, here you go!",
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": false,
-        "source_dependency_note": "Audio tracks 162–163",
-        "notes": "Song 'The Noodles Song'.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0020",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p103",
-        "activity_number": "3",
-        "activity_type": "story_sequencing",
-        "instruction": "Listen and number. Then find and say.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "b",
-            "prompt": "Stork looking at shallow bowl",
-            "expected_answer": "1"
-          }
-        ],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 165",
-        "notes": "Story recap sequencing. Items a, c, d, e, f, g, h require audio track 165. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
-        "verification_status": "source_dependency"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0021",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "activity_number": "1",
-        "activity_type": "listen_point_repeat",
-        "instruction": "Listen, point, and repeat.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 166",
-        "notes": "Presents eggs, bread, cheese, olives.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0022",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "activity_number": "3",
-        "activity_type": "listening_food_check",
-        "instruction": "Listen to Esma's sister. Check or cross.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "bread",
-            "expected_answer": "✓"
-          }
-        ],
-        "audio_dependency": true,
-        "visual_dependency": true,
-        "source_dependency_note": "Audio track 168",
-        "notes": "Items 2–6 require audio track 168. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
-        "verification_status": "source_dependency"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0023",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "activity_number": "7",
-        "activity_type": "true_false_reading",
-        "instruction": "Read again. Write T (true) or F (false).",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "Duong likes soup.",
-            "expected_answer": "T"
-          },
-          {
-            "item_number": "2",
-            "prompt": "Duong has some coconut juice.",
-            "expected_answer": "F"
-          },
-          {
-            "item_number": "3",
-            "prompt": "Duong likes apple juice and cheese.",
-            "expected_answer": "F"
-          },
-          {
-            "item_number": "4",
-            "prompt": "Duong's favorite breakfast is bread and eggs.",
-            "expected_answer": "F"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": false,
-        "source_dependency_note": null,
-        "notes": "Comprehension verification based on Duong's personal account.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0024",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "activity_number": "8",
-        "activity_type": "contraction_matching",
-        "instruction": "Writing Focus Circle n't and match.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": "don't = do not",
-        "items": [
-          {
-            "item_number": "1",
-            "prompt": "I don't like apple juice.",
-            "expected_answer": "d (I do not like apple juice.)"
-          },
-          {
-            "item_number": "2",
-            "prompt": "I don't like olives.",
-            "expected_answer": "c (I do not like olives.)"
-          },
-          {
-            "item_number": "3",
-            "prompt": "I don't!",
-            "expected_answer": "a (I do not!)"
-          },
-          {
-            "item_number": "4",
-            "prompt": "No, I don't.",
-            "expected_answer": "b (No, I do not.)"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": false,
-        "source_dependency_note": null,
-        "notes": "Matching contracted forms to full uncontracted sentences.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0025",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p107",
-        "activity_number": "1",
-        "activity_type": "review_recall_writing",
-        "instruction": "Test yourself! How many words can you remember? Write.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "Fruit",
-            "prompt": "Fruit (6 lines)",
-            "expected_answer": "bananas, pears, apples, kiwis, oranges, mangoes, grapes, strawberries"
-          },
-          {
-            "item_number": "Other food and drink",
-            "prompt": "Other food and drink (6 lines)",
-            "expected_answer": "pizza, soup, noodles, salad, juice, ice cream, eggs, bread, cheese, olives"
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": true,
-        "source_dependency_note": null,
-        "notes": "Unit 8 vocabulary self-test across fruit and other food/drink.",
-        "verification_status": "unverified"
-      },
-      {
-        "activity_id": "beehive_1_sb_act_u08_0026",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p107",
-        "activity_number": "2",
-        "activity_type": "review_honeycomb_choice",
-        "instruction": "Choose and do two activities.",
-        "prompt": null,
-        "expected_answer": null,
-        "language_frame": null,
-        "items": [
-          {
-            "item_number": "Option 1: Item 1",
-            "prompt": "like / I / apples",
-            "expected_answer": "I like apples."
-          },
-          {
-            "item_number": "Option 1: Item 2",
-            "prompt": "eggs / like / don't / I",
-            "expected_answer": "I don't like eggs."
-          },
-          {
-            "item_number": "Option 1: Item 3",
-            "prompt": "noodles / like / I",
-            "expected_answer": "I like noodles."
-          }
-        ],
-        "audio_dependency": false,
-        "visual_dependency": false,
-        "source_dependency_note": null,
-        "notes": "Option 1 provides word unscrambling; other options provide communicative review.",
-        "verification_status": "unverified"
-      }
-    ],
-    "continuous_text": [
-      {
-        "text_id": "beehive_1_sb_text_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "text_type": "song",
-        "title": "The Noodles Song",
-        "content": "Can I have some noodles, please?\nCan I have some noodles, please?\nCan I have some noodles, please?\nYes, here you go!\n\nI don't like ice cream.\nI don't like soup.\nI like pizza. I like juice.\nI like pizza. I like juice.\nBut my favorite food is noodles.",
-        "speaker_structure": null,
-        "audio_dependency": true,
-        "notes": "Audio tracks 162 and 163. Includes substitution words: mangoes, salad.",
-        "verification_status": "unverified"
-      },
-      {
-        "text_id": "beehive_1_sb_text_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p102",
-        "text_type": "story",
-        "title": "Fox and Stork",
-        "content": "Frame 1\nNarrator: This is Fox's house.\nFox: Hello, Stork. Come in!\nStork: Hello, Fox.\n\nFrame 2\nNarrator: Fox has some soup.\nStork: I'm hungry. Can I have some soup, please?\nFox: Yes, here you go.\n\nFrame 3\nNarrator: Oh, no!\nStork: I can't eat my soup.\n\nFrame 4\nNarrator: Poor Stork!\nStork: Goodbye!\nFox: Bye!\n\nFrame 5\nNarrator: This is Stork's house.\nStork: Hello, Fox. Come in!\nFox: Hello, Stork.\n\nFrame 6\nNarrator: Stork has some orange juice.\nFox: I'm thirsty. Can I have some orange juice, please?\nStork: Yes, here you go.\n\nFrame 7\nNarrator: Oh, no!\nFox: Oh! I can't drink my juice.\n\nFrame 8\nNarrator: Poor Fox!\nFox: Goodbye!\nStork: Bye!",
-        "speaker_structure": "Narrator, Fox, Stork",
-        "audio_dependency": true,
-        "notes": "Lesson 4 Story spanning pages 102 and 103. Traditional Aesop fable exploring consideration and empathy.",
-        "verification_status": "unverified"
-      },
-      {
-        "text_id": "beehive_1_sb_text_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p105",
-        "text_type": "reading",
-        "title": "Breakfast in My Country",
-        "content": "I'm Duong. I'm from Vietnam. Today I have my favorite breakfast. It's pho. Pho is soup. It has some noodles in it. It's very good! I have some juice, too. It's mango juice.\nI like mango juice and I like orange juice, but I don't like apple juice. Coconut juice is my favorite!\nI don't like cheese for breakfast, but I like bread. I like eggs and salad, too.\nWhat's your favorite breakfast?",
-        "speaker_structure": "Duong (Vietnam)",
-        "audio_dependency": true,
-        "notes": "Lesson 5 Reading passage formatted as a personal account of breakfast.",
-        "verification_status": "unverified"
-      }
-    ],
-    "curriculum_components": [
-      {
-        "component_id": "beehive_1_sb_comp_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p096",
-        "component_type": "vocabulary",
-        "source_label": "Lesson 1 Words",
-        "title": "Words Fruit",
-        "description": "Presentation and practice of 8 fruit items.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "component_type": "speaking",
-        "source_label": "Functional Language",
-        "title": "How many...?",
-        "description": "Interrogative structure for inquiring about quantities.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "component_type": "grammar",
-        "source_label": "Lesson 2 Grammar",
-        "title": "I like... I don't like...",
-        "description": "Stating positive and negative personal food preferences.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0004",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p100",
-        "component_type": "vocabulary",
-        "source_label": "Lesson 3 Words and Grammar",
-        "title": "Words Food",
-        "description": "Presentation of 6 prepared food and drink nouns.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0005",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p101",
-        "component_type": "grammar",
-        "source_label": "Lesson 3 Words and Grammar",
-        "title": "Can I have some..., please?",
-        "description": "Polite requests using modal can and responses (Yes, here you go. / No, sorry!).",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0006",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p102",
-        "component_type": "story",
-        "source_label": "Lesson 4 Story",
-        "title": "Fox and Stork",
-        "description": "Story consolidating food requests and exploring consideration for others.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0007",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "component_type": "CLIL",
-        "source_label": "Lesson 5 Skills and Culture",
-        "title": "Breakfast food in Türkiye and Vietnam",
-        "description": "Cross-cultural study of breakfast, personal account reading, and contractions writing focus.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0008",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p106",
-        "component_type": "project",
-        "source_label": "Project",
-        "title": "A shopping role-play",
-        "description": "Interactive role-play simulating market food transactions.",
-        "notes": null,
-        "verification_status": "unverified"
-      },
-      {
-        "component_id": "beehive_1_sb_comp_u08_0009",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p107",
-        "component_type": "review",
-        "source_label": "Unit 8 Review",
-        "title": "Review 8",
-        "description": "Consolidation of fruit, food, request structures, and preference sentences.",
-        "notes": null,
-        "verification_status": "unverified"
-      }
-    ],
-    "relationships": [
-      {
-        "relationship_id": "beehive_1_sb_rel_u08_0001",
-        "book_id": "beehive_1_sb",
-        "relationship_type": "introduces",
-        "source_entity_type": "page",
-        "source_entity_id": "beehive_1_sb_p096",
-        "target_entity_type": "vocabulary",
-        "target_entity_id": "beehive_1_sb_vocab_u08_0001",
-        "evidence_type": "explicit",
-        "notes": "Introduces target vocabulary bananas.",
-        "verification_status": "unverified"
-      },
-      {
-        "relationship_id": "beehive_1_sb_rel_u08_0002",
-        "book_id": "beehive_1_sb",
-        "relationship_type": "practises",
-        "source_entity_type": "activity",
-        "source_entity_id": "beehive_1_sb_act_u08_0013",
-        "target_entity_type": "language",
-        "target_entity_id": "beehive_1_sb_lang_u08_0002",
-        "evidence_type": "explicit",
-        "notes": "Practices 'I like / I don't like'.",
-        "verification_status": "unverified"
-      },
-      {
-        "relationship_id": "beehive_1_sb_rel_u08_0003",
-        "book_id": "beehive_1_sb",
-        "relationship_type": "references",
-        "source_entity_type": "page",
-        "source_entity_id": "beehive_1_sb_p105",
-        "target_entity_type": "page",
-        "target_entity_id": "beehive_1_wb_p097",
-        "evidence_type": "explicit",
-        "notes": "Footer directive: 'Go to your Workbook page 97'.",
-        "verification_status": "unverified"
-      },
-      {
-        "relationship_id": "beehive_1_sb_rel_u08_0004",
-        "book_id": "beehive_1_sb",
-        "relationship_type": "references",
-        "source_entity_type": "page",
-        "source_entity_id": "beehive_1_sb_p107",
-        "target_entity_type": "page",
-        "target_entity_id": "beehive_1_wb_p099",
-        "evidence_type": "explicit",
-        "notes": "Footer directive: 'Go to your Workbook page 99'.",
-        "verification_status": "unverified"
-      }
-    ],
-    "extraction_issues": [
-      {
-        "issue_id": "beehive_1_sb_iss_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p097",
-        "entity_type": "activity",
-        "entity_id": "beehive_1_sb_act_u08_0006",
-        "issue_type": "visual_verification_required",
-        "severity": "review",
-        "description": "Activity 6 grapes count has visual ambiguity (counting 2 bunches vs individual berries).",
-        "status": "open"
-      },
-      {
-        "issue_id": "beehive_1_sb_iss_u08_0002",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p098",
-        "entity_type": "activity",
-        "entity_id": "beehive_1_sb_act_u08_0009",
-        "issue_type": "audio_required",
-        "severity": "review",
-        "description": "Activity 2 requires audio track 157 to verify the complete numbering sequence 2–7 for the kitchen scene characters.",
-        "status": "open"
-      },
-      {
-        "issue_id": "beehive_1_sb_iss_u08_0003",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p103",
-        "entity_type": "activity",
-        "entity_id": "beehive_1_sb_act_u08_0020",
-        "issue_type": "audio_required",
-        "severity": "review",
-        "description": "Activity 3 requires audio track 165 to establish the full listening numbering sequence 2–8 for the story recap panels.",
-        "status": "open"
-      },
-      {
-        "issue_id": "beehive_1_sb_iss_u08_0004",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p104",
-        "entity_type": "activity",
-        "entity_id": "beehive_1_sb_act_u08_0022",
-        "issue_type": "audio_required",
-        "severity": "review",
-        "description": "Activity 3 requires audio track 168 to verify checks and crosses for breakfast items 2 to 6.",
-        "status": "open"
-      },
-      {
-        "issue_id": "beehive_1_sb_iss_u08_0005",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": null,
-        "entity_type": "book",
-        "entity_id": "beehive_1_sb",
-        "issue_type": "missing_source",
-        "severity": "info",
-        "description": "Physical Workbook pages 97 and 99 referenced in Student Book footers are not included in the source PDF.",
-        "status": "open"
-      }
-    ],
-    "schema_gaps": [
-      {
-        "schema_gap_id": "beehive_1_sb_gap_u08_0001",
-        "book_id": "beehive_1_sb",
-        "unit_id": "beehive_1_sb_u08",
-        "page_id": "beehive_1_sb_p103",
-        "observed_content": "'Think, Feel, Grow' section on page 103 ('Are Fox and Stork good friends? Share your ideas.') explicitly linked in syllabus (p. 3) to 'Emotional Well-being: Being considerate'.",
-        "closest_existing_structure": "curriculum_components",
-        "problem": "The schema lacks a dedicated property to capture consideration, empathy, and interpersonal values.",
-        "proposed_change": "Introduce a 'social_emotional_learning' entity containing 'competency_label' and 'discussion_prompt'.",
-        "reason": "Allows capturing explicit values education embedded in storytelling modules.",
-        "scope_estimate": "possibly_universal",
-        "review_status": "pending"
-      }
-    ]
+    {
+      "page_id": "beehive_1_sb_p097",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 97,
+      "pdf_page": 97,
+      "section_title": "Lesson 1 Words / Functional Language",
+      "section_type": "functional_language",
+      "page_heading": "Functional Language How many...?",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Counting and completing fruit baskets, and asking 'How many...?' with numerical answers.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p098",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 98,
+      "pdf_page": 98,
+      "section_title": "Lesson 2 Grammar",
+      "section_type": "grammar_presentation",
+      "page_heading": "Grammar I like... I don't like...",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Presents first-person preference statements: 'I like... / I don't like...'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p099",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 99,
+      "pdf_page": 99,
+      "section_title": "Lesson 2 Grammar",
+      "section_type": "grammar_practice",
+      "page_heading": "Grammar I like... I don't like...",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Reading picture match and personalized fruit salad recipe preference writing.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p100",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 100,
+      "pdf_page": 100,
+      "section_title": "Lesson 3 Words and Grammar",
+      "section_type": "vocabulary_presentation",
+      "page_heading": "Words Food",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Introduces 6 prepared food and beverage items.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p101",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 101,
+      "pdf_page": 101,
+      "section_title": "Lesson 3 Words and Grammar",
+      "section_type": "grammar_and_song",
+      "page_heading": "Grammar Can I have some..., please? Yes, here you go. / No, sorry!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Polite requests with 'Can I have some..., please?' and song 'The Noodles Song'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p102",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 102,
+      "pdf_page": 102,
+      "section_title": "Lesson 4 Story",
+      "section_type": "story",
+      "page_heading": "Story Vocabulary and grammar review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1–6 of story 'Fox and Stork'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p103",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 103,
+      "pdf_page": 103,
+      "section_title": "Lesson 4 Story",
+      "section_type": "story_comprehension",
+      "page_heading": "Story Comprehension and discussion",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 7–8, listening sequencing, and 'Think, Feel, Grow' discussion.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p104",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 104,
+      "pdf_page": 104,
+      "section_title": "Lesson 5 Skills and Culture",
+      "section_type": "skills_listening_speaking",
+      "page_heading": "Listening and Speaking Breakfast food",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Breakfast food in Türkiye and Vietnam; introduces 4 breakfast words.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p105",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 105,
+      "pdf_page": 105,
+      "section_title": "Lesson 5 Skills and Culture",
+      "section_type": "skills_reading_writing",
+      "page_heading": "Reading and Writing A personal account",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Personal account by Duong (Vietnam) and contraction writing focus ('don't = do not').",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p106",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 106,
+      "pdf_page": 106,
+      "section_title": "Project",
+      "section_type": "project",
+      "page_heading": "Project A shopping role-play",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Team Up! 5: Create a market stand and conduct a shopping role-play.",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "beehive_1_sb_p107",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "printed_page": 107,
+      "pdf_page": 107,
+      "section_title": "Review 8",
+      "section_type": "review",
+      "page_heading": "Unit 8 Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Self-testing vocabulary recall and 6 honeycomb review activities.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "bananas",
+      "normalized_term": "banana",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 1",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "pears",
+      "normalized_term": "pear",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 2",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "apples",
+      "normalized_term": "apple",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 3",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0004",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "kiwis",
+      "normalized_term": "kiwi",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 4",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0005",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "oranges",
+      "normalized_term": "orange",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 5",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0006",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "mangoes",
+      "normalized_term": "mango",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 6",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0007",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "grapes",
+      "normalized_term": "grape",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 7",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0008",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "term": "strawberries",
+      "normalized_term": "strawberry",
+      "classification": "target",
+      "source_context": "Labeled fruit stall illustration 8",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0009",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "pizza",
+      "normalized_term": "pizza",
+      "classification": "target",
+      "source_context": "Labeled food photo 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0010",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "soup",
+      "normalized_term": "soup",
+      "classification": "target",
+      "source_context": "Labeled food photo 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0011",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "noodles",
+      "normalized_term": "noodle",
+      "classification": "target",
+      "source_context": "Labeled food photo 3",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0012",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "salad",
+      "normalized_term": "salad",
+      "classification": "target",
+      "source_context": "Labeled food photo 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0013",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "juice",
+      "normalized_term": "juice",
+      "classification": "target",
+      "source_context": "Labeled food photo 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0014",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "term": "ice cream",
+      "normalized_term": "ice cream",
+      "classification": "target",
+      "source_context": "Labeled food photo 6",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0015",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "term": "eggs",
+      "normalized_term": "egg",
+      "classification": "target",
+      "source_context": "Skills and Culture labeled photo 1",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0016",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "term": "bread",
+      "normalized_term": "bread",
+      "classification": "target",
+      "source_context": "Skills and Culture labeled photo 2",
+      "explicitly_listed": true,
+      "notes": "Uncountable noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0017",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "term": "cheese",
+      "normalized_term": "cheese",
+      "classification": "target",
+      "source_context": "Skills and Culture labeled photo 3",
+      "explicitly_listed": true,
+      "notes": "Uncountable noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0018",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "term": "olives",
+      "normalized_term": "olive",
+      "classification": "target",
+      "source_context": "Skills and Culture labeled photo 4",
+      "explicitly_listed": true,
+      "notes": "Plural noun.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0019",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "term": "please",
+      "normalized_term": "please",
+      "classification": "supporting_context",
+      "source_context": "Request structure ('Can I have some noodles, please?')",
+      "explicitly_listed": true,
+      "notes": "Polite marker.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0020",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p102",
+      "term": "fox",
+      "normalized_term": "fox",
+      "classification": "recycled",
+      "source_context": "Story title and character ('Fox and Stork')",
+      "explicitly_listed": true,
+      "notes": "Animal character.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0021",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p102",
+      "term": "stork",
+      "normalized_term": "stork",
+      "classification": "supporting_context",
+      "source_context": "Story title and character ('Fox and Stork')",
+      "explicitly_listed": true,
+      "notes": "Fable bird character.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0022",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "term": "pho",
+      "normalized_term": "pho",
+      "classification": "supporting_context",
+      "source_context": "Reading text ('It's pho. Pho is soup.')",
+      "explicitly_listed": false,
+      "notes": "Vietnamese cultural dish.",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "beehive_1_sb_vocab_u08_0023",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "term": "contractions",
+      "normalized_term": "contraction",
+      "classification": "instructional",
+      "source_context": "Syllabus writing focus description ('Writing Focus Contractions (don't)')",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "beehive_1_sb_lang_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "language_type": "functional_language",
+      "prompt": "How many oranges?",
+      "response": "Fifteen oranges!",
+      "full_text": "How many oranges? Fifteen oranges!",
+      "grammar_label": "Quantifier question with How many + plural noun",
+      "function": "asking_and_answering_about_quantities",
+      "explicit_in_source": true,
+      "notes": "Target functional language on page 97.",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "language_type": "sentence_frame",
+      "prompt": null,
+      "response": null,
+      "full_text": "I like [plural fruit].",
+      "grammar_label": "Present Simple like (affirmative first person singular)",
+      "function": "expressing_food_likes",
+      "explicit_in_source": true,
+      "notes": "Model sentence: 'I like apples.' / 'I like oranges.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "language_type": "sentence_frame",
+      "prompt": null,
+      "response": null,
+      "full_text": "I don't like [plural fruit].",
+      "grammar_label": "Present Simple like (negative first person singular)",
+      "function": "expressing_food_dislikes",
+      "explicit_in_source": true,
+      "notes": "Model sentence: 'I don't like apples.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0004",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "language_type": "question_answer",
+      "prompt": "Can I have some noodles, please?",
+      "response": "No, sorry! / Yes, here you go.",
+      "full_text": "Can I have some noodles, please? No, sorry! / Yes, here you go.",
+      "grammar_label": "Modal request with Can + some + noun",
+      "function": "making_polite_food_requests",
+      "explicit_in_source": true,
+      "notes": "Lesson 3 comic dialogue frames 1–3.",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0005",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "language_type": "model_exchange",
+      "prompt": "I like eggs for breakfast.",
+      "response": "Me too! / I don't. I like bread.",
+      "full_text": "I like eggs for breakfast. Me too! I don't. I like bread.",
+      "grammar_label": "Prepositional phrase for breakfast + agreement / contrast markers",
+      "function": "discussing_breakfast_preferences",
+      "explicit_in_source": true,
+      "notes": "Lesson 5 speaking model exchange.",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0006",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "don't = do not",
+      "grammar_label": "Contraction",
+      "function": "language_awareness",
+      "explicit_in_source": true,
+      "notes": "Writing Focus note box.",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "beehive_1_sb_lang_u08_0007",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p106",
+      "language_type": "model_exchange",
+      "prompt": "Hello! Can I have some strawberries, please?",
+      "response": "Hello! Yes, here you go. Thank you! Goodbye!",
+      "full_text": "Hello! Can I have some strawberries, please? Hello! Yes, here you go. Thank you! Goodbye!",
+      "grammar_label": "Service encounter dialogue frame",
+      "function": "conducting_shopping_transaction",
+      "explicit_in_source": true,
+      "notes": "Project role-play presentation.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "beehive_1_sb_act_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "activity_number": "1",
+      "activity_type": "look_share_learn",
+      "instruction": "Look, share, learn.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Introductory market fruit stall visual discussion.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "activity_number": "2",
+      "activity_type": "listen_point_repeat",
+      "instruction": "Listen, point, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 153",
+      "notes": "Presents fruit vocabulary items 1 to 8.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "activity_number": "3",
+      "activity_type": "chant",
+      "instruction": "Say the chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 154",
+      "notes": "Fruit vocabulary chant.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0004",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "activity_number": "4",
+      "activity_type": "game",
+      "instruction": "Play the Colors game.",
+      "prompt": "Orange and green!",
+      "expected_answer": "Mangoes!",
+      "language_frame": "[Colors]! / [Fruit]!",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Color-based fruit deduction game.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0005",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "activity_number": "5",
+      "activity_type": "counting_and_drawing",
+      "instruction": "Count and draw the missing fruit. Then point and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "[Number] [fruit].",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Target: 3 mangoes (shows 2)",
+          "expected_answer": "Draw 1 mango"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Target: 9 strawberries (shows 3)",
+          "expected_answer": "Draw 6 strawberries"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Target: 2 bananas (shows 1)",
+          "expected_answer": "Draw 1 banana"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Target: 6 oranges (shows 3)",
+          "expected_answer": "Draw 3 oranges"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Target: 8 kiwis (shows 2)",
+          "expected_answer": "Draw 6 kiwis"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Target: 10 grapes (shows 6)",
+          "expected_answer": "Draw 4 grapes"
+        },
+        {
+          "item_number": "7",
+          "prompt": "Target: 7 pears (shows 4)",
+          "expected_answer": "Draw 3 pears"
+        },
+        {
+          "item_number": "8",
+          "prompt": "Target: 5 apples (shows 1)",
+          "expected_answer": "Draw 4 apples"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Mathematical completion of quantities in baskets.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0006",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "activity_number": "6",
+      "activity_type": "visual_counting_quantities",
+      "instruction": "Count the fruit on page 96. Write the numbers.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "oranges",
+          "prompt": "oranges",
+          "expected_answer": "15"
+        },
+        {
+          "item_number": "pears",
+          "prompt": "pears",
+          "expected_answer": "8"
+        },
+        {
+          "item_number": "grapes",
+          "prompt": "grapes",
+          "expected_answer": "2"
+        },
+        {
+          "item_number": "bananas",
+          "prompt": "bananas",
+          "expected_answer": "8"
+        },
+        {
+          "item_number": "mangoes",
+          "prompt": "mangoes",
+          "expected_answer": "12"
+        },
+        {
+          "item_number": "strawberries",
+          "prompt": "strawberries",
+          "expected_answer": "14"
+        },
+        {
+          "item_number": "apples",
+          "prompt": "apples",
+          "expected_answer": "6"
+        },
+        {
+          "item_number": "kiwis",
+          "prompt": "kiwis",
+          "expected_answer": "6"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Visual counting task based on page 96 illustration. Note: grapes count may refer to bunches (2) or berries; UNCERTAIN — manual verification recommended.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0007",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "activity_number": "7",
+      "activity_type": "drilling_pair_work",
+      "instruction": "Listen and repeat. Look at 6. Ask and answer.",
+      "prompt": "How many oranges?",
+      "expected_answer": "Fifteen oranges!",
+      "language_frame": "How many [fruit]? / [Number] [fruit]!",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 155",
+      "notes": "Model dialogue drilling quantity questions with Activity 6 counts.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0008",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "activity_number": "1",
+      "activity_type": "dialogue_presentation",
+      "instruction": "Listen and follow. Then act.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I like... / I don't like...",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 156",
+      "notes": "Comic strip introducing I like and I don't like with apples and oranges.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0009",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "activity_number": "2",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number. Then listen and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Boy with grapes",
+          "expected_answer": "1"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 157",
+      "notes": "Items 2–7 require audio track 157. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
+      "verification_status": "source_dependency"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0010",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "activity_number": "3",
+      "activity_type": "spoken_deduction_game",
+      "instruction": "Look at 2. Say and point.",
+      "prompt": "I like pears.",
+      "expected_answer": "You're number four!",
+      "language_frame": "I like [fruit]. / You're number [number]!",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Character identification by fruit preference from Activity 2.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0011",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p099",
+      "activity_number": "4",
+      "activity_type": "reading_number_match",
+      "instruction": "Read and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I like... / I don't like...",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I like pears.",
+          "expected_answer": "c"
+        },
+        {
+          "item_number": "2",
+          "prompt": "I don't like strawberries.",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "I don't like oranges.",
+          "expected_answer": "d"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I like kiwis.",
+          "expected_answer": "b"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Matching preference sentences to facial expressions and thought bubbles.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0012",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p099",
+      "activity_number": "5",
+      "activity_type": "personal_evaluation",
+      "instruction": "What do you like? Draw :-) or :-(.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "apples",
+          "expected_answer": "[:-)] or [:-(]"
+        },
+        {
+          "item_number": "2",
+          "prompt": "pears",
+          "expected_answer": "[:-)] or [:-(]"
+        },
+        {
+          "item_number": "3",
+          "prompt": "bananas",
+          "expected_answer": "[:-)] or [:-(]"
+        },
+        {
+          "item_number": "4",
+          "prompt": "grapes",
+          "expected_answer": "[:-)] or [:-(]"
+        },
+        {
+          "item_number": "5",
+          "prompt": "mangoes",
+          "expected_answer": "[:-)] or [:-(]"
+        },
+        {
+          "item_number": "6",
+          "prompt": "kiwis",
+          "expected_answer": "[:-)] or [:-(]"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Fruit Salad Recipe personal preference rating.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0013",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p099",
+      "activity_number": "6",
+      "activity_type": "sentence_completion_writing",
+      "instruction": "Write. like / don't like",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I [like / don't like] [fruit].",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I [___] apples.",
+          "expected_answer": "like / don't like"
+        },
+        {
+          "item_number": "2",
+          "prompt": "I [___] pears.",
+          "expected_answer": "like / don't like"
+        },
+        {
+          "item_number": "3",
+          "prompt": "I [___] bananas.",
+          "expected_answer": "like / don't like"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I [___] grapes.",
+          "expected_answer": "like / don't like"
+        },
+        {
+          "item_number": "5",
+          "prompt": "I [___] mangoes.",
+          "expected_answer": "like / don't like"
+        },
+        {
+          "item_number": "6",
+          "prompt": "I [___] kiwis.",
+          "expected_answer": "like / don't like"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Sentence writing corresponding to Activity 5 ratings.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0014",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "activity_number": "1",
+      "activity_type": "listen_point_repeat",
+      "instruction": "Listen, point, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 158",
+      "notes": "Presents 6 food items: pizza, soup, noodles, salad, juice, ice cream.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0015",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "activity_number": "2",
+      "activity_type": "memory_listening",
+      "instruction": "What's missing? Listen and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 159",
+      "notes": "Auditory food memory drill.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0016",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "activity_number": "3",
+      "activity_type": "logic_preference_game",
+      "instruction": "Look, listen, and follow. Play the game.",
+      "prompt": "I like pizza. I don't like soup. I don't like ice cream. I like juice.",
+      "expected_answer": "You're Olivia.",
+      "language_frame": "I like... I don't like... / You're [Name].",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 160",
+      "notes": "Deduction game based on 4 children's food like/dislike charts.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0017",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "activity_number": "4",
+      "activity_type": "dialogue_presentation",
+      "instruction": "Listen and follow. Then act.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Can I have some..., please? / Yes, here you go. / No, sorry!",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 161",
+      "notes": "Cafeteria comic strip presenting polite food requests and responses.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0018",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "activity_number": "5",
+      "activity_type": "polite_response_writing",
+      "instruction": "Write. Yes, here you go. / No, sorry.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Yes, here you go. / No, sorry.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Can I have some ice cream, please?",
+          "expected_answer": "[Request prompt]"
+        },
+        {
+          "item_number": "2",
+          "prompt": "[Response to ice cream: server handing ice cream cone]",
+          "expected_answer": "Yes, here you go."
+        },
+        {
+          "item_number": "3",
+          "prompt": "Can I have some pizza, please?",
+          "expected_answer": "[Request prompt]"
+        },
+        {
+          "item_number": "4",
+          "prompt": "[Response to pizza: plate is empty]",
+          "expected_answer": "No, sorry."
+        },
+        {
+          "item_number": "5",
+          "prompt": "Can I have some salad, please?",
+          "expected_answer": "[Request prompt]"
+        },
+        {
+          "item_number": "6",
+          "prompt": "[Response to salad: man serving salad with tongs]",
+          "expected_answer": "Yes, here you go."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Writing polite responses from situational cafeteria vignettes.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0019",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "activity_number": "6",
+      "activity_type": "song",
+      "instruction": "Listen and follow. Then sing.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Can I have some [food], please? / Yes, here you go!",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio tracks 162–163",
+      "notes": "Song 'The Noodles Song'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0020",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p103",
+      "activity_number": "3",
+      "activity_type": "story_sequencing",
+      "instruction": "Listen and number. Then find and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "b",
+          "prompt": "Stork looking at shallow bowl",
+          "expected_answer": "1"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 165",
+      "notes": "Story recap sequencing. Items a, c, d, e, f, g, h require audio track 165. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
+      "verification_status": "source_dependency"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0021",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "activity_number": "1",
+      "activity_type": "listen_point_repeat",
+      "instruction": "Listen, point, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 166",
+      "notes": "Presents eggs, bread, cheese, olives.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0022",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "activity_number": "3",
+      "activity_type": "listening_food_check",
+      "instruction": "Listen to Esma's sister. Check or cross.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "bread",
+          "expected_answer": "✓"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 168",
+      "notes": "Items 2–6 require audio track 168. AUDIO REQUIRED — answer cannot be fully verified from page alone.",
+      "verification_status": "source_dependency"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0023",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "activity_number": "7",
+      "activity_type": "true_false_reading",
+      "instruction": "Read again. Write T (true) or F (false).",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Duong likes soup.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Duong has some coconut juice.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Duong likes apple juice and cheese.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Duong's favorite breakfast is bread and eggs.",
+          "expected_answer": "F"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Comprehension verification based on Duong's personal account.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0024",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "activity_number": "8",
+      "activity_type": "contraction_matching",
+      "instruction": "Writing Focus Circle n't and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "don't = do not",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I don't like apple juice.",
+          "expected_answer": "d (I do not like apple juice.)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "I don't like olives.",
+          "expected_answer": "c (I do not like olives.)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "I don't!",
+          "expected_answer": "a (I do not!)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "No, I don't.",
+          "expected_answer": "b (No, I do not.)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Matching contracted forms to full uncontracted sentences.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0025",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p107",
+      "activity_number": "1",
+      "activity_type": "review_recall_writing",
+      "instruction": "Test yourself! How many words can you remember? Write.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "Fruit",
+          "prompt": "Fruit (6 lines)",
+          "expected_answer": "bananas, pears, apples, kiwis, oranges, mangoes, grapes, strawberries"
+        },
+        {
+          "item_number": "Other food and drink",
+          "prompt": "Other food and drink (6 lines)",
+          "expected_answer": "pizza, soup, noodles, salad, juice, ice cream, eggs, bread, cheese, olives"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Unit 8 vocabulary self-test across fruit and other food/drink.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "beehive_1_sb_act_u08_0026",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p107",
+      "activity_number": "2",
+      "activity_type": "review_honeycomb_choice",
+      "instruction": "Choose and do two activities.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "Option 1: Item 1",
+          "prompt": "like / I / apples",
+          "expected_answer": "I like apples."
+        },
+        {
+          "item_number": "Option 1: Item 2",
+          "prompt": "eggs / like / don't / I",
+          "expected_answer": "I don't like eggs."
+        },
+        {
+          "item_number": "Option 1: Item 3",
+          "prompt": "noodles / like / I",
+          "expected_answer": "I like noodles."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Option 1 provides word unscrambling; other options provide communicative review.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "beehive_1_sb_text_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "text_type": "song",
+      "title": "The Noodles Song",
+      "content": "Can I have some noodles, please?\nCan I have some noodles, please?\nCan I have some noodles, please?\nYes, here you go!\n\nI don't like ice cream.\nI don't like soup.\nI like pizza. I like juice.\nI like pizza. I like juice.\nBut my favorite food is noodles.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Audio tracks 162 and 163. Includes substitution words: mangoes, salad.",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "beehive_1_sb_text_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p102",
+      "text_type": "story",
+      "title": "Fox and Stork",
+      "content": "Frame 1\nNarrator: This is Fox's house.\nFox: Hello, Stork. Come in!\nStork: Hello, Fox.\n\nFrame 2\nNarrator: Fox has some soup.\nStork: I'm hungry. Can I have some soup, please?\nFox: Yes, here you go.\n\nFrame 3\nNarrator: Oh, no!\nStork: I can't eat my soup.\n\nFrame 4\nNarrator: Poor Stork!\nStork: Goodbye!\nFox: Bye!\n\nFrame 5\nNarrator: This is Stork's house.\nStork: Hello, Fox. Come in!\nFox: Hello, Stork.\n\nFrame 6\nNarrator: Stork has some orange juice.\nFox: I'm thirsty. Can I have some orange juice, please?\nStork: Yes, here you go.\n\nFrame 7\nNarrator: Oh, no!\nFox: Oh! I can't drink my juice.\n\nFrame 8\nNarrator: Poor Fox!\nFox: Goodbye!\nStork: Bye!",
+      "speaker_structure": "Narrator, Fox, Stork",
+      "audio_dependency": true,
+      "notes": "Lesson 4 Story spanning pages 102 and 103. Traditional Aesop fable exploring consideration and empathy.",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "beehive_1_sb_text_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p105",
+      "text_type": "reading",
+      "title": "Breakfast in My Country",
+      "content": "I'm Duong. I'm from Vietnam. Today I have my favorite breakfast. It's pho. Pho is soup. It has some noodles in it. It's very good! I have some juice, too. It's mango juice.\nI like mango juice and I like orange juice, but I don't like apple juice. Coconut juice is my favorite!\nI don't like cheese for breakfast, but I like bread. I like eggs and salad, too.\nWhat's your favorite breakfast?",
+      "speaker_structure": "Duong (Vietnam)",
+      "audio_dependency": true,
+      "notes": "Lesson 5 Reading passage formatted as a personal account of breakfast.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "beehive_1_sb_comp_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p096",
+      "component_type": "vocabulary",
+      "source_label": "Lesson 1 Words",
+      "title": "Words Fruit",
+      "description": "Presentation and practice of 8 fruit items.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "component_type": "speaking",
+      "source_label": "Functional Language",
+      "title": "How many...?",
+      "description": "Interrogative structure for inquiring about quantities.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "component_type": "grammar",
+      "source_label": "Lesson 2 Grammar",
+      "title": "I like... I don't like...",
+      "description": "Stating positive and negative personal food preferences.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0004",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p100",
+      "component_type": "vocabulary",
+      "source_label": "Lesson 3 Words and Grammar",
+      "title": "Words Food",
+      "description": "Presentation of 6 prepared food and drink nouns.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0005",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p101",
+      "component_type": "grammar",
+      "source_label": "Lesson 3 Words and Grammar",
+      "title": "Can I have some..., please?",
+      "description": "Polite requests using modal can and responses (Yes, here you go. / No, sorry!).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0006",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p102",
+      "component_type": "story",
+      "source_label": "Lesson 4 Story",
+      "title": "Fox and Stork",
+      "description": "Story consolidating food requests and exploring consideration for others.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0007",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "component_type": "CLIL",
+      "source_label": "Lesson 5 Skills and Culture",
+      "title": "Breakfast food in Türkiye and Vietnam",
+      "description": "Cross-cultural study of breakfast, personal account reading, and contractions writing focus.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0008",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p106",
+      "component_type": "project",
+      "source_label": "Project",
+      "title": "A shopping role-play",
+      "description": "Interactive role-play simulating market food transactions.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "beehive_1_sb_comp_u08_0009",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p107",
+      "component_type": "review",
+      "source_label": "Unit 8 Review",
+      "title": "Review 8",
+      "description": "Consolidation of fruit, food, request structures, and preference sentences.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "beehive_1_sb_rel_u08_0001",
+      "book_id": "beehive_1_sb",
+      "relationship_type": "introduces",
+      "source_entity_type": "page",
+      "source_entity_id": "beehive_1_sb_p096",
+      "target_entity_type": "vocabulary",
+      "target_entity_id": "beehive_1_sb_vocab_u08_0001",
+      "evidence_type": "explicit",
+      "notes": "Introduces target vocabulary bananas.",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "beehive_1_sb_rel_u08_0002",
+      "book_id": "beehive_1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "beehive_1_sb_act_u08_0013",
+      "target_entity_type": "language",
+      "target_entity_id": "beehive_1_sb_lang_u08_0002",
+      "evidence_type": "explicit",
+      "notes": "Practices 'I like / I don't like'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "beehive_1_sb_rel_u08_0003",
+      "book_id": "beehive_1_sb",
+      "relationship_type": "references",
+      "source_entity_type": "page",
+      "source_entity_id": "beehive_1_sb_p105",
+      "target_entity_type": "page",
+      "target_entity_id": "beehive_1_wb_p097",
+      "evidence_type": "explicit",
+      "notes": "Footer directive: 'Go to your Workbook page 97'.",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "beehive_1_sb_rel_u08_0004",
+      "book_id": "beehive_1_sb",
+      "relationship_type": "references",
+      "source_entity_type": "page",
+      "source_entity_id": "beehive_1_sb_p107",
+      "target_entity_type": "page",
+      "target_entity_id": "beehive_1_wb_p099",
+      "evidence_type": "explicit",
+      "notes": "Footer directive: 'Go to your Workbook page 99'.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "beehive_1_sb_iss_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p097",
+      "entity_type": "activity",
+      "entity_id": "beehive_1_sb_act_u08_0006",
+      "issue_type": "visual_verification_required",
+      "severity": "review",
+      "description": "Activity 6 grapes count has visual ambiguity (counting 2 bunches vs individual berries).",
+      "status": "open"
+    },
+    {
+      "issue_id": "beehive_1_sb_iss_u08_0002",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p098",
+      "entity_type": "activity",
+      "entity_id": "beehive_1_sb_act_u08_0009",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Activity 2 requires audio track 157 to verify the complete numbering sequence 2–7 for the kitchen scene characters.",
+      "status": "open"
+    },
+    {
+      "issue_id": "beehive_1_sb_iss_u08_0003",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p103",
+      "entity_type": "activity",
+      "entity_id": "beehive_1_sb_act_u08_0020",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Activity 3 requires audio track 165 to establish the full listening numbering sequence 2–8 for the story recap panels.",
+      "status": "open"
+    },
+    {
+      "issue_id": "beehive_1_sb_iss_u08_0004",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p104",
+      "entity_type": "activity",
+      "entity_id": "beehive_1_sb_act_u08_0022",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Activity 3 requires audio track 168 to verify checks and crosses for breakfast items 2 to 6.",
+      "status": "open"
+    },
+    {
+      "issue_id": "beehive_1_sb_iss_u08_0005",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": null,
+      "entity_type": "book",
+      "entity_id": "beehive_1_sb",
+      "issue_type": "missing_source",
+      "severity": "info",
+      "description": "Physical Workbook pages 97 and 99 referenced in Student Book footers are not included in the source PDF.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [
+    {
+      "schema_gap_id": "beehive_1_sb_gap_u08_0001",
+      "book_id": "beehive_1_sb",
+      "unit_id": "beehive_1_sb_u08",
+      "page_id": "beehive_1_sb_p103",
+      "observed_content": "'Think, Feel, Grow' section on page 103 ('Are Fox and Stork good friends? Share your ideas.') explicitly linked in syllabus (p. 3) to 'Emotional Well-being: Being considerate'.",
+      "closest_existing_structure": "curriculum_components",
+      "problem": "The schema lacks a dedicated property to capture consideration, empathy, and interpersonal values.",
+      "proposed_change": "Introduce a 'social_emotional_learning' entity containing 'competency_label' and 'discussion_prompt'.",
+      "reason": "Allows capturing explicit values education embedded in storytelling modules.",
+      "scope_estimate": "possibly_universal",
+      "review_status": "pending"
+    }
+  ],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 5,
+    "open_schema_gap_count": 1,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after Units 1 and 4 PDF checks; remaining units marked verified by project decision."
   }
+}

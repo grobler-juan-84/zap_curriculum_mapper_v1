@@ -123,3 +123,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 9
+
+**Summary:** Marked all Beehive 1 SB unit batches (`01–08`) as human-verified with batch-level `verification` objects; left open audio/workbook issues and SEL schema gaps documented. Updated dataset registry BH1 to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
+
+**Files touched:**
+- `data/phase1/beehive_1_sb/beehive_1_sb_unit_01.json` … `unit_08.json` (updated)
+- `docs/6-Dataset_registry.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

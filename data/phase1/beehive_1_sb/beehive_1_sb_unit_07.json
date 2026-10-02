@@ -18,7 +18,7 @@
     "printed_page_end": 135,
     "language": "English",
     "extraction_status": "in_progress",
-    "verification_status": "unverified"
+    "verification_status": "human_verified"
   },
   "batch": {
     "batch_id": "beehive_1_sb_batch_unit_07",
@@ -43,7 +43,7 @@
       "pdf_page_end": 95,
       "source_section_type": "unit",
       "notes": "Covers clothes vocabulary, third-person possessive determiners ('his / her'), descriptive adjectives, distal demonstratives ('That is... / Those are...'), story 'The Shoemaker' (being helpful), clothes in Italy and Scotland, plural endings focus, paper chain project, and review.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "pages": [
@@ -60,7 +60,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Presents 8 core clothing items.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p085",
@@ -75,7 +75,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Clothing location matching in a bedroom and imperative dressing command 'Put on your...!'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p086",
@@ -90,7 +90,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Presents possessive determiners his and her with singular and plural nouns.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p087",
@@ -105,7 +105,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": "Reading picture match and costume website labeling using his and her.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p088",
@@ -120,7 +120,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Introduces 6 descriptive adjectives for clothes.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p089",
@@ -135,7 +135,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Distal demonstratives 'That is...' and 'Those are...', and song 'Let's Dress Up!'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p090",
@@ -150,7 +150,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Frames 1–6 of story 'The Shoemaker'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p091",
@@ -165,7 +165,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": "Frames 7–8, character quote matching, and 'Think, Feel, Grow' discussion.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p092",
@@ -180,7 +180,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Clothes in Italy and Scotland; introduces 4 cultural attire words.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p093",
@@ -195,7 +195,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Class blog post by Callum (Scotland) and plural endings writing focus.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p094",
@@ -210,7 +210,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Team Up! 5: Make a paper chain of boys and girls wearing planned outfits.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "beehive_1_sb_p095",
@@ -225,7 +225,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": "Self-testing vocabulary recall and 6 honeycomb review activities.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "vocabulary": [
@@ -240,7 +240,7 @@
       "source_context": "Labeled clothesline illustration 1",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0002",
@@ -253,7 +253,7 @@
       "source_context": "Labeled clothesline illustration 2",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0003",
@@ -266,7 +266,7 @@
       "source_context": "Labeled clothesline illustration 3",
       "explicitly_listed": true,
       "notes": "Plural noun.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0004",
@@ -279,7 +279,7 @@
       "source_context": "Labeled clothesline illustration 4",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0005",
@@ -292,7 +292,7 @@
       "source_context": "Labeled clothesline illustration 5",
       "explicitly_listed": true,
       "notes": "Plural noun.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0006",
@@ -305,7 +305,7 @@
       "source_context": "Labeled clothesline illustration 6",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0007",
@@ -318,7 +318,7 @@
       "source_context": "Labeled clothesline illustration 7",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0008",
@@ -331,7 +331,7 @@
       "source_context": "Labeled clothesline illustration 8",
       "explicitly_listed": true,
       "notes": "Plural noun.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0009",
@@ -344,7 +344,7 @@
       "source_context": "Labeled adjective photo 1",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0010",
@@ -357,7 +357,7 @@
       "source_context": "Labeled adjective photo 2",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0011",
@@ -370,7 +370,7 @@
       "source_context": "Labeled adjective photo 3",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0012",
@@ -383,7 +383,7 @@
       "source_context": "Labeled adjective photo 4",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0013",
@@ -396,7 +396,7 @@
       "source_context": "Labeled adjective photo 5",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0014",
@@ -409,7 +409,7 @@
       "source_context": "Labeled adjective photo 6",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0015",
@@ -422,7 +422,7 @@
       "source_context": "Skills and Culture labeled photo 1",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0016",
@@ -435,7 +435,7 @@
       "source_context": "Skills and Culture labeled photo 2",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0017",
@@ -448,7 +448,7 @@
       "source_context": "Skills and Culture labeled photo 3",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0018",
@@ -461,7 +461,7 @@
       "source_context": "Skills and Culture labeled photo 4",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0019",
@@ -474,7 +474,7 @@
       "source_context": "Story title ('The Shoemaker')",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0020",
@@ -487,7 +487,7 @@
       "source_context": "Story frame 2 ('These are the mice.')",
       "explicitly_listed": false,
       "notes": "Irregular plural mouse -> mice.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0021",
@@ -500,7 +500,7 @@
       "source_context": "Blog post text ('I have a kilt. A kilt is a skirt.')",
       "explicitly_listed": false,
       "notes": "Scottish cultural clothing term.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0022",
@@ -513,7 +513,7 @@
       "source_context": "Functional language prompt ('Put on your hat!')",
       "explicitly_listed": true,
       "notes": "Phrasal verb imperative.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0023",
@@ -526,7 +526,7 @@
       "source_context": "Activity 5 rubric ('Then compliment your friends.')",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "beehive_1_sb_vocab_u07_0024",
@@ -539,7 +539,7 @@
       "source_context": "Writing focus rubric ('Circle the plural endings.')",
       "explicitly_listed": true,
       "notes": "Grammar awareness label.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "language": [
@@ -556,7 +556,7 @@
       "function": "giving_dressing_commands",
       "explicit_in_source": true,
       "notes": "Target functional language on page 85.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0002",
@@ -571,7 +571,7 @@
       "function": "identifying_third_person_belongings_singular",
       "explicit_in_source": true,
       "notes": "Model sentence: 'This is his cap!' / 'This is her jacket.'",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0003",
@@ -586,7 +586,7 @@
       "function": "identifying_third_person_belongings_plural",
       "explicit_in_source": true,
       "notes": "Model sentence: 'These are her shoes!' / 'These are his pants.'",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0004",
@@ -601,7 +601,7 @@
       "function": "language_awareness",
       "explicit_in_source": true,
       "notes": "Explicit grammar note box.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0005",
@@ -616,7 +616,7 @@
       "function": "describing_distant_singular_item",
       "explicit_in_source": true,
       "notes": "Model sentence: 'That cap is beautiful!' / 'That jacket is new.'",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0006",
@@ -631,7 +631,7 @@
       "function": "describing_distant_plural_items",
       "explicit_in_source": true,
       "notes": "Model sentence: 'Those pants are old, May.' / 'Those socks are colorful!'",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "beehive_1_sb_lang_u07_0007",
@@ -646,7 +646,7 @@
       "function": "giving_and_responding_to_compliments",
       "explicit_in_source": true,
       "notes": "Lesson 5 speaking model exchange.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "activities": [
@@ -666,7 +666,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Introductory clothesline visual discussion.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0002",
@@ -684,7 +684,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 134",
       "notes": "Presents clothing items 1 to 8.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0003",
@@ -702,7 +702,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Audio track 135",
       "notes": "Clothes vocabulary chant.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0004",
@@ -720,7 +720,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Cumulative sentence-building memory game.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0005",
@@ -738,7 +738,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Drawing missing clothes on mannequin figure.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0006",
@@ -797,7 +797,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Matching words to numbered clothes in bedroom illustration.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0007",
@@ -815,7 +815,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Audio track 136",
       "notes": "Action imperative drill with clothes.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0008",
@@ -833,7 +833,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 137",
       "notes": "Baseball uniform comic strip presenting his and her.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0009",
@@ -875,7 +875,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Pointing and producing possessive sentences based on Activity 2.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0011",
@@ -963,7 +963,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Determining his vs. her based on pilot boy and clown girl photos.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0013",
@@ -981,7 +981,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 139",
       "notes": "Presents 6 adjectives: long, short, old, new, beautiful, colorful.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0014",
@@ -999,7 +999,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Audio track 140",
       "notes": "Auditory adjective memory game.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0015",
@@ -1017,7 +1017,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 141",
       "notes": "Clothing description deduction game across 6 illustrated children.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0016",
@@ -1035,7 +1035,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 142",
       "notes": "Comic strip presenting distal demonstratives That and Those.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0017",
@@ -1069,7 +1069,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Writing That or Those based on pointing vignettes a, b, c.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0018",
@@ -1087,7 +1087,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Audio tracks 143–144",
       "notes": "Song 'Let's Dress Up!'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0019",
@@ -1136,7 +1136,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Matching story dialogue lines to characters.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0020",
@@ -1154,7 +1154,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Audio track 146",
       "notes": "Presents shirt, dress, mask, feathers.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0021",
@@ -1217,7 +1217,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Reading comprehension based on Callum's blog post.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0023",
@@ -1256,7 +1256,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Morphological agreement between singular/plural nouns and is/are.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0024",
@@ -1285,7 +1285,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Vocabulary recall self-test across clothes and descriptive adjectives.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "beehive_1_sb_act_u07_0025",
@@ -1334,7 +1334,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Option 1 provides word unscrambling; Option 2 provides possessive gap fill.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "continuous_text": [
@@ -1349,7 +1349,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Audio tracks 143 and 144. Includes alternative adjective substitution cues: short, cap, jacket, beautiful.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "beehive_1_sb_text_u07_0002",
@@ -1362,7 +1362,7 @@
       "speaker_structure": "Narrator, Shoemaker, Mice, Customer Woman, Customer Man, Boy Mouse",
       "audio_dependency": true,
       "notes": "Lesson 4 Story spanning pages 90 and 91. Adaptation of 'The Elves and the Shoemaker' highlighting helpfulness and gratitude.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "beehive_1_sb_text_u07_0003",
@@ -1375,7 +1375,7 @@
       "speaker_structure": "Callum (Scotland, U.K.)",
       "audio_dependency": true,
       "notes": "Lesson 5 Reading passage formatted as a classroom blog post.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "curriculum_components": [
@@ -1389,7 +1389,7 @@
       "title": "Words Clothes",
       "description": "Presentation and practice of 8 everyday clothing items.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0002",
@@ -1401,7 +1401,7 @@
       "title": "Put on your...!",
       "description": "Imperative dressing command structure.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0003",
@@ -1413,7 +1413,7 @@
       "title": "This is his / her... These are his / her...",
       "description": "Third-person possessive determiners (his / her) with singular and plural demonstratives.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0004",
@@ -1425,7 +1425,7 @@
       "title": "Words Adjectives",
       "description": "Presentation of 6 descriptive adjectives.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0005",
@@ -1437,7 +1437,7 @@
       "title": "That (cap) is... Those (pants) are...",
       "description": "Distal demonstrative determiners (That / Those) with predicate adjectives.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0006",
@@ -1449,7 +1449,7 @@
       "title": "The Shoemaker",
       "description": "Story consolidating clothes and possessive language while highlighting mutual helpfulness.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0007",
@@ -1461,7 +1461,7 @@
       "title": "Clothes in Italy and Scotland",
       "description": "Cross-cultural study of traditional and festival clothing, blog reading, and plural endings writing focus.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0008",
@@ -1473,7 +1473,7 @@
       "title": "A paper chain",
       "description": "Collaborative paper chain craft planning and describing outfits.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "beehive_1_sb_comp_u07_0009",
@@ -1485,7 +1485,7 @@
       "title": "Review 7",
       "description": "Consolidation of clothes vocabulary, adjectives, possessives, and speaking games.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "relationships": [
@@ -1499,7 +1499,7 @@
       "target_entity_id": "beehive_1_sb_vocab_u07_0001",
       "evidence_type": "explicit",
       "notes": "Introduces target vocabulary skirt.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "beehive_1_sb_rel_u07_0002",
@@ -1511,7 +1511,7 @@
       "target_entity_id": "beehive_1_sb_lang_u07_0002",
       "evidence_type": "explicit",
       "notes": "Practices 'This is his / her...' and 'These are his / her...'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "beehive_1_sb_rel_u07_0003",
@@ -1523,7 +1523,7 @@
       "target_entity_id": "beehive_1_wb_p085",
       "evidence_type": "explicit",
       "notes": "Footer directive: 'Go to your Workbook page 85'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "beehive_1_sb_rel_u07_0004",
@@ -1535,7 +1535,7 @@
       "target_entity_id": "beehive_1_wb_p087",
       "evidence_type": "explicit",
       "notes": "Footer directive: 'Go to your Workbook page 87'.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "extraction_issues": [
@@ -1602,5 +1602,15 @@
       "scope_estimate": "possibly_universal",
       "review_status": "pending"
     }
-  ]
+  ],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 4,
+    "open_schema_gap_count": 1,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after Units 1 and 4 PDF checks; remaining units marked verified by project decision."
+  }
 }
