@@ -178,7 +178,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
 | BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE1-SB | Big English | 1 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -312,7 +312,39 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Notes
 
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
-- Next pilot book after this baseline: Big English 1 Student Book.
+- Next pilot book after Beehive + Big English baselines: Reach Higher 2A.
+
+---
+
+# 8B. BE1-SB — Big English 1 Student Book (active)
+
+**Registry ID:** BE1-SB  
+**Series:** Big English (extracted metadata may say Big English Plus)  
+**Level:** 1  
+**Book Type:** Student Book  
+**Folder / files:** `data/phase1/big_english_1_sb/`  
+**Internal book_id in JSON:** `bep1_sb` (note: differs from folder/`big_english_1_sb` naming; resolve at canonical-merge or ID-normalization pass)
+
+### Phase 1 Processing
+
+**Extraction Status:** EXTRACTED (unit batches `01–09`)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** COMPLETE  
+**Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-02).  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 39 (mostly audio/visual verification — documented, left open)  
+**Schema Gaps:** 1 (Think Big sub-feature — pending schema review; related to Beehive SEL/reflection gaps)
+
+### Notes
+
+- Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
+- Cross-series pilot next: Reach Higher 2A, then schema review across BH1 + BE1-SB + RH2A.
 
 ---
 
@@ -412,7 +444,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | Order | Book | Purpose | Status |
 |---:|---|---|---|
 | 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 2 | Big English 1 | Current school curriculum / full-series architecture test | NOT STARTED |
+| 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | NOT STARTED |
 | 4 | Schema Review | Review findings across all three series | NOT STARTED |
 
@@ -538,12 +570,12 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 17 |
-| Phase 1 In Progress | 1 |
+| Phase 1 Not Started | 16 |
+| Phase 1 In Progress | 2 |
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
 | Canonical Datasets Created | 0 |
-| Human Verification Complete | 1 |
+| Human Verification Complete | 2 |
 | Whole-Book Audits Passed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -555,9 +587,9 @@ These counts should be updated whenever a book changes major processing status.
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Beehive | 2 | 1 | 1 | 0 | 0 |
-| Big English | 12 | 12 | 0 | 0 | 0 |
+| Big English | 12 | 11 | 1 | 0 | 0 |
 | Reach Higher | 4 | 4 | 0 | 0 | 0 |
-| **Total** | **18** | **17** | **1** | **0** | **0** |
+| **Total** | **18** | **16** | **2** | **0** | **0** |
 
 ---
 
@@ -567,7 +599,7 @@ Use this section once extraction begins.
 
 | Schema Version | Books Using Version | Migration Needed | Notes |
 |---|---:|---|---|
-| 0.1 | 1 (BH1 unit batches) | No | Beehive 1 SB unit batches `01–08` under `data/phase1/beehive_1_sb/` |
+| 0.1 | 2 (BH1 + BE1-SB unit batches) | No | BH1: `data/phase1/beehive_1_sb/` (01–08); BE1-SB: `data/phase1/big_english_1_sb/` (01–09) |
 
 This becomes increasingly important as the Phase 1 schema evolves.
 

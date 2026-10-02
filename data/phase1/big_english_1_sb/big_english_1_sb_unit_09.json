@@ -1,0 +1,2365 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u09_batch",
+    "unit_id": "bep1_unit_09",
+    "source_section": "Unit 9",
+    "printed_page_start": 150,
+    "printed_page_end": 165,
+    "pdf_page_start": 150,
+    "pdf_page_end": 165,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_09",
+      "book_id": "bep1_sb",
+      "unit_number": "9",
+      "title": "Play Time",
+      "theme": "Recreational actions, present continuous yes/no questions, playground games, likes and dislikes, caring for the body",
+      "printed_page_start": 150,
+      "printed_page_end": 165,
+      "pdf_page_start": 150,
+      "pdf_page_end": 165,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_150",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 150,
+      "pdf_page": 150,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "Play Time",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 9 vocabulary (action words)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_151",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 151,
+      "pdf_page": 151,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "Play Time Is Cool!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "song/vocabulary Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_152",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 152,
+      "pdf_page": 152,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "I'm Not Tired!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_153",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 153,
+      "pdf_page": 153,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Frames 5 to 6; reading Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_154",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 154,
+      "pdf_page": 154,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 9 language practice (Are you dancing? Yes, I am.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_155",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 155,
+      "pdf_page": 155,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "language practice (Is she running? No, she isn't.) Unit 9; sticker activity",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_156",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 156,
+      "pdf_page": 156,
+      "section_title": "Content Connection | Physical Education",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Physical Education",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Playground games",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_157",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 157,
+      "pdf_page": 157,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "content connection (playground games) Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_158",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 158,
+      "pdf_page": 158,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: Simple present 'like / don't like' / 'likes / doesn't like'",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_159",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 159,
+      "pdf_page": 159,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "grammar (I like dancing. He doesn't like salad.) Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_160",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 160,
+      "pdf_page": 160,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "Rock, Paper, Scissors: Same Game... Different Name!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: International variants of Rock, Paper, Scissors",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_161",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 161,
+      "pdf_page": 161,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "culture connection (the same game) Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_162",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 162,
+      "pdf_page": 162,
+      "section_title": "Values | Take care of your body.",
+      "section_type": "values",
+      "page_heading": "Values | Take care of your body.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 9 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_163",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 163,
+      "pdf_page": 163,
+      "section_title": "Phonics | ss, z, zz",
+      "section_type": "phonics",
+      "page_heading": "ss, z, zz | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "phonics (ss, z, zz) Unit 9",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_164",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 164,
+      "pdf_page": 164,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 9 review",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_165",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "printed_page": 165,
+      "pdf_page": 165,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "review/self-assessment Unit 9",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "catching",
+      "normalized_term": "catching",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "throwing",
+      "normalized_term": "throwing",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "hitting",
+      "normalized_term": "hitting",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "kicking",
+      "normalized_term": "kicking",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "dancing",
+      "normalized_term": "dancing",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0906",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "singing",
+      "normalized_term": "singing",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0907",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "skating",
+      "normalized_term": "skating",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0908",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "riding",
+      "normalized_term": "riding",
+      "classification": "target",
+      "source_context": "Activity 1, item 8",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0909",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "term": "jumping rope",
+      "normalized_term": "jumping rope",
+      "classification": "target",
+      "source_context": "Activity 1, item 9",
+      "explicitly_listed": true,
+      "notes": "Action participle",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0910",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "term": "climb",
+      "normalized_term": "climb",
+      "classification": "target",
+      "source_context": "Content Connection PE, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Playground game verb",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0911",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "term": "hide and seek",
+      "normalized_term": "hide and seek",
+      "classification": "target",
+      "source_context": "Content Connection PE, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Playground game noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0912",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "term": "hopscotch",
+      "normalized_term": "hopscotch",
+      "classification": "target",
+      "source_context": "Content Connection PE, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Playground game noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0913",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "term": "tag",
+      "normalized_term": "tag",
+      "classification": "target",
+      "source_context": "Content Connection PE, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Playground game noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0914",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "term": "hop",
+      "normalized_term": "hop",
+      "classification": "target",
+      "source_context": "Content Connection PE, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Action verb",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0915",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "term": "rock",
+      "normalized_term": "rock",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 23/26",
+      "explicitly_listed": true,
+      "notes": "Game element",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0916",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "term": "paper",
+      "normalized_term": "paper",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 23/26",
+      "explicitly_listed": true,
+      "notes": "Game element",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0917",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "term": "scissors",
+      "normalized_term": "scissors",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 23/26",
+      "explicitly_listed": true,
+      "notes": "Game element",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0918",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "term": "win",
+      "normalized_term": "win",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 24/26",
+      "explicitly_listed": true,
+      "notes": "Verb",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0919",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "term": "exercise",
+      "normalized_term": "exercise",
+      "classification": "target",
+      "source_context": "Values Activity 28, item a",
+      "explicitly_listed": true,
+      "notes": "Health concept",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0920",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "term": "sleep",
+      "normalized_term": "sleep",
+      "classification": "target",
+      "source_context": "Values Activity 28, item b",
+      "explicitly_listed": true,
+      "notes": "Health concept",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0921",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "buzz",
+      "normalized_term": "buzz",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0922",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "kiss",
+      "normalized_term": "kiss",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0923",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "zip",
+      "normalized_term": "zip",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0924",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "mess",
+      "normalized_term": "mess",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0925",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "zap",
+      "normalized_term": "zap",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0926",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "fizz",
+      "normalized_term": "fizz",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0927",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "miss",
+      "normalized_term": "miss",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0928",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "term": "jazz",
+      "normalized_term": "jazz",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "language_type": "question_answer",
+      "prompt": "Are you kicking?",
+      "response": "Yes, I am.",
+      "full_text": "Are you kicking? Yes, I am.",
+      "grammar_label": "Present continuous yes/no question (second person) and affirmative answer",
+      "function": "confirming_current_action",
+      "explicit_in_source": true,
+      "notes": "Activity 6 model dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "language_type": "question_answer",
+      "prompt": "Is she singing?",
+      "response": "Yes, she is.",
+      "full_text": "Is she singing? Yes, she is.",
+      "grammar_label": "Present continuous yes/no question (third person singular feminine)",
+      "function": "asking_and_answering_about_others_actions",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "language_type": "question_answer",
+      "prompt": "Are they dancing?",
+      "response": "No, they aren't.",
+      "full_text": "Are they dancing? No, they aren't.",
+      "grammar_label": "Present continuous yes/no question (third person plural)",
+      "function": "asking_and_answering_about_group_actions",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_155",
+      "language_type": "question_answer",
+      "prompt": "Is she running?",
+      "response": "No, she isn't. She's jumping rope.",
+      "full_text": "Is she running? No, she isn't. She's jumping rope.",
+      "grammar_label": "Negative response with corrective present continuous statement",
+      "function": "correcting_misidentified_action",
+      "explicit_in_source": true,
+      "notes": "Activity 12 model exchange",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "language_type": "question_answer",
+      "prompt": "What games do you play in the playground?",
+      "response": "Hopscotch and jumping rope.",
+      "full_text": "What games do you play in the playground? Hopscotch and jumping rope.",
+      "grammar_label": "Inquiring about playground games",
+      "function": "stating_recreational_games",
+      "explicit_in_source": true,
+      "notes": "Activity 14 speech bubble exchange",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0906",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_158",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "I like dancing. / I like fruit. / I like horses. / He/She/It likes... | I don't like hopscotch. / I don't like salad. / I don't like frogs. / He/She/It doesn't like...",
+      "grammar_label": "Simple present with like / don't like / likes / doesn't like",
+      "function": "expressing_likes_and_dislikes",
+      "explicit_in_source": true,
+      "notes": "Grammar table summary on page 158",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0907",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_161",
+      "language_type": "sentence",
+      "prompt": null,
+      "response": null,
+      "full_text": "Rock breaks scissors. Rock wins! / Paper covers rock. Paper wins! / Scissors cut paper. Scissors win!",
+      "grammar_label": "Game rules in simple present",
+      "function": "explaining_game_rules",
+      "explicit_in_source": true,
+      "notes": "Activity 26 game rules",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0908",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "language_type": "sentence",
+      "prompt": null,
+      "response": null,
+      "full_text": "Get enough exercise. / Get enough sleep. / Get enough food and drink.",
+      "grammar_label": "Imperatives for healthy body care",
+      "function": "giving_health_guidelines",
+      "explicit_in_source": true,
+      "notes": "Activity 28 imperatives",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 catching",
+          "expected_answer": "catching"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 throwing",
+          "expected_answer": "throwing"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 hitting",
+          "expected_answer": "hitting"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 kicking",
+          "expected_answer": "kicking"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 dancing",
+          "expected_answer": "dancing"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 singing",
+          "expected_answer": "singing"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 skating",
+          "expected_answer": "skating"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 riding",
+          "expected_answer": "riding"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 jumping rope",
+          "expected_answer": "jumping rope"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 232",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 233",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 234, 235; Song: 'Play Time Is Cool!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "activity_number": "5",
+      "activity_type": "listen_and_check",
+      "instruction": "Listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a (boy kicking ball) vs b (boy roller skating)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "a (girl dancing/running) vs b (boy singing into mic)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 236",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0906",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 5. Ask and answer.",
+      "prompt": "Are you kicking?",
+      "expected_answer": "Yes, I am.",
+      "language_frame": "Are you [action]? / Yes, I am. / No, I'm not.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to items in Activity 5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0906_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Look at 1. What are they doing with their feet? What are they doing with their hands?",
+      "prompt": "What are they doing with their feet? What are they doing with their hands?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to photos in Activity 1",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0907",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_152",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. What's Ann doing?",
+      "prompt": "What's Ann doing?",
+      "expected_answer": "Babysitting / She's babysitting Tim and Patrick.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 238; accompanies story 'I'm Not Tired!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0908",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_153",
+      "activity_number": "8",
+      "activity_type": "number_pictures_in_order",
+      "instruction": "Look at the story. Number the pictures in order.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "Tim and Patrick jumping/refusing bed",
+          "expected_answer": "2"
+        },
+        {
+          "item_number": "b",
+          "prompt": "Tim and Patrick sleeping in bed",
+          "expected_answer": "4"
+        },
+        {
+          "item_number": "c",
+          "prompt": "Patrick jumping on bed",
+          "expected_answer": "1"
+        },
+        {
+          "item_number": "d",
+          "prompt": "Tim dancing with radio",
+          "expected_answer": "3"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on story 'I'm Not Tired!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0908_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_153",
+      "activity_number": "Think Big",
+      "activity_type": "act_out_and_say",
+      "instruction": "Imagine you are getting ready for bed. Act it out and say what you are doing!",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I'm [action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0909",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Is she singing? Yes, she is. / Are they dancing? No, they aren't.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 239",
+      "notes": "Word tiles: jumping rope, throwing, skating, riding",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0910",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "activity_number": "10",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "boy riding bike [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "boys roller skating [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "boy kicking soccer ball [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "d",
+          "prompt": "two girls dancing [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "e",
+          "prompt": "girl spinning/dancing [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "f",
+          "prompt": "girl jumping rope [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 240",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0911",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_155",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "gym treadmill spot 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "gym basketball hoop spot 2",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "gym trampoline spot 3",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "gym blue mat spot 4",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 241; requires stickers from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0912",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_155",
+      "activity_number": "12",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 11. Ask and answer.",
+      "prompt": "Is she running?",
+      "expected_answer": "No, she isn't. She's jumping rope.",
+      "language_frame": "Is he / she [action]? / No, he / she isn't. He's / She's [actual action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to completed Activity 11 gym scene",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0913",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_155",
+      "activity_number": "13",
+      "activity_type": "draw_and_say",
+      "instruction": "Draw and say. Are you throwing a ball?",
+      "prompt": "Are you throwing a ball?",
+      "expected_answer": null,
+      "language_frame": "Yes, I am. / No, I'm not. I'm [action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing frame provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0914",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "activity_number": "14",
+      "activity_type": "listen_repeat_find_ask_answer",
+      "instruction": "Listen, repeat, and find. Then ask and answer.",
+      "prompt": "What games do you play in the playground?",
+      "expected_answer": "Hopscotch and jumping rope.",
+      "language_frame": "What games do you play in the playground? / [Game 1] and [Game 2].",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 243",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0915",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "activity_number": "15",
+      "activity_type": "listen_read_point",
+      "instruction": "Listen, read, and point. What's her favorite game?",
+      "prompt": "What's her favorite game?",
+      "expected_answer": "Tag / Her favorite game is tag.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 244",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0915_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Who do you play with? What are your favorite games?",
+      "prompt": "Who do you play with? What are your favorite games?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0916",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_157",
+      "activity_number": "16",
+      "activity_type": "read_number_listen_check",
+      "instruction": "Read and number. Then listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "Let's play tag! [box]",
+          "expected_answer": "2"
+        },
+        {
+          "item_number": "b",
+          "prompt": "Let's jump rope! [box]",
+          "expected_answer": "4"
+        },
+        {
+          "item_number": "c",
+          "prompt": "Let's play hopscotch! [box]",
+          "expected_answer": "3"
+        },
+        {
+          "item_number": "d",
+          "prompt": "Let's play hide and seek! [box]",
+          "expected_answer": "5"
+        },
+        {
+          "item_number": "e",
+          "prompt": "Let's climb! [box]",
+          "expected_answer": "1"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 245; numbered playground children 1-5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0917",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_157",
+      "activity_number": "17",
+      "activity_type": "match_act_say",
+      "instruction": "Look at 15. Match. Then act and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1, 2, 3... Where are you?",
+          "expected_answer": "b (hide and seek)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Hop, hop, hop!",
+          "expected_answer": "a (hopscotch)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Let's run! Run! Run!",
+          "expected_answer": "e (tag)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Jump! Jump! Jump!",
+          "expected_answer": "c (jumping rope)"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Up! Up! Up!",
+          "expected_answer": "d (climbing)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Refers to chants in Activity 15",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0918",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_157",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a Play Time poster. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Playtime is fun. I play [game], and I [activity]. My favorite game is [game].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft project poster",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0919",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_158",
+      "activity_number": "19",
+      "activity_type": "look_listen_point_say",
+      "instruction": "Look, listen, and point. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I like dancing. I don't like jumping rope.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 247",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0920",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_159",
+      "activity_number": "20",
+      "activity_type": "look_and_write",
+      "instruction": "Look and write like/don't like.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I ______ kittens. (kittens X)",
+          "expected_answer": "don't like"
+        },
+        {
+          "item_number": "2",
+          "prompt": "I ______ snakes. (snakes check)",
+          "expected_answer": "like"
+        },
+        {
+          "item_number": "3",
+          "prompt": "I ______ spiders. (spiders check)",
+          "expected_answer": "like"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I ______ turtles. (turtles check)",
+          "expected_answer": "like"
+        },
+        {
+          "item_number": "5",
+          "prompt": "I ______ puppies. (puppies X)",
+          "expected_answer": "don't like"
+        },
+        {
+          "item_number": "6",
+          "prompt": "I ______ horses. (horses X)",
+          "expected_answer": "don't like"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Check and X symbols indicate preference",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0921",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_159",
+      "activity_number": "21",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I likes / like board games.",
+          "expected_answer": "like"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Sally likes / like CDs.",
+          "expected_answer": "likes"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Ben doesn't like / don't like dancing.",
+          "expected_answer": "doesn't like"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I don't like / doesn't like playing tag.",
+          "expected_answer": "don't like"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Paul like / likes computers.",
+          "expected_answer": "likes"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Patty don't like / doesn't like watching TV.",
+          "expected_answer": "doesn't like"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0922",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_159",
+      "activity_number": "22",
+      "activity_type": "draw_and_talk",
+      "instruction": "Draw three things you like and three things you don't like. Talk with a partner.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I like [activity/object]. I don't like [activity/object].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Two drawing frames (like / don't like) provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0923",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "activity_number": "23",
+      "activity_type": "look_listen_act",
+      "instruction": "Look and listen. Say and do the action.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Rock gesture",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Paper gesture",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Scissors gesture",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 248",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0924",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "activity_number": "24",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. Where do they call this game Cachipún?",
+      "prompt": "Where do they call this game Cachipún?",
+      "expected_answer": "Chile / In Chile.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 249",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0925",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_161",
+      "activity_number": "25",
+      "activity_type": "read_and_check",
+      "instruction": "Look at 24. Read and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Who always wins? (Tina / Eva)",
+          "expected_answer": "Eva"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Who plays with his friends? (Martin / Michio)",
+          "expected_answer": "Michio"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Who plays with his brother? (Michio / Raúl)",
+          "expected_answer": "Raúl"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Who sometimes wins? (Michio / Eva)",
+          "expected_answer": "Michio"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Who is the best player? (Tina / Martin)",
+          "expected_answer": "Martin"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Who plays with her sisters? (Eva / Tina)",
+          "expected_answer": "Eva"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on Activity 24 text",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0926",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_161",
+      "activity_number": "26",
+      "activity_type": "look_listen_say_play",
+      "instruction": "Look, listen, and say. Play with a friend.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Rock breaks scissors. Rock wins! / Paper covers rock. Paper wins! / Scissors cut paper. Scissors win!",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 250",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0926_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_161",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Do you play Rock, Paper, Scissors in your country? What do you call it? Who do you play with? Who wins?",
+      "prompt": "Do you play Rock, Paper, Scissors in your country? What do you call it? Who do you play with? Who wins?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0927",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "activity_number": "27",
+      "activity_type": "listen_find_repeat",
+      "instruction": "Listen and find the picture. Then listen and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "girl sleeping in bed",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "children doing gymnastics",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "boy drinking juice",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 252",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0928",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "activity_number": "28",
+      "activity_type": "listen_number_say",
+      "instruction": "Listen and number. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "Get enough exercise. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "Get enough sleep. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "Get enough food and drink. [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 253",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0928_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "How do you take care of your body?",
+      "prompt": "How do you take care of your body?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0929",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "activity_number": "29",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "ss",
+          "expected_answer": "ss"
+        },
+        {
+          "item_number": "2",
+          "prompt": "z",
+          "expected_answer": "z"
+        },
+        {
+          "item_number": "3",
+          "prompt": "zz",
+          "expected_answer": "zz"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 254",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0930",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "activity_number": "30",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "buzz",
+          "expected_answer": "buzz"
+        },
+        {
+          "item_number": "2",
+          "prompt": "kiss",
+          "expected_answer": "kiss"
+        },
+        {
+          "item_number": "3",
+          "prompt": "zip",
+          "expected_answer": "zip"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 255",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0931",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "activity_number": "31",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "m-e-ss",
+          "expected_answer": "mess"
+        },
+        {
+          "item_number": "2",
+          "prompt": "z-a-p",
+          "expected_answer": "zap"
+        },
+        {
+          "item_number": "3",
+          "prompt": "f-i-zz",
+          "expected_answer": "fizz"
+        },
+        {
+          "item_number": "4",
+          "prompt": "m-i-ss",
+          "expected_answer": "miss"
+        },
+        {
+          "item_number": "5",
+          "prompt": "j-a-zz",
+          "expected_answer": "jazz"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 256",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0932",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "activity_number": "32",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline ss, z, and zz. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 257; text: 'Buzz goes the bee. / Zip, zap! / It misses me!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0933",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_164",
+      "activity_number": "33",
+      "activity_type": "listen_and_circle",
+      "instruction": "Listen and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 259",
+      "notes": "Park playground visual scene",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0934",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_164",
+      "activity_number": "34",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 33. Ask and answer.",
+      "prompt": "Is he jumping rope? / Are they dancing?",
+      "expected_answer": "Yes, he is. / No, they aren't. They're running.",
+      "language_frame": "Is he / she [action]? Yes, he / she is. / No, he / she isn't. | Are they [action]? Yes, they are. / No, they aren't. They're [action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to Activity 33 scene",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0935",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_165",
+      "activity_number": "35",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "dancing [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "tennis / hitting [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "basketball / catching [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "d",
+          "prompt": "soccer / kicking [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "e",
+          "prompt": "bike riding [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "f",
+          "prompt": "roller skating [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 260",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0936",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_165",
+      "activity_number": "36",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "girl sad with salad plate",
+          "expected_answer": "I don't like"
+        },
+        {
+          "item_number": "b",
+          "prompt": "boy eating happily",
+          "expected_answer": "I like"
+        },
+        {
+          "item_number": "c",
+          "prompt": "boys eating burgers happily",
+          "expected_answer": "I like"
+        },
+        {
+          "item_number": "d",
+          "prompt": "children refusing food",
+          "expected_answer": "I don't like"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Matches photos to 'I like' or 'I don't like'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0937_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_165",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "talk about actions and what I like/don't like.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "talk about games children play.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "say how I take care of my body.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "text_type": "song",
+      "title": "Play Time Is Cool!",
+      "content": "We like play time at our school.\nSinging and dancing,\nThrowing and catching.\nPlay time is cool at our school!\n\nI'm throwing the ball.\nIt's so much fun!\nAre you\nHitting and running?\nYes, and it's fun.\n\nWe're kicking the ball\nAnd trying to score.\nIt's so much fun.\nLet's play some more.\nChorus",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 234, 235",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_152",
+      "text_type": "story",
+      "title": "I'm Not Tired!",
+      "content": "Frame 1:\nMrs. Smith: Hi, Ann.\nAnn: Hi, Mrs. Smith.\nFrame 2:\nMrs. Smith: Thanks for babysitting, Ann. Is Tim sleeping?\nAnn: No, he isn't, Mrs. Smith.\nFrame 3:\nMrs. Smith: Is Patrick sleeping?\nAnn: No, he isn't. He's jumping on the bed.\nFrame 4:\nAnn: Tim! Patrick! Let's go to bed!\nTim: I'm not tired!\nPatrick: I'm not tired!\nFrame 5:\nMrs. Smith: Are they sleeping now?\nAnn: No, they aren't. They're dancing.\nFrame 6:\nMrs. Smith: It's quiet now! Are they sleeping?\nAnn: Yes, they are!",
+      "speaker_structure": {
+        "speakers": [
+          "Mrs. Smith",
+          "Ann",
+          "Tim",
+          "Patrick"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on p. 152; frames 5-6 on p. 153; track 238",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "text_type": "reading_passage",
+      "title": "Content Connection: Playground Games",
+      "content": "1 Playing games with my friends is a lot of fun. We play in the school playground.\n2 We climb to the top of the bars. Up! Up! Up! We also jump rope. My friends jump very fast. Jump! Jump! Jump!\n3 We play hide and seek, too. I count to ten, then I look for my friends. 1, 2, 3... Where are you?\n4 We also play hopscotch. Hop! Hop! Hop!\n5 My favorite game of all is tag. Let's run! Run! Run! Tag, you're it!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 244",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: Rock, Paper, Scissors",
+      "content": "1 I'm Eva. I'm nine. I play Rock, Paper, Scissors in Canada. I play with my sisters and my best friend, Tina. I always win.\n2 I'm Michio. I'm seven. I'm from Japan. I play this game at school with my friends. We call it Janken. I sometimes win.\n3 I'm Raúl. I'm eight. I'm from Chile. We play this game, too. We call it Cachipún. My brother, Martin, is the best player in our family.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 249",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "text_type": "chant",
+      "title": "Phonics Chant (ss, z, zz)",
+      "content": "Buzz goes the bee.\nZip, zap!\nIt misses me!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 257",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_150",
+      "component_type": "vocabulary",
+      "source_label": "Unit 9 vocabulary (action words)",
+      "title": "Play Time",
+      "description": "Vocabulary presentation for 9 active sports and recreational movement words.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "Play Time Is Cool!",
+      "description": "Choral practice singing about sports and play activities at school.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_152",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "I'm Not Tired!",
+      "description": "Bedtime narrative practicing yes/no present continuous questions and answers.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "Is he/she...? / Are they...?",
+      "description": "Present continuous yes/no questions and short answers.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_156",
+      "component_type": "clil",
+      "source_label": "Content Connection | Physical Education",
+      "title": "Playground games",
+      "description": "Rules, rhymes, and movements associated with popular playground games.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0906",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_157",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "Play Time poster",
+      "description": "Creating and presenting a poster about favorite playground activities.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0907",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_158",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "Simple Present (like / don't like / likes / doesn't like)",
+      "description": "Affirmative and negative preference statements with gerunds and nouns.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0908",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_160",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "The same game",
+      "description": "Cultural variants of Rock, Paper, Scissors in Canada, Japan (Janken), and Chile (Cachipún).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0909",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Take care of your body.",
+      "description": "Healthy lifestyle habits: exercise, adequate sleep, and nutrition.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0910",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_163",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "ss, z, zz",
+      "description": "Letter-sound correspondences and sound blending for /s/ (ss) and /z/ (z, zz).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0911",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_164",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Consolidation of Unit 9 action verbs, preferences, and health habits.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0901",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0904",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0901",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Then look at 1 and find.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0902",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0906",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0905",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 5. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0903",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0908",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0902",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story. Number the pictures in order.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0904",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0912",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0911",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0905",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0917",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0915",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Match. Then act and say.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0906",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0925",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0924",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 24. Read and check.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0907",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0934",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0933",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 33. Ask and answer.'",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0901",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_151",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0905",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Check marks for items 1-2 require audio track 236.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0902",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_154",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0910",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for photos a-f requires audio track 240.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0903",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_155",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0911",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Sticker placement for Activity 11 requires audio track 241.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0904",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_162",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0928",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for healthy habits a-c requires audio track 253.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0905",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_164",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0933",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Target playground actions to circle require audio track 259.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0906",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_09",
+      "page_id": "bep1_page_165",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0935",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for photos a-f requires audio track 260.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 6,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}

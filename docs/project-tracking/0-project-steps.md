@@ -135,3 +135,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 10
+
+**Summary:** Marked all Big English 1 SB unit batches (`01–09`) as human-verified after project review; left open audio/visual issues and the Think Big schema gap documented. Updated dataset registry BE1-SB to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
+
+**Files touched:**
+- `data/phase1/big_english_1_sb/big_english_1_sb_unit_01.json` … `unit_09.json` (updated)
+- `docs/6-Dataset_registry.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

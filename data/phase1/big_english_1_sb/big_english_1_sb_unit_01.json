@@ -1,0 +1,2829 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_filename": null,
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u01_batch",
+    "unit_id": "bep1_unit_01",
+    "source_section": "Unit 1",
+    "printed_page_start": 10,
+    "printed_page_end": 25,
+    "pdf_page_start": 10,
+    "pdf_page_end": 25,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_01",
+      "book_id": "bep1_sb",
+      "unit_number": "1",
+      "title": "Good Morning, Class!",
+      "theme": "Classroom objects, school rules, and school possessions",
+      "printed_page_start": 10,
+      "printed_page_end": 25,
+      "pdf_page_start": 10,
+      "pdf_page_end": 25,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_010",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 10,
+      "pdf_page": 10,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "Good Morning, Class!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: Unit 1 vocabulary (classroom objects)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_011",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 11,
+      "pdf_page": 11,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "The Classroom Song",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: song/vocabulary Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_012",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 12,
+      "pdf_page": 12,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "Classroom Colors",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Story frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_013",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 13,
+      "pdf_page": 13,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Story frames 5 to 6 and comprehension activity; bottom footer: reading Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_014",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 14,
+      "pdf_page": 14,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: Unit 1 language practice (What is it? It's a pen.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_015",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 15,
+      "pdf_page": 15,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: language practice (What are they? They're pencils.) Unit 1; contains sticker activity",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_016",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 16,
+      "pdf_page": 16,
+      "section_title": "Content Connection | Math",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Math",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Math / School possessions",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_017",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 17,
+      "pdf_page": 17,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Bottom footer: content connection (school possessions) Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_018",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 18,
+      "pdf_page": 18,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: Imperatives / classroom rules",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_019",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 19,
+      "pdf_page": 19,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Bottom footer: grammar (Sit down! Don't run!) Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_020",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 20,
+      "pdf_page": 20,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "Culture Connection | Around the World",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: Classrooms around the world",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_021",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 21,
+      "pdf_page": 21,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Bottom footer: culture connection (classrooms) Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_022",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 22,
+      "pdf_page": 22,
+      "section_title": "Values | Be polite.",
+      "section_type": "values",
+      "page_heading": "Values | Be polite.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: Unit 1 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_023",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 23,
+      "pdf_page": 23,
+      "section_title": "Phonics | a, t, p, n",
+      "section_type": "phonics",
+      "page_heading": "a, t, p, n | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: phonics (a, t, p, n) Unit 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_024",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 24,
+      "pdf_page": 24,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Spot the difference / classroom review",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_025",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "printed_page": 25,
+      "pdf_page": 25,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Bottom footer: review/self-assessment Unit 1; contains 'I Can' checklist",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0001",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "desk",
+      "normalized_term": "desk",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0002",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "book",
+      "normalized_term": "book",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0003",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "crayon",
+      "normalized_term": "crayon",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0004",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "eraser",
+      "normalized_term": "eraser",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0005",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "marker",
+      "normalized_term": "marker",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0006",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "pen",
+      "normalized_term": "pen",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0007",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "pencil",
+      "normalized_term": "pencil",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0008",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "ruler",
+      "normalized_term": "ruler",
+      "classification": "target",
+      "source_context": "Activity 1, item 8",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0009",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "chair",
+      "normalized_term": "chair",
+      "classification": "target",
+      "source_context": "Activity 1, item 9",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0010",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "term": "backpack",
+      "normalized_term": "backpack",
+      "classification": "target",
+      "source_context": "Activity 1, item 10",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0011",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "pencil case",
+      "normalized_term": "pencil case",
+      "classification": "target",
+      "source_context": "Content Connection Math, Activity 14, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0012",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "tablet",
+      "normalized_term": "tablet",
+      "classification": "target",
+      "source_context": "Content Connection Math, Activity 14, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0013",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "pencil sharpener",
+      "normalized_term": "pencil sharpener",
+      "classification": "target",
+      "source_context": "Content Connection Math, Activity 14, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0014",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "notebook",
+      "normalized_term": "notebook",
+      "classification": "target",
+      "source_context": "Content Connection Math, Activity 14, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0015",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "stand up",
+      "normalized_term": "stand up",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 1",
+      "explicitly_listed": true,
+      "notes": "Action / imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0016",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "sit down",
+      "normalized_term": "sit down",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 2",
+      "explicitly_listed": true,
+      "notes": "Action / imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0017",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "look",
+      "normalized_term": "look",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 3",
+      "explicitly_listed": true,
+      "notes": "Action / imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0018",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "don't talk",
+      "normalized_term": "do not talk",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 4",
+      "explicitly_listed": true,
+      "notes": "Negative imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0019",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "don't run",
+      "normalized_term": "do not run",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 5",
+      "explicitly_listed": true,
+      "notes": "Negative imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0020",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "don't eat",
+      "normalized_term": "do not eat",
+      "classification": "target",
+      "source_context": "Grammar presentation, Activity 19, item 6",
+      "explicitly_listed": true,
+      "notes": "Negative imperative",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0021",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "term": "Africa",
+      "normalized_term": "Africa",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 24, item 1",
+      "explicitly_listed": true,
+      "notes": "Geographic label",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0022",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "term": "The United States of America",
+      "normalized_term": "United States of America",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 24, item 2",
+      "explicitly_listed": true,
+      "notes": "Geographic label; also referenced as USA",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0023",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "term": "China",
+      "normalized_term": "China",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 24, item 3",
+      "explicitly_listed": true,
+      "notes": "Geographic label",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0024",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "term": "Thank you.",
+      "normalized_term": "thank you",
+      "classification": "target",
+      "source_context": "Values, Activity 28 speech bubble",
+      "explicitly_listed": true,
+      "notes": "Functional social phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0025",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "term": "You're welcome.",
+      "normalized_term": "you are welcome",
+      "classification": "target",
+      "source_context": "Values, Activity 28 speech bubble",
+      "explicitly_listed": true,
+      "notes": "Functional social phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0026",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "term": "Please sit down.",
+      "normalized_term": "please sit down",
+      "classification": "target",
+      "source_context": "Values, Activity 28 speech bubble",
+      "explicitly_listed": true,
+      "notes": "Polite instruction",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0027",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "pan",
+      "normalized_term": "pan",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0028",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "ant",
+      "normalized_term": "ant",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0029",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "nap",
+      "normalized_term": "nap",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0030",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "tap",
+      "normalized_term": "tap",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0031",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "an",
+      "normalized_term": "an",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0032",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "pat",
+      "normalized_term": "pat",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0033",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "pant",
+      "normalized_term": "pant",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0034",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "tan",
+      "normalized_term": "tan",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0035",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "term": "at",
+      "normalized_term": "at",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0036",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_012",
+      "term": "red",
+      "normalized_term": "red",
+      "classification": "recycled",
+      "source_context": "Classroom Colors story",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0037",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_012",
+      "term": "yellow",
+      "normalized_term": "yellow",
+      "classification": "recycled",
+      "source_context": "Classroom Colors story",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0038",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_013",
+      "term": "green",
+      "normalized_term": "green",
+      "classification": "recycled",
+      "source_context": "Classroom Colors story",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0039",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "term": "blue",
+      "normalized_term": "blue",
+      "classification": "recycled",
+      "source_context": "Language in Action, Activity 10",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0040",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "term": "brown",
+      "normalized_term": "brown",
+      "classification": "recycled",
+      "source_context": "Language in Action, Activity 10",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0041",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "pink",
+      "normalized_term": "pink",
+      "classification": "recycled",
+      "source_context": "Content Connection Math, Activity 15",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0042",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "term": "purple",
+      "normalized_term": "purple",
+      "classification": "recycled",
+      "source_context": "Content Connection Math, Activity 15",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0043",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "raise your hand",
+      "normalized_term": "raise your hand",
+      "classification": "recycled",
+      "source_context": "Grammar, Activity 20",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit classroom language",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0044",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "clap your hands",
+      "normalized_term": "clap your hands",
+      "classification": "recycled",
+      "source_context": "Grammar, Activity 20",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit classroom language",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0045",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "term": "close your book",
+      "normalized_term": "close your book",
+      "classification": "recycled",
+      "source_context": "Grammar, Activity 20",
+      "explicitly_listed": false,
+      "notes": "Introduced in Welcome Unit classroom language",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0046",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_019",
+      "term": "cross your arms",
+      "normalized_term": "cross your arms",
+      "classification": "supporting_context",
+      "source_context": "Grammar game, Activity 22",
+      "explicitly_listed": false,
+      "notes": "Instructional action used in Simon Says game",
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0001",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "language_type": "question_answer",
+      "prompt": "What is it?",
+      "response": "It's a chair.",
+      "full_text": "What is it? It's a chair.",
+      "grammar_label": "Singular object question and answer",
+      "function": "identifying_objects",
+      "explicit_in_source": true,
+      "notes": "Model dialogue for Activity 6",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0002",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "language_type": "question_answer",
+      "prompt": "What is it?",
+      "response": "It's a pen.",
+      "full_text": "What is it? It's a pen.",
+      "grammar_label": "Singular object identification",
+      "function": "identifying_singular_objects",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0003",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "language_type": "question_answer",
+      "prompt": "What are they?",
+      "response": "They're pens.",
+      "full_text": "What are they? They're pens.",
+      "grammar_label": "Plural object identification",
+      "function": "identifying_plural_objects",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0004",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "language_type": "model_exchange",
+      "prompt": "What is it?",
+      "response": "It's a ruler. It's blue.",
+      "full_text": "What is it? It's a ruler. It's blue.",
+      "grammar_label": "Singular object identification with color attribute",
+      "function": "identifying_and_describing_objects",
+      "explicit_in_source": true,
+      "notes": "Derived from Activity 10 options",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0005",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "language_type": "model_exchange",
+      "prompt": "What are they?",
+      "response": "They're desks. They're red.",
+      "full_text": "What are they? They're desks. They're red.",
+      "grammar_label": "Plural object identification with color attribute",
+      "function": "identifying_and_describing_objects",
+      "explicit_in_source": true,
+      "notes": "Derived from Activity 10 options",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0006",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "language_type": "sentence_frame",
+      "prompt": "What is it?",
+      "response": "It's...",
+      "full_text": "What is it? It's...",
+      "grammar_label": "Singular identification frame",
+      "function": "identifying_singular_objects",
+      "explicit_in_source": true,
+      "notes": "Model speech frames for Activity 12",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0007",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "language_type": "sentence_frame",
+      "prompt": "What are they?",
+      "response": "They're...",
+      "full_text": "What are they? They're...",
+      "grammar_label": "Plural identification frame",
+      "function": "identifying_plural_objects",
+      "explicit_in_source": true,
+      "notes": "Model speech frames for Activity 12",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0008",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "language_type": "sentence_frame",
+      "prompt": null,
+      "response": "I have a...",
+      "full_text": "I have a...",
+      "grammar_label": "Possession with 'have'",
+      "function": "stating_possession",
+      "explicit_in_source": true,
+      "notes": "Activity 14 speech bubble frame",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0009",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "language_type": "question_answer",
+      "prompt": "How many pencils do you have?",
+      "response": "I have seven pencils.",
+      "full_text": "How many pencils do you have? I have seven pencils.",
+      "grammar_label": "Question with 'how many' and response with quantity",
+      "function": "asking_and_answering_about_quantities",
+      "explicit_in_source": true,
+      "notes": "Activity 17 class survey model dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0010",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "language_type": "model_exchange",
+      "prompt": null,
+      "response": "My pencil case is blue. I have...",
+      "full_text": "My pencil case is blue. I have...",
+      "grammar_label": "Presentation description",
+      "function": "presenting_possessions",
+      "explicit_in_source": true,
+      "notes": "Activity 18 project presentation speech bubble",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0011",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "Stand up! / Sit down! / Look! / Don't talk! / Don't run! / Don't eat!",
+      "grammar_label": "Imperatives (affirmative and negative)",
+      "function": "giving_rules_and_instructions",
+      "explicit_in_source": true,
+      "notes": "Grammar table summary on page 18",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0012",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_019",
+      "language_type": "sentence",
+      "prompt": null,
+      "response": null,
+      "full_text": "Don't talk in class. / Listen to your teacher. / Look at the board. / Don't eat in class. / Don't run in class. / Do your homework.",
+      "grammar_label": "School rules (imperatives)",
+      "function": "stating_school_rules",
+      "explicit_in_source": true,
+      "notes": "Activity 21 School Rules poster items",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0013",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_021",
+      "language_type": "sentence_frame",
+      "prompt": null,
+      "response": "It's a... . They're... .",
+      "full_text": "It's a... . They're... .",
+      "grammar_label": "Singular and plural descriptions",
+      "function": "describing_objects",
+      "explicit_in_source": true,
+      "notes": "Activity 27 prompt frame",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0014",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "language_type": "dialogue",
+      "prompt": "Please sit down.",
+      "response": "Thank you.",
+      "full_text": "Please sit down. Thank you.",
+      "grammar_label": "Polite exchange",
+      "function": "being_polite",
+      "explicit_in_source": true,
+      "notes": "Activity 28 picture a dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0015",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "language_type": "dialogue",
+      "prompt": "Thank you.",
+      "response": "You're welcome.",
+      "full_text": "Thank you. You're welcome.",
+      "grammar_label": "Polite exchange",
+      "function": "responding_to_thanks",
+      "explicit_in_source": true,
+      "notes": "Activity 28 picture b dialogue",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0101",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 desk",
+          "expected_answer": "desk"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 book",
+          "expected_answer": "book"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 crayon",
+          "expected_answer": "crayon"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 eraser",
+          "expected_answer": "eraser"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 marker",
+          "expected_answer": "marker"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 pen",
+          "expected_answer": "pen"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 pencil",
+          "expected_answer": "pencil"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 ruler",
+          "expected_answer": "ruler"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 chair",
+          "expected_answer": "chair"
+        },
+        {
+          "item_number": "10",
+          "prompt": "10 backpack",
+          "expected_answer": "backpack"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 17",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0102",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 18",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0103",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0104",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 19, 20",
+      "notes": "Associated song: 'The Classroom Song'",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0105",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "activity_number": "5",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "yellow crayon",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "red pen",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "blue chair",
+          "expected_answer": null
+        },
+        {
+          "item_number": "d",
+          "prompt": "desk",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 21; numbering order requires audio",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0106",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 5. Ask and answer.",
+      "prompt": "What is it?",
+      "expected_answer": "It's a chair.",
+      "language_frame": "What is it? / It's a [object].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to pictures in Activity 5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0107_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "activity_number": "Think Big",
+      "activity_type": "listen_number_say",
+      "instruction": "What is it? Listen, number, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "book [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "backpack [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "pencil [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 22",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0107",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_012",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. What color is the marker?",
+      "prompt": "What color is the marker?",
+      "expected_answer": "It's a red marker. / It's red. / Red.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 24; accompanies story 'Classroom Colors' across pages 12-13",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0108",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_013",
+      "activity_number": "8",
+      "activity_type": "circle_correct_option",
+      "instruction": "Look at the story. Then circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a (pen) vs b (marker)",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "2",
+          "prompt": "a (pencils) vs b (pens)",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "a (red/green erasers) vs b (green erasers)",
+          "expected_answer": "b"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to the story 'Classroom Colors'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0108_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_013",
+      "activity_number": "Think Big",
+      "activity_type": "draw_and_say",
+      "instruction": "What happens next? Draw and say.",
+      "prompt": "What happens next?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing box provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0109",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "What is it? It's a [singular noun]. / What are they? They're [plural noun].",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 26",
+      "notes": "Manipulable words on board: a backpack, chairs, a pencil, markers; What is it? It's a pen. What are they? They're pens.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0110",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "activity_number": "10",
+      "activity_type": "circle_color_draw",
+      "instruction": "Circle and color. Then circle and draw.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "ruler drawing: What is it? / What are they? | They're rulers. / It's a ruler. | It's blue. / They're blue.",
+          "expected_answer": "What is it? / It's a ruler. / It's blue."
+        },
+        {
+          "item_number": "2",
+          "prompt": "two desks drawing: What are they? / What is it? | It's a desk. / They're desks. | It's red. / They're red.",
+          "expected_answer": "What are they? / They're desks. / They're red."
+        },
+        {
+          "item_number": "3",
+          "prompt": "stack of books drawing: What is it? / What are they? | They're books. / It's a book. | It's yellow. / They're yellow.",
+          "expected_answer": "What are they? / They're books. / They're yellow."
+        },
+        {
+          "item_number": "4",
+          "prompt": "empty box to draw: What is it? / What are they? | They're erasers. / It's an eraser. | It's brown. / They're brown.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Item 4 is open student drawing according to choice",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0111",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "desk 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "desk 2",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "desk 3",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "desk 4",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 28; stickers required from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0112",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "activity_number": "12",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 11. Ask and answer.",
+      "prompt": "What is it? / What are they?",
+      "expected_answer": "It's... / They're...",
+      "language_frame": "What is it? / It's... | What are they? / They're...",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to completed stickers in Activity 11",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0113",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "activity_number": "13",
+      "activity_type": "draw_and_say",
+      "instruction": "Draw and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "box 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "box 2",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Two drawing frames provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0114",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "activity_number": "14",
+      "activity_type": "look_listen_repeat_say",
+      "instruction": "Look, listen, and repeat. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I have a...",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 pencil case",
+          "expected_answer": "pencil case"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 tablet",
+          "expected_answer": "tablet"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 pencil sharpener",
+          "expected_answer": "pencil sharpener"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 notebook",
+          "expected_answer": "notebook"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 29",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0115",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "activity_number": "15",
+      "activity_type": "look_listen_read_match",
+      "instruction": "Look, listen, and read. Then match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Luke: I have a tablet, three notebooks, and a green pencil sharpener.",
+          "expected_answer": "desk b or c (requires visual/audio check)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Emma: I have a yellow notebook and a pink pencil sharpener. My pencil case is blue.",
+          "expected_answer": "desk a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Ahmed: I have two notebooks and a tablet. My pencil case is purple.",
+          "expected_answer": "desk b or c"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 30",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0115_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "activity_number": "Think Big",
+      "activity_type": "open_question",
+      "instruction": "How many...? Say.",
+      "prompt": "How many...?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Visual prompt showing a student counting messy desk items",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0116",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "activity_number": "16",
+      "activity_type": "count_and_write",
+      "instruction": "Look at 15. Count and write.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "Luke",
+          "prompt": "pencil sharpener / notebook / pen",
+          "expected_answer": null
+        },
+        {
+          "item_number": "Emma",
+          "prompt": "pencil sharpener / notebook / pen",
+          "expected_answer": null
+        },
+        {
+          "item_number": "Ahmed",
+          "prompt": "pencil sharpener / notebook / pen",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to items depicted in Activity 15 desks",
+      "notes": "Grid to complete with counts",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0117",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "activity_number": "17",
+      "activity_type": "class_survey",
+      "instruction": "Do a class survey.",
+      "prompt": "How many pencils do you have?",
+      "expected_answer": "I have seven pencils.",
+      "language_frame": "How many [items] do you have? / I have [number] [items].",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "pencils",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "notebooks",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "erasers",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Survey chart with column 'Me' and class peers",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0118",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a My Pencil Case poster. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "My pencil case is [color]. I have...",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft / speaking project",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0119",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "activity_number": "19",
+      "activity_type": "look_listen_repeat",
+      "instruction": "Look, listen, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Stand up!",
+          "expected_answer": "Stand up!"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Sit down!",
+          "expected_answer": "Sit down!"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Look!",
+          "expected_answer": "Look!"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Don't talk!",
+          "expected_answer": "Don't talk!"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Don't run!",
+          "expected_answer": "Don't run!"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Don't eat!",
+          "expected_answer": "Don't eat!"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 32",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0120",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "activity_number": "20",
+      "activity_type": "look_read_match",
+      "instruction": "Look, read, and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Girl raising hand with check / boy with cross: X talking vs raising hand",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Boy raising hand: check",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Girl clapping hands: X",
+          "expected_answer": "c"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Boy sitting down on chair: check",
+          "expected_answer": "b"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Target text options: a Raise your hand! b Sit down! c Don't clap your hands! d Don't close your book!",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0121",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_019",
+      "activity_number": "21",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Talk / Don't talk in class. (X)",
+          "expected_answer": "Don't talk"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Listen / Don't listen to your teacher. (check)",
+          "expected_answer": "Listen"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Look / Don't look at the board. (check)",
+          "expected_answer": "Look"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Eat / Don't eat in class. (X)",
+          "expected_answer": "Don't eat"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Run / Don't run in class. (X)",
+          "expected_answer": "Don't run"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Do / Don't do your homework. (check)",
+          "expected_answer": "Do"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Based on School Rules poster with check and cross symbols",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0122",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_019",
+      "activity_number": "22",
+      "activity_type": "game",
+      "instruction": "Play the game.",
+      "prompt": "Simon says, 'Cross your arms!' / Don't cross your arms!",
+      "expected_answer": null,
+      "language_frame": "Simon says, '[Imperative]!' / Don't [imperative]!",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Simon Says game",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0123",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_019",
+      "activity_number": "23",
+      "activity_type": "draw_rules",
+      "instruction": "Draw two home rules.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "X (negative rule)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "check (affirmative rule)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Two drawing boxes provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0124",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "activity_number": "24",
+      "activity_type": "look_listen_repeat",
+      "instruction": "Look, listen, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Africa",
+          "expected_answer": "Africa"
+        },
+        {
+          "item_number": "2",
+          "prompt": "The United States of America",
+          "expected_answer": "The United States of America"
+        },
+        {
+          "item_number": "3",
+          "prompt": "China",
+          "expected_answer": "China"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 33",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0125",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "activity_number": "25",
+      "activity_type": "listen_read_match",
+      "instruction": "Listen and read. Then match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Text 1 (United States of America)",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Text 2 (China)",
+          "expected_answer": "c"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Text 3 (Africa)",
+          "expected_answer": "a"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 34",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0126",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_021",
+      "activity_number": "26",
+      "activity_type": "read_and_check",
+      "instruction": "Look at 25. Read and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "black backpack",
+          "expected_answer": "Africa"
+        },
+        {
+          "item_number": "2",
+          "prompt": "tablet",
+          "expected_answer": "China"
+        },
+        {
+          "item_number": "3",
+          "prompt": "big desk",
+          "expected_answer": "China"
+        },
+        {
+          "item_number": "4",
+          "prompt": "small desk",
+          "expected_answer": "Africa, USA"
+        },
+        {
+          "item_number": "5",
+          "prompt": "big classroom",
+          "expected_answer": "China, USA"
+        },
+        {
+          "item_number": "6",
+          "prompt": "notebook",
+          "expected_answer": "Africa, China"
+        },
+        {
+          "item_number": "7",
+          "prompt": "yellow pencil",
+          "expected_answer": "Africa"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Checklist table referencing texts in Activity 25",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0127",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_021",
+      "activity_number": "27",
+      "activity_type": "draw_and_say",
+      "instruction": "What do you have on your desk? Draw and say.",
+      "prompt": "What do you have on your desk?",
+      "expected_answer": null,
+      "language_frame": "It's a... . They're... .",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Desk illustration template for drawing",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0127_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_021",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "What can you find in classrooms everywhere?",
+      "prompt": "What can you find in classrooms everywhere?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0128",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "activity_number": "28",
+      "activity_type": "listen_find_repeat",
+      "instruction": "Listen and find the picture. Then listen and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "Please sit down. - Thank you.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "Thank you. - You're welcome.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 36",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0129",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "activity_number": "29",
+      "activity_type": "look_number_say",
+      "instruction": "Look and number. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Thank you. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Please sit down, Anna. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Thank you, Susie. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "You're welcome. [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Visual matching to pictures 1, 2, 3, 4",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0129_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "How can you be polite in class?",
+      "prompt": "How can you be polite in class?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0130",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "activity_number": "30",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "2",
+          "prompt": "t",
+          "expected_answer": "t"
+        },
+        {
+          "item_number": "3",
+          "prompt": "p",
+          "expected_answer": "p"
+        },
+        {
+          "item_number": "4",
+          "prompt": "n",
+          "expected_answer": "n"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 37",
+      "notes": "Target letter sounds: a, t, p, n",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0131",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "activity_number": "31",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "pan",
+          "expected_answer": "pan"
+        },
+        {
+          "item_number": "2",
+          "prompt": "ant",
+          "expected_answer": "ant"
+        },
+        {
+          "item_number": "3",
+          "prompt": "nap",
+          "expected_answer": "nap"
+        },
+        {
+          "item_number": "4",
+          "prompt": "tap",
+          "expected_answer": "tap"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 38",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0132",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "activity_number": "32",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a-n",
+          "expected_answer": "an"
+        },
+        {
+          "item_number": "2",
+          "prompt": "p-a-t",
+          "expected_answer": "pat"
+        },
+        {
+          "item_number": "3",
+          "prompt": "p-a-n-t",
+          "expected_answer": "pant"
+        },
+        {
+          "item_number": "4",
+          "prompt": "t-a-n",
+          "expected_answer": "tan"
+        },
+        {
+          "item_number": "5",
+          "prompt": "a-t",
+          "expected_answer": "at"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 39",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0133",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "activity_number": "33",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline a, t, p, and n. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 40; chant text: 'Pat the ant / Has a tan. / Pat the ant / Takes a nap.'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0134",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_024",
+      "activity_number": "34",
+      "activity_type": "spot_the_differences",
+      "instruction": "Look and find the differences. Then listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 42; visual comparison between Picture A and Picture B",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0135",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_024",
+      "activity_number": "35",
+      "activity_type": "listen_play_game",
+      "instruction": "Listen and play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 43",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0136",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_025",
+      "activity_number": "36",
+      "activity_type": "listen_and_circle",
+      "instruction": "Listen and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "yellow ruler / green ruler / purple ruler",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "red backpack / blue backpack",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "erasers (green, blue, red, orange/yellow)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 44; answer requires audio",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0137",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_025",
+      "activity_number": "37",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Don't run!",
+          "expected_answer": "c"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Sit down!",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Please don't talk!",
+          "expected_answer": "d"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Eat, please!",
+          "expected_answer": "a"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Matches sentences to photos a, b, c, d",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0138_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_025",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "name classroom objects.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "talk about the things I have and about rules.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "be polite.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Student self-assessment checklist",
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0101",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "text_type": "song",
+      "title": "The Classroom Song",
+      "content": "Good morning, class.\nGood morning to you!\nHow are you?\nI'm fine, thank you.\nWhat is it? It's an eraser.\nWhat is it? It's a ruler.\nWhat is it? It's a pencil.\nWhat is it? It's a crayon.\nNow pick up your pen\nAnd open your book.\nSay the words\nAnd write with me.\nLet's start now. 1, 2, 3!\nChorus",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 19, 20",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0102",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_012",
+      "text_type": "story",
+      "title": "Classroom Colors",
+      "content": "Frame 1:\nTeacher: Look, Tim. What is it?\nTim: It's a pen.\nFrame 2:\nTim: Look! What are they?\nTeacher: They're pencils.\nTim: Yes, they're yellow pencils.\nFrame 3:\nTeacher: And what is it?\nTim: It's a marker. A red marker.\nTeacher: Yes! Good, Tim.\nFrame 4:\nTeacher: And what are they?\nTim: They're erasers.\nTeacher: And what color are they?\nFrame 5:\nTim: They're red.\nTeacher: Red? No, Tim. They're green erasers.\nFrame 6:\nTeacher: Tim!\nTim: No, look! They're red erasers.",
+      "speaker_structure": {
+        "speakers": [
+          "Teacher",
+          "Tim"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on page 12; frames 5-6 on page 13; track 24",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0103",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: Classrooms Around the World",
+      "content": "1 In the United States of America, I have a big classroom. My desk is small, and my chair is small, too. I have a pencil case, and I have markers, pencils, and crayons. I have an eraser and a ruler, too.\n2 My classroom in China is big. My desk is big, too. I have a pen and a notebook. I have a tablet and a green pencil sharpener.\n3 This is my classroom in Africa. It's small. I have a small desk. I have a black backpack and a yellow pencil. I have notebooks, too.",
+      "speaker_structure": {
+        "passages": [
+          {
+            "passage_number": 1,
+            "country": "United States of America"
+          },
+          {
+            "passage_number": 2,
+            "country": "China"
+          },
+          {
+            "passage_number": 3,
+            "country": "Africa"
+          }
+        ]
+      },
+      "audio_dependency": true,
+      "notes": "Track 34",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0104",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "text_type": "chant",
+      "title": "Phonics Chant (a, t, p, n)",
+      "content": "Pat the ant\nHas a tan.\nPat the ant\nTakes a nap.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 40",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0101",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_010",
+      "component_type": "vocabulary",
+      "source_label": "Unit 1 vocabulary (classroom objects)",
+      "title": "Good Morning, Class!",
+      "description": "Presentation and recognition of 10 classroom objects.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0102",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "The Classroom Song",
+      "description": "Song contextualizing classroom objects and greeting routines.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0103",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_012",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "Classroom Colors",
+      "description": "Six-frame comic story practicing singular/plural object identification and colors.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0104",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_014",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "Language in Action",
+      "description": "Practice with 'What is it? It's a...' and 'What are they? They're...'.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0105",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_016",
+      "component_type": "clil",
+      "source_label": "Content Connection | Math",
+      "title": "School possessions",
+      "description": "Counting possessions and reading inventory descriptions.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0106",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_017",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "My Pencil Case poster",
+      "description": "Creating and presenting a poster about student's pencil case possessions.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0107",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_018",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "Grammar (Sit down! Don't run!)",
+      "description": "Affirmative and negative imperatives for classroom rules.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0108",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_020",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "Classrooms",
+      "description": "Classroom environments in Africa, the USA, and China.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0109",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Be polite.",
+      "description": "Practicing polite classroom interactions using 'Thank you', 'You're welcome', and 'Please sit down'.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0110",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_023",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "a, t, p, n",
+      "description": "Letter-sound correspondence and sound blending for a, t, p, n.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0111",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_024",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Consolidation of Unit 1 vocabulary, grammar, and structures.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0112",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_025",
+      "component_type": "review",
+      "source_label": "I Can",
+      "title": "Self-assessment",
+      "description": "Student self-assessment checklist of unit goals.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0101",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0104",
+      "target_entity_type": "vocabulary",
+      "target_entity_id": "bep1_vocab_0001",
+      "evidence_type": "explicit_reference",
+      "notes": "Song references classroom vocabulary from Activity 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0102",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0106",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0105",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 5. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0103",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0108",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0102",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story. Then circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0104",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0112",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0111",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0105",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0116",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0115",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Count and write.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0106",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0126",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0125",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 25. Read and check.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0107",
+      "book_id": "bep1_sb",
+      "relationship_type": "introduces",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0130",
+      "target_entity_type": "curriculum_component",
+      "target_entity_id": "bep1_comp_0110",
+      "evidence_type": "section_structure",
+      "notes": "Introduces phonemes /a/, /t/, /p/, /n/",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0101",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0105",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Expected numbering sequence for items a, b, c, d requires audio track 21.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0102",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0107_thinkbig",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Expected numbering for book, backpack, pencil boxes requires audio track 22.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0103",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_015",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0111",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Sticker placement for desks 1-4 requires audio track 28 and sticker sheet inspection.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0104",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_022",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0129",
+      "issue_type": "visual_verification_required",
+      "severity": "review",
+      "description": "Numbering of dialog bubbles 1 to 4 corresponds to pictures 1-4 but requires manual verification of intended sequence.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0105",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_025",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0136",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Circling correct object for items 1-3 requires audio track 44.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [
+    {
+      "schema_gap_id": "bep1_gap_0101",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_01",
+      "page_id": "bep1_page_011",
+      "observed_content": "Think Big breakout prompt feature appearing across multiple lesson pages (e.g., pp. 11, 13, 16, 21, 22).",
+      "closest_existing_structure": "activities",
+      "problem": "Think Big is a distinct higher-order thinking / critical thinking sub-feature often attached to standard activities, but currently must be modeled as a standard activity or notes field.",
+      "proposed_change": "Add an optional 'sub_feature_type' field to activity records (e.g. 'think_big', 'project', 'i_can').",
+      "reason": "Allows analytical grouping and filtering of critical thinking prompts across units.",
+      "scope_estimate": "series_specific",
+      "review_status": "pending"
+    }
+  ],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 5,
+    "open_schema_gap_count": 1,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}

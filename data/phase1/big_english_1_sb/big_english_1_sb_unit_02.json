@@ -1,0 +1,2315 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u02_batch",
+    "unit_id": "bep1_unit_02",
+    "source_section": "Unit 2",
+    "printed_page_start": 26,
+    "printed_page_end": 41,
+    "pdf_page_start": 26,
+    "pdf_page_end": 41,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_02",
+      "book_id": "bep1_sb",
+      "unit_number": "2",
+      "title": "My Family",
+      "theme": "Family members, gender, introducing family, helping family",
+      "printed_page_start": 26,
+      "printed_page_end": 41,
+      "pdf_page_start": 26,
+      "pdf_page_end": 41,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_026",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 26,
+      "pdf_page": 26,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "My Family",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 2 vocabulary (family members)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_027",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 27,
+      "pdf_page": 27,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "My Family",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "song/vocabulary Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_028",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 28,
+      "pdf_page": 28,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "A Big Family",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_029",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 29,
+      "pdf_page": 29,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Frames 5 to 6; reading Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_030",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 30,
+      "pdf_page": 30,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 2 language practice (Who's she? She's my sister.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_031",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 31,
+      "pdf_page": 31,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "language practice (How many brothers do you have? I have two brothers.) Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_032",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 32,
+      "pdf_page": 32,
+      "section_title": "Content Connection | Social Science",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Social Science",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Gender (boy, girl, man, woman)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_033",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 33,
+      "pdf_page": 33,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "content connection (gender) Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_034",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 34,
+      "pdf_page": 34,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: Demonstratives 'This is...' / 'These are...'",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_035",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 35,
+      "pdf_page": 35,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "grammar (This is my dad. These are my brothers.) Unit 2; possessive adjectives (his, her, my)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_036",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 36,
+      "pdf_page": 36,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "Family and Friends",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: Family and friends from different countries",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_037",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 37,
+      "pdf_page": 37,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "culture connection (families) Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_038",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 38,
+      "pdf_page": 38,
+      "section_title": "Values | Help your family.",
+      "section_type": "values",
+      "page_heading": "Values | Help your family.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 2 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_039",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 39,
+      "pdf_page": 39,
+      "section_title": "Phonics | i, s, b, d",
+      "section_type": "phonics",
+      "page_heading": "i, s, b, d | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "phonics (i, s, b, d) Unit 2",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_040",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 40,
+      "pdf_page": 40,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Unit 2 review",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_041",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "printed_page": 41,
+      "pdf_page": 41,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "review/self-assessment Unit 2",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "grandpa",
+      "normalized_term": "grandpa",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "grandma",
+      "normalized_term": "grandma",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "mom",
+      "normalized_term": "mom",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0204",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "dad",
+      "normalized_term": "dad",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0205",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "brother",
+      "normalized_term": "brother",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0206",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "sister",
+      "normalized_term": "sister",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0207",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "me",
+      "normalized_term": "me",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0208",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "parents",
+      "normalized_term": "parents",
+      "classification": "target",
+      "source_context": "Activity 1, item 8 (mom and dad)",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0209",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "term": "grandparents",
+      "normalized_term": "grandparents",
+      "classification": "target",
+      "source_context": "Activity 1, item 9 (grandma and grandpa)",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0210",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_028",
+      "term": "photo album",
+      "normalized_term": "photo album",
+      "classification": "target",
+      "source_context": "Story 'A Big Family', frame 1",
+      "explicitly_listed": true,
+      "notes": "Also listed on Contents p. 2 under 'Other'",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0211",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "boy",
+      "normalized_term": "boy",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 14, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0212",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "girl",
+      "normalized_term": "girl",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 14, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0213",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "man",
+      "normalized_term": "man",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 14, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0214",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "woman",
+      "normalized_term": "woman",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 14, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0215",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "baby",
+      "normalized_term": "baby",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 15",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0216",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "term": "best friend",
+      "normalized_term": "best friend",
+      "classification": "target",
+      "source_context": "Content Connection Social Science, Activity 15",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0217",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "term": "Mexico",
+      "normalized_term": "Mexico",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 23/24",
+      "explicitly_listed": true,
+      "notes": "Geographic proper noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0218",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "term": "South Korea",
+      "normalized_term": "South Korea",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 24",
+      "explicitly_listed": true,
+      "notes": "Geographic proper noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0219",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "term": "France",
+      "normalized_term": "France",
+      "classification": "target",
+      "source_context": "Culture Connection, Activity 24",
+      "explicitly_listed": true,
+      "notes": "Geographic proper noun",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0220",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "sit",
+      "normalized_term": "sit",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0221",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "in",
+      "normalized_term": "in",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0222",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "bat",
+      "normalized_term": "bat",
+      "classification": "target",
+      "source_context": "Phonics Activity 30",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0223",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "pin",
+      "normalized_term": "pin",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0224",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "bad",
+      "normalized_term": "bad",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0225",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "dip",
+      "normalized_term": "dip",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0226",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "sad",
+      "normalized_term": "sad",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0227",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "term": "it",
+      "normalized_term": "it",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 31",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "language_type": "question_answer",
+      "prompt": "Who's he?",
+      "response": "He's my grandpa.",
+      "full_text": "Who's he? He's my grandpa.",
+      "grammar_label": "Question with who (singular masculine)",
+      "function": "identifying_family_members",
+      "explicit_in_source": true,
+      "notes": "Model dialogue for Activity 6",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_030",
+      "language_type": "question_answer",
+      "prompt": "Who's he / she?",
+      "response": "He's / She's my brother.",
+      "full_text": "Who's he? He's my brother. / Who's she? She's my sister.",
+      "grammar_label": "Singular questions with Who's",
+      "function": "identifying_people",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_030",
+      "language_type": "question_answer",
+      "prompt": "Who are they?",
+      "response": "They're my grandma and grandpa.",
+      "full_text": "Who are they? They're my grandma and grandpa.",
+      "grammar_label": "Plural questions with Who are they?",
+      "function": "identifying_people",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0204",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_031",
+      "language_type": "question_answer",
+      "prompt": "How many brothers and sisters do you have?",
+      "response": "I have two sisters.",
+      "full_text": "How many brothers and sisters do you have? I have two sisters.",
+      "grammar_label": "Inquiring about family numbers",
+      "function": "asking_and_answering_about_siblings",
+      "explicit_in_source": true,
+      "notes": "Model dialogue for Activity 12",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0205",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "language_type": "sentence",
+      "prompt": null,
+      "response": "This is a boy. He's my brother.",
+      "full_text": "This is a boy. He's my brother.",
+      "grammar_label": "Gender identification and family relationship",
+      "function": "classifying_gender_and_relationship",
+      "explicit_in_source": true,
+      "notes": "Activity 14 speech bubble",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0206",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_034",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "This is my dad. / This is my mom. / This is my sister. | These are my parents. / These are my grandparents. / These are my brothers.",
+      "grammar_label": "Demonstratives This is / These are",
+      "function": "introducing_family_members",
+      "explicit_in_source": true,
+      "notes": "Grammar table page 34",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0207",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_035",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "This is me. My name's Amy. / This is my brother. His name's Pete. / This is my sister. Her name's Megan.",
+      "grammar_label": "Possessive adjectives my / his / her",
+      "function": "introducing_names_and_relations",
+      "explicit_in_source": true,
+      "notes": "Grammar table page 35",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0208",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_038",
+      "language_type": "dialogue",
+      "prompt": "Can I help you? / Please help me.",
+      "response": "Yes, thank you. / OK. I can help you.",
+      "full_text": "Can I help you? Yes, thank you. | Please help me. OK. I can help you.",
+      "grammar_label": "Offering and asking for help",
+      "function": "helping_family",
+      "explicit_in_source": true,
+      "notes": "Activity 27 dialogues",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 grandpa",
+          "expected_answer": "grandpa"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 grandma",
+          "expected_answer": "grandma"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 mom",
+          "expected_answer": "mom"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 dad",
+          "expected_answer": "dad"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 brother",
+          "expected_answer": "brother"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 sister",
+          "expected_answer": "sister"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 me",
+          "expected_answer": "me"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 parents (mom and dad)",
+          "expected_answer": "parents"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 grandparents (grandma and grandpa)",
+          "expected_answer": "grandparents"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 45",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 46",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0204",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 47, 48; Song: 'My Family'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0205",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "activity_number": "5",
+      "activity_type": "look_and_circle",
+      "instruction": "Look at 4 and circle the correct answer.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "grandpa / dad",
+          "expected_answer": "dad"
+        },
+        {
+          "item_number": "2",
+          "prompt": "grandma / sister",
+          "expected_answer": "grandma"
+        },
+        {
+          "item_number": "3",
+          "prompt": "mom / brother",
+          "expected_answer": "brother"
+        },
+        {
+          "item_number": "4",
+          "prompt": "sister / brother",
+          "expected_answer": "sister"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to numbered figures in photo on page 27",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0206",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 4. Ask and answer.",
+      "prompt": "Who's he?",
+      "expected_answer": "He's my grandpa.",
+      "language_frame": "Who's he / she? / He's / She's my [relative].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to photo in Activity 4",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0207_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Are all families the same? Who's in your family?",
+      "prompt": "Are all families the same? Who's in your family?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0207",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_028",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. How many brothers? How many sisters?",
+      "prompt": "How many brothers? How many sisters?",
+      "expected_answer": "One brother and one sister.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 50; accompanies story 'A Big Family'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0208",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_029",
+      "activity_number": "8",
+      "activity_type": "circle_correct_option",
+      "instruction": "Look at the story. Then circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "She's my mom. (a vs b)",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "2",
+          "prompt": "He's my dad. (a vs b)",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "They're my brother and sister. (a vs b)",
+          "expected_answer": "a"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to the story 'A Big Family'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0208_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_029",
+      "activity_number": "Think Big",
+      "activity_type": "draw_activity",
+      "instruction": "Who's missing? Draw.",
+      "prompt": "Who's missing?",
+      "expected_answer": "dad / the dad",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Drawing frame depicting Tim, Jane, mom, baby brother Patrick; dad is missing",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0209",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_030",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Who's he / she? He's / She's my [relative]. / Who are they? They're my [relatives].",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 51",
+      "notes": "Word tiles: sister, dad, grandparents, mom, parents; Who's he? He's my brother. Who are they? They're my grandma and grandpa.",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0210",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_030",
+      "activity_number": "10",
+      "activity_type": "follow_draw_say",
+      "instruction": "Follow. Then draw and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Who's he / she? / Who are they?",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Who's he?",
+          "expected_answer": "He's my brother. / He's my dad."
+        },
+        {
+          "item_number": "2",
+          "prompt": "Who's she?",
+          "expected_answer": "She's my sister."
+        },
+        {
+          "item_number": "3",
+          "prompt": "Who are they?",
+          "expected_answer": "They're my parents."
+        },
+        {
+          "item_number": "4",
+          "prompt": "Who are they?",
+          "expected_answer": "They're my grandparents."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Follow the colored maze lines to the photographs",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0211",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_031",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Frame 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Frame 2",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Frame 3",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "Frame 4",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 53; requires stickers from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0212",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_031",
+      "activity_number": "12",
+      "activity_type": "role_play",
+      "instruction": "Look at 11. Role-play with a partner.",
+      "prompt": "How many brothers and sisters do you have?",
+      "expected_answer": "I have two sisters. You're number...",
+      "language_frame": "How many brothers and sisters do you have? / I have [number] [brothers/sisters]. / You're number...",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to pictures completed in Activity 11",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0213",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_031",
+      "activity_number": "13",
+      "activity_type": "draw_and_say",
+      "instruction": "Draw and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Picture frame provided for drawing family",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0214",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "activity_number": "14",
+      "activity_type": "look_listen_repeat_say",
+      "instruction": "Look, listen, and repeat. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "This is a boy. He's my brother.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 boy",
+          "expected_answer": "boy"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 girl",
+          "expected_answer": "girl"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 man",
+          "expected_answer": "man"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 woman",
+          "expected_answer": "woman"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 54",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0215",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "activity_number": "15",
+      "activity_type": "listen_read_point",
+      "instruction": "Listen, read, and point. Is the baby a boy or a girl?",
+      "prompt": "Is the baby a boy or a girl?",
+      "expected_answer": "A girl (Her name's Anna / baby sister).",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 55",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0215_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Is your teacher a man or a woman? Is your best friend a boy or a girl?",
+      "prompt": "Is your teacher a man or a woman? Is your best friend a boy or a girl?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0216",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_033",
+      "activity_number": "16",
+      "activity_type": "true_false",
+      "instruction": "Look at 15. Circle T for true and F for false.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I have one brother.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "2",
+          "prompt": "The girl is my best friend.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "3",
+          "prompt": "My dad is a boy.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I have a baby sister.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Anna is a woman.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Mia is my best friend.",
+          "expected_answer": "T"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on text in Activity 15",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0217",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_033",
+      "activity_number": "17",
+      "activity_type": "draw_ask_answer",
+      "instruction": "Draw your family. Then ask and answer.",
+      "prompt": "Who's this?",
+      "expected_answer": "This is my brother.",
+      "language_frame": "Who's this? / This is my [relative].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0218",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_033",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a Family poster. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "This man is my dad, and this woman is my mom.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft poster presentation project",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0219",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_034",
+      "activity_number": "19",
+      "activity_type": "look_listen_repeat",
+      "instruction": "Look, listen, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "These are my parents. This is my dad, and this is my mom.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "These are my grandparents. This is my grandpa, and this is my grandma.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "This is my sister, Sandra. This is me. My name's Mike.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "These are my brothers. I have three! This is Andy, this is Sam, and this is Jason.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 57",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0220",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_034",
+      "activity_number": "20",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "my sisters",
+          "expected_answer": "These are"
+        },
+        {
+          "item_number": "2",
+          "prompt": "my grandpa",
+          "expected_answer": "This is"
+        },
+        {
+          "item_number": "3",
+          "prompt": "my brother",
+          "expected_answer": "This is"
+        },
+        {
+          "item_number": "4",
+          "prompt": "my parents",
+          "expected_answer": "These are"
+        },
+        {
+          "item_number": "5",
+          "prompt": "my mom",
+          "expected_answer": "This is"
+        },
+        {
+          "item_number": "6",
+          "prompt": "my grandparents",
+          "expected_answer": "These are"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Matching to 'This is' or 'These are'",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0221",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_035",
+      "activity_number": "21",
+      "activity_type": "read_and_find",
+      "instruction": "Read and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Accompanying family photo with Amy, Anne, Bob, Emma, Joe, Pete, Megan",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0222",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_035",
+      "activity_number": "22",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "This is my brother. Her / His name's Thomas.",
+          "expected_answer": "His"
+        },
+        {
+          "item_number": "2",
+          "prompt": "This is my mom. Her / My name's Penny.",
+          "expected_answer": "Her"
+        },
+        {
+          "item_number": "3",
+          "prompt": "This is my baby sister. My / Her name's Sharon.",
+          "expected_answer": "Her"
+        },
+        {
+          "item_number": "4",
+          "prompt": "This is my grandma. My / Her name's Betty.",
+          "expected_answer": "Her"
+        },
+        {
+          "item_number": "5",
+          "prompt": "This is my sister. His / Her name's Katie.",
+          "expected_answer": "Her"
+        },
+        {
+          "item_number": "6",
+          "prompt": "This is my dad. His / My name's Paul.",
+          "expected_answer": "His"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0223",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "activity_number": "23",
+      "activity_type": "look_listen_repeat_say",
+      "instruction": "Look, listen, and repeat. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Who's she? She's Maria. She's from Mexico.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Maria",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Minjoon",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Celine",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 59",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0224",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "activity_number": "24",
+      "activity_type": "listen_read_write",
+      "instruction": "Listen and read. Then write the names.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "Family",
+          "prompt": "Family column",
+          "expected_answer": "Celine"
+        },
+        {
+          "item_number": "Friends",
+          "prompt": "Friends column",
+          "expected_answer": "Maria, Minjoon"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 60",
+      "notes": "Two-column chart (Family vs Friends)",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0225",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_037",
+      "activity_number": "25",
+      "activity_type": "read_and_circle",
+      "instruction": "Look at 24. Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Minjoon is a boy / girl.",
+          "expected_answer": "boy"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Maria is my friend / best friend.",
+          "expected_answer": "best friend"
+        },
+        {
+          "item_number": "3",
+          "prompt": "My sister's name is Maria / Celine.",
+          "expected_answer": "Celine"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Minjoon and Maria are my family / friends.",
+          "expected_answer": "friends"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Celine is my best friend / sister.",
+          "expected_answer": "sister"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Refers to text 24",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0226",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_037",
+      "activity_number": "26",
+      "activity_type": "read_circle_write_draw",
+      "instruction": "Read, circle, and write. Then draw.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "My best friend is a boy / girl. His / Her name is [name]. | This is my brother / sister / mom / dad. His / Her name is [name].",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "My best friend is a boy / girl. His / Her name is ______.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "This is my brother / sister / mom / dad. His / Her name is ______.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Includes two drawing frames",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0226_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_037",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "How many friends do you have? Do you have a best friend? What's his/her name?",
+      "prompt": "How many friends do you have? Do you have a best friend? What's his/her name?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0227",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_038",
+      "activity_number": "27",
+      "activity_type": "listen_read_circle",
+      "instruction": "Listen and read. Then circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Pam: Can I help you? / Boy: Yes, thank you. -> Pam helps her brother / sister.",
+          "expected_answer": "brother"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Girl: Please help me. / Tommy: OK. I can help you. -> Tommy helps his brother / sister.",
+          "expected_answer": "sister"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 62",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0228",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_038",
+      "activity_number": "28",
+      "activity_type": "role_play",
+      "instruction": "Can you help? Role-play with a partner.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Photos of washing a car and preparing food",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0228_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_038",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Can you help your family? Can you help more?",
+      "prompt": "Can you help your family? Can you help more?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0229",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "activity_number": "29",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "i",
+          "expected_answer": "i"
+        },
+        {
+          "item_number": "2",
+          "prompt": "s",
+          "expected_answer": "s"
+        },
+        {
+          "item_number": "3",
+          "prompt": "b",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "4",
+          "prompt": "d",
+          "expected_answer": "d"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 64",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0230",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "activity_number": "30",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "sit",
+          "expected_answer": "sit"
+        },
+        {
+          "item_number": "2",
+          "prompt": "in",
+          "expected_answer": "in"
+        },
+        {
+          "item_number": "3",
+          "prompt": "dad",
+          "expected_answer": "dad"
+        },
+        {
+          "item_number": "4",
+          "prompt": "bat",
+          "expected_answer": "bat"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 65",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0231",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "activity_number": "31",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "i-s",
+          "expected_answer": "is"
+        },
+        {
+          "item_number": "2",
+          "prompt": "p-i-n",
+          "expected_answer": "pin"
+        },
+        {
+          "item_number": "3",
+          "prompt": "b-a-d",
+          "expected_answer": "bad"
+        },
+        {
+          "item_number": "4",
+          "prompt": "d-i-p",
+          "expected_answer": "dip"
+        },
+        {
+          "item_number": "5",
+          "prompt": "s-a-d",
+          "expected_answer": "sad"
+        },
+        {
+          "item_number": "6",
+          "prompt": "i-t",
+          "expected_answer": "it"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 66",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0232",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "activity_number": "32",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline i, s, b, and d. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 67; chant text: 'Don't sit, sit, sit / On a pin, pin, pin. / It's bad, bad, bad / To sit on a pin!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0233",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_040",
+      "activity_number": "33",
+      "activity_type": "pair_work_draw",
+      "instruction": "Work with a partner. Ask and answer. Then draw.",
+      "prompt": "Who's in your family?",
+      "expected_answer": "My mom and dad. I have two sisters, and I have a brother.",
+      "language_frame": "Who's in your family? / My [relatives]. I have [number] [brothers/sisters].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Large sketchpad frame provided for drawing",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0234",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_040",
+      "activity_number": "34",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0235",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_041",
+      "activity_number": "35",
+      "activity_type": "listen_and_check",
+      "instruction": "Listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a (two girls) vs b (two boys)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "a (three boys) vs b (two girls)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "a (three girls) vs b (three boys)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "a (four children) vs b (family with baby)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 69",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0236",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_041",
+      "activity_number": "36",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "grandparents photo",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "family of five photo",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "large family photo",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 70",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0237_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_041",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "talk about my family.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "say how many brothers and sisters I have.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "ask to help my family.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "text_type": "song",
+      "title": "My Family",
+      "content": "My family, my family!\nThis is my family.\nHe's my brother\nAnd she's my sister.\n\nMy dad, my mom!\nMy sister, my brother!\nWe have so much fun!\nI love them.\n\nMy family, my family.\nI love my family!\nI love them,\nAnd they love me.\nI love my family!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 47, 48",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_028",
+      "text_type": "story",
+      "title": "A Big Family",
+      "content": "Frame 1:\nMaria: Is this your photo album, Tim?\nTim: Yes, this is my family.\nFrame 2:\nMaria: Who are they?\nTim: They're my parents.\nFrame 3:\nMaria: How many brothers and sisters do you have?\nTim: I have one brother and one sister.\nFrame 4:\nTim: Who's she?\nTim: She's my sister.\nMaria: Oh, she's Jane!\nFrame 5:\nMaria: And who's he?\nTim: He's my brother.\nFrame 6:\nMaria: Patrick!\nTim: Yes, Patrick!",
+      "speaker_structure": {
+        "speakers": [
+          "Maria",
+          "Tim"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on p. 28; frames 5-6 on p. 29; track 50",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "text_type": "reading_passage",
+      "title": "Content Connection: Family Picture",
+      "content": "This is a picture of my family. Look at the boys. They're my brothers. The girl is my friend. She's my best friend. Her name's Mia. This man is my dad. This is my mom, and the baby is my baby sister! Her name's Anna. This woman is my grandma. I love my family!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 55",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0204",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_035",
+      "text_type": "reading_passage",
+      "title": "Grammar Reading: Amy's Family",
+      "content": "This is my family. Look at my grandma. Her name's Anne. This is my grandpa. His name's Bob.\nThe woman is my mom. Her name's Emma. This is my dad. His name's Joe.\nI have a brother and a sister. His name's Pete, and her name's Megan.\nThis is me. My name's Amy.",
+      "speaker_structure": null,
+      "audio_dependency": false,
+      "notes": "Activity 21 text",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0205",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: Family and Friends",
+      "content": "1 Maria is a girl. She's my friend. She's my best friend. She's from Mexico.\n2 Minjoon is my friend, too. He's a boy. He's seven. He's from South Korea.\n3 My sister is ten. I love my sister. Her name's Celine. She's from France. I'm from France, too!\n4 I love my family, and I love my friends, too.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 60",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0206",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "text_type": "chant",
+      "title": "Phonics Chant (i, s, b, d)",
+      "content": "Don't sit, sit, sit\nOn a pin, pin, pin.\nIt's bad, bad, bad\nTo sit on a pin!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 67",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_026",
+      "component_type": "vocabulary",
+      "source_label": "Unit 2 vocabulary (family members)",
+      "title": "My Family",
+      "description": "Vocabulary of immediate and extended family members.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_027",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "My Family",
+      "description": "Choral practice singing about family members.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_028",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "A Big Family",
+      "description": "Comic narrative introducing family photo album and inquiring about relatives.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0204",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_030",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "Who's he/she? / How many...",
+      "description": "Asking and answering questions about identity and number of siblings.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0205",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_032",
+      "component_type": "clil",
+      "source_label": "Content Connection | Social Science",
+      "title": "Gender",
+      "description": "Categorizing people by gender (boy, girl, man, woman).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0206",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_033",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "Family poster",
+      "description": "Making and presenting a family poster.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0207",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_034",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "This is / These are / Possessives",
+      "description": "Demonstrative pronouns and possessive adjectives (his, her, my).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0208",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_036",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "Family and Friends",
+      "description": "Friends and family members in Mexico, South Korea, and France.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0209",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_038",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Help your family.",
+      "description": "Offering help to family members at home.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0210",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_039",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "i, s, b, d",
+      "description": "Letters, sounds, and decodable words for i, s, b, d.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0211",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_040",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Review and self-assessment of Unit 2 learning targets.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0201",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0205",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0204",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 4 and circle the correct answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0202",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0208",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0202",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story. Then circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0203",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0212",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0211",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Role-play with a partner.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0204",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0216",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0215",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Circle T for true and F for false.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0205",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0225",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0224",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 24. Read and circle.'",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0201",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_031",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0211",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Correct sticker positions in Activity 11 require audio track 53.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0202",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_041",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0235",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Check marks for items 1-4 require audio track 69.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0203",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_02",
+      "page_id": "bep1_page_041",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0236",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for family photos a, b, c requires audio track 70.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 3,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}

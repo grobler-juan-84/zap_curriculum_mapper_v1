@@ -1,0 +1,2421 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u08_batch",
+    "unit_id": "bep1_unit_08",
+    "source_section": "Unit 8",
+    "printed_page_start": 134,
+    "printed_page_end": 149,
+    "pdf_page_start": 134,
+    "pdf_page_end": 149,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_08",
+      "book_id": "bep1_sb",
+      "unit_number": "8",
+      "title": "Fun and Games",
+      "theme": "Toys, prepositions of place, furniture, 'there is / there are', kites, sharing toys",
+      "printed_page_start": 134,
+      "printed_page_end": 149,
+      "pdf_page_start": 134,
+      "pdf_page_end": 149,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_134",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 134,
+      "pdf_page": 134,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "Fun and Games",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 8 vocabulary (toys)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_135",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 135,
+      "pdf_page": 135,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "What's in Your Toy Box?",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "song/vocabulary Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_136",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 136,
+      "pdf_page": 136,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "Where Are My Toys?",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_137",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 137,
+      "pdf_page": 137,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Frames 5 to 6; reading Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_138",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 138,
+      "pdf_page": 138,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 8 language practice (Where's the ball? It's in the toy box.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_139",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 139,
+      "pdf_page": 139,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "language practice (Where are the dolls? They're under the table.) Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_140",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 140,
+      "pdf_page": 140,
+      "section_title": "Content Connection | Art",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Art",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Kites (animal shapes)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_141",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 141,
+      "pdf_page": 141,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "content connection (kites) Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_142",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 142,
+      "pdf_page": 142,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: There is / There are (affirmative, negative, questions)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_143",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 143,
+      "pdf_page": 143,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "grammar (There's a pizza. There are sandwiches.) Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_144",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 144,
+      "pdf_page": 144,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "My Toy Box",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: Russian nesting dolls and international toys",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_145",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 145,
+      "pdf_page": 145,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "culture connection (favorite toys) Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_146",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 146,
+      "pdf_page": 146,
+      "section_title": "Values | Share your toys.",
+      "section_type": "values",
+      "page_heading": "Values | Share your toys.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 8 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_147",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 147,
+      "pdf_page": 147,
+      "section_title": "Phonics | qu, x, y",
+      "section_type": "phonics",
+      "page_heading": "qu, x, y | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "phonics (qu, x, y) Unit 8",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_148",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 148,
+      "pdf_page": 148,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 8 review",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_149",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "printed_page": 149,
+      "pdf_page": 149,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "review/self-assessment Unit 8",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "action figure",
+      "normalized_term": "action figure",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "plane",
+      "normalized_term": "plane",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "ball",
+      "normalized_term": "ball",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "bike",
+      "normalized_term": "bike",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0805",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "blocks",
+      "normalized_term": "blocks",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0806",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "cars",
+      "normalized_term": "cars",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0807",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "stuffed animal",
+      "normalized_term": "stuffed animal",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0808",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "doll",
+      "normalized_term": "doll",
+      "classification": "target",
+      "source_context": "Activity 1, item 8",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0809",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "game",
+      "normalized_term": "game",
+      "classification": "target",
+      "source_context": "Activity 1, item 9",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0810",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "puppet",
+      "normalized_term": "puppet",
+      "classification": "target",
+      "source_context": "Activity 1, item 10",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0811",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "term": "train",
+      "normalized_term": "train",
+      "classification": "target",
+      "source_context": "Activity 1, item 11",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0812",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_136",
+      "term": "couch",
+      "normalized_term": "couch",
+      "classification": "target",
+      "source_context": "Story / Language in Action p. 138",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0813",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "term": "shelf",
+      "normalized_term": "shelf",
+      "classification": "target",
+      "source_context": "Language in Action p. 138",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0814",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "term": "table",
+      "normalized_term": "table",
+      "classification": "target",
+      "source_context": "Language in Action p. 138",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0815",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "term": "toy box",
+      "normalized_term": "toy box",
+      "classification": "target",
+      "source_context": "Language in Action p. 138",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0816",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "term": "kite",
+      "normalized_term": "kite",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 14/15",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0817",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "term": "dragon",
+      "normalized_term": "dragon",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 15",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0818",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "term": "butterfly",
+      "normalized_term": "butterfly",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 15",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0819",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "term": "Russian dolls",
+      "normalized_term": "russian dolls",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 25",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0820",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "term": "share",
+      "normalized_term": "share",
+      "classification": "target",
+      "source_context": "Values Activity 30",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0821",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "yell",
+      "normalized_term": "yell",
+      "classification": "target",
+      "source_context": "Phonics Activity 32",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0822",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "quick",
+      "normalized_term": "quick",
+      "classification": "target",
+      "source_context": "Phonics Activity 32",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0823",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "six",
+      "normalized_term": "six",
+      "classification": "target",
+      "source_context": "Phonics Activity 32",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0824",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "quack",
+      "normalized_term": "quack",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0825",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "box",
+      "normalized_term": "box",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0826",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "yes",
+      "normalized_term": "yes",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0827",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "ox",
+      "normalized_term": "ox",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0828",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "fox",
+      "normalized_term": "fox",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0829",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "term": "yum",
+      "normalized_term": "yum",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 33",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "language_type": "question_answer",
+      "prompt": "What's in your toy box?",
+      "response": "These are my blocks.",
+      "full_text": "What's in your toy box? These are my blocks.",
+      "grammar_label": "Question with What's in... and answer with demonstrative plural",
+      "function": "identifying_toys_and_locations",
+      "explicit_in_source": true,
+      "notes": "Activity 6 model dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "language_type": "question_answer",
+      "prompt": "Where's the ball?",
+      "response": "It's in the toy box.",
+      "full_text": "Where's the ball? It's in the toy box.",
+      "grammar_label": "Singular location question with Where's and preposition in",
+      "function": "locating_singular_objects",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "language_type": "question_answer",
+      "prompt": "Where are the blocks?",
+      "response": "They're under the couch.",
+      "full_text": "Where are the blocks? They're under the couch.",
+      "grammar_label": "Plural location question with Where are and preposition under",
+      "function": "locating_plural_objects",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_141",
+      "language_type": "model_exchange",
+      "prompt": null,
+      "response": "This is my kite. It looks like a fish. It's yellow. It has a long tail.",
+      "full_text": "This is my kite. It looks like a fish. It's yellow. It has a long tail.",
+      "grammar_label": "Kite description presentation",
+      "function": "presenting_a_project",
+      "explicit_in_source": true,
+      "notes": "Activity 18 project presentation speech bubble",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0805",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_142",
+      "language_type": "grammar_pattern",
+      "prompt": "Is there a salad? / Are there sandwiches?",
+      "response": "Yes, there is. / No, there isn't. | Yes, there are. / No, there aren't.",
+      "full_text": "There's a pizza. / There isn't a cake. / Is there a salad? Yes, there is. No, there isn't. | There are sandwiches. / There aren't fries. / Are there sandwiches? Yes, there are. No, there aren't.",
+      "grammar_label": "Existential There is / There are affirmative, negative, and interrogative",
+      "function": "inquiring_and_stating_existence",
+      "explicit_in_source": true,
+      "notes": "Grammar table summary on page 142",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0806",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "language_type": "dialogue",
+      "prompt": "Sharing is fun! Here's my car. Let's share.",
+      "response": "Okay. Thank you!",
+      "full_text": "Sharing is fun! Here's my car. Let's share. Okay. Thank you!",
+      "grammar_label": "Sharing proposition and grateful acknowledgment",
+      "function": "sharing_toys",
+      "explicit_in_source": true,
+      "notes": "Activity 30 speech captions",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 action figure",
+          "expected_answer": "action figure"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 plane",
+          "expected_answer": "plane"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 ball",
+          "expected_answer": "ball"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 bike",
+          "expected_answer": "bike"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 blocks",
+          "expected_answer": "blocks"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 cars",
+          "expected_answer": "cars"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 stuffed animal",
+          "expected_answer": "stuffed animal"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 doll",
+          "expected_answer": "doll"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 game",
+          "expected_answer": "game"
+        },
+        {
+          "item_number": "10",
+          "prompt": "10 puppet",
+          "expected_answer": "puppet"
+        },
+        {
+          "item_number": "11",
+          "prompt": "11 train",
+          "expected_answer": "train"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 208",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 209",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 211, 212; Song: 'What's in Your Toy Box?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0805",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "activity_number": "5",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "blocks [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "bike [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "plane [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 213",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0806",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 5. Ask and answer.",
+      "prompt": "What's in your toy box?",
+      "expected_answer": "These are my blocks.",
+      "language_frame": "What's in your toy box? / These are my [toys].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to items in Activity 5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0806_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "What toys can a baby play with? Why? What toys can big children play with? Why?",
+      "prompt": "What toys can a baby play with? Why? What toys can big children play with? Why?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0807",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_136",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. Where is Jane's doll?",
+      "prompt": "Where is Jane's doll?",
+      "expected_answer": "It's under the table.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 215; accompanies story 'Where Are My Toys?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0808",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_137",
+      "activity_number": "8",
+      "activity_type": "read_and_circle",
+      "instruction": "Look at the story and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Jane's doll is under the... (a under couch vs b under table)",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Jane's action figures are on the... (a on table vs b on couch)",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Jane is playing with her... (a toys/friends vs b soccer ball)",
+          "expected_answer": "a"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on story 'Where Are My Toys?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0808_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_137",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "What's your favorite toy? Where is your favorite toy?",
+      "prompt": "What's your favorite toy? Where is your favorite toy?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0809",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Where's the ball? It's in the toy box. / Where are the blocks? They're under the couch.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 216",
+      "notes": "Word tiles: on the shelf, under the table, plane, stuffed animals",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0810",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "activity_number": "10",
+      "activity_type": "listen_and_check",
+      "instruction": "Listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a (doll on bench) vs b (doll in toy box)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "a (action figure in open box) vs b (action figure under table)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "a (toys in box) vs b (blocks under bed)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "a (trains on table) vs b (trains under table)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 217",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0811",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_139",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "under table spot 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "on bed spot 2",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "in closet spot 3",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "in toy box spot 4",
+          "expected_answer": null
+        },
+        {
+          "item_number": "5",
+          "prompt": "on shelf spot 5",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 218; requires stickers from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0812",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_139",
+      "activity_number": "12",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 11. Ask and answer.",
+      "prompt": "Where are the dolls?",
+      "expected_answer": "They're under the table.",
+      "language_frame": "Where are the dolls? / They're under the table.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to completed Activity 11 bedroom scene",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0813",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_139",
+      "activity_number": "13",
+      "activity_type": "color_and_say",
+      "instruction": "Color and say. Where are the toys?",
+      "prompt": "Where are the toys?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Black and white outline room scene",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0814",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "activity_number": "14",
+      "activity_type": "personal_response",
+      "instruction": "Do you have a kite? What does it look like?",
+      "prompt": "Do you have a kite? What does it look like?",
+      "expected_answer": "I have a kite. My kite is big. It's colorful.",
+      "language_frame": "I have a kite. My kite is [size]. It's [color/attribute].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0815",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "activity_number": "15",
+      "activity_type": "look_listen_read_match",
+      "instruction": "Look, listen, and read. Then match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "This kite looks like a dragon. It's red, black, and yellow. It's long and colorful.",
+          "expected_answer": "d"
+        },
+        {
+          "item_number": "2",
+          "prompt": "This kite looks like a bird. It's blue and orange. It's high in the sky.",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "3",
+          "prompt": "This kite looks like a butterfly. It's green. It's very big.",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "4",
+          "prompt": "This kite looks like a fish. It's orange. It has a long tail.",
+          "expected_answer": "c"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 219",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0815_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Find a picture of a kite. What color is it? What does it look like?",
+      "prompt": "What color is it? What does it look like?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0816",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_141",
+      "activity_number": "16",
+      "activity_type": "read_and_write",
+      "instruction": "Look at 15. Read and write.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "This kite looks like a butterfly. It's green. It's very ______.",
+          "expected_answer": "big"
+        },
+        {
+          "item_number": "2",
+          "prompt": "This kite looks like a ______ . It's orange. It has a long tail.",
+          "expected_answer": "fish"
+        },
+        {
+          "item_number": "3",
+          "prompt": "This kite looks like a dragon. It's ______ , black, and yellow. It's long and colorful.",
+          "expected_answer": "red"
+        },
+        {
+          "item_number": "4",
+          "prompt": "This kite looks like a ______ . It's blue and orange. It's high in the sky.",
+          "expected_answer": "bird"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Word box: big, bird, red, fish; refers to Activity 15",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0817",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_141",
+      "activity_number": "17",
+      "activity_type": "game",
+      "instruction": "Look at 15. Play a game.",
+      "prompt": "It's orange. It has a long tail.",
+      "expected_answer": "Picture c. The fish kite.",
+      "language_frame": "It's [color]. It has a [feature]. / Picture [letter]. The [animal] kite.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on Activity 15 kites",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0818",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_141",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a Cool Kite. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "This is my kite. It looks like a fish. It's yellow. It has a long tail.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft kite project",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0819",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_142",
+      "activity_number": "19",
+      "activity_type": "look_listen_point_say",
+      "instruction": "Look, listen, and point. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "There is salad. / There are sandwiches.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 221",
+      "notes": "Presentation of existential 'there is / there are'",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0820",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_142",
+      "activity_number": "20",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "There is / are ten books on the shelf.",
+          "expected_answer": "are"
+        },
+        {
+          "item_number": "2",
+          "prompt": "There is / are eight cats in the basket.",
+          "expected_answer": "are"
+        },
+        {
+          "item_number": "3",
+          "prompt": "There is / are a ball under the couch.",
+          "expected_answer": "is"
+        },
+        {
+          "item_number": "4",
+          "prompt": "There is / are a shoe on the bed.",
+          "expected_answer": "is"
+        },
+        {
+          "item_number": "5",
+          "prompt": "There is / are twelve cars in the toy box.",
+          "expected_answer": "are"
+        },
+        {
+          "item_number": "6",
+          "prompt": "There is / are a marker on the desk.",
+          "expected_answer": "is"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0821",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_143",
+      "activity_number": "21",
+      "activity_type": "look_and_check",
+      "instruction": "Look and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "puppy photo: Are there balls? (Yes, there are. / No, there aren't.)",
+          "expected_answer": "No, there aren't."
+        },
+        {
+          "item_number": "2",
+          "prompt": "skates photo: Is there an action figure? (Yes, there is. / Yes, there are.)",
+          "expected_answer": "No / neither (requires verification; photo shows roller skates)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "action figure photo: Is there a stuffed animal? (No, there aren't. / Yes, there is.)",
+          "expected_answer": "No, there aren't."
+        },
+        {
+          "item_number": "4",
+          "prompt": "airplane photo: Are there cars? (No, there aren't. / Yes, there are.)",
+          "expected_answer": "No, there aren't."
+        },
+        {
+          "item_number": "5",
+          "prompt": "airplane photo: Is there an airplane? (Yes, there is. / No, there isn't.)",
+          "expected_answer": "Yes, there is."
+        },
+        {
+          "item_number": "6",
+          "prompt": "skates photo: Are there skates? (No, there isn't. / Yes, there are.)",
+          "expected_answer": "Yes, there are."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to pictures above prompts",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0822",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_143",
+      "activity_number": "22",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Is there a",
+          "expected_answer": "b fish on the shelf?"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Are there",
+          "expected_answer": "c oranges in the basket?"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Is there an",
+          "expected_answer": "a egg in the box?"
+        },
+        {
+          "item_number": "4",
+          "prompt": "There is a",
+          "expected_answer": "e glass of milk on the table."
+        },
+        {
+          "item_number": "5",
+          "prompt": "There are",
+          "expected_answer": "d six pies on the desk."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0823",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_143",
+      "activity_number": "23",
+      "activity_type": "ask_and_answer_dialogue",
+      "instruction": "Ask and answer about your toys.",
+      "prompt": "Is there a doll on your bed? / Are there blocks in your toy box?",
+      "expected_answer": "Yes, there is. / No, there aren't.",
+      "language_frame": "Is there a [toy] on your [furniture]? Yes, there is. / No, there isn't. | Are there [toys] in your [furniture]? Yes, there are. / No, there aren't.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0824",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "activity_number": "24",
+      "activity_type": "open_question",
+      "instruction": "How many toys do you have? What's your favorite?",
+      "prompt": "How many toys do you have? What's your favorite?",
+      "expected_answer": "I have a lot of toys. My favorite is my plane. It's gray.",
+      "language_frame": "I have [number/a lot of] toys. My favorite is my [toy]. It's [color].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0825",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "activity_number": "25",
+      "activity_type": "listen_read_point",
+      "instruction": "Listen, read, and point. How many toys does Emma have?",
+      "prompt": "How many toys does Emma have?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 222",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0826",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "activity_number": "26",
+      "activity_type": "true_false",
+      "instruction": "Circle T for true and F for false.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "The airplane is from China.",
+          "expected_answer": "F (from the U.K.)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "The Russian dolls are from Japan.",
+          "expected_answer": "F (from Russia)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "There are small dolls in the big Russian doll.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "4",
+          "prompt": "The small dolls go in the big doll.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Emma has a train from the U.K.",
+          "expected_answer": "F (train is from China)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on Activity 25 text",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0827",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_145",
+      "activity_number": "27",
+      "activity_type": "read_and_circle",
+      "instruction": "Look at 25. Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "This is my small / toy box.",
+          "expected_answer": "toy"
+        },
+        {
+          "item_number": "2",
+          "prompt": "The airplane is red, blue, and white / gray.",
+          "expected_answer": "white"
+        },
+        {
+          "item_number": "3",
+          "prompt": "The train is Russian / wooden.",
+          "expected_answer": "wooden"
+        },
+        {
+          "item_number": "4",
+          "prompt": "The last doll is a baby / toy.",
+          "expected_answer": "baby"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Emma has one big / small doll.",
+          "expected_answer": "big"
+        },
+        {
+          "item_number": "6",
+          "prompt": "The airplane is from China / the U.K.",
+          "expected_answer": "the U.K."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on Activity 25 text",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0828",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_145",
+      "activity_number": "28",
+      "activity_type": "draw_and_talk",
+      "instruction": "Draw Russian dolls for you. Talk with a partner.",
+      "prompt": "What color are your dolls? / How many small dolls are in the big doll?",
+      "expected_answer": "They're green and yellow. / Six.",
+      "language_frame": "What color are your dolls? They're [colors]. How many small dolls are in the big doll? [Number].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing frame provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0828_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_145",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Does your country have a special toy? What is it?",
+      "prompt": "Does your country have a special toy? What is it?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0829",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "activity_number": "29",
+      "activity_type": "listen_find_repeat",
+      "instruction": "Listen and find the picture. Then listen and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "puppet",
+          "expected_answer": "puppet"
+        },
+        {
+          "item_number": "2",
+          "prompt": "bike",
+          "expected_answer": "bike"
+        },
+        {
+          "item_number": "3",
+          "prompt": "airplane",
+          "expected_answer": "plane"
+        },
+        {
+          "item_number": "4",
+          "prompt": "ball",
+          "expected_answer": "ball"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 224",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0830",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "activity_number": "30",
+      "activity_type": "look_and_number",
+      "instruction": "Look and number. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "Sharing is fun! [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "Here's my car. Let's share. [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "Okay. Thank you! [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0830_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Is it good to share your toys? Why?",
+      "prompt": "Is it good to share your toys? Why?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0831",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "activity_number": "31",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "qu",
+          "expected_answer": "qu"
+        },
+        {
+          "item_number": "2",
+          "prompt": "x",
+          "expected_answer": "x"
+        },
+        {
+          "item_number": "3",
+          "prompt": "y",
+          "expected_answer": "y"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 225",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0832",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "activity_number": "32",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "yell",
+          "expected_answer": "yell"
+        },
+        {
+          "item_number": "2",
+          "prompt": "quick",
+          "expected_answer": "quick"
+        },
+        {
+          "item_number": "3",
+          "prompt": "six",
+          "expected_answer": "six"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 226",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0833",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "activity_number": "33",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "qu-a-ck",
+          "expected_answer": "quack"
+        },
+        {
+          "item_number": "2",
+          "prompt": "b-o-x",
+          "expected_answer": "box"
+        },
+        {
+          "item_number": "3",
+          "prompt": "y-e-s",
+          "expected_answer": "yes"
+        },
+        {
+          "item_number": "4",
+          "prompt": "o-x",
+          "expected_answer": "ox"
+        },
+        {
+          "item_number": "5",
+          "prompt": "f-o-x",
+          "expected_answer": "fox"
+        },
+        {
+          "item_number": "6",
+          "prompt": "y-u-m",
+          "expected_answer": "yum"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 227",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0834",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "activity_number": "34",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline qu, x, and y. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 228; text: 'Six quick foxes, / In a yellow box!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0835",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_148",
+      "activity_number": "35",
+      "activity_type": "listen_circle_say",
+      "instruction": "Listen and circle. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 230",
+      "notes": "Full bedroom scene with toys",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0836",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_148",
+      "activity_number": "36",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 35. Ask and answer.",
+      "prompt": "Where are the action figures? / Where are the planes?",
+      "expected_answer": "They're on the bed and under the chair. / They're on the shelf and under the desk.",
+      "language_frame": "Where are the [toys]? / They're [preposition] the [furniture] and [preposition] the [furniture].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on Activity 35 scene",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0837",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_149",
+      "activity_number": "37",
+      "activity_type": "look_and_match",
+      "instruction": "Look and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "blocks",
+          "expected_answer": "f"
+        },
+        {
+          "item_number": "2",
+          "prompt": "bike",
+          "expected_answer": "e"
+        },
+        {
+          "item_number": "3",
+          "prompt": "cars",
+          "expected_answer": "b"
+        },
+        {
+          "item_number": "4",
+          "prompt": "game",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "5",
+          "prompt": "puppet",
+          "expected_answer": "d"
+        },
+        {
+          "item_number": "6",
+          "prompt": "train",
+          "expected_answer": "c"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0838",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_149",
+      "activity_number": "38",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "There's",
+          "expected_answer": "d (a puppet on the bed.)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "There are ten",
+          "expected_answer": "f (balls on the shelf.)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "There are",
+          "expected_answer": "b (two shoes under the desk.)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "There's an",
+          "expected_answer": "e (egg in the box.)"
+        },
+        {
+          "item_number": "5",
+          "prompt": "There aren't pens",
+          "expected_answer": "a (in the backpack.)"
+        },
+        {
+          "item_number": "6",
+          "prompt": "Is there a",
+          "expected_answer": "c (salad on the table?)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0839_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_149",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "name toys.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "say where something is.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "talk about sharing my toys.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "text_type": "song",
+      "title": "What's in Your Toy Box?",
+      "content": "Kim, what's in your toy box?\nDo you have a plane?\nNo, but this is my blue car.\nAnd where's my gray train?\n\nKim, what's on your toy shelf?\nDo you have a ball?\nYes, yes, here it is.\nAnd here's my purple doll.\n\nKim, what's on your table?\nDo you have big blocks?\nYes, and these are my puppets.\nMy favorite's Mr. Fox!\n\nThese are my favorite toys,\nPurple, green, and gray.\nI share my toys with my friends.\nAnd I play every day!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 211, 212",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_136",
+      "text_type": "story",
+      "title": "Where Are My Toys?",
+      "content": "Frame 1:\nJane: Where's my bike, Dad?\nDad: Sorry, Jane. No riding your bike today. It's very cold.\nFrame 2:\nJane: Where's my ball, Dad?\nDad: Sorry. No playing with your ball in the house.\nFrame 3:\nJane: Dad, where's my doll?\nDad: It's under the table, Jane.\nFrame 4:\nJane: Oh, and where are my action figures?\nFrame 5:\nDad: Here they are. They're on the couch.\nFrame 6:\nDad: What are you doing, Jane?\nJane: I'm playing with my friends!",
+      "speaker_structure": {
+        "speakers": [
+          "Jane",
+          "Dad"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on p. 136; frames 5-6 on p. 137; track 215",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "text_type": "reading_passage",
+      "title": "Content Connection: Kite Flying",
+      "content": "There are many kite flying festivals in Japan. The kites look like different animals. People fly their kites high in the sky. The best kite wins. Let's look at some.\n1 This kite looks like a dragon. It's red, black, and yellow. It's long and colorful.\n2 This kite looks like a bird. It's blue and orange. It's high in the sky.\n3 This kite looks like a butterfly. It's green. It's very big.\n4 This kite looks like a fish. It's orange. It has a long tail.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 219",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: My Toy Box",
+      "content": "This is my toy box. There are toys in it.\n1 I like my airplane and my train. The airplane is red, blue, and white. It's from the U.K. The train is wooden. It's from China.\n2 My favorite toys are my dolls. They're from Russia. There is a big doll, and there are small dolls in it. The small dolls go into the big doll. The last doll is a baby. The dolls are colorful. I love my Russian dolls. I play with them every day.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 222",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0805",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "text_type": "chant",
+      "title": "Phonics Chant (qu, x, y)",
+      "content": "Six quick foxes,\nIn a yellow box!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 228",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_134",
+      "component_type": "vocabulary",
+      "source_label": "Unit 8 vocabulary (toys)",
+      "title": "Fun and Games",
+      "description": "Vocabulary presentation of 11 common toys and recreational games.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "What's in Your Toy Box?",
+      "description": "Song contextualizing toy names, locations, and sharing.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_136",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "Where Are My Toys?",
+      "description": "Narrative comic following Jane looking for toys around the house.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "Where's the... / Where are the...",
+      "description": "Asking and answering questions about locations using prepositions (in, on, under).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0805",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_140",
+      "component_type": "clil",
+      "source_label": "Content Connection | Art",
+      "title": "Kites",
+      "description": "Recognizing artistic animal forms, colors, and shapes in kite designs.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0806",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_141",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "Cool Kite poster/craft",
+      "description": "Designing and presenting a kite craft project.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0807",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_142",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "There is / There are",
+      "description": "Expressing existence and quantity with singular and plural count nouns.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0808",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_144",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "Favorite Toys",
+      "description": "International toys including Russian matryoshka dolls, British planes, and Chinese trains.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0809",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_146",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Share your toys.",
+      "description": "Social skill and interpersonal value of sharing toys with friends.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0810",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_147",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "qu, x, y",
+      "description": "Letter-sound correspondences and sound blending for /kw/ (qu), /ks/ (x), and /j/ (y).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0811",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_148",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Consolidation of Unit 8 toy vocabulary, prepositions of place, and existential sentences.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0801",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0804",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0801",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Then look at 1 and find.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0802",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0806",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0805",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 5. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0803",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0808",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0802",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story and circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0804",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0812",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0811",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0805",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0816",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0815",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Read and write.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0806",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0826",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0825",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Circle T for true and F for false.' based on text 25.",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0807",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0827",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0825",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 25. Read and circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0808",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0836",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0835",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 35. Ask and answer.'",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0801",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_135",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0805",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for items a-c requires audio track 213.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0802",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_138",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0810",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Check marks for items 1-4 require audio track 217.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0803",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_139",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0811",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Sticker placement for Activity 11 requires audio track 218.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0804",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_08",
+      "page_id": "bep1_page_148",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0835",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Target items to circle require audio track 230.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 4,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}

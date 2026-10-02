@@ -1,0 +1,2668 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u07_batch",
+    "unit_id": "bep1_unit_07",
+    "source_section": "Unit 7",
+    "printed_page_start": 118,
+    "printed_page_end": 133,
+    "pdf_page_start": 118,
+    "pdf_page_end": 133,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_07",
+      "book_id": "bep1_sb",
+      "unit_number": "7",
+      "title": "Party Time",
+      "theme": "Party food, days of the week, sweet and salty foods, negative present simple (don't/doesn't), healthy eating meals",
+      "printed_page_start": 118,
+      "printed_page_end": 133,
+      "pdf_page_start": 118,
+      "pdf_page_end": 133,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_118",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 118,
+      "pdf_page": 118,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "Party Time",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 7 vocabulary (food)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_119",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 119,
+      "pdf_page": 119,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "It's My Party!",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "song/vocabulary Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_120",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 120,
+      "pdf_page": 120,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "How Many More Days?",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_121",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 121,
+      "pdf_page": 121,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Frames 5 to 6; reading Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_122",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 122,
+      "pdf_page": 122,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 7 language practice (What do you have? I have salad.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_123",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 123,
+      "pdf_page": 123,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "language practice (What does she have? She has fruit.) Unit 7; sticker activity",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_124",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 124,
+      "pdf_page": 124,
+      "section_title": "Content Connection | Science",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Science",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Sweet and salty food",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_125",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 125,
+      "pdf_page": 125,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "content connection (sweet and salty food) Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_126",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 126,
+      "pdf_page": 126,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: Present simple negative (don't / doesn't)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_127",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 127,
+      "pdf_page": 127,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "grammar (I don't eat cake. She doesn't let me sleep.) Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_128",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 128,
+      "pdf_page": 128,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "Birthday Food",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: Birthday foods across cultures",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_129",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 129,
+      "pdf_page": 129,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "culture connection (special food) Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_130",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 130,
+      "pdf_page": 130,
+      "section_title": "Values | Eat three meals a day.",
+      "section_type": "values",
+      "page_heading": "Values | Eat three meals a day.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 7 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_131",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 131,
+      "pdf_page": 131,
+      "section_title": "Phonics | l, ll, v, w",
+      "section_type": "phonics",
+      "page_heading": "l, ll, v, w | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "phonics (l, ll, v, w) Unit 7",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_132",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 132,
+      "pdf_page": 132,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 7 review; Spot the differences",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_133",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "printed_page": 133,
+      "pdf_page": 133,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "review/self-assessment Unit 7",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "cake",
+      "normalized_term": "cake",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "fruit",
+      "normalized_term": "fruit",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "ice cream",
+      "normalized_term": "ice cream",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0704",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "juice",
+      "normalized_term": "juice",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0705",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "milk",
+      "normalized_term": "milk",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0706",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "water",
+      "normalized_term": "water",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0707",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "pizza",
+      "normalized_term": "pizza",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0708",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "salad",
+      "normalized_term": "salad",
+      "classification": "target",
+      "source_context": "Activity 1, item 8",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0709",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "chicken",
+      "normalized_term": "chicken",
+      "classification": "target",
+      "source_context": "Activity 1, item 9",
+      "explicitly_listed": true,
+      "notes": "Food item",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0710",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "fries",
+      "normalized_term": "fries",
+      "classification": "target",
+      "source_context": "Activity 1, item 10",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0711",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "term": "pasta",
+      "normalized_term": "pasta",
+      "classification": "target",
+      "source_context": "Activity 1, item 11",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0712",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Sunday",
+      "normalized_term": "sunday",
+      "classification": "target",
+      "source_context": "Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0713",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Monday",
+      "normalized_term": "monday",
+      "classification": "target",
+      "source_context": "Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0714",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Tuesday",
+      "normalized_term": "tuesday",
+      "classification": "target",
+      "source_context": "Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0715",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Wednesday",
+      "normalized_term": "wednesday",
+      "classification": "target",
+      "source_context": "Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0716",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Thursday",
+      "normalized_term": "thursday",
+      "classification": "target",
+      "source_context": "Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0717",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Friday",
+      "normalized_term": "friday",
+      "classification": "target",
+      "source_context": "Story p. 120 / Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0718",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "term": "Saturday",
+      "normalized_term": "saturday",
+      "classification": "target",
+      "source_context": "Story p. 120 / Think Big p. 121",
+      "explicitly_listed": true,
+      "notes": "Day of the week",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0719",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "sugar",
+      "normalized_term": "sugar",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 14, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0720",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "chocolate",
+      "normalized_term": "chocolate",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 14, item 2",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0721",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "cookies",
+      "normalized_term": "cookies",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 14, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0722",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "salt",
+      "normalized_term": "salt",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 14, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0723",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "chips",
+      "normalized_term": "chips",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 14, item 5",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0724",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "sweet",
+      "normalized_term": "sweet",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Taste attribute",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0725",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "term": "salty",
+      "normalized_term": "salty",
+      "classification": "target",
+      "source_context": "Content Connection Science, Activity 15",
+      "explicitly_listed": true,
+      "notes": "Taste attribute",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0726",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "term": "birthday",
+      "normalized_term": "birthday",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 23/24",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0727",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "term": "candy",
+      "normalized_term": "candy",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 24, item 1",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0728",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "term": "seaweed soup",
+      "normalized_term": "seaweed soup",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 24, item 3",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0729",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "term": "pie",
+      "normalized_term": "pie",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 24, item 4",
+      "explicitly_listed": true,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0730",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "term": "breakfast",
+      "normalized_term": "breakfast",
+      "classification": "target",
+      "source_context": "Values Activity 28, item c",
+      "explicitly_listed": true,
+      "notes": "Meal of the day",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0731",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "term": "lunch",
+      "normalized_term": "lunch",
+      "classification": "target",
+      "source_context": "Values Activity 28, item a",
+      "explicitly_listed": true,
+      "notes": "Meal of the day",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0732",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "term": "dinner",
+      "normalized_term": "dinner",
+      "classification": "target",
+      "source_context": "Values Activity 28, item b",
+      "explicitly_listed": true,
+      "notes": "Meal of the day",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0733",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "web",
+      "normalized_term": "web",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0734",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "doll",
+      "normalized_term": "doll",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0735",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "leg",
+      "normalized_term": "leg",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0736",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "van",
+      "normalized_term": "van",
+      "classification": "target",
+      "source_context": "Phonics Activity 31",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0737",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "let",
+      "normalized_term": "let",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0738",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "bell",
+      "normalized_term": "bell",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0739",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "vet",
+      "normalized_term": "vet",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0740",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "we",
+      "normalized_term": "we",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0741",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "win",
+      "normalized_term": "win",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0742",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "term": "tall",
+      "normalized_term": "tall",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 32",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "language_type": "question_answer",
+      "prompt": "What does he have?",
+      "response": "He has milk.",
+      "full_text": "What does he have? He has milk.",
+      "grammar_label": "Present simple question and statement with 'have' (third person masculine)",
+      "function": "asking_and_answering_about_food_possession",
+      "explicit_in_source": true,
+      "notes": "Activity 6 model dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_120",
+      "language_type": "question_answer",
+      "prompt": "What day is it today?",
+      "response": "It's Friday. My party is on Saturday.",
+      "full_text": "What day is it today? It's Friday. My party is on Saturday. Only one more day!",
+      "grammar_label": "Asking and stating days of the week",
+      "function": "inquiring_about_the_day",
+      "explicit_in_source": true,
+      "notes": "Story frame 1",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_122",
+      "language_type": "question_answer",
+      "prompt": "What do you have?",
+      "response": "I have salad.",
+      "full_text": "What do you have? I have salad.",
+      "grammar_label": "Present simple question with have (second person) and first person answer",
+      "function": "talking_about_food_items_possessed",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0704",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_122",
+      "language_type": "question_answer",
+      "prompt": "What does she have?",
+      "response": "She has juice.",
+      "full_text": "What does she have? She has juice.",
+      "grammar_label": "Present simple question with have (third person feminine) and answer",
+      "function": "talking_about_food_items_possessed",
+      "explicit_in_source": true,
+      "notes": "Language in Action chart sentence pattern",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0705",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_125",
+      "language_type": "model_exchange",
+      "prompt": null,
+      "response": "This is my food poster. Chocolate is sweet. Fries are salty.",
+      "full_text": "This is my food poster. Chocolate is sweet. Fries are salty.",
+      "grammar_label": "Taste property statements with 'be'",
+      "function": "classifying_taste_properties",
+      "explicit_in_source": true,
+      "notes": "Activity 18 project presentation speech bubble",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0706",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_126",
+      "language_type": "grammar_pattern",
+      "prompt": null,
+      "response": null,
+      "full_text": "I / You / We / They don't go to school. / do your homework. / eat cake. / study all afternoon. | He / She / It doesn't sleep in a chair. / go to work. / let me sleep.",
+      "grammar_label": "Negative present simple with don't and doesn't",
+      "function": "expressing_negative_habits_and_routines",
+      "explicit_in_source": true,
+      "notes": "Grammar table summary on page 126",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0707",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_127",
+      "language_type": "dialogue",
+      "prompt": "I sing with my toes.",
+      "response": "You don't sing with your toes.",
+      "full_text": "I sing with my toes. You don't sing with your toes.",
+      "grammar_label": "Negative present simple silly dialogue correction",
+      "function": "refuting_untrue_statements",
+      "explicit_in_source": true,
+      "notes": "Activity 22 model dialogue",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0708",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "language_type": "sentence",
+      "prompt": null,
+      "response": null,
+      "full_text": "I eat breakfast every day. / I eat lunch every day. / I eat dinner every day.",
+      "grammar_label": "Habitual meal eating with frequency adverbial",
+      "function": "stating_daily_meal_habits",
+      "explicit_in_source": true,
+      "notes": "Activity 28 sentences",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 cake",
+          "expected_answer": "cake"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 fruit",
+          "expected_answer": "fruit"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 ice cream",
+          "expected_answer": "ice cream"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 juice",
+          "expected_answer": "juice"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 milk",
+          "expected_answer": "milk"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 water",
+          "expected_answer": "water"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 pizza",
+          "expected_answer": "pizza"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 salad",
+          "expected_answer": "salad"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 chicken",
+          "expected_answer": "chicken"
+        },
+        {
+          "item_number": "10",
+          "prompt": "10 fries",
+          "expected_answer": "fries"
+        },
+        {
+          "item_number": "11",
+          "prompt": "11 pasta",
+          "expected_answer": "pasta"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 183",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 184",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0704",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 185, 186; Song: 'It's My Party!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0705",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "activity_number": "5",
+      "activity_type": "listen_yes_no",
+      "instruction": "Listen and say yes or no.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "girl eating burger/sandwich",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "boy smiling",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "girl drinking orange juice",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "girl eating pizza",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 187",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0706",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 5. Ask and answer.",
+      "prompt": "What does he have?",
+      "expected_answer": "He has milk.",
+      "language_frame": "What does he / she have? / He / She has [food item].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to children in Activity 5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0706_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "What food do you eat every day? What food do you eat on special days?",
+      "prompt": "What food do you eat every day? What food do you eat on special days?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0707",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_120",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. What day is Tim's party?",
+      "prompt": "What day is Tim's party?",
+      "expected_answer": "Saturday / It's on Saturday.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 189; accompanies story 'How Many More Days?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0708",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "activity_number": "8",
+      "activity_type": "read_and_circle",
+      "instruction": "Look at the story. Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Tim has... a (pizza) vs b (pasta)",
+          "expected_answer": "a (pizza)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Jane has... a (chicken and salad) vs b (pasta)",
+          "expected_answer": "a (chicken and salad)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "What does Patrick have? a (pizza) vs b (cake and ice cream)",
+          "expected_answer": "b (cake and ice cream)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on story 'How Many More Days?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0708_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_121",
+      "activity_number": "Think Big",
+      "activity_type": "circle_and_say",
+      "instruction": "What day is it today? Circle and say.",
+      "prompt": "What day is it today?",
+      "expected_answer": null,
+      "language_frame": "Today is [day of the week].",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Sunday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Monday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Tuesday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "Wednesday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "5",
+          "prompt": "Thursday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "6",
+          "prompt": "Friday",
+          "expected_answer": null
+        },
+        {
+          "item_number": "7",
+          "prompt": "Saturday",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0709",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_122",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "What do you have? I have salad. / What does she have? She has juice.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 190",
+      "notes": "Word tiles: water, chicken, fruit, milk",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0710",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_122",
+      "activity_number": "10",
+      "activity_type": "match_and_say",
+      "instruction": "Match. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "What do you have? I have salad.",
+          "expected_answer": "d"
+        },
+        {
+          "item_number": "2",
+          "prompt": "What do you have? I have cake and milk.",
+          "expected_answer": "a"
+        },
+        {
+          "item_number": "3",
+          "prompt": "What do you have? I have juice and ice cream.",
+          "expected_answer": "c"
+        },
+        {
+          "item_number": "4",
+          "prompt": "What do you have? I have fruit.",
+          "expected_answer": "b"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0711",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_123",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "table spot 1",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "table spot 2",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "table spot 3",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "table spot 4",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 191; requires stickers from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0712",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_123",
+      "activity_number": "12",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 11. Ask and answer.",
+      "prompt": "What does she have?",
+      "expected_answer": "She has fruit.",
+      "language_frame": "What does he / she have? / He / She has [food item].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to completed stickers in Activity 11",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0713",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_123",
+      "activity_number": "13",
+      "activity_type": "draw_and_say",
+      "instruction": "What do you have? Draw and say.",
+      "prompt": "What do you have?",
+      "expected_answer": null,
+      "language_frame": "I have [food items].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing box provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0714",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "activity_number": "14",
+      "activity_type": "look_listen_repeat_say",
+      "instruction": "Look, listen, and repeat. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I have chocolate and fries.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 sugar",
+          "expected_answer": "sugar"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 chocolate",
+          "expected_answer": "chocolate"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 cookies",
+          "expected_answer": "cookies"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 salt",
+          "expected_answer": "salt"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 chips",
+          "expected_answer": "chips"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 fries",
+          "expected_answer": "fries"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 192",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0715",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "activity_number": "15",
+      "activity_type": "listen_read_point",
+      "instruction": "Listen, read, and point. Is pizza sweet? Is cake salty?",
+      "prompt": "Is pizza sweet? Is cake salty?",
+      "expected_answer": "No, pizza is salty. No, cake is sweet.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 193",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0715_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Name other sweet and salty foods. What's your favorite? Salty or sweet?",
+      "prompt": "Name other sweet and salty foods. What's your favorite? Salty or sweet?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0716",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_125",
+      "activity_number": "16",
+      "activity_type": "true_false",
+      "instruction": "Look at 15. Circle T for true and F for false.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Chocolate is sweet.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Cookies are salty.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Chips are salty.",
+          "expected_answer": "T"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Fries are sweet.",
+          "expected_answer": "F"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Cake is sweet.",
+          "expected_answer": "T"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on Activity 15 text",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0717",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_125",
+      "activity_number": "17",
+      "activity_type": "look_match_listen_check",
+      "instruction": "Look and match. Then listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "chocolate",
+          "expected_answer": "sweet"
+        },
+        {
+          "item_number": "2",
+          "prompt": "ice cream",
+          "expected_answer": "sweet"
+        },
+        {
+          "item_number": "3",
+          "prompt": "chips",
+          "expected_answer": "salty"
+        },
+        {
+          "item_number": "4",
+          "prompt": "fruit bowl",
+          "expected_answer": "sweet"
+        },
+        {
+          "item_number": "5",
+          "prompt": "orange juice",
+          "expected_answer": "sweet"
+        },
+        {
+          "item_number": "6",
+          "prompt": "fried chicken",
+          "expected_answer": "salty"
+        },
+        {
+          "item_number": "7",
+          "prompt": "cake",
+          "expected_answer": "sweet"
+        },
+        {
+          "item_number": "8",
+          "prompt": "fries",
+          "expected_answer": "salty"
+        },
+        {
+          "item_number": "9",
+          "prompt": "pasta",
+          "expected_answer": "salty"
+        },
+        {
+          "item_number": "10",
+          "prompt": "cookies",
+          "expected_answer": "sweet"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 194; matches food pictures to 'sweet' or 'salty' hubs",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0718",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_125",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a Sweet and Salty Food poster. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "This is my food poster. [Food] is sweet. [Food] are salty.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft project poster",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0719",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_126",
+      "activity_number": "19",
+      "activity_type": "look_listen_read_say",
+      "instruction": "Look, listen, and read. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "She doesn't go to school.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I don't go to school on Sunday. I don't get up early.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "My mom doesn't go to work. She doesn't clean the house every day.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "My dad doesn't go to work. He doesn't watch TV all day.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "My big sisters don't go to school. They don't study all afternoon.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "5",
+          "prompt": "The dog doesn't sleep in its basket. It doesn't let me sleep!",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 196",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0720",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_127",
+      "activity_number": "20",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "I doesn't / don't drink juice.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "2",
+          "prompt": "He don't / doesn't watch TV in bed.",
+          "expected_answer": "doesn't"
+        },
+        {
+          "item_number": "3",
+          "prompt": "We don't / doesn't listen to music in class.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "4",
+          "prompt": "They doesn't / don't eat in the car.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "5",
+          "prompt": "She doesn't / don't take a bath in her bedroom.",
+          "expected_answer": "doesn't"
+        },
+        {
+          "item_number": "6",
+          "prompt": "You don't / do sleep on your desk.",
+          "expected_answer": "don't"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0721",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_127",
+      "activity_number": "21",
+      "activity_type": "read_and_write",
+      "instruction": "Read and write don't or doesn't.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Paul ______ run in class.",
+          "expected_answer": "doesn't"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Mike and Pete ______ drink juice for lunch.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Tony and Sally ______ have a baby brother.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "4",
+          "prompt": "The girls ______ wear pants in school.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Alex and I ______ walk to school.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "6",
+          "prompt": "My brother ______ eat salad.",
+          "expected_answer": "doesn't"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0722",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_127",
+      "activity_number": "22",
+      "activity_type": "silly_sentence_dialogue",
+      "instruction": "Make three silly sentences. Tell your partner.",
+      "prompt": "I sing with my toes.",
+      "expected_answer": "You don't sing with your toes.",
+      "language_frame": "I [silly action]. / You don't [silly action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0723",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "activity_number": "23",
+      "activity_type": "open_question",
+      "instruction": "What food do you have on your birthday? What's your favorite?",
+      "prompt": "What food do you have on your birthday? What's your favorite?",
+      "expected_answer": "My favorite food is pizza.",
+      "language_frame": "My favorite food is [food].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0724",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "activity_number": "24",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. What food do the children have on their birthdays?",
+      "prompt": "What food do the children have on their birthdays?",
+      "expected_answer": "Candy (Miguel), big cake (Jack), seaweed soup (Susie), fruit pie (Anya).",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 197",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0725",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_129",
+      "activity_number": "25",
+      "activity_type": "read_and_write",
+      "instruction": "Look at 24. Read and write.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "photo of Miguel",
+          "expected_answer": "candy"
+        },
+        {
+          "item_number": "2",
+          "prompt": "photo of Jack",
+          "expected_answer": "cake"
+        },
+        {
+          "item_number": "3",
+          "prompt": "photo of Susie",
+          "expected_answer": "soup"
+        },
+        {
+          "item_number": "4",
+          "prompt": "photo of Anya",
+          "expected_answer": "pie"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Word box: cake, candy, pie, soup; refers to Activity 24",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0726",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_129",
+      "activity_number": "26",
+      "activity_type": "read_circle_say",
+      "instruction": "Look at 24. Read and circle. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Miguel doesn't have cake / candy.",
+          "expected_answer": "cake"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Jack doesn't have soup / cake.",
+          "expected_answer": "soup"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Susie doesn't have pie / soup.",
+          "expected_answer": "pie"
+        },
+        {
+          "item_number": "4",
+          "prompt": "Anya doesn't have cake / pie.",
+          "expected_answer": "cake"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on Activity 24",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0727",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_129",
+      "activity_number": "27",
+      "activity_type": "fill_in_and_tell",
+      "instruction": "Write about you. Then tell a partner.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "My name's [name]. On my birthday, I have [food] and [food].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0727_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_129",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Why do people have special food on their birthday? How else do they celebrate?",
+      "prompt": "Why do people have special food on their birthday? How else do they celebrate?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0728",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "activity_number": "28",
+      "activity_type": "number_order_listen_check",
+      "instruction": "Look and number in order. Then listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "I eat lunch every day. [box]",
+          "expected_answer": "2"
+        },
+        {
+          "item_number": "b",
+          "prompt": "I eat dinner every day. [box]",
+          "expected_answer": "3"
+        },
+        {
+          "item_number": "c",
+          "prompt": "I eat breakfast every day. [box]",
+          "expected_answer": "1"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 199",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0729",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "activity_number": "29",
+      "activity_type": "read_match_draw_say",
+      "instruction": "Read and match. Then draw and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "I eat [food] for [meal] every day.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "My brother eats salad for lunch every day.",
+          "expected_answer": "d (salad)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Mom drinks milk for breakfast every day.",
+          "expected_answer": "b (milk)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Dad eats chicken for dinner every day.",
+          "expected_answer": "a (chicken)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "I eat...",
+          "expected_answer": "c (drawing box)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0729_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Do you eat three meals every day? Why do you think it is important?",
+      "prompt": "Do you eat three meals every day? Why do you think it is important?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0730",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "activity_number": "30",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "l",
+          "expected_answer": "l"
+        },
+        {
+          "item_number": "2",
+          "prompt": "ll",
+          "expected_answer": "ll"
+        },
+        {
+          "item_number": "3",
+          "prompt": "v",
+          "expected_answer": "v"
+        },
+        {
+          "item_number": "4",
+          "prompt": "w",
+          "expected_answer": "w"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 200",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0731",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "activity_number": "31",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "web",
+          "expected_answer": "web"
+        },
+        {
+          "item_number": "2",
+          "prompt": "doll",
+          "expected_answer": "doll"
+        },
+        {
+          "item_number": "3",
+          "prompt": "leg",
+          "expected_answer": "leg"
+        },
+        {
+          "item_number": "4",
+          "prompt": "van",
+          "expected_answer": "van"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 201",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0732",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "activity_number": "32",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "l-e-t",
+          "expected_answer": "let"
+        },
+        {
+          "item_number": "2",
+          "prompt": "b-e-ll",
+          "expected_answer": "bell"
+        },
+        {
+          "item_number": "3",
+          "prompt": "v-e-t",
+          "expected_answer": "vet"
+        },
+        {
+          "item_number": "4",
+          "prompt": "w-e",
+          "expected_answer": "we"
+        },
+        {
+          "item_number": "5",
+          "prompt": "w-i-n",
+          "expected_answer": "win"
+        },
+        {
+          "item_number": "6",
+          "prompt": "t-a-ll",
+          "expected_answer": "tall"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 202",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0733",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "activity_number": "33",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline l, ll, v, and w. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 203; text: 'Let's ring the bell / For the vet / With the van!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0734",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_132",
+      "activity_number": "34",
+      "activity_type": "spot_the_differences",
+      "instruction": "Find the differences and say. Then listen and check.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 205; visual comparison between Picture A and Picture B",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0735",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_132",
+      "activity_number": "35",
+      "activity_type": "game",
+      "instruction": "Look at 34. Play a game.",
+      "prompt": "In Picture A, Sam has ice cream.",
+      "expected_answer": "In Picture B, Sam has fruit.",
+      "language_frame": "In Picture A, [person] has [food]. / In Picture B, [person] has [food].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on Activity 34 pictures",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0736",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_133",
+      "activity_number": "36",
+      "activity_type": "listen_and_circle",
+      "instruction": "Listen and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "a (salad), b (pasta), c (fries)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "a (juice), b (ice cream), c (water)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "a (pizza), b (cake), c (chicken)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "a (water), b (milk), c (fruit bowl)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 207",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0737",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_133",
+      "activity_number": "37",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "She doesn't / don't walk to school.",
+          "expected_answer": "doesn't"
+        },
+        {
+          "item_number": "2",
+          "prompt": "They doesn't / don't eat cookies.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "3",
+          "prompt": "I doesn't / don't play with puppets.",
+          "expected_answer": "don't"
+        },
+        {
+          "item_number": "4",
+          "prompt": "We don't / doesn't like basketball.",
+          "expected_answer": "don't"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0738_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_133",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "talk about party food.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "ask and answer about what people have.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "name sweet and salty food.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "text_type": "song",
+      "title": "It's My Party!",
+      "content": "Welcome, friends.\nPlease sit down.\nIt's time for my party!\nWith games and a clown!\n\nI have pizza, chicken,\nSalad, too.\nFruit, cake,\nAnd ice cream for you!\n\nOr put some pasta\nOn your plate.\nWith juice or milk\nIt sure tastes great.\n\nThanks for the presents.\nWhat a great day!\nLet's eat and drink\nAnd play, play, play. (x2)",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 185, 186",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_120",
+      "text_type": "story",
+      "title": "How Many More Days?",
+      "content": "Frame 1:\nTim: What day is it today?\nTim: It's Friday. My party is on Saturday. Only one more day!\nFrame 2:\nTim: Today is Saturday. It's my party!\nFrame 3:\nTim: Mmm! I have pizza! What do you have?\nJane: I have chicken and salad.\nFrame 4:\nJane: What does Maria have?\nMaria: She has pasta.\nFrame 5:\nJane: What does Patrick have?\nTim: I don't know. Patrick?\nFrame 6:\nJane: Oh, no! He has cake and ice cream!\nTim: Patrick!",
+      "speaker_structure": {
+        "speakers": [
+          "Tim",
+          "Jane",
+          "Maria"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on p. 120; frames 5-6 on p. 121; track 189",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "text_type": "reading_passage",
+      "title": "Content Connection: Sweet and Salty Food",
+      "content": "1 Food can be sweet or salty. Sweet food has sugar. Chocolate and cookies are sweet. Cake is sweet, too. They have sugar in them. My favorite sweet food is chocolate.\n2 Chips have salt. Pizza and fries have salt, too. They're all salty. My favorite salty food is pizza.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 193",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0704",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: Birthday Food",
+      "content": "1 My name's Miguel. In Mexico, I have a piñata with candy on my birthday. It's my favorite day.\n2 I'm Jack. I live in the United States. I have a big cake on my birthday. It's very sweet.\n3 I'm Susie from South Korea. I have seaweed soup on my birthday. It's salty.\n4 I'm Anya. I'm from Russia. On my birthday, I have a big fruit pie. It's my favorite sweet cake.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 197",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0705",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "text_type": "chant",
+      "title": "Phonics Chant (l, ll, v, w)",
+      "content": "Let's ring the bell\nFor the vet\nWith the van!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 203",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_118",
+      "component_type": "vocabulary",
+      "source_label": "Unit 7 vocabulary (food)",
+      "title": "Party Time",
+      "description": "Vocabulary presentation for 11 common party food and drink items.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "It's My Party!",
+      "description": "Rhythmic song reviewing party foods, drinks, and social phrases.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_120",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "How Many More Days?",
+      "description": "Comic narrative introducing days of the week and party food sharing.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0704",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_122",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "What do you have? / What does she have?",
+      "description": "Present simple questions and answers with 'have/has' for food possessions.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0705",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_124",
+      "component_type": "clil",
+      "source_label": "Content Connection | Science",
+      "title": "Sweet and salty food",
+      "description": "Scientific classification of foods by taste categories (sweet, salty) and ingredients (sugar, salt).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0706",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_125",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "Sweet and Salty Food poster",
+      "description": "Creating and presenting a poster categorizing sweet and salty items.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0707",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_126",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "Negative Present Simple (don't / doesn't)",
+      "description": "Negative present simple forms across person subjects.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0708",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_128",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "Birthday Food",
+      "description": "Cross-cultural birthday food customs in Mexico, the USA, South Korea, and Russia.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0709",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_130",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Eat three meals a day.",
+      "description": "Nutritional and daily routine habits: breakfast, lunch, and dinner.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0710",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_131",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "l, ll, v, w",
+      "description": "Letter-sound correspondences and sound blending for /l/ (l, ll), /v/, and /w/.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0711",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_132",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Review and self-assessment of food, negative verbs, and tastes.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0701",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0704",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0701",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Then look at 1 and find.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0702",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0706",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0705",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 5. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0703",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0708",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0702",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story. Read and circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0704",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0712",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0711",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0705",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0716",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0715",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Circle T for true and F for false.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0706",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0725",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0724",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 24. Read and write.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0707",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0726",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0724",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 24. Read and circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0708",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0735",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0734",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 34. Play a game.'",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0701",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_119",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0705",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Yes/no answers for items 1-4 require audio track 187.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0702",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_123",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0711",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Sticker placement for Activity 11 requires audio track 191.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0703",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_07",
+      "page_id": "bep1_page_133",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0736",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Circle choices for items 1-4 require audio track 207.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 3,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}

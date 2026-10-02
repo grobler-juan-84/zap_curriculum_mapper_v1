@@ -1,0 +1,2466 @@
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep1_sb",
+    "series": "Big English Plus",
+    "level": "1",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_format": "PDF",
+    "pdf_page_count": 188,
+    "printed_page_start": 4,
+    "printed_page_end": 187,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep1_sb_u05_batch",
+    "unit_id": "bep1_unit_05",
+    "source_section": "Unit 5",
+    "printed_page_start": 80,
+    "printed_page_end": 95,
+    "pdf_page_start": 80,
+    "pdf_page_end": 95,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep1_unit_05",
+      "book_id": "bep1_sb",
+      "unit_number": "5",
+      "title": "Busy at Home",
+      "theme": "Daily home activities, rooms and shapes in homes, helping at home",
+      "printed_page_start": 80,
+      "printed_page_end": 95,
+      "pdf_page_start": 80,
+      "pdf_page_end": 95,
+      "source_section_type": "unit",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "bep1_page_080",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 80,
+      "pdf_page": 80,
+      "section_title": "Vocabulary",
+      "section_type": "vocabulary",
+      "page_heading": "Busy at Home",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 5 vocabulary (home activities)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_081",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 81,
+      "pdf_page": 81,
+      "section_title": "Song / Vocabulary",
+      "section_type": "song",
+      "page_heading": "What Are You Doing?",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "song/vocabulary Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_082",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 82,
+      "pdf_page": 82,
+      "section_title": "Story",
+      "section_type": "story",
+      "page_heading": "Fun at Home",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Frames 1 to 4",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_083",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 83,
+      "pdf_page": 83,
+      "section_title": "Reading",
+      "section_type": "reading_comprehension",
+      "page_heading": "Story",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Frames 5 to 6; reading Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_084",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 84,
+      "pdf_page": 84,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 5 language practice (What are you doing? I'm talking on the phone.)",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_085",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 85,
+      "pdf_page": 85,
+      "section_title": "Language in Action",
+      "section_type": "grammar_and_structures",
+      "page_heading": "Language in Action",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "language practice (What's she doing? She's sleeping.) Unit 5; sticker activity",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_086",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 86,
+      "pdf_page": 86,
+      "section_title": "Content Connection | Art",
+      "section_type": "clil",
+      "page_heading": "Content Connection | Art",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "CLIL topic: Shapes in architecture/dwellings",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_087",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 87,
+      "pdf_page": 87,
+      "section_title": "Content Connection",
+      "section_type": "project",
+      "page_heading": "Project",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "content connection (shapes) Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_088",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 88,
+      "pdf_page": 88,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Target grammar: 'What color is it? It's...' / 'What color are they? They're...'",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_089",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 89,
+      "pdf_page": 89,
+      "section_title": "Grammar",
+      "section_type": "grammar",
+      "page_heading": "Grammar",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "grammar (It's brown and white. They're small.) Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_090",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 90,
+      "pdf_page": 90,
+      "section_title": "Culture Connection | Around the World",
+      "section_type": "culture",
+      "page_heading": "Homes",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Topic: Motor homes and dwelling spaces",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_091",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 91,
+      "pdf_page": 91,
+      "section_title": "Culture Connection",
+      "section_type": "culture",
+      "page_heading": null,
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "culture connection (homes) Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_092",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 92,
+      "pdf_page": 92,
+      "section_title": "Values | Help at home.",
+      "section_type": "values",
+      "page_heading": "Values | Help at home.",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "Unit 5 values",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_093",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 93,
+      "pdf_page": 93,
+      "section_title": "Phonics | u, f, ff",
+      "section_type": "phonics",
+      "page_heading": "u, f, ff | Phonics",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "phonics (u, f, ff) Unit 5",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_094",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 94,
+      "pdf_page": 94,
+      "section_title": "Review",
+      "section_type": "review",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": false,
+      "notes": "Unit 5 review; Memory game",
+      "verification_status": "human_verified"
+    },
+    {
+      "page_id": "bep1_page_095",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "printed_page": 95,
+      "pdf_page": 95,
+      "section_title": "Review / Self-Assessment",
+      "section_type": "assessment",
+      "page_heading": "Review",
+      "instructional": true,
+      "visual_dependency": true,
+      "audio_dependency": true,
+      "notes": "review/self-assessment Unit 5",
+      "verification_status": "human_verified"
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_id": "bep1_vocab_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "brushing my teeth",
+      "normalized_term": "brushing teeth",
+      "classification": "target",
+      "source_context": "Activity 1, item 1",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "drinking",
+      "normalized_term": "drinking",
+      "classification": "target",
+      "source_context": "Activity 1, item 2",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "combing my hair",
+      "normalized_term": "combing hair",
+      "classification": "target",
+      "source_context": "Activity 1, item 3",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "reading",
+      "normalized_term": "reading",
+      "classification": "target",
+      "source_context": "Activity 1, item 4",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0505",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "taking a bath",
+      "normalized_term": "taking a bath",
+      "classification": "target",
+      "source_context": "Activity 1, item 5",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0506",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "making lunch",
+      "normalized_term": "making lunch",
+      "classification": "target",
+      "source_context": "Activity 1, item 6",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0507",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "washing",
+      "normalized_term": "washing",
+      "classification": "target",
+      "source_context": "Activity 1, item 7",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0508",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "getting dressed",
+      "normalized_term": "getting dressed",
+      "classification": "target",
+      "source_context": "Activity 1, item 8",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0509",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "sleeping",
+      "normalized_term": "sleeping",
+      "classification": "target",
+      "source_context": "Activity 1, item 9",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0510",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "playing",
+      "normalized_term": "playing",
+      "classification": "target",
+      "source_context": "Activity 1, item 10",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0511",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "talking on the phone",
+      "normalized_term": "talking on the phone",
+      "classification": "target",
+      "source_context": "Activity 1, item 11",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0512",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "term": "eating",
+      "normalized_term": "eating",
+      "classification": "target",
+      "source_context": "Activity 1, item 12",
+      "explicitly_listed": true,
+      "notes": "Present participle home routine",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0513",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "term": "apartment",
+      "normalized_term": "apartment",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 14, item 1",
+      "explicitly_listed": true,
+      "notes": "Dwelling type",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0514",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "term": "yurt",
+      "normalized_term": "yurt",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 14, item 2",
+      "explicitly_listed": true,
+      "notes": "Dwelling type",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0515",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "term": "houseboat",
+      "normalized_term": "houseboat",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 14, item 3",
+      "explicitly_listed": true,
+      "notes": "Dwelling type",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0516",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "term": "lighthouse",
+      "normalized_term": "lighthouse",
+      "classification": "target",
+      "source_context": "Content Connection Art, Activity 14, item 4",
+      "explicitly_listed": true,
+      "notes": "Dwelling type",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0517",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "motor home",
+      "normalized_term": "motor home",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Dwelling type",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0518",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "trailer park",
+      "normalized_term": "trailer park",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Living setting",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0519",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "kitchen",
+      "normalized_term": "kitchen",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Room of house",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0520",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "dining room",
+      "normalized_term": "dining room",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Room of house",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0521",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "living room",
+      "normalized_term": "living room",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Room of house",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0522",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "bedroom",
+      "normalized_term": "bedroom",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Room of house",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0523",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "bathroom",
+      "normalized_term": "bathroom",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Room of house",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0524",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "term": "comfortable",
+      "normalized_term": "comfortable",
+      "classification": "target",
+      "source_context": "Culture Connection Activity 26",
+      "explicitly_listed": true,
+      "notes": "Descriptive adjective",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0525",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "term": "washing the dishes",
+      "normalized_term": "washing dishes",
+      "classification": "target",
+      "source_context": "Values Activity 30",
+      "explicitly_listed": true,
+      "notes": "Chore phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0526",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "term": "drying the dishes",
+      "normalized_term": "drying dishes",
+      "classification": "target",
+      "source_context": "Values Activity 30",
+      "explicitly_listed": true,
+      "notes": "Chore phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0527",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "term": "cleaning her room",
+      "normalized_term": "cleaning room",
+      "classification": "target",
+      "source_context": "Values Activity 30",
+      "explicitly_listed": true,
+      "notes": "Chore phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0528",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "term": "helping her parents",
+      "normalized_term": "helping parents",
+      "classification": "target",
+      "source_context": "Values Activity 30",
+      "explicitly_listed": true,
+      "notes": "Chore phrase",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0529",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "fan",
+      "normalized_term": "fan",
+      "classification": "target",
+      "source_context": "Phonics Activity 33",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0530",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "up",
+      "normalized_term": "up",
+      "classification": "target",
+      "source_context": "Phonics Activity 33",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0531",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "puff",
+      "normalized_term": "puff",
+      "classification": "target",
+      "source_context": "Phonics Activity 33",
+      "explicitly_listed": true,
+      "notes": "Phonics exemplar word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0532",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "run",
+      "normalized_term": "run",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 34",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0533",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "fun",
+      "normalized_term": "fun",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 34",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0534",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "off",
+      "normalized_term": "off",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 34",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0535",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "sun",
+      "normalized_term": "sun",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 34",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    },
+    {
+      "vocabulary_id": "bep1_vocab_0536",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "term": "fog",
+      "normalized_term": "fog",
+      "classification": "target",
+      "source_context": "Phonics blending Activity 34",
+      "explicitly_listed": true,
+      "notes": "Phonics decodable word",
+      "verification_status": "human_verified"
+    }
+  ],
+  "language": [
+    {
+      "language_id": "bep1_lang_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "language_type": "question_answer",
+      "prompt": "What are you doing?",
+      "response": "I'm eating. / You're Number 1!",
+      "full_text": "What are you doing? I'm eating. You're Number 1!",
+      "grammar_label": "Present continuous question and answer for action identification",
+      "function": "asking_and_answering_about_ongoing_actions",
+      "explicit_in_source": true,
+      "notes": "Activity 6 model exchange",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "language_type": "question_answer",
+      "prompt": "What are you doing?",
+      "response": "I'm talking on the phone.",
+      "full_text": "What are you doing? I'm talking on the phone.",
+      "grammar_label": "Present continuous (first person)",
+      "function": "describing_current_activity",
+      "explicit_in_source": true,
+      "notes": "Language in Action presentation",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "language_type": "question_answer",
+      "prompt": "What's she doing?",
+      "response": "She's washing.",
+      "full_text": "What's she doing? She's washing.",
+      "grammar_label": "Present continuous (third person feminine)",
+      "function": "describing_another_person's_activity",
+      "explicit_in_source": true,
+      "notes": "Language in Action presentation",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_085",
+      "language_type": "question_answer",
+      "prompt": "What's she doing?",
+      "response": "She's sleeping.",
+      "full_text": "What's she doing? She's sleeping.",
+      "grammar_label": "Present continuous third person",
+      "function": "asking_and_answering_about_household_members",
+      "explicit_in_source": true,
+      "notes": "Activity 12 model exchange",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0505",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_087",
+      "language_type": "model_exchange",
+      "prompt": null,
+      "response": "My house is a square. It has two windows. They're circles. The door is a rectangle.",
+      "full_text": "My house is a square. It has two windows. They're circles. The door is a rectangle.",
+      "grammar_label": "Describing shapes in structures",
+      "function": "describing_shapes_in_a_building",
+      "explicit_in_source": true,
+      "notes": "Activity 18 project speech bubble",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0506",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_088",
+      "language_type": "grammar_pattern",
+      "prompt": "What color is it? / What color are they?",
+      "response": "It's brown and white. / It's big. | They're yellow. / They're small.",
+      "full_text": "What color is it? It's brown and white. It's big. | What color are they? They're yellow. They're small.",
+      "grammar_label": "Singular vs plural color and size inquiries",
+      "function": "asking_and_answering_about_color_and_size",
+      "explicit_in_source": true,
+      "notes": "Grammar table summary page 88",
+      "verification_status": "human_verified"
+    },
+    {
+      "language_id": "bep1_lang_0507",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_091",
+      "language_type": "dialogue",
+      "prompt": "It has a big TV. It's a rectangle.",
+      "response": "The living room.",
+      "full_text": "It has a big TV. It's a rectangle. The living room.",
+      "grammar_label": "Description and room inference",
+      "function": "identifying_rooms_from_descriptions",
+      "explicit_in_source": true,
+      "notes": "Activity 28 model dialogue",
+      "verification_status": "human_verified"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "bep1_act_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "activity_number": "1",
+      "activity_type": "listen_look_say",
+      "instruction": "Listen, look, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 brushing my teeth",
+          "expected_answer": "brushing my teeth"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 drinking",
+          "expected_answer": "drinking"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 combing my hair",
+          "expected_answer": "combing my hair"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 reading",
+          "expected_answer": "reading"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 taking a bath",
+          "expected_answer": "taking a bath"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 making lunch",
+          "expected_answer": "making lunch"
+        },
+        {
+          "item_number": "7",
+          "prompt": "7 washing",
+          "expected_answer": "washing"
+        },
+        {
+          "item_number": "8",
+          "prompt": "8 getting dressed",
+          "expected_answer": "getting dressed"
+        },
+        {
+          "item_number": "9",
+          "prompt": "9 sleeping",
+          "expected_answer": "sleeping"
+        },
+        {
+          "item_number": "10",
+          "prompt": "10 playing",
+          "expected_answer": "playing"
+        },
+        {
+          "item_number": "11",
+          "prompt": "11 talking on the phone",
+          "expected_answer": "talking on the phone"
+        },
+        {
+          "item_number": "12",
+          "prompt": "12 eating",
+          "expected_answer": "eating"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 128",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "activity_number": "2",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen, find, and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 129",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "activity_number": "3",
+      "activity_type": "game",
+      "instruction": "Play a game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "activity_number": "4",
+      "activity_type": "sing_and_find",
+      "instruction": "Listen and sing. Then look at 1 and find.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio tracks 130, 131; Song: 'What Are You Doing?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0505",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "activity_number": "5",
+      "activity_type": "listen_yes_no",
+      "instruction": "Listen and say yes or no.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "boy eating food at table",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "girl taking a bubble bath",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "man reading a book in chair",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 132",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0506",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "activity_number": "6",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 5. Ask and answer.",
+      "prompt": "What are you doing?",
+      "expected_answer": "I'm eating. / You're Number 1!",
+      "language_frame": "What are you doing? / I'm [action]. / You're Number [number]!",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to pictures in Activity 5",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0506_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Why do we brush our teeth? Why do we sleep?",
+      "prompt": "Why do we brush our teeth? Why do we sleep?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0507",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_082",
+      "activity_number": "7",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. What's Patrick drawing?",
+      "prompt": "What's Patrick drawing?",
+      "expected_answer": "A picture for his mom / A picture of his mom (with 'I love Mom').",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 134; accompanies story 'Fun at Home'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0508",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_083",
+      "activity_number": "8",
+      "activity_type": "circle_character",
+      "instruction": "Look at the story. Circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Who is playing? (Mom / Patrick / Tim)",
+          "expected_answer": "Patrick, Tim"
+        },
+        {
+          "item_number": "2",
+          "prompt": "Who is making lunch? (Mom / Patrick / Tim)",
+          "expected_answer": "Mom"
+        },
+        {
+          "item_number": "3",
+          "prompt": "Who is drawing? (Mom / Patrick / Tim)",
+          "expected_answer": "Patrick, Tim"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on story 'Fun at Home'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0508_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_083",
+      "activity_number": "Think Big",
+      "activity_type": "draw_and_say",
+      "instruction": "Draw a picture for your mom. Say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing frame provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0509",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "activity_number": "9",
+      "activity_type": "listen_make_sentences",
+      "instruction": "Listen. Help Tim and Jane make sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "What are you doing? I'm talking on the phone. / What's she doing? She's washing.",
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 135",
+      "notes": "Word tiles: getting dressed, sleeping, taking a bath, drinking",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0510",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "activity_number": "10",
+      "activity_type": "listen_check_say",
+      "instruction": "Listen and check. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "What's she doing? a (making lunch) vs b (combing hair)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "What's he doing? a (drinking) vs b (reading)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "What's he doing? a (getting dressed) vs b (brushing teeth)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "What's she doing? a (sleeping) vs b (washing)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 136",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0511",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_085",
+      "activity_number": "11",
+      "activity_type": "listen_stick_say",
+      "instruction": "Listen and stick. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "Room 1 (bedroom)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "Room 2 (bathroom)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "Room 3 (kitchen)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "4",
+          "prompt": "Room 4 (dining room)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "5",
+          "prompt": "Room 5 (living room)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 138; requires stickers from back of book",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0512",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_085",
+      "activity_number": "12",
+      "activity_type": "ask_and_answer",
+      "instruction": "Look at 11. Ask and answer.",
+      "prompt": "What's she doing?",
+      "expected_answer": "She's sleeping.",
+      "language_frame": "What's he / she doing? / He's / She's [action].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Refers to figures in Activity 11",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0513",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_085",
+      "activity_number": "13",
+      "activity_type": "draw_and_say",
+      "instruction": "Draw yourself and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing box provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0514",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "activity_number": "14",
+      "activity_type": "look_listen_repeat_say",
+      "instruction": "Look, listen, and repeat. Then point and say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "It's a houseboat.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 apartment",
+          "expected_answer": "apartment"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 yurt",
+          "expected_answer": "yurt"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 houseboat",
+          "expected_answer": "houseboat"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 lighthouse",
+          "expected_answer": "lighthouse"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 139",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0515",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "activity_number": "15",
+      "activity_type": "look_listen_read",
+      "instruction": "Look, listen, and read. What shapes are there?",
+      "prompt": "What shapes are there?",
+      "expected_answer": "Circle, square, rectangle.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 140",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0515_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "activity_number": "Think Big",
+      "activity_type": "draw_and_identify",
+      "instruction": "Find and draw a picture of one of these houses. What shapes can you see? a igloo b hut c teepee",
+      "prompt": "What shapes can you see?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0516",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_087",
+      "activity_number": "16",
+      "activity_type": "read_and_match",
+      "instruction": "Look at 15. Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "My home is a white circle. It has two small windows.",
+          "expected_answer": "d (yurt)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "My home has a big door. It's a rectangle.",
+          "expected_answer": "c (lighthouse)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "My home has big windows. They're rectangles.",
+          "expected_answer": "b (apartment)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "My home has one big window. It's a square.",
+          "expected_answer": "a (houseboat)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on text in Activity 15",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0517",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_087",
+      "activity_number": "17",
+      "activity_type": "game",
+      "instruction": "Look at 15. Play a game.",
+      "prompt": "It has two small windows. They're circles.",
+      "expected_answer": "It's a houseboat. / Yes.",
+      "language_frame": "It has [shape descriptions]. / It's a [house type]. / Yes.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Based on descriptions in Activity 15",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0518",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_087",
+      "activity_number": "18",
+      "activity_type": "project_presentation",
+      "instruction": "Make a House Shapes poster. Then present it to the class.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "My house is a [shape]. It has [number] [windows/doors]. They're [shapes]. The [door/window] is a [shape].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Craft project poster",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0519",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_088",
+      "activity_number": "19",
+      "activity_type": "look_listen_point_say",
+      "instruction": "Look, listen, and point. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "It's small. It's white.",
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "cow (brown and white, big)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "horses",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "chicks (yellow, small)",
+          "expected_answer": null
+        },
+        {
+          "item_number": "d",
+          "prompt": "kitten (small, white)",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 142",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0520",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_088",
+      "activity_number": "20",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "It's brown and white.",
+          "expected_answer": "What color is it?"
+        },
+        {
+          "item_number": "2",
+          "prompt": "They're yellow.",
+          "expected_answer": "What color are they?"
+        },
+        {
+          "item_number": "3",
+          "prompt": "They're black and brown.",
+          "expected_answer": "What color are they?"
+        },
+        {
+          "item_number": "4",
+          "prompt": "It's white.",
+          "expected_answer": "What color is it?"
+        },
+        {
+          "item_number": "5",
+          "prompt": "It's pink.",
+          "expected_answer": "What color is it?"
+        },
+        {
+          "item_number": "6",
+          "prompt": "They're red and green.",
+          "expected_answer": "What color are they?"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Matching responses to target questions 'What color is it?' or 'What color are they?'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0521",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_088",
+      "activity_number": "21",
+      "activity_type": "read_and_circle",
+      "instruction": "Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "What color is it / are they? - They're orange and red.",
+          "expected_answer": "are they"
+        },
+        {
+          "item_number": "2",
+          "prompt": "What color is it? - It's / They're gray and white.",
+          "expected_answer": "It's"
+        },
+        {
+          "item_number": "3",
+          "prompt": "What color are they? - It's / They're pink and blue.",
+          "expected_answer": "They're"
+        },
+        {
+          "item_number": "4",
+          "prompt": "What color is it / are they? - It's purple.",
+          "expected_answer": "is it"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0522",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_089",
+      "activity_number": "22",
+      "activity_type": "look_read_write",
+      "instruction": "Look, read, and write.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "basketball: What color is it? ______ red.",
+          "expected_answer": "It's"
+        },
+        {
+          "item_number": "2",
+          "prompt": "toy cars: What color are they? ______ blue and yellow.",
+          "expected_answer": "They're"
+        },
+        {
+          "item_number": "3",
+          "prompt": "figure: What color ______ ______? It's blue and white.",
+          "expected_answer": "is it"
+        },
+        {
+          "item_number": "4",
+          "prompt": "blocks: What color ______ ______? They're red, green, yellow, and blue.",
+          "expected_answer": "are they"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": "Word box: are they, is it, It's, They're",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0523",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_089",
+      "activity_number": "23",
+      "activity_type": "read_and_draw",
+      "instruction": "Read and draw.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing frame to illustrate 'The Haunted House' text",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0524",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_089",
+      "activity_number": "24",
+      "activity_type": "classroom_ask_answer",
+      "instruction": "Look around your classroom. Ask and answer with a partner.",
+      "prompt": "What color is it? / What color are they?",
+      "expected_answer": "It's white. The desk is white. / They're red and green. The pens are red and green.",
+      "language_frame": "What color is it? / It's [color]. The [singular object] is [color]. | What color are they? / They're [colors]. The [plural objects] are [colors].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0525",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "activity_number": "25",
+      "activity_type": "personal_response",
+      "instruction": "Is your home an apartment or a house? Talk about it.",
+      "prompt": "Is your home an apartment or a house?",
+      "expected_answer": "My home is an apartment. It's big. It has five rooms. It has big windows.",
+      "language_frame": "My home is an / a [home type]. It's [size]. It has [number] rooms. It has [size] windows.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0526",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "activity_number": "26",
+      "activity_type": "listen_and_read",
+      "instruction": "Listen and read. Where do Mom and Dad sleep?",
+      "prompt": "Where do Mom and Dad sleep?",
+      "expected_answer": "In the big bedroom.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 143; text about living in a motor home",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0527",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "activity_number": "27",
+      "activity_type": "read_and_circle",
+      "instruction": "Look at 26. Read and circle.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "This is my home. It's a motor home / an apartment.",
+          "expected_answer": "motor home"
+        },
+        {
+          "item_number": "2",
+          "prompt": "It doesn't have a kitchen / dining room.",
+          "expected_answer": "dining room"
+        },
+        {
+          "item_number": "3",
+          "prompt": "The kitchen has four tables / chairs.",
+          "expected_answer": "chairs"
+        },
+        {
+          "item_number": "4",
+          "prompt": "The TV is a rectangle / square.",
+          "expected_answer": "rectangle"
+        },
+        {
+          "item_number": "5",
+          "prompt": "Mom and Dad sleep in the small / big bedroom.",
+          "expected_answer": "big"
+        },
+        {
+          "item_number": "6",
+          "prompt": "The bathroom has a small / big window.",
+          "expected_answer": "small"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on text in Activity 26",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0528",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_091",
+      "activity_number": "28",
+      "activity_type": "game",
+      "instruction": "Look at 26. Play a game.",
+      "prompt": "It has a big TV. It's a rectangle.",
+      "expected_answer": "The living room.",
+      "language_frame": "It has [feature]. It's a [shape]. / The [room name].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": "Based on details in Activity 26",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0529",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_091",
+      "activity_number": "29",
+      "activity_type": "draw_and_talk",
+      "instruction": "Draw a motor home for you. Talk with a partner.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "My motor home has a small kitchen and two bedrooms.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Drawing frame provided",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0529_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_091",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Why do some people live in a motor home? Talk about it.",
+      "prompt": "Why do some people live in a motor home?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0530",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "activity_number": "30",
+      "activity_type": "listen_match_repeat",
+      "instruction": "Listen and match. Then listen and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "photo 1 (girl vacuuming room)",
+          "expected_answer": "She's cleaning her room."
+        },
+        {
+          "item_number": "2",
+          "prompt": "photo 2 (mother and daughter washing/drying dishes)",
+          "expected_answer": "She's helping her parents."
+        },
+        {
+          "item_number": "3",
+          "prompt": "photo 3 (boy washing dishes)",
+          "expected_answer": "He's washing the dishes."
+        },
+        {
+          "item_number": "4",
+          "prompt": "photo 4 (mother and daughter with clean plates)",
+          "expected_answer": "She's drying the dishes."
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 145",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0531",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "activity_number": "31",
+      "activity_type": "act_out_and_guess",
+      "instruction": "How do you help at home? Act it out. Your partner guesses.",
+      "prompt": null,
+      "expected_answer": "He's drying the dishes.",
+      "language_frame": "He's / She's [chore].",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0531_thinkbig",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "activity_number": "Think Big",
+      "activity_type": "open_discussion",
+      "instruction": "Does it feel good to help at home? Why?",
+      "prompt": "Does it feel good to help at home? Why?",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0532",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "activity_number": "32",
+      "activity_type": "listen_look_repeat",
+      "instruction": "Listen, look, and repeat.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "u",
+          "expected_answer": "u"
+        },
+        {
+          "item_number": "2",
+          "prompt": "f",
+          "expected_answer": "f"
+        },
+        {
+          "item_number": "3",
+          "prompt": "ff",
+          "expected_answer": "ff"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 147",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0533",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "activity_number": "33",
+      "activity_type": "listen_find_say",
+      "instruction": "Listen and find. Then say.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "fan",
+          "expected_answer": "fan"
+        },
+        {
+          "item_number": "2",
+          "prompt": "up",
+          "expected_answer": "up"
+        },
+        {
+          "item_number": "3",
+          "prompt": "puff",
+          "expected_answer": "puff"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 148",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0534",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "activity_number": "34",
+      "activity_type": "listen_blend",
+      "instruction": "Listen and blend the sounds.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "r-u-n",
+          "expected_answer": "run"
+        },
+        {
+          "item_number": "2",
+          "prompt": "f-u-n",
+          "expected_answer": "fun"
+        },
+        {
+          "item_number": "3",
+          "prompt": "o-ff",
+          "expected_answer": "off"
+        },
+        {
+          "item_number": "4",
+          "prompt": "s-u-n",
+          "expected_answer": "sun"
+        },
+        {
+          "item_number": "5",
+          "prompt": "f-o-g",
+          "expected_answer": "fog"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": false,
+      "source_dependency_note": "Audio track 149",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0535",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "activity_number": "35",
+      "activity_type": "underline_and_chant",
+      "instruction": "Underline u, f, and ff. Then listen and chant.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 150; text: 'We're having fun, / Running in the sun. / Up, up, up! / Puff, puff, puff!'",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0536",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_094",
+      "activity_number": "36",
+      "activity_type": "memory_game",
+      "instruction": "Work in groups. Play the Memory game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Student 1: I'm eating. / Student 2: She's eating. I'm reading. / Student 3: She's eating. He's reading. I'm washing.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": "Cumulative memory game with present continuous actions",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0537",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_095",
+      "activity_number": "37",
+      "activity_type": "listen_and_number",
+      "instruction": "Listen and number.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "playing board game photo [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "b",
+          "prompt": "combing hair photo [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "c",
+          "prompt": "talking on phone photo [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "d",
+          "prompt": "brushing teeth photo [box]",
+          "expected_answer": null
+        },
+        {
+          "item_number": "e",
+          "prompt": "sleeping photo [box]",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 152",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0538",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_095",
+      "activity_number": "38",
+      "activity_type": "look_and_match",
+      "instruction": "Look and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "It's red.",
+          "expected_answer": "c (red ball) or b (red car)"
+        },
+        {
+          "item_number": "2",
+          "prompt": "They're white.",
+          "expected_answer": "d (white goats)"
+        },
+        {
+          "item_number": "3",
+          "prompt": "It's green.",
+          "expected_answer": "a (green frog puppet)"
+        },
+        {
+          "item_number": "4",
+          "prompt": "They're small.",
+          "expected_answer": "b (toy cars)"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep1_act_0539_ican",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_095",
+      "activity_number": "I Can",
+      "activity_type": "self_assessment",
+      "instruction": "I Can",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "talk about home activities.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "2",
+          "prompt": "name shapes in homes and describe things.",
+          "expected_answer": null
+        },
+        {
+          "item_number": "3",
+          "prompt": "talk about helping at home.",
+          "expected_answer": null
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "continuous_text": [
+    {
+      "text_id": "bep1_text_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "text_type": "song",
+      "title": "What Are You Doing?",
+      "content": "I'm brushing my teeth.\nI'm combing my hair.\nI'm busy. I'm busy.\nWhat are you doing?\n\nI'm eating my breakfast.\nI'm washing my face.\nI'm busy. I'm busy.\nWhat are you doing?\n\nI'm talking on the phone.\nI'm making my lunch.\nI'm busy. I'm busy.\nWhat are you doing?\nChorus",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Tracks 130, 131",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_082",
+      "text_type": "story",
+      "title": "Fun at Home",
+      "content": "Frame 1:\nMom: What are you doing, boys?\nTim: We're playing.\nFrame 2:\nTim: What are you doing, Mom?\nMom: I'm talking on the phone!\nFrame 3:\nMom: What are you and Patrick doing?\nTim: I'm reading, and he's reading, too.\nMom: That's good.\nFrame 4:\nMom: Boys, I'm making lunch.\nFrame 5:\nMom: It's time for lunch! What are you doing now?\nTim: I'm drawing.\nPatrick: I'm drawing, too!\nFrame 6:\nPatrick: This is for you, Mom.\nMom: Oh! Thank you, Patrick. It's great!",
+      "speaker_structure": {
+        "speakers": [
+          "Mom",
+          "Tim",
+          "Patrick"
+        ],
+        "frames": 6
+      },
+      "audio_dependency": true,
+      "notes": "Frames 1-4 on p. 82; frames 5-6 on p. 83; track 134",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "text_type": "reading_passage",
+      "title": "Content Connection: Architectural Shapes",
+      "content": "1 My home is a yurt. It's a circle. It's white and very big. It has a big door.\n2 This is my home. It's a houseboat. It has two small windows. They're circles. It has one big window. It's a square.\n3 My home is a lighthouse. It's a circle. It has a big door. The door is a rectangle.\n4 This is my home. It's an apartment. It's in a tall building. It has big windows. They're rectangles.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 140",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_089",
+      "text_type": "reading_passage",
+      "title": "The Haunted House",
+      "content": "This is a haunted house. It has three ghosts. They're white. Boo! The door is tall. It's brown. Bang! The window is big. The curtains are red. They're long. Whoosh! The house has a black cat. It's big. It's scary. Meow!",
+      "speaker_structure": null,
+      "audio_dependency": false,
+      "notes": "Activity 23 reading and drawing prompt",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0505",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "text_type": "reading_passage",
+      "title": "Culture Connection: Motor Home",
+      "content": "1 This is my home. It's a motor home. It's in a trailer park.\n2 It has a kitchen, but it doesn't have a dining room. The kitchen has a small table. It's a square. The kitchen has four chairs.\n3 The living room has a big TV. It's a rectangle.\n4 My home has two bedrooms. My mom and dad sleep in the big bedroom. My bedroom is small, but it has a big window.\n5 The bathroom is small, too. It has a small window. It's a circle.\n6 My motor home isn't very big, but it's very comfortable. My family is happy here.",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 143",
+      "verification_status": "human_verified"
+    },
+    {
+      "text_id": "bep1_text_0506",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "text_type": "chant",
+      "title": "Phonics Chant (u, f, ff)",
+      "content": "We're having fun,\nRunning in the sun.\nUp, up, up!\nPuff, puff, puff!",
+      "speaker_structure": null,
+      "audio_dependency": true,
+      "notes": "Track 150",
+      "verification_status": "human_verified"
+    }
+  ],
+  "curriculum_components": [
+    {
+      "component_id": "bep1_comp_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_080",
+      "component_type": "vocabulary",
+      "source_label": "Unit 5 vocabulary (home activities)",
+      "title": "Busy at Home",
+      "description": "Daily home activities and routines in present participle form.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "component_type": "song",
+      "source_label": "song/vocabulary",
+      "title": "What Are You Doing?",
+      "description": "Rhythmic song reinforcing everyday household actions.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_082",
+      "component_type": "story",
+      "source_label": "Story / reading",
+      "title": "Fun at Home",
+      "description": "Six-panel story about family members engaged in various home activities.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "component_type": "grammar",
+      "source_label": "Language in Action",
+      "title": "What are you / is she doing?",
+      "description": "Present continuous questions and answers with home activities.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0505",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_086",
+      "component_type": "clil",
+      "source_label": "Content Connection | Art",
+      "title": "Shapes in architecture",
+      "description": "Recognizing geometric shapes in diverse home structures around the world.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0506",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_087",
+      "component_type": "project",
+      "source_label": "PROJECT",
+      "title": "House Shapes poster",
+      "description": "Constructing and describing geometric shapes in a house design.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0507",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_088",
+      "component_type": "grammar",
+      "source_label": "Grammar",
+      "title": "What color is it? / What color are they?",
+      "description": "Questions and answers describing colors and attributes of singular and plural objects.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0508",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_090",
+      "component_type": "culture",
+      "source_label": "Culture Connection | Around the World",
+      "title": "Homes",
+      "description": "Living spaces, rooms, and furnishings in a motor home in the USA.",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0509",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_092",
+      "component_type": "values",
+      "source_label": "Values",
+      "title": "Help at home.",
+      "description": "Helping family with domestic chores (dishes, room cleaning).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0510",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_093",
+      "component_type": "phonics",
+      "source_label": "Phonics",
+      "title": "u, f, ff",
+      "description": "Phonics instruction for /ʌ/ and /f/ (f, ff).",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "component_id": "bep1_comp_0511",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_094",
+      "component_type": "review",
+      "source_label": "Review",
+      "title": "Review",
+      "description": "Review and self-assessment of home actions, shapes, colors, and helping habits.",
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "bep1_rel_0501",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0504",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0501",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Then look at 1 and find.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0502",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0506",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0505",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 5. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0503",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0508",
+      "target_entity_type": "continuous_text",
+      "target_entity_id": "bep1_text_0502",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at the story. Circle.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0504",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0512",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0511",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 11. Ask and answer.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0505",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0516",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0515",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 15. Read and match.'",
+      "verification_status": "human_verified"
+    },
+    {
+      "relationship_id": "bep1_rel_0506",
+      "book_id": "bep1_sb",
+      "relationship_type": "practises",
+      "source_entity_type": "activity",
+      "source_entity_id": "bep1_act_0527",
+      "target_entity_type": "activity",
+      "target_entity_id": "bep1_act_0526",
+      "evidence_type": "instruction_text",
+      "notes": "Instruction explicitly states 'Look at 26. Read and circle.'",
+      "verification_status": "human_verified"
+    }
+  ],
+  "extraction_issues": [
+    {
+      "issue_id": "bep1_issue_0501",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_081",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0505",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Yes/no answers for items 1-3 require audio track 132.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0502",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_084",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0510",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Check marks for items 1-4 require audio track 136.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0503",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_085",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0511",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Sticker placement for Activity 11 requires audio track 138 and sticker page review.",
+      "status": "open"
+    },
+    {
+      "issue_id": "bep1_issue_0504",
+      "book_id": "bep1_sb",
+      "unit_id": "bep1_unit_05",
+      "page_id": "bep1_page_095",
+      "entity_type": "activity",
+      "entity_id": "bep1_act_0537",
+      "issue_type": "audio_required",
+      "severity": "review",
+      "description": "Numbering order for photos a-e requires audio track 152.",
+      "status": "open"
+    }
+  ],
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 4,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-02",
+    "notes": "Human verification accepted after project review of Big English 1 SB unit batches; all units marked verified by project decision."
+  }
+}
