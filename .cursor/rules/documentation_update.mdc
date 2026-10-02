@@ -1,0 +1,76 @@
+---
+description: Keep docs/0-index.md updated when documentation files change
+globs: docs/**/*.md
+alwaysApply: true
+---
+
+# Documentation Index Maintenance
+
+Whenever this session **adds, removes, renames, or substantively updates** any markdown file under `docs/`, update `docs/0-index.md` in the same turn before finishing.
+
+## When to update
+
+Update the index if any of the following happen to files in `docs/`:
+
+- a documentation `.md` file is **added**
+- a documentation `.md` file is **removed**
+- a documentation `.md` file is **renamed** or moved
+- a documentation `.md` file’s **title, purpose, Status, Version, or scope** changes in a way that would make the index summary/lifecycle/version wrong
+
+Do **not** treat routine edits to `docs/0-index.md` alone as a trigger for further index work.
+
+## What `docs/0-index.md` must contain
+
+`docs/0-index.md` is always **ACTIVE**. It is the master index for project documentation.
+
+For every documentation `.md` file in `docs/` (including the index itself), the index must list:
+
+1. a working relative markdown **link** to the file
+2. a short **human-readable summary** of what the doc contains (1–2 sentences)
+3. the document **Version**
+4. the document **Lifecycle**
+
+### Version
+
+- Prefer an explicit `**Version:**` field in the document header if present
+- Otherwise use a version stated in the title (e.g. `V1`, `V2`)
+- For schema docs, use the stated working schema version (e.g. `0.1`)
+- If none exists, use `—`
+
+### Lifecycle
+
+Normalize each document’s own Status field to one of:
+
+- `ACTIVE` — in use, evolving, or under active development
+- `PARKED` — retained for later; not current development priority
+- `LOCKED` — frozen / not to be changed without an explicit unlock decision
+
+If a document says `ACTIVE / EVOLVING` or `ACTIVE / DEVELOPMENT`, record Lifecycle as `ACTIVE`.
+
+## Required actions after a docs change
+
+1. Scan `docs/*.md` and ensure the index lists every file exactly once.
+2. Fix broken links after renames/moves.
+3. Refresh summary / Version / Lifecycle for changed docs.
+4. Refresh the lifecycle snapshot counts.
+5. Keep the index concise and consistent with the existing table format.
+
+## Examples
+
+```text
+# Added docs/8-Phase_2_Interpretation.md with Status ACTIVE and Version V1
+→ Add a new row to the Documents table and bump the ACTIVE count.
+
+# Renamed docs/6-Dataset_registry.md → docs/6-Dataset_Registry.md
+→ Update the link and filename in the index row; do not invent a new summary unless content also changed.
+
+# Changed docs/7-ChalkieAI_Handover_specifications.md from PARKED to ACTIVE
+→ Update Lifecycle to ACTIVE and adjust the lifecycle snapshot counts.
+
+# Removed docs/5-Teacher_Enrichment_Philosophy.md
+→ Remove its row and adjust counts.
+```
+
+## Non-negotiable
+
+Never leave `docs/0-index.md` stale after a documentation inventory change in the same session.

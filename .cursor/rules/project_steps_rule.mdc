@@ -1,0 +1,55 @@
+---
+description: Append a step to docs/project-tracking/0-project-steps.md after each file-changing prompt
+alwaysApply: true
+---
+
+# Project Steps Log Maintenance
+
+At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, append one new step to `docs/project-tracking/0-project-steps.md`.
+
+## When to append a step
+
+Append a step when this prompt changed files (code, docs, rules, config, assets, etc.).
+
+Do **not** append a step when:
+
+- the session is **Ask mode** (read-only / Q&A only);
+- the prompt only answered questions and **did not** alter any files;
+- the **only** file write in the prompt was appending this same project-steps entry (avoid empty/self-only loops).
+
+If this prompt also updates `docs/0-index.md` or other docs as required by other rules, that still counts as a file-changing prompt — record **one** step for the whole prompt, including those updates.
+
+## How to append
+
+1. Read `docs/project-tracking/0-project-steps.md` if needed to find the latest step number.
+2. Append the next numbered step at the end of the **Steps** section.
+3. Do **not** renumber or rewrite earlier steps.
+4. Keep the summary short and human-readable.
+
+### Required step format
+
+```markdown
+### Step N
+
+**Summary:** <1–3 sentences describing what this prompt accomplished>
+
+**Files touched:**
+- `path/to/file` (created|updated|renamed|deleted)
+- `path/to/other` (created|updated|renamed|deleted)
+
+---
+```
+
+- Use the next integer after the highest existing step.
+- List the meaningful files touched; group bulk identical edits if needed, but prefer explicit paths for small changes.
+- Mention intent briefly in the summary (what / why), not a full diff.
+
+## Order relative to other rules
+
+1. Do the requested work first (including documentation index updates if docs changed).
+2. Then append the project-steps entry as the last maintenance action for the prompt.
+3. Including the project-steps file itself in **Files touched** for that step is expected.
+
+## Non-negotiable
+
+Never finish a file-changing prompt without appending the corresponding step to `docs/project-tracking/0-project-steps.md`.

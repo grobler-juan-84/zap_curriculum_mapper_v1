@@ -1,0 +1,46 @@
+---
+description: Refresh docs/project-tracking/1-project-status.md after each file-changing prompt
+alwaysApply: true
+---
+
+# Project Status Maintenance
+
+At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, rewrite `docs/project-tracking/1-project-status.md` so it stays a short, current snapshot of the project.
+
+## When to update
+
+Update the status file when this prompt changed files (code, docs, rules, config, assets, etc.).
+
+Do **not** update when:
+
+- the session is **Ask mode** (read-only / Q&A only);
+- the prompt only answered questions and **did not** alter any files.
+
+## Required structure
+
+Keep these three sections (rewrite in place; do not append a long history):
+
+1. **What has been done** — brief bullets of completed, durable progress so far.
+2. **Current status** — where the project stands right now (focus, blockers, what’s usable).
+3. **Next small step** — one concrete suggested next action for the following prompt, plus a short bird’s-eye overview of remaining work. Mark the next step as a **suggestion** that still depends on the user’s next prompt.
+
+Also refresh:
+
+- `**Last updated:** Step N` to match the latest step number in `docs/project-tracking/0-project-steps.md`
+
+## Style
+
+- Keep the whole file short and scannable.
+- Prefer plain language over exhaustive file lists.
+- Align with real project priorities (currently Phase 1 unless the user changes focus).
+- Do not invent completed work; base the snapshot on evidence from this session and existing docs/trackers.
+
+## Order relative to other rules
+
+1. Do the requested work first (including `docs/0-index.md` updates if docs changed).
+2. Update `docs/project-tracking/1-project-status.md`.
+3. Append the step to `docs/project-tracking/0-project-steps.md` last (include this status file in that step’s files-touched list).
+
+## Non-negotiable
+
+Never finish a file-changing prompt with a stale `docs/project-tracking/1-project-status.md`.
