@@ -184,3 +184,14 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 14
+
+**Summary:** Added brainstorming answer on JSON-only vs later relational: lean hybrid (JSON curriculum source of truth + thin relational app/ops metadata; normalize curriculum tables only if needed).
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

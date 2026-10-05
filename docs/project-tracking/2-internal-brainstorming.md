@@ -71,6 +71,22 @@ New extractions = new version of that book document (or a draft → published li
 1. **Define “done” for one book** — batch extract → human verify → merge to one canonical JSON → whole-book audit → registry COMPLETE. Write that lifecycle in one page before designing an app.
 2. **Freeze ID + schema ownership rules** — one canonical `book_id` convention, what may change in schema 0.1 vs what must wait for a version bump, and who/what is allowed to edit published book JSON. Coding without this creates rename and migration debt immediately.
 
+### #5 — JSON only forever, or move to relational later?
+
+**JSON can carry the curriculum for a long time — maybe forever as the source of truth.** The app does **not** need a full relational model of every vocabulary item / activity to be useful.
+
+**Practical lean:**
+
+| Layer | Prefer | Why |
+|---|---|---|
+| Curriculum payload (units, pages, vocab, activities, etc.) | **JSON / JSONB / document** | Schema still evolving; series differ; nested evidence fits documents |
+| App/ops metadata (users, orgs, book registry, versions, permissions, jobs) | **Small relational tables early** | Stable, queryable, normal SaaS concerns |
+| Heavy cross-book analytics / “find all X across 18 books” | **Maybe relational (or search index) later** | Only if JSON queries become slow or painful |
+
+So: **not JSON-only for the whole product**, and **not a big relational curriculum schema soon**. Best middle path is **hybrid** — keep book datasets as JSON documents; use a thin relational (or even just auth + file metadata) layer for the SaaS shell. Move curriculum entities into normalized tables only if a concrete product feature proves JSON querying is the bottleneck.
+
+**Do not decide this before Phase 1 schema + a few canonical books exist.**
+
 ---
 
 ## Open brainstorming entries
