@@ -147,3 +147,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 11
+
+**Summary:** Marked Big English 2 SB units `01–09` and Reach Higher 2A units `1–3` human-verified after project review; left RH2A Unit 4 pending extraction restriction. Repaired truncated BE2 Unit 2 JSON (reconstructed header; pages/vocabulary/language empty with open issue). Updated dataset registry for BE2-SB (COMPLETE) and RH2A (PARTIAL).
+
+**Files touched:**
+- `data/phase1/big_english_2_sb/big_english_2_sb_unit_01.json` … `unit_09.json` (updated)
+- `data/phase1/reach_higher_2a/rh2a_sb_unit1.json` … `unit3.json` (updated)
+- `docs/6-Dataset_registry.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

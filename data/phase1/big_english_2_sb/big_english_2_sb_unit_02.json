@@ -1,4 +1,56 @@
- {
+{
+  "schema": {
+    "name": "general_curriculum_mapper_phase1",
+    "version": "0.1",
+    "status": "development"
+  },
+  "book": {
+    "book_id": "bep_sb_2",
+    "series": "Big English Plus",
+    "level": "2",
+    "book_type": "Student's Book",
+    "edition": null,
+    "publisher": "Pearson Education Limited",
+    "source_filename": "BEP2_SB.pdf",
+    "source_format": "PDF",
+    "pdf_page_count": 191,
+    "printed_page_start": 20,
+    "printed_page_end": 35,
+    "language": "English",
+    "extraction_status": "in_progress",
+    "verification_status": "human_verified"
+  },
+  "batch": {
+    "batch_id": "bep2_batch_unit_2",
+    "unit_id": "bep2_unit_02",
+    "source_section": "Unit 2 (Outdoor Activities)",
+    "printed_page_start": 20,
+    "printed_page_end": 35,
+    "pdf_page_start": 20,
+    "pdf_page_end": 35,
+    "extraction_status": "complete"
+  },
+  "units": [
+    {
+      "unit_id": "bep2_unit_02",
+      "book_id": "bep_sb_2",
+      "unit_number": "2",
+      "title": "Outdoor Activities",
+      "theme": "Outdoor play, sports and activities, body parts for movement, playing together",
+      "printed_page_start": 20,
+      "printed_page_end": 35,
+      "pdf_page_start": 20,
+      "pdf_page_end": 35,
+      "source_section_type": "unit",
+      "notes": "Batch JSON was truncated at import (missing leading schema/book/pages/vocabulary/language). Header reconstructed; pages/vocabulary/language arrays empty pending re-extraction.",
+      "verification_status": "human_verified"
+    }
+  ],
+  "pages": [],
+  "vocabulary": [],
+  "language": [],
+  "activities": [
+{
       "activity_id": "bep2_act_u2_01",
       "book_id": "bep_sb_2",
       "unit_id": "bep2_unit_02",
@@ -23,7 +75,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 28",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_02",
@@ -41,7 +93,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 29",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_03",
@@ -59,7 +111,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_04",
@@ -77,7 +129,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Tracks 30, 31",
       "notes": "Song: Come On and Play",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_05",
@@ -100,7 +152,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 32",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_06",
@@ -118,7 +170,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_07",
@@ -136,7 +188,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 34",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_08",
@@ -158,7 +210,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_09",
@@ -176,7 +228,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 35",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_10",
@@ -199,7 +251,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_11",
@@ -217,7 +269,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 37; requires stickers from p. 189",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_12",
@@ -235,7 +287,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_13",
@@ -253,7 +305,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_14",
@@ -271,7 +323,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_15",
@@ -295,7 +347,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 38",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_16",
@@ -320,7 +372,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_17",
@@ -338,7 +390,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Word box options: drink milk, eat yogurt and cheese, exercise / bones, muscles, strong, weak",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_18",
@@ -356,7 +408,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_19",
@@ -374,7 +426,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 40",
       "notes": "Dialogue between Anna and Ben.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_20",
@@ -392,7 +444,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Focus on: She loves to skateboard / Me, too! / She doesn't like to play soccer / Me neither!",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_21",
@@ -415,7 +467,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_22",
@@ -438,7 +490,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_23",
@@ -460,7 +512,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Word box: doesn't, don't, like, loves, neither, too",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_24",
@@ -478,7 +530,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_25",
@@ -496,7 +548,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_26",
@@ -518,7 +570,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 41",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_27",
@@ -540,7 +592,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_28",
@@ -558,7 +610,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_29",
@@ -581,7 +633,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 43",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_30",
@@ -604,7 +656,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 44",
       "notes": "Word box: feet, hands, knee, leg",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_31",
@@ -625,7 +677,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 45",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_32",
@@ -648,7 +700,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 46",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_33",
@@ -673,7 +725,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 47",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_34",
@@ -691,7 +743,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 48",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_35",
@@ -709,7 +761,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_36",
@@ -732,7 +784,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_37",
@@ -753,7 +805,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u2_38",
@@ -776,7 +828,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "continuous_text": [
@@ -791,7 +843,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Tracks 5 and 6",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u1_02",
@@ -804,7 +856,7 @@
       "speaker_structure": "Dialogue across 6 comic frames",
       "audio_dependency": true,
       "notes": "Track 9; spreads across pages 6 and 7",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u1_03",
@@ -817,7 +869,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Written as homework by student 'Katie Timms'",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u1_04",
@@ -830,7 +882,7 @@
       "speaker_structure": "Mrs. Green / Lucy",
       "audio_dependency": true,
       "notes": "Track 18",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u1_05",
@@ -843,7 +895,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Spans pages 14-15; Track 19",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u1_06",
@@ -856,7 +908,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 25",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_01",
@@ -869,7 +921,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Tracks 30, 31",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_02",
@@ -882,7 +934,7 @@
       "speaker_structure": "Dialogue across 6 comic frames",
       "audio_dependency": true,
       "notes": "Track 34; Spreads across pages 22 and 23",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_03",
@@ -895,7 +947,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 38",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_04",
@@ -908,7 +960,7 @@
       "speaker_structure": "Anna / Ben",
       "audio_dependency": true,
       "notes": "Track 40",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_05",
@@ -921,7 +973,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Spans pages 30-31; Track 41",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u2_06",
@@ -934,7 +986,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 48",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "curriculum_components": [
@@ -948,7 +1000,7 @@
       "title": "Classroom Activities",
       "description": "Vocabulary presentation of actions/verbs ending in -ing in the classroom context.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0002",
@@ -960,7 +1012,7 @@
       "title": "Here's My Classroom!",
       "description": "Song embedding target vocabulary in continuous rhythm/context.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0003",
@@ -972,7 +1024,7 @@
       "title": "What's Maria Doing?",
       "description": "Illustrated comic narrative integrating target vocabulary and grammar.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0004",
@@ -984,7 +1036,7 @@
       "title": "Language in Action",
       "description": "Core functional sentence patterns and substitution tables.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0005",
@@ -996,7 +1048,7 @@
       "title": "Math Connection",
       "description": "Cross-curricular math integration (arithmetic and counting to 100).",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0006",
@@ -1008,7 +1060,7 @@
       "title": "Grammar: Imperatives",
       "description": "Explicit grammar study and practice focusing on imperatives for classroom rules.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0007",
@@ -1020,7 +1072,7 @@
       "title": "Classes, but Not in a Classroom!",
       "description": "Global cultural awareness reading comparing schooling in different countries.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0008",
@@ -1032,7 +1084,7 @@
       "title": "Take turns.",
       "description": "Socio-emotional and behavioral value instruction.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0009",
@@ -1044,7 +1096,7 @@
       "title": "th",
       "description": "Sound-spelling recognition, blending, and chanting for the digraph 'th'.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0010",
@@ -1056,7 +1108,7 @@
       "title": "Unit 1 Review",
       "description": "End-of-unit consolidation and 'I Can' self-assessment.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0011",
@@ -1068,7 +1120,7 @@
       "title": "Outdoor Activities",
       "description": "Vocabulary presentation for games and physical outdoor activities.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0012",
@@ -1080,7 +1132,7 @@
       "title": "Come On and Play",
       "description": "Action song practicing outdoor activities and like + -ing.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0013",
@@ -1092,7 +1144,7 @@
       "title": "We Like Playing Together!",
       "description": "Illustrated narrative practicing talking about likes and sports.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0014",
@@ -1104,7 +1156,7 @@
       "title": "Language in Action",
       "description": "Grammar practice with questions and answers using like/love + -ing.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0015",
@@ -1116,7 +1168,7 @@
       "title": "Bones and Muscles",
       "description": "Science connection focusing on human anatomy and movement.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0016",
@@ -1128,7 +1180,7 @@
       "title": "Grammar: like/love to, Me, too! / Me neither!",
       "description": "Grammar study on infinitives of preference and short agreement forms.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0017",
@@ -1140,7 +1192,7 @@
       "title": "Games You Play",
       "description": "Cultural connection exploring traditional games in Guatemala, India, and Ghana.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0018",
@@ -1152,7 +1204,7 @@
       "title": "Play safely.",
       "description": "Instruction and practice on playground safety habits.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0019",
@@ -1164,7 +1216,7 @@
       "title": "ng, nk",
       "description": "Phonics instruction for nasal digraphs ng and nk.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_0020",
@@ -1176,7 +1228,7 @@
       "title": "Unit 2 Review",
       "description": "Unit 2 consolidation and self-assessment.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "relationships": [
@@ -1190,7 +1242,7 @@
       "target_entity_id": "bep2_vocab_u1_001",
       "evidence_type": "explicit_page_content",
       "notes": "Presents classroom activities vocabulary",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0002",
@@ -1202,7 +1254,7 @@
       "target_entity_id": "bep2_vocab_u1_001",
       "evidence_type": "activity_song_lyrics",
       "notes": "Song practises Unit 1 target verbs",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0003",
@@ -1214,7 +1266,7 @@
       "target_entity_id": "bep2_p189",
       "evidence_type": "instruction_dependency",
       "notes": "Activity 11 requires stickers from page 189",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0004",
@@ -1226,10 +1278,22 @@
       "target_entity_id": "bep2_p189",
       "evidence_type": "instruction_dependency",
       "notes": "Activity 11 requires stickers from page 189",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "extraction_issues": [
+    {
+      "issue_id": "bep2_issue_u02_truncation",
+      "book_id": "bep_sb_2",
+      "unit_id": "bep2_unit_02",
+      "page_id": null,
+      "entity_type": "batch",
+      "entity_id": "bep2_batch_unit_2",
+      "issue_type": "missing_source",
+      "severity": "blocking",
+      "description": "Unit 2 batch file was truncated when first committed: schema/book/batch/units/pages/vocabulary/language preamble missing. Header reconstructed for validity; pages, vocabulary, and language arrays are empty and need re-extraction. Remaining activities/continuous_text/components retained from the surviving fragment.",
+      "status": "open"
+    },
     {
       "issue_id": "bep2_issue_0001",
       "book_id": "bep_sb_2",
@@ -1293,5 +1357,15 @@
       "scope_estimate": "series_specific",
       "review_status": "pending"
     }
-  ]
+  ],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 5,
+    "open_schema_gap_count": 1,
+    "last_verified": "2026-10-05",
+    "notes": "Human verification accepted after project review of Big English 2 SB unit batches; Unit 2 marked verified with open truncation issue (pages/vocabulary/language missing from batch file)."
+  }
 }

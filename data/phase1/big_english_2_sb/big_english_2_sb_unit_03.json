@@ -18,7 +18,7 @@
     "printed_page_end": 51,
     "language": "English",
     "extraction_status": "in_progress",
-    "verification_status": "unverified"
+    "verification_status": "human_verified"
   },
   "batch": {
     "batch_id": "bep2_batch_unit_3",
@@ -43,7 +43,7 @@
       "pdf_page_end": 51,
       "source_section_type": "unit",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "pages": [
@@ -60,7 +60,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p037",
@@ -75,7 +75,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p038",
@@ -90,7 +90,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p039",
@@ -105,7 +105,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p040",
@@ -120,7 +120,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p041",
@@ -135,7 +135,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Activity 11 requires stickers from page 189.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p042",
@@ -150,7 +150,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p043",
@@ -165,7 +165,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p044",
@@ -180,7 +180,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p045",
@@ -195,7 +195,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p046",
@@ -210,7 +210,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p047",
@@ -225,7 +225,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p048",
@@ -240,7 +240,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p049",
@@ -255,7 +255,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p050",
@@ -270,7 +270,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p051",
@@ -285,7 +285,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": "Includes 'I Can' self-assessment block.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "vocabulary": [
@@ -300,7 +300,7 @@
       "source_context": "Activity 1 vocabulary item 1",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_002",
@@ -313,7 +313,7 @@
       "source_context": "Activity 1 vocabulary item 2",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_003",
@@ -326,7 +326,7 @@
       "source_context": "Activity 1 vocabulary item 3",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_004",
@@ -339,7 +339,7 @@
       "source_context": "Activity 1 vocabulary item 4",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_005",
@@ -352,7 +352,7 @@
       "source_context": "Activity 1 vocabulary item 5",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_006",
@@ -365,7 +365,7 @@
       "source_context": "Activity 1 vocabulary item 6",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_007",
@@ -378,7 +378,7 @@
       "source_context": "Activity 1 vocabulary item 7",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_008",
@@ -391,7 +391,7 @@
       "source_context": "Activity 1 vocabulary item 8",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_009",
@@ -404,7 +404,7 @@
       "source_context": "Activity 1 vocabulary item 9",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_010",
@@ -417,7 +417,7 @@
       "source_context": "Activity 1 vocabulary item 10",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_011",
@@ -430,7 +430,7 @@
       "source_context": "Activity 1 vocabulary item 11",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_012",
@@ -443,7 +443,7 @@
       "source_context": "Activity 1 vocabulary item 12",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_013",
@@ -456,7 +456,7 @@
       "source_context": "Activity 1 vocabulary item 13",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_014",
@@ -469,7 +469,7 @@
       "source_context": "Activity 1 room label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_015",
@@ -482,7 +482,7 @@
       "source_context": "Activity 1 room label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_016",
@@ -495,7 +495,7 @@
       "source_context": "Activity 1 room label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_017",
@@ -508,7 +508,7 @@
       "source_context": "Activity 1 room label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_018",
@@ -521,7 +521,7 @@
       "source_context": "Song text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_019",
@@ -534,7 +534,7 @@
       "source_context": "Story frame 1 dialogue and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_020",
@@ -547,7 +547,7 @@
       "source_context": "Story frame 1 dialogue and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_021",
@@ -560,7 +560,7 @@
       "source_context": "Story frame 2 dialogue and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_022",
@@ -573,7 +573,7 @@
       "source_context": "Activity 10 picture label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_023",
@@ -586,7 +586,7 @@
       "source_context": "Activity 10 picture label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_024",
@@ -599,7 +599,7 @@
       "source_context": "Activity 10 picture label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_025",
@@ -612,7 +612,7 @@
       "source_context": "Activity 10 picture label",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_026",
@@ -625,7 +625,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_027",
@@ -638,7 +638,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_028",
@@ -651,7 +651,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_029",
@@ -664,7 +664,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_030",
@@ -677,7 +677,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_031",
@@ -690,7 +690,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_032",
@@ -703,7 +703,7 @@
       "source_context": "Content Words box (Activity 14)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_033",
@@ -716,7 +716,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_034",
@@ -729,7 +729,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_035",
@@ -742,7 +742,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_036",
@@ -755,7 +755,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_037",
@@ -768,7 +768,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_038",
@@ -781,7 +781,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_039",
@@ -794,7 +794,7 @@
       "source_context": "Culture text and wordlist",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_040",
@@ -807,7 +807,7 @@
       "source_context": "Values Activity 28 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_041",
@@ -820,7 +820,7 @@
       "source_context": "Values Activity 28 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_042",
@@ -833,7 +833,7 @@
       "source_context": "Phonics Presentation",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_043",
@@ -846,7 +846,7 @@
       "source_context": "Phonics Presentation",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_044",
@@ -859,7 +859,7 @@
       "source_context": "Phonics Presentation",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u3_045",
@@ -872,7 +872,7 @@
       "source_context": "Phonics Presentation",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "language": [
@@ -889,7 +889,7 @@
       "function": "asking_and_answering_about_location",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u3_002",
@@ -904,7 +904,7 @@
       "function": "identifying_singular_location",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u3_003",
@@ -919,7 +919,7 @@
       "function": "identifying_plural_locations",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u3_004",
@@ -934,7 +934,7 @@
       "function": "asking_about_possessions_location",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u3_005",
@@ -949,7 +949,7 @@
       "function": "expressing_possession",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u3_006",
@@ -964,7 +964,7 @@
       "function": "contrasting_preferences",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "activities": [
@@ -998,7 +998,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 50",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_02",
@@ -1016,7 +1016,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 51",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_03",
@@ -1034,7 +1034,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_04",
@@ -1052,7 +1052,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Tracks 52, 53",
       "notes": "Song: Where Are My Keys?",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_05",
@@ -1070,7 +1070,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 54",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_06",
@@ -1088,7 +1088,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_07",
@@ -1106,7 +1106,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 56",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_08",
@@ -1140,7 +1140,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Word box: bedroom, living room, kitchen",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_09",
@@ -1158,7 +1158,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 57",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_10",
@@ -1197,7 +1197,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_11",
@@ -1215,7 +1215,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 58; requires stickers from p. 189",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_12",
@@ -1233,7 +1233,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_13",
@@ -1251,7 +1251,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_14",
@@ -1269,7 +1269,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Word box: bike, computer, lamp, TV. Numbered as 13 in textbook despite page progression.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_15",
@@ -1287,7 +1287,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 59",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_16",
@@ -1336,7 +1336,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_17",
@@ -1354,7 +1354,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_18",
@@ -1372,7 +1372,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_19",
@@ -1390,7 +1390,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 61",
       "notes": "Dialogue between Mom and Carla.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_20",
@@ -1408,7 +1408,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Target words: mine, yours, his, hers, ours, theirs",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_21",
@@ -1447,7 +1447,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_22",
@@ -1486,7 +1486,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_23",
@@ -1520,7 +1520,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_24",
@@ -1538,7 +1538,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_25",
@@ -1577,7 +1577,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_26",
@@ -1616,7 +1616,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 62",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_27",
@@ -1660,7 +1660,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_28",
@@ -1699,7 +1699,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_29",
@@ -1733,7 +1733,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 64",
       "notes": "Word box: sink, toy box, washing machine",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_30",
@@ -1751,7 +1751,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_31",
@@ -1780,7 +1780,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 66",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_32",
@@ -1803,7 +1803,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 67",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_33",
@@ -1828,7 +1828,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 68",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_34",
@@ -1846,7 +1846,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 69",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_35",
@@ -1879,7 +1879,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Student-choice personalization matching items to room locations.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_36",
@@ -1897,7 +1897,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_37",
@@ -1946,7 +1946,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Word box: bathtubs, chairs, dresser, fridge, lamp, oven",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u3_38",
@@ -1980,7 +1980,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": "Word box: brother's, his, mine, yours",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "continuous_text": [
@@ -1995,7 +1995,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Tracks 52 and 53",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u3_02",
@@ -2008,7 +2008,7 @@
       "speaker_structure": "Dialogue across 6 comic frames",
       "audio_dependency": true,
       "notes": "Spans pages 38-39; Track 56",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u3_03",
@@ -2021,7 +2021,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 59; written by Emma White",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u3_04",
@@ -2034,7 +2034,7 @@
       "speaker_structure": "Mom / Carla",
       "audio_dependency": true,
       "notes": "Track 61",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u3_05",
@@ -2047,7 +2047,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Spans pages 46-47; Track 62",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u3_06",
@@ -2060,7 +2060,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 69",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "curriculum_components": [
@@ -2074,7 +2074,7 @@
       "title": "Furniture and Rooms",
       "description": "Vocabulary presentation for household furniture items and rooms.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_02",
@@ -2086,7 +2086,7 @@
       "title": "Where Are My Keys?",
       "description": "Thematic song targeting prepositions and furniture vocabulary.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_03",
@@ -2098,7 +2098,7 @@
       "title": "A Family Visit",
       "description": "Comic narrative introducing family terms and practicing room locations.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_04",
@@ -2110,7 +2110,7 @@
       "title": "Language in Action: Where's / Where are",
       "description": "Sentence building for asking and answering about location using prepositions of place.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_05",
@@ -2122,7 +2122,7 @@
       "title": "At the Museum",
       "description": "History connection contrasting old and modern household objects.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_06",
@@ -2134,7 +2134,7 @@
       "title": "Grammar: Possessive Pronouns",
       "description": "Grammar presentation and practice of possessive pronouns (mine, yours, his, hers, ours, theirs).",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_07",
@@ -2146,7 +2146,7 @@
       "title": "Household Objects",
       "description": "Cultural reading on distinctive household objects in Sudan, Mali, Japan, and Indonesia.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_08",
@@ -2158,7 +2158,7 @@
       "title": "Be neat.",
       "description": "Values lesson on domestic tidiness and organizing personal belongings.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_09",
@@ -2170,7 +2170,7 @@
       "title": "oo",
       "description": "Phonics differentiation between long and short vowel digraph 'oo'.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u3_10",
@@ -2182,7 +2182,7 @@
       "title": "Unit 3 Review",
       "description": "Consolidation of furniture, locations, possessives, and 'I Can' self-assessment.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "relationships": [
@@ -2196,7 +2196,7 @@
       "target_entity_id": "bep2_vocab_u3_001",
       "evidence_type": "explicit_page_content",
       "notes": "Presents household furniture vocabulary",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0006",
@@ -2208,7 +2208,7 @@
       "target_entity_id": "bep2_vocab_u3_002",
       "evidence_type": "activity_song_lyrics",
       "notes": "Song practises furniture and room vocabulary",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0007",
@@ -2220,7 +2220,7 @@
       "target_entity_id": "bep2_p189",
       "evidence_type": "instruction_dependency",
       "notes": "Activity 11 requires stickers from page 189",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "extraction_issues": [
@@ -2249,5 +2249,15 @@
       "status": "open"
     }
   ],
-  "schema_gaps": []
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 2,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-05",
+    "notes": "Human verification accepted after project review of Big English 2 SB unit batches; all units marked verified by project decision."
+  }
 }

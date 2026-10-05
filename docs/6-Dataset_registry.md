@@ -180,7 +180,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE2-SB | Big English | 2 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 19 | 1 | IN PROGRESS |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -190,7 +190,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-WB | Big English | 6 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| RH2A | Reach Higher | 2A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| RH2A | Reach Higher | 2A | Book | AVAILABLE | IN PROGRESS | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 8 | 5 | IN PROGRESS |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH4A | Reach Higher | 4A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -348,6 +348,69 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8C. BE2-SB — Big English 2 Student Book (active)
+
+**Registry ID:** BE2-SB  
+**Series:** Big English (extracted metadata may say Big English Plus)  
+**Level:** 2  
+**Book Type:** Student Book  
+**Folder / files:** `data/phase1/big_english_2_sb/`  
+**Internal book_id in JSON:** `bep_sb_2`
+
+### Phase 1 Processing
+
+**Extraction Status:** EXTRACTED (unit batches `01–09`)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** COMPLETE  
+**Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-05). Unit 2 batch JSON was truncated at import (pages/vocabulary/language missing); header reconstructed; re-extraction of missing sections still needed.  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 19 (audio/visual verification + Unit 2 truncation / missing sections)  
+**Schema Gaps:** 1 (Think BIG inquiry prompts — pending schema review)
+
+### Notes
+
+- Do not mark Phase 1 COMPLETE until Unit 2 missing sections are restored, canonical merge, and whole-book audit are done.
+
+---
+
+# 8D. RH2A — Reach Higher 2A Student Book (active)
+
+**Registry ID:** RH2A  
+**Series:** Reach Higher  
+**Level:** 2A  
+**Book Type:** Student Book  
+**Folder / files:** `data/phase1/reach_higher_2a/`  
+**Internal book_id in JSON:** `rh_2a`
+
+### Phase 1 Processing
+
+**Extraction Status:** IN PROGRESS (units `1–3` extracted; **Unit 4 pending** extraction restriction)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** PARTIAL  
+**Verification Notes:** Units 1–3 reviewed and accepted by project decision (2026-10-05). Unit 4 not yet extracted.  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 8 (documented in unit batches; left open)  
+**Schema Gaps:** 5 (Big Question / inquiry, intermittent reading prompts, glossary definitions, and related gaps — pending cross-series schema review)
+
+### Notes
+
+- Do not mark human verification COMPLETE until Unit 4 is extracted and reviewed.
+- Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.
@@ -445,7 +508,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 |---:|---|---|---|
 | 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 3 | Reach Higher 2A | Cross-series structural stress test | NOT STARTED |
+| 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–3 EXTRACTED + HUMAN-VERIFIED; UNIT 4 PENDING EXTRACTION RESTRICTION |
 | 4 | Schema Review | Review findings across all three series | NOT STARTED |
 
 The exact extraction sequence may change if practical testing provides a reason.
@@ -570,12 +633,12 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 16 |
-| Phase 1 In Progress | 2 |
+| Phase 1 Not Started | 14 |
+| Phase 1 In Progress | 4 |
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
 | Canonical Datasets Created | 0 |
-| Human Verification Complete | 2 |
+| Human Verification Complete | 3 |
 | Whole-Book Audits Passed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -587,9 +650,9 @@ These counts should be updated whenever a book changes major processing status.
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Beehive | 2 | 1 | 1 | 0 | 0 |
-| Big English | 12 | 11 | 1 | 0 | 0 |
-| Reach Higher | 4 | 4 | 0 | 0 | 0 |
-| **Total** | **18** | **16** | **2** | **0** | **0** |
+| Big English | 12 | 10 | 2 | 0 | 0 |
+| Reach Higher | 4 | 3 | 1 | 0 | 0 |
+| **Total** | **18** | **14** | **4** | **0** | **0** |
 
 ---
 
@@ -599,7 +662,7 @@ Use this section once extraction begins.
 
 | Schema Version | Books Using Version | Migration Needed | Notes |
 |---|---:|---|---|
-| 0.1 | 2 (BH1 + BE1-SB unit batches) | No | BH1: `data/phase1/beehive_1_sb/` (01–08); BE1-SB: `data/phase1/big_english_1_sb/` (01–09) |
+| 0.1 | 4 (BH1 + BE1-SB + BE2-SB + RH2A unit batches) | No | BH1: `beehive_1_sb/` (01–08); BE1-SB: `big_english_1_sb/` (01–09); BE2-SB: `big_english_2_sb/` (01–09); RH2A: `reach_higher_2a/` (units 1–3; unit 4 pending) |
 
 This becomes increasingly important as the Phase 1 schema evolves.
 

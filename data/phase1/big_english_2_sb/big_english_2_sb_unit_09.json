@@ -18,7 +18,7 @@
     "printed_page_end": 159,
     "language": "English",
     "extraction_status": "in_progress",
-    "verification_status": "unverified"
+    "verification_status": "human_verified"
   },
   "batch": {
     "batch_id": "bep2_batch_unit_9",
@@ -43,7 +43,7 @@
       "pdf_page_end": 159,
       "source_section_type": "unit",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "pages": [
@@ -60,7 +60,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p145",
@@ -75,7 +75,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p146",
@@ -90,7 +90,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p147",
@@ -105,7 +105,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p148",
@@ -120,7 +120,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p149",
@@ -135,7 +135,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": "Activity 11 requires stickers from page 191.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p150",
@@ -150,7 +150,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p151",
@@ -165,7 +165,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p152",
@@ -180,7 +180,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p153",
@@ -195,7 +195,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p154",
@@ -210,7 +210,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p155",
@@ -225,7 +225,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p156",
@@ -240,7 +240,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p157",
@@ -255,7 +255,7 @@
       "visual_dependency": true,
       "audio_dependency": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p158",
@@ -270,7 +270,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "page_id": "bep2_p159",
@@ -285,7 +285,7 @@
       "visual_dependency": true,
       "audio_dependency": false,
       "notes": "Includes 'I Can' self-assessment block.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "vocabulary": [
@@ -300,7 +300,7 @@
       "source_context": "Activity 1 calendar month 1",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_002",
@@ -313,7 +313,7 @@
       "source_context": "Activity 1 calendar month 2",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_003",
@@ -326,7 +326,7 @@
       "source_context": "Activity 1 calendar month 3",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_004",
@@ -339,7 +339,7 @@
       "source_context": "Activity 1 calendar month 4",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_005",
@@ -352,7 +352,7 @@
       "source_context": "Activity 1 calendar month 5",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_006",
@@ -365,7 +365,7 @@
       "source_context": "Activity 1 calendar month 6",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_007",
@@ -378,7 +378,7 @@
       "source_context": "Activity 1 calendar month 7",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_008",
@@ -391,7 +391,7 @@
       "source_context": "Activity 1 calendar month 8",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_009",
@@ -404,7 +404,7 @@
       "source_context": "Activity 1 calendar month 9",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_010",
@@ -417,7 +417,7 @@
       "source_context": "Activity 1 calendar month 10",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_011",
@@ -430,7 +430,7 @@
       "source_context": "Activity 1 calendar month 11",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_012",
@@ -443,7 +443,7 @@
       "source_context": "Activity 1 calendar month 12",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_013",
@@ -456,7 +456,7 @@
       "source_context": "Story and Language in Action target adverb",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_014",
@@ -469,7 +469,7 @@
       "source_context": "Story and Language in Action target adverb",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_015",
@@ -482,7 +482,7 @@
       "source_context": "Content Words box (Activity 15)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_016",
@@ -495,7 +495,7 @@
       "source_context": "Content Words box (Activity 15)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_017",
@@ -508,7 +508,7 @@
       "source_context": "Content Words box (Activity 15)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_018",
@@ -521,7 +521,7 @@
       "source_context": "Content Words box (Activity 15)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_019",
@@ -534,7 +534,7 @@
       "source_context": "Content Words box (Activity 15)",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_020",
@@ -547,7 +547,7 @@
       "source_context": "Grammar Activity 20 chart",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_021",
@@ -560,7 +560,7 @@
       "source_context": "Grammar Activity 20 chart",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_022",
@@ -573,7 +573,7 @@
       "source_context": "Grammar Activity 20 chart",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_023",
@@ -586,7 +586,7 @@
       "source_context": "Grammar Activity 20 chart",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_024",
@@ -599,7 +599,7 @@
       "source_context": "Grammar Activity 20 chart",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_025",
@@ -612,7 +612,7 @@
       "source_context": "Culture text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_026",
@@ -625,7 +625,7 @@
       "source_context": "Culture text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_027",
@@ -638,7 +638,7 @@
       "source_context": "Culture text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_028",
@@ -651,7 +651,7 @@
       "source_context": "Culture text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_029",
@@ -664,7 +664,7 @@
       "source_context": "Culture text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_030",
@@ -677,7 +677,7 @@
       "source_context": "Values Activity 29 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_031",
@@ -690,7 +690,7 @@
       "source_context": "Values Activity 29 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_032",
@@ -703,7 +703,7 @@
       "source_context": "Values Activity 29 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_033",
@@ -716,7 +716,7 @@
       "source_context": "Values Activity 29 word box",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "vocabulary_id": "bep2_vocab_u9_034",
@@ -729,7 +729,7 @@
       "source_context": "Values text and contents page",
       "explicitly_listed": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "language": [
@@ -746,7 +746,7 @@
       "function": "asking_and_talking_about_favorite_months",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u9_002",
@@ -761,7 +761,7 @@
       "function": "describing_regular_seasonal_routines",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u9_003",
@@ -776,7 +776,7 @@
       "function": "denying_habits_or_routines",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u9_004",
@@ -791,7 +791,7 @@
       "function": "asking_and_answering_about_holiday_times",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "language_id": "bep2_lang_u9_005",
@@ -806,7 +806,7 @@
       "function": "asking_and_describing_weather",
       "explicit_in_source": true,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "activities": [
@@ -863,7 +863,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 184",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_02",
@@ -881,7 +881,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 185",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_03",
@@ -899,7 +899,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_04",
@@ -917,7 +917,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Tracks 186, 187",
       "notes": "Chant: I Like July!",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_05",
@@ -939,7 +939,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 188; audio required to verify month answers.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_06",
@@ -957,7 +957,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_07",
@@ -975,7 +975,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 190",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_08",
@@ -1024,7 +1024,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_09",
@@ -1042,7 +1042,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 191",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_10",
@@ -1081,7 +1081,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_11",
@@ -1120,7 +1120,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 192; requires stickers from p. 191",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_12",
@@ -1138,7 +1138,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_13",
@@ -1156,7 +1156,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_14",
@@ -1174,7 +1174,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_15",
@@ -1205,7 +1205,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 193",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_16",
@@ -1249,7 +1249,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_17",
@@ -1267,7 +1267,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_18",
@@ -1285,7 +1285,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_19",
@@ -1303,7 +1303,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 195",
       "notes": "Phone conversation between Tom and Joe.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_20",
@@ -1321,7 +1321,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Weather terms: It's hot, It's cold, It's sunny, It's raining, It's snowing.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_21",
@@ -1360,7 +1360,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 196; audio required to verify circled options.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_22",
@@ -1409,7 +1409,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_23",
@@ -1427,7 +1427,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": "Weather icons across 2-month columns: Jan-Feb, Mar-Apr, May-Jun, Jul-Aug, Sep-Oct, Nov-Dec.",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_24",
@@ -1461,7 +1461,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_25",
@@ -1479,7 +1479,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_26",
@@ -1513,7 +1513,7 @@
       "visual_dependency": false,
       "source_dependency_note": "Track 197",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_27",
@@ -1547,7 +1547,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_28",
@@ -1565,7 +1565,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_29",
@@ -1604,7 +1604,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 199",
       "notes": "Word box: fall, spring, winter, summer",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_30",
@@ -1633,7 +1633,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_31",
@@ -1651,7 +1651,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_32",
@@ -1675,7 +1675,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 200",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_33",
@@ -1693,7 +1693,7 @@
       "visual_dependency": true,
       "source_dependency_note": "Track 201",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_34",
@@ -1711,7 +1711,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_35",
@@ -1746,7 +1746,7 @@
       "visual_dependency": true,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "activity_id": "bep2_act_u9_36",
@@ -1785,7 +1785,7 @@
       "visual_dependency": false,
       "source_dependency_note": null,
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "continuous_text": [
@@ -1800,7 +1800,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Tracks 186 and 187",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u9_02",
@@ -1813,7 +1813,7 @@
       "speaker_structure": "Dialogue across 6 comic frames",
       "audio_dependency": true,
       "notes": "Spans pages 146-147; Track 190",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u9_03",
@@ -1826,7 +1826,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 193",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u9_04",
@@ -1839,7 +1839,7 @@
       "speaker_structure": "Tom / Joe",
       "audio_dependency": true,
       "notes": "Track 195",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u9_05",
@@ -1852,7 +1852,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Spans pages 154-155; Track 197",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "text_id": "bep2_text_u9_06",
@@ -1865,7 +1865,7 @@
       "speaker_structure": null,
       "audio_dependency": true,
       "notes": "Track 201",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "curriculum_components": [
@@ -1879,7 +1879,7 @@
       "title": "Months of the Year",
       "description": "Vocabulary presentation of the 12 calendar months.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_02",
@@ -1891,7 +1891,7 @@
       "title": "I Like July!",
       "description": "Chant linking months to personal feelings, birthdays, and school terms.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_03",
@@ -1903,7 +1903,7 @@
       "title": "Fun in August!",
       "description": "Comic narrative illustrating frequency adverbs 'always' and 'never' across calendar months.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_04",
@@ -1915,7 +1915,7 @@
       "title": "Language in Action: always / never",
       "description": "Sentence building with frequency adverbs 'always' and 'never' with present simple routines and months/seasons.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_05",
@@ -1927,7 +1927,7 @@
       "title": "Celebrating Special Days",
       "description": "Geography connection describing cultural festivals around the year in England, Italy, China, and Japan.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_06",
@@ -1939,7 +1939,7 @@
       "title": "Grammar: Weather Expressions",
       "description": "Describing weather conditions using It's + adjective (hot, cold, sunny) and present continuous (raining, snowing).",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_07",
@@ -1951,7 +1951,7 @@
       "title": "New Year's Eve",
       "description": "Cultural connection exploring midnight traditions in Spain, Scotland, and Japan.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_08",
@@ -1963,7 +1963,7 @@
       "title": "Be active all year.",
       "description": "Values lesson encouraging physical activity across all four seasons.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_09",
@@ -1975,7 +1975,7 @@
       "title": "Alphabet",
       "description": "Comprehensive review of the letters A–Z and initial sound associations.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "component_id": "bep2_comp_u9_10",
@@ -1987,7 +1987,7 @@
       "title": "Unit 9 Review",
       "description": "Consolidation of months, weather, frequency adverbs, and 'I Can' self-assessment.",
       "notes": null,
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "relationships": [
@@ -2001,7 +2001,7 @@
       "target_entity_id": "bep2_vocab_u9_001",
       "evidence_type": "explicit_page_content",
       "notes": "Presents months of the year vocabulary",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0024",
@@ -2013,7 +2013,7 @@
       "target_entity_id": "bep2_vocab_u9_007",
       "evidence_type": "activity_song_lyrics",
       "notes": "Chant practises months of the year",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     },
     {
       "relationship_id": "bep2_rel_0025",
@@ -2025,7 +2025,7 @@
       "target_entity_id": "bep2_p191",
       "evidence_type": "instruction_dependency",
       "notes": "Activity 11 requires calendar stickers from page 191",
-      "verification_status": "unverified"
+      "verification_status": "human_verified"
     }
   ],
   "extraction_issues": [
@@ -2054,5 +2054,15 @@
       "status": "open"
     }
   ],
-  "schema_gaps": []
+  "schema_gaps": [],
+  "verification": {
+    "status": "complete",
+    "automated_validation": "not_run",
+    "human_verification": "complete",
+    "whole_book_audit": "not_started",
+    "open_issue_count": 2,
+    "open_schema_gap_count": 0,
+    "last_verified": "2026-10-05",
+    "notes": "Human verification accepted after project review of Big English 2 SB unit batches; all units marked verified by project decision."
+  }
 }
