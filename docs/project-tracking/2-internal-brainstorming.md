@@ -176,13 +176,13 @@ App later LOADS that JSON from storage to display/edit
 ### 2026-10-05 — Truncated / incomplete batch recovery
 
 **Question:** What is the preferred recovery path for BE2 Unit 2 (missing pages/vocabulary/language)?  
-**Context:** Header was reconstructed for JSON validity; surviving activities/texts remain; empty arrays and an open issue document the gap.  
+**Context:** Unit 2 was re-extracted by project owner (2026-10-05): full batch restored (`My Games`, pages 20–35; pages/vocabulary/language populated). Truncation workaround cleared.  
 **Options:**
 1. Full unit re-extraction into a replacement batch file.
 2. Targeted re-extraction of only missing arrays, then merge into the existing file.
 3. Leave until canonical merge and rebuild Unit 2 entirely then.
-**Lean / notes:** Targeted repair is faster if the extraction prompt can reliably emit only the missing sections; full replace is cleaner if IDs would collide.  
-**Status:** open
+**Lean / notes:** Option 1 applied successfully — full replacement batch verified and marked human-verified.  
+**Status:** promoted to decision / closed (recovery done; formal decision log optional)
 
 ---
 
@@ -203,7 +203,7 @@ App later LOADS that JSON from storage to display/edit
 
 | Date | Topic | Outcome |
 |---|---|---|
-| — | — | No brainstorming items promoted yet. See [`3-project-decisions.md`](./3-project-decisions.md). |
+| 2026-10-05 | BE2 Unit 2 truncated batch | Full re-extraction replaced the file; pages/vocabulary/language restored; human-verified. |
 
 ---
 

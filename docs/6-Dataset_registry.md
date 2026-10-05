@@ -180,7 +180,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 19 | 1 | IN PROGRESS |
+| BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 16 | 0 | IN PROGRESS |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -362,7 +362,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Extraction Status:** EXTRACTED (unit batches `01–09`)  
 **Automated Validation:** NOT RUN  
 **Human Verification:** COMPLETE  
-**Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-05). Unit 2 batch JSON was truncated at import (pages/vocabulary/language missing); header reconstructed; re-extraction of missing sections still needed.  
+**Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-05). Unit 2 re-extracted and restored (pages/vocabulary/language); truncation issue cleared.  
 **Whole-Book Audit:** NOT STARTED  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
@@ -370,12 +370,12 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 19 (audio/visual verification + Unit 2 truncation / missing sections)  
-**Schema Gaps:** 1 (Think BIG inquiry prompts — pending schema review)
+**Open Issues:** 16 (mostly audio/visual verification — documented, left open)  
+**Schema Gaps:** 0  
 
 ### Notes
 
-- Do not mark Phase 1 COMPLETE until Unit 2 missing sections are restored, canonical merge, and whole-book audit are done.
+- Do not mark Phase 1 COMPLETE until canonical merge and whole-book audit are done.
 
 ---
 

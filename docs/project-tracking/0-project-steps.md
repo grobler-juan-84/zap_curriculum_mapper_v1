@@ -206,3 +206,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 16
+
+**Summary:** Verified restored Big English 2 SB Unit 2 re-extraction (valid JSON; pages/vocabulary/language populated; title `My Games`); marked human-verified; cleared truncation notes in registry and brainstorming.
+
+**Files touched:**
+- `data/phase1/big_english_2_sb/big_english_2_sb_unit_02.json` (updated)
+- `docs/6-Dataset_registry.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
