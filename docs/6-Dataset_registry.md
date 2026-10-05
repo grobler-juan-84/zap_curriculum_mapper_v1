@@ -190,7 +190,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-WB | Big English | 6 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| RH2A | Reach Higher | 2A | Book | AVAILABLE | IN PROGRESS | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 8 | 5 | IN PROGRESS |
+| RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 14 | 5 | IN PROGRESS |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH4A | Reach Higher | 4A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -386,14 +386,14 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 2A  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/reach_higher_2a/`  
-**Internal book_id in JSON:** `rh_2a`
+**Internal book_id in JSON:** mixed — units 1–3 use `rh_2a`; Unit 4 parts use `reach_higher_2a` (normalize at merge)
 
 ### Phase 1 Processing
 
-**Extraction Status:** IN PROGRESS (units `1–3` extracted; **Unit 4 pending** extraction restriction)  
+**Extraction Status:** EXTRACTED (units `1–3` + Unit 4 split into `rh2a_sb_unit4_part1.json` / `rh2a_sb_unit4_part2.json` due to citation/filter limits)  
 **Automated Validation:** NOT RUN  
 **Human Verification:** PARTIAL  
-**Verification Notes:** Units 1–3 reviewed and accepted by project decision (2026-10-05). Unit 4 not yet extracted.  
+**Verification Notes:** Units 1–3 reviewed and accepted (2026-10-05). Unit 4 extracted as two parts (2026-10-05) — not yet human-verified; continuous-text stories may be structurally summarized rather than full recitation.  
 **Whole-Book Audit:** NOT STARTED  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
@@ -401,13 +401,14 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 8 (documented in unit batches; left open)  
+**Open Issues:** 14 (includes Unit 4 audio/citation-workaround notes; left open)  
 **Schema Gaps:** 5 (Big Question / inquiry, intermittent reading prompts, glossary definitions, and related gaps — pending cross-series schema review)
 
 ### Notes
 
-- Do not mark human verification COMPLETE until Unit 4 is extracted and reviewed.
+- Do not mark human verification COMPLETE until Unit 4 parts are reviewed.
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
+- Unit 4 is intentionally split into two batch files for now; merge into one unit (or canonical book) later.
 
 ---
 
@@ -508,7 +509,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 |---:|---|---|---|
 | 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–3 EXTRACTED + HUMAN-VERIFIED; UNIT 4 PENDING EXTRACTION RESTRICTION |
+| 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED (Unit 4 as part1/part2); UNITS 1–3 HUMAN-VERIFIED; UNIT 4 NOT YET REVIEWED |
 | 4 | Schema Review | Review findings across all three series | NOT STARTED |
 
 The exact extraction sequence may change if practical testing provides a reason.
@@ -662,7 +663,7 @@ Use this section once extraction begins.
 
 | Schema Version | Books Using Version | Migration Needed | Notes |
 |---|---:|---|---|
-| 0.1 | 4 (BH1 + BE1-SB + BE2-SB + RH2A unit batches) | No | BH1: `beehive_1_sb/` (01–08); BE1-SB: `big_english_1_sb/` (01–09); BE2-SB: `big_english_2_sb/` (01–09); RH2A: `reach_higher_2a/` (units 1–3; unit 4 pending) |
+| 0.1 | 4 (BH1 + BE1-SB + BE2-SB + RH2A unit batches) | No | BH1: `beehive_1_sb/` (01–08); BE1-SB: `big_english_1_sb/` (01–09); BE2-SB: `big_english_2_sb/` (01–09); RH2A: `reach_higher_2a/` (units 1–3 + unit4_part1/part2) |
 
 This becomes increasingly important as the Phase 1 schema evolves.
 

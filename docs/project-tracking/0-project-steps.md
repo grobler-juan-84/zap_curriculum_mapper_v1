@@ -219,3 +219,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 17
+
+**Summary:** Added Reach Higher 2A Unit 4 extraction as two batch files (part1/part2) after citation limits blocked a single JSON; updated registry to EXTRACTED + PARTIAL verification.
+
+**Files touched:**
+- `data/phase1/reach_higher_2a/rh2a_sb_unit4_part1.json` (created)
+- `data/phase1/reach_higher_2a/rh2a_sb_unit4_part2.json` (created)
+- `docs/6-Dataset_registry.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
