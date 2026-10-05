@@ -195,3 +195,14 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 15
+
+**Summary:** Explained in brainstorming how a React/Vite/Vercel app would create JSON via Gemini API and persist it to Blob/DB (not Vercel filesystem), replacing today’s Cursor/manual save workflow.
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

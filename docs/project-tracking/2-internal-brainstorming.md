@@ -87,6 +87,49 @@ So: **not JSON-only for the whole product**, and **not a big relational curricul
 
 **Do not decide this before Phase 1 schema + a few canonical books exist.**
 
+### #6 — React/Vite/Vercel stack: how do new JSON files get added without Cursor?
+
+**Yes, the app can create them** (e.g. via Gemini API) — but **Vercel is not where the JSON files “live” as files in a folder.** Vercel hosts the app (static frontend + optional serverless API routes). Serverless disks are ephemeral; you do not `save file.json` onto Vercel the way you save into this repo with Cursor.
+
+**Mental model:**
+
+```text
+Teacher/admin uploads PDF (or picks a unit)
+        ↓
+Vercel serverless function (API route)
+        ↓
+Calls Gemini API with your extraction prompt + PDF/unit context
+        ↓
+Gets JSON back → validate against Phase 1 schema
+        ↓
+SAVE to persistent storage (not Vercel’s filesystem)
+        ↓
+App later LOADS that JSON from storage to display/edit
+```
+
+**Where the JSON actually gets saved (pick one later):**
+
+1. **Vercel Blob** — object storage that pairs well with Vercel; store `beehive_1_sb.json` (or unit drafts) as blobs; DB/metadata row points to the URL.
+2. **Supabase Storage / S3 / GCS** — same idea: file in a bucket; app reads via URL or signed link.
+3. **Postgres JSONB** (Supabase/Neon/etc.) — store the whole book document in a row; no separate `.json` file on disk, but same data.
+4. **GitHub via API** — possible for a private ops workflow, but awkward for a normal SaaS product; not the default.
+
+**What Cursor is doing today vs what the app would do:**
+
+| Today (manual) | Later (in-app) |
+|---|---|
+| You run Google AI Studio | App calls **Gemini API** from a backend/serverless function |
+| You paste/save JSON into `data/phase1/...` via Cursor/repo | App writes JSON to **Blob / DB** |
+| GitHub holds the files | Storage + thin DB hold versions; GitHub optional for backups |
+
+**Important constraints to remember early:**
+
+- Put the **Gemini API key only on the server** (Vercel env vars / serverless), never in the Vite frontend bundle.
+- Prefer **async jobs** for full-book extraction (long-running); unit-by-unit is a better first product shape — same as now.
+- The React app **reads** stored JSON over HTTP/API; it does not need the JSON baked into the Vite build (though shipping a few seed books in-repo is fine for demos).
+
+**Short answer:** Possible without Cursor. App creates JSON via Gemini → saves to Blob/DB → Vercel only hosts the UI/API. Vercel ≠ permanent JSON hard drive.
+
 ---
 
 ## Open brainstorming entries
