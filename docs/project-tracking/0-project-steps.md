@@ -173,3 +173,14 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 13
+
+**Summary:** Added brief brainstorming Q&A on one canonical JSON per book, schema-first storage vs early relational tables, SaaS options for storing book JSON, and two pre-coding thinking steps.
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

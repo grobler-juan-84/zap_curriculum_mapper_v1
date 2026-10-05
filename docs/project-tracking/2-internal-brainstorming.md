@@ -44,6 +44,35 @@ Current areas where brainstorming is especially useful:
 
 ---
 
+## Q&A — storage & automation (2026-10-05)
+
+Brief answers for current thinking only. Not locked decisions.
+
+### #1 — One JSON per book eventually?
+
+**Yes.** Unit-by-unit Google AI Studio output → N batch JSON files is the right *working* method now. After verification, those batches are meant to merge into **one canonical book JSON** (the durable Phase 1 dataset). Batches are scaffolding; the book file is the product.
+
+### #2 — Different series + automation: must we predefine relational tables?
+
+**No — not yet, and not per series.** New series should still emit JSON against a shared, evolving Phase 1 schema (textbook-agnostic entities + optional series-specific fields/gaps). Rigid relational tables too early are the risk: every new book structure forces migrations. Better path: stabilize the JSON schema from real extractions first; only later project stable entities into relational tables (or JSONB) if the SaaS needs them. Automation still produces schema-shaped JSON — it does not require a new table design for each series.
+
+### #3 — If we keep JSON, how does a SaaS store new book files?
+
+Treat each canonical book JSON as a **versioned document**, not a spreadsheet. Practical patterns (any one is enough later):
+
+1. **Object storage** (S3 / GCS / Supabase Storage) for the `.json` blob + a small DB row for `book_id`, version, status, path.
+2. **Postgres JSONB** (or similar) — store the document in a `books` / `datasets` row; query metadata in columns, curriculum payload in JSONB.
+3. **Document DB** (MongoDB, Firestore, etc.) — natural fit if the app stays document-oriented.
+
+New extractions = new version of that book document (or a draft → published lifecycle), not a new table.
+
+### #4 — Two small thinking steps before any coding
+
+1. **Define “done” for one book** — batch extract → human verify → merge to one canonical JSON → whole-book audit → registry COMPLETE. Write that lifecycle in one page before designing an app.
+2. **Freeze ID + schema ownership rules** — one canonical `book_id` convention, what may change in schema 0.1 vs what must wait for a version bump, and who/what is allowed to edit published book JSON. Coding without this creates rename and migration debt immediately.
+
+---
+
 ## Open brainstorming entries
 
 ### 2026-10-05 — Schema gaps before more books

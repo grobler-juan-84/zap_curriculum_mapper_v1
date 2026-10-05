@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 12  
+**Last updated:** Step 13  
 **Purpose:** Short, evolving snapshot of project progress. Rewrite the three sections below after each file-changing prompt so this file always reflects the current state.
 
 ---
@@ -10,26 +10,25 @@
 ## 1. What has been done
 
 - Core Phase 1–7 architecture and curriculum philosophy documented under `docs/`.
-- Documentation tooling and Cursor rules in place (including local auto-commit).
-- Beehive 1 SB, Big English 1–2 SB unit batches extracted and human-verified; Reach Higher 2A units 1–3 human-verified (Unit 4 pending).
-- Added project-tracking docs for evolving brainstorming and locked decision logging.
-- Registry tracks BH1 / BE1-SB / BE2-SB / RH2A Phase 1 progress; canonical merges and whole-book audits still pending.
+- Phase 1 unit-batch extractions human-verified for BH1, BE1-SB, BE2-SB; RH2A units 1–3 verified (Unit 4 pending).
+- Project-tracking set up: steps, status, internal brainstorming, and decisions log.
+- Brainstorming Q&A captured on canonical one-JSON-per-book target, schema-first vs early relational tables, SaaS JSON storage options, and two pre-coding thinking steps.
 
 ---
 
 ## 2. Current status
 
-- **Focus:** Phase 1 — Curriculum Extraction & Dataset Development.
-- **Tracking:** Use `2-internal-brainstorming.md` for open options; promote settled choices into `3-project-decisions.md` (none locked yet).
-- **Data:** BH1 / BE1-SB / BE2-SB human-verified at batch level; RH2A partial; automated validation not run; no canonical book JSON yet.
-- **Known follow-ups:** BE2 Unit 2 truncated sections; ID normalization; schema gaps (Think Big / SEL / RH inquiry); RH2A Unit 4 extraction restriction.
+- **Focus:** Phase 1 thinking / extraction — not application coding yet.
+- **Working preference:** Continue unit-batch JSON via Google AI Studio; expect later merge to one canonical book JSON.
+- **Open data issues:** BE2 Unit 2 truncated sections; RH2A Unit 4 extraction restriction; schema gaps; ID normalization.
+- **Decisions:** None locked yet in `3-project-decisions.md`.
 
 ---
 
 ## 3. Next small step
 
-**Suggested next move (depends on the next prompt):** Capture or lock any immediate process choices in the new brainstorming/decisions docs, or continue Phase 1 recovery/extraction (BE2-U02 missing sections or RH2A Unit 4 when unblocked) toward the cross-series schema review.
+**Suggested next move (depends on the next prompt):** Promote any settled answers from the brainstorming Q&A into `3-project-decisions.md`, or continue Phase 1 data work (BE2-U02 repair / RH2A Unit 4 / draft schema review).
 
-**Bird’s-eye still to do (not this step):** finish RH2A Unit 4; repair BE2-U02; canonical merges + audits; schema review; remaining books; later phases.
+**Bird’s-eye still to do (not this step):** finish pilot books; canonical merges + audits; schema review; remaining books; only much later SaaS/storage implementation.
 
 ---
