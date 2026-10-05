@@ -160,3 +160,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 12
+
+**Summary:** Created evolving internal brainstorming and locked project-decisions trackers under `docs/project-tracking/`, seeded brainstorming with current open Phase 1 questions, and registered both docs in the documentation index.
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (created)
+- `docs/project-tracking/3-project-decisions.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -26,6 +26,8 @@ Lifecycle values are taken from each document’s own **Status** field and norma
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
 | [project-tracking/0-project-steps.md](./project-tracking/0-project-steps.md) | Chronological log of agent prompts that changed project files. Each non-Ask, file-changing prompt is recorded as one numbered step with a short summary. | 1.0 | ACTIVE |
 | [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Evolving project snapshot rewritten after each file-changing prompt: what has been done, current status, and a suggested next small step with a bird’s-eye view of remaining work. | 1.0 | ACTIVE |
+| [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the project decisions log. | 1.0 | ACTIVE |
+| [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Locked-in project decision log stemming from brainstorming or explicit choices. Records durable decisions, rationale, and supersession history. | 1.0 | ACTIVE |
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. | — | ACTIVE |
 | [2-Curriculum_Mapping_process.md](./2-Curriculum_Mapping_process.md) | Source-of-truth process guide for curriculum mapping: phase responsibilities, traceability, extraction workflow, verification, and how the system should evolve from evidence. | — | ACTIVE |
 | [3-Google_AI_Studio_Prompt.md](./3-Google_AI_Studio_Prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Supports uploading a complete textbook PDF, then extracting **unit by unit** into separate schema-faithful JSON batch files (with `FILE:` labels for saving), without lesson planning or enrichment. | V2 | ACTIVE |
@@ -41,7 +43,7 @@ Lifecycle values are taken from each document’s own **Status** field and norma
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 10 | Current working docs, including this index and project-tracking |
+| ACTIVE | 12 | Current working docs, including this index and project-tracking |
 | PARKED | 1 | Retained for future Phase 5/6 work |
 | LOCKED | 0 | None currently frozen |
 
