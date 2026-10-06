@@ -2,15 +2,15 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 21  
+**Last updated:** Step 22  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
+- [ ] Wire Supabase Auth to login / signup / forgot-password / reset-password UI.
 - [ ] Human-verify RH2A Unit 4 `rh2a_sb_unit4.json`; update registry verification status.
-- [ ] Review technology scaffold locally (`cd app && npm run dev` / `npm run build`; Python unittest) before any GitHub push.
 
 ## Next
 

@@ -313,3 +313,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 22
+
+**Summary:** Added clean zcmv1-inspired public UI: landing page plus login, signup, forgot-password, and reset-password screens with React Router. UI-only forms (no Supabase Auth wiring yet).
+
+**Files touched:**
+- `app/package.json` / `app/package-lock.json` (updated — react-router-dom, lucide-react)
+- `app/src/main.tsx` (updated)
+- `app/src/App.tsx` (updated)
+- `app/src/features/landing/LandingPage.tsx` (created)
+- `app/src/features/auth/AuthLayout.tsx` (created)
+- `app/src/features/auth/LoginPage.tsx` (created)
+- `app/src/features/auth/SignupPage.tsx` (created)
+- `app/src/features/auth/ForgotPasswordPage.tsx` (created)
+- `app/src/features/auth/ResetPasswordPage.tsx` (created)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
