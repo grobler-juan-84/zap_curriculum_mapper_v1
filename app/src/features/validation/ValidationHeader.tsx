@@ -1,0 +1,128 @@
+import React from 'react'
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
+import type { Book } from '../../types/curriculum'
+import type { BookFileBatch } from '../../types/validation'
+
+interface ValidationHeaderProps {
+  book: Book
+  batches: BookFileBatch[]
+  currentBatch: BookFileBatch | null
+  currentIndex: number
+  onPrev: () => void
+  onNext: () => void
+  onSelectBatch: (batchId: string) => void
+  onBackToBooks: () => void
+}
+
+function batchLabel(batch: BookFileBatch): string {
+  return batch.label?.trim() || batch.filename || batch.storagePath.split('/').pop() || 'Unit batch'
+}
+
+export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
+  book,
+  batches,
+  currentBatch,
+  currentIndex,
+  onPrev,
+  onNext,
+  onSelectBatch,
+  onBackToBooks,
+}) => {
+  const hasPrev = currentIndex > 0
+  const hasNext = currentIndex >= 0 && currentIndex < batches.length - 1
+  const status = currentBatch?.status ?? 'pending'
+
+  return (
+    <header className="z-10 flex h-11 shrink-0 select-none items-center justify-between border-b border-slate-200 bg-white px-3 shadow-xs">
+      <div className="flex items-center gap-2.5">
+        <button
+          type="button"
+          onClick={onBackToBooks}
+          className="flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          <span className="hidden sm:inline">Books</span>
+        </button>
+
+        <div className="h-4 w-px bg-slate-300" />
+
+        <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
+          <span className="text-indigo-700">{book.title}</span>
+          <span className="font-normal text-slate-400">/</span>
+          <span className="text-slate-700">
+            {currentBatch ? batchLabel(currentBatch) : 'No unit batches'}
+          </span>
+          {currentBatch ? (
+            <span
+              className={`rounded border px-1.5 py-0.5 font-mono text-[11px] ${
+                status === 'verified'
+                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                  : status === 'needs_review'
+                    ? 'border-amber-300 bg-amber-50 text-amber-900'
+                    : 'border-slate-300 bg-slate-50 text-slate-700'
+              }`}
+            >
+              {status}
+            </span>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="hidden items-center gap-2 rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600 xl:flex">
+        <span className="font-medium text-slate-500">Validation</span>
+        <span className="text-slate-400">·</span>
+        <span>Match unit JSON to source PDF (when available)</span>
+      </div>
+
+      <div className="flex items-center gap-1.5">
+        <button
+          type="button"
+          onClick={onPrev}
+          disabled={!hasPrev}
+          title="Previous unit (←)"
+          className={`flex items-center gap-1 rounded border px-2 py-1 text-xs font-medium transition-colors ${
+            hasPrev
+              ? 'cursor-pointer border-slate-300 bg-white text-slate-800 shadow-xs hover:bg-slate-50'
+              : 'cursor-not-allowed border-transparent bg-slate-50 text-slate-400'
+          }`}
+        >
+          <ChevronLeft className="h-3.5 w-3.5" />
+          <span className="hidden md:inline">Prev Unit</span>
+        </button>
+
+        <select
+          value={currentBatch?.id ?? ''}
+          onChange={(e) => onSelectBatch(e.target.value)}
+          disabled={batches.length === 0}
+          aria-label="Select unit batch"
+          className="cursor-pointer rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {batches.length === 0 ? (
+            <option value="">No batches</option>
+          ) : (
+            batches.map((batch) => (
+              <option key={batch.id} value={batch.id}>
+                {batchLabel(batch)}
+              </option>
+            ))
+          )}
+        </select>
+
+        <button
+          type="button"
+          onClick={onNext}
+          disabled={!hasNext}
+          title="Next unit (→)"
+          className={`flex items-center gap-1 rounded border px-2 py-1 text-xs font-medium transition-colors ${
+            hasNext
+              ? 'cursor-pointer border-slate-300 bg-white text-slate-800 shadow-xs hover:bg-slate-50'
+              : 'cursor-not-allowed border-transparent bg-slate-50 text-slate-400'
+          }`}
+        >
+          <span className="hidden md:inline">Next Unit</span>
+          <ChevronRight className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </header>
+  )
+}

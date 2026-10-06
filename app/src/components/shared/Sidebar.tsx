@@ -1,6 +1,7 @@
 import {
   Bookmark,
   BookOpen,
+  CheckSquare,
   ChevronLeft,
   ChevronRight,
   Clock,
@@ -62,6 +63,11 @@ export function Sidebar() {
       to: '/app/workspace',
       label: 'Book Workspace',
       icon: BookOpen,
+    },
+    {
+      to: '/app/validation',
+      label: 'Validation',
+      icon: CheckSquare,
     },
   ]
 

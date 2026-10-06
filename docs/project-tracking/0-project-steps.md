@@ -538,3 +538,25 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 34
+
+**Summary:** Added a separate `/app/validation` route with the workspace-style split layout (JSON evidence left, PDF stub top-right, validation status tools bottom) loading unit batches from Supabase Storage — no Ask AI.
+
+**Files touched:**
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/types/validation.ts` (created)
+- `app/src/services/validationService.ts` (created)
+- `app/src/features/validation/ValidationPage.tsx` (created)
+- `app/src/features/validation/ValidationWorkspace.tsx` (created)
+- `app/src/features/validation/ValidationHeader.tsx` (created)
+- `app/src/features/validation/ValidationLeftPanel.tsx` (created)
+- `app/src/features/validation/ValidationPdfPane.tsx` (created)
+- `app/src/features/validation/ValidationToolsPanel.tsx` (created)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
