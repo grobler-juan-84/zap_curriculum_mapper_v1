@@ -31,7 +31,7 @@ From repo root, after seeding `book_files` paths:
 node scripts/upload_pilot_batches.mjs
 ```
 
-This upserts the local `data/phase1/**/*.json` unit batches into the private `book-datasets` bucket using the seeded `storage_path` values and updates `book_files.file_size`.
+This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket using the seeded `storage_path` values and updates `book_files.file_size`. After the initial upload, Storage is the source of truth.
 
 ### Upload series cover images
 
@@ -39,7 +39,7 @@ This upserts the local `data/phase1/**/*.json` unit batches into the private `bo
 node scripts/upload_series_covers.mjs
 ```
 
-Uploads `app/src/assests/images/book-series/*_book_series.png` into private `book-assets` (`series/*.png`) and sets `book_series.cover_path` when that column exists.
+Uploads local `app/src/assests/images/book-series/*_book_series.png` (gitignored) into private `book-assets` (`series/*.png`) and sets `book_series.cover_path` when that column exists.
 
 ### Upload student-book cover images
 

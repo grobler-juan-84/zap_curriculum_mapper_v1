@@ -7,12 +7,12 @@ Textbook-agnostic curriculum intelligence system. Current focus: **Phase 1 — C
 ```text
 /
 ├── app/                 # Vite + React + TypeScript + Tailwind frontend
-├── data/phase1/         # Phase 1 unit-batch JSON (canonical curriculum evidence)
+├── data/phase1/         # Local working copies of unit-batch JSON (gitignored; Storage is source of truth)
 ├── docs/                # Project documentation and operating trackers
 ├── python/              # Future validation / processing / AI tooling
 ├── schemas/             # Reserved for machine-readable schema artifacts
-├── scripts/             # Utility scripts (empty for now)
-├── supabase/            # Supabase local project config (no live link required)
+├── scripts/             # Upload / utility scripts (batch JSON + cover assets)
+├── supabase/            # Supabase local project config + migrations
 └── .cursor/rules/       # Cursor workflow rules
 ```
 

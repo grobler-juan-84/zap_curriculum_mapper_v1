@@ -38,8 +38,9 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Local copyrighted curriculum PDFs (keep out of Git)
-src/assests/
+# Local copyrighted curriculum sources (keep out of Git; live in Supabase Storage)
+app/src/assests/
+data/phase1/
 *.pdf
 
 # Supabase local CLI artifacts

@@ -2,6 +2,9 @@
  * Upload student-book cover PNGs into the private `book-assets` bucket
  * and set books.cover_path for the four pilot books.
  *
+ * Local source (gitignored): app/src/assests/images/book-series/*_cover.png
+ * Covers live in Storage after upload; drop files back locally only to re-upload.
+ *
  * Usage (from repo root):
  *   node scripts/upload_book_covers.mjs
  */

@@ -37,14 +37,14 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now, so they are remembered without contaminating current scope. | 1.0 | ACTIVE |
-| [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage prototype: what lives in PostgreSQL vs Supabase Storage vs canonical JSON, and which layer is authoritative. | 1.0 | ACTIVE |
+| [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs private Storage (batch JSON + covers) vs canonical JSON; Storage is source of truth for curriculum bytes. | 1.0 | ACTIVE |
 
 ### Project tracking
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [project-tracking/0-project-steps.md](./project-tracking/0-project-steps.md) | Chronological log of agent prompts that changed project files. Each non-Ask, file-changing prompt is recorded as one numbered step with a short summary. | 1.0 | ACTIVE |
-| [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Legacy pointer to [`5-PROGRESS.md`](./5-PROGRESS.md); kept for older links. | 1.0 | ACTIVE |
+| [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Short current snapshot (done / status / next); detailed narrative in [`5-PROGRESS.md`](./5-PROGRESS.md). | 1.0 | ACTIVE |
 | [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the decision log. | 1.0 | ACTIVE |
 | [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Legacy pointer to [`4-DECISIONS.md`](./4-DECISIONS.md); kept for older links. | 1.0 | ACTIVE |
 | [project-tracking/4-mock-data-registry.md](./project-tracking/4-mock-data-registry.md) | Temporary registry of UI mock datasets (location, consumers, future source, MOCK status). Not curriculum truth. | — | ACTIVE |

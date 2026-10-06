@@ -1,6 +1,9 @@
 /**
  * Upload pilot Phase 1 unit-batch JSON files into the private `book-datasets` bucket.
  *
+ * Local source (gitignored): data/phase1/<book_id>/*.json
+ * Storage is the repo source of truth after upload — restore local copies only when re-uploading.
+ *
  * Reads credentials from app/.env.local (or process env):
  *   VITE_SUPABASE_URL
  *   SUPABASE_SERVICE_ROLE_KEY

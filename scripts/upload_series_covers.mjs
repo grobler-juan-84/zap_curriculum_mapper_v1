@@ -1,6 +1,9 @@
 /**
  * Upload series cover PNGs into the private `book-assets` bucket.
  *
+ * Local source (gitignored): app/src/assests/images/book-series/*_book_series.png
+ * Covers live in Storage after upload; drop files back locally only to re-upload.
+ *
  * Reads credentials from app/.env.local (or process env):
  *   VITE_SUPABASE_URL
  *   SUPABASE_SERVICE_ROLE_KEY

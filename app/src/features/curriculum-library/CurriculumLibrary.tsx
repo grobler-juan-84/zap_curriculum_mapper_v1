@@ -2,22 +2,11 @@ import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { seriesEmoji } from '../../services/catalogMapper'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import beehiveCover from '../../assests/images/book-series/beehive_book_series.png'
-import bigEnglishCover from '../../assests/images/book-series/big_english_book_series.png'
-import reachHigherCover from '../../assests/images/book-series/reach_higher_book_series.png'
 
 interface CurriculumLibraryProps {
   seriesList: CurriculumSeries[]
   onSelectSeries: (seriesId: string) => void
   onDirectOpenBook: (bookId: string) => void
-}
-
-function localCoverForSeries(name: string): string | undefined {
-  const key = name.trim().toLowerCase()
-  if (key.includes('beehive')) return beehiveCover
-  if (key.includes('big english')) return bigEnglishCover
-  if (key.includes('reach higher')) return reachHigherCover
-  return undefined
 }
 
 export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
@@ -56,7 +45,7 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {seriesList.map((series) => {
                 const isBeehive = series.name.toLowerCase().includes('beehive')
-                const coverSrc = series.coverImage || localCoverForSeries(series.name)
+                const coverSrc = series.coverImage
                 return (
                   <div
                     key={series.id}

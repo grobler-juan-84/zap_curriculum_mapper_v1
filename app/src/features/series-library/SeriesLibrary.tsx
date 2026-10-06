@@ -2,30 +2,11 @@ import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { Breadcrumbs } from '../../components/shared/Breadcrumbs'
 import { CheckCircle2, ArrowRight, CircleDashed } from 'lucide-react'
-import beehive1Cover from '../../assests/images/book-series/Beehive1_Student_Book_Cover.png'
-import bigEnglish1Cover from '../../assests/images/book-series/big_english_1_student_book_cover.png'
-import bigEnglish2Cover from '../../assests/images/book-series/big_english_2_student_book_cover.png'
-import reachHigherCover from '../../assests/images/book-series/reach_higher_student_book_cover.png'
 
 interface SeriesLibraryProps {
   series: CurriculumSeries
   onSelectBook: (bookId: string) => void
   onBackToCurriculum: () => void
-}
-
-function localCoverForBook(stableBookId?: string): string | undefined {
-  switch (stableBookId) {
-    case 'beehive_1_sb':
-      return beehive1Cover
-    case 'big_english_1_sb':
-      return bigEnglish1Cover
-    case 'big_english_2_sb':
-      return bigEnglish2Cover
-    case 'reach_higher_2a':
-      return reachHigherCover
-    default:
-      return undefined
-  }
 }
 
 export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
@@ -73,7 +54,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
               {series.books.map((book) => {
                 const hasInteractiveSpreads = book.pageSpreads.length > 0
                 const isFeatured = book.stableBookId === 'beehive_1_sb'
-                const coverSrc = book.coverImage || localCoverForBook(book.stableBookId)
+                const coverSrc = book.coverImage
                 return (
                   <div
                     key={book.id}

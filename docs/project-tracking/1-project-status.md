@@ -1,11 +1,20 @@
-# Project Status (legacy pointer)
+# Project Status
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Purpose:** Legacy path kept for older links. The live project snapshot is now [`../5-PROGRESS.md`](../5-PROGRESS.md).
+**Last updated:** Step 33  
+**Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
-Agents and humans should read and update **`docs/5-PROGRESS.md`**, not this file.
+## What has been done
 
-**Sync note (Step 24):** Authenticated ZCMV1 workstation UI is in place on mock data under `/app/*`; live snapshot is in `5-PROGRESS.md`.
+- Hybrid Supabase catalog + private Storage for pilot batch JSON and cover imagery.
+- Curriculum UI loads series/books from Supabase; covers via signed URLs only.
+- Local `data/phase1` JSON and `app/src/assests` cover PNGs removed from Git (gitignored).
 
----
+## Current status
+
+Phase 1 catalog is usable while authenticated. Copyrighted curriculum bytes should live in Supabase Storage, not the repo. Book `cover_path` column may still need applying on remote.
+
+## Next small step
+
+**Suggestion:** Apply `20261007150000_books_cover_path.sql` on remote and stamp `books.cover_path`, then wire Storage batch JSON into a verification/viewer path. Remaining work: RH2A Unit 4 review, drop Beehive mock spreads, canonical merges.

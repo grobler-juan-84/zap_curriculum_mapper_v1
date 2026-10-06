@@ -514,3 +514,27 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 33
+
+**Summary:** Removed local Phase 1 unit JSON and cover PNGs from the git tree, fixed gitignore paths, and switched curriculum UI covers to Storage signed URLs only so copyrighted curriculum bytes stay out of GitHub.
+
+**Files touched:**
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `.gitignore` (updated)
+- `data/phase1/**/*.json` (deleted from git)
+- `app/src/assests/images/book-series/*.png` (deleted from git)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/upload_series_covers.mjs` (updated)
+- `scripts/upload_book_covers.mjs` (updated)
+- `README.md` (updated)
+- `supabase/README.md` (updated)
+- `docs/8-database-architecture.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

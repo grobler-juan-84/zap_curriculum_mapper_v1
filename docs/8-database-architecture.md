@@ -26,8 +26,8 @@ Different publishers and series differ, and schema `0.1` is still evolving. Prem
 
 ### Canonical JSON (authoritative curriculum)
 
-- Lives today under `data/phase1/…` during development.
-- Will also live as objects in the `book-datasets` Storage bucket when uploaded.
+- Lives as objects in the private `book-datasets` Storage bucket (authoritative file bytes).
+- Optional local working copies may exist under `data/phase1/…` (gitignored; not committed).
 - Linked from Postgres via `book_files` + `dataset_versions.json_file_id`.
 - Schema defined in `docs/phase-1/JSON_Schema.md`.
 

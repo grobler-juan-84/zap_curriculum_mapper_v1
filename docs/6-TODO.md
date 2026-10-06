@@ -2,15 +2,15 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 32  
+**Last updated:** Step 33  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Apply `supabase/migrations/20261007150000_books_cover_path.sql` in the Supabase SQL editor, then re-run `node scripts/upload_book_covers.mjs`.
-- [ ] Confirm series pages show the 4 Supabase books with the new cover PNGs.
+- [ ] Apply `supabase/migrations/20261007150000_books_cover_path.sql` in the Supabase SQL editor, then re-run `node scripts/upload_book_covers.mjs` (restore local cover PNGs temporarily if needed).
+- [ ] Confirm series/book cards show covers from Storage signed URLs while signed in.
 - [ ] Human-verify RH2A Unit 4; set that `book_files.status` to `verified` when done.
 
 ## Next
