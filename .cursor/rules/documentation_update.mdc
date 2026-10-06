@@ -49,7 +49,7 @@ If a document says `ACTIVE / EVOLVING` or `ACTIVE / DEVELOPMENT`, record Lifecyc
 
 ## Required actions after a docs change
 
-1. Scan `docs/*.md` and ensure the index lists every file exactly once.
+1. Scan all `docs/**/*.md` files (including phase folders and `project-tracking/`) and ensure the index lists every file exactly once.
 2. Fix broken links after renames/moves.
 3. Refresh summary / Version / Lifecycle for changed docs.
 4. Refresh the lifecycle snapshot counts.
@@ -58,16 +58,16 @@ If a document says `ACTIVE / EVOLVING` or `ACTIVE / DEVELOPMENT`, record Lifecyc
 ## Examples
 
 ```text
-# Added docs/8-Phase_2_Interpretation.md with Status ACTIVE and Version V1
-→ Add a new row to the Documents table and bump the ACTIVE count.
+# Added docs/phase-2/Interpretation.md with Status ACTIVE and Version V1
+→ Add a new row under the Phase 2 section and bump the ACTIVE count.
 
-# Renamed docs/6-Dataset_registry.md → docs/6-Dataset_Registry.md
+# Renamed docs/phase-1/Dataset_registry.md → docs/phase-1/Dataset_Registry.md
 → Update the link and filename in the index row; do not invent a new summary unless content also changed.
 
-# Changed docs/7-ChalkieAI_Handover_specifications.md from PARKED to ACTIVE
+# Changed docs/phase-6/ChalkieAI_Handover_specifications.md from PARKED to ACTIVE
 → Update Lifecycle to ACTIVE and adjust the lifecycle snapshot counts.
 
-# Removed docs/5-Teacher_Enrichment_Philosophy.md
+# Removed docs/phase-4/Teacher_Enrichment_Philosophy.md
 → Remove its row and adjust counts.
 ```
 

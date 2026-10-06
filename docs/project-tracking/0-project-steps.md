@@ -232,3 +232,25 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 18
+
+**Summary:** Audited the docs reorg into `phase-1`…`phase-6` folders; refreshed `docs/0-index.md` paths/sections and updated cross-document filename references in Phase 1 docs (plus the documentation-index Cursor rule examples).
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/phase-1/Curriculum_Mapping_process.md` (updated; moved/renamed from `docs/2-Curriculum_Mapping_process.md`)
+- `docs/phase-1/Google_AI_Studio_Prompt.md` (moved/renamed from `docs/3-Google_AI_Studio_Prompt.md`)
+- `docs/phase-1/Extraction_Data_Specification.md` (updated; moved/renamed from `docs/4-Phase_1_Extraction_Data_Specification.md`)
+- `docs/phase-1/JSON_Schema.md` (moved/renamed from `docs/4A-Phase_1_JSON_Schema.md`)
+- `docs/phase-1/Dataset_registry.md` (updated; moved/renamed from `docs/6-Dataset_registry.md`)
+- `docs/phase-4/Teacher_Enrichment_Philosophy.md` (moved/renamed from `docs/5-Teacher_Enrichment_Philosophy.md`)
+- `docs/phase-6/ChalkieAI_Handover_specifications.md` (moved/renamed from `docs/7-ChalkieAI_Handover_specifications.md`)
+- `docs/phase-2/.gitignore` (created; empty phase placeholder)
+- `docs/phase-3/.gitignore` (created; empty phase placeholder)
+- `docs/phase-5/.gitignore` (created; empty phase placeholder)
+- `.cursor/rules/documentation_update.mdc` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

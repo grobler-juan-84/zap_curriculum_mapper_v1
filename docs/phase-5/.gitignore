@@ -1,0 +1,30 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# IDE / local
+.vscode/
+!.cursor/rules/
+
+# Dependencies / build (future)
+node_modules/
+dist/
+build/
+.next/
+coverage/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+
+# Logs / temp
+*.log
+tmp/
+temp/

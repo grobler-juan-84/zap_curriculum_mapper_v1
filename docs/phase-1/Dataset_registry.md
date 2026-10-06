@@ -416,7 +416,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 During active extraction, individual books may require batch-level tracking.
 
-When using **`3-Google_AI_Studio_Prompt.md`** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
+When using **`Google_AI_Studio_Prompt.md`** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
 
 Example:
 
@@ -679,7 +679,7 @@ Record significant dataset-wide schema review points here.
 
 Detailed schema changes should be recorded in the schema change log associated with:
 
-**`4A-Phase_1_JSON_Schema.md`**
+**`JSON_Schema.md`**
 
 The Registry only records the operational result.
 

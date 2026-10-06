@@ -299,7 +299,7 @@ The governing principle is:
 
 # 10. Step 4 — AI Extraction
 
-Each extraction batch is processed using the approved Phase 1 extraction prompt in **`3-Google_AI_Studio_Prompt.md`**.
+Each extraction batch is processed using the approved Phase 1 extraction prompt in **`Google_AI_Studio_Prompt.md`**.
 
 That prompt currently supports supplying the **complete textbook PDF** as the source. When used that way, the model must first identify overall book structure, then extract **unit by unit**:
 
