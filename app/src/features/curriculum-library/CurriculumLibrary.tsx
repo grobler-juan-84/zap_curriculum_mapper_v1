@@ -67,24 +67,28 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                   >
-                    {/* Series cover image replaces former icon/title/description block */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                    <div className="border-b border-slate-100 px-4 pt-3 pb-2">
+                      <h3 className="text-base font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
+                        {series.name}
+                      </h3>
+                    </div>
+
+                    <div className="flex max-h-40 w-full items-center justify-center bg-slate-50 px-3 py-2">
                       {coverSrc ? (
                         <img
                           src={coverSrc}
                           alt={`${series.name} series`}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          className="max-h-36 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-tr from-slate-100 to-slate-200 text-slate-600">
+                        <div className="flex h-28 w-full flex-col items-center justify-center gap-2 text-slate-600">
                           <span className="text-3xl">{seriesEmoji(series.name)}</span>
-                          <span className="text-sm font-bold">{series.name}</span>
                         </div>
                       )}
                     </div>
 
-                    <div className="flex flex-1 flex-col justify-between p-4">
+                    <div className="flex flex-1 flex-col justify-between border-t border-slate-100 p-4">
                       <div className="flex items-center justify-between font-mono text-xs text-slate-500">
                         <span>{series.levelsCount} Total Levels</span>
                         <span className="font-semibold text-indigo-700">

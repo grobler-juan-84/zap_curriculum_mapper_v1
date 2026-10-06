@@ -485,3 +485,13 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 31
+
+**Summary:** Shrunk series card covers to `object-contain` so each PNG is fully visible, and added the series name as a header above the image.
+
+**Files touched:**
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
