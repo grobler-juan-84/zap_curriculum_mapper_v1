@@ -6,12 +6,14 @@ import { CheckCircle2, ArrowRight, CircleDashed } from 'lucide-react'
 interface SeriesLibraryProps {
   series: CurriculumSeries
   onSelectBook: (bookId: string) => void
+  onValidateBook?: (bookId: string) => void
   onBackToCurriculum: () => void
 }
 
 export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   series,
   onSelectBook,
+  onValidateBook,
   onBackToCurriculum,
 }) => {
   const breadcrumbItems = [
@@ -93,7 +95,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                       )}
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-slate-100 px-4 py-3">
+                    <div className="flex items-center justify-between gap-2 border-t border-slate-100 px-4 py-3">
                       {hasInteractiveSpreads ? (
                         <span className="flex items-center gap-1 text-[11px] font-medium text-emerald-700">
                           <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
@@ -105,13 +107,27 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                           <span>Catalog only (batches in Storage)</span>
                         </span>
                       )}
-                      <button
-                        type="button"
-                        className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
-                      >
-                        <span>Open Workspace</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </button>
+                      <div className="flex items-center gap-2">
+                        {onValidateBook ? (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onValidateBook(book.id)
+                            }}
+                            className="text-xs font-bold text-emerald-700 hover:text-emerald-900"
+                          >
+                            Validate
+                          </button>
+                        ) : null}
+                        <button
+                          type="button"
+                          className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
+                        >
+                          <span>Open Workspace</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )

@@ -8,14 +8,20 @@ import { ValidationPdfPane } from './ValidationPdfPane'
 import { ValidationToolsPanel } from './ValidationToolsPanel'
 
 interface ValidationWorkspaceProps {
+  seriesList: CurriculumSeries[]
   series: CurriculumSeries
   book: Book
+  onSelectSeries: (seriesId: string) => void
+  onSelectBook: (bookId: string) => void
   onBackToBooks: () => void
 }
 
 export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
-  series: _series,
+  seriesList,
+  series,
   book,
+  onSelectSeries,
+  onSelectBook,
   onBackToBooks,
 }) => {
   const [batches, setBatches] = useState<BookFileBatch[]>([])
@@ -207,6 +213,8 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   return (
     <div className="flex h-full select-none flex-col overflow-hidden bg-slate-100">
       <ValidationHeader
+        seriesList={seriesList}
+        series={series}
         book={book}
         batches={batches}
         currentBatch={currentBatch}
@@ -217,12 +225,23 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           setSelectedBatchId(id)
           setStatusError(null)
         }}
+        onSelectSeries={onSelectSeries}
+        onSelectBook={onSelectBook}
         onBackToBooks={onBackToBooks}
       />
 
       {batchesError ? (
         <div className="border-b border-rose-200 bg-rose-50 px-4 py-2 text-xs text-rose-800">
           {batchesError}
+        </div>
+      ) : null}
+
+      {!batchesLoading && !batchesError && batches.length === 0 ? (
+        <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-900">
+          No <code className="text-[11px]">batch_json</code> rows for{' '}
+          <span className="font-semibold">{book.title}</span> (
+          <span className="font-mono">{book.stableBookId ?? book.id}</span>). Confirm seed + Storage
+          upload for this book.
         </div>
       ) : null}
 

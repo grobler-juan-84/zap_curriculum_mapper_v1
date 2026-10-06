@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 34  
+**Last updated:** Step 35  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -13,6 +13,7 @@
 - Curriculum library uses live `book_series` / `books` with Storage cover URLs.
 - Local Phase 1 JSON/covers removed from Git (Storage is source of truth).
 - New `/app/validation` route: workspace-like layout for verifying unit-batch JSON (left JSON summary, PDF stub, status tools → `book_files.status`).
+- Validation header can switch series/book (Beehive, Big English, Reach Higher); series cards have a Validate action.
 
 ## In progress
 

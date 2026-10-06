@@ -1,9 +1,11 @@
 import React from 'react'
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
-import type { Book } from '../../types/curriculum'
+import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BookFileBatch } from '../../types/validation'
 
 interface ValidationHeaderProps {
+  seriesList: CurriculumSeries[]
+  series: CurriculumSeries
   book: Book
   batches: BookFileBatch[]
   currentBatch: BookFileBatch | null
@@ -11,6 +13,8 @@ interface ValidationHeaderProps {
   onPrev: () => void
   onNext: () => void
   onSelectBatch: (batchId: string) => void
+  onSelectSeries: (seriesId: string) => void
+  onSelectBook: (bookId: string) => void
   onBackToBooks: () => void
 }
 
@@ -19,6 +23,8 @@ function batchLabel(batch: BookFileBatch): string {
 }
 
 export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
+  seriesList,
+  series,
   book,
   batches,
   currentBatch,
@@ -26,6 +32,8 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   onPrev,
   onNext,
   onSelectBatch,
+  onSelectSeries,
+  onSelectBook,
   onBackToBooks,
 }) => {
   const hasPrev = currentIndex > 0
@@ -33,48 +41,61 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   const status = currentBatch?.status ?? 'pending'
 
   return (
-    <header className="z-10 flex h-11 shrink-0 select-none items-center justify-between border-b border-slate-200 bg-white px-3 shadow-xs">
-      <div className="flex items-center gap-2.5">
+    <header className="z-10 flex h-11 shrink-0 select-none items-center justify-between gap-2 border-b border-slate-200 bg-white px-3 shadow-xs">
+      <div className="flex min-w-0 items-center gap-2">
         <button
           type="button"
           onClick={onBackToBooks}
-          className="flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+          className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">Books</span>
+          <span className="hidden sm:inline">Series</span>
         </button>
 
-        <div className="h-4 w-px bg-slate-300" />
+        <div className="hidden h-4 w-px bg-slate-300 sm:block" />
 
-        <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
-          <span className="text-indigo-700">{book.title}</span>
-          <span className="font-normal text-slate-400">/</span>
-          <span className="text-slate-700">
-            {currentBatch ? batchLabel(currentBatch) : 'No unit batches'}
+        <select
+          value={series.id}
+          onChange={(e) => onSelectSeries(e.target.value)}
+          aria-label="Select series"
+          className="max-w-[140px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        >
+          {seriesList.map((entry) => (
+            <option key={entry.id} value={entry.id}>
+              {entry.name}
+            </option>
+          ))}
+        </select>
+
+        <select
+          value={book.id}
+          onChange={(e) => onSelectBook(e.target.value)}
+          aria-label="Select book"
+          className="max-w-[220px] cursor-pointer truncate rounded border border-indigo-200 bg-indigo-50 px-2 py-1 text-xs font-bold text-indigo-900 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        >
+          {series.books.map((entry) => (
+            <option key={entry.id} value={entry.id}>
+              {entry.title}
+            </option>
+          ))}
+        </select>
+
+        {currentBatch ? (
+          <span
+            className={`hidden rounded border px-1.5 py-0.5 font-mono text-[11px] lg:inline ${
+              status === 'verified'
+                ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                : status === 'needs_review'
+                  ? 'border-amber-300 bg-amber-50 text-amber-900'
+                  : 'border-slate-300 bg-slate-50 text-slate-700'
+            }`}
+          >
+            {status}
           </span>
-          {currentBatch ? (
-            <span
-              className={`rounded border px-1.5 py-0.5 font-mono text-[11px] ${
-                status === 'verified'
-                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                  : status === 'needs_review'
-                    ? 'border-amber-300 bg-amber-50 text-amber-900'
-                    : 'border-slate-300 bg-slate-50 text-slate-700'
-              }`}
-            >
-              {status}
-            </span>
-          ) : null}
-        </div>
+        ) : null}
       </div>
 
-      <div className="hidden items-center gap-2 rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600 xl:flex">
-        <span className="font-medium text-slate-500">Validation</span>
-        <span className="text-slate-400">·</span>
-        <span>Match unit JSON to source PDF (when available)</span>
-      </div>
-
-      <div className="flex items-center gap-1.5">
+      <div className="flex shrink-0 items-center gap-1.5">
         <button
           type="button"
           onClick={onPrev}
@@ -87,7 +108,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           }`}
         >
           <ChevronLeft className="h-3.5 w-3.5" />
-          <span className="hidden md:inline">Prev Unit</span>
+          <span className="hidden md:inline">Prev</span>
         </button>
 
         <select
@@ -95,7 +116,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           onChange={(e) => onSelectBatch(e.target.value)}
           disabled={batches.length === 0}
           aria-label="Select unit batch"
-          className="cursor-pointer rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+          className="max-w-[160px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {batches.length === 0 ? (
             <option value="">No batches</option>
@@ -119,7 +140,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
               : 'cursor-not-allowed border-transparent bg-slate-50 text-slate-400'
           }`}
         >
-          <span className="hidden md:inline">Next Unit</span>
+          <span className="hidden md:inline">Next</span>
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </div>

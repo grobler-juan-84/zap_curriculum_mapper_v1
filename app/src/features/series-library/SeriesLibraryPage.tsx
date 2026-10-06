@@ -39,6 +39,10 @@ export function SeriesLibraryPage() {
         selectBook(bookId)
         navigate('/app/workspace')
       }}
+      onValidateBook={(bookId) => {
+        selectBook(bookId)
+        navigate('/app/validation')
+      }}
       onBackToCurriculum={() => navigate('/app/curriculum')}
     />
   )
