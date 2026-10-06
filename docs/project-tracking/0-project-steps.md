@@ -387,3 +387,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 25
+
+**Summary:** Added the first hybrid Supabase curriculum catalog (series/books/files/dataset_versions + private Storage buckets), documented Postgres vs Storage vs JSON authority, and locked D006 so curriculum entities stay out of relational tables.
+
+**Files touched:**
+- `supabase/migrations/20261007120000_create_curriculum_catalog.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/8-database-architecture.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/2-tech-stack.md` (updated)
+- `docs/4-DECISIONS.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

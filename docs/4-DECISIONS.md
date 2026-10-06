@@ -40,6 +40,7 @@
 | D003 | Docs organized by phase folders | 2026-10-06 | LOCKED |
 | D004 | Operating trackers live at docs root 4–7 | 2026-10-06 | LOCKED |
 | D005 | Supabase is the backend platform | 2026-10-06 | LOCKED |
+| D006 | Hybrid storage: Postgres metadata + Storage files + JSON curriculum | 2026-10-07 | LOCKED |
 
 ---
 
@@ -105,9 +106,22 @@
 
 ---
 
+### D006 — Hybrid storage: Postgres metadata + Storage files + JSON curriculum
+
+**Date:** 2026-10-07  
+**Status:** LOCKED  
+**Decision:** Use a hybrid architecture. PostgreSQL holds stable catalog/ops metadata (`book_series`, `books`, `book_files`, `dataset_versions`, profiles). Supabase Storage holds source PDFs and dataset JSON files in private buckets. Canonical curriculum content (units, pages, vocabulary, language, activities, etc.) remains inside JSON documents and is not normalized into relational tables.  
+**Reason:** Phase 1 schema is still evolving and publishers differ; premature relational curriculum tables would force constant migrations. Metadata and file pointers are stable enough to model early.  
+**Alternatives rejected:** Full relational model of curriculum entities; storing only JSONB blobs with no catalog tables; public Storage buckets for copyrighted PDFs; permanent public URLs as canonical file references.  
+**Implications:** App catalog queries Postgres; curriculum detail loads from Storage/local JSON; `dataset_versions.version` ≠ `schema_version`; see `docs/8-database-architecture.md`.  
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |
 | 2026-10-06 | Added D005 — Supabase backend platform locked. |
+| 2026-10-07 | Added D006 — hybrid storage architecture locked; catalog migration created. |

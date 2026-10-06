@@ -37,6 +37,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now, so they are remembered without contaminating current scope. | 1.0 | ACTIVE |
+| [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage prototype: what lives in PostgreSQL vs Supabase Storage vs canonical JSON, and which layer is authoritative. | 1.0 | ACTIVE |
 
 ### Project tracking
 
@@ -76,7 +77,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 19 | Current working docs, including index, operating trackers, and project-tracking |
+| ACTIVE | 20 | Current working docs, including index, operating trackers, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

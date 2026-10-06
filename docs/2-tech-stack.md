@@ -58,7 +58,8 @@ The project should avoid prematurely building complex infrastructure before real
 |---|---|
 | Vite + React + TypeScript + Tailwind scaffold under `app/` | Currently implemented (minimal shell) |
 | Supabase as selected backend platform | Locked; local config scaffolded under `supabase/` |
-| Live Supabase project, tables, Auth UI, Storage buckets | Not implemented |
+| Live Supabase Auth + profiles migration | Implemented in repo; apply/verify on remote project |
+| Curriculum catalog tables + private Storage buckets | Migration in repo (`book_series` / `books` / `book_files` / `dataset_versions`); apply on remote |
 | Gemini API integration | Locked provider preference; not implemented |
 | Python processing/validation tools | Environment scaffolded; no curriculum tools yet |
 | Vercel deployment | Preferred; not deployed from this scaffold |
