@@ -2,13 +2,22 @@
 
 Supabase is the **locked** backend platform for this project (PostgreSQL, Auth, Storage when needed).
 
-This folder holds local Supabase project configuration only.
+This folder holds local Supabase project configuration and versioned migrations.
 
-## Rules for now
+## Auth / profiles
 
-- Do not create speculative tables or curriculum relational schemas.
-- Do not require live Supabase credentials for the frontend to start.
-- Do not run `supabase login`, `supabase link`, or remote migrations from scaffolding work.
+Migration `migrations/20261006120000_create_profiles.sql` creates:
+
+- `public.profiles`
+- automatic teacher profile on `auth.users` insert
+- RLS: authenticated users can `SELECT` their own row only
+
+Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
+
+Frontend public env vars live in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
+
+## Rules
+
+- Do not normalize Phase 1 curriculum JSON into relational tables here.
+- Never put the service-role key in the frontend.
 - Canonical curriculum data remains JSON-first under `data/`.
-
-When a real Supabase project is connected later, document env vars in the root `.env.example`.

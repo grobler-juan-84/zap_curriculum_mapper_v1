@@ -2,14 +2,16 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 22  
+**Last updated:** Step 23  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Wire Supabase Auth to login / signup / forgot-password / reset-password UI.
+- [ ] Apply `supabase/migrations/20261006120000_create_profiles.sql` to the live Supabase project.
+- [ ] Configure Supabase Auth Site URL + redirect allow-list for `/reset-password`.
+- [ ] Manually verify signup → profile row → login → `/app` → refresh → logout → forgot/reset.
 - [ ] Human-verify RH2A Unit 4 `rh2a_sb_unit4.json`; update registry verification status.
 
 ## Next
@@ -22,7 +24,6 @@
 
 - [ ] Run or design automated validation against schema 0.1 for verified unit batches.
 - [ ] Merge first fully verified book into a canonical book JSON and whole-book audit it.
-- [ ] Wire a real Supabase project only when app/ops persistence is needed (no speculative tables).
 
 ---
 

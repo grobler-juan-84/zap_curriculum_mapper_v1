@@ -1,16 +1,40 @@
 import { ArrowRight } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { getAuthErrorMessage } from '../../lib/authErrors'
+import { supabase } from '../../lib/supabase'
 import { AuthLayout } from './AuthLayout'
 
 export function LoginPage() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // Supabase auth will be wired in a later prompt.
+    setError('')
+    setLoading(true)
+
+    try {
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (signInError) {
+        setError(getAuthErrorMessage(signInError, 'Unable to sign in.'))
+        return
+      }
+
+      navigate('/app', { replace: true })
+    } catch (err) {
+      setError(getAuthErrorMessage(err, 'Unable to sign in.'))
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -82,12 +106,15 @@ export function LoginPage() {
           </label>
         </div>
 
+        {error ? <p className="text-xs text-red-600">{error}</p> : null}
+
         <button
           type="submit"
-          className="mt-2 flex h-8 w-full cursor-pointer items-center justify-center gap-1.5 rounded bg-indigo-600 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
+          disabled={loading}
+          className="mt-2 flex h-8 w-full cursor-pointer items-center justify-center gap-1.5 rounded bg-indigo-600 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          <span>Sign In</span>
-          <ArrowRight className="h-3.5 w-3.5" />
+          <span>{loading ? 'Signing in…' : 'Sign In'}</span>
+          {!loading ? <ArrowRight className="h-3.5 w-3.5" /> : null}
         </button>
       </form>
     </AuthLayout>

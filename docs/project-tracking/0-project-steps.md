@@ -333,3 +333,28 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 23
+
+**Summary:** Wired auth pages to Supabase Auth (signup/login/forgot/reset), added AuthProvider + protected `/app` shell with logout, and created `profiles` migration with teacher-default trigger and SELECT-own RLS.
+
+**Files touched:**
+- `app/src/lib/supabase.ts` (updated)
+- `app/src/lib/authErrors.ts` (created)
+- `app/src/types/user.ts` (created)
+- `app/src/features/auth/AuthProvider.tsx` (created)
+- `app/src/features/auth/ProtectedRoute.tsx` (created)
+- `app/src/features/auth/LoginPage.tsx` (updated)
+- `app/src/features/auth/SignupPage.tsx` (updated)
+- `app/src/features/auth/ForgotPasswordPage.tsx` (updated)
+- `app/src/features/auth/ResetPasswordPage.tsx` (updated)
+- `app/src/features/app/AppHomePage.tsx` (created)
+- `app/src/main.tsx` (updated)
+- `app/src/App.tsx` (updated)
+- `supabase/migrations/20261006120000_create_profiles.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
