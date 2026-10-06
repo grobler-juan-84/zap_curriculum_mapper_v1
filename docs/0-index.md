@@ -46,6 +46,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Legacy pointer to [`5-PROGRESS.md`](./5-PROGRESS.md); kept for older links. | 1.0 | ACTIVE |
 | [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the decision log. | 1.0 | ACTIVE |
 | [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Legacy pointer to [`4-DECISIONS.md`](./4-DECISIONS.md); kept for older links. | 1.0 | ACTIVE |
+| [project-tracking/4-mock-data-registry.md](./project-tracking/4-mock-data-registry.md) | Temporary registry of UI mock datasets (location, consumers, future source, MOCK status). Not curriculum truth. | — | ACTIVE |
 
 ### Phase 1
 
@@ -75,7 +76,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 18 | Current working docs, including index, operating trackers, and project-tracking |
+| ACTIVE | 19 | Current working docs, including index, operating trackers, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

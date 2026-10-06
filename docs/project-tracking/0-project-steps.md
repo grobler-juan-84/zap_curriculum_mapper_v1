@@ -358,3 +358,32 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 24
+
+**Summary:** Recreated the ZCMV1 authenticated workstation UI (curriculum library, series library, book workspace with intelligence panel, book viewer, teacher AI) using mock data behind services/hooks, while preserving Supabase auth and leaving Phase 1 curriculum JSON untouched.
+
+**Files touched:**
+- `app/src/App.tsx` (updated)
+- `app/src/index.css` (updated)
+- `app/index.html` (updated)
+- `app/src/features/shell/*` (created)
+- `app/src/features/curriculum-library/*` (created)
+- `app/src/features/series-library/*` (created)
+- `app/src/features/book-workspace/*` (created)
+- `app/src/features/book-viewer/*` (created)
+- `app/src/features/lesson-intelligence/*` (created)
+- `app/src/features/teacher-assistant/*` (created)
+- `app/src/components/shared/*` (created)
+- `app/src/services/*` (created)
+- `app/src/mocks/*` (created)
+- `app/src/types/curriculum.ts` (created)
+- `app/public/images/*` (created)
+- `app/src/features/app/AppHomePage.tsx` (deleted)
+- `docs/project-tracking/4-mock-data-registry.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.15" />
+    </filter>
+    <filter id="softGlow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+    </filter>
+    
+    <!-- Gradients -->
+    <linearGradient id="bgGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+
+    <linearGradient id="honeycombAmber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <clipPath id="bookSpine2">
+      <rect x="0" y="0" width="600" height="800" rx="6" ry="6"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#bookSpine2)">
+    <!-- Main Background -->
+    <rect width="600" height="800" fill="url(#bgGrad2)"/>
+
+    <!-- Subtle Background Honeycomb Lattice Pattern -->
+    <g opacity="0.35" stroke="#fcd34d" stroke-width="2" fill="none">
+      <polygon points="500,160 540,183 540,229 500,252 460,229 460,183" fill="#fefce8"/>
+      <polygon points="540,229 580,252 580,298 540,321 500,298 500,252"/>
+      <polygon points="100,200 140,223 140,269 100,292 60,269 60,223" fill="#fef3c7"/>
+      <polygon points="60,269 100,292 100,338 60,361 20,338 20,292"/>
+      <polygon points="520,480 560,503 560,549 520,572 480,549 480,503" fill="#fefce8"/>
+    </g>
+
+    <!-- TOP NAVY BAR (Oxford Branding) -->
+    <rect x="0" y="0" width="600" height="54" fill="#002147"/>
+    <text x="300" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="8" fill="#ffffff" text-anchor="middle">
+      OXFORD
+    </text>
+
+    <!-- MAIN TITLE: Beehive -->
+    <!-- Amber/Orange Outline Effect matching official Beehive 2 Logo -->
+    <g transform="translate(300, 140)" filter="url(#shadow2)">
+      <!-- Outer Stroke Layer -->
+      <text x="0" y="0" font-family="'Fredoka', 'Quicksand', 'Arial Rounded MT Bold', -apple-system, sans-serif" font-size="88" font-weight="900" fill="#ffffff" stroke="#d97706" stroke-width="14" stroke-linejoin="round" text-anchor="middle">
+        Beehive
+      </text>
+      <!-- Inner Solid Text -->
+      <text x="0" y="0" font-family="'Fredoka', 'Quicksand', 'Arial Rounded MT Bold', -apple-system, sans-serif" font-size="88" font-weight="900" fill="#ffffff" text-anchor="middle">
+        Beehive
+      </text>
+    </g>
+
+    <!-- SUBTITLE HEX BADGE: Student Book with Online Practice -->
+    <g transform="translate(300, 185)">
+      <rect x="-110" y="-14" width="220" height="28" rx="14" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" filter="url(#softGlow2)"/>
+      <text x="0" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#78350f" text-anchor="middle">
+        Student Book
+      </text>
+      <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">
+        with Online Practice
+      </text>
+    </g>
+
+    <!-- CENTERPIECE LEVEL HEXAGON: 2 -->
+    <g transform="translate(300, 260)" filter="url(#shadow2)">
+      <!-- Large Hexagon Base -->
+      <polygon points="0,-65 56,-32 56,32 0,65 -56,32 -56,-32" fill="url(#honeycombAmber)" stroke="#ffffff" stroke-width="4"/>
+      <!-- Inner Number 2 -->
+      <text x="0" y="28" font-family="'Arial Rounded MT Bold', 'Fredoka', -apple-system, sans-serif" font-size="80" font-weight="900" fill="#ffffff" text-anchor="middle" filter="url(#softGlow2)">
+        2
+      </text>
+    </g>
+
+    <!-- HONEYCOMB PHOTO TILES -->
+    <!-- Tile Left: Smiling boy outdoors -->
+    <g transform="translate(130, 310)" filter="url(#shadow2)">
+      <polygon points="0,-75 65,-37 65,37 0,75 -65,37 -65,-37" fill="#fed7aa" stroke="#ffffff" stroke-width="5"/>
+      <circle cx="0" cy="-10" r="30" fill="#fcd34d"/>
+      <path d="M-22,-25 Q0,-45 22,-25" fill="#1e293b"/>
+      <path d="M-40,55 Q0,20 40,55" fill="#f97316"/>
+    </g>
+
+    <!-- Tile Right: Girl smiling with glasses -->
+    <g transform="translate(470, 310)" filter="url(#shadow2)">
+      <polygon points="0,-75 65,-37 65,37 0,75 -65,37 -65,-37" fill="#fde68a" stroke="#ffffff" stroke-width="5"/>
+      <circle cx="0" cy="-10" r="28" fill="#e2b997"/>
+      <path d="M-26,-20 Q0,-48 26,-20" fill="#451a03"/>
+      <!-- Glasses -->
+      <rect x="-16" y="-12" width="12" height="10" rx="2" fill="none" stroke="#0f172a" stroke-width="2"/>
+      <rect x="4" y="-12" width="12" height="10" rx="2" fill="none" stroke="#0f172a" stroke-width="2"/>
+      <line x1="-4" y1="-7" x2="4" y2="-7" stroke="#0f172a" stroke-width="2"/>
+      <path d="M-35,55 Q0,25 35,55" fill="#84cc16"/>
+    </g>
+
+    <!-- Tile Center-Bottom: Friends reading tablet together -->
+    <g transform="translate(300, 470)" filter="url(#shadow2)">
+      <polygon points="0,-95 82,-47 82,47 0,95 -82,47 -82,-47" fill="#fef08a" stroke="#ffffff" stroke-width="6"/>
+      <!-- Tablet Device -->
+      <rect x="-40" y="10" width="80" height="46" rx="4" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+      <rect x="-35" y="15" width="70" height="36" rx="2" fill="#38bdf8"/>
+      <!-- Children -->
+      <circle cx="-35" cy="-5" r="22" fill="#fed7aa"/>
+      <path d="M-50,-15 Q-35,-35 -20,-15" fill="#713f12"/>
+      <circle cx="35" cy="-5" r="22" fill="#f5d0b5"/>
+      <path d="M20,-15 Q35,-35 50,-15" fill="#334155"/>
+    </g>
+
+    <!-- Tile Bottom-Left: Boy smiling -->
+    <g transform="translate(130, 520)" filter="url(#shadow2)">
+      <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="#fed7aa" stroke="#ffffff" stroke-width="5"/>
+      <circle cx="0" cy="-8" r="26" fill="#f5d0b5"/>
+      <path d="M-22,-20 Q0,-42 22,-20" fill="#0f172a"/>
+      <path d="M-35,50 Q0,20 35,50" fill="#0284c7"/>
+    </g>
+
+    <!-- Tile Bottom-Right: Smiling student -->
+    <g transform="translate(470, 520)" filter="url(#shadow2)">
+      <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="#ffedd5" stroke="#ffffff" stroke-width="5"/>
+      <circle cx="0" cy="-8" r="26" fill="#fcd34d"/>
+      <path d="M-22,-20 Q0,-42 22,-20" fill="#78350f"/>
+      <path d="M-35,50 Q0,20 35,50" fill="#ec4899"/>
+    </g>
+
+    <!-- Author Badge (Tamzin Thompson) -->
+    <g transform="translate(50, 715)">
+      <text x="0" y="0" font-family="'Segoe Script', 'Brush Script MT', cursive, sans-serif" font-size="16" font-style="italic" fill="#78350f">
+        Tamzin Thompson
+      </text>
+    </g>
+
+    <!-- BOTTOM NAVY BAR: Student Book -->
+    <rect x="0" y="746" width="600" height="54" fill="#002147"/>
+    <text x="300" y="781" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" letter-spacing="1.5" fill="#ffffff" text-anchor="middle">
+      Student Book
+    </text>
+
+    <!-- Spine Highlight Reflection on Left Edge -->
+    <rect x="0" y="0" width="14" height="800" fill="#ffffff" opacity="0.18"/>
+    <line x1="14" y1="0" x2="14" y2="800" stroke="#000000" stroke-width="1" opacity="0.15"/>
+  </g>
+</svg>

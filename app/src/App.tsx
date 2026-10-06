@@ -1,11 +1,14 @@
-import { Route, Routes } from 'react-router-dom'
-import { AppHomePage } from './features/app/AppHomePage'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { ProtectedRoute } from './features/auth/ProtectedRoute'
 import { ForgotPasswordPage } from './features/auth/ForgotPasswordPage'
 import { LoginPage } from './features/auth/LoginPage'
-import { ProtectedRoute } from './features/auth/ProtectedRoute'
 import { ResetPasswordPage } from './features/auth/ResetPasswordPage'
 import { SignupPage } from './features/auth/SignupPage'
+import { BookWorkspacePage } from './features/book-workspace/BookWorkspacePage'
+import { CurriculumLibraryPage } from './features/curriculum-library/CurriculumLibraryPage'
 import { LandingPage } from './features/landing/LandingPage'
+import { SeriesLibraryPage } from './features/series-library/SeriesLibraryPage'
+import { AppShell } from './features/shell/AppShell'
 
 export default function App() {
   return (
@@ -15,14 +18,20 @@ export default function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
+
       <Route
         path="/app"
         element={
           <ProtectedRoute>
-            <AppHomePage />
+            <AppShell />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Navigate to="workspace" replace />} />
+        <Route path="curriculum" element={<CurriculumLibraryPage />} />
+        <Route path="series" element={<SeriesLibraryPage />} />
+        <Route path="workspace" element={<BookWorkspacePage />} />
+      </Route>
     </Routes>
   )
 }
