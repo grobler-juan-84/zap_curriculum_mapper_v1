@@ -39,6 +39,7 @@
 | D002 | Unit-batch JSON, then canonical merge | 2026-10-06 | LOCKED |
 | D003 | Docs organized by phase folders | 2026-10-06 | LOCKED |
 | D004 | Operating trackers live at docs root 4–7 | 2026-10-06 | LOCKED |
+| D005 | Supabase is the backend platform | 2026-10-06 | LOCKED |
 
 ---
 
@@ -92,8 +93,21 @@
 
 ---
 
+### D005 — Supabase is the backend platform
+
+**Date:** 2026-10-06  
+**Status:** LOCKED  
+**Decision:** Supabase is the selected backend platform for the General Curriculum Mapper. It will provide PostgreSQL, authentication, and object storage when those capabilities are required. Canonical curriculum data remains JSON-first, with PostgreSQL JSONB available where database persistence/querying is useful. Locking Supabase does not require immediate implementation of every Supabase capability.  
+**Reason:** The project owner already uses Supabase in KIS Points, reducing unnecessary technology switching and allowing knowledge and development patterns to transfer between projects.  
+**Alternatives rejected:** Leaving PostgreSQL / Auth / Storage providers undecided; selecting a different BaaS solely for novelty; normalizing Phase 1 curriculum JSON into relational tables as a precondition for backend choice.  
+**Implications:** Tech-stack docs treat Supabase PostgreSQL, Auth, and Storage as locked; scaffold may include Supabase client/config without requiring live credentials; curriculum evidence stays under `data/` as JSON.  
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |
+| 2026-10-06 | Added D005 — Supabase backend platform locked. |

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 20  
+**Last updated:** Step 21  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -10,6 +10,7 @@
 ## Now
 
 - [ ] Human-verify RH2A Unit 4 `rh2a_sb_unit4.json`; update registry verification status.
+- [ ] Review technology scaffold locally (`cd app && npm run dev` / `npm run build`; Python unittest) before any GitHub push.
 
 ## Next
 
@@ -21,7 +22,7 @@
 
 - [ ] Run or design automated validation against schema 0.1 for verified unit batches.
 - [ ] Merge first fully verified book into a canonical book JSON and whole-book audit it.
-- [ ] Clear remaining registry notes for truncated/incomplete historical batches if any remain.
+- [ ] Wire a real Supabase project only when app/ops persistence is needed (no speculative tables).
 
 ---
 

@@ -31,24 +31,39 @@ The project should avoid prematurely building complex infrastructure before real
 
 ---
 
-# 2. Preferred Technology Stack
+# 2. Locked Technology Stack
 
-| Layer | Preferred Technology | Role |
+| Layer | Locked Technology | Role |
 |---|---|---|
 | Frontend | React | Application UI |
 | Build Tool | Vite | Frontend development and build tooling |
 | Language | TypeScript | Primary frontend/application language |
 | Styling | Tailwind CSS | UI styling |
-| Backend / API | TypeScript and/or Python | Application logic, AI workflows and data processing |
+| Backend platform | Supabase | Hosted PostgreSQL, Auth, Storage, and related backend services when required |
+| Backend / API logic | TypeScript and/or Python | Application logic, AI workflows and data processing |
 | AI | Google Gemini API | Curriculum extraction and AI-assisted curriculum processing |
 | Structured Curriculum Data | JSON | Canonical curriculum dataset format |
-| Database | PostgreSQL | Application, operational and relational metadata |
-| Flexible Database Storage | PostgreSQL JSONB | Possible storage/query layer for canonical curriculum documents |
-| File / Object Storage | To be selected | PDFs, canonical JSON files and other large artifacts |
-| Authentication | To be selected | User authentication and authorization |
+| Database | Supabase PostgreSQL | Application, operational and relational metadata |
+| Flexible Database Storage | PostgreSQL JSONB | Available where database persistence/querying of curriculum documents is useful |
+| File / Object Storage | Supabase Storage | PDFs, canonical JSON files and other large artifacts when object storage is required |
+| Authentication | Supabase Auth | User authentication and authorization when required |
 | Hosting | Vercel preferred for frontend | Web application deployment |
 | Version Control | Git + GitHub | Source control and project history |
 | Development Environment | Cursor | Primary AI-assisted coding environment |
+| Python tooling | Python (scripts/libraries) | Validation, processing, batch/document work, AI workflows |
+
+### Locked vs currently implemented
+
+| Area | Status |
+|---|---|
+| Vite + React + TypeScript + Tailwind scaffold under `app/` | Currently implemented (minimal shell) |
+| Supabase as selected backend platform | Locked; local config scaffolded under `supabase/` |
+| Live Supabase project, tables, Auth UI, Storage buckets | Not implemented |
+| Gemini API integration | Locked provider preference; not implemented |
+| Python processing/validation tools | Environment scaffolded; no curriculum tools yet |
+| Vercel deployment | Preferred; not deployed from this scaffold |
+
+Locking a technology does **not** mean every capability is implemented yet.
 
 ---
 
@@ -194,9 +209,9 @@ Relational projections can be introduced later where a real product requirement 
 
 # 8. Database Direction
 
-The preferred relational database technology is:
+The locked relational database provider is:
 
-> **PostgreSQL**
+> **Supabase PostgreSQL**
 
 PostgreSQL is expected to support stable application and operational data such as:
 
@@ -210,9 +225,11 @@ PostgreSQL is expected to support stable application and operational data such a
 - extraction status;
 - and application metadata.
 
-The exact database provider has not yet been locked.
+Canonical curriculum data remains JSON-first.
 
-Possible providers may be evaluated when implementation requires persistent hosted storage.
+Do not normalize Phase 1 curriculum JSON into relational tables until a concrete product requirement justifies it.
+
+PostgreSQL JSONB may be used later where persisting/querying curriculum documents inside the database is useful.
 
 ---
 
@@ -245,22 +262,18 @@ Original curriculum files such as PDFs should not normally be stored directly in
 Long-term storage may include:
 
 ```text
-Object Storage
+Supabase Storage
 ├── source PDFs
 ├── extraction artifacts
 ├── canonical JSON datasets
 └── generated exports
 ```
 
-Possible storage technologies may include:
+The locked object-storage provider is:
 
-- Vercel Blob;
-- Supabase Storage;
-- Amazon S3;
-- Google Cloud Storage;
-- or another compatible object-storage provider.
+> **Supabase Storage**
 
-The final provider has not yet been selected.
+Storage buckets and upload workflows are not created by the initial technology scaffold.
 
 ---
 
@@ -540,41 +553,40 @@ The project should remain capable of becoming more sophisticated without requiri
 
 # 20. Current Technical Decisions vs Open Decisions
 
-## Current Direction
-
-The following technologies or architectural directions are currently preferred:
+## Locked
 
 ```text
-Frontend       → Vite + React + TypeScript
-Styling        → Tailwind CSS
-Curriculum     → JSON canonical datasets
-Database       → PostgreSQL (supabase)
-AI             → Gemini
-Deployment     → Vercel preferred
-Versioning     → Git + GitHub
-Development    → Cursor
-Architecture   → Feature-based / modular
-Data strategy  → Hybrid JSON + relational metadata
+Frontend              → Vite + React + TypeScript
+Styling               → Tailwind CSS
+Backend platform      → Supabase
+Database              → Supabase PostgreSQL
+Flexible documents    → PostgreSQL JSONB where useful
+Object storage        → Supabase Storage
+Authentication        → Supabase Auth
+Curriculum format     → JSON canonical datasets (JSON-first)
+AI                    → Google Gemini API
+Frontend hosting      → Vercel preferred
+Versioning            → Git + GitHub
+Development           → Cursor
+Architecture          → Feature-based / modular
+Data strategy         → Hybrid JSON + relational app/ops metadata
+Python                → processing / validation / AI tooling where appropriate
 ```
 
-## Not Yet Locked
-
-The following should remain open until implementation provides enough evidence:
+## Not yet locked / not yet implemented
 
 ```text
-PostgreSQL provider
-Object-storage provider
-Authentication provider
-Exact backend architecture
-Exact Python responsibilities
-Exact API framework
+Exact backend API shape
+Exact Python library choices beyond the tooling folder
 Background-job infrastructure
 Search/indexing technology
-Final production deployment architecture
-Final relational curriculum projections
+Final production deployment architecture beyond Vercel preference
+Final relational curriculum projections (if any)
+When/how to use JSONB for curriculum documents
+Live Supabase project wiring, tables, RLS, Auth UI, Storage buckets
 ```
 
-These decisions should be made when the project reaches the point where they materially affect implementation.
+These remaining items should be decided when implementation provides enough evidence.
 
 ---
 

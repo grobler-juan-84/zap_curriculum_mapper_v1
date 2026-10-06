@@ -28,3 +28,20 @@ credentials.json
 *.log
 tmp/
 temp/
+
+# Python
+python/.venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Local copyrighted curriculum PDFs (keep out of Git)
+src/assests/
+*.pdf
+
+# Supabase local CLI artifacts
+supabase/.temp/
+supabase/.branches/

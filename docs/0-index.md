@@ -31,7 +31,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. | — | ACTIVE |
-| [2-tech-stack.md](./2-tech-stack.md) | Preferred technology stack and high-level technical architecture choices for the mapper (React/Vite/TypeScript-oriented, modular, evidence-first). | — | ACTIVE |
+| [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack and high-level technical architecture (Vite/React/TypeScript/Tailwind, Supabase backend platform, JSON-first curriculum, Gemini, Vercel preferred). Distinguishes locked choices from currently implemented scaffold. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, and generation. | — | ACTIVE |
 | [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives so settled questions are not reopened without cause. | 1.0 | ACTIVE |
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |

@@ -290,3 +290,26 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 21
+
+**Summary:** Initialized technology scaffold only: Vite/React/TypeScript/Tailwind under `app/`, Supabase local config under `supabase/`, minimal Python tooling under `python/`, root `.env.example` + README; locked Supabase as backend platform (D005) without live project wiring or curriculum feature work.
+
+**Files touched:**
+- `app/` (created — Vite React TS Tailwind scaffold + minimal shell)
+- `supabase/` (created — local config only)
+- `python/` (created — tooling foundation)
+- `schemas/` (created — placeholder + README)
+- `scripts/` (created — placeholder)
+- `.env.example` (created)
+- `README.md` (created)
+- `.gitignore` (updated)
+- `docs/2-tech-stack.md` (updated)
+- `docs/4-DECISIONS.md` (updated — D005)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/7-FUTURE.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

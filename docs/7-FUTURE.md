@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 19  
+**Last updated:** Step 21  
 **Purpose:** Parking lot for good ideas that are explicitly **not now**. Keep them visible without contaminating current Phase 1 scope.
 
 ---
@@ -20,8 +20,8 @@
 
 | ID | Idea | Why not now | Source |
 |---|---|---|---|
-| F001 | Full SaaS app (React/Vite + Gemini ingestion + Blob/DB persistence) | Phase 1 evidence and schema must stabilize first | brainstorming |
-| F002 | Relational / JSONB production storage design | Premature before canonical book JSON lifecycle is proven | brainstorming |
+| F001 | Full SaaS app (React/Vite + Gemini ingestion + Supabase persistence) | Phase 1 evidence and schema must stabilize first; backend platform locked to Supabase but product features not started | brainstorming / D005 |
+| F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
 | F003 | Google Sheets / React explorer over Phase 1 JSON | Nice-to-have visualization; not required for extraction quality | brainstorming |
 | F004 | Phase 2 interpretation pipeline | Explicitly downstream of trustworthy Phase 1 datasets | architecture |
 | F005 | Phase 3 connections / mapping products | Depends on Phase 1–2 maturity | architecture |

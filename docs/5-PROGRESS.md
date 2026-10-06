@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 20  
+**Last updated:** Step 21  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -12,8 +12,9 @@
 - Core Phase 1–7 philosophy documented; docs split into `phase-1`…`phase-6` folders.
 - Root docs cover overview, tech stack, architecture, and operating trackers (decisions / progress / todo / future).
 - Phase 1 unit batches human-verified for BH1, BE1-SB, BE2-SB, and RH2A units 1–3.
-- RH2A Unit 4 extracted and consolidated into single `rh2a_sb_unit4.json` (merged from former part1/part2).
-- Brainstorming captured JSON storage leans and future Vercel/Gemini ingestion notes (not locked product work).
+- RH2A Unit 4 extracted and consolidated into single `rh2a_sb_unit4.json`.
+- Technology scaffold initialized: Vite/React/TS/Tailwind under `app/`, Supabase local config under `supabase/`, Python tooling area under `python/`.
+- Supabase locked as backend platform (D005); curriculum remains JSON-first.
 
 ## In progress
 
@@ -33,6 +34,6 @@
 
 ## Snapshot notes
 
-- **Focus:** Phase 1 evidence quality, not SaaS.
-- **Usable now:** Unit JSON batches + registry + Phase 1 process/prompt/schema docs.
-- **Not started as product work:** App UI, automated validation pipeline, canonical merges at scale.
+- **Focus:** Phase 1 evidence quality remains primary; software scaffold exists but product features are not started.
+- **Usable now:** Unit JSON batches + registry + Phase 1 docs + minimal frontend shell (`cd app && npm run dev`).
+- **Not started as product work:** Auth, curriculum browser, Gemini ingestion, automated validation pipeline, canonical merges at scale, live Supabase wiring.
