@@ -495,3 +495,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 32
+
+**Summary:** Uploaded four student-book cover PNGs to `book-assets`, added `books.cover_path` migration, and wired series-library book cards to Supabase books with real cover imagery (signed URL + local fallback).
+
+**Files touched:**
+- `supabase/migrations/20261007150000_books_cover_path.sql` (created)
+- `scripts/upload_book_covers.mjs` (created)
+- `app/src/assests/images/book-series/*_cover.png` (added)
+- `app/src/services/catalogMapper.ts` (updated)
+- `app/src/services/curriculumService.ts` (updated)
+- `app/src/types/curriculum.ts` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `supabase/README.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

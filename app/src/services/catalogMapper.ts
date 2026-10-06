@@ -11,6 +11,7 @@ export type DbBookRow = {
   edition: string | null
   language: string | null
   status: string
+  cover_path?: string | null
   book_files?: Array<{ id: string }> | null
 }
 
@@ -89,10 +90,19 @@ function mockSpreadsForStableBookId(stableBookId: string): PageSpread[] {
   return []
 }
 
-function coverForStableBookId(stableBookId: string): string | undefined {
-  if (stableBookId.startsWith('beehive_1')) return '/images/beehive-1-cover.svg'
-  if (stableBookId.startsWith('beehive_2')) return '/images/beehive-2-cover.svg'
-  return '/images/beehive-1-cover.svg'
+export function defaultBookCoverPath(stableBookId: string): string | null {
+  switch (stableBookId) {
+    case 'beehive_1_sb':
+      return 'books/beehive_1_sb/cover.png'
+    case 'big_english_1_sb':
+      return 'books/big_english_1_sb/cover.png'
+    case 'big_english_2_sb':
+      return 'books/big_english_2_sb/cover.png'
+    case 'reach_higher_2a':
+      return 'books/reach_higher_2a/cover.png'
+    default:
+      return null
+  }
 }
 
 function mapBookType(value: string | null): Book['type'] {
@@ -107,6 +117,7 @@ function mapBookType(value: string | null): Book['type'] {
 export function mapDbBookToBook(row: DbBookRow): Book {
   const pageSpreads = mockSpreadsForStableBookId(row.book_id)
   const fileCount = row.book_files?.length ?? 0
+  const coverPath = row.cover_path?.trim() || defaultBookCoverPath(row.book_id) || undefined
   return {
     id: row.id,
     stableBookId: row.book_id,
@@ -116,7 +127,7 @@ export function mapDbBookToBook(row: DbBookRow): Book {
     audience: row.level ? `Level ${row.level}` : 'Curriculum book',
     totalUnits: fileCount > 0 ? fileCount : pageSpreads.length > 0 ? pageSpreads.length : 0,
     type: mapBookType(row.book_type),
-    coverImage: coverForStableBookId(row.book_id),
+    coverPath,
     colorScheme: {
       primary: '#0284C7',
       accent: '#F59E0B',

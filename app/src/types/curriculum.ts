@@ -115,6 +115,8 @@ export interface Book {
   totalUnits: number
   type: 'Student Book' | 'Workbook' | "Teacher's Guide"
   coverImage?: string
+  /** Storage object path in book-assets bucket. */
+  coverPath?: string
   colorScheme: {
     primary: string
     accent: string

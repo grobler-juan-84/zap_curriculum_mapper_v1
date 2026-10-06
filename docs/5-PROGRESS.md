@@ -2,37 +2,37 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 31  
+**Last updated:** Step 32  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
 
 ## Done
 
-- Core Phase 1–7 philosophy + hybrid Supabase catalog/Storage.
-- Pilot unit JSON batches uploaded to `book-datasets`.
-- Curriculum library loads live `book_series` / `books`.
-- Series cover PNGs in `book-assets`; `book_series.cover_path` populated; curriculum cards use full cover image above levels/books row.
+- Hybrid Supabase catalog/Storage; pilot unit JSON in `book-datasets`.
+- Curriculum library uses live `book_series` / `books`.
+- Series cover PNGs + book cover PNGs uploaded to `book-assets`.
+- Series library book cards use Supabase books + real cover images (Storage signed URL / local fallback).
 
 ## In progress
 
-- Apply migration `20261007140000_book_assets_and_series_covers.sql` on remote (adds `cover_path` + Storage read policies) so UI signed cover URLs work for authenticated users.
+- Apply `20261007150000_books_cover_path.sql` on remote so `books.cover_path` is stored in Postgres (Storage uploads already done; UI has path defaults).
 - Beehive 1 still uses mock interactive page spreads.
 
 ## Next
 
-- Apply the book-assets migration in Supabase SQL editor, then refresh `/app/curriculum` to confirm covers.
+- Apply books cover_path migration, then re-run `node scripts/upload_book_covers.mjs` once to stamp DB paths.
 - Human-review RH2A Unit 4.
 - Wire unit batch JSON from Storage into verification/viewer flow.
 
 ## Blocked
 
-- None hard-blocked. Soft friction: RH2A `book_id` naming still inconsistent.
+- None hard-blocked.
 
 ---
 
 ## Snapshot notes
 
-- **Focus:** Real catalog + series imagery in Storage.
-- **Usable now:** Auth + Supabase series/books; covers uploaded (policies/column pending apply).
+- **Focus:** Real catalog + series/book cover imagery.
+- **Usable now:** Auth + Supabase series/books; covers for series and the 4 pilot books.
 - **Not started:** Storage-backed page viewer for all books; canonical merges.
