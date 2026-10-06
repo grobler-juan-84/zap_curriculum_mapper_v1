@@ -2,11 +2,22 @@ import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { seriesEmoji } from '../../services/catalogMapper'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import beehiveCover from '../../assests/images/book-series/beehive_book_series.png'
+import bigEnglishCover from '../../assests/images/book-series/big_english_book_series.png'
+import reachHigherCover from '../../assests/images/book-series/reach_higher_book_series.png'
 
 interface CurriculumLibraryProps {
   seriesList: CurriculumSeries[]
   onSelectSeries: (seriesId: string) => void
   onDirectOpenBook: (bookId: string) => void
+}
+
+function localCoverForSeries(name: string): string | undefined {
+  const key = name.trim().toLowerCase()
+  if (key.includes('beehive')) return beehiveCover
+  if (key.includes('big english')) return bigEnglishCover
+  if (key.includes('reach higher')) return reachHigherCover
+  return undefined
 }
 
 export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
@@ -45,69 +56,55 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {seriesList.map((series) => {
                 const isBeehive = series.name.toLowerCase().includes('beehive')
+                const coverSrc = series.coverImage || localCoverForSeries(series.name)
                 return (
                   <div
                     key={series.id}
                     onClick={() => onSelectSeries(series.id)}
-                    className={`group flex cursor-pointer flex-col justify-between rounded-lg border bg-white p-5 shadow-xs transition-all hover:shadow-md ${
+                    className={`group flex cursor-pointer flex-col overflow-hidden rounded-lg border bg-white shadow-xs transition-all hover:shadow-md ${
                       isBeehive
                         ? 'border-indigo-300 ring-1 ring-indigo-100 hover:border-indigo-500'
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                   >
-                    <div className="space-y-3">
-                      <div className="flex items-start justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-300 bg-gradient-to-tr from-slate-100 to-slate-200 text-xl shadow-inner transition-transform group-hover:scale-105">
-                          {series.coverImage ? (
-                            <img
-                              src={series.coverImage}
-                              alt={`${series.name} cover`}
-                              className="h-full w-full object-cover"
-                              referrerPolicy="no-referrer"
-                            />
-                          ) : (
-                            seriesEmoji(series.name)
-                          )}
+                    {/* Series cover image replaces former icon/title/description block */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                      {coverSrc ? (
+                        <img
+                          src={coverSrc}
+                          alt={`${series.name} series`}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-tr from-slate-100 to-slate-200 text-slate-600">
+                          <span className="text-3xl">{seriesEmoji(series.name)}</span>
+                          <span className="text-sm font-bold">{series.name}</span>
                         </div>
-                        <span
-                          className={`rounded border px-2 py-0.5 text-[10px] font-bold ${series.colorScheme.badge}`}
-                        >
-                          {series.publisher}
-                        </span>
-                      </div>
+                      )}
+                    </div>
 
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
-                          {series.name}
-                        </h3>
-                        <div className="mt-0.5 text-xs font-medium text-slate-500">
-                          {series.publisher} · {series.targetAges}
-                        </div>
-                        <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-600">
-                          {series.shortDesc}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between border-t border-slate-100 pt-2 font-mono text-xs text-slate-500">
+                    <div className="flex flex-1 flex-col justify-between p-4">
+                      <div className="flex items-center justify-between font-mono text-xs text-slate-500">
                         <span>{series.levelsCount} Total Levels</span>
                         <span className="font-semibold text-indigo-700">
                           {series.availableBooksCount} Books Available
                         </span>
                       </div>
-                    </div>
 
-                    <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-4">
-                      <span className="flex items-center gap-1 text-[11px] font-medium text-slate-500">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                        <span>{isBeehive ? 'Interactive Workstation' : 'Series Indexed'}</span>
-                      </span>
-                      <button
-                        type="button"
-                        className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
-                      >
-                        <span>Explore Series</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </button>
+                      <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
+                        <span className="flex items-center gap-1 text-[11px] font-medium text-slate-500">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                          <span>{isBeehive ? 'Interactive Workstation' : 'Series Indexed'}</span>
+                        </span>
+                        <button
+                          type="button"
+                          className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
+                        >
+                          <span>Explore Series</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )

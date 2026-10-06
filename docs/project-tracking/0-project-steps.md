@@ -475,3 +475,13 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 30
+
+**Summary:** Replaced the curriculum series card header (icon/title/description) with the full series cover PNG above the levels/books row, preferring Storage signed URLs with local asset fallback.
+
+**Files touched:**
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 29  
+**Last updated:** Step 30  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -12,7 +12,7 @@
 - Core Phase 1–7 philosophy + hybrid Supabase catalog/Storage.
 - Pilot unit JSON batches uploaded to `book-datasets`.
 - Curriculum library loads live `book_series` / `books`.
-- Series cover PNGs uploaded to private `book-assets` (Beehive / Big English / Reach Higher).
+- Series cover PNGs in `book-assets`; `book_series.cover_path` populated; curriculum cards use full cover image above levels/books row.
 
 ## In progress
 

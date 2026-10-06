@@ -2,16 +2,16 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 29  
+**Last updated:** Step 30  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Apply `supabase/migrations/20261007140000_book_assets_and_series_covers.sql` in the Supabase SQL editor (cover_path + book-assets RLS).
-- [ ] Refresh `/app/curriculum` and confirm the 3 series cover images load while logged in.
+- [ ] Confirm `/app/curriculum` shows the 3 series cover PNGs on the cards (above levels/books).
 - [ ] Human-verify RH2A Unit 4; set that `book_files.status` to `verified` when done.
+- [ ] Apply any remaining Storage RLS notes if signed cover URLs fail while logged in (local PNG fallback still works).
 
 ## Next
 
