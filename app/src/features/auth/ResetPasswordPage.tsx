@@ -2,7 +2,11 @@ import { ArrowRight, CheckCircle } from 'lucide-react'
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuthErrorMessage } from '../../lib/authErrors'
-import { supabase } from '../../lib/supabase'
+import {
+  isSupabaseConfigured,
+  SUPABASE_CONFIG_ERROR,
+  supabase,
+} from '../../lib/supabase'
 import { useAuth } from './AuthProvider'
 import { AuthLayout } from './AuthLayout'
 
@@ -26,6 +30,11 @@ export function ResetPasswordPage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setError('')
+
+    if (!isSupabaseConfigured || !supabase) {
+      setError(SUPABASE_CONFIG_ERROR)
+      return
+    }
 
     if (!password || !confirmPassword) {
       setError('Enter and confirm your new password.')
@@ -87,7 +96,9 @@ export function ResetPasswordPage() {
         </>
       }
     >
-      {!session ? (
+      {!isSupabaseConfigured ? (
+        <p className="text-xs text-red-600">{SUPABASE_CONFIG_ERROR}</p>
+      ) : !session ? (
         <div className="space-y-2 rounded border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
           <p>This reset link is invalid or has expired.</p>
           <Link to="/forgot-password" className="font-semibold text-indigo-600 underline">
@@ -146,7 +157,7 @@ export function ResetPasswordPage() {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !isSupabaseConfigured}
             className="mt-2 flex h-8 w-full cursor-pointer items-center justify-center gap-1.5 rounded bg-indigo-600 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span>{loading ? 'Updating…' : 'Update Password'}</span>

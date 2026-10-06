@@ -2,7 +2,11 @@ import { ArrowRight, CheckCircle } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { getAuthErrorMessage } from '../../lib/authErrors'
-import { supabase } from '../../lib/supabase'
+import {
+  isSupabaseConfigured,
+  SUPABASE_CONFIG_ERROR,
+  supabase,
+} from '../../lib/supabase'
 import { AuthLayout } from './AuthLayout'
 
 export function ForgotPasswordPage() {
@@ -14,6 +18,12 @@ export function ForgotPasswordPage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setError('')
+
+    if (!isSupabaseConfigured || !supabase) {
+      setError(SUPABASE_CONFIG_ERROR)
+      return
+    }
+
     setLoading(true)
 
     try {
@@ -84,11 +94,14 @@ export function ForgotPasswordPage() {
             />
           </div>
 
+          {!isSupabaseConfigured ? (
+            <p className="text-xs text-red-600">{SUPABASE_CONFIG_ERROR}</p>
+          ) : null}
           {error ? <p className="text-xs text-red-600">{error}</p> : null}
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !isSupabaseConfigured}
             className="mt-2 flex h-8 w-full cursor-pointer items-center justify-center gap-1.5 rounded bg-indigo-600 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span>{loading ? 'Sending…' : 'Send Reset Link'}</span>

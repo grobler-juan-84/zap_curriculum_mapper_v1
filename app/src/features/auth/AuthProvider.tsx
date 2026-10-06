@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { supabase } from '../../lib/supabase'
+import { isSupabaseConfigured, supabase } from '../../lib/supabase'
 import type { UserProfile } from '../../types/user'
 
 interface AuthContextValue {
@@ -23,6 +23,8 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
 async function fetchProfile(userId: string): Promise<UserProfile | null> {
+  if (!supabase) return null
+
   const { data, error } = await supabase
     .from('profiles')
     .select('id, first_name, last_name, role, created_at, updated_at')
@@ -41,10 +43,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<UserProfile | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(isSupabaseConfigured)
 
   const refreshProfile = useCallback(async () => {
-    if (!user) {
+    if (!user || !supabase) {
       setProfile(null)
       return
     }
@@ -53,6 +55,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [user])
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      setSession(null)
+      setUser(null)
+      setProfile(null)
+      return
+    }
+
     let mounted = true
 
     supabase.auth.getSession().then(({ data }) => {
@@ -77,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    if (!user) {
+    if (!user || !supabase) {
       setProfile(null)
       return
     }
@@ -93,6 +103,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [user])
 
   const signOut = useCallback(async () => {
+    if (!supabase) return
     const { error } = await supabase.auth.signOut()
     if (error) throw error
     setProfile(null)
