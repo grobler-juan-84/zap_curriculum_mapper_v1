@@ -275,3 +275,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 20
+
+**Summary:** Consolidated RH2A Unit 4 part1/part2 extraction batches into a single `rh2a_sb_unit4.json` (no ID collisions); removed the split files and updated registry/progress/todo accordingly.
+
+**Files touched:**
+- `data/phase1/reach_higher_2a/rh2a_sb_unit4.json` (created)
+- `data/phase1/reach_higher_2a/rh2a_sb_unit4_part1.json` (deleted)
+- `data/phase1/reach_higher_2a/rh2a_sb_unit4_part2.json` (deleted)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

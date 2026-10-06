@@ -2,15 +2,14 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 19  
+**Last updated:** Step 20  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Human-verify RH2A Unit 4 `part1` and `part2` batches; update registry verification status.
-- [ ] Decide whether to merge RH2A Unit 4 parts into one unit file before book-level merge, or keep split until canonical merge.
+- [ ] Human-verify RH2A Unit 4 `rh2a_sb_unit4.json`; update registry verification status.
 
 ## Next
 
