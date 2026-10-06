@@ -19,6 +19,7 @@ export type DbSeriesRow = {
   name: string
   publisher: string | null
   description: string | null
+  cover_path?: string | null
   books?: DbBookRow[] | null
 }
 
@@ -126,12 +127,21 @@ export function mapDbBookToBook(row: DbBookRow): Book {
   }
 }
 
+export function defaultSeriesCoverPath(name: string): string | null {
+  const key = name.trim().toLowerCase()
+  if (key.includes('beehive')) return 'series/beehive_book_series.png'
+  if (key.includes('big english')) return 'series/big_english_book_series.png'
+  if (key.includes('reach higher')) return 'series/reach_higher_book_series.png'
+  return null
+}
+
 export function mapDbSeriesToCurriculumSeries(row: DbSeriesRow): CurriculumSeries {
   const presentation = presentationForSeriesName(row.name)
   const books = (row.books ?? [])
     .slice()
     .sort((a, b) => a.title.localeCompare(b.title))
     .map(mapDbBookToBook)
+  const coverPath = row.cover_path?.trim() || defaultSeriesCoverPath(row.name) || undefined
 
   return {
     id: row.id,
@@ -142,6 +152,7 @@ export function mapDbSeriesToCurriculumSeries(row: DbSeriesRow): CurriculumSerie
     levelsCount: presentation.levelsCount,
     availableBooksCount: books.length,
     featuredBookId: books[0]?.id ?? '',
+    coverPath,
     colorScheme: presentation.colorScheme,
     books,
   }

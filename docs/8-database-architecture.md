@@ -39,6 +39,7 @@ Private buckets (copyrighted PDFs must not be public):
 |---|---|---|
 | `book-sources` | Source PDFs | `{series-slug}/{book_id}/source.pdf` |
 | `book-datasets` | Batch + canonical JSON | `{series-slug}/{book_id}/batches/unit_01.json` or `…/canonical/v1.json` |
+| `book-assets` | Series/book cover imagery | `series/beehive_book_series.png` |
 
 Store **bucket + `storage_path`** in Postgres. Generate signed/authenticated URLs at read time. Do not store permanent public URLs as the canonical reference.
 

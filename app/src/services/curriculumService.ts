@@ -23,6 +23,7 @@ async function fetchCatalogFromSupabase(): Promise<CurriculumSeries[]> {
       name,
       publisher,
       description,
+      cover_path,
       books (
         id,
         book_id,
@@ -40,11 +41,58 @@ async function fetchCatalogFromSupabase(): Promise<CurriculumSeries[]> {
     .order('name', { ascending: true })
 
   if (error) {
+    // Older DBs may not have cover_path yet — retry without it.
+    if (/cover_path/i.test(error.message)) {
+      const fallback = await supabase
+        .from('book_series')
+        .select(
+          `
+          id,
+          name,
+          publisher,
+          description,
+          books (
+            id,
+            book_id,
+            series_id,
+            title,
+            level,
+            book_type,
+            edition,
+            language,
+            status,
+            book_files ( id )
+          )
+        `,
+        )
+        .order('name', { ascending: true })
+      if (fallback.error) throw new Error(fallback.error.message)
+      const rows = (fallback.data ?? []) as DbSeriesRow[]
+      return attachSeriesCoverUrls(rows.map(mapDbSeriesToCurriculumSeries))
+    }
     throw new Error(error.message)
   }
 
   const rows = (data ?? []) as DbSeriesRow[]
-  return rows.map(mapDbSeriesToCurriculumSeries)
+  return attachSeriesCoverUrls(rows.map(mapDbSeriesToCurriculumSeries))
+}
+
+async function attachSeriesCoverUrls(
+  seriesList: CurriculumSeries[],
+): Promise<CurriculumSeries[]> {
+  const client = supabase
+  if (!client) return seriesList
+
+  return Promise.all(
+    seriesList.map(async (series) => {
+      if (!series.coverPath) return series
+      const { data, error } = await client.storage
+        .from('book-assets')
+        .createSignedUrl(series.coverPath, 60 * 60)
+      if (error || !data?.signedUrl) return series
+      return { ...series, coverImage: data.signedUrl }
+    }),
+  )
 }
 
 /** Mock-backed curriculum catalog access. Swap implementation later for JSON/API. */

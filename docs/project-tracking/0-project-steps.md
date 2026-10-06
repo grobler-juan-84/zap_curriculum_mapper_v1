@@ -456,3 +456,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 29
+
+**Summary:** Uploaded the three series cover PNGs to private `book-assets` Storage, added migration for `cover_path` + read policies, and wired curriculum cards to show signed cover images when available.
+
+**Files touched:**
+- `supabase/migrations/20261007140000_book_assets_and_series_covers.sql` (created)
+- `scripts/upload_series_covers.mjs` (created)
+- `app/src/services/curriculumService.ts` (updated)
+- `app/src/services/catalogMapper.ts` (updated)
+- `app/src/types/curriculum.ts` (updated)
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `supabase/README.md` (updated)
+- `docs/8-database-architecture.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

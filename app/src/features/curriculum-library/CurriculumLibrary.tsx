@@ -57,8 +57,17 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
                   >
                     <div className="space-y-3">
                       <div className="flex items-start justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-slate-300 bg-gradient-to-tr from-slate-100 to-slate-200 text-xl shadow-inner transition-transform group-hover:scale-105">
-                          {seriesEmoji(series.name)}
+                        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-300 bg-gradient-to-tr from-slate-100 to-slate-200 text-xl shadow-inner transition-transform group-hover:scale-105">
+                          {series.coverImage ? (
+                            <img
+                              src={series.coverImage}
+                              alt={`${series.name} cover`}
+                              className="h-full w-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            seriesEmoji(series.name)
+                          )}
                         </div>
                         <span
                           className={`rounded border px-2 py-0.5 text-[10px] font-bold ${series.colorScheme.badge}`}

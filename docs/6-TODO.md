@@ -2,22 +2,22 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 28  
+**Last updated:** Step 29  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Smoke-test `/app/curriculum` while logged in: 3 series cards + correct book counts from Supabase.
+- [ ] Apply `supabase/migrations/20261007140000_book_assets_and_series_covers.sql` in the Supabase SQL editor (cover_path + book-assets RLS).
+- [ ] Refresh `/app/curriculum` and confirm the 3 series cover images load while logged in.
 - [ ] Human-verify RH2A Unit 4; set that `book_files.status` to `verified` when done.
-- [ ] Move `SUPABASE_SERVICE_ROLE_KEY` to root server env (not Vite-loaded) when convenient; rotate if exposed.
 
 ## Next
 
 - [ ] Load unit batches for a selected book from Storage via `book_files` for verification UI.
 - [ ] Replace remaining Beehive-only mock spreads with Storage-backed content path.
-- [ ] Normalize RH2A `book_id` / folder naming (`reach_higher_2a` vs `rh_2a`) for units 1–4.
+- [ ] Move `SUPABASE_SERVICE_ROLE_KEY` to root server env (not Vite-loaded) when convenient.
 
 ## Soon
 

@@ -125,19 +125,23 @@ export interface Book {
 }
 
 export interface CurriculumSeries {
-  id: string;
-  name: string;
-  publisher: string;
-  shortDesc: string;
-  targetAges: string;
-  levelsCount: number;
-  availableBooksCount: number;
-  featuredBookId: string;
+  id: string
+  name: string
+  publisher: string
+  shortDesc: string
+  targetAges: string
+  levelsCount: number
+  availableBooksCount: number
+  featuredBookId: string
+  /** Signed URL for series cover (from Storage), when available. */
+  coverImage?: string
+  /** Storage object path in book-assets bucket. */
+  coverPath?: string
   colorScheme: {
-    accent: string;
-    badge: string;
-  };
-  books: Book[];
+    accent: string
+    badge: string
+  }
+  books: Book[]
 }
 
 export type QuickActionType =
