@@ -87,11 +87,17 @@ create table if not exists public.book_files (
   filename text,
   mime_type text,
   file_size bigint,
+  label text,
+  status text,
   created_at timestamptz not null default now(),
   constraint book_files_file_type_check check (
     file_type in ('source_pdf', 'canonical_json', 'batch_json', 'other')
   ),
-  constraint book_files_file_size_check check (file_size is null or file_size >= 0)
+  constraint book_files_file_size_check check (file_size is null or file_size >= 0),
+  constraint book_files_status_check check (
+    status is null
+    or status in ('pending', 'needs_review', 'verified')
+  )
 );
 
 comment on table public.book_files is
@@ -100,11 +106,20 @@ comment on table public.book_files is
 comment on column public.book_files.storage_path is
   'Object path within the bucket (e.g. big-english/big_english_1_sb/source.pdf).';
 
+comment on column public.book_files.label is
+  'Human-friendly display label for the file (e.g. Unit 1). Generic only — not a relational unit model.';
+
+comment on column public.book_files.status is
+  'Workflow/verification state of this individual file/batch. Distinct from books.status.';
+
 create index if not exists book_files_book_id_idx
   on public.book_files (book_id);
 
 create index if not exists book_files_file_type_idx
   on public.book_files (file_type);
+
+create index if not exists book_files_status_idx
+  on public.book_files (status);
 
 create unique index if not exists book_files_bucket_path_uidx
   on public.book_files (bucket, storage_path);

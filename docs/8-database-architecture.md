@@ -57,7 +57,7 @@ book_series
 |---|---|
 | `book_series` | Series name / publisher / description |
 | `books` | Stable `book_id`, title, level, type, language, operational `status` |
-| `book_files` | File-type + Storage location for PDFs / JSON |
+| `book_files` | File-type + Storage location for PDFs / JSON; optional `label` (e.g. Unit 1) and per-file `status` |
 | `dataset_versions` | Per-book dataset revision (`version`) vs JSON schema (`schema_version`), current flag, verification timestamp |
 
 Also: `profiles` (Auth) from the earlier profiles migration — not curriculum data.
@@ -72,6 +72,14 @@ Also: `profiles` (Auth) from the earlier profiles migration — not curriculum d
 - **`dataset_versions.schema_version`** — Phase 1 JSON schema version (e.g. `0.1`). These are separate.
 
 At most one `dataset_versions` row per book may have `is_current = true`.
+
+For the feasibility prototype, books may have many `batch_json` rows (unit batches) and **no** `dataset_versions` until a canonical merge exists.
+
+Distinction:
+
+- `books.status` — overall book workflow (`registered` → `extracted` → `verified` → …)
+- `book_files.status` — individual file/batch workflow (`pending` / `needs_review` / `verified`)
+- `book_files.label` — display-only label (e.g. `Unit 1`); not a relational unit model
 
 ---
 

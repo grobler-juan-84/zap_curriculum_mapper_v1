@@ -404,3 +404,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 26
+
+**Summary:** Extended `book_files` with nullable `label`/`status`, seeded the pilot catalog (3 series, 4 books, unit batch file pointers), and documented that working unit batches do not create `dataset_versions` until canonical merge.
+
+**Files touched:**
+- `supabase/migrations/20261007120000_create_curriculum_catalog.sql` (updated — include label/status on fresh installs)
+- `supabase/migrations/20261007130000_book_files_label_status.sql` (created)
+- `supabase/migrations/20261007131000_seed_pilot_catalog.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/8-database-architecture.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

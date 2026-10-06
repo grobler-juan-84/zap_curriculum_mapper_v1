@@ -9,9 +9,13 @@ This folder holds local Supabase project configuration and versioned migrations.
 | Migration | Purpose |
 |---|---|
 | `migrations/20261006120000_create_profiles.sql` | `profiles` + auto teacher profile on signup; RLS select-own |
-| `migrations/20261007120000_create_curriculum_catalog.sql` | Hybrid catalog: `book_series`, `books`, `book_files`, `dataset_versions`; private Storage buckets `book-sources` / `book-datasets`; admin-write / authenticated-read RLS |
+| `migrations/20261007120000_create_curriculum_catalog.sql` | Hybrid catalog: `book_series`, `books`, `book_files`, `dataset_versions`; private Storage buckets; admin-write / authenticated-read RLS |
+| `migrations/20261007130000_book_files_label_status.sql` | Adds nullable `book_files.label` + `book_files.status` (per-file workflow) |
+| `migrations/20261007131000_seed_pilot_catalog.sql` | Seeds 3 series, 4 pilot books, and unit `batch_json` file pointers (no canonical `dataset_versions` yet) |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
+
+Apply in timestamp order. If the catalog migration was already applied without `label`/`status`, the `20261007130000_…` migration adds those columns.
 
 Frontend public env vars live in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
 
