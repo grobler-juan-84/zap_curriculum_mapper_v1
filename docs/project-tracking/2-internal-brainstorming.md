@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Version:** 1.0  
-**Purpose:** Working space for ideas, options, and possible solutions to open project questions. Nothing here is binding until promoted into `3-project-decisions.md`.
+**Purpose:** Working space for ideas, options, and possible solutions to open project questions. Nothing here is binding until promoted into [`../4-DECISIONS.md`](../4-DECISIONS.md).
 
 ---
 
@@ -11,7 +11,7 @@
 - Capture questions, options, trade-offs, and rough recommendations.
 - Prefer short dated entries over long essays.
 - Link related schema gaps, registry notes, or extraction issues when useful.
-- When an idea becomes a firm project choice, record it in [`3-project-decisions.md`](./3-project-decisions.md) and leave a short pointer here.
+- When an idea becomes a firm project choice, record it in [`../4-DECISIONS.md`](../4-DECISIONS.md) and leave a short pointer here. Park non-now ideas in [`../7-FUTURE.md`](../7-FUTURE.md).
 - Do **not** treat this file as operational truth; the registry, schema, and locked decisions remain authoritative.
 
 ### Entry template

@@ -1,0 +1,591 @@
+# General Curriculum Mapper — Technology Stack
+
+**Status:** ACTIVE / EVOLVING  
+**Project:** General Curriculum Mapper  
+**Purpose:** Define the preferred technology stack and high-level technical architecture for the General Curriculum Mapper.
+
+---
+
+# 1. Technology Philosophy
+
+The General Curriculum Mapper should use a modern, maintainable stack that supports:
+
+- structured curriculum data;
+- AI-assisted curriculum processing;
+- human verification;
+- curriculum exploration and comparison;
+- future teacher-facing tools;
+- and eventual SaaS deployment.
+
+The project should favour technologies that are:
+
+- widely supported;
+- reasonably easy to maintain;
+- suitable for incremental development;
+- compatible with AI-assisted coding;
+- and capable of evolving as the curriculum model becomes more mature.
+
+The architecture should remain modular.
+
+The project should avoid prematurely building complex infrastructure before real curriculum data demonstrates that it is necessary.
+
+---
+
+# 2. Preferred Technology Stack
+
+| Layer | Preferred Technology | Role |
+|---|---|---|
+| Frontend | React | Application UI |
+| Build Tool | Vite | Frontend development and build tooling |
+| Language | TypeScript | Primary frontend/application language |
+| Styling | Tailwind CSS | UI styling |
+| Backend / API | TypeScript and/or Python | Application logic, AI workflows and data processing |
+| AI | Google Gemini API | Curriculum extraction and AI-assisted curriculum processing |
+| Structured Curriculum Data | JSON | Canonical curriculum dataset format |
+| Database | PostgreSQL | Application, operational and relational metadata |
+| Flexible Database Storage | PostgreSQL JSONB | Possible storage/query layer for canonical curriculum documents |
+| File / Object Storage | To be selected | PDFs, canonical JSON files and other large artifacts |
+| Authentication | To be selected | User authentication and authorization |
+| Hosting | Vercel preferred for frontend | Web application deployment |
+| Version Control | Git + GitHub | Source control and project history |
+| Development Environment | Cursor | Primary AI-assisted coding environment |
+
+---
+
+# 3. Frontend
+
+The preferred frontend stack is:
+
+```text
+Vite
++
+React
++
+TypeScript
++
+Tailwind CSS
+```
+
+React should provide the primary application interface.
+
+Vite should provide the development and build environment.
+
+TypeScript should be preferred over plain JavaScript for application code because the project will eventually work with increasingly structured curriculum data and API contracts.
+
+Tailwind CSS should provide the primary styling system.
+
+The frontend should remain component-based and feature-oriented rather than becoming one large application layer.
+
+---
+
+# 4. Frontend Architecture
+
+Where practical, the application should use a **feature-based architecture**.
+
+Example:
+
+```text
+src/
+├── app/
+├── components/
+├── features/
+│   ├── curriculum-browser/
+│   ├── extraction/
+│   ├── verification/
+│   ├── mapping/
+│   └── lesson-planning/
+├── services/
+├── lib/
+├── types/
+└── utils/
+```
+
+Exact folders should emerge from real application requirements.
+
+Do not create architectural layers merely because they may eventually be useful.
+
+---
+
+# 5. UI Separation
+
+Where practical, the interface should distinguish between:
+
+```text
+Application Shell
+↓
+Feature / View
+↓
+Reusable Components
+```
+
+The application shell may eventually contain persistent elements such as:
+
+- navigation;
+- account controls;
+- project or curriculum selection;
+- global application actions;
+- and status information.
+
+Individual curriculum tools should live inside clearly separated feature areas.
+
+Reusable UI components should remain independent of specific curriculum datasets wherever practical.
+
+---
+
+# 6. Curriculum Data
+
+The canonical curriculum representation should initially remain:
+
+> **Structured JSON**
+
+Phase 1 extraction produces structured JSON representing curriculum evidence.
+
+Canonical datasets should eventually exist at book level.
+
+Example:
+
+```text
+beehive_1_sb.json
+big_english_1_sb.json
+reach_higher_2a.json
+```
+
+Unit-level JSON files may exist during extraction and verification.
+
+These are working artifacts.
+
+Once processing is complete, verified unit batches should ultimately contribute to a canonical book dataset.
+
+---
+
+# 7. JSON as Curriculum Source of Truth
+
+The curriculum model is still evolving.
+
+Different textbook series contain different structures.
+
+For this reason, the project should avoid prematurely forcing all curriculum entities into a large fixed relational database schema.
+
+The preferred current direction is:
+
+```text
+Canonical Curriculum Data
+        ↓
+JSON / JSONB document
+```
+
+rather than immediately creating permanent relational tables for every:
+
+```text
+unit
+page
+vocabulary item
+language structure
+activity
+curriculum component
+relationship
+```
+
+The Phase 1 schema should first be tested and stabilized using real curriculum sources.
+
+Relational projections can be introduced later where a real product requirement justifies them.
+
+---
+
+# 8. Database Direction
+
+The preferred relational database technology is:
+
+> **PostgreSQL**
+
+PostgreSQL is expected to support stable application and operational data such as:
+
+- users;
+- organizations;
+- permissions;
+- curriculum source registry;
+- dataset versions;
+- processing jobs;
+- verification status;
+- extraction status;
+- and application metadata.
+
+The exact database provider has not yet been locked.
+
+Possible providers may be evaluated when implementation requires persistent hosted storage.
+
+---
+
+# 9. Hybrid Data Architecture
+
+The current preferred architectural direction is a hybrid model:
+
+```text
+Curriculum Content
+        ↓
+JSON / JSONB
+
+Application Metadata
+        ↓
+PostgreSQL relational tables
+```
+
+This allows the curriculum schema to evolve without requiring constant database migrations while preserving relational structure for stable SaaS concerns.
+
+If future features require efficient querying across thousands of curriculum entities, selected curriculum information may later be projected into relational tables or another search/indexing layer.
+
+That decision should be driven by demonstrated product requirements rather than assumed in advance.
+
+---
+
+# 10. Source Files and Object Storage
+
+Original curriculum files such as PDFs should not normally be stored directly inside the relational database.
+
+Long-term storage may include:
+
+```text
+Object Storage
+├── source PDFs
+├── extraction artifacts
+├── canonical JSON datasets
+└── generated exports
+```
+
+Possible storage technologies may include:
+
+- Vercel Blob;
+- Supabase Storage;
+- Amazon S3;
+- Google Cloud Storage;
+- or another compatible object-storage provider.
+
+The final provider has not yet been selected.
+
+---
+
+# 11. Backend / API Layer
+
+The frontend should not communicate directly with privileged services or expose private API credentials.
+
+The intended architecture is:
+
+```text
+React Frontend
+        ↓
+Backend / API
+        ↓
+AI Services
+Database
+Object Storage
+```
+
+Backend functionality may initially use TypeScript server-side functions where this provides the simplest implementation.
+
+Python may be introduced where it provides clear advantages for:
+
+- AI workflows;
+- data processing;
+- validation;
+- curriculum analysis;
+- batch processing;
+- document processing;
+- or future machine-learning functionality.
+
+The project does not need to choose exclusively between TypeScript and Python.
+
+Each should be used where it provides the clearest practical benefit.
+
+---
+
+# 12. AI Layer
+
+The current AI extraction workflow is based on Google Gemini through Google AI Studio.
+
+The future application should be capable of moving this workflow toward:
+
+> **Google Gemini API**
+
+A future automated flow may resemble:
+
+```text
+Curriculum Source
+        ↓
+Backend Processing
+        ↓
+Gemini API
+        ↓
+Structured JSON
+        ↓
+Schema Validation
+        ↓
+Human Verification
+        ↓
+Canonical Dataset
+```
+
+AI-generated curriculum data must not automatically be treated as verified curriculum truth.
+
+Human verification and source traceability remain important architectural requirements.
+
+---
+
+# 13. AI Provider Independence
+
+Although Gemini is the current preferred AI provider for curriculum extraction, the broader application architecture should avoid unnecessary dependence on one model provider.
+
+Where practical, AI functionality should be accessed through a service layer.
+
+Conceptually:
+
+```text
+Application
+        ↓
+AI Service
+        ↓
+Provider
+```
+
+rather than tightly coupling curriculum features directly to a specific provider SDK throughout the application.
+
+This leaves room for:
+
+- model changes;
+- provider changes;
+- different models for different tasks;
+- testing;
+- cost optimization;
+- and future capabilities.
+
+This does not require building a complex multi-provider abstraction immediately.
+
+---
+
+# 14. Validation Layer
+
+Structured AI output should be validated before entering the trusted curriculum dataset.
+
+The system should eventually support validation such as:
+
+```text
+AI Output
+↓
+JSON Parsing
+↓
+Schema Validation
+↓
+Structural / Integrity Checks
+↓
+Human Verification
+↓
+Approved Dataset
+```
+
+Validation should detect problems such as:
+
+- malformed JSON;
+- missing required fields;
+- invalid identifiers;
+- broken relationships;
+- invalid classifications;
+- duplicate records;
+- missing references;
+- and incompatible schema versions.
+
+Automated structural validation does not replace human curriculum verification.
+
+---
+
+# 15. Hosting
+
+The preferred frontend deployment direction is:
+
+> **Vercel**
+
+Vercel is suitable for hosting the Vite/React application and potentially lightweight backend/serverless functionality.
+
+However, Vercel's application filesystem should not be treated as persistent curriculum storage.
+
+Persistent data should live in:
+
+```text
+Database
+and/or
+Object Storage
+```
+
+The application should retrieve that data through APIs or storage services.
+
+---
+
+# 16. Development Environment
+
+The primary development environment is:
+
+> **Cursor**
+
+Cursor is used for:
+
+- application development;
+- project documentation;
+- repository maintenance;
+- AI-assisted coding;
+- code review;
+- refactoring;
+- and project workflow automation.
+
+Project documentation should remain inside the repository so that development decisions and technical context remain available alongside the code.
+
+---
+
+# 17. Version Control
+
+Version control uses:
+
+```text
+Git
++
+GitHub
+```
+
+The project repository should contain:
+
+- application source code;
+- technical documentation;
+- project rules;
+- schema definitions;
+- development datasets where appropriate;
+- tests;
+- scripts;
+- and configuration.
+
+Sensitive information must not be committed.
+
+This includes:
+
+- API keys;
+- passwords;
+- private credentials;
+- production secrets;
+- and environment-specific secrets.
+
+These should use environment variables or appropriate secret-management systems.
+
+---
+
+# 18. Current Development Architecture
+
+The project is currently still primarily in curriculum-data development rather than full SaaS implementation.
+
+The current practical workflow is approximately:
+
+```text
+Curriculum PDF
+        ↓
+Google AI Studio / Gemini
+        ↓
+Phase 1 JSON batches
+        ↓
+Human Verification
+        ↓
+Repository
+        ↓
+Canonical Dataset
+```
+
+The future application architecture is expected to evolve toward:
+
+```text
+User
+↓
+React Application
+↓
+Backend / API
+↓
+Gemini + Validation
+↓
+Persistent Storage
+↓
+Human Verification
+↓
+Canonical Curriculum Dataset
+↓
+Curriculum Mapping / Enrichment / Lesson Tools
+```
+
+The second architecture is a direction, not a claim that all components currently exist.
+
+---
+
+# 19. Architecture Principle
+
+The project should follow:
+
+> **Build the smallest useful architecture supported by current evidence.**
+
+Avoid premature complexity.
+
+Do not build:
+
+- large relational curriculum schemas before the JSON model stabilizes;
+- unnecessary microservices;
+- elaborate AI orchestration frameworks;
+- complex queues before asynchronous processing requires them;
+- multiple abstraction layers without a concrete use case;
+- or infrastructure designed only for hypothetical future scale.
+
+The project should remain capable of becoming more sophisticated without requiring that sophistication from the beginning.
+
+---
+
+# 20. Current Technical Decisions vs Open Decisions
+
+## Current Direction
+
+The following technologies or architectural directions are currently preferred:
+
+```text
+Frontend       → Vite + React + TypeScript
+Styling        → Tailwind CSS
+Curriculum     → JSON canonical datasets
+Database       → PostgreSQL (supabase)
+AI             → Gemini
+Deployment     → Vercel preferred
+Versioning     → Git + GitHub
+Development    → Cursor
+Architecture   → Feature-based / modular
+Data strategy  → Hybrid JSON + relational metadata
+```
+
+## Not Yet Locked
+
+The following should remain open until implementation provides enough evidence:
+
+```text
+PostgreSQL provider
+Object-storage provider
+Authentication provider
+Exact backend architecture
+Exact Python responsibilities
+Exact API framework
+Background-job infrastructure
+Search/indexing technology
+Final production deployment architecture
+Final relational curriculum projections
+```
+
+These decisions should be made when the project reaches the point where they materially affect implementation.
+
+---
+
+# 21. Guiding Principle
+
+Technology exists to support the curriculum system.
+
+The project should not reshape the curriculum model merely because a particular framework, database or hosting platform prefers a different structure.
+
+The intended direction is:
+
+> **Understand the curriculum first. Stabilize the data second. Build the software around that evidence.**
+
+The technology stack should remain flexible enough to support that process as the General Curriculum Mapper develops.

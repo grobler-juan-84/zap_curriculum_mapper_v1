@@ -83,7 +83,7 @@ Keep commits local only; do not push unless explicitly requested.
 
 1. Do the requested work.
 2. Update `docs/0-index.md` if docs inventory/status changed.
-3. Update `docs/project-tracking/1-project-status.md`.
+3. Update operating trackers (`docs/4-DECISIONS.md`, `docs/5-PROGRESS.md`, `docs/6-TODO.md`, `docs/7-FUTURE.md`) as needed.
 4. Append `docs/project-tracking/0-project-steps.md`.
 5. **Then commit locally** as the final action.
 

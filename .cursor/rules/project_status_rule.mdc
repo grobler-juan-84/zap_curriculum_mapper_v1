@@ -1,15 +1,17 @@
 ---
-description: Refresh docs/project-tracking/1-project-status.md after each file-changing prompt
+description: Refresh docs/5-PROGRESS.md after each file-changing prompt
 alwaysApply: true
 ---
 
 # Project Status Maintenance
 
-At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, rewrite `docs/project-tracking/1-project-status.md` so it stays a short, current snapshot of the project.
+At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, rewrite `docs/5-PROGRESS.md` so it stays a short, current snapshot of the project.
+
+`docs/project-tracking/1-project-status.md` is a legacy pointer only — do not treat it as the live status file.
 
 ## When to update
 
-Update the status file when this prompt changed files (code, docs, rules, config, assets, etc.).
+Update `docs/5-PROGRESS.md` when this prompt changed files (code, docs, rules, config, assets, etc.).
 
 Do **not** update when:
 
@@ -18,15 +20,18 @@ Do **not** update when:
 
 ## Required structure
 
-Keep these three sections (rewrite in place; do not append a long history):
+Keep these four sections (rewrite in place; do not append a long history):
 
-1. **What has been done** — brief bullets of completed, durable progress so far.
-2. **Current status** — where the project stands right now (focus, blockers, what’s usable).
-3. **Next small step** — one concrete suggested next action for the following prompt, plus a short bird’s-eye overview of remaining work. Mark the next step as a **suggestion** that still depends on the user’s next prompt.
+1. **Done** — brief bullets of completed, durable progress so far.
+2. **In progress** — active focus areas.
+3. **Next** — concrete near-term next moves (suggestions that still depend on the user’s next prompt).
+4. **Blocked** — hard or soft blockers; use “None” if clear.
 
 Also refresh:
 
 - `**Last updated:** Step N` to match the latest step number in `docs/project-tracking/0-project-steps.md`
+
+Coordinate with `.cursor/rules/operating_trackers.mdc` so `6-TODO.md` / `4-DECISIONS.md` / `7-FUTURE.md` stay aligned when those change too.
 
 ## Style
 
@@ -38,10 +43,10 @@ Also refresh:
 ## Order relative to other rules
 
 1. Do the requested work first (including `docs/0-index.md` updates if docs changed).
-2. Update `docs/project-tracking/1-project-status.md`.
-3. Append the step to `docs/project-tracking/0-project-steps.md` (include this status file in that step’s files-touched list).
+2. Update operating trackers (`docs/5-PROGRESS.md` and siblings per `operating_trackers.mdc`).
+3. Append the step to `docs/project-tracking/0-project-steps.md` (include touched tracker files in that step’s files-touched list).
 4. Then follow `.cursor/rules/github_commit_workflow.mdc` to **commit locally** (never push unless the user explicitly asks).
 
 ## Non-negotiable
 
-Never finish a file-changing prompt with a stale `docs/project-tracking/1-project-status.md`.
+Never finish a file-changing prompt with a stale `docs/5-PROGRESS.md`.

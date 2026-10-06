@@ -254,3 +254,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 19
+
+**Summary:** Added root operating trackers `4-DECISIONS`, `5-PROGRESS`, `6-TODO`, and `7-FUTURE`; wired Cursor rules to keep them current every Agent prompt; pointed legacy project-tracking status/decisions at the new canonical files; refreshed the docs index (including tech-stack and architecture).
+
+**Files touched:**
+- `docs/4-DECISIONS.md` (created)
+- `docs/5-PROGRESS.md` (created)
+- `docs/6-TODO.md` (created)
+- `docs/7-FUTURE.md` (created)
+- `docs/0-index.md` (updated)
+- `.cursor/rules/operating_trackers.mdc` (created)
+- `.cursor/rules/project_status_rule.mdc` (updated)
+- `.cursor/rules/project_steps_rule.mdc` (updated)
+- `.cursor/rules/github_commit_workflow.mdc` (updated)
+- `docs/project-tracking/1-project-status.md` (updated → legacy pointer)
+- `docs/project-tracking/3-project-decisions.md` (updated → legacy pointer)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

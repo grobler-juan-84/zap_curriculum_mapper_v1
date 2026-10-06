@@ -19,20 +19,33 @@ Lifecycle values are taken from each document’s own **Status** field and norma
 
 Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Empty phase folders (`phase-2`, `phase-3`, `phase-5`) are intentional placeholders and have no markdown docs yet.
 
+AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS.md`](./5-PROGRESS.md), [`6-TODO.md`](./6-TODO.md), [`7-FUTURE.md`](./7-FUTURE.md).
+
 ---
 
 ## Documents
 
-### Root & project tracking
+### Root — overview & operating trackers
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. | — | ACTIVE |
+| [2-tech-stack.md](./2-tech-stack.md) | Preferred technology stack and high-level technical architecture choices for the mapper (React/Vite/TypeScript-oriented, modular, evidence-first). | — | ACTIVE |
+| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, and generation. | — | ACTIVE |
+| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives so settled questions are not reopened without cause. | 1.0 | ACTIVE |
+| [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
+| [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
+| [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now, so they are remembered without contaminating current scope. | 1.0 | ACTIVE |
+
+### Project tracking
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
 | [project-tracking/0-project-steps.md](./project-tracking/0-project-steps.md) | Chronological log of agent prompts that changed project files. Each non-Ask, file-changing prompt is recorded as one numbered step with a short summary. | 1.0 | ACTIVE |
-| [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Evolving project snapshot rewritten after each file-changing prompt: what has been done, current status, and a suggested next small step with a bird’s-eye view of remaining work. | 1.0 | ACTIVE |
-| [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the project decisions log. | 1.0 | ACTIVE |
-| [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Locked-in project decision log stemming from brainstorming or explicit choices. Records durable decisions, rationale, and supersession history. | 1.0 | ACTIVE |
+| [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Legacy pointer to [`5-PROGRESS.md`](./5-PROGRESS.md); kept for older links. | 1.0 | ACTIVE |
+| [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the decision log. | 1.0 | ACTIVE |
+| [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Legacy pointer to [`4-DECISIONS.md`](./4-DECISIONS.md); kept for older links. | 1.0 | ACTIVE |
 
 ### Phase 1
 
@@ -62,7 +75,7 @@ Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Emp
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 12 | Current working docs, including this index and project-tracking |
+| ACTIVE | 18 | Current working docs, including index, operating trackers, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 
@@ -71,6 +84,8 @@ Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Emp
 ## Maintenance
 
 This index is maintained automatically under the project Cursor rule `.cursor/rules/documentation_update.mdc`.
+
+Operating trackers are maintained under `.cursor/rules/operating_trackers.mdc` and `.cursor/rules/project_status_rule.mdc`.
 
 Whenever any file under `docs/` (except routine edits to this index alone) is **added, removed, renamed, or substantively updated**, refresh this file so that:
 

@@ -1,0 +1,46 @@
+---
+description: Keep docs/4-DECISIONS, 5-PROGRESS, 6-TODO, 7-FUTURE current every Agent prompt
+alwaysApply: true
+---
+
+# Operating Trackers Maintenance
+
+These four root docs are the AI-facing operating layer:
+
+| File | Role |
+|---|---|
+| `docs/4-DECISIONS.md` | Locked decisions + date + reason + rejected alternatives |
+| `docs/5-PROGRESS.md` | Current state: Done / In progress / Next / Blocked |
+| `docs/6-TODO.md` | Concrete near-term actionable tasks |
+| `docs/7-FUTURE.md` | Parking lot for good ideas that are explicitly not now |
+
+## When to update
+
+At the **end of every Agent prompt**, review all four files and update any that would otherwise be stale.
+
+Do **not** update when the session is **Ask mode** (read-only / Q&A only).
+
+### Per-file rules
+
+- **PROGRESS** — Rewrite whenever work advanced, focus changed, blockers changed, or files were modified. Keep sections: Done / In progress / Next / Blocked. Refresh `Last updated` to the current project step when steps are appended.
+- **TODO** — Add/complete/remove concrete tasks when near-term work changes. Never dump long-term ideas here.
+- **DECISIONS** — Append only when a choice is newly locked (or superseded). Do not reopen LOCKED items without an explicit user reason.
+- **FUTURE** — Add parked ideas that must not contaminate current scope; remove/promote when the user pulls an item into active work.
+
+If the prompt changed nothing about project state, leave the files unchanged (no empty churn).
+
+## Start-of-prompt habit
+
+Before proposing major direction changes, read `4-DECISIONS.md` and `5-PROGRESS.md`. Prefer tasks from `6-TODO.md` over inventing new scope from `7-FUTURE.md`.
+
+## Order relative to other rules
+
+1. Do the requested work first (including `docs/0-index.md` if docs inventory changed).
+2. Update these operating trackers.
+3. Update `docs/project-tracking/1-project-status.md` only as a short pointer/sync note if that rule still applies; prefer `5-PROGRESS.md` as the live snapshot.
+4. Append `docs/project-tracking/0-project-steps.md` when the prompt changed files.
+5. Commit locally per `.cursor/rules/github_commit_workflow.mdc`.
+
+## Non-negotiable
+
+Never finish an Agent prompt that changed project state with stale `5-PROGRESS.md` or `6-TODO.md`. Never silently reverse a LOCKED decision in `4-DECISIONS.md`.
