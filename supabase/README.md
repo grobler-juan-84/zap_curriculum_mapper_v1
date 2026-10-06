@@ -19,6 +19,18 @@ Apply in timestamp order. If the catalog migration was already applied without `
 
 Frontend public env vars live in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
 
+Server-side scripts may also read `SUPABASE_SERVICE_ROLE_KEY` (never prefix with `VITE_`; never commit). Prefer keeping the service-role key in a root `.env` / `.env.local` rather than a Vite-loaded file long-term.
+
+### Upload pilot batch JSON to Storage
+
+From repo root, after seeding `book_files` paths:
+
+```bash
+node scripts/upload_pilot_batches.mjs
+```
+
+This upserts the local `data/phase1/**/*.json` unit batches into the private `book-datasets` bucket using the seeded `storage_path` values and updates `book_files.file_size`.
+
 ## Storage buckets
 
 Created by the curriculum catalog migration (private):

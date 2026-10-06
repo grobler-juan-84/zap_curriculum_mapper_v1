@@ -420,3 +420,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 27
+
+**Summary:** Uploaded all 30 pilot unit-batch JSON files to the private `book-datasets` Storage bucket (paths matching the seed) via `scripts/upload_pilot_batches.mjs`, and documented the upload workflow.
+
+**Files touched:**
+- `scripts/upload_pilot_batches.mjs` (created)
+- `.env.example` (updated)
+- `supabase/README.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
