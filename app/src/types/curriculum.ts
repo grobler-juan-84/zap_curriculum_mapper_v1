@@ -105,21 +105,23 @@ export interface PageSpread {
 }
 
 export interface Book {
-  id: string;
-  seriesId: string;
-  title: string;
-  level: string;
-  audience: string;
-  totalUnits: number;
-  type: 'Student Book' | 'Workbook' | "Teacher's Guide";
-  coverImage?: string;
+  id: string
+  /** Project-level identifier from Postgres `books.book_id` (e.g. beehive_1_sb). */
+  stableBookId?: string
+  seriesId: string
+  title: string
+  level: string
+  audience: string
+  totalUnits: number
+  type: 'Student Book' | 'Workbook' | "Teacher's Guide"
+  coverImage?: string
   colorScheme: {
-    primary: string;
-    accent: string;
-    badgeBg: string;
-    badgeText: string;
-  };
-  pageSpreads: PageSpread[];
+    primary: string
+    accent: string
+    badgeBg: string
+    badgeText: string
+  }
+  pageSpreads: PageSpread[]
 }
 
 export interface CurriculumSeries {

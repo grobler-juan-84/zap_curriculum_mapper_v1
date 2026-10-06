@@ -11,6 +11,7 @@ import {
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/AuthProvider'
 import { useWorkspace } from '../../features/shell/WorkspaceProvider'
+import { curriculumService } from '../../services/curriculumService'
 
 function initialsFromProfile(
   firstName: string | null | undefined,
@@ -151,7 +152,8 @@ export function Sidebar() {
             <button
               type="button"
               onClick={() => {
-                selectSeries('beehive')
+                const beehive = curriculumService.getSeriesByName('Beehive')
+                if (beehive) selectSeries(beehive.id)
                 navigate('/app/series')
               }}
               className="flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-xs text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-slate-200"

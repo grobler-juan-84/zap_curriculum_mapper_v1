@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 27  
+**Last updated:** Step 28  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,20 +11,19 @@
 
 - Core Phase 1–7 philosophy documented; docs split into `phase-1`…`phase-6` folders.
 - Technology scaffold + Supabase Auth + mock workstation UI.
-- Hybrid DB catalog + private Storage buckets (D006).
-- Pilot seed: 3 series, 4 books, unit `batch_json` pointers.
-- Uploaded all 30 pilot unit JSON batches to private `book-datasets` Storage (paths match seed).
+- Hybrid DB catalog + private Storage buckets; pilot seed; 30 unit batches uploaded.
+- `/app/curriculum` (and series list) now loads real `book_series` + `books` from Supabase instead of mock catalog cards.
 
 ## In progress
 
 - Phase 1 extraction / verification for the pilot series.
-- Manual apply/verify of remaining migrations on live project if not fully applied.
+- Beehive 1 still uses mock interactive page spreads; other books are catalog-only until Storage JSON is wired into the viewer.
 
 ## Next
 
-- Human-review RH2A Unit 4 (`needs_review` batch).
-- Replace mock curriculum catalog with Supabase series/books + batch file list.
-- Prefer moving `SUPABASE_SERVICE_ROLE_KEY` out of Vite-loaded `app/.env.local` into a root server env file.
+- Human-review RH2A Unit 4.
+- Wire unit batch JSON from Storage into a verification/viewer flow for non-Beehive books.
+- Move `SUPABASE_SERVICE_ROLE_KEY` out of Vite-loaded env when convenient.
 
 ## Blocked
 
@@ -34,6 +33,6 @@
 
 ## Snapshot notes
 
-- **Focus:** Catalog + Storage now hold pilot batch files; UI still mock.
-- **Usable now:** Auth + mock UI + DB pointers + Storage objects for unit batches.
-- **Not started:** Wiring UI to real tables/Storage, canonical merges, PDF uploads.
+- **Focus:** Real catalog in the UI; curriculum content still hybrid (mock spreads / Storage batches).
+- **Usable now:** Authenticated curriculum library + series books from Postgres.
+- **Not started:** Full Storage-backed page viewer for all books; canonical merges.

@@ -2,22 +2,21 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 27  
+**Last updated:** Step 28  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Confirm migrations + Storage objects in Supabase Dashboard (3 series / 4 books / 30 batches in `book-datasets`).
+- [ ] Smoke-test `/app/curriculum` while logged in: 3 series cards + correct book counts from Supabase.
 - [ ] Human-verify RH2A Unit 4; set that `book_files.status` to `verified` when done.
-- [ ] Move `SUPABASE_SERVICE_ROLE_KEY` to root server env (not Vite-loaded) when convenient; rotate if the key was exposed.
-- [ ] Owner review of ZCMV1 UI baseline before connecting real curriculum data.
+- [ ] Move `SUPABASE_SERVICE_ROLE_KEY` to root server env (not Vite-loaded) when convenient; rotate if exposed.
 
 ## Next
 
-- [ ] Replace mock curriculum catalog with Supabase `book_series` / `books` reads.
 - [ ] Load unit batches for a selected book from Storage via `book_files` for verification UI.
+- [ ] Replace remaining Beehive-only mock spreads with Storage-backed content path.
 - [ ] Normalize RH2A `book_id` / folder naming (`reach_higher_2a` vs `rh_2a`) for units 1–4.
 
 ## Soon

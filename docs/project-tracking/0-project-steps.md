@@ -434,3 +434,25 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 28
+
+**Summary:** Wired the curriculum library/series catalog to live Supabase `book_series` + `books` (async load, loading/error UI, UUID ids), while keeping Beehive 1 mock page spreads for the existing workstation demo.
+
+**Files touched:**
+- `app/src/services/curriculumService.ts` (updated)
+- `app/src/services/catalogMapper.ts` (created)
+- `app/src/types/curriculum.ts` (updated)
+- `app/src/features/curriculum-library/hooks/useCurriculumCatalog.ts` (updated)
+- `app/src/features/curriculum-library/CurriculumLibraryPage.tsx` (updated)
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/shell/WorkspaceProvider.tsx` (updated)
+- `app/src/features/book-workspace/BookWorkspacePage.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
