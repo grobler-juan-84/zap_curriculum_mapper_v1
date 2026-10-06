@@ -560,3 +560,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 35
+
+**Summary:** Fixed Validation staying stuck on the default Beehive book by adding series/book selectors in the validation header and a Validate action on series library cards so Big English and Reach Higher can be opened the same way.
+
+**Files touched:**
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationPage.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
