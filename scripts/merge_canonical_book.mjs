@@ -71,6 +71,16 @@ const BOOKS = {
       'big-english/big_english_2_sb/batches/unit_09.json',
     ],
   },
+  reach_higher_2a: {
+    catalogBookId: 'reach_higher_2a',
+    seriesSlug: 'reach-higher',
+    unitPaths: [
+      'reach-higher/reach_higher_2a/batches/unit_01.json',
+      'reach-higher/reach_higher_2a/batches/unit_02.json',
+      'reach-higher/reach_higher_2a/batches/unit_03.json',
+      'reach-higher/reach_higher_2a/batches/unit_04.json',
+    ],
+  },
 }
 
 const ARRAY_KEYS = [

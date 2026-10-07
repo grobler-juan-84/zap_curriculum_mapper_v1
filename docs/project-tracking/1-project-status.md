@@ -2,17 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 55  
+**Last updated:** Step 56  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
-- **BE1-SB, BH1, and BE2-SB are Phase 1 COMPLETE.**
+- BE1-SB, BH1, BE2-SB Phase 1 COMPLETE.
+- RH2A canonical v1 merged and registered (`dataset_versions` draft); `rh_2a` → `reach_higher_2a` normalized.
 
 ## Current status
 
-Last Storage-backed pilot remaining: RH2A (canonical merge + whole-book audit).
+All four pilots have canonical datasets. RH2A awaits whole-book audit.
 
 ## Next small step
 
-**Suggestion:** Add RH2A to `scripts/merge_canonical_book.mjs` and run the Reach Higher 2A canonical merge.
+**Suggestion:** Run structural audit pack for RH2A canonical, then owner PDF spot-check in Validation.

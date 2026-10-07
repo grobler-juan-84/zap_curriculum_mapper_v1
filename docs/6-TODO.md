@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 55  
+**Last updated:** Step 56  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -22,16 +22,16 @@
 - [x] Whole-book audit for BH1 canonical (structural pack + owner PDF spot-check) → Phase 1 COMPLETE.
 - [x] Canonical merge for BE2-SB using `scripts/merge_canonical_book.mjs`.
 - [x] Whole-book audit for BE2-SB canonical → Phase 1 COMPLETE.
-- [ ] Canonical merge for RH2A using `scripts/merge_canonical_book.mjs`.
+- [x] Canonical merge for RH2A using `scripts/merge_canonical_book.mjs`.
+- [ ] Whole-book audit for RH2A canonical (structural pack + owner PDF spot-check).
 
 ## Next
 
-- [ ] Whole-book audit for RH2A canonical.
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
+- [ ] After RH2A audit: draft 0.2 candidate only for changes with sufficient evidence.
 
 ## Soon
 
-- [ ] After remaining pilot merges/audits: draft 0.2 candidate only for changes with sufficient evidence.
 - [ ] Persist Validation session notes (optional).
 - [ ] Draft remaining-book extraction order after post-pilot schema pass.
 

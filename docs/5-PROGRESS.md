@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 55  
+**Last updated:** Step 56  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,19 +10,19 @@
 ## Done
 
 - Auth, catalog, Validation; pilot unit batches verified.
-- **BE1-SB, BH1, and BE2-SB Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED).
+- **BE1-SB, BH1, BE2-SB Phase 1 COMPLETE**; **RH2A canonical v1 CREATED** (book_id normalized; audit pending).
+- All four Storage-backed pilots now have canonical datasets.
 - D007 book_id alias map + merge-time normalization.
 - Cross-series schema review working recommendations owner-accepted.
 
 ## In progress
 
-- Canonical merge + audit for RH2A (last Storage-backed pilot).
+- Whole-book audit for RH2A canonical (last pilot gate).
 
 ## Next
 
-- Canonical merge for RH2A.
-- Whole-book audit for RH2A.
-- After remaining pilot audit: consider 0.2 only for changes with sufficient evidence.
+- Structural / owner whole-book audit for RH2A.
+- After RH2A audit: post-pilot 0.2 candidate review only if sufficient evidence.
 
 ## Blocked
 
@@ -33,5 +33,5 @@
 ## Snapshot notes
 
 - **Phase 1 Complete:** 3 / 18 (BE1-SB, BH1, BE2-SB).
-- **Canonical datasets:** 3 (all verified).
-- **Schema:** stay on 0.1 through RH2A merge/audit.
+- **Canonical datasets:** 4 (3 verified; RH2A draft).
+- **Schema:** stay on 0.1 through RH2A audit.
