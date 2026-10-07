@@ -1,8 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useAuth } from '../auth/AuthProvider'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch, BookFileStatus } from '../../types/validation'
-import { validationService } from '../../services/validationService'
+import {
+  findBatchForUnitNumber,
+  listUnitsFromJson,
+  sliceCanonicalByUnit,
+  summarizeBatchJson,
+  validationService,
+} from '../../services/validationService'
 import { ValidationHeader } from './ValidationHeader'
 import { ValidationLeftPanel } from './ValidationLeftPanel'
 import { ValidationPdfPane } from './ValidationPdfPane'
@@ -17,6 +23,32 @@ interface ValidationWorkspaceProps {
   onBackToBooks: () => void
 }
 
+function buildCanonicalUnitNav(
+  canonical: BookFileBatch,
+  raw: unknown,
+  allFiles: BookFileBatch[],
+): BookFileBatch[] {
+  return listUnitsFromJson(raw).map((unit) => {
+    const matching = findBatchForUnitNumber(allFiles, unit.unitNumber)
+    const titleSuffix = unit.title ? `: ${unit.title}` : ''
+    return {
+      id: `canonical-unit:${canonical.id}:${unit.unitNumber}`,
+      bookId: canonical.bookId,
+      fileType: 'canonical_json',
+      bucket: canonical.bucket,
+      storagePath: canonical.storagePath,
+      filename: canonical.filename,
+      label: `Unit ${unit.unitNumber}${titleSuffix}`,
+      status: matching?.status ?? null,
+      mimeType: canonical.mimeType,
+      fileSize: canonical.fileSize,
+      statusTargetId: matching?.id ?? null,
+      unitNumber: unit.unitNumber,
+      unitId: unit.unitId ?? null,
+    }
+  })
+}
+
 export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   seriesList,
   series,
@@ -28,10 +60,16 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const { profile } = useAuth()
   const canWriteStatus = profile?.role === 'admin'
 
+  /** Raw catalog rows (batch_json + canonical_json) for status mapping / fallback. */
+  const [catalogFiles, setCatalogFiles] = useState<BookFileBatch[]>([])
+  /** Items shown in the unit picker (virtual units from canonical, or real batches). */
   const [batches, setBatches] = useState<BookFileBatch[]>([])
   const [selectedBatchId, setSelectedBatchId] = useState('')
   const [batchesLoading, setBatchesLoading] = useState(true)
   const [batchesError, setBatchesError] = useState<string | null>(null)
+
+  const [canonicalRaw, setCanonicalRaw] = useState<unknown | null>(null)
+  const [fromCanonical, setFromCanonical] = useState(false)
 
   const [summary, setSummary] = useState<BatchJsonSummary | null>(null)
   const [jsonLoading, setJsonLoading] = useState(false)
@@ -59,27 +97,67 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     summary?.units.find((unit) => typeof unit.printedPageStart === 'number')?.printedPageStart ??
     null
 
+  const statusBatch = useMemo(() => {
+    if (!currentBatch) return null
+    if (currentBatch.statusTargetId) {
+      return {
+        ...currentBatch,
+        id: currentBatch.statusTargetId,
+      }
+    }
+    if (fromCanonical && !currentBatch.statusTargetId) {
+      return null
+    }
+    return currentBatch
+  }, [currentBatch, fromCanonical])
+
   useEffect(() => {
     let cancelled = false
     setBatchesLoading(true)
     setBatchesError(null)
     setSelectedBatchId('')
     setSummary(null)
+    setCanonicalRaw(null)
+    setFromCanonical(false)
+    setBatches([])
+    setCatalogFiles([])
 
-    validationService
-      .listValidationFiles(book.id)
-      .then((rows) => {
+    ;(async () => {
+      try {
+        const rows = await validationService.listValidationFiles(book.id)
         if (cancelled) return
-        setBatches(rows)
-        setSelectedBatchId(rows[0]?.id ?? '')
+        setCatalogFiles(rows)
+
+        const canonical = rows.find((row) => row.fileType === 'canonical_json')
+        if (canonical) {
+          setJsonLoading(true)
+          const raw = await validationService.downloadJson(canonical)
+          if (cancelled) return
+          const nav = buildCanonicalUnitNav(canonical, raw, rows)
+          setCanonicalRaw(raw)
+          setFromCanonical(true)
+          setBatches(nav)
+          setSelectedBatchId(nav[0]?.id ?? '')
+          setBatchesLoading(false)
+          setJsonLoading(false)
+          return
+        }
+
+        const unitBatches = rows.filter((row) => row.fileType === 'batch_json')
+        setFromCanonical(false)
+        setCanonicalRaw(null)
+        setBatches(unitBatches)
+        setSelectedBatchId(unitBatches[0]?.id ?? '')
         setBatchesLoading(false)
-      })
-      .catch((err: unknown) => {
+      } catch (err: unknown) {
         if (cancelled) return
         setBatches([])
+        setCatalogFiles([])
         setBatchesLoading(false)
+        setJsonLoading(false)
         setBatchesError(err instanceof Error ? err.message : 'Failed to load unit batches.')
-      })
+      }
+    })()
 
     return () => {
       cancelled = true
@@ -122,6 +200,24 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
       return
     }
 
+    if (fromCanonical && canonicalRaw != null) {
+      setJsonLoading(true)
+      setJsonError(null)
+      try {
+        const sliced = sliceCanonicalByUnit(canonicalRaw, {
+          unitId: currentBatch.unitId ?? undefined,
+          unitNumber: currentBatch.unitNumber ?? undefined,
+        })
+        setSummary(summarizeBatchJson(sliced))
+        setJsonLoading(false)
+      } catch (err: unknown) {
+        setSummary(null)
+        setJsonLoading(false)
+        setJsonError(err instanceof Error ? err.message : 'Failed to slice canonical JSON.')
+      }
+      return
+    }
+
     let cancelled = false
     setJsonLoading(true)
     setJsonError(null)
@@ -143,7 +239,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     return () => {
       cancelled = true
     }
-  }, [currentBatch])
+  }, [currentBatch, fromCanonical, canonicalRaw])
 
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
@@ -229,13 +325,28 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   }, [isDraggingColSplitter])
 
   const handleSetStatus = async (status: BookFileStatus) => {
-    if (!currentBatch) return
+    const targetId = currentBatch?.statusTargetId ?? (fromCanonical ? null : currentBatch?.id)
+    if (!targetId || !currentBatch) {
+      setStatusError(
+        fromCanonical
+          ? 'No matching unit batch_json row to update for this canonical unit.'
+          : 'No unit batch selected.',
+      )
+      return
+    }
     setStatusSaving(true)
     setStatusError(null)
     try {
-      await validationService.updateBatchStatus(currentBatch.id, status)
+      await validationService.updateBatchStatus(targetId, status)
       setBatches((prev) =>
-        prev.map((batch) => (batch.id === currentBatch.id ? { ...batch, status } : batch)),
+        prev.map((batch) =>
+          batch.id === currentBatch.id || batch.statusTargetId === targetId
+            ? { ...batch, status }
+            : batch,
+        ),
+      )
+      setCatalogFiles((prev) =>
+        prev.map((batch) => (batch.id === targetId ? { ...batch, status } : batch)),
       )
     } catch (err: unknown) {
       setStatusError(err instanceof Error ? err.message : 'Failed to update status.')
@@ -253,6 +364,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         batches={batches}
         currentBatch={currentBatch}
         currentIndex={currentIndex}
+        fromCanonical={fromCanonical}
         onPrev={handlePrev}
         onNext={handleNext}
         onSelectBatch={(id) => {
@@ -339,10 +451,10 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           >
             <ValidationToolsPanel
               key={currentBatch?.id ?? 'none'}
-              batch={currentBatch}
+              batch={statusBatch}
               saving={statusSaving}
               error={statusError}
-              canWriteStatus={canWriteStatus}
+              canWriteStatus={canWriteStatus && Boolean(statusBatch)}
               onSetStatus={handleSetStatus}
             />
           </div>

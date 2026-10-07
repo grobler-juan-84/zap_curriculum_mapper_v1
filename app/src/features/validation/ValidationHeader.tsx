@@ -10,6 +10,8 @@ interface ValidationHeaderProps {
   batches: BookFileBatch[]
   currentBatch: BookFileBatch | null
   currentIndex: number
+  /** True when picker units are sliced from one canonical_json file. */
+  fromCanonical?: boolean
   onPrev: () => void
   onNext: () => void
   onSelectBatch: (batchId: string) => void
@@ -19,12 +21,7 @@ interface ValidationHeaderProps {
 }
 
 function batchLabel(batch: BookFileBatch): string {
-  const base =
-    batch.label?.trim() || batch.filename || batch.storagePath.split('/').pop() || 'Unit batch'
-  if (batch.fileType === 'canonical_json' && !/canonical/i.test(base)) {
-    return `Canonical · ${base}`
-  }
-  return base
+  return batch.label?.trim() || batch.filename || batch.storagePath.split('/').pop() || 'Unit batch'
 }
 
 export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
@@ -34,6 +31,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   batches,
   currentBatch,
   currentIndex,
+  fromCanonical = false,
   onPrev,
   onNext,
   onSelectBatch,
@@ -87,9 +85,9 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
 
         {currentBatch ? (
           <>
-            {currentBatch.fileType === 'canonical_json' ? (
+            {fromCanonical ? (
               <span className="hidden rounded border border-indigo-300 bg-indigo-50 px-1.5 py-0.5 font-mono text-[11px] text-indigo-900 lg:inline">
-                canonical
+                from canonical
               </span>
             ) : null}
             <span
@@ -127,11 +125,11 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           value={currentBatch?.id ?? ''}
           onChange={(e) => onSelectBatch(e.target.value)}
           disabled={batches.length === 0}
-          aria-label="Select unit batch or canonical dataset"
-          className="max-w-[180px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+          aria-label="Select unit"
+          className="max-w-[200px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {batches.length === 0 ? (
-            <option value="">No datasets</option>
+            <option value="">No units</option>
           ) : (
             batches.map((batch) => (
               <option key={batch.id} value={batch.id}>

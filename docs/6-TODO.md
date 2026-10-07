@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 46  
+**Last updated:** Step 47  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -14,7 +14,8 @@
 - [x] Human-verify BH1 Units 9–10 and RH2A Unit 4; set `book_files.status` to `verified`.
 - [x] Structural audit pack for BE1-SB canonical v1 (`scripts/audit_canonical_book.mjs` → [`phase-1/audits/BE1-SB_canonical_v1_audit.md`](./phase-1/audits/BE1-SB_canonical_v1_audit.md)).
 - [x] Show `canonical_json` in Validation (picker lists Canonical v1 first for BE1-SB).
-- [ ] Owner PDF spot-check in Validation (open **Canonical v1**) → reply **audit PASSED** or **audit NEEDS REVIEW** (required before Phase 1 COMPLETE).
+- [x] Unit-scoped Validation over one canonical file (picker Unit 1…N; evidence sliced by unit).
+- [ ] Owner PDF spot-check in Validation (unit-scoped canonical view) → reply **audit PASSED** or **audit NEEDS REVIEW** (required before Phase 1 COMPLETE).
 
 ## Next
 

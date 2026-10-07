@@ -13,6 +13,14 @@ export type BookFileBatch = {
   status: BookFileStatus | null
   mimeType: string | null
   fileSize: number | null
+  /**
+   * When navigating a unit slice of canonical_json, status writes go to this
+   * real batch_json book_files.id (if a matching unit batch exists).
+   */
+  statusTargetId?: string | null
+  /** Unit number for canonical-sourced virtual nav items. */
+  unitNumber?: string | null
+  unitId?: string | null
 }
 
 export type BatchJsonUnit = {

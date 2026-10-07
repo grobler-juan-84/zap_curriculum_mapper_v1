@@ -75,6 +75,144 @@ function asNumber(value: unknown): number | null | undefined {
   return value === null ? null : undefined
 }
 
+function unitNumberOf(entry: unknown): string {
+  const u = asRecord(entry)
+  return asString(u.unit_number) ?? String(asNumber(u.unit_number) ?? '')
+}
+
+function inPrintedRange(
+  printedPage: number | null | undefined,
+  start: number | null | undefined,
+  end: number | null | undefined,
+): boolean {
+  if (printedPage == null || start == null || end == null) return false
+  return printedPage >= start && printedPage <= end
+}
+
+/**
+ * Filter a whole-book canonical JSON blob down to one unit’s arrays
+ * so Validation can reuse the per-unit evidence panels.
+ */
+export function sliceCanonicalByUnit(
+  raw: unknown,
+  selector: { unitId?: string; unitNumber?: string },
+): unknown {
+  const root = asRecord(raw)
+  const units = asArray(root.units)
+
+  const unitEntry = units.find((entry) => {
+    const u = asRecord(entry)
+    if (selector.unitId && asString(u.unit_id) === selector.unitId) return true
+    if (selector.unitNumber != null && selector.unitNumber !== '') {
+      return unitNumberOf(entry) === String(selector.unitNumber)
+    }
+    return false
+  })
+
+  const emptySlice = (): Record<string, unknown> => {
+    const out: Record<string, unknown> = { ...root, units: [] }
+    for (const key of [
+      'pages',
+      'vocabulary',
+      'language',
+      'activities',
+      'continuous_text',
+      'curriculum_components',
+      'relationships',
+      'extraction_issues',
+      'schema_gaps',
+    ]) {
+      if (key in root) out[key] = []
+    }
+    return out
+  }
+
+  if (!unitEntry) return emptySlice()
+
+  const unit = asRecord(unitEntry)
+  const unitId = asString(unit.unit_id)
+  const pageStart = asNumber(unit.printed_page_start) ?? null
+  const pageEnd = asNumber(unit.printed_page_end) ?? null
+
+  const pages = asArray(root.pages).filter((entry) => {
+    const p = asRecord(entry)
+    if (unitId && asString(p.unit_id) === unitId) return true
+    return inPrintedRange(asNumber(p.printed_page), pageStart, pageEnd)
+  })
+
+  const pageIds = new Set(
+    pages
+      .map((entry) => asString(asRecord(entry).page_id))
+      .filter((id): id is string => Boolean(id)),
+  )
+
+  const belongsToUnit = (entry: unknown): boolean => {
+    const r = asRecord(entry)
+    if (unitId && asString(r.unit_id) === unitId) return true
+    const pageId = asString(r.page_id)
+    if (pageId && pageIds.has(pageId)) return true
+    return inPrintedRange(asNumber(r.printed_page), pageStart, pageEnd)
+  }
+
+  const out: Record<string, unknown> = {
+    ...root,
+    units: [unitEntry],
+    pages,
+    vocabulary: asArray(root.vocabulary).filter(belongsToUnit),
+    language: asArray(root.language).filter(belongsToUnit),
+    activities: asArray(root.activities).filter(belongsToUnit),
+  }
+
+  for (const key of [
+    'continuous_text',
+    'curriculum_components',
+    'relationships',
+    'extraction_issues',
+    'schema_gaps',
+  ]) {
+    if (key in root) out[key] = asArray(root[key]).filter(belongsToUnit)
+  }
+
+  return out
+}
+
+/** Ordered unit descriptors from a canonical (or batch) JSON root. */
+export function listUnitsFromJson(raw: unknown): Array<{
+  unitId?: string
+  unitNumber: string
+  title?: string
+  theme?: string
+  printedPageStart: number | null
+  printedPageEnd: number | null
+}> {
+  return asArray(asRecord(raw).units)
+    .map((entry) => {
+      const u = asRecord(entry)
+      return {
+        unitId: asString(u.unit_id),
+        unitNumber: unitNumberOf(entry),
+        title: asString(u.title),
+        theme: asString(u.theme),
+        printedPageStart: asNumber(u.printed_page_start) ?? null,
+        printedPageEnd: asNumber(u.printed_page_end) ?? null,
+      }
+    })
+    .filter((u) => u.unitNumber !== '')
+    .sort((a, b) => Number(a.unitNumber) - Number(b.unitNumber))
+}
+
+/** Match a unit batch_json row by unit number in label or storage path. */
+export function findBatchForUnitNumber(
+  batches: BookFileBatch[],
+  unitNumber: string,
+): BookFileBatch | null {
+  const n = Number(unitNumber)
+  if (!Number.isFinite(n)) return null
+  return (
+    batches.find((batch) => batch.fileType === 'batch_json' && unitSortKey(batch) === n) ?? null
+  )
+}
+
 /** Best-effort summary of a Phase 1 unit-batch JSON blob. */
 export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
   const root = asRecord(raw)
@@ -82,7 +220,7 @@ export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
     const u = asRecord(entry)
     return {
       unitId: asString(u.unit_id),
-      unitNumber: asString(u.unit_number) ?? String(asNumber(u.unit_number) ?? ''),
+      unitNumber: unitNumberOf(entry),
       title: asString(u.title),
       theme: asString(u.theme),
       printedPageStart: asNumber(u.printed_page_start) ?? null,
@@ -188,20 +326,22 @@ export const validationService = {
     return data ? mapRow(data as DbBookFileRow) : null
   },
 
-  async loadBatchJson(batch: BookFileBatch): Promise<BatchJsonSummary> {
+  async downloadJson(batch: BookFileBatch): Promise<unknown> {
     const client = requireClient()
     const { data, error } = await client.storage.from(batch.bucket).download(batch.storagePath)
     if (error || !data) {
       throw new Error(error?.message ?? `Could not download ${batch.storagePath}`)
     }
     const text = await data.text()
-    let parsed: unknown
     try {
-      parsed = JSON.parse(text)
+      return JSON.parse(text) as unknown
     } catch {
       throw new Error(`Invalid JSON in ${batch.storagePath}`)
     }
-    return summarizeBatchJson(parsed)
+  },
+
+  async loadBatchJson(batch: BookFileBatch): Promise<BatchJsonSummary> {
+    return summarizeBatchJson(await this.downloadJson(batch))
   },
 
   async createSignedPdfUrl(batch: BookFileBatch): Promise<string | null> {

@@ -755,3 +755,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 47
+
+**Summary:** Validation now reviews one canonical book JSON via unit-scoped slices (Unit 1…N picker, filtered evidence panels) so the UI matches separate unit batches without dropping the canonical artifact.
+
+**Files touched:**
+- `app/src/services/validationService.ts` (updated)
+- `app/src/types/validation.ts` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
