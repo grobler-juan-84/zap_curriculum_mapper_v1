@@ -840,3 +840,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 52
+
+**Summary:** Merged BH1 verified unit batches into canonical v1 with book_id normalization (added alias `beehive_american_sb1`); registered `dataset_versions` draft and updated registry.
+
+**Files touched:**
+- `scripts/merge_canonical_book.mjs` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/Book_ID_Alias_Map.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

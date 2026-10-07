@@ -8,9 +8,9 @@
       "catalog_book_id": "beehive_1_sb",
       "registry_id": "BH1",
       "series_slug": "beehive",
-      "aliases": ["beehive_1_sb"],
+      "aliases": ["beehive_1_sb", "beehive_american_sb1"],
       "entity_id_prefix_examples": ["beehive_1_sb_"],
-      "notes": "Catalog and extraction IDs already align."
+      "notes": "Most fields use beehive_1_sb; some batches also used beehive_american_sb1."
     },
     {
       "catalog_book_id": "big_english_1_sb",

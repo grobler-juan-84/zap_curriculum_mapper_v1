@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 51  
+**Last updated:** Step 52  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -18,7 +18,8 @@
 - [x] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
 - [x] Owner accepts schema review working recommendations (§7: continue 0.1; classify gaps; defer 0.2).
 - [x] Document / implement `book_id` alias map + merge-time normalization (D007; BE1-SB fields normalized).
-- [ ] Canonical merge for BH1 using `scripts/merge_canonical_book.mjs` (with book_id normalization).
+- [x] Canonical merge for BH1 using `scripts/merge_canonical_book.mjs` (with book_id normalization).
+- [ ] Whole-book audit for BH1 canonical (structural pack + owner PDF spot-check).
 
 ## Next
 

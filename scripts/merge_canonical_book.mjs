@@ -25,6 +25,22 @@ const bucket = 'book-datasets'
 
 /** @type {Record<string, { catalogBookId: string, seriesSlug: string, unitPaths: string[] }>} */
 const BOOKS = {
+  beehive_1_sb: {
+    catalogBookId: 'beehive_1_sb',
+    seriesSlug: 'beehive',
+    unitPaths: [
+      'beehive/beehive_1_sb/batches/unit_01.json',
+      'beehive/beehive_1_sb/batches/unit_02.json',
+      'beehive/beehive_1_sb/batches/unit_03.json',
+      'beehive/beehive_1_sb/batches/unit_04.json',
+      'beehive/beehive_1_sb/batches/unit_05.json',
+      'beehive/beehive_1_sb/batches/unit_06.json',
+      'beehive/beehive_1_sb/batches/unit_07.json',
+      'beehive/beehive_1_sb/batches/unit_08.json',
+      'beehive/beehive_1_sb/batches/unit_09.json',
+      'beehive/beehive_1_sb/batches/unit_10.json',
+    ],
+  },
   big_english_1_sb: {
     catalogBookId: 'big_english_1_sb',
     seriesSlug: 'big-english',

@@ -59,7 +59,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
 | [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; BE1-SB Phase 1 COMPLETE; pilot Storage status; Phase 1 COMPLETE criteria. | — | ACTIVE |
 | [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Cross-series schema 0.1 review draft; owner-accepted working recommendations (gaps as classification evidence; 0.2 deferred post-pilot). | 0.2-draft | ACTIVE |
-| [phase-1/Book_ID_Alias_Map.md](./phase-1/Book_ID_Alias_Map.md) | Catalog `book_id` is canonical; documents extraction aliases and merge-time normalization policy (D007). | 1.0 | ACTIVE |
+| [phase-1/Book_ID_Alias_Map.md](./phase-1/Book_ID_Alias_Map.md) | Catalog `book_id` is canonical; documents extraction aliases (incl. `beehive_american_sb1`) and merge-time normalization (D007). | 1.0 | ACTIVE |
 | [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map used by merge/normalize scripts. | 1 | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
 

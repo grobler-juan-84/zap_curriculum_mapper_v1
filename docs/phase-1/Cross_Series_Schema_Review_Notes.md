@@ -16,7 +16,7 @@
 
 | Registry ID | Series | Evidence used | Phase 1 |
 |---|---|---|---|
-| BH1 | Beehive 1 SB | Unit batches 01–10 verified; spot-sampled U01 + U05 gaps | IN PROGRESS (canonical pending) |
+| BH1 | Beehive 1 SB | Canonical v1 CREATED; unit batches 01–10 verified; spot-sampled U01 + U05 gaps | IN PROGRESS (audit pending) |
 | BE1-SB | Big English 1 SB | Canonical v1 (whole-book audit **PASSED**) | **COMPLETE** |
 | BE2-SB | Big English 2 SB | Unit batches verified; spot-sampled U01 | IN PROGRESS (canonical pending) |
 | RH2A | Reach Higher 2A | Units 1–4 verified; spot-sampled U01 (+ U04 structure) | IN PROGRESS (canonical pending) |
@@ -192,7 +192,8 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 
 - [x] Owner accepts working recommendations (§7).
 - [x] book_id alias map / merge-time normalization (D007; BE1-SB canonical fields normalized).
-- [ ] Canonical merge + audit for BH1, BE2-SB, RH2A on schema 0.1.
+- [x] Canonical merge for BH1 on schema 0.1 (audit still pending).
+- [ ] Canonical merge + audit for BE2-SB, RH2A on schema 0.1; BH1 whole-book audit.
 - [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
 - [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.
 

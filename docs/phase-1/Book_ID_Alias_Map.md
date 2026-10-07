@@ -33,7 +33,7 @@ on the book object and on entity records’ `book_id` fields (when present).
 
 | Registry | Catalog `book_id` | Known aliases | Entity ID prefix examples (not rewritten) |
 |---|---|---|---|
-| BH1 | `beehive_1_sb` | `beehive_1_sb` | `beehive_1_sb_` |
+| BH1 | `beehive_1_sb` | `beehive_1_sb`, `beehive_american_sb1` | `beehive_1_sb_` |
 | BE1-SB | `big_english_1_sb` | `bep1_sb`, `big_english_1_sb` | `bep1_` |
 | BE2-SB | `big_english_2_sb` | `bep_sb_2`, `big_english_2_sb` | `bep2_` |
 | RH2A | `reach_higher_2a` | `rh_2a`, `reach_higher_2a` | `rh_2a_`, `reach_higher_2a_` |

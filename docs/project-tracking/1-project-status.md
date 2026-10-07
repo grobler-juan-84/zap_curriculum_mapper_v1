@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 51  
+**Last updated:** Step 52  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
 - BE1-SB Phase 1 COMPLETE.
-- D007 catalog `book_id` alias map + merge-time normalization implemented; BE1-SB canonical fields normalized.
+- BH1 canonical v1 merged and registered (`dataset_versions` draft); `beehive_american_sb1` alias normalized.
 
 ## Current status
 
-Ready for remaining pilot canonical merges (BH1 → BE2-SB → RH2A) on schema 0.1 with book_id normalization.
+BH1 awaits whole-book audit. Next merges: BE2-SB and RH2A on schema 0.1.
 
 ## Next small step
 
-**Suggestion:** Add BH1 to `scripts/merge_canonical_book.mjs` and run the first Beehive canonical merge.
+**Suggestion:** Run structural audit pack for BH1 canonical (then owner PDF spot-check in Validation), or merge BE2-SB next.
