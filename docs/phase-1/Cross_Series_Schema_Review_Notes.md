@@ -1,14 +1,14 @@
 # Cross-Series Schema Review Notes (initial draft)
 
 **Status:** ACTIVE  
-**Version:** 0.2-draft  
+**Version:** 1.0  
 **Date:** 2026-10-07  
 **Schema under review:** Phase 1 JSON schema **0.1** ([`JSON_Schema.md`](./JSON_Schema.md))  
 **Purpose:** First formal cross-series challenge of schema 0.1 using the Storage-backed pilot set, before large-scale remaining-book extraction.
 
 **Related:** [`Dataset_registry.md`](./Dataset_registry.md) §13–14 · [`Extraction_Data_Specification.md`](./Extraction_Data_Specification.md) · brainstorming entry “Schema gaps before more books”
 
-**Working recommendations:** Owner-accepted 2026-10-07 (§7). Schema version remains **0.1** until post-pilot evidence supports a 0.2 candidate.
+**Working recommendations:** Owner-accepted 2026-10-07 (§7). **Post-pilot 0.2 candidate:** deferred 2026-10-07 (§11). Schema version remains **0.1**.
 
 ---
 
@@ -31,7 +31,7 @@ This is a **draft review**, not a schema bump. No LOCKED decision yet to change 
 
 Do **not** pause for a schema rewrite. Do **not** invent a separate schema per series.
 
-`schema_gaps` are **classification evidence**: they record structures that 0.1 does not model cleanly. They are **not** automatic candidates for universal schema expansion. Recurring structures should be classified as universal/common-core, series-specific, or book/source-specific (§7). A **0.2 candidate** is deferred until post-pilot review, and only for changes with sufficient evidence.
+`schema_gaps` are **classification evidence**: they record structures that 0.1 does not model cleanly. They are **not** automatic candidates for universal schema expansion. Recurring structures should be classified as universal/common-core, series-specific, or book/source-specific (§7). The post-pilot **0.2 candidate** is an explicit deferral (§11): no observed gap meets the evidence bar for a universal field.
 
 ---
 
@@ -96,7 +96,7 @@ Reach Higher long readings are sometimes summarized rather than fully recited (d
 
 ## 5. Schema-gap themes (clustered — classification evidence)
 
-Registry counts: BH1 **8** · BE1-SB **1** · BE2-SB **0** · RH2A **5**.
+Draft tallies used while clustering: BH1 **8** · BE1-SB **1** · BE2-SB **0** · RH2A **5**. Canonical audit counts used for the 0.2 decision are in §11 (BH1 is **10** after merge).
 
 Provisional scope labels below follow §7 classification. They do **not** mean “add to universal schema now.”
 
@@ -183,8 +183,8 @@ BE2 Unit 1 shows the same Big English spine as BE1 (vocab → song/story → gra
 
 Recommendations in §7 are accepted. Still useful to decide later (not blocking merges):
 
-1. For long RH readings in Phase 1: require **full continuous_text**, or allow structured summary + page anchors when full recitation is impractical?
-2. When building the post-pilot 0.2 candidate: what minimum recurrence threshold counts as “sufficient evidence” (e.g. N books in a series, or appearance in ≥2 series)?
+1. For long RH readings in Phase 1: require **full continuous_text**, or allow structured summary + page anchors when full recitation is impractical? Still open. This is process policy, not a 0.2 field (§11).
+2. **Answered in §11 (2026-10-07).** Sufficient evidence for a universal 0.2 field means the **same structure in at least two series**. Recurrence inside one book, or a related feature with a different shape, does not qualify.
 
 ---
 
@@ -196,8 +196,8 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 - [x] Canonical merge + whole-book audit for BE2-SB on schema 0.1 (Phase 1 COMPLETE).
 - [x] Canonical merge for RH2A on schema 0.1.
 - [x] Whole-book audit for RH2A (PASSED 2026-10-07).
-- [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
-- [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.
+- [x] After those audits: drafted 0.2 candidate (§11). Verdict: **defer**. [`JSON_Schema.md`](./JSON_Schema.md) and the extraction prompt stay on 0.1 (no fields accepted).
+- [x] Registry §13 “Schema Review” row and §20 log record the deferral (draft record; not a LOCKED decision).
 
 ---
 
@@ -206,3 +206,45 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 > **Consistency without artificial uniformity.**
 
 Cross-series success means shared arrays and IDs where pedagogy aligns, series-consistent representation where structures recur inside a publisher line, and preserved `schema_gaps` (or later additive fields) where differences are genuine — not forcing Reach Higher into a Beehive lesson template (or the reverse), and not promoting every gap into the universal schema.
+
+---
+
+## 11. Post-pilot 0.2 candidate (2026-10-07)
+
+**Verdict:** Remain on schema **0.1**. Do not open schema 0.2. Do not patch [`JSON_Schema.md`](./JSON_Schema.md) or the extraction prompt.
+
+This is the candidate required by §7.7. A universal field is promoted only when the evidence bar below is met. No theme meets that bar, so the candidate is an explicit deferral.
+
+### Evidence bar (answers §8.2)
+
+A universal / common-core 0.2 field needs the **same structure in at least two series**.
+
+- Recurrence inside one book is classification evidence only.
+- A pedagogically related feature with a different shape (Think–Feel–Grow vs Think Big) is not the same structure.
+- Series-specific or book-specific gaps stay as `schema_gaps`. They are not 0.2 fields.
+
+### Canonical evidence used
+
+Post-merge whole-book audits. These supersede the earlier draft tally in §5 (BH1 listed there as 8).
+
+| Book | `schema_gaps` | What they record |
+|---|---:|---|
+| BH1 | 10 | SEL / Think–Feel–Grow ([`audits/BH1_canonical_v1_audit.md`](./audits/BH1_canonical_v1_audit.md)) |
+| BE1-SB | 1 | Think Big (`bep1_gap_0101`) |
+| BE2-SB | 0 | — |
+| RH2A | 5 | Inquiry, in-text checkpoints, page-foot gloss ([`audits/RH2A_canonical_v1_audit.md`](./audits/RH2A_canonical_v1_audit.md)) |
+
+### Deferral
+
+| Theme | Classification | 0.2 action |
+|---|---|---|
+| A Values / SEL / reflection | Series-specific mixture; not the same structure across series | **Defer** |
+| B Unit Big Question | Reach Higher only | **Defer** (`units[].inquiry_question` stays a sketch) |
+| C Embedded reading checkpoints | Reach Higher only | **Defer** |
+| D Source glossary | Reach Higher only | **Defer** |
+| E Audio / missing source / free-text activity types | Not schema failure | **No change** |
+| `book_id` aliases | Already locked as D007 | **Out of scope** |
+| Closed `section_type` enum | Keep labels open (§4.2) | **No change** |
+| Long-reading full text vs summary | Process policy (open question §8.1), not a field | **Leave open; not a 0.2 change** |
+
+A later book that shows the same structure in a second series can reopen a specific theme. This deferral is recorded here. It is not yet a LOCKED decision in [`4-DECISIONS.md`](../4-DECISIONS.md).

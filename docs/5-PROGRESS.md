@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 57  
+**Last updated:** Step 58  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -13,16 +13,17 @@
 - **All four Storage-backed pilots Phase 1 COMPLETE:** BE1-SB, BH1, BE2-SB, RH2A (canonical v1 + whole-book audit PASSED).
 - D007 book_id alias map + merge-time normalization.
 - Cross-series schema review working recommendations owner-accepted (§7).
+- Post-pilot 0.2 candidate **defers** every observed gap. Schema remains **0.1** (review notes §11). No schema or prompt patch.
 
 ## In progress
 
-- Post-pilot decision point: 0.2 candidate only if sufficient evidence; remaining-book extraction order.
+- Remaining-book extraction order after the post-pilot schema pass.
+- Automated structural validation is still NOT RUN.
 
 ## Next
 
-- Draft 0.2 candidate only for changes with sufficient evidence (or explicitly defer).
 - Run/design automated structural validation (currently NOT RUN).
-- Draft remaining-book extraction order after post-pilot schema pass.
+- Draft remaining-book extraction order.
 
 ## Blocked
 
@@ -34,4 +35,4 @@
 
 - **Phase 1 Complete:** 4 / 18 (BE1-SB, BH1, BE2-SB, RH2A).
 - **Canonical datasets:** 4 verified.
-- **Schema:** stay on 0.1 until post-pilot 0.2 evidence review.
+- **Schema:** 0.1. The 0.2 candidate (2026-10-07) found no universal field with sufficient evidence.

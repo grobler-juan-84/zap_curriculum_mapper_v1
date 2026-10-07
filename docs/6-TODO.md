@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 57  
+**Last updated:** Step 58  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -27,7 +27,7 @@
 
 ## Next
 
-- [ ] After RH2A audit: draft 0.2 candidate only for changes with sufficient evidence (or explicitly defer).
+- [x] After RH2A audit: draft 0.2 candidate only for changes with sufficient evidence (or explicitly defer). **Deferred** — schema stays 0.1 (review notes §11).
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
 - [ ] Draft remaining-book extraction order after post-pilot schema pass.
 

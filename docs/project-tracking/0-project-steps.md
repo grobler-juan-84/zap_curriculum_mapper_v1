@@ -942,3 +942,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 58
+
+**Summary:** Recorded the post-pilot schema 0.2 candidate as an explicit deferral. Canonical audits do not show the same structure in two series, so schema 0.1 and the extraction prompt stay unchanged.
+
+**Files touched:**
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

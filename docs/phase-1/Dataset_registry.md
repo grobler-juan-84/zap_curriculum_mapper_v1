@@ -522,7 +522,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
-| 5 | Schema Review | Review findings across pilot series | **DRAFT STARTED** — [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) (2026-10-07); owner sign-off pending |
+| 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) §11 (2026-10-07); schema remains 0.1 |
 
 **Infrastructure (pilot books):** unit-batch JSON and source PDFs are in private Supabase Storage; `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
 
@@ -562,7 +562,7 @@ Observed for the pilot set:
 
 **Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
 
-**All four Storage-backed pilots are Phase 1 COMPLETE** (BE1-SB, BH1, BE2-SB, RH2A — canonical v1 + whole-book audit PASSED). Automated validation remains NOT RUN across the pilot set (non-blocking). Schema review working recommendations are owner-accepted; next gate is post-pilot 0.2 candidate review only if sufficient evidence.
+**All four Storage-backed pilots are Phase 1 COMPLETE** (BE1-SB, BH1, BE2-SB, RH2A — canonical v1 + whole-book audit PASSED). Automated validation remains NOT RUN across the pilot set (non-blocking). Schema review working recommendations are owner-accepted. The post-pilot 0.2 candidate (2026-10-07) **defers** a schema bump; schema remains 0.1.
 
 Phase 1 remains iterative: later linguistic interpretation or curriculum mapping may expose missing evidence and require returning to Phase 1.
 
@@ -707,7 +707,7 @@ Record significant dataset-wide schema review points here.
 
 | Review | Trigger | Books Reviewed | Result | Action |
 |---|---|---|---|---|
-| Initial Cross-Series Review | First representative extraction | Beehive 1 / Big English 1 / Reach Higher 2A | PENDING | PENDING |
+| Initial Cross-Series Review | First representative extraction | Beehive 1 / Big English 1 / Big English 2 / Reach Higher 2A | **0.2 deferred** — remain on schema 0.1 | No schema or prompt patch. See review notes §11. |
 
 Detailed schema changes should be recorded in the schema change log associated with:
 
@@ -921,8 +921,8 @@ Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
 Next Major Checkpoints
-Post-pilot 0.2 candidate review only if sufficient evidence (do not promote every schema_gap)
-Automated structural validation design or remaining-book extraction order
+Automated structural validation design (currently NOT RUN)
+Remaining-book extraction order after the post-pilot schema pass (0.2 deferred; schema stays 0.1)
 ```
 
 ---
