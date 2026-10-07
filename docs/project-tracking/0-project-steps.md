@@ -875,3 +875,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 54
+
+**Summary:** Merged BE2-SB verified unit batches into canonical v1 with book_id normalization (`bep_sb_2` → `big_english_2_sb`); registered `dataset_versions` draft; re-aligned unit batch statuses to verified.
+
+**Files touched:**
+- `scripts/merge_canonical_book.mjs` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

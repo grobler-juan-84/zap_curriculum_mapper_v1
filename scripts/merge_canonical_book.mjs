@@ -56,6 +56,21 @@ const BOOKS = {
       'big-english/big_english_1_sb/batches/unit_09.json',
     ],
   },
+  big_english_2_sb: {
+    catalogBookId: 'big_english_2_sb',
+    seriesSlug: 'big-english',
+    unitPaths: [
+      'big-english/big_english_2_sb/batches/unit_01.json',
+      'big-english/big_english_2_sb/batches/unit_02.json',
+      'big-english/big_english_2_sb/batches/unit_03.json',
+      'big-english/big_english_2_sb/batches/unit_04.json',
+      'big-english/big_english_2_sb/batches/unit_05.json',
+      'big-english/big_english_2_sb/batches/unit_06.json',
+      'big-english/big_english_2_sb/batches/unit_07.json',
+      'big-english/big_english_2_sb/batches/unit_08.json',
+      'big-english/big_english_2_sb/batches/unit_09.json',
+    ],
+  },
 }
 
 const ARRAY_KEYS = [
