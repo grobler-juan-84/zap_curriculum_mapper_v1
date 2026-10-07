@@ -97,7 +97,7 @@ This upserts local `data/phase1/**/*.json` unit batches (gitignored working copi
 
 ### Upload source PDFs to Storage
 
-Place the four pilot PDFs under `book-sources/` (gitignored via `*.pdf`), apply `20261007160000_seed_source_pdf_book_files.sql` if needed, then from repo root:
+Place the four pilot PDFs under `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf` (gitignored), apply `20261007160000_seed_source_pdf_book_files.sql` if needed, then from repo root:
 
 ```bash
 node scripts/upload_source_pdfs.mjs

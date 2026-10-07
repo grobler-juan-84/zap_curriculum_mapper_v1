@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 66
+**Last updated:** Step 67
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -12,10 +12,8 @@
 - Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
 - Schema remains **0.1**; D007–D009 locked; D008 validation integrated.
 - Extraction/alias docs aligned with D009; BE1-WB pre-registered as `big_english_1_wb`.
-- Naming audit completed; D009 clarified to v1.1 then applied §7.1 safe renames (v1.2):
-  - `assests` → `assets` + catalog-named local PDFs
-  - `TeacherAiAssistant` filename/export
-  - Root + phase docs kebab-case; live links and Cursor rules updated
+- D009 §7.1 safe renames applied (assets, TeacherAiAssistant, docs kebab-case).
+- Fixed Validation source-PDF loading so `pdfLoading` always clears; aligned `upload_source_pdfs.mjs` with catalog-named local assets. Beehive 1 Storage object confirmed present.
 
 ## In progress
 

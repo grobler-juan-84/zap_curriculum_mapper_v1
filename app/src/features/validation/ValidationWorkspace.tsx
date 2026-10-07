@@ -169,24 +169,24 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     setPdfLoading(true)
     setPdfUrl(null)
 
-    validationService
-      .findSourcePdf(book.id)
-      .then(async (pdf) => {
+    ;(async () => {
+      try {
+        const pdf = await validationService.findSourcePdf(book.id)
         if (cancelled) return
         if (!pdf) {
-          setPdfLoading(false)
+          setPdfUrl(null)
           return
         }
         const url = await validationService.createSignedPdfUrl(pdf)
         if (cancelled) return
         setPdfUrl(url)
-        setPdfLoading(false)
-      })
-      .catch(() => {
+      } catch {
         if (cancelled) return
         setPdfUrl(null)
-        setPdfLoading(false)
-      })
+      } finally {
+        if (!cancelled) setPdfLoading(false)
+      }
+    })()
 
     return () => {
       cancelled = true

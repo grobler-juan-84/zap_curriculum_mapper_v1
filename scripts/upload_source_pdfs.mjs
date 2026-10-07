@@ -2,7 +2,8 @@
  * Upload pilot source PDFs into the private `book-sources` bucket and upsert
  * matching `book_files` rows (`file_type = source_pdf`).
  *
- * Local source (gitignored via `*.pdf`): book-sources/*.pdf
+ * Local source (gitignored): app/src/assets/books/{series_slug}/{catalog_book_id}.pdf
+ * Storage destination unchanged: {series_slug}/{catalog_book_id}/source.pdf
  *
  * Reads credentials from app/.env.local (or process env):
  *   VITE_SUPABASE_URL
@@ -25,13 +26,14 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
   '@supabase/supabase-js',
 )
 const bucket = 'book-sources'
+const localBooksRoot = join(root, 'app', 'src', 'assets', 'books')
 
-/** [book_id, localFilename, storagePath] */
+/** [book_id, series_slug, storagePath] — local file is {series}/{book_id}.pdf */
 const SOURCES = [
-  ['beehive_1_sb', 'BH1-SB.pdf', 'beehive/beehive_1_sb/source.pdf'],
-  ['big_english_1_sb', 'BE1-SB.pdf', 'big-english/big_english_1_sb/source.pdf'],
-  ['big_english_2_sb', 'BE2-SB.pdf', 'big-english/big_english_2_sb/source.pdf'],
-  ['reach_higher_2a', 'RH2A-SB.pdf', 'reach-higher/reach_higher_2a/source.pdf'],
+  ['beehive_1_sb', 'beehive', 'beehive/beehive_1_sb/source.pdf'],
+  ['big_english_1_sb', 'big-english', 'big-english/big_english_1_sb/source.pdf'],
+  ['big_english_2_sb', 'big-english', 'big-english/big_english_2_sb/source.pdf'],
+  ['reach_higher_2a', 'reach-higher', 'reach-higher/reach_higher_2a/source.pdf'],
 ]
 
 function loadEnvFile(path) {
@@ -80,12 +82,12 @@ const onlyFilter = (process.env.UPLOAD_ONLY || '')
   .filter(Boolean)
 
 const selected = onlyFilter.length
-  ? SOURCES.filter(([bookKey, localFilename, storagePath]) =>
+  ? SOURCES.filter(([bookKey, seriesSlug, storagePath]) =>
       onlyFilter.some(
         (token) =>
           bookKey === token ||
-          localFilename === token ||
-          localFilename.includes(token) ||
+          seriesSlug === token ||
+          bookKey.includes(token) ||
           storagePath.includes(token),
       ),
     )
@@ -99,8 +101,8 @@ if (onlyFilter.length && selected.length === 0) {
 let uploaded = 0
 let failed = 0
 
-for (const [bookKey, localFilename, storagePath] of selected) {
-  const localPath = join(root, 'book-sources', localFilename)
+for (const [bookKey, seriesSlug, storagePath] of selected) {
+  const localPath = join(localBooksRoot, seriesSlug, `${bookKey}.pdf`)
   if (!existsSync(localPath)) {
     console.error(`MISSING ${localPath}`)
     failed += 1

@@ -1112,3 +1112,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 67
+
+**Summary:** Fixed Validation source-PDF pane stuck on “Checking…” by clearing `pdfLoading` in a `finally` when the active request is not cancelled. Aligned `upload_source_pdfs.mjs` with D009 local catalog PDF paths; verified Beehive 1 `source_pdf` row and Storage object are present (no re-upload needed).
+
+**Files touched:**
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `supabase/README.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
