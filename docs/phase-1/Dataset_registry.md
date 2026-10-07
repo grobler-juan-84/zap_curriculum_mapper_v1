@@ -176,7 +176,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 
 | ID | Series | Level | Book Type | Source | Extraction | Validation | Human Verification | Whole-Book Audit | Canonical JSON | Schema | Open Issues | Schema Gaps | Phase 1 |
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
-| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
+| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -294,11 +294,11 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Phase 1 Processing
 
-**Extraction Status:** EXTRACTED (unit batches `01–08`)  
+**Extraction Status:** EXTRACTED (unit batches `01–10`)  
 **Batch Path:** `data/phase1/beehive_1_sb/`  
 **Automated Validation:** NOT RUN  
-**Human Verification:** COMPLETE  
-**Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality.  
+**Human Verification:** PARTIAL  
+**Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality. Units 9–10 added (`pending`) — At Home / At the Farm — not yet human-verified in Validation.  
 **Whole-Book Audit:** NOT STARTED  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
@@ -306,13 +306,13 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 31 (mostly `audio_required` / `missing_source` workbook refs — documented, left open)  
+**Open Issues:** 31 (mostly `audio_required` / `missing_source` workbook refs — documented, left open; Units 9–10 not yet audited)  
 **Schema Gaps:** 8 (recurring SEL / Think–Feel–Grow gap across units — pending schema review)  
 
 ### Notes
 
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
-- Next pilot book after Beehive + Big English baselines: Reach Higher 2A.
+- Beehive 1 now has all 10 unit batches in Storage; verify Units 9–10 in `/app/validation`.
 
 ---
 
@@ -507,7 +507,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 
 | Order | Book | Purpose | Status |
 |---:|---|---|---|
-| 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
+| 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED (units 01–10); units 1–8 verified, 9–10 pending Validation (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED (`rh2a_sb_unit4.json`); UNITS 1–3 HUMAN-VERIFIED; UNIT 4 NOT YET REVIEWED |
 | 4 | Schema Review | Review findings across all three series | NOT STARTED |
@@ -639,7 +639,7 @@ Update this section as books progress.
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
 | Canonical Datasets Created | 0 |
-| Human Verification Complete | 3 |
+| Human Verification Complete | 2 |
 | Whole-Book Audits Passed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -663,7 +663,7 @@ Use this section once extraction begins.
 
 | Schema Version | Books Using Version | Migration Needed | Notes |
 |---|---:|---|---|
-| 0.1 | 4 (BH1 + BE1-SB + BE2-SB + RH2A unit batches) | No | BH1: `beehive_1_sb/` (01–08); BE1-SB: `big_english_1_sb/` (01–09); BE2-SB: `big_english_2_sb/` (01–09); RH2A: `reach_higher_2a/` (units 1–4) |
+| 0.1 | 4 (BH1 + BE1-SB + BE2-SB + RH2A unit batches) | No | BH1: `beehive_1_sb/` (01–10); BE1-SB: `big_english_1_sb/` (01–09); BE2-SB: `big_english_2_sb/` (01–09); RH2A: `reach_higher_2a/` (units 1–4) |
 
 This becomes increasingly important as the Phase 1 schema evolves.
 

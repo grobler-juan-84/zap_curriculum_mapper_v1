@@ -15,6 +15,7 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261007140000_book_assets_and_series_covers.sql` | Private `book-assets` bucket + `book_series.cover_path` for series cover images |
 | `migrations/20261007150000_books_cover_path.sql` | Adds `books.cover_path` for student-book cover images |
 | `migrations/20261007160000_seed_source_pdf_book_files.sql` | Seeds `book_files` `source_pdf` pointers for the four pilot books |
+| `migrations/20261007170000_seed_beehive_1_units_09_10.sql` | Seeds Beehive 1 `batch_json` pointers for Units 9–10 |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
 
@@ -45,7 +46,14 @@ From repo root, after seeding `book_files` paths:
 node scripts/upload_pilot_batches.mjs
 ```
 
-This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket using the seeded `storage_path` values and updates `book_files.file_size`. After the initial upload, Storage is the source of truth.
+Optional filter (comma-separated filename fragments):
+
+```bash
+# PowerShell
+$env:UPLOAD_ONLY='beehive_1_sb_unit_09,beehive_1_sb_unit_10'; node scripts/upload_pilot_batches.mjs
+```
+
+This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket and upserts matching `book_files` rows. Missing local files are skipped unless `UPLOAD_ONLY` is set. After upload, Storage is the source of truth.
 
 ### Upload source PDFs to Storage
 

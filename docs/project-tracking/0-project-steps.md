@@ -634,3 +634,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 40
+
+**Summary:** Added Beehive 1 Units 9–10 batch JSON to private `book-datasets`, upserted `book_files` rows (`pending`), and updated the upload script / dataset registry so Validation lists all 10 units.
+
+**Files touched:**
+- `supabase/migrations/20261007170000_seed_beehive_1_units_09_10.sql` (created)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `supabase/README.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

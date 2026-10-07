@@ -26,37 +26,40 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 )
 const bucket = 'book-datasets'
 
+/** [bookKey, localFilename, storagePath, label, status] */
 const BATCHES = [
-  ['beehive_1_sb', 'beehive_1_sb_unit_01.json', 'beehive/beehive_1_sb/batches/unit_01.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_02.json', 'beehive/beehive_1_sb/batches/unit_02.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_03.json', 'beehive/beehive_1_sb/batches/unit_03.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_04.json', 'beehive/beehive_1_sb/batches/unit_04.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_05.json', 'beehive/beehive_1_sb/batches/unit_05.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_06.json', 'beehive/beehive_1_sb/batches/unit_06.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_07.json', 'beehive/beehive_1_sb/batches/unit_07.json'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_08.json', 'beehive/beehive_1_sb/batches/unit_08.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_01.json', 'big-english/big_english_1_sb/batches/unit_01.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_02.json', 'big-english/big_english_1_sb/batches/unit_02.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_03.json', 'big-english/big_english_1_sb/batches/unit_03.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_04.json', 'big-english/big_english_1_sb/batches/unit_04.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_05.json', 'big-english/big_english_1_sb/batches/unit_05.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_06.json', 'big-english/big_english_1_sb/batches/unit_06.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_07.json', 'big-english/big_english_1_sb/batches/unit_07.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_08.json', 'big-english/big_english_1_sb/batches/unit_08.json'],
-  ['big_english_1_sb', 'big_english_1_sb_unit_09.json', 'big-english/big_english_1_sb/batches/unit_09.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_01.json', 'big-english/big_english_2_sb/batches/unit_01.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_02.json', 'big-english/big_english_2_sb/batches/unit_02.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_03.json', 'big-english/big_english_2_sb/batches/unit_03.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_04.json', 'big-english/big_english_2_sb/batches/unit_04.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_05.json', 'big-english/big_english_2_sb/batches/unit_05.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_06.json', 'big-english/big_english_2_sb/batches/unit_06.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_07.json', 'big-english/big_english_2_sb/batches/unit_07.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_08.json', 'big-english/big_english_2_sb/batches/unit_08.json'],
-  ['big_english_2_sb', 'big_english_2_sb_unit_09.json', 'big-english/big_english_2_sb/batches/unit_09.json'],
-  ['reach_higher_2a', 'rh2a_sb_unit1.json', 'reach-higher/reach_higher_2a/batches/unit_01.json'],
-  ['reach_higher_2a', 'rh2a_sb_unit2.json', 'reach-higher/reach_higher_2a/batches/unit_02.json'],
-  ['reach_higher_2a', 'rh2a_sb_unit3.json', 'reach-higher/reach_higher_2a/batches/unit_03.json'],
-  ['reach_higher_2a', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_01.json', 'beehive/beehive_1_sb/batches/unit_01.json', 'Unit 1', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_02.json', 'beehive/beehive_1_sb/batches/unit_02.json', 'Unit 2', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_03.json', 'beehive/beehive_1_sb/batches/unit_03.json', 'Unit 3', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_04.json', 'beehive/beehive_1_sb/batches/unit_04.json', 'Unit 4', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_05.json', 'beehive/beehive_1_sb/batches/unit_05.json', 'Unit 5', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_06.json', 'beehive/beehive_1_sb/batches/unit_06.json', 'Unit 6', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_07.json', 'beehive/beehive_1_sb/batches/unit_07.json', 'Unit 7', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_08.json', 'beehive/beehive_1_sb/batches/unit_08.json', 'Unit 8', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_09.json', 'beehive/beehive_1_sb/batches/unit_09.json', 'Unit 9', 'pending'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_10.json', 'beehive/beehive_1_sb/batches/unit_10.json', 'Unit 10', 'pending'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_01.json', 'big-english/big_english_1_sb/batches/unit_01.json', 'Unit 1', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_02.json', 'big-english/big_english_1_sb/batches/unit_02.json', 'Unit 2', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_03.json', 'big-english/big_english_1_sb/batches/unit_03.json', 'Unit 3', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_04.json', 'big-english/big_english_1_sb/batches/unit_04.json', 'Unit 4', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_05.json', 'big-english/big_english_1_sb/batches/unit_05.json', 'Unit 5', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_06.json', 'big-english/big_english_1_sb/batches/unit_06.json', 'Unit 6', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_07.json', 'big-english/big_english_1_sb/batches/unit_07.json', 'Unit 7', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_08.json', 'big-english/big_english_1_sb/batches/unit_08.json', 'Unit 8', 'verified'],
+  ['big_english_1_sb', 'big_english_1_sb_unit_09.json', 'big-english/big_english_1_sb/batches/unit_09.json', 'Unit 9', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_01.json', 'big-english/big_english_2_sb/batches/unit_01.json', 'Unit 1', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_02.json', 'big-english/big_english_2_sb/batches/unit_02.json', 'Unit 2', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_03.json', 'big-english/big_english_2_sb/batches/unit_03.json', 'Unit 3', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_04.json', 'big-english/big_english_2_sb/batches/unit_04.json', 'Unit 4', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_05.json', 'big-english/big_english_2_sb/batches/unit_05.json', 'Unit 5', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_06.json', 'big-english/big_english_2_sb/batches/unit_06.json', 'Unit 6', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_07.json', 'big-english/big_english_2_sb/batches/unit_07.json', 'Unit 7', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_08.json', 'big-english/big_english_2_sb/batches/unit_08.json', 'Unit 8', 'verified'],
+  ['big_english_2_sb', 'big_english_2_sb_unit_09.json', 'big-english/big_english_2_sb/batches/unit_09.json', 'Unit 9', 'verified'],
+  ['reach_higher_2a', 'rh2a_sb_unit1.json', 'reach-higher/reach_higher_2a/batches/unit_01.json', 'Unit 1', 'verified'],
+  ['reach_higher_2a', 'rh2a_sb_unit2.json', 'reach-higher/reach_higher_2a/batches/unit_02.json', 'Unit 2', 'verified'],
+  ['reach_higher_2a', 'rh2a_sb_unit3.json', 'reach-higher/reach_higher_2a/batches/unit_03.json', 'Unit 3', 'verified'],
+  ['reach_higher_2a', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json', 'Unit 4', 'needs_review'],
 ]
 
 function loadEnvFile(path) {
@@ -99,14 +102,58 @@ const supabase = createClient(url, serviceKey, {
   auth: { persistSession: false, autoRefreshToken: false },
 })
 
+const bookIdCache = new Map()
+
+async function resolveBookUuid(bookKey) {
+  if (bookIdCache.has(bookKey)) return bookIdCache.get(bookKey)
+  const { data, error } = await supabase
+    .from('books')
+    .select('id')
+    .eq('book_id', bookKey)
+    .maybeSingle()
+  if (error || !data?.id) {
+    throw new Error(error?.message || `No books row for book_id=${bookKey}`)
+  }
+  bookIdCache.set(bookKey, data.id)
+  return data.id
+}
+
+const onlyFilter = (process.env.UPLOAD_ONLY || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean)
+
+const selected = onlyFilter.length
+  ? BATCHES.filter(([bookKey, filename, storagePath]) =>
+      onlyFilter.some(
+        (token) =>
+          filename === token ||
+          filename.includes(token) ||
+          storagePath === token ||
+          `${bookKey}/${filename}`.includes(token),
+      ),
+    )
+  : BATCHES
+
+if (onlyFilter.length && selected.length === 0) {
+  console.error(`UPLOAD_ONLY matched no batches: ${onlyFilter.join(', ')}`)
+  process.exit(1)
+}
+
 let uploaded = 0
 let failed = 0
+let skipped = 0
 
-for (const [bookId, filename, storagePath] of BATCHES) {
-  const localPath = join(root, 'data', 'phase1', bookId, filename)
+for (const [bookKey, filename, storagePath, label, status] of selected) {
+  const localPath = join(root, 'data', 'phase1', bookKey, filename)
   if (!existsSync(localPath)) {
-    console.error(`MISSING ${localPath}`)
-    failed += 1
+    if (onlyFilter.length) {
+      console.error(`MISSING ${localPath}`)
+      failed += 1
+    } else {
+      console.warn(`SKIP   missing local file ${localPath}`)
+      skipped += 1
+    }
     continue
   }
 
@@ -126,19 +173,39 @@ for (const [bookId, filename, storagePath] of BATCHES) {
     continue
   }
 
-  const { error: metaError } = await supabase
-    .from('book_files')
-    .update({ file_size: size, mime_type: 'application/json' })
-    .eq('bucket', bucket)
-    .eq('storage_path', storagePath)
+  try {
+    const bookUuid = await resolveBookUuid(bookKey)
+    const { error: metaError } = await supabase.from('book_files').upsert(
+      {
+        book_id: bookUuid,
+        file_type: 'batch_json',
+        bucket,
+        storage_path: storagePath,
+        filename,
+        mime_type: 'application/json',
+        file_size: size,
+        label,
+        status,
+      },
+      { onConflict: 'bucket,storage_path' },
+    )
 
-  if (metaError) {
-    console.warn(`WARN   uploaded but could not update book_files: ${storagePath} (${metaError.message})`)
+    if (metaError) {
+      console.warn(
+        `WARN   uploaded but could not upsert book_files: ${storagePath} (${metaError.message})`,
+      )
+    }
+  } catch (err) {
+    console.warn(
+      `WARN   uploaded but could not resolve/upsert book_files: ${storagePath} (${err instanceof Error ? err.message : err})`,
+    )
   }
 
   console.log(`OK     ${storagePath} (${size} bytes)`)
   uploaded += 1
 }
 
-console.log(`\nDone. uploaded=${uploaded} failed=${failed} total=${BATCHES.length}`)
+console.log(
+  `\nDone. uploaded=${uploaded} failed=${failed} skipped=${skipped} selected=${selected.length}`,
+)
 if (failed > 0) process.exit(1)
