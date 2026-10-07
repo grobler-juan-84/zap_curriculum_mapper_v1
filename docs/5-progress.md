@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 67
+**Last updated:** Step 68
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -14,6 +14,7 @@
 - Extraction/alias docs aligned with D009; BE1-WB pre-registered as `big_english_1_wb`.
 - D009 §7.1 safe renames applied (assets, TeacherAiAssistant, docs kebab-case).
 - Fixed Validation source-PDF loading so `pdfLoading` always clears; aligned `upload_source_pdfs.mjs` with catalog-named local assets. Beehive 1 Storage object confirmed present.
+- Decoupled cover signing from global catalog loading, batch/cached visible cover URLs, and kept PDF.js mounted while loading. Live flow probes reduced Browse data/storage requests from 11 to 5 and Validation pre-PDF requests from 10 to 3.
 
 ## In progress
 
@@ -22,6 +23,7 @@
 ## Next
 
 - Prepare BE1-WB source/catalog/unit plan (`big_english_1_wb`).
+- Review post-fix Storage timings before deciding whether cover thumbnails or PDF linearization are warranted.
 - Later: mapper cleanup (`bookUuid` / `catalogBookId`).
 
 ## Blocked

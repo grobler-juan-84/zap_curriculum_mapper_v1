@@ -1127,3 +1127,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 68
+
+**Summary:** Removed eager global cover signing from catalog loading, added batched and expiry-cached cover URLs for visible library screens, and kept PDF.js mounted during document loading. Live probes confirmed fewer Storage/data requests while preserving signed URLs and range-capable PDF delivery.
+
+**Files touched:**
+- `app/src/services/curriculumService.ts` (updated)
+- `app/src/services/coverImageService.ts` (created)
+- `app/src/hooks/useCoverImageUrls.ts` (created)
+- `app/src/features/curriculum-library/CurriculumLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

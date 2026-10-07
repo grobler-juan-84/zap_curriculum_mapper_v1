@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 67
+**Last updated:** Step 68
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -36,12 +36,14 @@
 - [x] Run read-only backward naming audit; clarify D009/authority gaps (v1.1) before renames.
 - [x] Apply D009 §7.1 safe cosmetic rename batch (`assests` → `assets`, `TeacherAiAssistant`, docs kebab-case + link updates).
 - [x] Fix Validation source-PDF stuck on “Checking…” (loading effect + upload script path alignment).
+- [x] Remove eager global cover signing; batch/cache visible covers and stabilize PDF.js loading.
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Soon
 
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 - [ ] Add lightweight naming checks for books under the new policy (legacy pilots exempt).
+- [ ] Review post-fix Storage measurements before approving cover thumbnails or PDF linearization.
 - [ ] Persist Validation session notes (optional).
 
 ---

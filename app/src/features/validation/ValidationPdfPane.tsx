@@ -32,14 +32,12 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const [pairStart, setPairStart] = useState(1)
   const [jumpValue, setJumpValue] = useState('1')
   const [docError, setDocError] = useState<string | null>(null)
-  const [docLoading, setDocLoading] = useState(false)
 
   useEffect(() => {
     setNumPages(0)
     setPairStart(1)
     setJumpValue('1')
     setDocError(null)
-    setDocLoading(Boolean(pdfUrl))
   }, [pdfUrl])
 
   useEffect(() => {
@@ -149,9 +147,9 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
       </div>
 
       <div className="relative min-h-0 flex-1 overflow-auto bg-slate-100">
-        {loading || docLoading ? (
+        {loading ? (
           <div className="flex h-full items-center justify-center text-sm text-slate-500">
-            {loading ? 'Checking for source PDF…' : 'Loading PDF…'}
+            Checking for source PDF…
           </div>
         ) : pdfUrl ? (
           <div className="flex h-full min-h-[240px] flex-col">
@@ -169,12 +167,10 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
                 }
                 onLoadSuccess={({ numPages: nextNumPages }) => {
                   setNumPages(nextNumPages)
-                  setDocLoading(false)
                   setDocError(null)
                   setPairStart((current) => clampPage(current, nextNumPages))
                 }}
                 onLoadError={(error) => {
-                  setDocLoading(false)
                   setDocError(error.message || 'Could not load PDF.')
                 }}
                 className="flex flex-1 items-start justify-center gap-2 p-2"

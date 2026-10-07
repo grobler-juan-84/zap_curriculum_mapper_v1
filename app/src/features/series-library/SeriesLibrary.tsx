@@ -2,6 +2,7 @@ import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { Breadcrumbs } from '../../components/shared/Breadcrumbs'
 import { CheckCircle2, ArrowRight, CircleDashed } from 'lucide-react'
+import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
 
 interface SeriesLibraryProps {
   series: CurriculumSeries
@@ -16,6 +17,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   onValidateBook,
   onBackToCurriculum,
 }) => {
+  const coverUrls = useCoverImageUrls(series.books.map((book) => book.coverPath))
   const breadcrumbItems = [
     { label: 'Curriculum Library', onClick: onBackToCurriculum },
     { label: series.name, active: true },
@@ -56,7 +58,9 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
               {series.books.map((book) => {
                 const hasInteractiveSpreads = book.pageSpreads.length > 0
                 const isFeatured = book.stableBookId === 'beehive_1_sb'
-                const coverSrc = book.coverImage
+                const coverSrc = book.coverPath
+                  ? coverUrls[book.coverPath]
+                  : book.coverImage
                 return (
                   <div
                     key={book.id}
@@ -87,6 +91,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                           alt={`${book.title} Cover`}
                           className="max-h-52 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="flex h-40 w-full items-center justify-center rounded-md border border-dashed border-slate-300 text-xs text-slate-400">

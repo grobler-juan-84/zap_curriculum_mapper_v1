@@ -60,8 +60,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const { profile } = useAuth()
   const canWriteStatus = profile?.role === 'admin'
 
-  /** Raw catalog rows (batch_json + canonical_json) for status mapping / fallback. */
-  const [catalogFiles, setCatalogFiles] = useState<BookFileBatch[]>([])
   /** Items shown in the unit picker (virtual units from canonical, or real batches). */
   const [batches, setBatches] = useState<BookFileBatch[]>([])
   const [selectedBatchId, setSelectedBatchId] = useState('')
@@ -120,13 +118,11 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     setCanonicalRaw(null)
     setFromCanonical(false)
     setBatches([])
-    setCatalogFiles([])
 
     ;(async () => {
       try {
         const rows = await validationService.listValidationFiles(book.id)
         if (cancelled) return
-        setCatalogFiles(rows)
 
         const canonical = rows.find((row) => row.fileType === 'canonical_json')
         if (canonical) {
@@ -152,7 +148,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
       } catch (err: unknown) {
         if (cancelled) return
         setBatches([])
-        setCatalogFiles([])
         setBatchesLoading(false)
         setJsonLoading(false)
         setBatchesError(err instanceof Error ? err.message : 'Failed to load unit batches.')
@@ -344,9 +339,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
             ? { ...batch, status }
             : batch,
         ),
-      )
-      setCatalogFiles((prev) =>
-        prev.map((batch) => (batch.id === targetId ? { ...batch, status } : batch)),
       )
     } catch (err: unknown) {
       setStatusError(err instanceof Error ? err.message : 'Failed to update status.')

@@ -2,6 +2,7 @@ import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { seriesEmoji } from '../../services/catalogMapper'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
 
 interface CurriculumLibraryProps {
   seriesList: CurriculumSeries[]
@@ -14,6 +15,8 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
   onSelectSeries,
   onDirectOpenBook: _onDirectOpenBook,
 }) => {
+  const coverUrls = useCoverImageUrls(seriesList.map((series) => series.coverPath))
+
   return (
     <div className="flex h-full select-none flex-col overflow-y-auto bg-slate-50">
       <header className="flex h-11 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
@@ -45,7 +48,9 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {seriesList.map((series) => {
                 const isBeehive = series.name.toLowerCase().includes('beehive')
-                const coverSrc = series.coverImage
+                const coverSrc = series.coverPath
+                  ? coverUrls[series.coverPath]
+                  : series.coverImage
                 return (
                   <div
                     key={series.id}
@@ -69,6 +74,7 @@ export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({
                           alt={`${series.name} series`}
                           className="max-h-36 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="flex h-28 w-full flex-col items-center justify-center gap-2 text-slate-600">

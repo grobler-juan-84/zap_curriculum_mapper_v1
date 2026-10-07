@@ -81,39 +81,7 @@ async function fetchCatalogFromSupabase(): Promise<CurriculumSeries[]> {
   }
 
   const rows = (data ?? []) as DbSeriesRow[]
-  return attachCoverUrls(rows.map(mapDbSeriesToCurriculumSeries))
-}
-
-async function signedAssetUrl(path: string): Promise<string | undefined> {
-  const client = supabase
-  if (!client) return undefined
-  const { data, error } = await client.storage.from('book-assets').createSignedUrl(path, 60 * 60)
-  if (error || !data?.signedUrl) return undefined
-  return data.signedUrl
-}
-
-async function attachCoverUrls(seriesList: CurriculumSeries[]): Promise<CurriculumSeries[]> {
-  return Promise.all(
-    seriesList.map(async (series) => {
-      const coverImage = series.coverPath
-        ? await signedAssetUrl(series.coverPath)
-        : series.coverImage
-
-      const books = await Promise.all(
-        series.books.map(async (book) => {
-          if (!book.coverPath) return book
-          const bookCover = await signedAssetUrl(book.coverPath)
-          return bookCover ? { ...book, coverImage: bookCover } : book
-        }),
-      )
-
-      return {
-        ...series,
-        coverImage: coverImage ?? series.coverImage,
-        books,
-      }
-    }),
-  )
+  return rows.map(mapDbSeriesToCurriculumSeries)
 }
 
 /** Curriculum catalog access backed by Supabase book_series / books. */
