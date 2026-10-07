@@ -225,7 +225,7 @@ App later LOADS that JSON from storage to display/edit
 - Pilot extraction created inconsistent aliases/entity prefixes (`bep1_sb`, `bep_sb_2`, `bep1_*`, `bep2_*`, `rh_2a_*`).
 - Some code names overload identity meaning (`bookId` can mean a UUID or catalog string), and safe cosmetic debt remains (`assests`, mixed acronym casing).
 
-Nothing in this entry is binding until owner acceptance and promotion to the decision log.
+**Promoted 2026-10-07:** Owner accepted; locked as D009. Authority: [`../9-naming-conventions.md`](../9-naming-conventions.md). Always-on rule: `.cursor/rules/naming_conventions.mdc`.
 
 #### Recommended authority / location
 
@@ -337,7 +337,7 @@ Storage stays:
 
 **Lean / notes:** Adopt the prospective standard before BE1-WB extraction. Preserve D007 pilot identities and handle backward cleanup separately by risk.
 
-**Status:** leaning — owner review required; not promoted or locked
+**Status:** promoted — locked as D009 (2026-10-07)
 
 ---
 
@@ -349,6 +349,7 @@ Storage stays:
 | 2026-10-07 | Pilot extraction quality | Owner judgement: satisfactory to continue; Phase 1 still not COMPLETE (see Dataset Registry §14). |
 | 2026-10-07 | BH1 U9–10 + RH2A U4 verification | Marked `verified` in `book_files`; registry human verification COMPLETE for BH1 and RH2A. |
 | 2026-10-07 | First canonical merge (BE1-SB) | `canonical/v1.json` + `dataset_versions` v1; IDs preserved (`bep1_sb`); whole-book audit still open. |
+| 2026-10-07 | Project-wide naming conventions | Promoted to [`../9-naming-conventions.md`](../9-naming-conventions.md); locked as D009; always-on rule `.cursor/rules/naming_conventions.mdc`. |
 
 ---
 

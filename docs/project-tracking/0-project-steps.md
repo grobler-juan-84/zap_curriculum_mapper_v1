@@ -1035,3 +1035,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 63
+
+**Summary:** Owner-approved and locked project-wide naming conventions as D009. Created the authority doc and always-on Cursor rule; grandfathered pilot entity IDs; queued extraction/alias doc alignment before BE1-WB.
+
+**Files touched:**
+- `docs/9-naming-conventions.md` (created)
+- `.cursor/rules/naming_conventions.mdc` (created)
+- `docs/4-DECISIONS.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

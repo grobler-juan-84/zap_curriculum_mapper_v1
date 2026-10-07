@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 62
+**Last updated:** Step 63
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -17,15 +17,15 @@
 - Automated structural validation implemented and integrated with merge/audit (D008).
 - All four pilots now **PASSED WITH WARNINGS** after BE2-SB appendix sticker pages `bep2_p189`–`bep2_p191` were added.
 - Drafted the remaining 14-book extraction order (Dataset Registry §15): BE1-WB first, with BH2 / BE2-WB / RH2B early and later Big English SB/WB pairs interleaved with Reach Higher checkpoints.
-- Drafted a non-binding project-wide naming proposal covering code/files, book identities, future entity IDs, and legacy migration safeguards.
+- **D009 locked:** project-wide naming authority in `docs/9-naming-conventions.md` plus always-on `.cursor/rules/naming_conventions.mdc`. Pilot entity IDs grandfathered.
 
 ## In progress
 
-- Naming proposal awaits owner review before formalization; no files or identifiers have been renamed.
+- Naming follow-through (extraction/alias docs alignment) before BE1-WB preparation.
 
 ## Next
 
-- Approve or revise the naming proposal, then create the authority doc, D009, and always-on rule before preparing BE1-WB.
+- Align extraction prompt, JSON schema guidance, and Book ID Alias Map with D009, then prepare BE1-WB (`big_english_1_wb`).
 
 ## Blocked
 
@@ -39,4 +39,5 @@
 - **Canonical datasets:** 4 verified.
 - **Automated validation:** 4 passed with warnings.
 - **Schema:** 0.1. The 0.2 candidate (2026-10-07) found no universal field with sufficient evidence.
+- **Naming:** D009 locked; backward rename audit not started.
 - **Draft next order:** BE1-WB → BH2 → BE2-WB → RH2B, then paired Big English levels with RH checkpoints.

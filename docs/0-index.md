@@ -33,11 +33,12 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. Pipeline reflects Storage + Validation UI. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack and what is implemented in the pilot (Auth, catalog, Storage, Validation) vs still mock/not started (Gemini, Book Workspace spreads, automation). | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, and generation. | — | ACTIVE |
-| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D008 automated structural validation as a separate gate). | 1.0 | ACTIVE |
+| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D009 project-wide naming conventions). | 1.0 | ACTIVE |
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, workspace wiring). | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs private Storage vs JSON curriculum; clarifies `books.status` vs `book_files.status` vs Dataset Registry. | 1.0 | ACTIVE |
+| [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, legacy grandfathering, and backward-audit policy (D009). | 1.0 | ACTIVE |
 
 ### Project tracking
 
@@ -45,7 +46,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 |---|---|---|---|
 | [project-tracking/0-project-steps.md](./project-tracking/0-project-steps.md) | Chronological log of agent prompts that changed project files. Each non-Ask, file-changing prompt is recorded as one numbered step with a short summary. | 1.0 | ACTIVE |
 | [project-tracking/1-project-status.md](./project-tracking/1-project-status.md) | Short current snapshot (done / status / next); detailed narrative in [`5-PROGRESS.md`](./5-PROGRESS.md). | 1.0 | ACTIVE |
-| [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the decision log. | 1.0 | ACTIVE |
+| [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions. Ideas here are not binding until promoted into the decision log (naming conventions promoted as D009). | 1.0 | ACTIVE |
 | [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Legacy pointer to [`4-DECISIONS.md`](./4-DECISIONS.md); kept for older links. | 1.0 | ACTIVE |
 | [project-tracking/4-mock-data-registry.md](./project-tracking/4-mock-data-registry.md) | Distinguishes live Supabase catalog/Storage/Validation data from remaining UI mocks (Beehive page spreads, teacher AI). | — | ACTIVE |
 
@@ -84,7 +85,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 26 | Current working docs, including index, operating trackers, and project-tracking |
+| ACTIVE | 27 | Current working docs, including index, operating trackers, naming conventions, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

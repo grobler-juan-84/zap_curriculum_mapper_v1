@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 62
+**Last updated:** Step 63
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -31,11 +31,14 @@
 - [x] Implement automated structural validation for Phase 1 JSON; retrospectively run all four pilots.
 - [x] Triage BE2-SB's 9 dangling `paired_with` targets (`bep2_p189`–`bep2_p191`): added appendix sticker page records; validation now PASSED WITH WARNINGS.
 - [x] Draft remaining-book extraction order after post-pilot schema pass (Dataset Registry §15).
-- [ ] Review and approve the project-wide naming proposal, then formalize it in `docs/9-naming-conventions.md`, D009, and `.cursor/rules/naming_conventions.mdc`.
-- [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id`, aliases, unit/section plan, and validator profile.
+- [x] Review and approve the project-wide naming proposal, then formalize it in `docs/9-naming-conventions.md`, D009, and `.cursor/rules/naming_conventions.mdc`.
+- [ ] Align extraction prompt, JSON schema guidance, and Book ID Alias Map docs with D009 before BE1-WB extraction.
+- [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Soon
 
+- [ ] Add lightweight naming checks for books under the new policy (legacy pilots exempt).
+- [ ] Run a read-only backward naming audit and propose risk-separated cleanup batches (no mass rename).
 - [ ] Persist Validation session notes (optional).
 
 ---
