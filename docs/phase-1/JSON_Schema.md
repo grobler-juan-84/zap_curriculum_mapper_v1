@@ -48,21 +48,29 @@ When valid source content cannot be represented adequately, the extraction proce
 
 Each completed book should ultimately have one canonical Phase 1 JSON dataset.
 
+Storage / merge naming (D009):
+
+```text
+{series_slug}/{catalog_book_id}/canonical/v{dataset_version}.json
+```
+
 Example:
 
 ```text
-big_english_1_student_book.json
+big-english/big_english_1_sb/canonical/v1.json
 ```
 
 A book may be extracted in multiple batches.
 
-Example:
+Local / archival batch filenames (D009):
 
 ```text
-big_english_1_unit_01.json
-big_english_1_unit_02.json
-big_english_1_unit_03.json
+{catalog_book_id}_unit_01.json
+{catalog_book_id}_unit_02.json
+{catalog_book_id}_unit_03.json
 ```
+
+Storage batch leaf names remain `batches/unit_{NN}.json` under the catalog folder.
 
 These batch files are intermediate extraction artifacts.
 
@@ -102,18 +110,50 @@ Information should generally be stored once and connected through stable identif
 
 Every major entity should receive a stable unique identifier.
 
-Example:
+Keep these identities distinct (D007 / D009):
+
+| Identity | Role | Example |
+|---|---|---|
+| Registry ID | Human/ops shorthand only | `BE1-WB` |
+| Catalog `book_id` | JSON `book_id`, Postgres, Storage path segment | `big_english_1_wb` |
+| Entity ID | Graph identity inside one dataset | `big_english_1_wb_unit_01` |
+
+For **new** books, use the full catalog `book_id` as the entity prefix:
 
 ```text
-big_english_1_sb
-big_english_1_sb_u01
-big_english_1_sb_p006
-big_english_1_sb_vocab_0001
-big_english_1_sb_lang_0001
-big_english_1_sb_act_0001
+{catalog_book_id}                         # book.book_id
+{catalog_book_id}_unit_{NN}
+{catalog_book_id}_page_{PPP}
+{catalog_book_id}_vocab_{NNNN}
+{catalog_book_id}_language_{NNNN}
+{catalog_book_id}_activity_{NNNN}
+{catalog_book_id}_text_{NNNN}
+{catalog_book_id}_component_{NNNN}
+{catalog_book_id}_relationship_{NNNN}
+{catalog_book_id}_issue_{NNNN}
+{catalog_book_id}_gap_{NNNN}
 ```
 
-Exact ID generation may later be automated.
+Example (Big English 1 Workbook):
+
+```text
+big_english_1_wb
+big_english_1_wb_unit_01
+big_english_1_wb_page_004
+big_english_1_wb_vocab_0001
+big_english_1_wb_language_0001
+big_english_1_wb_activity_0001
+```
+
+Do not invent new abbreviated prefixes (`bep*`, `be_*`, `rh_*`) for future books. Grandfathered pilot entity prefixes (`bep1_*`, `bep2_*`, `rh_2a_*`, …) remain accepted legacy exceptions and are not rewritten at merge (D007).
+
+Catalog templates for new books:
+
+- Beehive: `beehive_{level}_sb`
+- Big English: `big_english_{level}_{sb|wb}`
+- Reach Higher: `reach_higher_{level}` (no `_sb` suffix)
+
+See [`../9-naming-conventions.md`](../9-naming-conventions.md) and [`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md).
 
 IDs should be:
 
@@ -1007,9 +1047,10 @@ Before a batch or canonical dataset is accepted, automated validation checks:
 ### Identity
 
 - unique IDs,
-- valid book IDs,
+- valid book IDs (catalog `book_id` after D007 normalization),
 - valid unit IDs,
-- valid page IDs.
+- valid page IDs,
+- new-book entity prefixes expected to follow D009 when naming checks are enabled (legacy pilots exempt).
 
 ### Relationships
 

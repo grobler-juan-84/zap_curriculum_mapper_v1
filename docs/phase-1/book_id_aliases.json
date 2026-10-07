@@ -2,7 +2,8 @@
   "version": 1,
   "updated": "2026-10-07",
   "canonical_rule": "Postgres books.book_id (and matching Storage folder segment) is the catalog identity for joins, Validation, and dataset_versions. Extraction-era book_id strings are aliases only.",
-  "entity_id_policy": "Entity IDs (unit_id, page_id, vocabulary_id, …) keep their extraction-era prefixes for stability. Merge-time normalization rewrites book_id fields only — not entity ID strings.",
+  "entity_id_policy": "Entity IDs (unit_id, page_id, vocabulary_id, …) keep their extraction-era prefixes for stability. Merge-time normalization rewrites book_id fields only — not entity ID strings. New books (D009) should use the full catalog_book_id as the entity prefix and prefer emitting the catalog ID directly (no new abbreviated aliases).",
+  "naming_policy": "D009 — docs/9-naming-conventions.md. Pilots are grandfathered. Forward catalog templates: beehive_{level}_sb, big_english_{level}_{sb|wb}, reach_higher_{level}.",
   "books": [
     {
       "catalog_book_id": "beehive_1_sb",
@@ -10,6 +11,7 @@
       "series_slug": "beehive",
       "aliases": ["beehive_1_sb", "beehive_american_sb1"],
       "entity_id_prefix_examples": ["beehive_1_sb_"],
+      "naming_policy": "legacy_pilot",
       "notes": "Most fields use beehive_1_sb; some batches also used beehive_american_sb1."
     },
     {
@@ -18,6 +20,7 @@
       "series_slug": "big-english",
       "aliases": ["big_english_1_sb", "bep1_sb"],
       "entity_id_prefix_examples": ["bep1_"],
+      "naming_policy": "legacy_pilot",
       "notes": "Batches/canonical entities often use bep1_sb / bep1_* prefixes."
     },
     {
@@ -26,6 +29,7 @@
       "series_slug": "big-english",
       "aliases": ["big_english_2_sb", "bep_sb_2"],
       "entity_id_prefix_examples": ["bep2_"],
+      "naming_policy": "legacy_pilot",
       "notes": "Extraction book_id is bep_sb_2; entity IDs often bep2_*."
     },
     {
@@ -34,7 +38,17 @@
       "series_slug": "reach-higher",
       "aliases": ["reach_higher_2a", "rh_2a"],
       "entity_id_prefix_examples": ["rh_2a_", "reach_higher_2a_"],
+      "naming_policy": "legacy_pilot",
       "notes": "Units 1–3 used rh_2a; Unit 4 used reach_higher_2a. Normalize book_id fields to reach_higher_2a at merge."
+    },
+    {
+      "catalog_book_id": "big_english_1_wb",
+      "registry_id": "BE1-WB",
+      "series_slug": "big-english",
+      "aliases": ["big_english_1_wb"],
+      "entity_id_prefix_examples": ["big_english_1_wb_"],
+      "naming_policy": "d009",
+      "notes": "Next extraction target. Prefer catalog ID only — do not introduce bep1_wb / be1_wb aliases. Entity IDs must use big_english_1_wb_* forms."
     }
   ]
 }

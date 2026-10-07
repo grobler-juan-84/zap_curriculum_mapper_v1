@@ -1,12 +1,12 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** 2026-10-07  
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
-**Purpose:** Define the catalog `book_id` as the stable identity for Phase 1 joins, and document extraction-era aliases rewritten at canonical merge time.
+**Purpose:** Define the catalog `book_id` as the stable identity for Phase 1 joins, document extraction-era aliases rewritten at canonical merge time, and align forward naming with D009.
 
-**Related:** [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) §7.6 · [`Dataset_registry.md`](./Dataset_registry.md) · decision **D007**
+**Related:** [`../9-naming-conventions.md`](../9-naming-conventions.md) (D009) · [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) §7.6 · [`Dataset_registry.md`](./Dataset_registry.md) · decisions **D007**, **D009**
 
 ---
 
@@ -18,6 +18,7 @@
 | Storage path segment (e.g. `…/big_english_1_sb/…`) | Matches catalog ID |
 | Dataset Registry folder / registry notes | Matches catalog ID |
 | Extracted JSON `book_id` / entity `book_id` fields | May use **aliases**; rewritten at merge |
+| Entity ID strings (`unit_id`, `page_id`, …) | **Not** rewritten at merge (D007) |
 
 Canonical curriculum JSON after merge must use:
 
@@ -27,9 +28,16 @@ book.book_id === <catalog_book_id>
 
 on the book object and on entity records’ `book_id` fields (when present).
 
+Do not interchange:
+
+- **Registry ID** — human shorthand (`BE1-SB`, `BE1-WB`)
+- **Catalog `book_id`** — technical identity (`big_english_1_sb`, `big_english_1_wb`)
+- **Series slug** — Storage prefix (`big-english`)
+- **Entity ID** — graph identity inside one JSON dataset
+
 ---
 
-## 2. Alias table (pilot)
+## 2. Alias table (pilots — grandfathered)
 
 | Registry | Catalog `book_id` | Known aliases | Entity ID prefix examples (not rewritten) |
 |---|---|---|---|
@@ -38,21 +46,62 @@ on the book object and on entity records’ `book_id` fields (when present).
 | BE2-SB | `big_english_2_sb` | `bep_sb_2`, `big_english_2_sb` | `bep2_` |
 | RH2A | `reach_higher_2a` | `rh_2a`, `reach_higher_2a` | `rh_2a_`, `reach_higher_2a_` |
 
+These pilot entity prefixes remain accepted legacy exceptions (D009 §6). Aliases are compatibility data, not preferred new names.
+
 Add new aliases to [`book_id_aliases.json`](./book_id_aliases.json) when extraction introduces another string for the same catalog book.
 
 ---
 
-## 3. Entity ID policy
+## 3. Forward policy for new books (D009)
+
+For every book extracted **after** the four COMPLETE pilots:
+
+1. Prefer emitting the **catalog `book_id` directly** in JSON `book_id` fields — avoid inventing new aliases.
+2. Use full-word catalog templates:
+   - Beehive: `beehive_{level}_sb`
+   - Big English: `big_english_{level}_{sb|wb}`
+   - Reach Higher: `reach_higher_{level}` (do **not** add `_sb` only on later books)
+3. Prefix entity IDs with the full catalog ID:
+
+```text
+{catalog_book_id}_unit_{NN}
+{catalog_book_id}_page_{PPP}
+{catalog_book_id}_vocab_{NNNN}
+{catalog_book_id}_language_{NNNN}
+{catalog_book_id}_activity_{NNNN}
+{catalog_book_id}_text_{NNNN}
+{catalog_book_id}_component_{NNNN}
+{catalog_book_id}_relationship_{NNNN}
+{catalog_book_id}_issue_{NNNN}
+{catalog_book_id}_gap_{NNNN}
+```
+
+4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
+5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
+
+### Next book — BE1-WB
+
+| Registry | Catalog `book_id` | Series slug | Expected entity prefix | Preferred aliases |
+|---|---|---|---|---|
+| BE1-WB | `big_english_1_wb` | `big-english` | `big_english_1_wb_` | Prefer none; catalog ID only |
+
+Do **not** use `bep1_wb`, `be1_wb`, or `BE1-WB` as catalog/entity identities.
+
+---
+
+## 4. Entity ID policy
 
 **Do not rewrite** `unit_id`, `page_id`, `vocabulary_id`, etc. at merge time.
 
 Reason: IDs are already unique within a book; rewriting prefixes risks silent relationship breakage and makes audits harder to compare to verified unit batches.
 
-Extraction-era prefixes remain allowed fingerprints. Catalog joins and app routing use `books.book_id` / `book.book_id`, not entity ID prefixes.
+Extraction-era prefixes for pilots remain allowed fingerprints. Catalog joins and app routing use `books.book_id` / `book.book_id`, not entity ID prefixes.
+
+New books should not create additional abbreviated fingerprints.
 
 ---
 
-## 4. Merge-time normalization
+## 5. Merge-time normalization
 
 Implemented in:
 
@@ -74,17 +123,19 @@ Implemented in:
 
 ---
 
-## 5. How to extend
+## 6. How to extend
 
 1. Add/update the book entry in `book_id_aliases.json`.
 2. Keep `catalog_book_id` identical to Postgres `books.book_id`.
-3. Re-run merge (or `normalize_canonical_book_ids.mjs`) so Storage reflects the map.
-4. Mention the alias in the Dataset Registry book notes.
+3. For new books, set `entity_id_prefix_examples` to the full catalog prefix (`{catalog_book_id}_`) and prefer an empty or catalog-only alias list.
+4. Re-run merge (or `normalize_canonical_book_ids.mjs`) so Storage reflects the map.
+5. Mention the alias in the Dataset Registry book notes.
 
 ---
 
-## 6. Out of scope
+## 7. Out of scope
 
 - Renaming Storage folders or Postgres rows (already catalog-correct for pilots)
 - Rewriting entity ID strings
 - Schema 0.2 curriculum field changes
+- Mass-renaming pilot entity prefixes (requires a separate migration decision per D009 §7)

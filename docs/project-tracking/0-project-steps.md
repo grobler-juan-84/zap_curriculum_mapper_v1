@@ -1052,3 +1052,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 64
+
+**Summary:** Aligned Phase 1 extraction prompt, JSON Schema identifier guidance, Extraction Spec batch naming, and Book ID Alias Map with D009. Pre-registered BE1-WB as catalog `big_english_1_wb` with full-prefix entity IDs; pilot aliases remain grandfathered.
+
+**Files touched:**
+- `docs/phase-1/Google_AI_Studio_Prompt.md` (updated)
+- `docs/phase-1/JSON_Schema.md` (updated)
+- `docs/phase-1/Extraction_Data_Specification.md` (updated)
+- `docs/phase-1/Book_ID_Alias_Map.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

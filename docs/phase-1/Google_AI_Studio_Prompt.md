@@ -35,6 +35,13 @@ Each unit JSON must be capable of being saved as an independent `.json` file and
 
 Use stable and consistent IDs across all unit outputs from the same book.
 
+For **new** books (D009), use the full catalog `book_id` (for example `big_english_1_wb`) as both:
+
+- the JSON `book_id` value on the book object and entity records; and
+- the prefix for every entity ID and recommended batch filename.
+
+Do **not** invent shortened aliases such as `bep3_sb`, `be_1_wb`, or `rh_2b`. If a temporary alias is unavoidable, it must be recorded in the Book ID Alias Map and normalized at merge (D007); prefer emitting the catalog ID directly.
+
 Use the current Phase 1 schema version specified by the extraction instructions.
 
 ## OUTPUT SEPARATION
@@ -45,13 +52,15 @@ Label each output outside the JSON code block using:
 
 `FILE: <recommended_filename>.json`
 
-Use a predictable filename such as:
+Use the catalog `book_id` in the filename (D009):
 
-`<book_id>_unit_01.json`
+`<catalog_book_id>_unit_01.json`
 
-`<book_id>_unit_02.json`
+`<catalog_book_id>_unit_02.json`
 
-`<book_id>_unit_03.json`
+`<catalog_book_id>_unit_03.json`
+
+Examples: `big_english_1_wb_unit_01.json`, `beehive_2_sb_unit_01.json`, `reach_higher_2b_unit_01.json`.
 
 and continue for all identified units.
 
@@ -890,7 +899,7 @@ is preferable to an unsupported grammar classification.
 
 Use stable identifiers consistently.
 
-General pattern:
+General fields:
 
 ```text id="4x8zbk"
 book_id
@@ -906,11 +915,39 @@ issue_id
 schema_gap_id
 ```
 
+For **new** extractions, follow project naming conventions (D009 / `docs/9-naming-conventions.md`):
+
+1. Set every `book_id` field to the **catalog** `book_id` (full-word `snake_case`), not a registry shorthand (`BE1-WB`) and not a new abbreviation.
+2. Prefix every entity ID with that same catalog `book_id`.
+3. Use these predictable forms (zero-padded):
+
+```text
+{catalog_book_id}_unit_{NN}
+{catalog_book_id}_page_{PPP}
+{catalog_book_id}_vocab_{NNNN}
+{catalog_book_id}_language_{NNNN}
+{catalog_book_id}_activity_{NNNN}
+{catalog_book_id}_text_{NNNN}
+{catalog_book_id}_component_{NNNN}
+{catalog_book_id}_relationship_{NNNN}
+{catalog_book_id}_issue_{NNNN}
+{catalog_book_id}_gap_{NNNN}
+```
+
+Example for Big English 1 Workbook (`big_english_1_wb`):
+
+```text
+big_english_1_wb_unit_01
+big_english_1_wb_page_004
+big_english_1_wb_vocab_0001
+big_english_1_wb_activity_0001
+```
+
 Identifiers must be unique within the dataset.
 
-Use predictable IDs where practical.
+Do not change identifiers unnecessarily between extraction batches for the same book.
 
-Do not change identifiers unnecessarily between extraction batches.
+Pilot books already extracted under legacy prefixes (`bep1_*`, `bep2_*`, `rh_2a_*`, …) keep those entity IDs; do not invent new short prefixes for future books.
 
 ---
 
