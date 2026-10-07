@@ -152,7 +152,7 @@
 **Decision:** Adopt [`9-naming-conventions.md`](./9-naming-conventions.md) as the project-wide naming authority, enforced for agents by `.cursor/rules/naming_conventions.mdc`. Keep registry ID, catalog `book_id`, series slug, Postgres UUID, and entity ID as distinct identities. New books use full-word catalog templates and full catalog `book_id` entity prefixes. Grandfather the four COMPLETE pilots; do not silently rewrite entity IDs (D007).  
 **Reason:** The repository had accumulated inconsistent abbreviations and casing across docs, Storage, and extraction JSON. A forward-looking standard before BE1-WB extraction prevents further drift without forcing a risky pilot ID rewrite.  
 **Alternatives rejected:** Rewriting pilot entity IDs now; using registry IDs as Storage paths; introducing new abbreviated catalog/entity prefixes (`bep*`, `be*`, `rh*`); making Reach Higher later books use `_sb` while `reach_higher_2a` remains without it; delaying formalization until after the next extraction.  
-**Implications:** New folders, docs, code, Storage segments, and curriculum IDs follow the authority doc. Existing mixed doc filenames and pilot entity prefixes remain until a risk-classified backward audit. Extraction prompt / alias guidance / validator naming checks should be updated as follow-through, not by reopening this decision.  
+**Implications:** New folders, docs, code, Storage segments, and curriculum IDs follow the authority doc. Existing mixed doc filenames and pilot entity prefixes remain until a risk-classified backward audit. Authority clarifications (v1.1: tracker kebab targets, audit-report registry filenames, Postgres UUID vs catalog collision, local/public asset rules) refine enforcement without reopening this decision. Extraction prompt / alias guidance are aligned; safe cosmetic renames and validator naming checks remain follow-through.  
 **Supersedes:** —
 
 ---
@@ -167,3 +167,4 @@
 | 2026-10-07 | Added D007 — catalog book_id canonical; alias map + merge-time normalization. |
 | 2026-10-07 | Added D008 — automated structural validation is separate from human/source verification and gates future progression on ERROR findings. |
 | 2026-10-07 | Added D009 — project-wide naming conventions locked; authority doc + always-on Cursor rule. |
+| 2026-10-07 | D009 authority clarified to v1.1 after naming audit (no decision reopen). |

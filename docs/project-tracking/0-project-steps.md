@@ -1070,3 +1070,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 65
+
+**Summary:** Clarified D009 naming authority to v1.1 after the repo naming audit: tracker kebab targets, audit-report registry filenames, local/public asset rules, schema filenames, Postgres UUID vs catalog collision, and `catalogBookId` preference. No renames performed.
+
+**Files touched:**
+- `docs/9-naming-conventions.md` (updated)
+- `.cursor/rules/naming_conventions.mdc` (updated)
+- `docs/4-DECISIONS.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

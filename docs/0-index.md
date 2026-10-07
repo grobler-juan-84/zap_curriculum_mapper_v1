@@ -38,7 +38,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, workspace wiring). | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs private Storage vs JSON curriculum; clarifies `books.status` vs `book_files.status` vs Dataset Registry. | 1.0 | ACTIVE |
-| [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, legacy grandfathering, and backward-audit policy (D009). | 1.0 | ACTIVE |
+| [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). | 1.1 | ACTIVE |
 
 ### Project tracking
 

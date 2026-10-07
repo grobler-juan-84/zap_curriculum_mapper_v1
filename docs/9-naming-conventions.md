@@ -1,7 +1,7 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
 **Related:** Locked as [D009](./4-DECISIONS.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-DECISIONS.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
@@ -19,6 +19,8 @@ It covers:
 - Supabase Storage buckets, series slugs, and object path segments
 - registry IDs, catalog `book_id` values, and curriculum JSON entity IDs
 - environment variables and Cursor rule filenames
+- local-only assets and public demo assets
+- schema JSON filenames
 
 ---
 
@@ -27,12 +29,28 @@ It covers:
 | Identity | Role | Form | Examples |
 |---|---|---|---|
 | **Registry ID** | Human/ops shorthand only | Uppercase with hyphens | `BE1-SB`, `BH2`, `RH2B` |
-| **Catalog `book_id`** | Technical join/path identity in Postgres, Storage, app routing, and canonical JSON | Full-word `snake_case` | `big_english_1_sb`, `beehive_1_sb`, `reach_higher_2a` |
+| **Catalog `book_id`** | Technical join/path identity in Postgres `books.book_id`, Storage, app routing, and canonical JSON | Full-word `snake_case` | `big_english_1_sb`, `beehive_1_sb`, `reach_higher_2a` |
 | **Series slug** | Storage path prefix | Full-word `kebab-case` | `big-english`, `beehive`, `reach-higher` |
-| **Postgres UUID** | Database row identity for a book | UUID | Prefer code name `bookUuid` |
+| **Postgres UUID** | Database row identity for a book (`books.id`) | UUID | Prefer code name `bookUuid` |
 | **Entity ID** | Stable graph identity inside one curriculum JSON dataset | Prefixed string | See §5 |
 
-**Code naming preference:** use `registryId`, `catalogBookId`, and `bookUuid`. Avoid bare `bookId` unless the meaning is unambiguous in context.
+### 2.1 Code naming preference
+
+Use `registryId`, `catalogBookId`, and `bookUuid`.
+
+Avoid bare `bookId` unless the meaning is unambiguous in context.
+
+Legacy app alias: `stableBookId` means the same thing as `catalogBookId`. Prefer `catalogBookId` in new and refactored TypeScript.
+
+### 2.2 Postgres column collision (do not collapse in TypeScript)
+
+| SQL column | Table | Meaning | Preferred TS name |
+|---|---|---|---|
+| `books.book_id` | `books` | Catalog text identity | `catalogBookId` |
+| `book_files.book_id` | `book_files` | UUID FK → `books.id` | `bookUuid` |
+| `dataset_versions.book_id` | `dataset_versions` | UUID FK → `books.id` | `bookUuid` |
+
+Never map both layers to a single ambiguous `bookId` property when both can appear in the same feature.
 
 Registry IDs are never Storage folder names. Catalog `book_id` is never rewritten into entity ID prefixes for grandfathered pilots (D007).
 
@@ -42,20 +60,25 @@ Registry IDs are never Storage folder names. Catalog `book_id` is never rewritte
 
 | Scope | Convention | Examples / notes |
 |---|---|---|
-| Multiword repository / feature folders | lowercase `kebab-case` | `project-tracking`, `curriculum-library`; keep conventional `src`, `lib`, `scripts`, `schemas` |
-| New markdown docs | lowercase `kebab-case` | Numbered root docs: `9-naming-conventions.md`; existing mixed names wait for a safe rename audit |
+| Multiword repository / feature folders | lowercase `kebab-case` | `project-tracking`, `curriculum-library`; keep conventional `src`, `lib`, `scripts`, `schemas`, `assets` |
+| New markdown docs | lowercase `kebab-case` | Numbered root docs: `N-kebab-case.md` (e.g. `9-naming-conventions.md`, `4-decisions.md`) |
+| Operating trackers (docs 4–7) | same `N-kebab-case.md` | Target forms: `4-decisions.md`, `5-progress.md`, `6-todo.md`, `7-future.md`. Current UPPERCASE filenames are pending safe rename |
 | React components / pages / types | `PascalCase` | `ValidationWorkspace`, `BookFileBatch` |
 | Hooks / functions / variables | `camelCase` | `useTeacherAiResponses`, `catalogBookId` |
-| Acronyms in code identifiers | treat as words | `TeacherAiAssistant`, `pdfUrl`, `bookId`; all-caps reserved for constants/env |
+| Acronyms in code **and filenames** | treat as words | `TeacherAiAssistant`, `pdfUrl`; not `TeacherAIAssistant`. All-caps reserved for constants/env |
 | Executable Node scripts | `snake_case.mjs` | `merge_canonical_book.mjs` |
 | Node/TS service and library modules | established `camelCase` | `phase1Validation.mjs`, `validationService.ts` |
 | Python files/packages | `snake_case` | ecosystem standard |
 | SQL tables/columns/migration suffixes | `snake_case` | timestamp prefix remains `YYYYMMDDHHMMSS_...sql` |
 | JSON keys / schema fields | `snake_case` | `book_id`, `continuous_text` |
+| Machine schema filenames | lowercase with dotted version segment allowed | `phase1-0.1.schema.json` |
 | Constants / environment variables | `UPPER_SNAKE_CASE` | only public browser values use `VITE_*`; never prefix service-role secrets with `VITE_` |
 | Storage bucket IDs / series slugs | lowercase `kebab-case` | `book-datasets`, `big-english`, `reach-higher` |
 | Cursor rule filenames | `snake_case.mdc` | `naming_conventions.mdc` |
 | Fixed Storage leaf names | stable lowercase names | `source.pdf`, `batches/unit_01.json`, `canonical/v1.json`, `cover.png` |
+| Phase 1 whole-book audit reports | `{registry_id}_canonical_v{N}_audit.md` | Ops-facing; registry ID is intentional. Body must still state catalog `book_id` |
+| Local-only source PDFs (app assets) | prefer catalog `book_id` | e.g. `big_english_1_sb.pdf` under `assets/books/{series_slug}/` |
+| Public static demo assets | presentation kebab-case allowed | e.g. `beehive-1-cover.svg` — not required to match catalog IDs |
 
 ---
 
@@ -94,7 +117,7 @@ Rules:
 
 - Zero-pad consistently (`unit_01`, `page_001`, `vocab_0001`, …).
 - Do not invent new shortened prefixes (`bep3_*`, `rh_3a_*`, …).
-- If a source needs more than one logical page record for the same printed page, keep the printed page in data and add a deterministic record suffix rather than colliding IDs.
+- If a source requires more than one logical page record for the same printed page, keep the printed page in data and add a deterministic record suffix rather than colliding IDs.
 
 Local / archival batch filename:
 
@@ -133,12 +156,25 @@ Aliases in [`phase-1/book_id_aliases.json`](./phase-1/book_id_aliases.json) are 
 
 Do not mass-rename. Classify each finding as one of:
 
-1. **Safe cosmetic rename** — docs links/casing, local asset typos (`assests`), unambiguous code symbol cleanup.
-2. **Mapper / alias cleanup** — documentation or tool clarity without changing stored graph IDs.
+1. **Safe cosmetic rename** — docs links/casing, local asset typos (`assests` → `assets`), acronym filename fixes (`TeacherAIAssistant` → `TeacherAiAssistant`), unambiguous code symbol cleanup.
+2. **Mapper / alias cleanup** — documentation or tool clarity without changing stored graph IDs (e.g. TS `bookId` → `bookUuid` / `catalogBookId`).
 3. **Versioned migration required** — any change to canonical entity IDs or Storage keys that are already referenced.
-4. **Accepted legacy exception** — leave as-is and document.
+4. **Accepted legacy exception** — leave as-is and document (pilot entity prefixes; public demo cover filenames may stay presentation-kebab).
 
 Any canonical entity-ID migration requires a separate locked decision, old→new ID map, relationship rewrite, new dataset version, automated validation, and whole-book re-audit.
+
+### 7.1 Known pending safe renames (from 2026-10-07 audit)
+
+Documented for a later rename batch — **not** performed by clarifying this file alone:
+
+- `app/src/assests/` → `app/src/assets/`
+- `TeacherAIAssistant.tsx` → `TeacherAiAssistant.tsx`
+- Root docs: `1-Project Overview.md`, `4-DECISIONS.md`, `5-PROGRESS.md`, `6-TODO.md`, `7-FUTURE.md` → `N-kebab-case.md`
+- Phase Title_Case docs under `docs/phase-*` → lowercase kebab-case
+- Local PDFs under `assests/books/` → catalog-based names when renamed
+- App TS identity fields: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId`
+
+Audit report filenames using registry IDs (`BE1-SB_canonical_v1_audit.md`, …) are **accepted** under §3.
 
 ---
 
@@ -162,9 +198,11 @@ When creating or renaming project artifacts:
 
 1. Choose names from the style matrix in §3.
 2. For books, set registry ID, catalog `book_id`, and series slug as distinct fields.
-3. For new extractions, generate entity IDs from the full catalog `book_id` (§5).
+3. For new extractions books, generate entity IDs from the full catalog `book_id` (§5).
 4. Do not “fix” grandfathered pilot entity IDs without an explicit migration decision (§6–§7).
-5. Prefer explicit code names (`catalogBookId`, `bookUuid`) over overloaded `bookId`.
+5. Prefer explicit code names (`catalogBookId`, `bookUuid`) over overloaded `bookId` or legacy `stableBookId`.
+6. Treat acronyms as words in **filenames and** identifiers (`Ai`, not `AI`).
+7. Do not rename until the change is classified under §7; prefer small risk-separated batches.
 
 ---
 
@@ -173,3 +211,4 @@ When creating or renaming project artifacts:
 | Date | Change |
 |---|---|
 | 2026-10-07 | Created as project-wide naming authority (D009). Promoted from internal brainstorming. |
+| 2026-10-07 | v1.1 — Clarified doc casing targets, audit-report filenames, local/public assets, schema filenames, Postgres UUID vs catalog collision, and `stableBookId` → `catalogBookId` preference after repo naming audit. |

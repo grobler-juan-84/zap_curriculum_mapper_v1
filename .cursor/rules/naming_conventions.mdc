@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Naming Conventions
 
-Authority: [`docs/9-naming-conventions.md`](docs/9-naming-conventions.md) (D009). Do not invent competing standards.
+Authority: [`docs/9-naming-conventions.md`](docs/9-naming-conventions.md) (D009, v1.1). Do not invent competing standards.
 
 ## Non-negotiable
 
@@ -13,28 +13,33 @@ Authority: [`docs/9-naming-conventions.md`](docs/9-naming-conventions.md) (D009)
    - **Registry ID** — human shorthand (`BE1-SB`, `BH2`, `RH2B`)
    - **Catalog `book_id`** — full-word `snake_case` technical identity (`big_english_1_sb`, `reach_higher_2a`)
    - **Series slug** — full-word `kebab-case` Storage prefix (`big-english`, `reach-higher`)
-   - **Postgres UUID** — prefer code name `bookUuid`
+   - **Postgres UUID** (`books.id`) — prefer code name `bookUuid`
    - **Entity ID** — graph identity inside curriculum JSON
 
-2. Prefer code names `registryId`, `catalogBookId`, `bookUuid`. Avoid ambiguous bare `bookId`.
+2. Prefer code names `registryId`, `catalogBookId`, `bookUuid`. Avoid ambiguous bare `bookId`. Legacy `stableBookId` means `catalogBookId` — prefer the latter in new/refactored code.
 
-3. Style defaults for **new** work:
-   - Folders / series slugs / buckets: lowercase `kebab-case`
-   - New docs: lowercase `kebab-case` (numbered root docs `N-kebab-case.md`)
+3. Postgres collision: `books.book_id` is catalog text; `book_files.book_id` / `dataset_versions.book_id` are UUID FKs. Do not map both to one ambiguous `bookId` property.
+
+4. Style defaults for **new** work:
+   - Folders / series slugs / buckets: lowercase `kebab-case` (use `assets`, not `assests`)
+   - New docs: lowercase `kebab-case`; numbered root docs `N-kebab-case.md` (including trackers: `4-decisions.md`, …)
    - React components/types: `PascalCase`
-   - Hooks/functions/variables: `camelCase`; acronyms as words (`TeacherAiAssistant`, `pdfUrl`)
+   - Hooks/functions/variables: `camelCase`; acronyms as words in **code and filenames** (`TeacherAiAssistant`, `pdfUrl`)
    - Executable scripts / Python / SQL / JSON keys / Cursor rules: `snake_case` where ecosystem-appropriate
+   - Machine schema files may use dotted versions (`phase1-0.1.schema.json`)
    - Constants / env: `UPPER_SNAKE_CASE`; only public browser values use `VITE_*`
 
-4. New catalog templates:
+5. New catalog templates:
    - Beehive: `beehive_{level}_sb`
    - Big English: `big_english_{level}_{sb|wb}`
    - Reach Higher: `reach_higher_{level}` (no `_sb` suffix; preserve D007 `reach_higher_2a`)
 
-5. New entity IDs use the **full catalog `book_id`** as prefix (`{catalog_book_id}_unit_{NN}`, `_page_{PPP}`, `_vocab_{NNNN}`, …). Do not introduce new `bep`, `be`, or `rh` abbreviations.
+6. New entity IDs use the **full catalog `book_id`** as prefix (`{catalog_book_id}_unit_{NN}`, `_page_{PPP}`, `_vocab_{NNNN}`, …). Do not introduce new `bep`, `be`, or `rh` abbreviations.
 
-6. **Grandfather** the four COMPLETE pilots’ entity IDs, Storage keys, and catalog IDs. D007 forbids silent entity-ID rewrites. Aliases are compatibility data only.
+7. Phase 1 audit reports may keep `{registry_id}_canonical_v{N}_audit.md` (ops shorthand). Local-only PDFs should prefer catalog IDs. Public demo assets may use presentation kebab-case.
 
-7. Do not mass-rename. Classify cleanup as safe cosmetic, mapper/alias, versioned migration, or accepted legacy exception before changing anything.
+8. **Grandfather** the four COMPLETE pilots’ entity IDs, Storage keys, and catalog IDs. D007 forbids silent entity-ID rewrites. Aliases are compatibility data only.
+
+9. Do not mass-rename. Classify cleanup as safe cosmetic, mapper/alias, versioned migration, or accepted legacy exception before changing anything.
 
 If this rule conflicts with a LOCKED decision in `docs/4-DECISIONS.md`, the decision log wins — then update the authority doc.
