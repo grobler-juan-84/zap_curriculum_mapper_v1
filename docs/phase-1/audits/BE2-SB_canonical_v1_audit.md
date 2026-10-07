@@ -1,7 +1,7 @@
 # BE2-SB — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.2
+**Version:** 1.3
 **Date:** 2026-10-07
 **Canonical path:** `big-english/big_english_2_sb/canonical/v1.json`
 **Catalog book_id:** `big_english_2_sb`
@@ -15,7 +15,7 @@ Structural / integrity evidence for the whole-book audit checklist in `Extractio
 | Array | Count |
 |---|---:|
 | `units` | 9 |
-| `pages` | 144 |
+| `pages` | 147 |
 | `vocabulary` | 301 |
 | `language` | 56 |
 | `activities` | 340 |
@@ -31,7 +31,7 @@ Structural / integrity evidence for the whole-book audit checklist in `Extractio
 - Present unit numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9
 - Missing units: none
 - Extra units: none
-- Printed page range in `pages`: 4–159
+- Printed page range in `pages`: 4–159 instructional units + appendix stickers 189–191
 - Structural integrity gate: **PASS**
 
 ## Integrity
@@ -63,4 +63,4 @@ In `/app/validation` for Big English 2 Student Book (unit-scoped canonical view)
 | Owner PDF spot-check | **PASSED** |
 | **Whole-Book Audit** | **PASSED** |
 
-At the original audit, automated validation was **NOT RUN**. Retrospective validation on 2026-10-07: **FAILED** (9 dangling same-book relationship targets to absent appendix/sticker pages; 4 warnings). Historical whole-book/source audit outcome remains PASSED; the new structural defect requires follow-up and was not auto-repaired.
+At the original audit, automated validation was **NOT RUN**. Retrospective validation initially **FAILED** on nine dangling `paired_with` targets to absent sticker pages. On 2026-10-07 those appendix pages (`bep2_p189`–`bep2_p191`, `unit_id` null) were added; revalidation is **PASSED WITH WARNINGS** (0 errors). Historical whole-book/source audit outcome remains PASSED.

@@ -991,3 +991,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 60
+
+**Summary:** Triaged BE2-SB dangling `paired_with` targets by adding appendix sticker page records `bep2_p189`–`bep2_p191` (`unit_id` null). Revalidation now PASSED WITH WARNINGS for all four pilots; historical whole-book audit PASS retained.
+
+**Files touched:**
+- `scripts/patch_be2_appendix_sticker_pages.mjs` (created)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/audits/BE2-SB_canonical_v1_audit.md` (updated)
+- `docs/phase-1/Curriculum_Mapping_process.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

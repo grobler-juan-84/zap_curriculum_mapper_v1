@@ -1195,7 +1195,7 @@ Cross-series pilot extraction is substantially in place for:
 - Big English 2 Student Book (units 01–09; additional extracted book);
 - Reach Higher 2A (units 1–4).
 
-Unit batches and source PDFs live in private Supabase Storage and are reviewed in the React Validation workspace. All four pilots have verified canonical v1 datasets and passed historical whole-book/source audits; the cross-series 0.2 candidate was deferred. Automated structural validation is now implemented as a separate D008 gate for future progression. Retrospective runs passed with warnings for BE1-SB, BH1, and RH2A, while BE2-SB exposed nine dangling appendix-page relationship targets requiring follow-up.
+Unit batches and source PDFs live in private Supabase Storage and are reviewed in the React Validation workspace. All four pilots have verified canonical v1 datasets and passed historical whole-book/source audits; the cross-series 0.2 candidate was deferred. Automated structural validation is now implemented as a separate D008 gate for future progression. All four pilots currently pass automated validation with warnings after BE2-SB appendix sticker pages were added to resolve dangling Activity 11 relationships.
 
 The current project judgement (2026-10-07) is that first-iteration extraction quality is **satisfactory to continue development**, while Phase 1 remains iterative if later phases expose missing evidence.
 

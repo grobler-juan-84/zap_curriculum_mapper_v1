@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 59
+**Last updated:** Step 60
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -29,7 +29,7 @@
 
 - [x] After RH2A audit: draft 0.2 candidate only for changes with sufficient evidence (or explicitly defer). **Deferred** — schema stays 0.1 (review notes §11).
 - [x] Implement automated structural validation for Phase 1 JSON; retrospectively run all four pilots.
-- [ ] Triage BE2-SB's 9 dangling `paired_with` targets (`bep2_p189`–`bep2_p191`): add appendix page records or remodel/document the dependency.
+- [x] Triage BE2-SB's 9 dangling `paired_with` targets (`bep2_p189`–`bep2_p191`): added appendix sticker page records; validation now PASSED WITH WARNINGS.
 - [ ] Draft remaining-book extraction order after post-pilot schema pass.
 
 ## Soon
