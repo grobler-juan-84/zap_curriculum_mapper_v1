@@ -13,15 +13,13 @@ interface ValidationPdfPaneProps {
   pdfUrl: string | null
   loading: boolean
   bookTitle: string
-  /** 1-based PDF page to show (opens the 2-page pair containing this page). */
+  /** 1-based page placed on the left; the following page (if any) is on the right. */
   initialPage?: number | null
 }
 
-function pairStartForPage(page: number, numPages: number): number {
+function clampPage(page: number, numPages: number): number {
   if (numPages <= 0) return 1
-  const clamped = Math.min(Math.max(1, Math.floor(page)), numPages)
-  const start = clamped % 2 === 0 ? clamped - 1 : clamped
-  return Math.max(1, start)
+  return Math.min(Math.max(1, Math.floor(page)), numPages)
 }
 
 export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
@@ -46,7 +44,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   useEffect(() => {
     if (!numPages || !initialPage) return
-    const start = pairStartForPage(initialPage, numPages)
+    const start = clampPage(initialPage, numPages)
     setPairStart(start)
     setJumpValue(String(start))
   }, [initialPage, numPages])
@@ -54,7 +52,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const leftPage = pairStart
   const rightPage = pairStart + 1 <= numPages ? pairStart + 1 : null
   const canPrev = pairStart > 1
-  const canNext = pairStart + 2 <= numPages
+  const canNext = pairStart < numPages
 
   const pageLabel = useMemo(() => {
     if (!numPages) return '—'
@@ -64,7 +62,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   const goPrev = () => {
     setPairStart((current) => {
-      const next = Math.max(1, current - 2)
+      const next = clampPage(current - 2, numPages)
       setJumpValue(String(next))
       return next
     })
@@ -72,7 +70,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   const goNext = () => {
     setPairStart((current) => {
-      const next = Math.min(pairStartForPage(numPages, numPages), current + 2)
+      const next = clampPage(current + 2, numPages)
       setJumpValue(String(next))
       return next
     })
@@ -81,7 +79,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const jumpToPage = () => {
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
-    const start = pairStartForPage(parsed, numPages)
+    const start = clampPage(parsed, numPages)
     setPairStart(start)
     setJumpValue(String(start))
   }
@@ -173,7 +171,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
                   setNumPages(nextNumPages)
                   setDocLoading(false)
                   setDocError(null)
-                  setPairStart((current) => pairStartForPage(current, nextNumPages))
+                  setPairStart((current) => clampPage(current, nextNumPages))
                 }}
                 onLoadError={(error) => {
                   setDocLoading(false)

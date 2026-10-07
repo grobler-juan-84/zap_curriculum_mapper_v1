@@ -595,3 +595,14 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 37
+
+**Summary:** Validation PDF two-page view now places the unit’s first printed page on the left (and the next page on the right) instead of snapping to odd-numbered spreads.
+
+**Files touched:**
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
