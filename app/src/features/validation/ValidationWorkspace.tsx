@@ -40,7 +40,9 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const [statusError, setStatusError] = useState<string | null>(null)
 
   const [topPaneHeightPercent, setTopPaneHeightPercent] = useState(62)
-  const [isDraggingSplitter, setIsDraggingSplitter] = useState(false)
+  const [isDraggingRowSplitter, setIsDraggingRowSplitter] = useState(false)
+  const [leftPaneWidthPercent, setLeftPaneWidthPercent] = useState(33)
+  const [isDraggingColSplitter, setIsDraggingColSplitter] = useState(false)
 
   const currentIndex = Math.max(
     0,
@@ -176,7 +178,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDraggingSplitter) return
+      if (!isDraggingRowSplitter) return
       const pane = document.getElementById('right-validation-pane')
       if (!pane) return
       const rect = pane.getBoundingClientRect()
@@ -186,9 +188,9 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         setTopPaneHeightPercent(newPercent)
       }
     }
-    const handleMouseUp = () => setIsDraggingSplitter(false)
+    const handleMouseUp = () => setIsDraggingRowSplitter(false)
 
-    if (isDraggingSplitter) {
+    if (isDraggingRowSplitter) {
       window.addEventListener('mousemove', handleMouseMove)
       window.addEventListener('mouseup', handleMouseUp)
     }
@@ -196,7 +198,31 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [isDraggingSplitter])
+  }, [isDraggingRowSplitter])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDraggingColSplitter) return
+      const row = document.getElementById('validation-split-row')
+      if (!row) return
+      const rect = row.getBoundingClientRect()
+      const relativeX = e.clientX - rect.left
+      const newPercent = (relativeX / rect.width) * 100
+      if (newPercent >= 22 && newPercent <= 50) {
+        setLeftPaneWidthPercent(newPercent)
+      }
+    }
+    const handleMouseUp = () => setIsDraggingColSplitter(false)
+
+    if (isDraggingColSplitter) {
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseup', handleMouseUp)
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [isDraggingColSplitter])
 
   const handleSetStatus = async (status: BookFileStatus) => {
     if (!currentBatch) return
@@ -249,10 +275,11 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         </div>
       ) : null}
 
-      <div className="flex flex-1 overflow-hidden">
+      <div id="validation-split-row" className="flex flex-1 overflow-hidden">
         <section
           aria-label="Unit JSON evidence"
-          className="flex h-full w-1/3 min-w-[340px] max-w-[480px] shrink-0 flex-col"
+          style={{ width: `${leftPaneWidthPercent}%` }}
+          className="flex h-full shrink-0 flex-col overflow-hidden"
         >
           <ValidationLeftPanel
             batch={currentBatch}
@@ -261,6 +288,17 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
             error={jsonError}
           />
         </section>
+
+        <div
+          onMouseDown={(e) => {
+            e.preventDefault()
+            setIsDraggingColSplitter(true)
+          }}
+          title="Drag to resize evidence and PDF panels"
+          className="z-20 flex w-2 shrink-0 cursor-col-resize items-center justify-center bg-slate-300 transition-colors hover:bg-indigo-400 active:bg-indigo-600 group"
+        >
+          <div className="h-10 w-1 rounded-full bg-slate-400 group-hover:bg-white" />
+        </div>
 
         <section
           id="right-validation-pane"
@@ -282,7 +320,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           <div
             onMouseDown={(e) => {
               e.preventDefault()
-              setIsDraggingSplitter(true)
+              setIsDraggingRowSplitter(true)
             }}
             title="Drag to resize PDF and validation tools"
             className="z-20 flex h-2 shrink-0 cursor-row-resize items-center justify-center bg-slate-300 transition-colors hover:bg-indigo-400 active:bg-indigo-600 group"

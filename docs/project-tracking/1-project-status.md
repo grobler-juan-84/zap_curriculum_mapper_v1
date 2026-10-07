@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 37  
+**Last updated:** Step 38  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
 - Hybrid Supabase catalog + private Storage for pilot batch JSON, cover imagery, and source PDFs.
 - Curriculum UI loads series/books from Supabase; covers via signed URLs.
-- `/app/validation`: unit JSON from Storage; source PDFs via short-lived signed URLs + PDF.js two-page viewer (unit first page on the left).
+- `/app/validation`: unit JSON + PDF.js viewer; drag to resize left/right and PDF/tools panes.
 
 ## Current status
 
-Four pilot PDFs are in private `book-sources` with `book_files` `source_pdf` rows. Unit jumps open the unit’s first printed page on the left (e.g. Beehive Unit 2 → 26 | 27). Apply `20261007160000_seed_source_pdf_book_files.sql` on remote if pointers were only upserted via the upload script.
+Validation workspace matches the familiar split-pane UX: vertical divider between evidence and PDF+tools (22–50% left), horizontal divider between PDF and tools (unchanged).
 
 ## Next small step
 
-**Suggestion:** Spot-check Validation PDF jumps for odd- and even-start units, then continue RH2A Unit 4 review / cover_path stamp / canonical merges.
+**Suggestion:** Spot-check resize + unit page jumps on Beehive/Big English, then continue RH2A Unit 4 review.

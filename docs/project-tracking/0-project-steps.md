@@ -606,3 +606,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 38
+
+**Summary:** Added a draggable vertical divider between Validation left (JSON evidence) and right (PDF + tools), mirroring the existing top/bottom resize pattern (left width clamped 22–50%).
+
+**Files touched:**
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
