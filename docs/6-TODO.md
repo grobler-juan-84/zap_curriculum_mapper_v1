@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 49  
+**Last updated:** Step 50  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -16,19 +16,20 @@
 - [x] Show `canonical_json` in Validation + unit-scoped slices over one canonical file.
 - [x] Owner PDF spot-check → **audit PASSED**; BE1-SB Phase 1 COMPLETE (`dataset_versions` verified).
 - [x] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
-- [ ] Owner sign-off on [`phase-1/Cross_Series_Schema_Review_Notes.md`](./phase-1/Cross_Series_Schema_Review_Notes.md) (§8 questions / CONTINUE vs 0.2).
+- [x] Owner accepts schema review working recommendations (§7: continue 0.1; classify gaps; defer 0.2).
+- [ ] Document / implement `book_id` alias map + merge-time normalization (before further canonical scaling).
 
 ## Next
 
-- [ ] Document / fix internal `book_id` drift (`bep1_sb` vs `big_english_1_sb`, etc.) before further canonical merges.
 - [ ] Canonical merge for BH1 (and other verified pilots) using `scripts/merge_canonical_book.mjs`.
+- [ ] Whole-book audit for newly merged pilot canonicals.
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
 
 ## Soon
 
-- [ ] If 0.2 accepted: patch JSON schema + extraction prompt for additive fields.
+- [ ] After remaining pilot merges/audits: draft 0.2 candidate only for changes with sufficient evidence.
 - [ ] Persist Validation session notes (optional).
-- [ ] Draft remaining-book extraction order after schema review sign-off.
+- [ ] Draft remaining-book extraction order after post-pilot schema pass.
 
 ---
 

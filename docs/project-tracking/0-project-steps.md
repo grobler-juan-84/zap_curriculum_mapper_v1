@@ -803,3 +803,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 50
+
+**Summary:** Incorporated owner-accepted schema review working recommendations: continue on 0.1, treat gaps as classification evidence, defer 0.2 until after remaining pilot merges/audits, prioritize book_id alias map.
+
+**Files touched:**
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

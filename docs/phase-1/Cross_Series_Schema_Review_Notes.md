@@ -1,12 +1,14 @@
 # Cross-Series Schema Review Notes (initial draft)
 
 **Status:** ACTIVE  
-**Version:** 0.1-draft  
+**Version:** 0.2-draft  
 **Date:** 2026-10-07  
 **Schema under review:** Phase 1 JSON schema **0.1** ([`JSON_Schema.md`](./JSON_Schema.md))  
 **Purpose:** First formal cross-series challenge of schema 0.1 using the Storage-backed pilot set, before large-scale remaining-book extraction.
 
 **Related:** [`Dataset_registry.md`](./Dataset_registry.md) §13–14 · [`Extraction_Data_Specification.md`](./Extraction_Data_Specification.md) · brainstorming entry “Schema gaps before more books”
+
+**Working recommendations:** Owner-accepted 2026-10-07 (§7). Schema version remains **0.1** until post-pilot evidence supports a 0.2 candidate.
 
 ---
 
@@ -27,11 +29,9 @@ This is a **draft review**, not a schema bump. No LOCKED decision yet to change 
 
 **Schema 0.1 is good enough to continue pilot work** (canonical merges for BH1 / BE2-SB / RH2A, Validation, audits).
 
-It is **not** yet safe to treat as “done” for all 18 books. Recurring pedagogical structures are still forced into notes/generic activities/components.
+Do **not** pause for a schema rewrite. Do **not** invent a separate schema per series.
 
-**Recommended path (hybrid):** keep extracting/merging on 0.1, and prepare a **small additive schema patch (0.1 → 0.2 candidate)** for the highest-frequency gaps below — then decide CONTINUE vs ADJUST before remaining-book scale-up.
-
-Do **not** invent a separate schema per series.
+`schema_gaps` are **classification evidence**: they record structures that 0.1 does not model cleanly. They are **not** automatic candidates for universal schema expansion. Recurring structures should be classified as universal/common-core, series-specific, or book/source-specific (§7). A **0.2 candidate** is deferred until after the remaining pilot books are merged and audited, and only for changes with sufficient evidence.
 
 ---
 
@@ -75,7 +75,7 @@ Same pedagogical idea, different labels (examples):
 | CLIL | `CLIL` component | `clil` / `clil_math` | less CLIL-centric; more `study_skills` / `reading` |
 | Wrap-up | `review` / `project` | `review` / `assessment` / `values` | `unit_review` / `unit_wrapup` / `writing_project_*` |
 
-**Implication:** Do not freeze a closed enum of `section_type` yet. Prefer controlled vocabulary guidance + allow series-local strings until mapping tables exist (Phase 2+).
+**Implication:** Do not freeze a closed enum of `section_type` yet. Prefer controlled vocabulary guidance + allow series-local strings until mapping tables exist (Phase 2+). Within a series, prefer consistent labels where the structure recurs.
 
 ### 4.3 Identifier / naming drift (operational, high priority)
 
@@ -86,19 +86,21 @@ Same pedagogical idea, different labels (examples):
 | BE2-SB | `big_english_2_sb` | `bep_sb_2` | `bep2_unit_01` |
 | RH2A | `reach_higher_2a` | mixed `rh_2a` (U1–3) / `reach_higher_2a` (U4) | mixed |
 
-**Implication:** Fix with an explicit alias map + merge-time normalization (already on TODO). Not a reason to redesign entity arrays.
+**Implication:** Resolve an explicit **book_id alias map** before further canonical scaling. Stable identity affects storage, catalog joins, and future application architecture independently of curriculum schema design.
 
 ### 4.4 Continuous text depth
 
-Reach Higher long readings are sometimes summarized rather than fully recited (documented open issues). Schema supports full text; extraction practice needs a clearer rule for long passages (full vs structured summary + page anchors).
+Reach Higher long readings are sometimes summarized rather than fully recited (documented open issues). Schema supports full text; extraction practice needs a clearer rule for long passages (full vs structured summary + page anchors). Treat as process/evidence policy, not an automatic schema change.
 
 ---
 
-## 5. Schema-gap themes (clustered)
+## 5. Schema-gap themes (clustered — classification evidence)
 
 Registry counts: BH1 **8** · BE1-SB **1** · BE2-SB **0** · RH2A **5**.
 
-### Theme A — Values / SEL / reflective discussion (cross-series)
+Provisional scope labels below follow §7 classification. They do **not** mean “add to universal schema now.”
+
+### Theme A — Values / SEL / reflective discussion
 
 | Source | Evidence |
 |---|---|
@@ -107,43 +109,39 @@ Registry counts: BH1 **8** · BE1-SB **1** · BE2-SB **0** · RH2A **5**.
 | BE2 | Values/culture appear as components; no formal gap logged on U01 sample |
 | RH2A | Inquiry/reflection via Big Question + Think and Respond activities (partially modelled as activities) |
 
-**Problem:** Forced into generic `curriculum_components`, `activities`, or notes; weak for filtering “reflection / values / SEL” across books.
+**Provisional classification:** mixture — BH1 Think–Feel–Grow and BE Think Big look **series-specific** (related pedagogically, not identical); cross-series “reflection” as a shared abstract type is **not yet proven common-core**.
 
-**Candidate additive fix (0.2 sketch):**
+**If ever considered for 0.2 (post-pilot):** only with more within-series + cross-series recurrence evidence. Sketch options (not adopted): `activities[].sub_feature_type` vs a heavier `reflection_prompts[]` array.
 
-- Prefer **one** flexible mechanism, not three series-specific tables:
-  - Option 1 (lean): `activities[].sub_feature_type` enum/string (`think_feel_grow`, `think_big`, `values_prompt`, …) **plus** optional `prompt` / `competency_label`
-  - Option 2: optional `reflection_prompts[]` top-level array (heavier)
-
-**Lean:** Option 1 first (matches BE1 proposal; can absorb BH1 Think–Feel–Grow without a new entity).
-
-### Theme B — Unit-level inquiry / Big Question (RH-led, possibly reusable)
+### Theme B — Unit-level inquiry / Big Question
 
 | Source | Evidence |
 |---|---|
 | RH2A | Unit Big Question drives opener → readings → wrap-up (`rh_2a_u01_gap_0001`) |
 
-**Candidate additive fix:** optional `units[].inquiry_question` (string) and/or `units[].inquiry_question_id` linking a language/component record.
+**Provisional classification:** **series-specific** (Reach Higher), unless later books show the same inquiry spine.
 
-Scope estimate in data: `series_specific`, but Beehive essential questions / BE themes may benefit later.
+**If ever considered for 0.2 (post-pilot):** optional `units[].inquiry_question` is one sketch; keep as gap until recurrence justifies it.
 
-### Theme C — Embedded reading checkpoints (RH-led, possibly universal)
+### Theme C — Embedded reading checkpoints
 
 | Source | Evidence |
 |---|---|
 | RH2A | In-text **Before You Continue / Preview / Predict** (`rh_2a_u01_gap_0002`) |
 
-**Problem:** Modelling as standalone activities loses position inside `continuous_text`.
+**Provisional classification:** **series-specific** for now; *possibly* universal later if other series embed mid-text reading prompts the same way.
 
-**Candidate additive fix:** `continuous_text[].checkpoints[]` with `{ anchor_note, printed_page, prompt, checkpoint_type }`.
+**If ever considered for 0.2 (post-pilot):** `continuous_text[].checkpoints[]` is one sketch.
 
-### Theme D — Source glossary / student-facing gloss (RH-led, possibly universal)
+### Theme D — Source glossary / student-facing gloss
 
 | Source | Evidence |
 |---|---|
 | RH2A | Page-foot simplified definitions (`rh_2a_u01_gap_0003`) |
 
-**Candidate additive fix:** optional `vocabulary[].source_gloss` (or `student_definition`) string.
+**Provisional classification:** **series-specific** (or book/source-specific) until glosses appear as a recurring cross-series need.
+
+**If ever considered for 0.2 (post-pilot):** optional `vocabulary[].source_gloss` is one sketch.
 
 ### Theme E — Non-gaps that look like gaps
 
@@ -159,40 +157,44 @@ Scope estimate in data: `series_specific`, but Beehive essential questions / BE 
 
 BE2 Unit 1 shows the same Big English spine as BE1 (vocab → song/story → grammar → CLIL → culture/values → phonics → review) with **0 schema_gaps** on the sample unit.
 
-**Implication:** Within-series vertical continuity looks healthy. Cross-series stress is dominated by **Beehive SEL** + **Reach Higher inquiry/reading scaffolds**, not by BE1→BE2 level hop.
+**Implication:** Within-series vertical continuity looks healthy — prioritize consistent representation inside Big English (and similarly inside Beehive / Reach Higher) while preserving genuine level/book differences. Cross-series stress is dominated by Beehive SEL features and Reach Higher inquiry/reading scaffolds, not by the BE1→BE2 level hop.
 
 ---
 
 ## 7. Proposed working recommendations
 
-Until an owner lock:
+**Owner-accepted 2026-10-07:**
 
-1. **Continue** BH1 / BE2 / RH2A canonical merges and audits on schema **0.1**.
-2. **Do not** pause the pilot for a full schema rewrite.
-3. Draft an additive **0.2 candidate** covering Themes A–D only (fields above); keep `schema_gaps` for anything else.
-4. Resolve **book_id alias map** before more merges (blocks clean catalog joins more than gap themes do).
-5. After 0.2 candidate text exists, decide:
-   - **CONTINUE** remaining books on 0.1 and migrate later, or
-   - **ADJUST** prompt + schema to 0.2 before remaining-book scale-up.
-6. Keep automated validation **NOT RUN** as documented debt; structural audit packs remain the integrity gate.
-
----
-
-## 8. Open questions for owner
-
-1. Prefer **activity `sub_feature_type`** (lean) vs a dedicated reflection/SEL array for Think–Feel–Grow / Think Big?
-2. Is `units[].inquiry_question` enough for Reach Higher Big Question, or do you want a first-class component type?
-3. For long RH readings: require **full continuous_text** in Phase 1, or allow structured summary + page anchors when full recitation is impractical?
-4. When should 0.2 land relative to BH1 canonical merge — before, after, or parallel?
+1. Continue BH1 / BE2 / RH2A canonical merges and audits on schema 0.1.
+2. Do not pause the pilot for a schema rewrite.
+3. Treat current `schema_gaps` primarily as **classification evidence**, not automatic candidates for universal schema expansion.
+4. During cross-series review, classify recurring structures as:
+   - universal / common-core
+   - series-specific
+   - book / source-specific
+5. Prioritize consistent representation **within a series** where a structure recurs, while preserving genuine differences between levels and books.
+6. Resolve the **book_id alias map** before further canonical scaling because stable identity affects storage, catalog joins, and future application architecture independently of curriculum schema design.
+7. After the pilot books are merged and audited, review schema 0.1 and create a **0.2 candidate only** for changes supported by sufficient evidence. Do not promote every observed schema gap into the universal schema.
+8. Keep automated validation **NOT RUN** as documented debt; structural audit packs remain the current integrity gate.
 
 ---
 
-## 9. Next docs / code follow-ups (not done in this draft)
+## 8. Remaining open questions
 
-- [ ] Owner answers §8 → lock or reject additive fields (possible future decision entry).
-- [ ] If accepted: patch [`JSON_Schema.md`](./JSON_Schema.md) + [`Google_AI_Studio_Prompt.md`](./Google_AI_Studio_Prompt.md) for 0.2.
-- [ ] book_id alias map / merge-time normalization.
-- [ ] Update registry §13 “Schema Review” row from draft → COMPLETE when owner signs off.
+Recommendations in §7 are accepted. Still useful to decide later (not blocking merges):
+
+1. For long RH readings in Phase 1: require **full continuous_text**, or allow structured summary + page anchors when full recitation is impractical?
+2. When building the post-pilot 0.2 candidate: what minimum recurrence threshold counts as “sufficient evidence” (e.g. N books in a series, or appearance in ≥2 series)?
+
+---
+
+## 9. Next docs / code follow-ups
+
+- [x] Owner accepts working recommendations (§7).
+- [ ] book_id alias map / merge-time normalization (before further canonical scaling).
+- [ ] Canonical merge + audit for BH1, BE2-SB, RH2A on schema 0.1.
+- [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
+- [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.
 
 ---
 
@@ -200,4 +202,4 @@ Until an owner lock:
 
 > **Consistency without artificial uniformity.**
 
-Cross-series success means shared arrays and IDs where pedagogy aligns, plus explicit gap/additive fields where publishers intentionally differ — not forcing Reach Higher into a Beehive lesson template (or the reverse).
+Cross-series success means shared arrays and IDs where pedagogy aligns, series-consistent representation where structures recur inside a publisher line, and preserved `schema_gaps` (or later additive fields) where differences are genuine — not forcing Reach Higher into a Beehive lesson template (or the reverse), and not promoting every gap into the universal schema.

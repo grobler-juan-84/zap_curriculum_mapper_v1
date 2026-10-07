@@ -916,9 +916,9 @@ Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
 Next Major Checkpoints
-Owner sign-off on cross-series schema review draft (+ optional 0.2 additive fields)
-Canonical merge for BH1 / BE2-SB / RH2A
-book_id alias / merge-time normalization
+book_id alias / merge-time normalization (before further canonical scaling)
+Canonical merge + audit for BH1 / BE2-SB / RH2A on schema 0.1
+Post-pilot 0.2 candidate only if sufficient evidence (do not promote every schema_gap)
 ```
 
 ---

@@ -58,7 +58,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [phase-1/Extraction_Data_Specification.md](./phase-1/Extraction_Data_Specification.md) | Phase 1 data specification: what to extract from curriculum sources, what not to invent, book-truth rules, uncertainty handling, validation, and canonical dataset expectations. | — | ACTIVE |
 | [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
 | [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; BE1-SB Phase 1 COMPLETE; pilot Storage status; Phase 1 COMPLETE criteria. | — | ACTIVE |
-| [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Initial draft cross-series schema 0.1 review from BH1 / BE1-SB / BE2-SB / RH2A evidence; gap themes and additive 0.2 candidates. | 0.1-draft | ACTIVE |
+| [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Cross-series schema 0.1 review draft; owner-accepted working recommendations (gaps as classification evidence; 0.2 deferred post-pilot). | 0.2-draft | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
 
 ### Phase 4
