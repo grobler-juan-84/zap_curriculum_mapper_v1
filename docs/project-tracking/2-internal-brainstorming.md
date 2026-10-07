@@ -38,9 +38,9 @@ Current areas where brainstorming is especially useful:
 2. ID normalization across folder names vs internal `book_id` values (`beehive_american_sb1` vs `beehive_1_sb`, `bep1_sb`, RH mixed IDs).
 3. Canonical merge workflow after unit-batch human verification (first book to merge).
 4. When to run automated validation vs continue human review.
-5. Reach Higher Unit 4 review path vs prioritizing Beehive/Big English.
-6. Whether Validation UI as the primary verification surface should become a LOCKED decision (currently implementation-established, not locked).
-7. Whether to wire Book Workspace to Storage JSON or keep it as a separate prototype until Phase 2+.
+5. Whether Validation UI as the primary verification surface should become a LOCKED decision (currently implementation-established, not locked).
+6. Whether to wire Book Workspace to Storage JSON or keep it as a separate prototype until Phase 2+.
+7. First canonical merge candidate (BE1-SB vs BH1) and merge procedure.
 
 ---
 
@@ -218,6 +218,7 @@ App later LOADS that JSON from storage to display/edit
 |---|---|---|
 | 2026-10-05 | BE2 Unit 2 truncated batch | Full re-extraction replaced the file; pages/vocabulary/language restored; human-verified. |
 | 2026-10-07 | Pilot extraction quality | Owner judgement: satisfactory to continue; Phase 1 still not COMPLETE (see Dataset Registry §14). |
+| 2026-10-07 | BH1 U9–10 + RH2A U4 verification | Marked `verified` in `book_files`; registry human verification COMPLETE for BH1 and RH2A. |
 
 ---
 

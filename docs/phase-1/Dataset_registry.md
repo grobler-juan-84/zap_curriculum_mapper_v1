@@ -179,7 +179,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 
 | ID | Series | Level | Book Type | Source | Extraction | Validation | Human Verification | Whole-Book Audit | Canonical JSON | Schema | Open Issues | Schema Gaps | Phase 1 |
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
-| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
+| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -193,7 +193,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-WB | Big English | 6 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL | NOT STARTED | NOT CREATED | 0.1 | 14 | 5 | IN PROGRESS |
+| RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 14 | 5 | IN PROGRESS |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH4A | Reach Higher | 4A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -300,8 +300,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Extraction Status:** EXTRACTED (unit batches `01–10`)  
 **Batch Path:** `data/phase1/beehive_1_sb/`  
 **Automated Validation:** NOT RUN  
-**Human Verification:** PARTIAL  
-**Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality. Units 9–10 added (`pending`) — At Home / At the Farm — not yet human-verified in Validation.  
+**Human Verification:** COMPLETE  
+**Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality. Units 9–10 (At Home / At the Farm) human-verified in Validation (2026-10-07); all unit `book_files.status` = `verified`.  
 **Whole-Book Audit:** NOT STARTED  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
@@ -309,14 +309,14 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 31 (mostly `audio_required` / `missing_source` workbook refs — documented, left open; Units 9–10 not yet audited)  
+**Open Issues:** 31 (mostly `audio_required` / `missing_source` workbook refs — documented, left open)  
 **Schema Gaps:** 8 (recurring SEL / Think–Feel–Grow gap across units — pending schema review)  
 
 ### Notes
 
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
-- Beehive 1 has all 10 unit batches in Storage; Units 9–10 remain `pending` in Validation.
-- First-iteration verification of earlier units supports the 2026-10-07 quality checkpoint (§14): extraction is satisfactory to continue, while Phase 1 stays open/iterative.
+- Beehive 1 has all 10 unit batches in Storage with human verification COMPLETE at unit-batch level.
+- First-iteration verification supports the 2026-10-07 quality checkpoint (§14): extraction is satisfactory to continue, while Phase 1 stays open/iterative.
 
 ---
 
@@ -396,8 +396,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 **Extraction Status:** EXTRACTED (units `1–4`; Unit 4 consolidated to `rh2a_sb_unit4.json` from former part1/part2 split)
 **Automated Validation:** NOT RUN
-**Human Verification:** PARTIAL
-**Verification Notes:** Units 1–3 reviewed and accepted (2026-10-05). Unit 4 merged into one file (2026-10-06) — not yet human-verified; continuous-text stories may be structurally summarized rather than full recitation.
+**Human Verification:** COMPLETE
+**Verification Notes:** Units 1–3 reviewed and accepted (2026-10-05). Unit 4 merged into one file (2026-10-06) and human-verified in Validation (2026-10-07); all unit `book_files.status` = `verified`. Continuous-text stories may remain structurally summarized rather than full recitation (documented open issues).
 **Whole-Book Audit:** NOT STARTED
 **Canonical Dataset:** NOT CREATED
 **Phase 1 Status:** IN PROGRESS
@@ -410,7 +410,6 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Notes
 
-- Do not mark human verification COMPLETE until Unit 4 is reviewed.
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
 - Unit 4 part1/part2 batch files were merged into `rh2a_sb_unit4.json` (pp. 212–279).
 - Source PDF in private `book-sources` (`reach-higher/reach_higher_2a/source.pdf`) replaced 2026-10-07 with the full Student Book file (was previously units 1–2 only).
@@ -513,9 +512,9 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 
 | Order | Book | Purpose | Status |
 |---:|---|---|---|
-| 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED (units 01–10); units 1–8 verified, 9–10 pending Validation (canonical merge / whole-book audit pending) |
+| 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED (units 01–10) + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED (`rh2a_sb_unit4.json`); UNITS 1–3 HUMAN-VERIFIED; UNIT 4 NOT YET REVIEWED |
+| 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 5 | Schema Review | Review findings across pilot series | NOT STARTED (extraction quality checkpoint accepted — see §14) |
 
@@ -557,7 +556,7 @@ Observed for the pilot set:
 
 **Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
 
-**Still not Phase 1 COMPLETE for any book** — canonical merge, whole-book audit, automated validation, and formal schema review are outstanding. Remaining unit-level gaps (BH1 U9–10 pending; RH2A U4 needs review) should be closed when convenient, but do not block recording this quality judgement.
+**Still not Phase 1 COMPLETE for any book** — canonical merge, whole-book audit, automated validation, and formal schema review are outstanding. Unit-batch human verification for the Storage-backed pilot books (BH1, BE1-SB, BE2-SB, RH2A) is now COMPLETE.
 
 Phase 1 remains iterative: later linguistic interpretation or curriculum mapping may expose missing evidence and require returning to Phase 1.
 
@@ -666,7 +665,7 @@ Update this section as books progress.
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
 | Canonical Datasets Created | 0 |
-| Human Verification Complete | 2 |
+| Human Verification Complete | 4 |
 | Whole-Book Audits Passed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -907,16 +906,15 @@ Phase 1 Complete
 0 / 18
 
 Storage-backed pilot books
-Beehive 1 (units 01–10; human verification PARTIAL)
+Beehive 1 (units 01–10; human verification COMPLETE)
 Big English 1 SB (units 01–09; human verification COMPLETE)
 Big English 2 SB (units 01–09; human verification COMPLETE)
-Reach Higher 2A (units 1–4; human verification PARTIAL)
+Reach Higher 2A (units 1–4; human verification COMPLETE)
 
 Verification UI
 React /app/validation (JSON + source PDF)
 
 Next Major Checkpoints
-Close remaining unit reviews (BH1 U9–10, RH2A U4) when convenient
 Initial Cross-Series Schema Review
 First canonical merge for one pilot book
 ```

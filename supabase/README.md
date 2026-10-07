@@ -16,6 +16,7 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261007150000_books_cover_path.sql` | Adds `books.cover_path` for student-book cover images |
 | `migrations/20261007160000_seed_source_pdf_book_files.sql` | Seeds `book_files` `source_pdf` pointers for the four pilot books |
 | `migrations/20261007170000_seed_beehive_1_units_09_10.sql` | Seeds Beehive 1 `batch_json` pointers for Units 9–10 |
+| `migrations/20261007180000_verify_bh1_u09_u10_rh2a.sql` | Sets BH1 Units 9–10 and all RH2A unit batches to `verified` |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
 

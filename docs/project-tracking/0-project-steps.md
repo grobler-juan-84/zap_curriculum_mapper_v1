@@ -688,3 +688,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 43
+
+**Summary:** Marked Beehive 1 Units 9–10 and all Reach Higher 2A unit batches as `verified` in Supabase `book_files`, and updated Dataset Registry / trackers so pilot human verification is COMPLETE for BH1 and RH2A (Phase 1 still not COMPLETE — no canonical merge yet).
+
+**Files touched:**
+- `supabase/migrations/20261007180000_verify_bh1_u09_u10_rh2a.sql` (created)
+- `supabase/migrations/20261007170000_seed_beehive_1_units_09_10.sql` (updated)
+- `supabase/migrations/20261007131000_seed_pilot_catalog.sql` (updated — RH2A Unit 4 seed status)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/mark_batches_verified.mjs` (created)
+- `supabase/README.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

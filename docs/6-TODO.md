@@ -2,16 +2,15 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 42  
+**Last updated:** Step 43  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
-- [ ] Choose next Phase 1 checkpoint: **schema review notes** (BH1 / BE1 / RH2A [/ BE2]) **or** **first canonical merge** (BE1-SB recommended).
-- [ ] Promote Validation admin user if needed (`profiles.role = admin`) so status buttons write.
-- [ ] When convenient: human-verify BH1 Units 9–10 and RH2A Unit 4; update `book_files.status`.
+- [ ] Choose next Phase 1 checkpoint: **schema review notes** (BH1 / BE1 / RH2A [/ BE2]) **or** **first canonical merge** (BE1-SB or BH1 recommended).
+- [x] Human-verify BH1 Units 9–10 and RH2A Unit 4; set `book_files.status` to `verified`.
 
 ## Next
 

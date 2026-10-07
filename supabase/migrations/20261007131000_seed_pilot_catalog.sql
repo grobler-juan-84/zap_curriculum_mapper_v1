@@ -178,7 +178,7 @@ with batch_rows (
     ('reach_higher_2a', 'Unit 1', 'rh2a_sb_unit1.json', 'reach-higher/reach_higher_2a/batches/unit_01.json', 'verified'),
     ('reach_higher_2a', 'Unit 2', 'rh2a_sb_unit2.json', 'reach-higher/reach_higher_2a/batches/unit_02.json', 'verified'),
     ('reach_higher_2a', 'Unit 3', 'rh2a_sb_unit3.json', 'reach-higher/reach_higher_2a/batches/unit_03.json', 'verified'),
-    ('reach_higher_2a', 'Unit 4', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json', 'needs_review')
+    ('reach_higher_2a', 'Unit 4', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json', 'verified')
 )
 insert into public.book_files (
   book_id,

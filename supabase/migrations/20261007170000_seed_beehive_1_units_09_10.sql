@@ -10,8 +10,8 @@ with batch_rows (
   file_status
 ) as (
   values
-    ('beehive_1_sb', 'Unit 9', 'beehive_1_sb_unit_09.json', 'beehive/beehive_1_sb/batches/unit_09.json', 'pending'),
-    ('beehive_1_sb', 'Unit 10', 'beehive_1_sb_unit_10.json', 'beehive/beehive_1_sb/batches/unit_10.json', 'pending')
+    ('beehive_1_sb', 'Unit 9', 'beehive_1_sb_unit_09.json', 'beehive/beehive_1_sb/batches/unit_09.json', 'verified'),
+    ('beehive_1_sb', 'Unit 10', 'beehive_1_sb_unit_10.json', 'beehive/beehive_1_sb/batches/unit_10.json', 'verified')
 )
 insert into public.book_files (
   book_id,

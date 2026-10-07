@@ -36,8 +36,8 @@ const BATCHES = [
   ['beehive_1_sb', 'beehive_1_sb_unit_06.json', 'beehive/beehive_1_sb/batches/unit_06.json', 'Unit 6', 'verified'],
   ['beehive_1_sb', 'beehive_1_sb_unit_07.json', 'beehive/beehive_1_sb/batches/unit_07.json', 'Unit 7', 'verified'],
   ['beehive_1_sb', 'beehive_1_sb_unit_08.json', 'beehive/beehive_1_sb/batches/unit_08.json', 'Unit 8', 'verified'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_09.json', 'beehive/beehive_1_sb/batches/unit_09.json', 'Unit 9', 'pending'],
-  ['beehive_1_sb', 'beehive_1_sb_unit_10.json', 'beehive/beehive_1_sb/batches/unit_10.json', 'Unit 10', 'pending'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_09.json', 'beehive/beehive_1_sb/batches/unit_09.json', 'Unit 9', 'verified'],
+  ['beehive_1_sb', 'beehive_1_sb_unit_10.json', 'beehive/beehive_1_sb/batches/unit_10.json', 'Unit 10', 'verified'],
   ['big_english_1_sb', 'big_english_1_sb_unit_01.json', 'big-english/big_english_1_sb/batches/unit_01.json', 'Unit 1', 'verified'],
   ['big_english_1_sb', 'big_english_1_sb_unit_02.json', 'big-english/big_english_1_sb/batches/unit_02.json', 'Unit 2', 'verified'],
   ['big_english_1_sb', 'big_english_1_sb_unit_03.json', 'big-english/big_english_1_sb/batches/unit_03.json', 'Unit 3', 'verified'],
@@ -59,7 +59,7 @@ const BATCHES = [
   ['reach_higher_2a', 'rh2a_sb_unit1.json', 'reach-higher/reach_higher_2a/batches/unit_01.json', 'Unit 1', 'verified'],
   ['reach_higher_2a', 'rh2a_sb_unit2.json', 'reach-higher/reach_higher_2a/batches/unit_02.json', 'Unit 2', 'verified'],
   ['reach_higher_2a', 'rh2a_sb_unit3.json', 'reach-higher/reach_higher_2a/batches/unit_03.json', 'Unit 3', 'verified'],
-  ['reach_higher_2a', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json', 'Unit 4', 'needs_review'],
+  ['reach_higher_2a', 'rh2a_sb_unit4.json', 'reach-higher/reach_higher_2a/batches/unit_04.json', 'Unit 4', 'verified'],
 ]
 
 function loadEnvFile(path) {

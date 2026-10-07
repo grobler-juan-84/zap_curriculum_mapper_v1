@@ -2,20 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 42  
+**Last updated:** Step 43  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
-- React app with Auth, live Supabase catalog, and Validation workspace over Storage JSON/PDFs.
-- Pilot Phase 1 unit batches + source PDFs for BH1, BE1-SB, BE2-SB, RH2A.
-- Documentation brought into alignment with repository evidence (Step 42 audit).
-- Extraction quality judged satisfactory to continue; Phase 1 still open (no COMPLETE books).
+- React app with Auth, live Supabase catalog, and Validation over Storage JSON/PDFs.
+- Pilot unit batches for BH1, BE1-SB, BE2-SB, RH2A — all unit-batch human verification COMPLETE (BH1 U9–10 and RH2A U4 verified 2026-10-07).
 
 ## Current status
 
-Infrastructure and first-iteration verification for the cross-series pilot are in place. Remaining Phase 1 work is lifecycle (unit cleanup, schema review, canonical merge, whole-book audit), not greenfield extraction setup.
+Pilot extraction + Storage + unit-level human verification are done for the four Storage-backed books. Phase 1 COMPLETE still requires canonical merge + whole-book audit per book. Next work is schema review and/or first canonical merge.
 
 ## Next small step
 
-**Suggestion:** Choose and execute **one**: (A) draft initial cross-series schema review notes from BH1 / BE1 / RH2A, or (B) merge the first canonical book JSON for BE1-SB (human verification already COMPLETE).
+**Suggestion:** Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]), or merge the first canonical book JSON (BE1-SB or BH1).
