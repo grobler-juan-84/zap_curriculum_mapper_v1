@@ -200,13 +200,26 @@ export const validationService = {
 
   async updateBatchStatus(batchId: string, status: BookFileStatus): Promise<void> {
     const client = requireClient()
-    const { error } = await client.from('book_files').update({ status }).eq('id', batchId)
+    // Prefer returning the row: RLS-denied updates often succeed with 0 rows and no error.
+    const { data, error } = await client
+      .from('book_files')
+      .update({ status })
+      .eq('id', batchId)
+      .select('id')
+      .maybeSingle()
+
     if (error) {
       const code = 'code' in error ? String((error as { code?: string }).code ?? '') : ''
       throw new Error(
         /policy|permission|rls|42501/i.test(`${error.message} ${code}`)
-          ? 'Status update requires an admin profile (RLS). Sign in as admin or update via SQL.'
+          ? 'Status update requires an admin profile (RLS). Set profiles.role = admin for your user.'
           : error.message,
+      )
+    }
+
+    if (!data) {
+      throw new Error(
+        'Status was not saved. Your account needs profiles.role = admin (RLS blocks non-admin writes).',
       )
     }
   },

@@ -20,6 +20,19 @@ Apply to the remote project manually (Dashboard SQL editor, or `supabase link` +
 
 Apply in timestamp order. If the catalog migration was already applied without `label`/`status`, the `20261007130000_…` migration adds those columns. Apply `20261007140000_…` so authenticated clients can read cover images and `cover_path` is stored on series rows. Apply `20261007150000_…` for per-book cover paths.
 
+### Promote a user to admin (Validation status writes)
+
+Catalog writes (including `book_files.status` from `/app/validation`) require `profiles.role = 'admin'`. New signups default to `teacher`. In the Supabase SQL editor:
+
+```sql
+-- Replace with your auth user id from Authentication → Users
+update public.profiles
+set role = 'admin'
+where id = '00000000-0000-0000-0000-000000000000';
+```
+
+Then refresh the app (or sign out/in) so the client reloads your profile.
+
 Frontend public env vars live in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
 
 Server-side scripts may also read `SUPABASE_SERVICE_ROLE_KEY` (never prefix with `VITE_`; never commit). Prefer keeping the service-role key in a root `.env` / `.env.local` rather than a Vite-loaded file long-term.

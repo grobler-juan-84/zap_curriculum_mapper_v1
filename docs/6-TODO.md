@@ -2,16 +2,16 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 38  
+**Last updated:** Step 39  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
+- [ ] Promote your signed-in user to `profiles.role = admin` (see `supabase/README.md`), refresh Validation, confirm status buttons update `book_files.status`.
 - [ ] Apply `supabase/migrations/20261007150000_books_cover_path.sql` in the Supabase SQL editor if not applied; re-run book cover upload once paths are stamped.
-- [ ] Open `/app/validation` while signed in and confirm unit batches load from Storage for a pilot book.
-- [ ] Human-verify RH2A Unit 4 in Validation; set `book_files.status` to `verified` (admin profile required for writes).
+- [ ] Human-verify RH2A Unit 4 in Validation; set `book_files.status` to `verified`.
 
 ## Next
 

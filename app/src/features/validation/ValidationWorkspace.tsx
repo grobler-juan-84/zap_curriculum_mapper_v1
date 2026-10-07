@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { useAuth } from '../auth/AuthProvider'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch, BookFileStatus } from '../../types/validation'
 import { validationService } from '../../services/validationService'
@@ -24,6 +25,9 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   onSelectBook,
   onBackToBooks,
 }) => {
+  const { profile } = useAuth()
+  const canWriteStatus = profile?.role === 'admin'
+
   const [batches, setBatches] = useState<BookFileBatch[]>([])
   const [selectedBatchId, setSelectedBatchId] = useState('')
   const [batchesLoading, setBatchesLoading] = useState(true)
@@ -337,6 +341,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
               batch={currentBatch}
               saving={statusSaving}
               error={statusError}
+              canWriteStatus={canWriteStatus}
               onSetStatus={handleSetStatus}
             />
           </div>

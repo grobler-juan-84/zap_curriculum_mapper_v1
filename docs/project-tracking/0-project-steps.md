@@ -618,3 +618,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 39
+
+**Summary:** Fixed silent Validation status writes: detect RLS 0-row updates, warn/disable status buttons for non-admins, and document promote-to-admin SQL.
+
+**Files touched:**
+- `app/src/services/validationService.ts` (updated)
+- `app/src/features/validation/ValidationToolsPanel.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `supabase/README.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

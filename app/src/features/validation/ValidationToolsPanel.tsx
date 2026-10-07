@@ -6,6 +6,8 @@ interface ValidationToolsPanelProps {
   batch: BookFileBatch | null
   saving: boolean
   error: string | null
+  /** RLS allows book_files writes only for profiles.role = admin. */
+  canWriteStatus: boolean
   onSetStatus: (status: BookFileStatus) => void
 }
 
@@ -43,6 +45,7 @@ export const ValidationToolsPanel: React.FC<ValidationToolsPanelProps> = ({
   batch,
   saving,
   error,
+  canWriteStatus,
   onSetStatus,
 }) => {
   const [notes, setNotes] = useState('')
@@ -67,6 +70,16 @@ export const ValidationToolsPanel: React.FC<ValidationToolsPanelProps> = ({
           <p className="text-sm text-slate-500">No unit batch selected.</p>
         ) : (
           <>
+            {!canWriteStatus ? (
+              <div className="rounded border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+                Status cannot be saved with your current role. In Supabase SQL, run{' '}
+                <code className="text-[11px]">
+                  update public.profiles set role = &apos;admin&apos; where id = auth.uid();
+                </code>{' '}
+                (or set role for your user id), then refresh.
+              </div>
+            ) : null}
+
             <div>
               <p className="mb-2 text-[11px] font-semibold tracking-wide text-slate-500 uppercase">
                 Set verification status
@@ -79,7 +92,7 @@ export const ValidationToolsPanel: React.FC<ValidationToolsPanelProps> = ({
                     <button
                       key={option.value}
                       type="button"
-                      disabled={saving}
+                      disabled={saving || !canWriteStatus}
                       onClick={() => onSetStatus(option.value)}
                       className={`rounded-md border px-3 py-2 text-left transition-colors disabled:opacity-60 ${
                         active
@@ -120,8 +133,8 @@ export const ValidationToolsPanel: React.FC<ValidationToolsPanelProps> = ({
                 className="w-full resize-none rounded border border-slate-300 bg-white px-2.5 py-2 text-xs text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
               />
               <p className="mt-1 text-[11px] text-slate-400">
-                Status writes to Postgres when you are signed in as admin. Notes persistence can be added
-                later.
+                Status writes to <code className="text-[10px]">book_files.status</code> immediately when
+                you are signed in as admin. Notes persistence can be added later.
               </p>
             </div>
           </>
