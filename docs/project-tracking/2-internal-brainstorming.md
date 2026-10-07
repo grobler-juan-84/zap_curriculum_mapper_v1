@@ -212,6 +212,135 @@ App later LOADS that JSON from storage to display/edit
 
 ---
 
+### 2026-10-07 — Project-wide naming conventions and migration policy
+
+**Question:** What naming standard should govern new folders, files, code symbols, database/storage identifiers, and curriculum JSON so the project stops accumulating inconsistent abbreviations and casing?
+
+**Context:** The repository already has several strong conventions, but they differ by layer:
+
+- D007 locks catalog `book_id` as the Postgres / Storage / canonical-JSON identity while preserving legacy entity IDs.
+- JSON and SQL primarily use `snake_case`; Storage series slugs and app feature folders use `kebab-case`.
+- React components use `PascalCase`; hooks/functions use `camelCase`.
+- Existing docs mix spaces, kebab-case, underscores, and uppercase operating names.
+- Pilot extraction created inconsistent aliases/entity prefixes (`bep1_sb`, `bep_sb_2`, `bep1_*`, `bep2_*`, `rh_2a_*`).
+- Some code names overload identity meaning (`bookId` can mean a UUID or catalog string), and safe cosmetic debt remains (`assests`, mixed acronym casing).
+
+Nothing in this entry is binding until owner acceptance and promotion to the decision log.
+
+#### Recommended authority / location
+
+- Create **`docs/9-naming-conventions.md`** after acceptance.
+- Keep it at the docs root because it applies across all phases, code, infrastructure, Storage, and curriculum data.
+- Add an always-on Cursor rule at **`.cursor/rules/naming_conventions.mdc`** that summarizes the non-negotiable rules and links to the authority document.
+- Lock the accepted standard as **D009**; do not create D009 before owner sign-off.
+
+#### Proposed style matrix
+
+| Scope | Proposed convention | Examples / notes |
+|---|---|---|
+| Multiword repository / feature folders | lowercase `kebab-case` | `project-tracking`, `curriculum-library`; keep conventional `src`, `lib`, `scripts`, `schemas` |
+| New markdown docs | lowercase `kebab-case` | numbered root docs: `9-naming-conventions.md`; existing names audited later |
+| React components / pages / types | `PascalCase` | `ValidationWorkspace`, `BookFileBatch` |
+| Hooks / functions / variables | `camelCase` | `useTeacherAiResponses`, `catalogBookId` |
+| Acronyms in code identifiers | treat as words | `TeacherAiAssistant`, `pdfUrl`, `bookId`; all-caps reserved for constants/env |
+| Executable Node scripts | `snake_case.mjs` | `merge_canonical_book.mjs` |
+| Node/TS service and library modules | established `camelCase` | `phase1Validation.mjs`, `validationService.ts` |
+| Python files/packages | `snake_case` | ecosystem standard |
+| SQL tables/columns/migration suffixes | `snake_case` | timestamp prefix remains `YYYYMMDDHHMMSS_...sql` |
+| JSON keys / schema fields | `snake_case` | `book_id`, `continuous_text` |
+| Constants / environment variables | `UPPER_SNAKE_CASE` | only public browser values use `VITE_*`; never prefix service-role secrets with `VITE_` |
+| Storage bucket IDs / series slugs | lowercase `kebab-case` | `book-datasets`, `big-english`, `reach-higher` |
+| Cursor rule filenames | `snake_case.mdc` | `naming_conventions.mdc` |
+| Fixed Storage leaf names | stable lowercase names | `source.pdf`, `batches/unit_01.json`, `canonical/v1.json`, `cover.png` |
+
+#### Identity vocabulary (do not interchange)
+
+1. **Registry ID** — human/ops shorthand only: `BE1-SB`, `BH2`, `RH2B`.
+2. **Catalog `book_id`** — technical join/path identity in Postgres, Storage, app routing, and canonical JSON; full-word `snake_case`.
+3. **Series slug** — Storage path prefix in full-word `kebab-case`: `big-english`, `reach-higher`.
+4. **Postgres UUID** — database row identity; code should call it `bookUuid`, not ambiguous `bookId`.
+5. **Entity ID** — stable graph identity inside curriculum JSON; references must not be rewritten silently.
+
+Recommended explicit code names: `registryId`, `catalogBookId`, and `bookUuid`. Avoid bare `bookId` wherever its meaning is not unambiguous.
+
+#### Prospective catalog templates (preserve D007 identities)
+
+- Beehive: `beehive_{level}_sb`
+- Big English: `big_english_{level}_{sb|wb}`
+- Reach Higher: `reach_higher_{level}`
+
+Reach Higher intentionally omits `_sb` so future books remain consistent with locked `reach_higher_2a`. Do not create `reach_higher_2b_sb` while 2A remains `reach_higher_2a`.
+
+Registry IDs remain display shorthand and never become Storage folder names.
+
+#### Prospective entity IDs for newly extracted books
+
+Use the full catalog `book_id` as the prefix. Do not introduce new `bep`, `be`, or `rh` abbreviations:
+
+```text
+{catalog_book_id}_unit_{NN}
+{catalog_book_id}_page_{PPP}
+{catalog_book_id}_vocab_{NNNN}
+{catalog_book_id}_language_{NNNN}
+{catalog_book_id}_activity_{NNNN}
+{catalog_book_id}_text_{NNNN}
+{catalog_book_id}_component_{NNNN}
+{catalog_book_id}_relationship_{NNNN}
+{catalog_book_id}_issue_{NNNN}
+{catalog_book_id}_gap_{NNNN}
+```
+
+Use zero padding consistently. If a source requires more than one logical page record for the same printed page, retain the printed page in data and add a deterministic record suffix rather than creating a collision.
+
+Batch/local extraction filename:
+
+```text
+{catalog_book_id}_unit_{NN}.json
+```
+
+Storage stays:
+
+```text
+{series_slug}/{catalog_book_id}/batches/unit_{NN}.json
+{series_slug}/{catalog_book_id}/canonical/v{dataset_version}.json
+{series_slug}/{catalog_book_id}/source.pdf
+```
+
+#### Legacy / backward-audit policy
+
+- Grandfather all entity IDs, uploaded Storage keys, catalog IDs, and archival filenames for the four COMPLETE pilots.
+- D007 forbids silent entity-ID rewrites. Aliases remain explicit compatibility data in [`../phase-1/book_id_aliases.json`](../phase-1/book_id_aliases.json), not preferred new names.
+- Do not mass-rename before an inventory. Classify each finding as:
+  1. safe cosmetic rename;
+  2. mapper/alias cleanup;
+  3. versioned migration required;
+  4. accepted legacy exception.
+- Safe candidates include docs links/casing, code symbol ambiguity, acronym casing, local asset naming, and the `assests` typo.
+- Any canonical entity-ID migration needs a separate decision, old→new ID map, relationship rewrite, new dataset version, automated validation, and whole-book re-audit.
+
+#### Proposed implementation after owner acceptance
+
+1. Create `docs/9-naming-conventions.md` with scope, glossary, style matrix, approved abbreviations, book/JSON templates, legacy exceptions, and migration rules.
+2. Add D009 and the concise always-on Cursor rule.
+3. Update the extraction prompt, JSON schema guidance, Book ID Alias Map, and BE1-WB onboarding/profile to use the prospective standard.
+4. Add lightweight naming checks for books marked with the new policy; legacy pilots remain exempt.
+5. Run a read-only backward naming audit and propose risk-separated cleanup batches. No mass rename.
+
+**Owner acceptance needed later:**
+
+- approve `docs/9-naming-conventions.md` as the authority;
+- approve prospective lowercase-kebab documentation filenames;
+- approve full catalog IDs as new entity prefixes;
+- approve per-series catalog templates, especially Reach Higher without `_sb`;
+- approve the acronym-as-word code policy;
+- approve grandfathering pilot entity IDs instead of rewriting them.
+
+**Lean / notes:** Adopt the prospective standard before BE1-WB extraction. Preserve D007 pilot identities and handle backward cleanup separately by risk.
+
+**Status:** leaning — owner review required; not promoted or locked
+
+---
+
 ## Promoted / closed pointers
 
 | Date | Topic | Outcome |

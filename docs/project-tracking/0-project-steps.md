@@ -1022,3 +1022,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 62
+
+**Summary:** Drafted a non-binding project-wide naming proposal with style rules, explicit book-identity layers, prospective JSON ID templates, and a risk-aware legacy migration policy. Recorded owner review and formalization as the next task before BE1-WB preparation.
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
