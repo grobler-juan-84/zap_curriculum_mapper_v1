@@ -18,7 +18,7 @@
 |---|---|---|---|
 | BH1 | Beehive 1 SB | Canonical v1 + whole-book audit **PASSED**; spot-sampled U01 + U05 gaps | **COMPLETE** |
 | BE1-SB | Big English 1 SB | Canonical v1 (whole-book audit **PASSED**) | **COMPLETE** |
-| BE2-SB | Big English 2 SB | Canonical v1 CREATED; unit batches verified; spot-sampled U01 | IN PROGRESS (audit pending) |
+| BE2-SB | Big English 2 SB | Canonical v1 + whole-book audit **PASSED**; spot-sampled U01 | **COMPLETE** |
 | RH2A | Reach Higher 2A | Units 1–4 verified; spot-sampled U01 (+ U04 structure) | IN PROGRESS (canonical pending) |
 
 This is a **draft review**, not a schema bump. No LOCKED decision yet to change 0.1.
@@ -193,8 +193,8 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 - [x] Owner accepts working recommendations (§7).
 - [x] book_id alias map / merge-time normalization (D007; BE1-SB canonical fields normalized).
 - [x] Canonical merge + whole-book audit for BH1 on schema 0.1 (Phase 1 COMPLETE).
-- [x] Canonical merge for BE2-SB on schema 0.1 (audit still pending).
-- [ ] Canonical merge + audit for RH2A; BE2-SB whole-book audit.
+- [x] Canonical merge + whole-book audit for BE2-SB on schema 0.1 (Phase 1 COMPLETE).
+- [ ] Canonical merge + audit for RH2A on schema 0.1.
 - [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
 - [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.
 

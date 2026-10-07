@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 54  
+**Last updated:** Step 55  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -21,11 +21,11 @@
 - [x] Canonical merge for BH1 using `scripts/merge_canonical_book.mjs` (with book_id normalization).
 - [x] Whole-book audit for BH1 canonical (structural pack + owner PDF spot-check) → Phase 1 COMPLETE.
 - [x] Canonical merge for BE2-SB using `scripts/merge_canonical_book.mjs`.
-- [ ] Whole-book audit for BE2-SB canonical (structural pack + owner PDF spot-check).
+- [x] Whole-book audit for BE2-SB canonical → Phase 1 COMPLETE.
+- [ ] Canonical merge for RH2A using `scripts/merge_canonical_book.mjs`.
 
 ## Next
 
-- [ ] Canonical merge for RH2A.
 - [ ] Whole-book audit for RH2A canonical.
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
 

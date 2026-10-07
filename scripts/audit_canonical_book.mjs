@@ -36,6 +36,14 @@ const BOOKS = {
     expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     reportFile: 'BE1-SB_canonical_v1_audit.md',
   },
+  big_english_2_sb: {
+    catalogBookId: 'big_english_2_sb',
+    registryId: 'BE2-SB',
+    displayName: 'Big English 2 Student Book',
+    canonicalPath: 'big-english/big_english_2_sb/canonical/v1.json',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE2-SB_canonical_v1_audit.md',
+  },
 }
 
 const ID_FIELDS = {
