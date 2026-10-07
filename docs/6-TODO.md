@@ -2,16 +2,16 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 40  
+**Last updated:** Step 41  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
 
 ## Now
 
+- [ ] Refresh Validation for Reach Higher 2A and confirm the full source PDF (not units 1–2 only) loads for Units 3–4.
 - [ ] Refresh Validation for Beehive 1 and confirm Units 9–10 appear; human-verify and set `book_files.status`.
 - [ ] Promote your signed-in user to `profiles.role = admin` (see `supabase/README.md`) if status buttons are disabled.
-- [ ] Apply `supabase/migrations/20261007170000_seed_beehive_1_units_09_10.sql` on any remote that did not get rows via the upload upsert.
 - [ ] Human-verify RH2A Unit 4 in Validation; set `book_files.status` to `verified`.
 
 ## Next

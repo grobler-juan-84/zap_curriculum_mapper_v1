@@ -74,10 +74,32 @@ const supabase = createClient(url, serviceKey, {
   auth: { persistSession: false, autoRefreshToken: false },
 })
 
+const onlyFilter = (process.env.UPLOAD_ONLY || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean)
+
+const selected = onlyFilter.length
+  ? SOURCES.filter(([bookKey, localFilename, storagePath]) =>
+      onlyFilter.some(
+        (token) =>
+          bookKey === token ||
+          localFilename === token ||
+          localFilename.includes(token) ||
+          storagePath.includes(token),
+      ),
+    )
+  : SOURCES
+
+if (onlyFilter.length && selected.length === 0) {
+  console.error(`UPLOAD_ONLY matched no sources: ${onlyFilter.join(', ')}`)
+  process.exit(1)
+}
+
 let uploaded = 0
 let failed = 0
 
-for (const [bookKey, localFilename, storagePath] of SOURCES) {
+for (const [bookKey, localFilename, storagePath] of selected) {
   const localPath = join(root, 'book-sources', localFilename)
   if (!existsSync(localPath)) {
     console.error(`MISSING ${localPath}`)
@@ -138,5 +160,7 @@ for (const [bookKey, localFilename, storagePath] of SOURCES) {
   uploaded += 1
 }
 
-console.log(`\nDone. uploaded=${uploaded} failed=${failed} total=${SOURCES.length}`)
+console.log(
+  `\nDone. uploaded=${uploaded} failed=${failed} selected=${selected.length}`,
+)
 if (failed > 0) process.exit(1)

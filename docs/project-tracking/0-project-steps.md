@@ -650,3 +650,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 41
+
+**Summary:** Replaced the incomplete Reach Higher 2A source PDF in private `book-sources` with the full Student Book (~27.7 MB) and added `UPLOAD_ONLY` support to the source PDF upload script.
+
+**Files touched:**
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `supabase/README.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

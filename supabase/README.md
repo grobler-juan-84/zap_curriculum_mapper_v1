@@ -63,6 +63,13 @@ Place the four pilot PDFs under `book-sources/` (gitignored via `*.pdf`), apply 
 node scripts/upload_source_pdfs.mjs
 ```
 
+Optional filter (comma-separated `book_id` / filename fragments):
+
+```bash
+# PowerShell — replace one book’s PDF
+$env:UPLOAD_ONLY='reach_higher_2a'; node scripts/upload_source_pdfs.mjs
+```
+
 This upserts PDFs into the private `book-sources` bucket and upserts matching `book_files` rows (`file_type = source_pdf`). The Validation app loads them via short-lived signed URLs for authenticated users only.
 
 ### Upload series cover images

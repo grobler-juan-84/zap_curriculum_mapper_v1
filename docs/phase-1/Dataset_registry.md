@@ -409,6 +409,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Do not mark human verification COMPLETE until Unit 4 is reviewed.
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
 - Unit 4 part1/part2 batch files were merged into `rh2a_sb_unit4.json` (pp. 212–279).
+- Source PDF in private `book-sources` (`reach-higher/reach_higher_2a/source.pdf`) replaced 2026-10-07 with the full Student Book file (was previously units 1–2 only).
 
 ---
 
