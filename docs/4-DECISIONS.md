@@ -41,6 +41,7 @@
 | D004 | Operating trackers live at docs root 4–7 | 2026-10-06 | LOCKED |
 | D005 | Supabase is the backend platform | 2026-10-06 | LOCKED |
 | D006 | Hybrid storage: Postgres metadata + Storage files + JSON curriculum | 2026-10-07 | LOCKED |
+| D007 | Catalog book_id is canonical; aliases normalized at merge | 2026-10-07 | LOCKED |
 
 ---
 
@@ -118,6 +119,18 @@
 
 ---
 
+### D007 — Catalog book_id is canonical; aliases normalized at merge
+
+**Date:** 2026-10-07  
+**Status:** LOCKED  
+**Decision:** Postgres `books.book_id` (matching Storage folder segment) is the canonical book identity. Extraction-era `book_id` strings are aliases listed in [`phase-1/book_id_aliases.json`](./phase-1/book_id_aliases.json). At canonical merge (and when re-normalizing), rewrite `book_id` / same-book `source_book_id` / `target_book_id` fields to the catalog ID. Do **not** rewrite entity ID strings (`unit_id`, `page_id`, …).  
+**Reason:** Stable catalog identity is required for Storage paths, joins, Validation, and app architecture independently of curriculum schema evolution; extraction prefixes vary by series and must not block merges.  
+**Alternatives rejected:** Treating extracted `book_id` as canonical and renaming folders/registry; rewriting all entity ID prefixes at merge; promoting aliases into separate schemas per series.  
+**Implications:** Merge script and `normalize_canonical_book_ids.mjs` apply the map; BE1-SB canonical v1 book_id fields normalized 2026-10-07; further pilot merges must use the map. See [`phase-1/Book_ID_Alias_Map.md`](./phase-1/Book_ID_Alias_Map.md).  
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -125,3 +138,4 @@
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |
 | 2026-10-06 | Added D005 — Supabase backend platform locked. |
 | 2026-10-07 | Added D006 — hybrid storage architecture locked; catalog migration created. |
+| 2026-10-07 | Added D007 — catalog book_id canonical; alias map + merge-time normalization. |

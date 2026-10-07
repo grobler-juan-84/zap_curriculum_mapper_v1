@@ -33,7 +33,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. Pipeline reflects Storage + Validation UI. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack and what is implemented in the pilot (Auth, catalog, Storage, Validation) vs still mock/not started (Gemini, Book Workspace spreads, automation). | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, and generation. | — | ACTIVE |
-| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives so settled questions are not reopened without cause. | 1.0 | ACTIVE |
+| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (includes D007 catalog book_id / aliases). | 1.0 | ACTIVE |
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, workspace wiring). | 1.0 | ACTIVE |
@@ -59,6 +59,8 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
 | [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; BE1-SB Phase 1 COMPLETE; pilot Storage status; Phase 1 COMPLETE criteria. | — | ACTIVE |
 | [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Cross-series schema 0.1 review draft; owner-accepted working recommendations (gaps as classification evidence; 0.2 deferred post-pilot). | 0.2-draft | ACTIVE |
+| [phase-1/Book_ID_Alias_Map.md](./phase-1/Book_ID_Alias_Map.md) | Catalog `book_id` is canonical; documents extraction aliases and merge-time normalization policy (D007). | 1.0 | ACTIVE |
+| [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map used by merge/normalize scripts. | 1 | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
 
 ### Phase 4
@@ -79,7 +81,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 22 | Current working docs, including index, operating trackers, and project-tracking |
+| ACTIVE | 23 | Current working docs, including index, operating trackers, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

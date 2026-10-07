@@ -13,6 +13,7 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { resolve, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
+import { applyCatalogBookId, loadBookIdAliasMap } from './lib/bookIdAliases.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -235,10 +236,9 @@ if (typeof merged.book.notes === 'string' && merged.book.notes.trim()) {
   bookNotes.push(merged.book.notes.trim())
 }
 bookNotes.push(
-  `Catalog book_id is ${bookConfig.catalogBookId}. Internal extraction IDs may still use a different book_id prefix (preserved for stability).`,
+  `Catalog book_id is ${bookConfig.catalogBookId}. Entity ID prefixes from extraction are preserved; book_id fields are normalized via docs/phase-1/book_id_aliases.json.`,
 )
 merged.book.notes = bookNotes.join(' ')
-merged.book.catalog_book_id = bookConfig.catalogBookId
 
 for (const key of ARRAY_KEYS) {
   const { items, collisions, noId } = mergeArray(key, batches)
@@ -262,8 +262,16 @@ merged.verification = {
   ),
   whole_book_audit: 'not_started',
   notes:
-    'Mechanical merge of verified unit batches. Entity IDs preserved as extracted. Whole-book audit still required before Phase 1 COMPLETE.',
+    'Mechanical merge of verified unit batches. book_id fields normalized to catalog ID; entity IDs preserved as extracted. Whole-book audit still required before Phase 1 COMPLETE.',
 }
+
+const aliasMap = loadBookIdAliasMap()
+const normStats = applyCatalogBookId(merged, bookConfig.catalogBookId, aliasMap, {
+  at: mergedAt,
+})
+console.log(
+  `book_id normalization: rewritten=${normStats.fields_rewritten} seen=[${normStats.extracted_book_ids_seen.join(', ')}]`,
+)
 
 const canonicalPath = `${bookConfig.seriesSlug}/${bookConfig.catalogBookId}/canonical/v1.json`
 const localDir = join(root, 'data', 'phase1', bookConfig.catalogBookId, 'canonical')

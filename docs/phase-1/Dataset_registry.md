@@ -327,7 +327,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 1  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/big_english_1_sb/`  
-**Internal book_id in JSON:** `bep1_sb` (note: differs from folder/`big_english_1_sb` naming; resolve at canonical-merge or ID-normalization pass)
+**Internal book_id in JSON:** catalog `big_english_1_sb` after merge normalization; extraction alias `bep1_sb` (entity IDs may still use `bep1_*` prefixes — see [`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md) / D007)
 
 ### Phase 1 Processing
 
@@ -347,9 +347,10 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Notes
 
-- First canonical merge completed 2026-10-07 via `scripts/merge_canonical_book.mjs` (9 units, 144 pages, 307 vocab, 75 language, 390 activities). Entity IDs preserved (`bep1_sb` prefix); catalog `book_id` remains `big_english_1_sb`.
+- First canonical merge completed 2026-10-07 via `scripts/merge_canonical_book.mjs` (9 units, 144 pages, 307 vocab, 75 language, 390 activities). Entity IDs preserved (`bep1_*` prefixes).
+- `book_id` fields normalized to catalog `big_english_1_sb` (2026-10-07; 1172 fields rewritten from alias `bep1_sb`) via D007 / [`book_id_aliases.json`](./book_id_aliases.json).
 - Whole-book audit evidence: [`audits/BE1-SB_canonical_v1_audit.md`](./audits/BE1-SB_canonical_v1_audit.md) — **PASSED** (owner reply 2026-10-07).
-- First book to reach Phase 1 COMPLETE. Cross-series schema review and remaining pilot canonical merges are next.
+- First book to reach Phase 1 COMPLETE. Remaining pilot canonical merges must use merge-time book_id normalization.
 
 ---
 
@@ -360,7 +361,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 2  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/big_english_2_sb/`  
-**Internal book_id in JSON:** `bep_sb_2`
+**Internal book_id in JSON:** extraction alias `bep_sb_2` → normalize to catalog `big_english_2_sb` at merge ([`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md))
 
 ### Phase 1 Processing
 
@@ -391,7 +392,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 2A  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/reach_higher_2a/`  
-**Internal book_id in JSON:** mixed — units 1–3 use `rh_2a`; Unit 4 uses `reach_higher_2a` (normalize later)
+**Internal book_id in JSON:** mixed aliases `rh_2a` / `reach_higher_2a` → normalize to catalog `reach_higher_2a` at merge ([`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md))
 
 ### Phase 1 Processing
 
@@ -916,8 +917,7 @@ Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
 Next Major Checkpoints
-book_id alias / merge-time normalization (before further canonical scaling)
-Canonical merge + audit for BH1 / BE2-SB / RH2A on schema 0.1
+Canonical merge + audit for BH1 / BE2-SB / RH2A on schema 0.1 (book_id normalization via D007)
 Post-pilot 0.2 candidate only if sufficient evidence (do not promote every schema_gap)
 ```
 

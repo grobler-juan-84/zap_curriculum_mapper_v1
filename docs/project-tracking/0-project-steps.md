@@ -818,3 +818,25 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 51
+
+**Summary:** Documented and implemented catalog `book_id` alias map (D007): merge-time normalization rewrites `book_id` fields to catalog IDs; entity ID prefixes preserved; BE1-SB canonical normalized in Storage.
+
+**Files touched:**
+- `docs/phase-1/book_id_aliases.json` (created)
+- `docs/phase-1/Book_ID_Alias_Map.md` (created)
+- `scripts/lib/bookIdAliases.mjs` (created)
+- `scripts/normalize_canonical_book_ids.mjs` (created)
+- `scripts/merge_canonical_book.mjs` (updated)
+- `docs/4-DECISIONS.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

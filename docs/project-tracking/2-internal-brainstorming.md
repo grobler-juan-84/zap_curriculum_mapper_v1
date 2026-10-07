@@ -156,7 +156,7 @@ App later LOADS that JSON from storage to display/edit
 2. Treat extracted `book_id` as canonical; rename folders/registry to match.
 3. Keep both with an explicit alias map in the registry or a mapping file.
 **Lean / notes:** Merge-time normalization is already noted as a follow-up; an alias map may be the lowest-risk interim step.  
-**Status:** open
+**Status:** promoted — locked as **D007**; map in [`../phase-1/book_id_aliases.json`](../phase-1/book_id_aliases.json) + [`../phase-1/Book_ID_Alias_Map.md`](../phase-1/Book_ID_Alias_Map.md) (2026-10-07)
 
 ---
 

@@ -191,7 +191,7 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 ## 9. Next docs / code follow-ups
 
 - [x] Owner accepts working recommendations (§7).
-- [ ] book_id alias map / merge-time normalization (before further canonical scaling).
+- [x] book_id alias map / merge-time normalization (D007; BE1-SB canonical fields normalized).
 - [ ] Canonical merge + audit for BH1, BE2-SB, RH2A on schema 0.1.
 - [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
 - [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.

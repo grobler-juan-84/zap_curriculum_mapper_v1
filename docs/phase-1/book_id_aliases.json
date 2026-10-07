@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "updated": "2026-10-07",
+  "canonical_rule": "Postgres books.book_id (and matching Storage folder segment) is the catalog identity for joins, Validation, and dataset_versions. Extraction-era book_id strings are aliases only.",
+  "entity_id_policy": "Entity IDs (unit_id, page_id, vocabulary_id, …) keep their extraction-era prefixes for stability. Merge-time normalization rewrites book_id fields only — not entity ID strings.",
+  "books": [
+    {
+      "catalog_book_id": "beehive_1_sb",
+      "registry_id": "BH1",
+      "series_slug": "beehive",
+      "aliases": ["beehive_1_sb"],
+      "entity_id_prefix_examples": ["beehive_1_sb_"],
+      "notes": "Catalog and extraction IDs already align."
+    },
+    {
+      "catalog_book_id": "big_english_1_sb",
+      "registry_id": "BE1-SB",
+      "series_slug": "big-english",
+      "aliases": ["big_english_1_sb", "bep1_sb"],
+      "entity_id_prefix_examples": ["bep1_"],
+      "notes": "Batches/canonical entities often use bep1_sb / bep1_* prefixes."
+    },
+    {
+      "catalog_book_id": "big_english_2_sb",
+      "registry_id": "BE2-SB",
+      "series_slug": "big-english",
+      "aliases": ["big_english_2_sb", "bep_sb_2"],
+      "entity_id_prefix_examples": ["bep2_"],
+      "notes": "Extraction book_id is bep_sb_2; entity IDs often bep2_*."
+    },
+    {
+      "catalog_book_id": "reach_higher_2a",
+      "registry_id": "RH2A",
+      "series_slug": "reach-higher",
+      "aliases": ["reach_higher_2a", "rh_2a"],
+      "entity_id_prefix_examples": ["rh_2a_", "reach_higher_2a_"],
+      "notes": "Units 1–3 used rh_2a; Unit 4 used reach_higher_2a. Normalize book_id fields to reach_higher_2a at merge."
+    }
+  ]
+}
