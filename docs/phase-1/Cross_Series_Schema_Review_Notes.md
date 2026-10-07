@@ -1,7 +1,7 @@
 # Cross-Series Schema Review Notes (initial draft)
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1
 **Date:** 2026-10-07  
 **Schema under review:** Phase 1 JSON schema **0.1** ([`JSON_Schema.md`](./JSON_Schema.md))  
 **Purpose:** First formal cross-series challenge of schema 0.1 using the Storage-backed pilot set, before large-scale remaining-book extraction.
@@ -175,7 +175,7 @@ BE2 Unit 1 shows the same Big English spine as BE1 (vocab → song/story → gra
 5. Prioritize consistent representation **within a series** where a structure recurs, while preserving genuine differences between levels and books.
 6. Resolve the **book_id alias map** before further canonical scaling because stable identity affects storage, catalog joins, and future application architecture independently of curriculum schema design.
 7. After the pilot books are merged and audited, review schema 0.1 and create a **0.2 candidate only** for changes supported by sufficient evidence. Do not promote every observed schema gap into the universal schema.
-8. Keep automated validation **NOT RUN** as documented debt; structural audit packs remain the current integrity gate.
+8. At review acceptance, automated validation remained **NOT RUN** as documented debt and structural audit packs were the integrity gate. As of Step 59, D008 supersedes that operational state: the shared automated validator is implemented, while human/source audit remains separate.
 
 ---
 

@@ -1,7 +1,7 @@
 # BE2-SB — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-10-07
 **Canonical path:** `big-english/big_english_2_sb/canonical/v1.json`
 **Catalog book_id:** `big_english_2_sb`
@@ -63,4 +63,4 @@ In `/app/validation` for Big English 2 Student Book (unit-scoped canonical view)
 | Owner PDF spot-check | **PASSED** |
 | **Whole-Book Audit** | **PASSED** |
 
-Automated validation remains **NOT RUN** (documented non-blocking for this Phase 1 COMPLETE).
+At the original audit, automated validation was **NOT RUN**. Retrospective validation on 2026-10-07: **FAILED** (9 dangling same-book relationship targets to absent appendix/sticker pages; 4 warnings). Historical whole-book/source audit outcome remains PASSED; the new structural defect requires follow-up and was not auto-repaired.

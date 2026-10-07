@@ -14,6 +14,14 @@ import { resolve, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import { applyCatalogBookId, loadBookIdAliasMap } from './lib/bookIdAliases.mjs'
+import { getPhase1Book, PHASE1_BOOKS } from './lib/phase1Books.mjs'
+import {
+  ARRAY_KEYS,
+  ID_FIELDS,
+  findCrossBatchIdCollisions,
+  formatValidationSummary,
+  validatePhase1Dataset,
+} from './lib/phase1Validation.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -22,92 +30,6 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 )
 
 const bucket = 'book-datasets'
-
-/** @type {Record<string, { catalogBookId: string, seriesSlug: string, unitPaths: string[] }>} */
-const BOOKS = {
-  beehive_1_sb: {
-    catalogBookId: 'beehive_1_sb',
-    seriesSlug: 'beehive',
-    unitPaths: [
-      'beehive/beehive_1_sb/batches/unit_01.json',
-      'beehive/beehive_1_sb/batches/unit_02.json',
-      'beehive/beehive_1_sb/batches/unit_03.json',
-      'beehive/beehive_1_sb/batches/unit_04.json',
-      'beehive/beehive_1_sb/batches/unit_05.json',
-      'beehive/beehive_1_sb/batches/unit_06.json',
-      'beehive/beehive_1_sb/batches/unit_07.json',
-      'beehive/beehive_1_sb/batches/unit_08.json',
-      'beehive/beehive_1_sb/batches/unit_09.json',
-      'beehive/beehive_1_sb/batches/unit_10.json',
-    ],
-  },
-  big_english_1_sb: {
-    catalogBookId: 'big_english_1_sb',
-    seriesSlug: 'big-english',
-    unitPaths: [
-      'big-english/big_english_1_sb/batches/unit_01.json',
-      'big-english/big_english_1_sb/batches/unit_02.json',
-      'big-english/big_english_1_sb/batches/unit_03.json',
-      'big-english/big_english_1_sb/batches/unit_04.json',
-      'big-english/big_english_1_sb/batches/unit_05.json',
-      'big-english/big_english_1_sb/batches/unit_06.json',
-      'big-english/big_english_1_sb/batches/unit_07.json',
-      'big-english/big_english_1_sb/batches/unit_08.json',
-      'big-english/big_english_1_sb/batches/unit_09.json',
-    ],
-  },
-  big_english_2_sb: {
-    catalogBookId: 'big_english_2_sb',
-    seriesSlug: 'big-english',
-    unitPaths: [
-      'big-english/big_english_2_sb/batches/unit_01.json',
-      'big-english/big_english_2_sb/batches/unit_02.json',
-      'big-english/big_english_2_sb/batches/unit_03.json',
-      'big-english/big_english_2_sb/batches/unit_04.json',
-      'big-english/big_english_2_sb/batches/unit_05.json',
-      'big-english/big_english_2_sb/batches/unit_06.json',
-      'big-english/big_english_2_sb/batches/unit_07.json',
-      'big-english/big_english_2_sb/batches/unit_08.json',
-      'big-english/big_english_2_sb/batches/unit_09.json',
-    ],
-  },
-  reach_higher_2a: {
-    catalogBookId: 'reach_higher_2a',
-    seriesSlug: 'reach-higher',
-    unitPaths: [
-      'reach-higher/reach_higher_2a/batches/unit_01.json',
-      'reach-higher/reach_higher_2a/batches/unit_02.json',
-      'reach-higher/reach_higher_2a/batches/unit_03.json',
-      'reach-higher/reach_higher_2a/batches/unit_04.json',
-    ],
-  },
-}
-
-const ARRAY_KEYS = [
-  'units',
-  'pages',
-  'vocabulary',
-  'language',
-  'activities',
-  'continuous_text',
-  'curriculum_components',
-  'relationships',
-  'extraction_issues',
-  'schema_gaps',
-]
-
-const ID_FIELDS = {
-  units: 'unit_id',
-  pages: 'page_id',
-  vocabulary: 'vocabulary_id',
-  language: 'language_id',
-  activities: 'activity_id',
-  continuous_text: 'continuous_text_id',
-  curriculum_components: 'component_id',
-  relationships: 'relationship_id',
-  extraction_issues: 'issue_id',
-  schema_gaps: 'schema_gap_id',
-}
 
 function loadEnvFile(path) {
   if (!existsSync(path)) return
@@ -140,9 +62,11 @@ if (!url || !serviceKey) {
 }
 
 const bookKey = (process.argv[2] || 'big_english_1_sb').trim()
-const bookConfig = BOOKS[bookKey]
+const bookConfig = getPhase1Book(bookKey)
 if (!bookConfig) {
-  console.error(`Unknown book key "${bookKey}". Supported: ${Object.keys(BOOKS).join(', ')}`)
+  console.error(
+    `Unknown book key "${bookKey}". Supported: ${Object.keys(PHASE1_BOOKS).join(', ')}`,
+  )
   process.exit(1)
 }
 
@@ -159,7 +83,7 @@ function asRecord(value) {
 }
 
 function mergeArray(key, batches) {
-  const idField = ID_FIELDS[key]
+  const idFields = ID_FIELDS[key] ?? []
   const seen = new Set()
   const out = []
   let collisions = 0
@@ -169,7 +93,10 @@ function mergeArray(key, batches) {
     for (const entry of asArray(batch[key])) {
       const rec = asRecord(entry)
       if (!rec) continue
-      const id = idField && typeof rec[idField] === 'string' ? rec[idField] : null
+      const id =
+        idFields
+          .map((field) => rec[field])
+          .find((value) => typeof value === 'string' && value) ?? null
       if (id) {
         if (seen.has(id)) {
           collisions += 1
@@ -247,22 +174,50 @@ if (filesError) {
 }
 
 const statusByPath = new Map((fileRows ?? []).map((r) => [r.storage_path, r.status]))
+let hasUnverifiedBatch = false
 for (const path of bookConfig.unitPaths) {
   if (!statusByPath.has(path)) {
     console.error(`Missing book_files row for ${path}`)
     process.exit(1)
   }
   if (statusByPath.get(path) !== 'verified') {
-    console.warn(`WARN  ${path} status=${statusByPath.get(path)} (expected verified)`)
+    console.error(`ERROR ${path} status=${statusByPath.get(path)} (expected verified)`)
+    hasUnverifiedBatch = true
   }
 }
+if (hasUnverifiedBatch) process.exit(1)
 
 console.log(`Downloading ${bookConfig.unitPaths.length} batches for ${bookKey}…`)
 const batches = []
+const aliasMap = loadBookIdAliasMap()
 for (const path of bookConfig.unitPaths) {
   const json = await downloadJson(path)
+  const batchReport = validatePhase1Dataset(json, {
+    mode: 'batch',
+    bookConfig,
+    aliasMap,
+    source: { type: 'supabase_storage', bucket, path },
+  })
+  if (batchReport.summary.warning_count || batchReport.summary.error_count) {
+    console.log(formatValidationSummary(batchReport))
+  }
+  if (batchReport.summary.error_count) {
+    console.error(`Batch preflight failed: ${path}`)
+    process.exit(1)
+  }
   batches.push(json)
   console.log(`  OK  ${path}`)
+}
+
+const crossBatchCollisions = findCrossBatchIdCollisions(batches)
+if (crossBatchCollisions.length) {
+  console.error('Cross-batch ID collisions found; refusing silent deduplication:')
+  for (const collision of crossBatchCollisions) {
+    console.error(
+      `  ${collision.array}.${collision.id} batches ${collision.first.batchIndex + 1} and ${collision.duplicate.batchIndex + 1}`,
+    )
+  }
+  process.exit(1)
 }
 
 const counts = {}
@@ -306,7 +261,6 @@ merged.verification = {
     'Mechanical merge of verified unit batches. book_id fields normalized to catalog ID; entity IDs preserved as extracted. Whole-book audit still required before Phase 1 COMPLETE.',
 }
 
-const aliasMap = loadBookIdAliasMap()
 const normStats = applyCatalogBookId(merged, bookConfig.catalogBookId, aliasMap, {
   at: mergedAt,
 })
@@ -314,13 +268,34 @@ console.log(
   `book_id normalization: rewritten=${normStats.fields_rewritten} seen=[${normStats.extracted_book_ids_seen.join(', ')}]`,
 )
 
-const canonicalPath = `${bookConfig.seriesSlug}/${bookConfig.catalogBookId}/canonical/v1.json`
+const canonicalReport = validatePhase1Dataset(merged, {
+  mode: 'canonical',
+  bookConfig,
+  aliasMap,
+  source: {
+    type: 'merge_candidate',
+    batches: bookConfig.unitPaths,
+  },
+})
+console.log(formatValidationSummary(canonicalReport))
+if (canonicalReport.summary.error_count) {
+  console.error('Canonical validation failed; local write and Storage upload aborted.')
+  process.exit(1)
+}
+
+const canonicalPath = bookConfig.canonicalPath
 const localDir = join(root, 'data', 'phase1', bookConfig.catalogBookId, 'canonical')
 const localPath = join(localDir, 'v1.json')
 mkdirSync(localDir, { recursive: true })
 const body = `${JSON.stringify(merged, null, 2)}\n`
 writeFileSync(localPath, body, 'utf8')
 console.log(`Wrote local ${localPath} (${Buffer.byteLength(body)} bytes)`)
+
+const validationDir = join(root, 'data', 'phase1', bookConfig.catalogBookId, 'validation')
+const validationPath = join(validationDir, 'v1.report.json')
+mkdirSync(validationDir, { recursive: true })
+writeFileSync(validationPath, `${JSON.stringify(canonicalReport, null, 2)}\n`, 'utf8')
+console.log(`Wrote validation report ${validationPath}`)
 
 const { error: uploadError } = await supabase.storage.from(bucket).upload(canonicalPath, body, {
   contentType: 'application/json',
@@ -385,7 +360,7 @@ if (existingVersion?.id) {
       status: 'draft',
       is_current: true,
       notes:
-        'Merged from 9 verified unit batches; whole-book audit pending. Entity IDs preserved as extracted.',
+        `Merged from ${bookConfig.unitPaths.length} verified unit batches; automated structural validation ${canonicalReport.summary.status}; whole-book audit pending. Entity IDs preserved as extracted.`,
     })
     .eq('id', existingVersion.id))
 } else {
@@ -397,7 +372,7 @@ if (existingVersion?.id) {
     status: 'draft',
     is_current: true,
     notes:
-      'Merged from 9 verified unit batches; whole-book audit pending. Entity IDs preserved as extracted.',
+      `Merged from ${bookConfig.unitPaths.length} verified unit batches; automated structural validation ${canonicalReport.summary.status}; whole-book audit pending. Entity IDs preserved as extracted.`,
   }))
 }
 

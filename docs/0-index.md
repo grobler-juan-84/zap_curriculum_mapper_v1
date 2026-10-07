@@ -33,7 +33,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [1-Project Overview.md](./1-Project%20Overview.md) | High-level project purpose, principles, seven-phase architecture, initial 18-book dataset, Phase 1 priorities, and success definition. Pipeline reflects Storage + Validation UI. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack and what is implemented in the pilot (Auth, catalog, Storage, Validation) vs still mock/not started (Gemini, Book Workspace spreads, automation). | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, and generation. | — | ACTIVE |
-| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (includes D007 catalog book_id / aliases). | 1.0 | ACTIVE |
+| [4-DECISIONS.md](./4-DECISIONS.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D008 automated structural validation as a separate gate). | 1.0 | ACTIVE |
 | [5-PROGRESS.md](./5-PROGRESS.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-TODO.md](./6-TODO.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-FUTURE.md](./7-FUTURE.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, workspace wiring). | 1.0 | ACTIVE |
@@ -53,18 +53,18 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-1/Curriculum_Mapping_process.md](./phase-1/Curriculum_Mapping_process.md) | Source-of-truth process guide for curriculum mapping: phase responsibilities, traceability, extraction workflow, verification, and how the system should evolve from evidence. | — | ACTIVE |
+| [phase-1/Curriculum_Mapping_process.md](./phase-1/Curriculum_Mapping_process.md) | Source-of-truth process guide for curriculum mapping: phase responsibilities, traceability, current pilot completion, D008 validation gate, and evidence-driven evolution. | — | ACTIVE |
 | [phase-1/Google_AI_Studio_Prompt.md](./phase-1/Google_AI_Studio_Prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Supports uploading a complete textbook PDF, then extracting **unit by unit** into separate schema-faithful JSON batch files (with `FILE:` labels for saving), without lesson planning or enrichment. | V2 | ACTIVE |
-| [phase-1/Extraction_Data_Specification.md](./phase-1/Extraction_Data_Specification.md) | Phase 1 data specification: what to extract from curriculum sources, what not to invent, book-truth rules, uncertainty handling, validation, and canonical dataset expectations. | — | ACTIVE |
-| [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
-| [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; all four Storage-backed pilots Phase 1 COMPLETE. | — | ACTIVE |
-| [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Cross-series schema 0.1 review; owner-accepted working recommendations and a post-pilot 0.2 candidate that defers every gap (schema stays 0.1). | 1.0 | ACTIVE |
+| [phase-1/Extraction_Data_Specification.md](./phase-1/Extraction_Data_Specification.md) | Phase 1 data specification: extraction boundaries, uncertainty, and the current verified-batch preflight → merge → automated canonical validation → source-audit workflow. | — | ACTIVE |
+| [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, severity rules, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
+| [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; four pilots remain Phase 1 COMPLETE, with retrospective automated validation at 3 passed-with-warnings / 1 failed (BE2 relationship integrity). | — | ACTIVE |
+| [phase-1/Cross_Series_Schema_Review_Notes.md](./phase-1/Cross_Series_Schema_Review_Notes.md) | Cross-series schema 0.1 review; owner-accepted recommendations, 0.2 deferral, and the later D008 automated-validation status update. | 1.1 | ACTIVE |
 | [phase-1/Book_ID_Alias_Map.md](./phase-1/Book_ID_Alias_Map.md) | Catalog `book_id` is canonical; documents extraction aliases (incl. `beehive_american_sb1`) and merge-time normalization (D007). | 1.0 | ACTIVE |
 | [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map used by merge/normalize scripts. | 1 | ACTIVE |
-| [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
-| [phase-1/audits/BH1_canonical_v1_audit.md](./phase-1/audits/BH1_canonical_v1_audit.md) | BH1 canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
-| [phase-1/audits/BE2-SB_canonical_v1_audit.md](./phase-1/audits/BE2-SB_canonical_v1_audit.md) | BE2-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
-| [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
+| [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
+| [phase-1/audits/BH1_canonical_v1_audit.md](./phase-1/audits/BH1_canonical_v1_audit.md) | BH1 canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
+| [phase-1/audits/BE2-SB_canonical_v1_audit.md](./phase-1/audits/BE2-SB_canonical_v1_audit.md) | BE2-SB historical whole-book/source audit PASSED; retrospective automated validation found nine dangling relationship targets and FAILED pending follow-up. | 1.2 | ACTIVE |
+| [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 
 ### Phase 4
 

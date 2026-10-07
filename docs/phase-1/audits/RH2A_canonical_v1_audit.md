@@ -1,7 +1,7 @@
 # RH2A — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-10-07
 **Canonical path:** `reach-higher/reach_higher_2a/canonical/v1.json`
 **Catalog book_id:** `reach_higher_2a`
@@ -63,4 +63,4 @@ In `/app/validation` for Reach Higher 2A Student Book (unit-scoped canonical vie
 | Owner PDF spot-check | **PASSED** |
 | **Whole-Book Audit** | **PASSED** |
 
-Automated validation remains **NOT RUN** (documented non-blocking for this Phase 1 COMPLETE).
+At the original audit, automated validation was **NOT RUN**. Retrospective validation on 2026-10-07: **PASSED WITH WARNINGS** (0 errors, 2 warnings). Historical whole-book/source audit outcome remains PASSED.

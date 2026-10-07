@@ -1,0 +1,461 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zap-curriculum-mapper.local/schemas/phase1-0.1.schema.json",
+  "title": "General Curriculum Mapper Phase 1 dataset schema 0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "book",
+    "units",
+    "pages",
+    "vocabulary",
+    "language",
+    "activities",
+    "continuous_text",
+    "curriculum_components",
+    "relationships",
+    "extraction_issues",
+    "schema_gaps"
+  ],
+  "properties": {
+    "schema": {
+      "type": "object",
+      "required": ["name", "version", "status"],
+      "properties": {
+        "name": {
+          "const": "general_curriculum_mapper_phase1"
+        },
+        "version": {
+          "const": "0.1"
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "book": {
+      "type": "object",
+      "required": [
+        "book_id",
+        "series",
+        "level",
+        "book_type",
+        "source_filename",
+        "source_format"
+      ],
+      "properties": {
+        "book_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "catalog_book_id": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "series": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "level": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "book_type": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "source_filename": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "source_format": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "printed_page_start": {
+          "$ref": "#/$defs/numberOrNull"
+        },
+        "printed_page_end": {
+          "$ref": "#/$defs/numberOrNull"
+        }
+      },
+      "additionalProperties": true
+    },
+    "batch": {
+      "type": "object",
+      "required": ["batch_id", "unit_id"],
+      "properties": {
+        "batch_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "unit_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unit"
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/page"
+      }
+    },
+    "vocabulary": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/vocabulary"
+      }
+    },
+    "language": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/language"
+      }
+    },
+    "activities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/activity"
+      }
+    },
+    "continuous_text": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/continuousText"
+      }
+    },
+    "curriculum_components": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/component"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "extraction_issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/extractionIssue"
+      }
+    },
+    "schema_gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/schemaGap"
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["batch"]
+    },
+    {
+      "required": ["verification"]
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringOrNull": {
+      "type": ["string", "null"]
+    },
+    "numberOrNull": {
+      "type": ["number", "null"]
+    },
+    "entityBase": {
+      "type": "object",
+      "properties": {
+        "book_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "unit_id": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "page_id": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/stringOrNull"
+        }
+      },
+      "additionalProperties": true
+    },
+    "unit": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["unit_id", "book_id", "unit_number"],
+          "properties": {
+            "unit_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "unit_number": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "printed_page_start": {
+              "$ref": "#/$defs/numberOrNull"
+            },
+            "printed_page_end": {
+              "$ref": "#/$defs/numberOrNull"
+            }
+          }
+        }
+      ]
+    },
+    "page": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["page_id", "book_id", "printed_page"],
+          "properties": {
+            "page_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "printed_page": {
+              "type": "number"
+            },
+            "pdf_page": {
+              "$ref": "#/$defs/numberOrNull"
+            },
+            "instructional": {
+              "type": ["boolean", "null"]
+            },
+            "visual_dependency": {
+              "type": ["boolean", "null"]
+            },
+            "audio_dependency": {
+              "type": ["boolean", "null"]
+            }
+          }
+        }
+      ]
+    },
+    "vocabulary": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["vocabulary_id", "book_id", "term", "classification"],
+          "properties": {
+            "vocabulary_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "term": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "classification": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "explicitly_listed": {
+              "type": ["boolean", "null"]
+            }
+          }
+        }
+      ]
+    },
+    "language": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["language_id", "book_id"],
+          "properties": {
+            "language_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "explicit_in_source": {
+              "type": ["boolean", "null"]
+            }
+          }
+        }
+      ]
+    },
+    "activity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["activity_id", "book_id"],
+          "properties": {
+            "activity_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "audio_dependency": {
+              "type": ["boolean", "null"]
+            },
+            "visual_dependency": {
+              "type": ["boolean", "null"]
+            }
+          }
+        }
+      ]
+    },
+    "continuousText": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["book_id"],
+          "properties": {
+            "text_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "continuous_text_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "audio_dependency": {
+              "type": ["boolean", "null"]
+            }
+          },
+          "anyOf": [
+            {
+              "required": ["text_id"]
+            },
+            {
+              "required": ["continuous_text_id"]
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["component_id", "book_id"],
+          "properties": {
+            "component_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        }
+      ]
+    },
+    "relationship": {
+      "type": "object",
+      "required": [
+        "relationship_id",
+        "book_id",
+        "relationship_type",
+        "source_entity_type",
+        "source_entity_id",
+        "target_entity_type",
+        "target_entity_id"
+      ],
+      "properties": {
+        "relationship_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "book_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "relationship_type": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_entity_type": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_entity_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "target_entity_type": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "target_entity_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_book_id": {
+          "$ref": "#/$defs/stringOrNull"
+        },
+        "target_book_id": {
+          "$ref": "#/$defs/stringOrNull"
+        }
+      },
+      "additionalProperties": true
+    },
+    "extractionIssue": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["issue_id", "book_id", "issue_type", "description"],
+          "properties": {
+            "issue_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "issue_type": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "description": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        }
+      ]
+    },
+    "schemaGap": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "required": ["schema_gap_id", "book_id", "observed_content", "problem"],
+          "properties": {
+            "schema_gap_id": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "observed_content": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "problem": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "scope_estimate": {
+              "$ref": "#/$defs/stringOrNull"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

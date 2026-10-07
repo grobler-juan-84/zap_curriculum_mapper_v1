@@ -1,7 +1,7 @@
 # BH1 — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-10-07
 **Canonical path:** `beehive/beehive_1_sb/canonical/v1.json`
 **Catalog book_id:** `beehive_1_sb`
@@ -79,4 +79,4 @@ In `/app/validation` for Beehive 1 (unit-scoped canonical view):
 | Owner PDF spot-check | **PASSED** |
 | **Whole-Book Audit** | **PASSED** |
 
-Automated validation remains **NOT RUN** (documented non-blocking for this Phase 1 COMPLETE).
+At the original audit, automated validation was **NOT RUN**. Retrospective validation on 2026-10-07: **PASSED WITH WARNINGS** (0 errors, 21 warnings). Historical whole-book/source audit outcome remains PASSED.

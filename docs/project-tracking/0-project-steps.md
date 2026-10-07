@@ -957,3 +957,37 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 59
+
+**Summary:** Implemented Phase 1 schema 0.1 automated structural validation with a machine schema, shared JavaScript integrity engine, CLI reports, tests, and merge/audit integration. Retrospective runs passed BE1-SB, BH1, and RH2A with warnings and found nine dangling same-book relationship targets in BE2-SB; the defect was documented without auto-repairing or revoking the historical audit.
+
+**Files touched:**
+- `schemas/phase1-0.1.schema.json` (created)
+- `scripts/lib/phase1Books.mjs` (created)
+- `scripts/lib/phase1Validation.mjs` (created)
+- `scripts/validate_phase1_json.mjs` (created)
+- `scripts/tests/phase1Validation.test.mjs` (created)
+- `scripts/merge_canonical_book.mjs` (updated)
+- `scripts/audit_canonical_book.mjs` (updated)
+- `scripts/mark_canonical_audit_passed.mjs` (updated)
+- `app/package.json` (updated)
+- `app/package-lock.json` (updated)
+- `supabase/README.md` (updated)
+- `docs/phase-1/JSON_Schema.md` (updated)
+- `docs/phase-1/Extraction_Data_Specification.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/Curriculum_Mapping_process.md` (updated)
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/phase-1/audits/BE1-SB_canonical_v1_audit.md` (updated)
+- `docs/phase-1/audits/BH1_canonical_v1_audit.md` (updated)
+- `docs/phase-1/audits/BE2-SB_canonical_v1_audit.md` (updated)
+- `docs/phase-1/audits/RH2A_canonical_v1_audit.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/4-DECISIONS.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

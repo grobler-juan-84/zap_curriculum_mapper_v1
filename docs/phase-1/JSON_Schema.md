@@ -502,6 +502,8 @@ Example:
 
 Continuous text should not be incorrectly fragmented into activity-answer records simply because questions appear after it.
 
+**Schema 0.1 ID clarification (2026-10-07):** the primary identifier is `text_id`, as shown above and used by all four pilot canonicals. The automated validator accepts legacy `continuous_text_id` with a warning. This corrects earlier script drift; it is not a schema 0.2 change.
+
 ---
 
 # 16. Curriculum Components
@@ -985,7 +987,15 @@ The JSON schema should not be distorted solely to make one React component easie
 
 # 33. Validation Requirements
 
-Before a batch or canonical dataset is accepted, automated validation should eventually check:
+Automated structural validation is implemented by:
+
+- machine schema [`../../schemas/phase1-0.1.schema.json`](../../schemas/phase1-0.1.schema.json) for root shape, required metadata/IDs, types, and schema compatibility;
+- shared JavaScript checks in [`../../scripts/lib/phase1Validation.mjs`](../../scripts/lib/phase1Validation.mjs) for cross-record identity, references, D007 `book_id` normalization, expected units, and page/range consistency;
+- CLI [`../../scripts/validate_phase1_json.mjs`](../../scripts/validate_phase1_json.mjs) for human and machine-readable reports.
+
+Nested entity objects remain extensible. Source/series classifications such as `section_type`, `activity_type`, `component_type`, `language_type`, and `relationship_type` are not closed enums in schema 0.1.
+
+Before a batch or canonical dataset is accepted, automated validation checks:
 
 ### Structure
 
@@ -1019,7 +1029,15 @@ Before a batch or canonical dataset is accepted, automated validation should eve
 - valid known classifications,
 - unknown classifications flagged rather than silently accepted.
 
-Validation rules should evolve alongside the schema.
+### Severity
+
+- **ERROR** — malformed/incompatible structure or broken internal identity/reference; blocks a new merge, audit PASS, or Phase 1 progression.
+- **WARNING** — suspicious/incomplete structure requiring review but compatible with legitimate source variation; does not block automatically.
+- **INFO** — diagnostic counts or external references that cannot be checked inside the current book.
+
+`extraction_issues`, `schema_gaps`, null optional locators, open classifications, and series-specific labels are not errors merely because they exist. Automated validation does not certify source completeness, pedagogical meaning, or PDF fidelity.
+
+Validation rules should evolve alongside the schema without closing extensible categories merely for implementation convenience.
 
 ---
 

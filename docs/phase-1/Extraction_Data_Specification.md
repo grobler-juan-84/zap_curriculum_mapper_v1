@@ -174,19 +174,19 @@ The current intended workflow is:
 
 ↓
 
-**Automated Validation**
+**Human Verification of Unit Batches**
 
 ↓
 
-**Human Verification**
+**Lightweight Batch Preflight**
 
 ↓
 
-**Merge Approved Batches**
+**Merge Approved Batches + D007 book_id Normalization**
 
 ↓
 
-**Whole-Book Audit**
+**Automated Canonical Validation**
 
 ↓
 
@@ -194,13 +194,13 @@ The current intended workflow is:
 
 ↓
 
-**React Validation / optional Sheets views**
+**Whole-Book / Source Audit (including owner PDF spot-check)**
 
 ↓
 
 **Phase 1 Complete**
 
-Pilot path today: Google AI Studio unit batches → Supabase Storage → React `/app/validation` human verification. Canonical merge and whole-book audit are still required before Phase 1 Complete.
+The batch preflight catches malformed JSON, schema incompatibility, missing IDs, and within-batch problems before merge. The full canonical validator runs after merge-time normalization and before canonical upload/progression. Human curriculum verification and the whole-book/source audit remain separate because structural validity does not prove extraction accuracy or source completeness.
 
 ---
 
@@ -539,7 +539,16 @@ should be recorded.
 
 # 15. Automated Validation
 
-After AI extraction, the output should pass through automated structural checks before human approval.
+Automated validation has two uses:
+
+1. a lightweight preflight of human-approved unit batches immediately before merge;
+2. full validation of the merged, D007-normalized canonical candidate before upload/progression.
+
+The implementation is deliberately small:
+
+- [`../../schemas/phase1-0.1.schema.json`](../../schemas/phase1-0.1.schema.json) checks shape, required fields, primitive types, and schema compatibility;
+- [`../../scripts/lib/phase1Validation.mjs`](../../scripts/lib/phase1Validation.mjs) checks cross-record identity, references, ranges, and normalization;
+- [`../../scripts/validate_phase1_json.mjs`](../../scripts/validate_phase1_json.mjs) produces CLI and machine-readable reports.
 
 Potential validation checks include:
 
@@ -564,6 +573,14 @@ Automated validation checks whether the **data structure is internally valid**.
 It does not prove that the AI correctly understood the textbook.
 
 That remains part of human verification.
+
+Validation severity:
+
+- **ERROR** blocks a new merge/audit progression because internal structure is invalid.
+- **WARNING** identifies suspicious or incomplete structure without rejecting legitimate source variation.
+- **INFO** records useful diagnostics, including external references that cannot be resolved within one book.
+
+Open `extraction_issues`, pending `schema_gaps`, null optional values, and series-specific classifications are preserved and reported; they are not structural failures by default.
 
 ---
 

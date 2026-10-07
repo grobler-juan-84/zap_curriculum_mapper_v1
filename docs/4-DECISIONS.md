@@ -42,6 +42,7 @@
 | D005 | Supabase is the backend platform | 2026-10-06 | LOCKED |
 | D006 | Hybrid storage: Postgres metadata + Storage files + JSON curriculum | 2026-10-07 | LOCKED |
 | D007 | Catalog book_id is canonical; aliases normalized at merge | 2026-10-07 | LOCKED |
+| D008 | Automated structural validation is a separate future gate | 2026-10-07 | LOCKED |
 
 ---
 
@@ -131,6 +132,18 @@
 
 ---
 
+### D008 — Automated structural validation is a separate future gate
+
+**Date:** 2026-10-07
+**Status:** LOCKED
+**Decision:** Use a small two-layer validator for Phase 1 schema 0.1: machine JSON Schema for shape/types and shared JavaScript for identity, references, D007 normalization, and range consistency. Run lightweight validation on verified batches before merge and full validation on the normalized canonical candidate. Automated `ERROR` findings block new progression; warnings do not. Human curriculum verification and whole-book/source audit remain separate gates.
+**Reason:** Deterministic structural checks should replace repetitive manual integrity work without claiming curriculum meaning, source completeness, or PDF fidelity, and without closing extensible cross-series classifications.
+**Alternatives rejected:** Treating the historical audit script as a complete validator; using only JSON Schema for graph/reference checks; making all category vocabularies closed enums; treating open issues/schema gaps as automatic failures; combining automated validation with human/source certification.
+**Implications:** Merge, audit, and standalone CLI reuse one validation engine. Existing completed pilots are validated retrospectively without silently revoking prior completion; new errors are recorded and triaged. Schema remains 0.1.
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -139,3 +152,4 @@
 | 2026-10-06 | Added D005 — Supabase backend platform locked. |
 | 2026-10-07 | Added D006 — hybrid storage architecture locked; catalog migration created. |
 | 2026-10-07 | Added D007 — catalog book_id canonical; alias map + merge-time normalization. |
+| 2026-10-07 | Added D008 — automated structural validation is separate from human/source verification and gates future progression on ERROR findings. |

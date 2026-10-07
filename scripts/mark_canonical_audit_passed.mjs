@@ -11,6 +11,12 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { resolve, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
+import { loadBookIdAliasMap } from './lib/bookIdAliases.mjs'
+import { getPhase1Book, PHASE1_BOOKS } from './lib/phase1Books.mjs'
+import {
+  formatValidationSummary,
+  validatePhase1Dataset,
+} from './lib/phase1Validation.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -19,37 +25,6 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 )
 
 const bucket = 'book-datasets'
-
-const BOOKS = {
-  beehive_1_sb: {
-    catalogBookId: 'beehive_1_sb',
-    canonicalPath: 'beehive/beehive_1_sb/canonical/v1.json',
-    version: 1,
-    notes:
-      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check: pages, vocab, sentence structure). Automated validation remains NOT RUN (non-blocking).',
-  },
-  big_english_1_sb: {
-    catalogBookId: 'big_english_1_sb',
-    canonicalPath: 'big-english/big_english_1_sb/canonical/v1.json',
-    version: 1,
-    notes:
-      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check in Validation). Automated validation remains NOT RUN (non-blocking).',
-  },
-  big_english_2_sb: {
-    catalogBookId: 'big_english_2_sb',
-    canonicalPath: 'big-english/big_english_2_sb/canonical/v1.json',
-    version: 1,
-    notes:
-      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check in Validation). Automated validation remains NOT RUN (non-blocking).',
-  },
-  reach_higher_2a: {
-    catalogBookId: 'reach_higher_2a',
-    canonicalPath: 'reach-higher/reach_higher_2a/canonical/v1.json',
-    version: 1,
-    notes:
-      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check in Validation). Automated validation remains NOT RUN (non-blocking).',
-  },
-}
 
 function loadEnvFile(path) {
   if (!existsSync(path)) return
@@ -75,9 +50,11 @@ loadEnvFile(resolve(root, '.env.local'))
 loadEnvFile(resolve(root, '.env'))
 
 const bookKey = (process.argv[2] || 'big_english_1_sb').trim()
-const cfg = BOOKS[bookKey]
+const cfg = getPhase1Book(bookKey)
 if (!cfg) {
-  console.error(`Unknown book "${bookKey}". Supported: ${Object.keys(BOOKS).join(', ')}`)
+  console.error(
+    `Unknown book "${bookKey}". Supported: ${Object.keys(PHASE1_BOOKS).join(', ')}`,
+  )
   process.exit(1)
 }
 
@@ -124,6 +101,18 @@ try {
   process.exit(1)
 }
 
+const validation = validatePhase1Dataset(canonical, {
+  mode: 'canonical',
+  bookConfig: cfg,
+  aliasMap: loadBookIdAliasMap(),
+  source: { type: 'supabase_storage', bucket, path: cfg.canonicalPath },
+})
+console.log(formatValidationSummary(validation))
+if (validation.summary.error_count) {
+  console.error('Automated structural validation failed; audit PASS update aborted.')
+  process.exit(1)
+}
+
 const auditedAt = new Date().toISOString()
 canonical.verification = {
   ...(canonical.verification && typeof canonical.verification === 'object'
@@ -132,8 +121,10 @@ canonical.verification = {
   whole_book_audit: 'passed',
   whole_book_audit_passed_at: auditedAt,
   status: 'whole_book_audit_passed',
+  automated_validation: validation.summary.status,
+  automated_validation_at: validation.generated_at,
   notes:
-    'Owner PDF spot-check PASSED in Validation (unit-scoped canonical view). Structural integrity PASS. Documented extraction_issues / schema_gaps retained.',
+    'Owner PDF spot-check PASSED in Validation (unit-scoped canonical view). Automated structural validation has no ERROR findings. Documented extraction_issues / schema_gaps retained.',
 }
 
 const body = `${JSON.stringify(canonical, null, 2)}\n`
@@ -170,11 +161,11 @@ const { data: versionRow, error: versionError } = await supabase
   .from('dataset_versions')
   .update({
     status: 'verified',
-    notes: cfg.notes,
+    notes: `Whole-book audit PASSED ${auditedAt.slice(0, 10)} (automated structural validation ${validation.summary.status} + owner PDF spot-check).`,
     ...(fileRow?.id ? { json_file_id: fileRow.id } : {}),
   })
   .eq('book_id', bookRow.id)
-  .eq('version', cfg.version)
+  .eq('version', 1)
   .select('id, status, is_current')
   .maybeSingle()
 

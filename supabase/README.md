@@ -48,7 +48,27 @@ After unit batches are verified, merge into Storage + `dataset_versions`:
 node scripts/merge_canonical_book.mjs big_english_1_sb
 ```
 
-Writes `data/phase1/<book_id>/canonical/v1.json` (gitignored), uploads `…/canonical/v1.json` to `book-datasets`, upserts `book_files` (`canonical_json`), and sets `dataset_versions` v1 `is_current` (`status = draft` until whole-book audit).
+The merge command now validates each verified batch, refuses cross-batch ID collisions, applies D007 `book_id` normalization, and validates the canonical candidate before writing/uploading. Errors abort the merge; warnings are preserved in the report.
+
+Writes `data/phase1/<book_id>/canonical/v1.json` and `data/phase1/<book_id>/validation/v1.report.json` (both gitignored), uploads `…/canonical/v1.json` to `book-datasets`, upserts `book_files` (`canonical_json`), and sets `dataset_versions` v1 `is_current` (`status = draft` until whole-book audit).
+
+### Validate a Phase 1 dataset
+
+Validate a local canonical when present, otherwise the Storage canonical:
+
+```bash
+node scripts/validate_phase1_json.mjs big_english_1_sb
+node scripts/validate_phase1_json.mjs big_english_1_sb --json
+```
+
+Validate a local unit batch:
+
+```bash
+node scripts/validate_phase1_json.mjs big_english_1_sb --file data/phase1/big_english_1_sb/unit.json --mode batch
+node scripts/validate_phase1_json.mjs big_english_1_sb --storage-path big-english/big_english_1_sb/batches/unit_01.json --mode batch
+```
+
+The command exits nonzero on `ERROR`, writes a machine report under `data/phase1/<book_id>/validation/`, and never claims curriculum/source accuracy.
 
 ### Structural audit of a canonical dataset
 
@@ -56,7 +76,7 @@ Writes `data/phase1/<book_id>/canonical/v1.json` (gitignored), uploads `…/cano
 node scripts/audit_canonical_book.mjs big_english_1_sb
 ```
 
-Writes `docs/phase-1/audits/<book>_canonical_v1_audit.md` (integrity/coverage/uncertainty). Owner PDF spot-check is still required for Whole-Book Audit PASSED.
+Reuses the same validator and writes `docs/phase-1/audits/<book>_canonical_v1_audit.md` (integrity/coverage/uncertainty). Owner PDF spot-check is still required for Whole-Book Audit PASSED.
 
 ### Upload pilot batch JSON to Storage
 

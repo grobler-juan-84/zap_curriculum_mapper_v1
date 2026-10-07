@@ -1,7 +1,7 @@
 # BE1-SB — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-10-07
 **Canonical path:** `big-english/big_english_1_sb/canonical/v1.json`
 **Catalog book_id:** `big_english_1_sb`
@@ -91,4 +91,4 @@ In `/app/validation` for Big English 1 Student Book (unit-scoped canonical view)
 | Owner PDF spot-check | **PASSED** |
 | **Whole-Book Audit** | **PASSED** |
 
-Automated validation remains **NOT RUN** (documented non-blocking for this Phase 1 COMPLETE).
+At the original audit, automated validation was **NOT RUN**. Retrospective validation on 2026-10-07: **PASSED WITH WARNINGS** (0 errors, 4 warnings). Historical whole-book/source audit outcome remains PASSED.

@@ -179,11 +179,11 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 
 | ID | Series | Level | Book Type | Source | Extraction | Validation | Human Verification | Whole-Book Audit | Canonical JSON | Schema | Open Issues | Schema Gaps | Phase 1 |
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
-| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | PASSED | CREATED | 0.1 | 37 | 10 | COMPLETE |
+| BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 10 | COMPLETE |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
+| BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
+| BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | FAILED | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -193,7 +193,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-WB | Big English | 6 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | PASSED | CREATED | 0.1 | 14 | 5 | COMPLETE |
+| RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 14 | 5 | COMPLETE |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH4A | Reach Higher | 4A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -299,7 +299,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 **Extraction Status:** EXTRACTED (unit batches `01–10`)  
 **Batch Path:** `data/phase1/beehive_1_sb/`  
-**Automated Validation:** NOT RUN (non-blocking for Phase 1 COMPLETE; documented)  
+**Automated Validation:** PASSED WITH WARNINGS (retrospective 2026-10-07; 0 errors, 21 warnings — 16 workbook references lack `target_book_id`, plus page-range diagnostics)
 **Human Verification:** COMPLETE  
 **Verification Notes:** Units 1 and 4 PDF-checked; Units 2–3 and 5–8 marked human-verified by project decision after accepting extraction quality. Units 9–10 (At Home / At the Farm) human-verified in Validation (2026-10-07); all unit `book_files.status` = `verified`.  
 **Whole-Book Audit:** PASSED (2026-10-07; structural PASS + owner PDF spot-check: pages, vocab, sentence structure)  
@@ -332,7 +332,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Phase 1 Processing
 
 **Extraction Status:** EXTRACTED (unit batches `01–09`)  
-**Automated Validation:** NOT RUN (non-blocking for Phase 1 COMPLETE; documented)  
+**Automated Validation:** PASSED WITH WARNINGS (retrospective 2026-10-07; 0 errors, 4 warnings — page metadata/range diagnostics)
 **Human Verification:** COMPLETE  
 **Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-02).  
 **Whole-Book Audit:** PASSED (2026-10-07; structural PASS + owner PDF spot-check)  
@@ -366,7 +366,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Phase 1 Processing
 
 **Extraction Status:** EXTRACTED (unit batches `01–09`)  
-**Automated Validation:** NOT RUN (non-blocking for Phase 1 COMPLETE; documented)  
+**Automated Validation:** FAILED (retrospective 2026-10-07; 9 dangling same-book `paired_with` relationship targets to absent appendix/sticker pages `bep2_p189`–`bep2_p191`; canonical not auto-repaired)
 **Human Verification:** COMPLETE  
 **Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-05). Unit 2 re-extracted and restored (pages/vocabulary/language); truncation issue cleared.  
 **Whole-Book Audit:** PASSED (2026-10-07; structural PASS + owner PDF spot-check)  
@@ -384,6 +384,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Canonical merge completed 2026-10-07 via `scripts/merge_canonical_book.mjs` (9 units, 144 pages, 301 vocab, 56 language, 340 activities). `book_id` fields normalized to catalog `big_english_2_sb` (1036 fields from alias `bep_sb_2`). Entity ID prefixes preserved (`bep2_*`).
 - Unit `book_files.status` re-aligned to `verified` after merge (had drifted to `pending`).
 - Whole-book audit evidence: [`audits/BE2-SB_canonical_v1_audit.md`](./audits/BE2-SB_canonical_v1_audit.md) — **PASSED** (owner reply 2026-10-07).
+- Retrospective automated validation found nine structurally broken relationship targets. This does not retroactively erase the historical audit/Phase 1 COMPLETE decision, but the canonical must be triaged before it is rebuilt or used as the validation baseline.
 - Third book to reach Phase 1 COMPLETE (after BE1-SB and BH1).
 
 ---
@@ -400,7 +401,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Phase 1 Processing
 
 **Extraction Status:** EXTRACTED (units `1–4`; Unit 4 consolidated to `rh2a_sb_unit4.json` from former part1/part2 split)
-**Automated Validation:** NOT RUN
+**Automated Validation:** PASSED WITH WARNINGS (retrospective 2026-10-07; 0 errors, 2 warnings — one duplicate printed-page number and stale book-level verification status)
 **Human Verification:** COMPLETE
 **Verification Notes:** Units 1–3 reviewed and accepted (2026-10-05). Unit 4 merged into one file (2026-10-06) and human-verified in Validation (2026-10-07); all unit `book_files.status` = `verified`. Continuous-text stories may remain structurally summarized rather than full recitation (documented open issues).
 **Whole-Book Audit:** PASSED (2026-10-07; structural integrity + owner PDF spot-check — [`audits/RH2A_canonical_v1_audit.md`](./audits/RH2A_canonical_v1_audit.md))
@@ -562,7 +563,7 @@ Observed for the pilot set:
 
 **Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
 
-**All four Storage-backed pilots are Phase 1 COMPLETE** (BE1-SB, BH1, BE2-SB, RH2A — canonical v1 + whole-book audit PASSED). Automated validation remains NOT RUN across the pilot set (non-blocking). Schema review working recommendations are owner-accepted. The post-pilot 0.2 candidate (2026-10-07) **defers** a schema bump; schema remains 0.1.
+**All four Storage-backed pilots remain Phase 1 COMPLETE** (BE1-SB, BH1, BE2-SB, RH2A — canonical v1 + whole-book audit PASSED). Retrospective automated validation now reports PASSED WITH WARNINGS for BE1-SB, BH1, and RH2A; BE2-SB reports FAILED because nine same-book relationship targets point to absent appendix/sticker pages. This is a newly detected structural defect to triage, not an automatic reversal of the historical owner audit. Schema review working recommendations are owner-accepted. The post-pilot 0.2 candidate (2026-10-07) **defers** a schema bump; schema remains 0.1.
 
 Phase 1 remains iterative: later linguistic interpretation or curriculum mapping may expose missing evidence and require returning to Phase 1.
 
@@ -642,6 +643,8 @@ when:
 - the whole-book audit has passed;
 - and the canonical dataset has been created.
 
+For future books, “structural validation has passed” means no automated **ERROR** findings; warnings may remain with review/documentation. Retrospective validation does not silently revoke an already accepted pilot completion state. Any newly detected ERROR is recorded and triaged before the canonical is rebuilt or treated as a clean baseline.
+
 Phase 1 completion does **not** mean:
 
 - Phase 2 interpretation is complete;
@@ -673,6 +676,8 @@ Update this section as books progress.
 | Canonical Datasets Created | 4 |
 | Human Verification Complete | 4 |
 | Whole-Book Audits Passed | 4 |
+| Automated Validation Passed With Warnings | 3 |
+| Automated Validation Failed | 1 |
 
 These counts should be updated whenever a book changes major processing status.
 
@@ -920,8 +925,12 @@ Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
+Automated structural validation
+Implemented (machine schema + shared JS validator + CLI)
+Retrospective: BE1-SB / BH1 / RH2A PASSED WITH WARNINGS; BE2-SB FAILED (9 dangling appendix-page relationship targets)
+
 Next Major Checkpoints
-Automated structural validation design (currently NOT RUN)
+Triage BE2-SB dangling relationship targets without weakening reference integrity
 Remaining-book extraction order after the post-pilot schema pass (0.2 deferred; schema stays 0.1)
 ```
 
