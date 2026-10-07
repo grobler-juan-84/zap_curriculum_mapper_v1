@@ -56,15 +56,19 @@ The project should avoid prematurely building complex infrastructure before real
 
 | Area | Status |
 |---|---|
-| Vite + React + TypeScript + Tailwind scaffold under `app/` | Currently implemented (minimal shell) |
-| Supabase as selected backend platform | Locked; local config scaffolded under `supabase/` |
-| Live Supabase Auth + profiles migration | Implemented in repo; apply/verify on remote project |
-| Curriculum catalog tables + private Storage buckets | Migration in repo (`book_series` / `books` / `book_files` / `dataset_versions`); apply on remote |
-| Gemini API integration | Locked provider preference; not implemented |
-| Python processing/validation tools | Environment scaffolded; no curriculum tools yet |
-| Vercel deployment | Preferred; not deployed from this scaffold |
+| Vite + React + TypeScript + Tailwind app under `app/` | **Implemented** — landing, auth pages, app shell, curriculum/series libraries, book workspace prototype, Validation workspace |
+| Supabase Auth + `profiles` | **Implemented** — login/signup/forgot/reset; role on profile (`teacher` / `admin`) |
+| Curriculum catalog (Postgres) | **Implemented** — live `book_series` / `books` / `book_files` / `dataset_versions` with RLS; UI loads catalog from Supabase |
+| Private Storage buckets | **Implemented** — `book-sources`, `book-datasets`, `book-assets`; upload scripts under `scripts/` |
+| Phase 1 Validation UI (`/app/validation`) | **Implemented** — unit-batch JSON + source PDF (PDF.js) + admin status writes to `book_files.status` |
+| Book Workspace interactive spreads | **Partial / mock** — Beehive 1 page spreads only; other books show empty state |
+| Teacher AI assistant | **Mock** — deterministic responses; Gemini not wired |
+| Gemini API integration | Locked provider preference; **not implemented** in the app |
+| Automated extraction pipeline | **Not implemented** — Phase 1 extraction is manual via Google AI Studio |
+| Python processing/validation tools | Environment scaffolded; no production curriculum tools yet |
+| Vercel deployment | Preferred; **not deployed** from this repo |
 
-Locking a technology does **not** mean every capability is implemented yet.
+Locking a technology does **not** mean every capability is finished. Prefer [`docs/5-PROGRESS.md`](./5-PROGRESS.md) for the live snapshot.
 
 ---
 
@@ -274,7 +278,13 @@ The locked object-storage provider is:
 
 > **Supabase Storage**
 
-Storage buckets and upload workflows are not created by the initial technology scaffold.
+Private buckets and upload workflows are in use for the pilot:
+
+- `book-sources` — source PDFs  
+- `book-datasets` — unit-batch (and later canonical) JSON  
+- `book-assets` — series/book cover images  
+
+See `supabase/migrations/`, `supabase/README.md`, and `scripts/upload_*.mjs`.
 
 ---
 
@@ -577,17 +587,19 @@ Python                → processing / validation / AI tooling where appropriate
 ## Not yet locked / not yet implemented
 
 ```text
-Exact backend API shape
+Exact backend API shape (beyond direct Supabase client from the Vite app)
 Exact Python library choices beyond the tooling folder
-Background-job infrastructure
+Background-job / automated extraction factory
 Search/indexing technology
 Final production deployment architecture beyond Vercel preference
 Final relational curriculum projections (if any)
 When/how to use JSONB for curriculum documents
-Live Supabase project wiring, tables, RLS, Auth UI, Storage buckets
+Gemini (or other) live AI in the teacher assistant
+Canonical merge tooling and dataset_versions population
+Automated structural validation of Phase 1 JSON
 ```
 
-These remaining items should be decided when implementation provides enough evidence.
+Live Supabase Auth, catalog tables, RLS, Storage buckets, and the Validation UI are already implemented for the pilot. Remaining items should be decided when product requirements provide enough evidence.
 
 ---
 

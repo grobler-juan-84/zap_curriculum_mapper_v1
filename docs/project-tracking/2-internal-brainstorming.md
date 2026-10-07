@@ -35,12 +35,12 @@
 Current areas where brainstorming is especially useful:
 
 1. Schema gaps revealed by cross-series extraction (SEL / Think Big / Big Question / glosses / intermittent reading prompts).
-2. ID normalization across folder names vs internal `book_id` values.
-3. Canonical merge workflow after unit-batch human verification.
-4. Handling incomplete or truncated batches (e.g. BE2 Unit 2).
-5. When to run automated validation vs continue human review.
-6. Reach Higher Unit 4 extraction restriction and pilot completion path.
-7. Google Sheets / React views over Phase 1 JSON.
+2. ID normalization across folder names vs internal `book_id` values (`beehive_american_sb1` vs `beehive_1_sb`, `bep1_sb`, RH mixed IDs).
+3. Canonical merge workflow after unit-batch human verification (first book to merge).
+4. When to run automated validation vs continue human review.
+5. Reach Higher Unit 4 review path vs prioritizing Beehive/Big English.
+6. Whether Validation UI as the primary verification surface should become a LOCKED decision (currently implementation-established, not locked).
+7. Whether to wire Book Workspace to Storage JSON or keep it as a separate prototype until Phase 2+.
 
 ---
 
@@ -199,11 +199,25 @@ App later LOADS that JSON from storage to display/edit
 
 ---
 
+### 2026-10-07 — Documentation audit: implementation-established but not locked
+
+**Question:** Which practices from the built app should become LOCKED decisions vs remain operational habit?  
+**Context:** Auth/catalog/Storage/Validation are live; extraction is manual Google AI Studio; Sheets is unused for pilot verification.  
+**Options:**
+1. Lock Validation UI + Storage as the Phase 1 verification surface (D00x).
+2. Leave as documented practice in registry/progress until owner explicitly locks.
+3. Also lock “manual AI Studio extraction until factory exists.”  
+**Lean / notes:** Prefer option 2 for now — record in registry/progress/tech-stack; promote only if owner wants LOCKED permanence.  
+**Status:** open
+
+---
+
 ## Promoted / closed pointers
 
 | Date | Topic | Outcome |
 |---|---|---|
 | 2026-10-05 | BE2 Unit 2 truncated batch | Full re-extraction replaced the file; pages/vocabulary/language restored; human-verified. |
+| 2026-10-07 | Pilot extraction quality | Owner judgement: satisfactory to continue; Phase 1 still not COMPLETE (see Dataset Registry §14). |
 
 ---
 
@@ -211,8 +225,9 @@ App later LOADS that JSON from storage to display/edit
 
 Ideas worth keeping but not actively exploring:
 
-- Whether Google Sheets should remain a verification surface once a React dataset browser exists.
+- Whether Google Sheets should return as a secondary verification surface (pilot uses React Validation).
 - Whether workbook extraction should follow each SB immediately or wait until SB canonical datasets stabilize.
 - Long-term automation of registry fields from batch metadata.
+- Aligning seed `books.status = verified` with registry Phase 1 IN PROGRESS (docs clarified; data cleanup optional).
 
 ---

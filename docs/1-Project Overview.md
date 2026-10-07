@@ -192,39 +192,33 @@ Phase 1 therefore serves two purposes:
 
 ## 7. Phase 1 Working Pipeline
 
-The current intended workflow is:
+The current working workflow is:
 
-**PDF Source**
-
-↓
-
-**AI Extraction**
+**PDF Source** (private Supabase Storage `book-sources`)
 
 ↓
 
-**Structured JSON**
+**Manual AI Extraction** (Google AI Studio, unit-by-unit JSON batches)
 
 ↓
 
-**Automated Validation**
+**Structured JSON** (private Supabase Storage `book-datasets`, linked via `book_files`)
 
 ↓
 
-**Human Verification**
+**Automated Validation** (optional / not yet run at scale)
 
 ↓
 
-**Canonical Book Dataset**
+**Human Verification** (React `/app/validation` — JSON evidence beside source PDF)
 
 ↓
 
-**Google Sheets / React Viewer**
+**Canonical Book Dataset** (merge after verification — not yet created for pilot books)
 
-Each book should ultimately produce a structured, verified dataset that preserves traceability to the original source.
+Google Sheets remains an optional future inspection surface. For the current pilot, the React Validation workspace is the human verification UI.
 
-Google Sheets and the React application are primarily interfaces for inspecting, comparing and validating the structured curriculum data.
-
-They are not themselves the source of curriculum truth.
+Canonical curriculum truth remains the verified JSON (and eventually the merged canonical book dataset), not the UI.
 
 ---
 

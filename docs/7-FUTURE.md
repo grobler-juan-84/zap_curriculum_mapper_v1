@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 21  
+**Last updated:** Step 42  
 **Purpose:** Parking lot for good ideas that are explicitly **not now**. Keep them visible without contaminating current Phase 1 scope.
 
 ---
@@ -20,14 +20,16 @@
 
 | ID | Idea | Why not now | Source |
 |---|---|---|---|
-| F001 | Full SaaS app (React/Vite + Gemini ingestion + Supabase persistence) | Phase 1 evidence and schema must stabilize first; backend platform locked to Supabase but product features not started | brainstorming / D005 |
+| F001 | Full SaaS productization (multi-tenant orgs, billing, polished teacher product) | Pilot Auth/catalog/Validation exist; Phase 1 evidence lifecycle (canonical merge, schema review) still open | brainstorming / D005 |
 | F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
-| F003 | Google Sheets / React explorer over Phase 1 JSON | Nice-to-have visualization; not required for extraction quality | brainstorming |
+| F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | F004 | Phase 2 interpretation pipeline | Explicitly downstream of trustworthy Phase 1 datasets | architecture |
 | F005 | Phase 3 connections / mapping products | Depends on Phase 1–2 maturity | architecture |
 | F006 | Phase 4 teacher enrichment productization | Philosophy exists; no enrichment engine work yet | phase-4 doc |
 | F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai handover patterns) | Parked handover spec; not current priority | phase-6 doc |
-| F008 | Automated multi-book extraction factory | Manual unit-batch + human verify is the learning loop now | process |
+| F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
+| F009 | Wire Book Workspace to Storage-backed page models (replace Beehive mock spreads) | Valuable UX bridge; not required to finish Phase 1 evidence quality | app audit 2026-10-07 |
+| F010 | Persist Validation session notes | Useful ops polish; status writes already land in Postgres | Validation UI |
 
 ---
 

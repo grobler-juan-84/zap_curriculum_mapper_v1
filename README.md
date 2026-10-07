@@ -31,23 +31,23 @@ npm run typecheck
 npm run build
 ```
 
-The app starts without Supabase credentials. Copy `.env.example` to `.env` only when you have local values.
+Auth, catalog, and Validation require Supabase credentials in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`). Without them, login/catalog/Validation are not usable.
 
 ## Python tooling
 
 See [`python/README.md`](./python/README.md).
 
-## Locked technology (not all implemented yet)
+## Locked technology (implementation varies)
 
-| Layer | Choice |
-|---|---|
-| Frontend | Vite + React + TypeScript + Tailwind |
-| Backend platform | Supabase (PostgreSQL / Auth / Storage when needed) |
-| Curriculum format | JSON-first (JSONB later where useful) |
-| AI | Google Gemini API (not integrated in scaffold) |
-| Frontend hosting | Vercel (not deployed from scaffold) |
+| Layer | Choice | Pilot status |
+|---|---|---|
+| Frontend | Vite + React + TypeScript + Tailwind | App shell + Validation live |
+| Backend platform | Supabase (PostgreSQL / Auth / Storage) | Auth, catalog, private Storage in use |
+| Curriculum format | JSON-first (JSONB later where useful) | Unit batches in Storage |
+| AI | Google Gemini API | Not integrated; extraction via Google AI Studio manually |
+| Frontend hosting | Vercel | Not deployed from this repo |
 
-See [`docs/2-tech-stack.md`](./docs/2-tech-stack.md) and [`docs/4-DECISIONS.md`](./docs/4-DECISIONS.md).
+See [`docs/2-tech-stack.md`](./docs/2-tech-stack.md), [`docs/5-PROGRESS.md`](./docs/5-PROGRESS.md), and [`docs/4-DECISIONS.md`](./docs/4-DECISIONS.md).
 
 ## Documentation
 

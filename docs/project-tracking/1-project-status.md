@@ -2,19 +2,20 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 41  
+**Last updated:** Step 42  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
-- Hybrid Supabase catalog + private Storage for pilot batch JSON, cover imagery, and source PDFs.
-- `/app/validation`: unit JSON + PDF.js viewer; resizable panes; admin status writes.
-- Reach Higher 2A `source.pdf` in `book-sources` replaced with the full Student Book from `book-files/`.
+- React app with Auth, live Supabase catalog, and Validation workspace over Storage JSON/PDFs.
+- Pilot Phase 1 unit batches + source PDFs for BH1, BE1-SB, BE2-SB, RH2A.
+- Documentation brought into alignment with repository evidence (Step 42 audit).
+- Extraction quality judged satisfactory to continue; Phase 1 still open (no COMPLETE books).
 
 ## Current status
 
-Validation can show RH Units 3–4 against the correct PDF. Refresh Validation (or wait for a new signed URL) if an old RH PDF is still cached in the browser session.
+Infrastructure and first-iteration verification for the cross-series pilot are in place. Remaining Phase 1 work is lifecycle (unit cleanup, schema review, canonical merge, whole-book audit), not greenfield extraction setup.
 
 ## Next small step
 
-**Suggestion:** Open Reach Higher 2A in Validation and jump to Unit 3/4 pages to confirm the full PDF loaded.
+**Suggestion:** Choose and execute **one**: (A) draft initial cross-series schema review notes from BH1 / BE1 / RH2A, or (B) merge the first canonical book JSON for BE1-SB (human verification already COMPLETE).

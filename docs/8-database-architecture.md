@@ -78,9 +78,10 @@ For the feasibility prototype, books may have many `batch_json` rows (unit batch
 
 Distinction:
 
-- `books.status` — overall book workflow (`registered` → `extracted` → `verified` → …)
-- `book_files.status` — individual file/batch workflow (`pending` / `needs_review` / `verified`)
+- `books.status` — coarse Postgres book workflow (`registered` → `extracted` → `verified` → …). **Do not treat this alone as Phase 1 COMPLETE** (registry criteria also require canonical merge + whole-book audit). Seed rows may say `verified` while registry Phase 1 remains `IN PROGRESS`.
+- `book_files.status` — individual file/batch workflow (`pending` / `needs_review` / `verified`); this is what Validation writes.
 - `book_files.label` — display-only label (e.g. `Unit 1`); not a relational unit model
+- Dataset Registry (`docs/phase-1/Dataset_registry.md`) — authoritative operational Phase 1 status for humans/AI sessions
 
 ---
 
@@ -101,18 +102,23 @@ This is not a full multi-tenant permissions system. Expand later when product ro
 - Relational tables for curriculum entities inside the JSON
 - Speculative SaaS tables (orgs, schools, jobs, analytics)
 - Public Storage buckets for source PDFs
-- Automatic migration of local `data/phase1` files into Storage (manual / later tooling)
+- Automatic continuous sync of local `data/phase1` into Storage (manual upload scripts exist instead)
+
+Upload tooling (service role): `scripts/upload_pilot_batches.mjs`, `scripts/upload_source_pdfs.mjs`, `scripts/upload_series_covers.mjs`, `scripts/upload_book_covers.mjs`.
 
 ---
 
-## 6. Apply this migration
+## 6. Apply migrations
+
+See the full ordered list in [`supabase/README.md`](../supabase/README.md). Core catalog + Storage policies start at:
 
 ```text
 supabase/migrations/20261007120000_create_curriculum_catalog.sql
 ```
 
-Apply with Dashboard SQL editor, or `supabase link` + `supabase db push` (same process as the profiles migration). See `supabase/README.md`.
+Later migrations add `label`/`status`, pilot seeds, cover paths, source PDF pointers, and Beehive Units 9–10 batch pointers.
 
+Apply with Dashboard SQL editor, or `supabase link` + `supabase db push`.
 ---
 
 ## 7. Related docs

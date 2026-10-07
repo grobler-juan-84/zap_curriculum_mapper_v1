@@ -119,9 +119,12 @@ FAILED
 ```text
 NOT STARTED
 IN PROGRESS
+PARTIAL
 COMPLETE
 NEEDS REVIEW
 ```
+
+`PARTIAL` means some units/batches have been human-accepted while others remain pending or need review (use book notes / `book_files.status` for detail).
 
 ## Whole-Book Audit
 
@@ -312,7 +315,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Notes
 
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
-- Beehive 1 now has all 10 unit batches in Storage; verify Units 9–10 in `/app/validation`.
+- Beehive 1 has all 10 unit batches in Storage; Units 9–10 remain `pending` in Validation.
+- First-iteration verification of earlier units supports the 2026-10-07 quality checkpoint (§14): extraction is satisfactory to continue, while Phase 1 stays open/iterative.
 
 ---
 
@@ -410,6 +414,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
 - Unit 4 part1/part2 batch files were merged into `rh2a_sb_unit4.json` (pp. 212–279).
 - Source PDF in private `book-sources` (`reach-higher/reach_higher_2a/source.pdf`) replaced 2026-10-07 with the full Student Book file (was previously units 1–2 only).
+- Reach Higher remains a structural stress test; Beehive / Big English are higher-priority school curriculum sources (see §14).
 
 ---
 
@@ -511,7 +516,10 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED (units 01–10); units 1–8 verified, 9–10 pending Validation (canonical merge / whole-book audit pending) |
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED (`rh2a_sb_unit4.json`); UNITS 1–3 HUMAN-VERIFIED; UNIT 4 NOT YET REVIEWED |
-| 4 | Schema Review | Review findings across all three series | NOT STARTED |
+| 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
+| 5 | Schema Review | Review findings across pilot series | NOT STARTED (extraction quality checkpoint accepted — see §14) |
+
+**Infrastructure (pilot books):** unit-batch JSON and source PDFs are in private Supabase Storage; `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
 
 The exact extraction sequence may change if practical testing provides a reason.
 
@@ -533,7 +541,25 @@ Big English 1
 Reach Higher 2A
 ```
 
-perform a schema review before large-scale processing.
+(+ Big English 2 SB as an additional extracted/verified Student Book)
+
+perform a schema review before large-scale processing of the remaining books.
+
+### Extraction quality checkpoint (2026-10-07)
+
+**Project judgement (owner + Validation spot-checks):** first-iteration Phase 1 extraction quality is **satisfactory for continuing development**.
+
+Observed for the pilot set:
+
+- page coverage is accurate enough for verification;
+- vocabulary extraction is accurate enough;
+- important language / sentence structures are captured to a satisfactory level.
+
+**Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
+
+**Still not Phase 1 COMPLETE for any book** — canonical merge, whole-book audit, automated validation, and formal schema review are outstanding. Remaining unit-level gaps (BH1 U9–10 pending; RH2A U4 needs review) should be closed when convenient, but do not block recording this quality judgement.
+
+Phase 1 remains iterative: later linguistic interpretation or curriculum mapping may expose missing evidence and require returning to Phase 1.
 
 Review:
 
@@ -868,9 +894,11 @@ Reach Higher
 
 Current Priority
 Phase 1 — Curriculum Extraction & Dataset Development
+(extraction quality checkpoint accepted 2026-10-07;
+ Phase 1 still IN PROGRESS — no book COMPLETE)
 
 Current Canonical Format
-Structured JSON
+Structured JSON (unit batches in Supabase Storage)
 
 Current Schema
 0.1 Development
@@ -878,13 +906,19 @@ Current Schema
 Phase 1 Complete
 0 / 18
 
-Current Cross-Series Pilot
-Beehive 1
-Big English 1
-Reach Higher 2A
+Storage-backed pilot books
+Beehive 1 (units 01–10; human verification PARTIAL)
+Big English 1 SB (units 01–09; human verification COMPLETE)
+Big English 2 SB (units 01–09; human verification COMPLETE)
+Reach Higher 2A (units 1–4; human verification PARTIAL)
 
-Next Major Checkpoint
+Verification UI
+React /app/validation (JSON + source PDF)
+
+Next Major Checkpoints
+Close remaining unit reviews (BH1 U9–10, RH2A U4) when convenient
 Initial Cross-Series Schema Review
+First canonical merge for one pilot book
 ```
 
 ---

@@ -194,13 +194,13 @@ The current intended workflow is:
 
 ↓
 
-**Google Sheets / React Viewer**
+**React Validation / optional Sheets views**
 
 ↓
 
 **Phase 1 Complete**
 
-This workflow may evolve as testing reveals better methods.
+Pilot path today: Google AI Studio unit batches → Supabase Storage → React `/app/validation` human verification. Canonical merge and whole-book audit are still required before Phase 1 Complete.
 
 ---
 
@@ -798,7 +798,7 @@ It means:
 
 # 24. Google Sheets Role
 
-Google Sheets may be used as a human-friendly inspection and verification interface.
+Google Sheets may still be used later as a human-friendly inspection interface. The pilot verification surface is the React Validation workspace.
 
 Structured JSON remains the preferred canonical machine representation.
 
@@ -824,7 +824,7 @@ Google Sheets should not force the underlying curriculum model into unnecessary 
 
 # 25. React Viewer Role
 
-The React application should initially function as a **dataset inspection and validation tool**.
+The React application now includes `/app/validation` as the pilot **dataset inspection and human verification tool** (JSON evidence beside source PDF). Book Workspace remains a separate UX prototype (Beehive 1 mock spreads).
 
 Its purpose is to help reveal:
 

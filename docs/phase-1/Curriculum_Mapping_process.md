@@ -1122,6 +1122,8 @@ Automation should progressively replace repetitive work once testing demonstrate
 
 # 33. Google Sheets
 
+Google Sheets may still be used later as a human-friendly inspection surface, but the pilot verification path is the React Validation workspace (`/app/validation`) over Storage-backed JSON and PDFs.
+
 Google Sheets may be used during Phase 1 as a human-friendly inspection and verification environment.
 
 Potential views include:
@@ -1186,15 +1188,16 @@ We are evolving the architecture based on what previous experiments have taught 
 
 **CURRENT PRIMARY DEVELOPMENT FOCUS**
 
-The extraction methodology has already been substantially explored through Beehive.
+Cross-series pilot extraction is substantially in place for:
 
-The next major step is to create and validate structured Phase 1 datasets across:
+- Beehive 1 (units 01–10);
+- Big English 1 Student Book (units 01–09);
+- Big English 2 Student Book (units 01–09; additional extracted book);
+- Reach Higher 2A (units 1–4).
 
-- Beehive;
-- Big English;
-- and Reach Higher.
+Unit batches and source PDFs live in private Supabase Storage and are reviewed in the React Validation workspace. Automated validation is not yet a gate. Canonical merge, whole-book audit, and formal cross-series schema review remain open.
 
-Structured JSON, automated validation, human verification and cross-series schema discovery are now central to this phase.
+The current project judgement (2026-10-07) is that first-iteration extraction quality is **satisfactory to continue development**, while Phase 1 remains iterative if later phases expose missing evidence.
 
 ---
 
@@ -1256,17 +1259,20 @@ It should become increasingly systematic as the earlier phases mature.
 
 # 36. Current Phase 1 Milestone
 
-The immediate milestone is:
+The immediate milestone was:
 
 > **Prove the Phase 1 extraction and dataset architecture across three substantially different textbook series.**
 
-The representative initial test should use:
+Representative pilot books:
 
 - Beehive 1;
 - Big English 1;
-- Reach Higher 2A.
+- Reach Higher 2A;
+- (plus Big English 2 SB as an additional extracted Student Book).
 
-We should prove:
+**Status (2026-10-07):** pilot extraction + Storage + first-iteration human verification are in place; extraction quality is judged satisfactory to continue. Remaining milestone work: formal schema review, canonical merge, whole-book audit — not greenfield extraction setup.
+
+We should still prove:
 
 ```text
 PDF
