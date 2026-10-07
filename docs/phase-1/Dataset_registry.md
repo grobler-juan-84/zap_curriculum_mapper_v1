@@ -181,7 +181,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 |---|---|---|---|---|---|---|---|---|---|---|---:|---:|---|
 | BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 31 | 8 | IN PROGRESS |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 39 | 1 | IN PROGRESS |
+| BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | CREATED | 0.1 | 39 | 1 | IN PROGRESS |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | 16 | 0 | IN PROGRESS |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -336,19 +336,20 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Human Verification:** COMPLETE  
 **Verification Notes:** All unit batches reviewed and accepted by project decision (2026-10-02).  
 **Whole-Book Audit:** NOT STARTED  
-**Canonical Dataset:** NOT CREATED  
+**Canonical Dataset:** CREATED (`big-english/big_english_1_sb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `draft`)  
 **Phase 1 Status:** IN PROGRESS  
 
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 39 (mostly audio/visual verification — documented, left open)  
+**Open Issues:** 39 (mostly audio/visual verification — documented, left open; carried into canonical v1)  
 **Schema Gaps:** 1 (Think Big sub-feature — pending schema review; related to Beehive SEL/reflection gaps)
 
 ### Notes
 
-- Do not mark Phase 1 COMPLETE until canonical merge + whole-book audit are done.
-- Cross-series pilot next: Reach Higher 2A, then schema review across BH1 + BE1-SB + RH2A.
+- First canonical merge completed 2026-10-07 via `scripts/merge_canonical_book.mjs` (9 units, 144 pages, 307 vocab, 75 language, 390 activities). Entity IDs preserved (`bep1_sb` prefix); catalog `book_id` remains `big_english_1_sb`.
+- Do not mark Phase 1 COMPLETE until whole-book audit passes (canonical exists but audit is still NOT STARTED).
+- Cross-series schema review remains the next pilot checkpoint alongside whole-book audit.
 
 ---
 
@@ -513,7 +514,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | Order | Book | Purpose | Status |
 |---:|---|---|---|
 | 1 | Beehive 1 | Existing conceptual baseline / first schema test | EXTRACTED (units 01–10) + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
+| 2 | Big English 1 | Current school curriculum / full-series architecture test | EXTRACTED + HUMAN VERIFICATION COMPLETE + CANONICAL v1 CREATED (whole-book audit pending) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 5 | Schema Review | Review findings across pilot series | NOT STARTED (extraction quality checkpoint accepted — see §14) |
@@ -556,7 +557,7 @@ Observed for the pilot set:
 
 **Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
 
-**Still not Phase 1 COMPLETE for any book** — canonical merge, whole-book audit, automated validation, and formal schema review are outstanding. Unit-batch human verification for the Storage-backed pilot books (BH1, BE1-SB, BE2-SB, RH2A) is now COMPLETE.
+**Still not Phase 1 COMPLETE for any book** — whole-book audit, automated validation, and formal schema review are outstanding. Unit-batch human verification for the Storage-backed pilot books (BH1, BE1-SB, BE2-SB, RH2A) is COMPLETE. **BE1-SB has the first canonical dataset (v1)**; other pilot books are still batch-only.
 
 Phase 1 remains iterative: later linguistic interpretation or curriculum mapping may expose missing evidence and require returning to Phase 1.
 
@@ -664,7 +665,7 @@ Update this section as books progress.
 | Phase 1 In Progress | 4 |
 | Phase 1 Complete | 0 |
 | Phase 1 Blocked | 0 |
-| Canonical Datasets Created | 0 |
+| Canonical Datasets Created | 1 |
 | Human Verification Complete | 4 |
 | Whole-Book Audits Passed | 0 |
 
@@ -897,7 +898,7 @@ Phase 1 — Curriculum Extraction & Dataset Development
  Phase 1 still IN PROGRESS — no book COMPLETE)
 
 Current Canonical Format
-Structured JSON (unit batches in Supabase Storage)
+Structured JSON (unit batches + BE1-SB canonical v1 in Supabase Storage)
 
 Current Schema
 0.1 Development
@@ -907,7 +908,7 @@ Phase 1 Complete
 
 Storage-backed pilot books
 Beehive 1 (units 01–10; human verification COMPLETE)
-Big English 1 SB (units 01–09; human verification COMPLETE)
+Big English 1 SB (units 01–09; human verification COMPLETE; canonical v1 CREATED)
 Big English 2 SB (units 01–09; human verification COMPLETE)
 Reach Higher 2A (units 1–4; human verification COMPLETE)
 
@@ -915,8 +916,8 @@ Verification UI
 React /app/validation (JSON + source PDF)
 
 Next Major Checkpoints
+BE1-SB whole-book audit
 Initial Cross-Series Schema Review
-First canonical merge for one pilot book
 ```
 
 ---

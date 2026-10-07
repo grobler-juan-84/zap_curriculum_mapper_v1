@@ -708,3 +708,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 44
+
+**Summary:** First canonical merge for Big English 1 SB: nine verified unit batches → `canonical/v1.json` in Storage, `book_files` + `dataset_versions` v1 (`draft` / `is_current`), merge script + seed migration, registry/trackers updated (Phase 1 still not COMPLETE).
+
+**Files touched:**
+- `scripts/merge_canonical_book.mjs` (created)
+- `supabase/migrations/20261007190000_seed_be1_canonical_v1.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

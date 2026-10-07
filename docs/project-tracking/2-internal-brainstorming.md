@@ -219,6 +219,7 @@ App later LOADS that JSON from storage to display/edit
 | 2026-10-05 | BE2 Unit 2 truncated batch | Full re-extraction replaced the file; pages/vocabulary/language restored; human-verified. |
 | 2026-10-07 | Pilot extraction quality | Owner judgement: satisfactory to continue; Phase 1 still not COMPLETE (see Dataset Registry §14). |
 | 2026-10-07 | BH1 U9–10 + RH2A U4 verification | Marked `verified` in `book_files`; registry human verification COMPLETE for BH1 and RH2A. |
+| 2026-10-07 | First canonical merge (BE1-SB) | `canonical/v1.json` + `dataset_versions` v1; IDs preserved (`bep1_sb`); whole-book audit still open. |
 
 ---
 

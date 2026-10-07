@@ -17,6 +17,7 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261007160000_seed_source_pdf_book_files.sql` | Seeds `book_files` `source_pdf` pointers for the four pilot books |
 | `migrations/20261007170000_seed_beehive_1_units_09_10.sql` | Seeds Beehive 1 `batch_json` pointers for Units 9–10 |
 | `migrations/20261007180000_verify_bh1_u09_u10_rh2a.sql` | Sets BH1 Units 9–10 and all RH2A unit batches to `verified` |
+| `migrations/20261007190000_seed_be1_canonical_v1.sql` | Seeds BE1-SB `canonical_json` + `dataset_versions` v1 pointers |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
 
@@ -38,6 +39,16 @@ Then refresh the app (or sign out/in) so the client reloads your profile.
 Frontend public env vars live in `app/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
 
 Server-side scripts may also read `SUPABASE_SERVICE_ROLE_KEY` (never prefix with `VITE_`; never commit). Prefer keeping the service-role key in a root `.env` / `.env.local` rather than a Vite-loaded file long-term.
+
+### Merge a canonical book dataset
+
+After unit batches are verified, merge into Storage + `dataset_versions`:
+
+```bash
+node scripts/merge_canonical_book.mjs big_english_1_sb
+```
+
+Writes `data/phase1/<book_id>/canonical/v1.json` (gitignored), uploads `…/canonical/v1.json` to `book-datasets`, upserts `book_files` (`canonical_json`), and sets `dataset_versions` v1 `is_current` (`status = draft` until whole-book audit).
 
 ### Upload pilot batch JSON to Storage
 
