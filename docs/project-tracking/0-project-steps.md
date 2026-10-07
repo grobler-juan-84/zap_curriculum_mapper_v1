@@ -577,3 +577,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 36
+
+**Summary:** Uploaded four pilot source PDFs to private `book-sources`, upserted `book_files` `source_pdf` rows, and replaced the Validation PDF iframe with a PDF.js two-page signed-URL viewer (15-minute TTL, unit page jump).
+
+**Files touched:**
+- `scripts/upload_source_pdfs.mjs` (created)
+- `supabase/migrations/20261007160000_seed_source_pdf_book_files.sql` (created)
+- `supabase/README.md` (updated)
+- `app/package.json` / `app/package-lock.json` (updated — `react-pdf`)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

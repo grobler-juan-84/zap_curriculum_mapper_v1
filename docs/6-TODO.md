@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 35  
+**Last updated:** Step 36  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -15,7 +15,8 @@
 
 ## Next
 
-- [ ] Upload source PDFs to private `book-sources` and register `book_files` `source_pdf` rows so the validation PDF pane embeds.
+- [x] Upload source PDFs to private `book-sources` and register `book_files` `source_pdf` rows so the validation PDF pane embeds.
+- [ ] Confirm Validation 2-page PDF viewer on each pilot book while signed in.
 - [ ] Replace remaining Beehive-only mock spreads with Storage-backed content path.
 - [ ] Move `SUPABASE_SERVICE_ROLE_KEY` to root server env (not Vite-loaded) when convenient.
 

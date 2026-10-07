@@ -193,7 +193,7 @@ export const validationService = {
     const client = requireClient()
     const { data, error } = await client.storage
       .from(batch.bucket)
-      .createSignedUrl(batch.storagePath, 60 * 60)
+      .createSignedUrl(batch.storagePath, 60 * 15)
     if (error || !data?.signedUrl) return null
     return data.signedUrl
   },

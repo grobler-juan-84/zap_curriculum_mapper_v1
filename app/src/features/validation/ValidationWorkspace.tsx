@@ -49,6 +49,10 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const currentBatch =
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
 
+  const pdfInitialPage =
+    summary?.units.find((unit) => typeof unit.printedPageStart === 'number')?.printedPageStart ??
+    null
+
   useEffect(() => {
     let cancelled = false
     setBatchesLoading(true)
@@ -267,7 +271,12 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
             style={{ height: `${topPaneHeightPercent}%` }}
             className="overflow-hidden bg-slate-200/60 p-2 transition-all duration-75"
           >
-            <ValidationPdfPane pdfUrl={pdfUrl} loading={pdfLoading} bookTitle={book.title} />
+            <ValidationPdfPane
+              pdfUrl={pdfUrl}
+              loading={pdfLoading}
+              bookTitle={book.title}
+              initialPage={pdfInitialPage}
+            />
           </div>
 
           <div

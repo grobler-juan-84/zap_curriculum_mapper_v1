@@ -14,6 +14,7 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261007131000_seed_pilot_catalog.sql` | Seeds 3 series, 4 pilot books, and unit `batch_json` file pointers (no canonical `dataset_versions` yet) |
 | `migrations/20261007140000_book_assets_and_series_covers.sql` | Private `book-assets` bucket + `book_series.cover_path` for series cover images |
 | `migrations/20261007150000_books_cover_path.sql` | Adds `books.cover_path` for student-book cover images |
+| `migrations/20261007160000_seed_source_pdf_book_files.sql` | Seeds `book_files` `source_pdf` pointers for the four pilot books |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`).
 
@@ -32,6 +33,16 @@ node scripts/upload_pilot_batches.mjs
 ```
 
 This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket using the seeded `storage_path` values and updates `book_files.file_size`. After the initial upload, Storage is the source of truth.
+
+### Upload source PDFs to Storage
+
+Place the four pilot PDFs under `book-sources/` (gitignored via `*.pdf`), apply `20261007160000_seed_source_pdf_book_files.sql` if needed, then from repo root:
+
+```bash
+node scripts/upload_source_pdfs.mjs
+```
+
+This upserts PDFs into the private `book-sources` bucket and upserts matching `book_files` rows (`file_type = source_pdf`). The Validation app loads them via short-lived signed URLs for authenticated users only.
 
 ### Upload series cover images
 
