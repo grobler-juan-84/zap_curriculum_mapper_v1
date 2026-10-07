@@ -604,13 +604,50 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 # 15. Recommended Processing Order After Pilot
 
-The exact processing order is not permanently fixed.
+**Status:** DRAFT — practical default, not a locked decision.
 
-However, once the representative pilot is successful, a practical approach is to continue processing the available dataset while deliberately maintaining cross-series awareness.
+The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
-Do not assume that successful extraction of several books from one series proves the architecture is general.
+- starts with a Workbook so Student Book ↔ Workbook relationships are tested before scaling;
+- keeps Beehive and Big English as the higher-priority curriculum sources;
+- brings Reach Higher back at intervals as a structural stress test;
+- processes later Big English levels as Student Book / Workbook pairs;
+- avoids extracting all books from one series before checking another.
 
-Later levels may still expose new structures.
+## Draft Remaining-Book Order (14 books)
+
+| Order | Registry ID | Book | Why here |
+|---:|---|---|---|
+| 1 | BE1-WB | Big English 1 Workbook | First Workbook test; closes the BE1 pair and validates cross-book relationship handling against a trusted SB canonical. |
+| 2 | BH2 | Beehive 2 | High-priority vertical check; tests whether Beehive SEL / recurring component representation remains consistent at the next level. |
+| 3 | BE2-WB | Big English 2 Workbook | Closes the BE2 pair while sticker/appendix dependency lessons are fresh. |
+| 4 | RH2B | Reach Higher 2B | Same-level continuation of the RH2A stress test; checks inquiry / long-reading recurrence before later RH levels. |
+| 5 | BE3-SB | Big English 3 Student Book | Begins the first fully new Big English level after the pilots. |
+| 6 | BE3-WB | Big English 3 Workbook | Completes the level pair before moving upward. |
+| 7 | RH3A | Reach Higher 3A | Cross-series checkpoint after one new Big English pair. |
+| 8 | BE4-SB | Big English 4 Student Book | Continues Big English vertical progression. |
+| 9 | BE4-WB | Big English 4 Workbook | Completes the level pair. |
+| 10 | BE5-SB | Big English 5 Student Book | Continues the higher-priority Big English sequence. |
+| 11 | BE5-WB | Big English 5 Workbook | Completes the level pair. |
+| 12 | RH4A | Reach Higher 4A | Final Reach Higher stress check before the last Big English pair. |
+| 13 | BE6-SB | Big English 6 Student Book | Final Big English Student Book. |
+| 14 | BE6-WB | Big English 6 Workbook | Completes the initial 18-book dataset. |
+
+## Per-book execution gate
+
+Before extraction, confirm the source is complete and establish the catalog `book_id`, Storage paths, aliases, expected units/sections, and validator book profile. Then use:
+
+```text
+unit extraction
+→ human verification
+→ verified-batch preflight
+→ canonical merge + D007 normalization
+→ automated canonical validation
+→ whole-book/source audit
+→ Phase 1 COMPLETE
+```
+
+Warnings remain reviewable/non-blocking; any validator **ERROR** blocks progression. New source structures stay in `schema_gaps` unless repeated evidence justifies reopening the deferred 0.2 candidate.
 
 Continue recording:
 
@@ -620,6 +657,8 @@ Continue recording:
 - and unexpected source structures
 
 throughout the entire 18-book dataset.
+
+Reorder only for a concrete source/readiness reason (missing/incomplete PDF, unresolved identity, extraction failure, or a deliberate owner priority change). Record the reason rather than silently changing the sequence.
 
 ---
 
@@ -930,7 +969,7 @@ Implemented (machine schema + shared JS validator + CLI)
 All four pilots: PASSED WITH WARNINGS (BE2-SB appendix sticker pages added 2026-10-07)
 
 Next Major Checkpoints
-Remaining-book extraction order after the post-pilot schema pass (0.2 deferred; schema stays 0.1)
+Begin draft remaining-book order with BE1-WB, then BH2 / BE2-WB / RH2B (§15)
 ```
 
 ---

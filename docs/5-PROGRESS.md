@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 60
+**Last updated:** Step 61
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -16,14 +16,15 @@
 - Post-pilot 0.2 candidate **defers** every observed gap. Schema remains **0.1** (review notes §11). No schema or prompt patch.
 - Automated structural validation implemented and integrated with merge/audit (D008).
 - All four pilots now **PASSED WITH WARNINGS** after BE2-SB appendix sticker pages `bep2_p189`–`bep2_p191` were added.
+- Drafted the remaining 14-book extraction order (Dataset Registry §15): BE1-WB first, with BH2 / BE2-WB / RH2B early and later Big English SB/WB pairs interleaved with Reach Higher checkpoints.
 
 ## In progress
 
-- Remaining-book extraction order after the post-pilot schema pass.
+- Post-pilot transition to the first remaining book; no new extraction started yet.
 
 ## Next
 
-- Draft remaining-book extraction order.
+- Prepare BE1-WB source identity, alias/profile, and unit/section extraction plan.
 
 ## Blocked
 
@@ -37,3 +38,4 @@
 - **Canonical datasets:** 4 verified.
 - **Automated validation:** 4 passed with warnings.
 - **Schema:** 0.1. The 0.2 candidate (2026-10-07) found no universal field with sufficient evidence.
+- **Draft next order:** BE1-WB → BH2 → BE2-WB → RH2B, then paired Big English levels with RH checkpoints.

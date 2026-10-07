@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 60
+**Last updated:** Step 61
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
@@ -11,11 +11,12 @@
 - Post-pilot 0.2 candidate defers every observed gap. Schema remains 0.1.
 - Automated structural validation is implemented and integrated with merge/audit (D008).
 - BE2-SB appendix sticker pages added; all four pilots now pass automated validation with warnings.
+- Remaining 14-book extraction order drafted in Dataset Registry §15.
 
 ## Current status
 
-Pilot Extraction / Verification / Canonical / Audit loop closed. Automated validation is available for future books.
+Pilot loop closed. Schema stays 0.1; the draft continuation starts with BE1-WB and keeps BH2 / BE2-WB / RH2B early for workbook, vertical, and cross-series coverage.
 
 ## Next small step
 
-**Suggestion:** Draft the remaining-book extraction order.
+**Suggestion:** Prepare BE1-WB source identity, aliases/profile, and unit/section extraction plan.

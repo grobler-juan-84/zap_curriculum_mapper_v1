@@ -1008,3 +1008,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 61
+
+**Summary:** Drafted the remaining 14-book Phase 1 extraction order after the pilot/schema pass. The default starts with BE1-WB, brings BH2 / BE2-WB / RH2B in early, then processes later Big English Student Book/Workbook pairs with Reach Higher checkpoints.
+
+**Files touched:**
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
