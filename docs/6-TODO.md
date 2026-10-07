@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 44  
+**Last updated:** Step 45  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -12,7 +12,8 @@
 - [x] Choose next Phase 1 checkpoint: first canonical merge (BE1-SB).
 - [x] Merge BE1-SB verified unit batches into canonical v1 + register `dataset_versions`.
 - [x] Human-verify BH1 Units 9–10 and RH2A Unit 4; set `book_files.status` to `verified`.
-- [ ] Whole-book audit of BE1-SB canonical v1 against the source PDF (required before Phase 1 COMPLETE).
+- [x] Structural audit pack for BE1-SB canonical v1 (`scripts/audit_canonical_book.mjs` → [`phase-1/audits/BE1-SB_canonical_v1_audit.md`](./phase-1/audits/BE1-SB_canonical_v1_audit.md)).
+- [ ] Owner PDF spot-check → reply **audit PASSED** or **audit NEEDS REVIEW** (required before Phase 1 COMPLETE).
 
 ## Next
 

@@ -58,6 +58,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [phase-1/Extraction_Data_Specification.md](./phase-1/Extraction_Data_Specification.md) | Phase 1 data specification: what to extract from curriculum sources, what not to invent, book-truth rules, uncertainty handling, validation, and canonical dataset expectations. | — | ACTIVE |
 | [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
 | [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; pilot Storage status; extraction quality checkpoint (2026-10-07); Phase 1 COMPLETE criteria. | — | ACTIVE |
+| [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | Structural whole-book audit evidence for BE1-SB canonical v1 (counts, integrity, uncertainty); awaits owner PDF spot-check. | 1.0 | ACTIVE |
 
 ### Phase 4
 
@@ -77,7 +78,7 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 20 | Current working docs, including index, operating trackers, and project-tracking |
+| ACTIVE | 21 | Current working docs, including index, operating trackers, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

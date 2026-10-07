@@ -50,6 +50,14 @@ node scripts/merge_canonical_book.mjs big_english_1_sb
 
 Writes `data/phase1/<book_id>/canonical/v1.json` (gitignored), uploads `…/canonical/v1.json` to `book-datasets`, upserts `book_files` (`canonical_json`), and sets `dataset_versions` v1 `is_current` (`status = draft` until whole-book audit).
 
+### Structural audit of a canonical dataset
+
+```bash
+node scripts/audit_canonical_book.mjs big_english_1_sb
+```
+
+Writes `docs/phase-1/audits/<book>_canonical_v1_audit.md` (integrity/coverage/uncertainty). Owner PDF spot-check is still required for Whole-Book Audit PASSED.
+
 ### Upload pilot batch JSON to Storage
 
 From repo root, after seeding `book_files` paths:

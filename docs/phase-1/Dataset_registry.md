@@ -348,6 +348,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 ### Notes
 
 - First canonical merge completed 2026-10-07 via `scripts/merge_canonical_book.mjs` (9 units, 144 pages, 307 vocab, 75 language, 390 activities). Entity IDs preserved (`bep1_sb` prefix); catalog `book_id` remains `big_english_1_sb`.
+- Structural whole-book audit pack: [`audits/BE1-SB_canonical_v1_audit.md`](./audits/BE1-SB_canonical_v1_audit.md) (integrity PASS; owner PDF spot-check pending).
 - Do not mark Phase 1 COMPLETE until whole-book audit passes (canonical exists but audit is still NOT STARTED).
 - Cross-series schema review remains the next pilot checkpoint alongside whole-book audit.
 

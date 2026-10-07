@@ -724,3 +724,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 45
+
+**Summary:** Added structural whole-book audit tooling and BE1-SB canonical v1 audit report (integrity PASS; counts/coverage/uncertainty). Owner PDF spot-check still required before recording PASSED / Phase 1 COMPLETE.
+
+**Files touched:**
+- `scripts/audit_canonical_book.mjs` (created)
+- `docs/phase-1/audits/BE1-SB_canonical_v1_audit.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
