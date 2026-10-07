@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 47  
+**Last updated:** Step 48  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,27 +10,28 @@
 ## Done
 
 - Auth, catalog, Validation; pilot unit batches verified for BH1 / BE1-SB / BE2-SB / RH2A.
-- BE1-SB canonical v1 merged and registered (`dataset_versions` draft).
-- Structural whole-book audit pack for BE1-SB (integrity PASS) written under `docs/phase-1/audits/`.
-- Validation reviews canonical via unit-scoped slices (Unit 1…N picker; one `canonical_json` source).
+- **BE1-SB Phase 1 COMPLETE:** canonical v1 + whole-book audit PASSED (structural + owner PDF spot-check); `dataset_versions` v1 `verified`.
+- Validation reviews canonical via unit-scoped slices (Unit 1…N).
 
 ## In progress
 
-- Owner PDF spot-check for BE1-SB whole-book audit (unit-scoped canonical view; awaiting PASSED / NEEDS REVIEW).
-- Formal cross-series schema review still open.
+- Formal cross-series schema review (BH1 / BE1 / RH2A [/ BE2]).
+- Canonical merge for remaining verified pilots (BH1, BE2-SB, RH2A).
 
 ## Next
 
-- After owner confirms audit PASSED: record Whole-Book Audit PASSED, set `dataset_versions` verified, mark BE1-SB Phase 1 COMPLETE (automated validation remains NOT RUN, documented as non-blocking).
+- Draft initial cross-series schema review notes.
+- Resolve internal `book_id` drift before further merges where needed.
+- Canonical merge for BH1 (and other verified pilots).
 
 ## Blocked
 
-- Soft-blocked on owner PDF spot-check sign-off for BE1-SB whole-book audit.
+- None.
 
 ---
 
 ## Snapshot notes
 
-- **Canonical:** BE1-SB v1 only; Validation picker shows Unit 1–9 sliced from that file (`from canonical` badge).
-- **Structural audit:** PASS (9 units, pages 10–165, no duplicate entity IDs).
-- **Not Phase 1 COMPLETE** until owner signs off the PDF spot-check.
+- **Phase 1 Complete:** 1 / 18 (BE1-SB only).
+- **Canonical:** BE1-SB v1 (`verified`); other pilots still batch-only.
+- **Automated validation:** still NOT RUN (non-blocking for BE1-SB COMPLETE).

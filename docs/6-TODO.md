@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 47  
+**Last updated:** Step 48  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -12,20 +12,19 @@
 - [x] Choose next Phase 1 checkpoint: first canonical merge (BE1-SB).
 - [x] Merge BE1-SB verified unit batches into canonical v1 + register `dataset_versions`.
 - [x] Human-verify BH1 Units 9–10 and RH2A Unit 4; set `book_files.status` to `verified`.
-- [x] Structural audit pack for BE1-SB canonical v1 (`scripts/audit_canonical_book.mjs` → [`phase-1/audits/BE1-SB_canonical_v1_audit.md`](./phase-1/audits/BE1-SB_canonical_v1_audit.md)).
-- [x] Show `canonical_json` in Validation (picker lists Canonical v1 first for BE1-SB).
-- [x] Unit-scoped Validation over one canonical file (picker Unit 1…N; evidence sliced by unit).
-- [ ] Owner PDF spot-check in Validation (unit-scoped canonical view) → reply **audit PASSED** or **audit NEEDS REVIEW** (required before Phase 1 COMPLETE).
+- [x] Structural audit pack for BE1-SB canonical v1.
+- [x] Show `canonical_json` in Validation + unit-scoped slices over one canonical file.
+- [x] Owner PDF spot-check → **audit PASSED**; BE1-SB Phase 1 COMPLETE (`dataset_versions` verified).
+- [ ] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
 
 ## Next
 
-- [ ] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
 - [ ] Document / fix internal `book_id` drift (`bep1_sb` vs `big_english_1_sb`, etc.) before further canonical merges.
+- [ ] Canonical merge for BH1 (and other verified pilots) using `scripts/merge_canonical_book.mjs`.
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
 
 ## Soon
 
-- [ ] Canonical merge for BH1 (and other verified pilots) using `scripts/merge_canonical_book.mjs`.
 - [ ] Persist Validation session notes (optional).
 - [ ] Draft remaining-book extraction order after schema review.
 

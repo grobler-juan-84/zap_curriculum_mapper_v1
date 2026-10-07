@@ -57,8 +57,8 @@ AI-facing operating trackers: [`4-DECISIONS.md`](./4-DECISIONS.md), [`5-PROGRESS
 | [phase-1/Google_AI_Studio_Prompt.md](./phase-1/Google_AI_Studio_Prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Supports uploading a complete textbook PDF, then extracting **unit by unit** into separate schema-faithful JSON batch files (with `FILE:` labels for saving), without lesson planning or enrichment. | V2 | ACTIVE |
 | [phase-1/Extraction_Data_Specification.md](./phase-1/Extraction_Data_Specification.md) | Phase 1 data specification: what to extract from curriculum sources, what not to invent, book-truth rules, uncertainty handling, validation, and canonical dataset expectations. | — | ACTIVE |
 | [phase-1/JSON_Schema.md](./phase-1/JSON_Schema.md) | Working Phase 1 JSON schema for canonical book datasets — entities, identifiers, vocabulary/language/activities structures, relationships, schema gaps, and versioning. | 0.1 | ACTIVE |
-| [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; pilot Storage status; extraction quality checkpoint (2026-10-07); Phase 1 COMPLETE criteria. | — | ACTIVE |
-| [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | Structural whole-book audit evidence for BE1-SB canonical v1 (counts, integrity, uncertainty); awaits owner PDF spot-check. | 1.0 | ACTIVE |
+| [phase-1/Dataset_registry.md](./phase-1/Dataset_registry.md) | Operational registry of the 18 development books; BE1-SB Phase 1 COMPLETE; pilot Storage status; Phase 1 COMPLETE criteria. | — | ACTIVE |
+| [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical v1 whole-book audit evidence; structural PASS + owner PDF spot-check **PASSED** (Phase 1 COMPLETE). | 1.1 | ACTIVE |
 
 ### Phase 4
 

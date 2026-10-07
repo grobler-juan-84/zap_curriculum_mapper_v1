@@ -1,15 +1,14 @@
-# BE1-SB — Canonical v1 Whole-Book Audit (structural)
+# BE1-SB — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-10-07
 **Canonical path:** `big-english/big_english_1_sb/canonical/v1.json`
 **Catalog book_id:** `big_english_1_sb`
 
 ## Purpose
 
-Structural / integrity evidence for the whole-book audit checklist in `Extraction_Data_Specification.md` §22.
-This report does **not** by itself certify PDF visual fidelity. Owner PDF spot-check is still required.
+Structural / integrity evidence for the whole-book audit checklist in `Extraction_Data_Specification.md` §22, plus owner PDF spot-check outcome.
 
 ## Counts
 
@@ -66,25 +65,30 @@ This report does **not** by itself certify PDF visual fidelity. Owner PDF spot-c
 - `schema_gaps`: 1
   - `activities`: 1
 
-Open issues and schema gaps must remain documented (not silently removed).
+Open issues and schema gaps remain documented (not silently removed). Accepted as non-blocking debt for Phase 1 COMPLETE.
 
 ## Merge metadata
 
-- `verification.status`: unit_batches_merged
-- `verification.whole_book_audit`: not_started
-- `verification.merged_at`: 2026-10-07T07:09:44.925Z
+- `verification.status`: whole_book_audit_passed
+- `verification.whole_book_audit`: passed
 - Batches merged: 9
 
-## Owner PDF spot-check checklist
+## Owner PDF spot-check
 
-In `/app/validation` for Big English 1 Student Book:
+In `/app/validation` for Big English 1 Student Book (unit-scoped canonical view):
 
-1. Unit 1 start / mid / end pages vs Pages list in the left panel.
-2. One review / project / story-like section (use continuous_text or activities as a guide).
-3. Confirm open audio/visual extraction issues are acceptable as documented debt (not blockers).
+1. Unit 1 start / mid / end pages vs Pages list — checked.
+2. Vocabulary spot-check — checked.
+3. Open audio/visual extraction issues accepted as documented debt.
 
-Reply in chat: **audit PASSED** or **audit NEEDS REVIEW** (+ notes).
+**Owner reply (2026-10-07):** audit PASSED
 
-## Structural verdict (agent)
+## Verdict
 
-Structural integrity checks **PASS**. Awaiting owner PDF spot-check for Whole-Book Audit status.
+| Gate | Result |
+|---|---|
+| Structural integrity | **PASS** |
+| Owner PDF spot-check | **PASSED** |
+| **Whole-Book Audit** | **PASSED** |
+
+Automated validation remains **NOT RUN** (documented non-blocking for this Phase 1 COMPLETE).

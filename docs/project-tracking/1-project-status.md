@@ -2,18 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 47  
+**Last updated:** Step 48  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
-- BE1-SB canonical v1 exists in Storage with a structural audit report (integrity PASS).
-- Validation opens that canonical as Unit 1…N slices (same per-unit interaction as separate batch files).
+- **BE1-SB is Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED; `dataset_versions` verified).
 
 ## Current status
 
-Awaiting owner PDF spot-check confirmation (`audit PASSED` or `audit NEEDS REVIEW`) before recording Whole-Book Audit PASSED / Phase 1 COMPLETE for BE1-SB.
+Cross-series schema review and remaining pilot canonical merges are the active focus. Automated validation remains NOT RUN (non-blocking).
 
 ## Next small step
 
-**Suggestion:** In `/app/validation` for Big English 1, walk Unit 1…N (from canonical), spot-check pages + vocab against the PDF, then reply **audit PASSED** (or NEEDS REVIEW with notes).
+**Suggestion:** Draft initial cross-series schema review notes from BH1 / BE1-SB / RH2A (/ BE2-SB) evidence.
