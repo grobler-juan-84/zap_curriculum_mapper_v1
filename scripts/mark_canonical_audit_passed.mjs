@@ -42,6 +42,13 @@ const BOOKS = {
     notes:
       'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check in Validation). Automated validation remains NOT RUN (non-blocking).',
   },
+  reach_higher_2a: {
+    catalogBookId: 'reach_higher_2a',
+    canonicalPath: 'reach-higher/reach_higher_2a/canonical/v1.json',
+    version: 1,
+    notes:
+      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check in Validation). Automated validation remains NOT RUN (non-blocking).',
+  },
 }
 
 function loadEnvFile(path) {

@@ -2,18 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 56  
+**Last updated:** Step 57  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-PROGRESS.md`](../5-PROGRESS.md).
 
 ## What has been done
 
-- BE1-SB, BH1, BE2-SB Phase 1 COMPLETE.
-- RH2A canonical v1 merged and registered (`dataset_versions` draft); `rh_2a` → `reach_higher_2a` normalized.
+- All four Storage-backed pilots are Phase 1 COMPLETE (BE1-SB, BH1, BE2-SB, RH2A).
 
 ## Current status
 
-All four pilots have canonical datasets. RH2A awaits whole-book audit.
+Pilot Extraction / Verification / Canonical / Audit loop closed. Schema remains 0.1 pending post-pilot 0.2 evidence review.
 
 ## Next small step
 
-**Suggestion:** Run structural audit pack for RH2A canonical, then owner PDF spot-check in Validation.
+**Suggestion:** Decide whether any schema_gap clusters warrant a 0.2 candidate, or explicitly defer and draft remaining-book extraction order.

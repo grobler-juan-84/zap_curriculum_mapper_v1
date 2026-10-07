@@ -44,6 +44,14 @@ const BOOKS = {
     expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     reportFile: 'BE2-SB_canonical_v1_audit.md',
   },
+  reach_higher_2a: {
+    catalogBookId: 'reach_higher_2a',
+    registryId: 'RH2A',
+    displayName: 'Reach Higher 2A Student Book',
+    canonicalPath: 'reach-higher/reach_higher_2a/canonical/v1.json',
+    expectedUnits: [1, 2, 3, 4],
+    reportFile: 'RH2A_canonical_v1_audit.md',
+  },
 }
 
 const ID_FIELDS = {

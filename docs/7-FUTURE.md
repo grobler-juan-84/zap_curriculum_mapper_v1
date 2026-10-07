@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 42  
+**Last updated:** Step 57  
 **Purpose:** Parking lot for good ideas that are explicitly **not now**. Keep them visible without contaminating current Phase 1 scope.
 
 ---
@@ -20,7 +20,7 @@
 
 | ID | Idea | Why not now | Source |
 |---|---|---|---|
-| F001 | Full SaaS productization (multi-tenant orgs, billing, polished teacher product) | Pilot Auth/catalog/Validation exist; Phase 1 evidence lifecycle (canonical merge, schema review) still open | brainstorming / D005 |
+| F001 | Full SaaS productization (multi-tenant orgs, billing, polished teacher product) | Pilot Auth/catalog/Validation exist; Storage-backed pilot Phase 1 COMPLETE; remaining books + product polish still later | brainstorming / D005 |
 | F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
 | F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | F004 | Phase 2 interpretation pipeline | Explicitly downstream of trustworthy Phase 1 datasets | architecture |

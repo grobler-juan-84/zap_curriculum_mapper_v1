@@ -19,7 +19,7 @@
 | BH1 | Beehive 1 SB | Canonical v1 + whole-book audit **PASSED**; spot-sampled U01 + U05 gaps | **COMPLETE** |
 | BE1-SB | Big English 1 SB | Canonical v1 (whole-book audit **PASSED**) | **COMPLETE** |
 | BE2-SB | Big English 2 SB | Canonical v1 + whole-book audit **PASSED**; spot-sampled U01 | **COMPLETE** |
-| RH2A | Reach Higher 2A | Canonical v1 CREATED; units 1–4 verified; spot-sampled U01 (+ U04 structure) | IN PROGRESS (audit pending) |
+| RH2A | Reach Higher 2A | Canonical v1 + whole-book audit **PASSED**; spot-sampled U01 (+ U04 structure) | **COMPLETE** |
 
 This is a **draft review**, not a schema bump. No LOCKED decision yet to change 0.1.
 
@@ -27,11 +27,11 @@ This is a **draft review**, not a schema bump. No LOCKED decision yet to change 
 
 ## 2. Executive verdict
 
-**Schema 0.1 is good enough to continue pilot work** (canonical merges for BH1 / BE2-SB / RH2A, Validation, audits).
+**Schema 0.1 is good enough to continue** — all four Storage-backed pilots are Phase 1 COMPLETE on 0.1.
 
 Do **not** pause for a schema rewrite. Do **not** invent a separate schema per series.
 
-`schema_gaps` are **classification evidence**: they record structures that 0.1 does not model cleanly. They are **not** automatic candidates for universal schema expansion. Recurring structures should be classified as universal/common-core, series-specific, or book/source-specific (§7). A **0.2 candidate** is deferred until after the remaining pilot books are merged and audited, and only for changes with sufficient evidence.
+`schema_gaps` are **classification evidence**: they record structures that 0.1 does not model cleanly. They are **not** automatic candidates for universal schema expansion. Recurring structures should be classified as universal/common-core, series-specific, or book/source-specific (§7). A **0.2 candidate** is deferred until post-pilot review, and only for changes with sufficient evidence.
 
 ---
 
@@ -165,7 +165,7 @@ BE2 Unit 1 shows the same Big English spine as BE1 (vocab → song/story → gra
 
 **Owner-accepted 2026-10-07:**
 
-1. Continue BH1 / BE2 / RH2A canonical merges and audits on schema 0.1.
+1. Pilot canonical merges and audits on schema 0.1 are complete (BH1 / BE1 / BE2 / RH2A).
 2. Do not pause the pilot for a schema rewrite.
 3. Treat current `schema_gaps` primarily as **classification evidence**, not automatic candidates for universal schema expansion.
 4. During cross-series review, classify recurring structures as:
@@ -194,8 +194,8 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 - [x] book_id alias map / merge-time normalization (D007; BE1-SB canonical fields normalized).
 - [x] Canonical merge + whole-book audit for BH1 on schema 0.1 (Phase 1 COMPLETE).
 - [x] Canonical merge + whole-book audit for BE2-SB on schema 0.1 (Phase 1 COMPLETE).
-- [x] Canonical merge for RH2A on schema 0.1 (audit still pending).
-- [ ] Whole-book audit for RH2A.
+- [x] Canonical merge for RH2A on schema 0.1.
+- [x] Whole-book audit for RH2A (PASSED 2026-10-07).
 - [ ] After those audits: draft 0.2 candidate **only** from gaps with sufficient evidence; patch [`JSON_Schema.md`](./JSON_Schema.md) + prompt if accepted.
 - [ ] Update registry §13 “Schema Review” row when post-pilot schema review is signed off.
 
