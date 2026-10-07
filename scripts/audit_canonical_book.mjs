@@ -20,9 +20,18 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 const bucket = 'book-datasets'
 
 const BOOKS = {
+  beehive_1_sb: {
+    catalogBookId: 'beehive_1_sb',
+    registryId: 'BH1',
+    displayName: 'Beehive 1 Student Book',
+    canonicalPath: 'beehive/beehive_1_sb/canonical/v1.json',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    reportFile: 'BH1_canonical_v1_audit.md',
+  },
   big_english_1_sb: {
     catalogBookId: 'big_english_1_sb',
     registryId: 'BE1-SB',
+    displayName: 'Big English 1 Student Book',
     canonicalPath: 'big-english/big_english_1_sb/canonical/v1.json',
     expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     reportFile: 'BE1-SB_canonical_v1_audit.md',
@@ -279,11 +288,12 @@ const reportLines = [
   '',
   '## Owner PDF spot-check checklist',
   '',
-  'In `/app/validation` for Big English 1 Student Book:',
+  `In \`/app/validation\` for ${cfg.displayName || cfg.catalogBookId}:`,
   '',
   '1. Unit 1 start / mid / end pages vs Pages list in the left panel.',
-  '2. One review / project / story-like section (use continuous_text or activities as a guide).',
-  '3. Confirm open audio/visual extraction issues are acceptable as documented debt (not blockers).',
+  '2. Vocabulary spot-check against the PDF.',
+  '3. Spot-check language / sentence structure evidence.',
+  '4. Confirm open audio/visual extraction issues are acceptable as documented debt (not blockers).',
   '',
   'Reply in chat: **audit PASSED** or **audit NEEDS REVIEW** (+ notes).',
   '',

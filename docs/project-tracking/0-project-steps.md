@@ -857,3 +857,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 53
+
+**Summary:** Recorded BH1 whole-book audit PASSED (structural PASS + owner page/vocab/sentence-structure spot-check); set `dataset_versions` verified and marked BH1 Phase 1 COMPLETE.
+
+**Files touched:**
+- `scripts/audit_canonical_book.mjs` (updated)
+- `scripts/mark_canonical_audit_passed.mjs` (updated)
+- `docs/phase-1/audits/BH1_canonical_v1_audit.md` (created)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

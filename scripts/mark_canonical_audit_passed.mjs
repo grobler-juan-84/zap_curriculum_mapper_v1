@@ -21,6 +21,13 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 const bucket = 'book-datasets'
 
 const BOOKS = {
+  beehive_1_sb: {
+    catalogBookId: 'beehive_1_sb',
+    canonicalPath: 'beehive/beehive_1_sb/canonical/v1.json',
+    version: 1,
+    notes:
+      'Whole-book audit PASSED 2026-10-07 (structural integrity + owner PDF spot-check: pages, vocab, sentence structure). Automated validation remains NOT RUN (non-blocking).',
+  },
   big_english_1_sb: {
     catalogBookId: 'big_english_1_sb',
     canonicalPath: 'big-english/big_english_1_sb/canonical/v1.json',

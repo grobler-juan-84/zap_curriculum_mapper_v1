@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 52  
+**Last updated:** Step 53  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -19,12 +19,13 @@
 - [x] Owner accepts schema review working recommendations (§7: continue 0.1; classify gaps; defer 0.2).
 - [x] Document / implement `book_id` alias map + merge-time normalization (D007; BE1-SB fields normalized).
 - [x] Canonical merge for BH1 using `scripts/merge_canonical_book.mjs` (with book_id normalization).
-- [ ] Whole-book audit for BH1 canonical (structural pack + owner PDF spot-check).
+- [x] Whole-book audit for BH1 canonical (structural pack + owner PDF spot-check) → Phase 1 COMPLETE.
+- [ ] Canonical merge for BE2-SB using `scripts/merge_canonical_book.mjs`.
 
 ## Next
 
-- [ ] Canonical merge for BE2-SB and RH2A.
-- [ ] Whole-book audit for newly merged pilot canonicals.
+- [ ] Canonical merge for RH2A.
+- [ ] Whole-book audit for BE2-SB / RH2A canonicals.
 - [ ] Run or design automated structural validation for Phase 1 JSON (currently NOT RUN).
 
 ## Soon
