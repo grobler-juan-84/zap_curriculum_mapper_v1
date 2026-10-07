@@ -787,3 +787,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 49
+
+**Summary:** Drafted initial cross-series schema review notes from BH1 / BE1-SB / BE2-SB / RH2A evidence (gap themes, additive 0.2 candidates, continue-on-0.1 recommendation).
+
+**Files touched:**
+- `docs/phase-1/Cross_Series_Schema_Review_Notes.md` (created)
+- `docs/phase-1/Dataset_registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

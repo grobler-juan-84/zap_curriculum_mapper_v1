@@ -143,7 +143,7 @@ App later LOADS that JSON from storage to display/edit
 2. Run a focused cross-series schema review now; bump schema before more books.
 3. Hybrid: lock a small additive schema patch for the highest-frequency gaps only, then continue.
 **Lean / notes:** Pilot decision point in the registry already points toward review after representative RH2A extraction; Unit 4 still pending may delay a full review, but additive fields could be sketched now.  
-**Status:** open
+**Status:** promoted — draft review written in [`../phase-1/Cross_Series_Schema_Review_Notes.md`](../phase-1/Cross_Series_Schema_Review_Notes.md) (2026-10-07); owner sign-off / 0.2 lock still open
 
 ---
 
@@ -195,7 +195,7 @@ App later LOADS that JSON from storage to display/edit
 2. Wait for Unit 4 so the RH2A representative book is complete.
 3. Start a draft review now; finalize after Unit 4.
 **Lean / notes:** Units 1–3 already expose distinctive RH structures (Big Question, glosses, intermittent prompts), so a draft review seems viable.  
-**Status:** open
+**Status:** closed — RH2A Unit 4 verified; draft review includes U01–U04 evidence (2026-10-07)
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 48  
+**Last updated:** Step 49  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
 
 ---
@@ -15,7 +15,8 @@
 - [x] Structural audit pack for BE1-SB canonical v1.
 - [x] Show `canonical_json` in Validation + unit-scoped slices over one canonical file.
 - [x] Owner PDF spot-check → **audit PASSED**; BE1-SB Phase 1 COMPLETE (`dataset_versions` verified).
-- [ ] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
+- [x] Draft initial cross-series schema review notes (BH1 / BE1 / RH2A [/ BE2]).
+- [ ] Owner sign-off on [`phase-1/Cross_Series_Schema_Review_Notes.md`](./phase-1/Cross_Series_Schema_Review_Notes.md) (§8 questions / CONTINUE vs 0.2).
 
 ## Next
 
@@ -25,8 +26,9 @@
 
 ## Soon
 
+- [ ] If 0.2 accepted: patch JSON schema + extraction prompt for additive fields.
 - [ ] Persist Validation session notes (optional).
-- [ ] Draft remaining-book extraction order after schema review.
+- [ ] Draft remaining-book extraction order after schema review sign-off.
 
 ---
 

@@ -517,7 +517,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | UNITS 1–4 EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | EXTRACTED + HUMAN VERIFICATION COMPLETE (canonical merge / whole-book audit pending) |
-| 5 | Schema Review | Review findings across pilot series | NOT STARTED (extraction quality checkpoint accepted — see §14) |
+| 5 | Schema Review | Review findings across pilot series | **DRAFT STARTED** — [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) (2026-10-07); owner sign-off pending |
 
 **Infrastructure (pilot books):** unit-batch JSON and source PDFs are in private Supabase Storage; `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
 
@@ -916,8 +916,9 @@ Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
 Next Major Checkpoints
-Initial Cross-Series Schema Review
+Owner sign-off on cross-series schema review draft (+ optional 0.2 additive fields)
 Canonical merge for BH1 / BE2-SB / RH2A
+book_id alias / merge-time normalization
 ```
 
 ---
