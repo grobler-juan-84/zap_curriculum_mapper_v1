@@ -67,7 +67,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     setSummary(null)
 
     validationService
-      .listUnitBatches(book.id)
+      .listValidationFiles(book.id)
       .then((rows) => {
         if (cancelled) return
         setBatches(rows)
@@ -272,7 +272,8 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
 
       {!batchesLoading && !batchesError && batches.length === 0 ? (
         <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-900">
-          No <code className="text-[11px]">batch_json</code> rows for{' '}
+          No <code className="text-[11px]">batch_json</code> or{' '}
+          <code className="text-[11px]">canonical_json</code> rows for{' '}
           <span className="font-semibold">{book.title}</span> (
           <span className="font-mono">{book.stableBookId ?? book.id}</span>). Confirm seed + Storage
           upload for this book.

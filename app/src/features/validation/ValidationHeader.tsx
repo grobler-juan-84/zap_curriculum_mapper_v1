@@ -19,7 +19,12 @@ interface ValidationHeaderProps {
 }
 
 function batchLabel(batch: BookFileBatch): string {
-  return batch.label?.trim() || batch.filename || batch.storagePath.split('/').pop() || 'Unit batch'
+  const base =
+    batch.label?.trim() || batch.filename || batch.storagePath.split('/').pop() || 'Unit batch'
+  if (batch.fileType === 'canonical_json' && !/canonical/i.test(base)) {
+    return `Canonical · ${base}`
+  }
+  return base
 }
 
 export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
@@ -81,17 +86,24 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
         </select>
 
         {currentBatch ? (
-          <span
-            className={`hidden rounded border px-1.5 py-0.5 font-mono text-[11px] lg:inline ${
-              status === 'verified'
-                ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                : status === 'needs_review'
-                  ? 'border-amber-300 bg-amber-50 text-amber-900'
-                  : 'border-slate-300 bg-slate-50 text-slate-700'
-            }`}
-          >
-            {status}
-          </span>
+          <>
+            {currentBatch.fileType === 'canonical_json' ? (
+              <span className="hidden rounded border border-indigo-300 bg-indigo-50 px-1.5 py-0.5 font-mono text-[11px] text-indigo-900 lg:inline">
+                canonical
+              </span>
+            ) : null}
+            <span
+              className={`hidden rounded border px-1.5 py-0.5 font-mono text-[11px] lg:inline ${
+                status === 'verified'
+                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                  : status === 'needs_review'
+                    ? 'border-amber-300 bg-amber-50 text-amber-900'
+                    : 'border-slate-300 bg-slate-50 text-slate-700'
+              }`}
+            >
+              {status}
+            </span>
+          </>
         ) : null}
       </div>
 
@@ -115,11 +127,11 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           value={currentBatch?.id ?? ''}
           onChange={(e) => onSelectBatch(e.target.value)}
           disabled={batches.length === 0}
-          aria-label="Select unit batch"
-          className="max-w-[160px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+          aria-label="Select unit batch or canonical dataset"
+          className="max-w-[180px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {batches.length === 0 ? (
-            <option value="">No batches</option>
+            <option value="">No datasets</option>
           ) : (
             batches.map((batch) => (
               <option key={batch.id} value={batch.id}>

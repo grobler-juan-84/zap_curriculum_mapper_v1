@@ -42,6 +42,17 @@ function unitSortKey(batch: BookFileBatch): number {
   return Number.MAX_SAFE_INTEGER
 }
 
+/** Canonical datasets first, then unit batches by unit number. */
+function validationFileSortKey(a: BookFileBatch, b: BookFileBatch): number {
+  const aCanonical = a.fileType === 'canonical_json' ? 0 : 1
+  const bCanonical = b.fileType === 'canonical_json' ? 0 : 1
+  if (aCanonical !== bCanonical) return aCanonical - bCanonical
+  if (a.fileType === 'canonical_json' && b.fileType === 'canonical_json') {
+    return a.storagePath.localeCompare(b.storagePath)
+  }
+  return unitSortKey(a) - unitSortKey(b) || a.storagePath.localeCompare(b.storagePath)
+}
+
 function asArray(value: unknown): unknown[] {
   return Array.isArray(value) ? value : []
 }
@@ -139,7 +150,8 @@ function requireClient() {
 }
 
 export const validationService = {
-  async listUnitBatches(bookUuid: string): Promise<BookFileBatch[]> {
+  /** Unit batches and canonical JSON datasets for Validation (canonical first). */
+  async listValidationFiles(bookUuid: string): Promise<BookFileBatch[]> {
     const client = requireClient()
     const { data, error } = await client
       .from('book_files')
@@ -147,14 +159,17 @@ export const validationService = {
         'id, book_id, file_type, bucket, storage_path, filename, label, status, mime_type, file_size',
       )
       .eq('book_id', bookUuid)
-      .eq('file_type', 'batch_json')
+      .in('file_type', ['batch_json', 'canonical_json'])
       .order('storage_path', { ascending: true })
 
     if (error) throw new Error(error.message)
 
-    return ((data ?? []) as DbBookFileRow[])
-      .map(mapRow)
-      .sort((a, b) => unitSortKey(a) - unitSortKey(b) || a.storagePath.localeCompare(b.storagePath))
+    return ((data ?? []) as DbBookFileRow[]).map(mapRow).sort(validationFileSortKey)
+  },
+
+  /** @deprecated Prefer listValidationFiles — kept for older call sites. */
+  async listUnitBatches(bookUuid: string): Promise<BookFileBatch[]> {
+    return this.listValidationFiles(bookUuid)
   },
 
   async findSourcePdf(bookUuid: string): Promise<BookFileBatch | null> {

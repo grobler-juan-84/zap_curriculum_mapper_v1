@@ -740,3 +740,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 46
+
+**Summary:** Validation now lists `canonical_json` alongside unit batches (canonical first) so BE1-SB Canonical v1 can be opened for whole-book audit against the PDF.
+
+**Files touched:**
+- `app/src/services/validationService.ts` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `docs/5-PROGRESS.md` (updated)
+- `docs/6-TODO.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
