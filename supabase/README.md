@@ -118,7 +118,7 @@ This upserts PDFs into the private `book-sources` bucket and upserts matching `b
 node scripts/upload_series_covers.mjs
 ```
 
-Uploads local `app/src/assests/images/book-series/*_book_series.png` (gitignored) into private `book-assets` (`series/*.png`) and sets `book_series.cover_path` when that column exists.
+Uploads local `app/src/assets/images/book-series/*_book_series.png` (gitignored) into private `book-assets` (`series/*.png`) and sets `book_series.cover_path` when that column exists.
 
 ### Upload student-book cover images
 

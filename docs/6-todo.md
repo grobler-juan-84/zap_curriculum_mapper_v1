@@ -2,8 +2,8 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 65
-**Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-FUTURE.md`](./7-FUTURE.md)).
+**Last updated:** Step 66
+**Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
 
@@ -34,7 +34,7 @@
 - [x] Review and approve the project-wide naming proposal, then formalize it in `docs/9-naming-conventions.md`, D009, and `.cursor/rules/naming_conventions.mdc`.
 - [x] Align extraction prompt, JSON schema guidance, and Book ID Alias Map docs with D009 before BE1-WB extraction.
 - [x] Run read-only backward naming audit; clarify D009/authority gaps (v1.1) before renames.
-- [ ] Apply D009 §7.1 safe cosmetic rename batch (`assests` → `assets`, `TeacherAiAssistant`, docs kebab-case + link updates).
+- [x] Apply D009 §7.1 safe cosmetic rename batch (`assests` → `assets`, `TeacherAiAssistant`, docs kebab-case + link updates).
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Soon
@@ -48,6 +48,6 @@
 ## Maintenance
 
 - Keep this list short and actionable.
-- Move completed items off the list (progress belongs in [`5-PROGRESS.md`](./5-PROGRESS.md)).
-- Park non-now ideas in [`7-FUTURE.md`](./7-FUTURE.md), not here.
+- Move completed items off the list (progress belongs in [`5-progress.md`](./5-progress.md)).
+- Park non-now ideas in [`7-future.md`](./7-future.md), not here.
 - Keep [`project-tracking/4-mock-data-registry.md`](./project-tracking/4-mock-data-registry.md) current when mock vs live UI data changes.

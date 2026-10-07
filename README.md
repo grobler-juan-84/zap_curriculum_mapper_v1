@@ -47,8 +47,8 @@ See [`python/README.md`](./python/README.md).
 | AI | Google Gemini API | Not integrated; extraction via Google AI Studio manually |
 | Frontend hosting | Vercel | Not deployed from this repo |
 
-See [`docs/2-tech-stack.md`](./docs/2-tech-stack.md), [`docs/5-PROGRESS.md`](./docs/5-PROGRESS.md), and [`docs/4-DECISIONS.md`](./docs/4-DECISIONS.md).
+See [`docs/2-tech-stack.md`](./docs/2-tech-stack.md), [`docs/5-progress.md`](./docs/5-progress.md), and [`docs/4-decisions.md`](./docs/4-decisions.md).
 
 ## Documentation
 
-Start at [`docs/0-index.md`](./docs/0-index.md) and [`docs/5-PROGRESS.md`](./docs/5-PROGRESS.md).
+Start at [`docs/0-index.md`](./docs/0-index.md) and [`docs/5-progress.md`](./docs/5-progress.md).

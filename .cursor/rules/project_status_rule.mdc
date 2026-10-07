@@ -1,17 +1,17 @@
 ---
-description: Refresh docs/5-PROGRESS.md after each file-changing prompt
+description: Refresh docs/5-progress.md after each file-changing prompt
 alwaysApply: true
 ---
 
 # Project Status Maintenance
 
-At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, rewrite `docs/5-PROGRESS.md` so it stays a short, current snapshot of the project.
+At the **end** of every prompt that **creates, modifies, renames, or deletes** any project file, rewrite `docs/5-progress.md` so it stays a short, current snapshot of the project.
 
 `docs/project-tracking/1-project-status.md` is a legacy pointer only — do not treat it as the live status file.
 
 ## When to update
 
-Update `docs/5-PROGRESS.md` when this prompt changed files (code, docs, rules, config, assets, etc.).
+Update `docs/5-progress.md` when this prompt changed files (code, docs, rules, config, assets, etc.).
 
 Do **not** update when:
 
@@ -31,7 +31,7 @@ Also refresh:
 
 - `**Last updated:** Step N` to match the latest step number in `docs/project-tracking/0-project-steps.md`
 
-Coordinate with `.cursor/rules/operating_trackers.mdc` so `6-TODO.md` / `4-DECISIONS.md` / `7-FUTURE.md` stay aligned when those change too.
+Coordinate with `.cursor/rules/operating_trackers.mdc` so `6-todo.md` / `4-decisions.md` / `7-future.md` stay aligned when those change too.
 
 ## Style
 
@@ -43,10 +43,10 @@ Coordinate with `.cursor/rules/operating_trackers.mdc` so `6-TODO.md` / `4-DECIS
 ## Order relative to other rules
 
 1. Do the requested work first (including `docs/0-index.md` updates if docs changed).
-2. Update operating trackers (`docs/5-PROGRESS.md` and siblings per `operating_trackers.mdc`).
+2. Update operating trackers (`docs/5-progress.md` and siblings per `operating_trackers.mdc`).
 3. Append the step to `docs/project-tracking/0-project-steps.md` (include touched tracker files in that step’s files-touched list).
 4. Then follow `.cursor/rules/github_commit_workflow.mdc` to **commit locally** (never push unless the user explicitly asks).
 
 ## Non-negotiable
 
-Never finish a file-changing prompt with a stale `docs/5-PROGRESS.md`.
+Never finish a file-changing prompt with a stale `docs/5-progress.md`.

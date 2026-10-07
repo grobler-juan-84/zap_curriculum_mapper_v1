@@ -14,7 +14,7 @@ import {
   Flame,
 } from 'lucide-react';
 
-interface TeacherAIAssistantProps {
+interface TeacherAiAssistantProps {
   spread: PageSpread;
   seriesName: string;
   bookTitle: string;
@@ -23,7 +23,7 @@ interface TeacherAIAssistantProps {
   onClearPrefillPrompt?: () => void;
 }
 
-export const TeacherAIAssistant: React.FC<TeacherAIAssistantProps> = ({
+export const TeacherAiAssistant: React.FC<TeacherAiAssistantProps> = ({
   spread,
   seriesName,
   bookTitle,

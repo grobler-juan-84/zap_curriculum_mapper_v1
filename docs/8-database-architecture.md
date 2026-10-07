@@ -29,7 +29,7 @@ Different publishers and series differ, and schema `0.1` is still evolving. Prem
 - Lives as objects in the private `book-datasets` Storage bucket (authoritative file bytes).
 - Optional local working copies may exist under `data/phase1/…` (gitignored; not committed).
 - Linked from Postgres via `book_files` + `dataset_versions.json_file_id`.
-- Schema defined in `docs/phase-1/JSON_Schema.md`.
+- Schema defined in `docs/phase-1/json-schema.md`.
 
 ### Supabase Storage (authoritative file bytes)
 
@@ -81,7 +81,7 @@ Distinction:
 - `books.status` — coarse Postgres book workflow (`registered` → `extracted` → `verified` → …). **Do not treat this alone as Phase 1 COMPLETE** (registry criteria also require canonical merge + whole-book audit). Seed rows may say `verified` while registry Phase 1 remains `IN PROGRESS`.
 - `book_files.status` — individual file/batch workflow (`pending` / `needs_review` / `verified`); this is what Validation writes.
 - `book_files.label` — display-only label (e.g. `Unit 1`); not a relational unit model
-- Dataset Registry (`docs/phase-1/Dataset_registry.md`) — authoritative operational Phase 1 status for humans/AI sessions
+- Dataset Registry (`docs/phase-1/dataset-registry.md`) — authoritative operational Phase 1 status for humans/AI sessions
 
 ---
 
@@ -125,6 +125,6 @@ Apply with Dashboard SQL editor, or `supabase link` + `supabase db push`.
 
 - [`2-tech-stack.md`](./2-tech-stack.md) — locked stack
 - [`3-architecture.md`](./3-architecture.md) — phase architecture
-- [`4-DECISIONS.md`](./4-DECISIONS.md) — D005 Supabase, D006 hybrid storage
-- [`phase-1/JSON_Schema.md`](./phase-1/JSON_Schema.md) — curriculum JSON schema
-- [`phase-1/Dataset_registry.md`](./phase-1/Dataset_registry.md) — operational book status
+- [`4-decisions.md`](./4-decisions.md) — D005 Supabase, D006 hybrid storage
+- [`phase-1/json-schema.md`](./phase-1/json-schema.md) — curriculum JSON schema
+- [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md) — operational book status

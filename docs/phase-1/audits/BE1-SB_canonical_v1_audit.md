@@ -8,7 +8,7 @@
 
 ## Purpose
 
-Structural / integrity evidence for the whole-book audit checklist in `Extraction_Data_Specification.md` §22, plus owner PDF spot-check outcome.
+Structural / integrity evidence for the whole-book audit checklist in `extraction-data-specification.md` §22, plus owner PDF spot-check outcome.
 
 ## Counts
 

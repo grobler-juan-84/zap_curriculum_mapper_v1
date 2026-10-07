@@ -61,13 +61,13 @@ If a document says `ACTIVE / EVOLVING` or `ACTIVE / DEVELOPMENT`, record Lifecyc
 # Added docs/phase-2/Interpretation.md with Status ACTIVE and Version V1
 → Add a new row under the Phase 2 section and bump the ACTIVE count.
 
-# Renamed docs/phase-1/Dataset_registry.md → docs/phase-1/Dataset_Registry.md
+# Renamed docs/phase-1/dataset-registry.md → docs/phase-1/Dataset_Registry.md
 → Update the link and filename in the index row; do not invent a new summary unless content also changed.
 
-# Changed docs/phase-6/ChalkieAI_Handover_specifications.md from PARKED to ACTIVE
+# Changed docs/phase-6/chalkie-ai-handover-specifications.md from PARKED to ACTIVE
 → Update Lifecycle to ACTIVE and adjust the lifecycle snapshot counts.
 
-# Removed docs/phase-4/Teacher_Enrichment_Philosophy.md
+# Removed docs/phase-4/teacher-enrichment-philosophy.md
 → Remove its row and adjust counts.
 ```
 

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Version:** 1.0  
-**Purpose:** Working space for ideas, options, and possible solutions to open project questions. Nothing here is binding until promoted into [`../4-DECISIONS.md`](../4-DECISIONS.md).
+**Purpose:** Working space for ideas, options, and possible solutions to open project questions. Nothing here is binding until promoted into [`../4-decisions.md`](../4-decisions.md).
 
 ---
 
@@ -11,7 +11,7 @@
 - Capture questions, options, trade-offs, and rough recommendations.
 - Prefer short dated entries over long essays.
 - Link related schema gaps, registry notes, or extraction issues when useful.
-- When an idea becomes a firm project choice, record it in [`../4-DECISIONS.md`](../4-DECISIONS.md) and leave a short pointer here. Park non-now ideas in [`../7-FUTURE.md`](../7-FUTURE.md).
+- When an idea becomes a firm project choice, record it in [`../4-decisions.md`](../4-decisions.md) and leave a short pointer here. Park non-now ideas in [`../7-future.md`](../7-future.md).
 - Do **not** treat this file as operational truth; the registry, schema, and locked decisions remain authoritative.
 
 ### Entry template
@@ -143,7 +143,7 @@ App later LOADS that JSON from storage to display/edit
 2. Run a focused cross-series schema review now; bump schema before more books.
 3. Hybrid: lock a small additive schema patch for the highest-frequency gaps only, then continue.
 **Lean / notes:** Pilot decision point in the registry already points toward review after representative RH2A extraction; Unit 4 still pending may delay a full review, but additive fields could be sketched now.  
-**Status:** promoted — draft review written in [`../phase-1/Cross_Series_Schema_Review_Notes.md`](../phase-1/Cross_Series_Schema_Review_Notes.md) (2026-10-07); owner sign-off / 0.2 lock still open
+**Status:** promoted — draft review written in [`../phase-1/cross-series-schema-review-notes.md`](../phase-1/cross-series-schema-review-notes.md) (2026-10-07); owner sign-off / 0.2 lock still open
 
 ---
 
@@ -156,7 +156,7 @@ App later LOADS that JSON from storage to display/edit
 2. Treat extracted `book_id` as canonical; rename folders/registry to match.
 3. Keep both with an explicit alias map in the registry or a mapping file.
 **Lean / notes:** Merge-time normalization is already noted as a follow-up; an alias map may be the lowest-risk interim step.  
-**Status:** promoted — locked as **D007**; map in [`../phase-1/book_id_aliases.json`](../phase-1/book_id_aliases.json) + [`../phase-1/Book_ID_Alias_Map.md`](../phase-1/Book_ID_Alias_Map.md) (2026-10-07)
+**Status:** promoted — locked as **D007**; map in [`../phase-1/book_id_aliases.json`](../phase-1/book_id_aliases.json) + [`../phase-1/book-id-alias-map.md`](../phase-1/book-id-alias-map.md) (2026-10-07)
 
 ---
 

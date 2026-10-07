@@ -3,7 +3,7 @@ import type { Book, CurriculumSeries } from '../../types/curriculum';
 import { WorkspaceHeader } from './WorkspaceHeader';
 import { LessonIntelligencePanel } from '../lesson-intelligence/LessonIntelligencePanel';
 import { BookViewer } from '../book-viewer/BookViewer';
-import { TeacherAIAssistant } from '../teacher-assistant/TeacherAIAssistant';
+import { TeacherAiAssistant } from '../teacher-assistant/TeacherAiAssistant';
 import { ChalkiePromptModal } from '../teacher-assistant/ChalkiePromptModal';
 
 interface BookWorkspaceProps {
@@ -190,7 +190,7 @@ export const BookWorkspace: React.FC<BookWorkspaceProps> = ({
             style={{ height: `${100 - topPaneHeightPercent}%` }}
             className="overflow-hidden transition-all duration-75 flex flex-col"
           >
-            <TeacherAIAssistant
+            <TeacherAiAssistant
               spread={currentSpread}
               seriesName={series.name}
               bookTitle={book.title}

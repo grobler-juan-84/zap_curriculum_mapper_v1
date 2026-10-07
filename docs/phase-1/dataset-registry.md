@@ -327,7 +327,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 1  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/big_english_1_sb/`  
-**Internal book_id in JSON:** catalog `big_english_1_sb` after merge normalization; extraction alias `bep1_sb` (entity IDs may still use `bep1_*` prefixes — see [`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md) / D007)
+**Internal book_id in JSON:** catalog `big_english_1_sb` after merge normalization; extraction alias `bep1_sb` (entity IDs may still use `bep1_*` prefixes — see [`book-id-alias-map.md`](./book-id-alias-map.md) / D007)
 
 ### Phase 1 Processing
 
@@ -361,7 +361,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 2  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/big_english_2_sb/`  
-**Internal book_id in JSON:** extraction alias `bep_sb_2` → normalize to catalog `big_english_2_sb` at merge ([`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md))
+**Internal book_id in JSON:** extraction alias `bep_sb_2` → normalize to catalog `big_english_2_sb` at merge ([`book-id-alias-map.md`](./book-id-alias-map.md))
 
 ### Phase 1 Processing
 
@@ -396,7 +396,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Level:** 2A  
 **Book Type:** Student Book  
 **Folder / files:** `data/phase1/reach_higher_2a/`  
-**Internal book_id in JSON:** mixed aliases `rh_2a` / `reach_higher_2a` → normalize to catalog `reach_higher_2a` at merge ([`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md))
+**Internal book_id in JSON:** mixed aliases `rh_2a` / `reach_higher_2a` → normalize to catalog `reach_higher_2a` at merge ([`book-id-alias-map.md`](./book-id-alias-map.md))
 
 ### Phase 1 Processing
 
@@ -428,7 +428,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 During active extraction, individual books may require batch-level tracking.
 
-When using **`Google_AI_Studio_Prompt.md`** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
+When using **`google-ai-studio-prompt.md`** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
 
 Example:
 
@@ -523,7 +523,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 2 | Big English 1 | Current school curriculum / full-series architecture test | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 3 | Reach Higher 2A | Cross-series structural stress test | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
-| 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) §11 (2026-10-07); schema remains 0.1 |
+| 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`cross-series-schema-review-notes.md`](./cross-series-schema-review-notes.md) §11 (2026-10-07); schema remains 0.1 |
 
 **Infrastructure (pilot books):** unit-batch JSON and source PDFs are in private Supabase Storage; `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
 
@@ -755,7 +755,7 @@ Record significant dataset-wide schema review points here.
 
 Detailed schema changes should be recorded in the schema change log associated with:
 
-**`JSON_Schema.md`**
+**`json-schema.md`**
 
 The Registry only records the operational result.
 

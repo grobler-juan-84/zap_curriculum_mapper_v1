@@ -3,10 +3,10 @@
 **Status:** ACTIVE  
 **Version:** 1.1
 **Date:** 2026-10-07  
-**Schema under review:** Phase 1 JSON schema **0.1** ([`JSON_Schema.md`](./JSON_Schema.md))  
+**Schema under review:** Phase 1 JSON schema **0.1** ([`json-schema.md`](./json-schema.md))  
 **Purpose:** First formal cross-series challenge of schema 0.1 using the Storage-backed pilot set, before large-scale remaining-book extraction.
 
-**Related:** [`Dataset_registry.md`](./Dataset_registry.md) §13–14 · [`Extraction_Data_Specification.md`](./Extraction_Data_Specification.md) · brainstorming entry “Schema gaps before more books”
+**Related:** [`dataset-registry.md`](./dataset-registry.md) §13–14 · [`extraction-data-specification.md`](./extraction-data-specification.md) · brainstorming entry “Schema gaps before more books”
 
 **Working recommendations:** Owner-accepted 2026-10-07 (§7). **Post-pilot 0.2 candidate:** deferred 2026-10-07 (§11). Schema version remains **0.1**.
 
@@ -196,7 +196,7 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 - [x] Canonical merge + whole-book audit for BE2-SB on schema 0.1 (Phase 1 COMPLETE).
 - [x] Canonical merge for RH2A on schema 0.1.
 - [x] Whole-book audit for RH2A (PASSED 2026-10-07).
-- [x] After those audits: drafted 0.2 candidate (§11). Verdict: **defer**. [`JSON_Schema.md`](./JSON_Schema.md) and the extraction prompt stay on 0.1 (no fields accepted).
+- [x] After those audits: drafted 0.2 candidate (§11). Verdict: **defer**. [`json-schema.md`](./json-schema.md) and the extraction prompt stay on 0.1 (no fields accepted).
 - [x] Registry §13 “Schema Review” row and §20 log record the deferral (draft record; not a LOCKED decision).
 
 ---
@@ -211,7 +211,7 @@ Cross-series success means shared arrays and IDs where pedagogy aligns, series-c
 
 ## 11. Post-pilot 0.2 candidate (2026-10-07)
 
-**Verdict:** Remain on schema **0.1**. Do not open schema 0.2. Do not patch [`JSON_Schema.md`](./JSON_Schema.md) or the extraction prompt.
+**Verdict:** Remain on schema **0.1**. Do not open schema 0.2. Do not patch [`json-schema.md`](./json-schema.md) or the extraction prompt.
 
 This is the candidate required by §7.7. A universal field is promoted only when the evidence bar below is met. No theme meets that bar, so the candidate is an explicit deferral.
 
@@ -247,4 +247,4 @@ Post-merge whole-book audits. These supersede the earlier draft tally in §5 (BH
 | Closed `section_type` enum | Keep labels open (§4.2) | **No change** |
 | Long-reading full text vs summary | Process policy (open question §8.1), not a field | **Leave open; not a 0.2 change** |
 
-A later book that shows the same structure in a second series can reopen a specific theme. This deferral is recorded here. It is not yet a LOCKED decision in [`4-DECISIONS.md`](../4-DECISIONS.md).
+A later book that shows the same structure in a second series can reopen a specific theme. This deferral is recorded here. It is not yet a LOCKED decision in [`4-decisions.md`](../4-decisions.md).

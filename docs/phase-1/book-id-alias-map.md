@@ -6,7 +6,7 @@
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
 **Purpose:** Define the catalog `book_id` as the stable identity for Phase 1 joins, document extraction-era aliases rewritten at canonical merge time, and align forward naming with D009.
 
-**Related:** [`../9-naming-conventions.md`](../9-naming-conventions.md) (D009) · [`Cross_Series_Schema_Review_Notes.md`](./Cross_Series_Schema_Review_Notes.md) §7.6 · [`Dataset_registry.md`](./Dataset_registry.md) · decisions **D007**, **D009**
+**Related:** [`../9-naming-conventions.md`](../9-naming-conventions.md) (D009) · [`cross-series-schema-review-notes.md`](./cross-series-schema-review-notes.md) §7.6 · [`dataset-registry.md`](./dataset-registry.md) · decisions **D007**, **D009**
 
 ---
 

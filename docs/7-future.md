@@ -11,8 +11,8 @@
 
 - Add ideas that are valuable but out of current focus.
 - Do not treat items here as active commitments.
-- Promote to [`6-TODO.md`](./6-TODO.md) only when the user deliberately pulls them into near-term work.
-- Lock related product choices in [`4-DECISIONS.md`](./4-DECISIONS.md) when settled.
+- Promote to [`6-todo.md`](./6-todo.md) only when the user deliberately pulls them into near-term work.
+- Lock related product choices in [`4-decisions.md`](./4-decisions.md) when settled.
 
 ---
 

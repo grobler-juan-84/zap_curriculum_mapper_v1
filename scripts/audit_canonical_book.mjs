@@ -124,7 +124,7 @@ const reportLines = [
   '',
   '## Purpose',
   '',
-  'Automated structural validation evidence for `Extraction_Data_Specification.md` §15 and the integrity portion of §22.',
+  'Automated structural validation evidence for `extraction-data-specification.md` §15 and the integrity portion of §22.',
   'This report does **not** certify curriculum meaning, source completeness, or PDF visual fidelity. Owner source spot-check remains separate.',
   '',
   '## Automated validation summary',

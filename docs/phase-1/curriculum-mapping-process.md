@@ -373,11 +373,11 @@ The current priority of the project is to build the Phase 1 dataset across the a
 
 Detailed operational rules belong in:
 
-**`Extraction_Data_Specification.md`**
+**`extraction-data-specification.md`**
 
 and:
 
-**`JSON_Schema.md`**
+**`json-schema.md`**
 
 ---
 
@@ -468,7 +468,7 @@ The governing principle is:
 
 > **Use the largest batch that remains reliably accurate and complete.**
 
-Operational Google AI Studio use of this strategy is defined in **`Google_AI_Studio_Prompt.md`**. That prompt currently allows the complete textbook PDF to be supplied as source, then requires the model to identify book structure and return **one separate JSON extraction batch per unit**, each labeled with a recommended filename outside the JSON (for example `<book_id>_unit_01.json`). Whole-book JSON is not produced at the extraction stage; approved unit batches are merged later into the canonical book dataset.
+Operational Google AI Studio use of this strategy is defined in **`google-ai-studio-prompt.md`**. That prompt currently allows the complete textbook PDF to be supplied as source, then requires the model to identify book structure and return **one separate JSON extraction batch per unit**, each labeled with a recommended filename outside the JSON (for example `<book_id>_unit_01.json`). Whole-book JSON is not produced at the extraction stage; approved unit batches are merged later into the canonical book dataset.
 
 ---
 

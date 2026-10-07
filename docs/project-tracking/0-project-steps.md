@@ -1086,3 +1086,29 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 66
+
+**Summary:** Applied D009 §7.1 safe cosmetic rename batch: `assests`→`assets` with catalog-named local PDFs, `TeacherAiAssistant` file/export, root and phase docs to kebab-case, and live link/Cursor-rule updates. Historical project-steps filenames left unchanged; TS `bookId` mapper cleanup deferred.
+
+**Files touched:**
+- `app/src/assests/` → `app/src/assets/` (renamed; gitignored)
+- `app/src/features/teacher-assistant/TeacherAiAssistant.tsx` (renamed/updated)
+- `app/src/features/book-workspace/BookWorkspace.tsx` (updated)
+- `.gitignore` (updated)
+- `docs/1-project-overview.md` (renamed)
+- `docs/4-decisions.md` (renamed)
+- `docs/5-progress.md` (renamed/updated)
+- `docs/6-todo.md` (renamed/updated)
+- `docs/7-future.md` (renamed/updated)
+- `docs/phase-1/*.md` Title_Case → kebab-case (renamed; links updated)
+- `docs/phase-4/teacher-enrichment-philosophy.md` (renamed)
+- `docs/phase-6/chalkie-ai-handover-specifications.md` (renamed)
+- `.cursor/rules/*.mdc` (updated paths)
+- `docs/9-naming-conventions.md` (updated to v1.2)
+- `docs/0-index.md` (updated)
+- `README.md` (updated)
+- `scripts/upload_book_covers.mjs` / `upload_series_covers.mjs` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

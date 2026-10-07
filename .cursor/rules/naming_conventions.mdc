@@ -42,4 +42,4 @@ Authority: [`docs/9-naming-conventions.md`](docs/9-naming-conventions.md) (D009,
 
 9. Do not mass-rename. Classify cleanup as safe cosmetic, mapper/alias, versioned migration, or accepted legacy exception before changing anything.
 
-If this rule conflicts with a LOCKED decision in `docs/4-DECISIONS.md`, the decision log wins — then update the authority doc.
+If this rule conflicts with a LOCKED decision in `docs/4-decisions.md`, the decision log wins — then update the authority doc.

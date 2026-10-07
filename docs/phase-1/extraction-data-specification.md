@@ -299,13 +299,13 @@ The governing principle is:
 
 # 10. Step 4 — AI Extraction
 
-Each extraction batch is processed using the approved Phase 1 extraction prompt in **`Google_AI_Studio_Prompt.md`**.
+Each extraction batch is processed using the approved Phase 1 extraction prompt in **`google-ai-studio-prompt.md`**.
 
 That prompt currently supports supplying the **complete textbook PDF** as the source. When used that way, the model must first identify overall book structure, then extract **unit by unit**:
 
 > **One unit = one extraction batch = one separate JSON output**
 
-Each unit output should be labeled outside the JSON with a recommended filename using the catalog `book_id` (D009), for example `FILE: big_english_1_wb_unit_01.json`, so it can be saved as an independent batch file, validated, human-verified and later merged. Do not treat a single whole-book JSON as the Phase 1 extraction output at this stage. New books must use full catalog IDs and matching entity prefixes; see [`../9-naming-conventions.md`](../9-naming-conventions.md) and [`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md).
+Each unit output should be labeled outside the JSON with a recommended filename using the catalog `book_id` (D009), for example `FILE: big_english_1_wb_unit_01.json`, so it can be saved as an independent batch file, validated, human-verified and later merged. Do not treat a single whole-book JSON as the Phase 1 extraction output at this stage. New books must use full catalog IDs and matching entity prefixes; see [`../9-naming-conventions.md`](../9-naming-conventions.md) and [`book-id-alias-map.md`](./book-id-alias-map.md).
 
 The extraction model should:
 

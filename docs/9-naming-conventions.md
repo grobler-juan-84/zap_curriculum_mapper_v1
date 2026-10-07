@@ -1,10 +1,10 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.1  
+**Version:** 1.2  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
-**Related:** Locked as [D009](./4-DECISIONS.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-DECISIONS.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
+**Related:** Locked as [D009](./4-decisions.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-decisions.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
 
 ---
 
@@ -62,7 +62,7 @@ Registry IDs are never Storage folder names. Catalog `book_id` is never rewritte
 |---|---|---|
 | Multiword repository / feature folders | lowercase `kebab-case` | `project-tracking`, `curriculum-library`; keep conventional `src`, `lib`, `scripts`, `schemas`, `assets` |
 | New markdown docs | lowercase `kebab-case` | Numbered root docs: `N-kebab-case.md` (e.g. `9-naming-conventions.md`, `4-decisions.md`) |
-| Operating trackers (docs 4–7) | same `N-kebab-case.md` | Target forms: `4-decisions.md`, `5-progress.md`, `6-todo.md`, `7-future.md`. Current UPPERCASE filenames are pending safe rename |
+| Operating trackers (docs 4–7) | same `N-kebab-case.md` | `4-decisions.md`, `5-progress.md`, `6-todo.md`, `7-future.md` |
 | React components / pages / types | `PascalCase` | `ValidationWorkspace`, `BookFileBatch` |
 | Hooks / functions / variables | `camelCase` | `useTeacherAiResponses`, `catalogBookId` |
 | Acronyms in code **and filenames** | treat as words | `TeacherAiAssistant`, `pdfUrl`; not `TeacherAIAssistant`. All-caps reserved for constants/env |
@@ -163,15 +163,19 @@ Do not mass-rename. Classify each finding as one of:
 
 Any canonical entity-ID migration requires a separate locked decision, old→new ID map, relationship rewrite, new dataset version, automated validation, and whole-book re-audit.
 
-### 7.1 Known pending safe renames (from 2026-10-07 audit)
+### 7.1 Safe rename batch status (from 2026-10-07 audit)
 
-Documented for a later rename batch — **not** performed by clarifying this file alone:
+**Completed 2026-10-07:**
 
-- `app/src/assests/` → `app/src/assets/`
-- `TeacherAIAssistant.tsx` → `TeacherAiAssistant.tsx`
-- Root docs: `1-Project Overview.md`, `4-DECISIONS.md`, `5-PROGRESS.md`, `6-TODO.md`, `7-FUTURE.md` → `N-kebab-case.md`
-- Phase Title_Case docs under `docs/phase-*` → lowercase kebab-case
-- Local PDFs under `assests/books/` → catalog-based names when renamed
+- `app/src/assests/` → `app/src/assets/` (gitignored local folder; `.gitignore` updated)
+- Local PDFs renamed to catalog IDs (`beehive_1_sb.pdf`, `big_english_1_sb.pdf`, `big_english_2_sb.pdf`, `reach_higher_2a.pdf`)
+- `TeacherAIAssistant.tsx` → `TeacherAiAssistant.tsx` (component/export renamed)
+- Root docs → `N-kebab-case.md` (`1-project-overview.md`, `4-decisions.md`, `5-progress.md`, `6-todo.md`, `7-future.md`)
+- Phase Title_Case docs under `docs/phase-*` → lowercase kebab-case; live links and Cursor rules updated
+- Historical entries in `project-tracking/0-project-steps.md` intentionally retain old filenames as a chronology
+
+**Still pending (mapper / alias cleanup — not this batch):**
+
 - App TS identity fields: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId`
 
 Audit report filenames using registry IDs (`BE1-SB_canonical_v1_audit.md`, …) are **accepted** under §3.
@@ -212,3 +216,4 @@ When creating or renaming project artifacts:
 |---|---|
 | 2026-10-07 | Created as project-wide naming authority (D009). Promoted from internal brainstorming. |
 | 2026-10-07 | v1.1 — Clarified doc casing targets, audit-report filenames, local/public assets, schema filenames, Postgres UUID vs catalog collision, and `stableBookId` → `catalogBookId` preference after repo naming audit. |
+| 2026-10-07 | v1.2 — Applied §7.1 safe cosmetic rename batch (assets, TeacherAiAssistant, docs kebab-case). Mapper `bookId` cleanup still pending. |

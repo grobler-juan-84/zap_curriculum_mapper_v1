@@ -89,7 +89,7 @@
 
 **Date:** 2026-10-06  
 **Status:** LOCKED  
-**Decision:** AI-facing operating state is maintained in `4-DECISIONS.md`, `5-PROGRESS.md`, `6-TODO.md`, and `7-FUTURE.md`.  
+**Decision:** AI-facing operating state is maintained in `4-decisions.md`, `5-progress.md`, `6-todo.md`, and `7-future.md`.  
 **Reason:** Give every session a short, predictable place to read decisions, current state, actionable work, and parked ideas.  
 **Alternatives rejected:** Relying only on `project-tracking/` status/decisions for day-to-day AI orientation.  
 **Implications:** Cursor rules must keep these four files current; `project-tracking/` remains for steps log and brainstorming.  
@@ -128,7 +128,7 @@
 **Decision:** Postgres `books.book_id` (matching Storage folder segment) is the canonical book identity. Extraction-era `book_id` strings are aliases listed in [`phase-1/book_id_aliases.json`](./phase-1/book_id_aliases.json). At canonical merge (and when re-normalizing), rewrite `book_id` / same-book `source_book_id` / `target_book_id` fields to the catalog ID. Do **not** rewrite entity ID strings (`unit_id`, `page_id`, …).  
 **Reason:** Stable catalog identity is required for Storage paths, joins, Validation, and app architecture independently of curriculum schema evolution; extraction prefixes vary by series and must not block merges.  
 **Alternatives rejected:** Treating extracted `book_id` as canonical and renaming folders/registry; rewriting all entity ID prefixes at merge; promoting aliases into separate schemas per series.  
-**Implications:** Merge script and `normalize_canonical_book_ids.mjs` apply the map; BE1-SB canonical v1 book_id fields normalized 2026-10-07; further pilot merges must use the map. See [`phase-1/Book_ID_Alias_Map.md`](./phase-1/Book_ID_Alias_Map.md).  
+**Implications:** Merge script and `normalize_canonical_book_ids.mjs` apply the map; BE1-SB canonical v1 book_id fields normalized 2026-10-07; further pilot merges must use the map. See [`phase-1/book-id-alias-map.md`](./phase-1/book-id-alias-map.md).  
 **Supersedes:** —
 
 ---

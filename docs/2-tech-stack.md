@@ -68,7 +68,7 @@ The project should avoid prematurely building complex infrastructure before real
 | Python processing/validation tools | Environment scaffolded; no production curriculum tools yet |
 | Vercel deployment | Preferred; **not deployed** from this repo |
 
-Locking a technology does **not** mean every capability is finished. Prefer [`docs/5-PROGRESS.md`](./5-PROGRESS.md) for the live snapshot.
+Locking a technology does **not** mean every capability is finished. Prefer [`docs/5-progress.md`](./5-progress.md) for the live snapshot.
 
 ---
 

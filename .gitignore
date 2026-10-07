@@ -39,7 +39,7 @@ __pycache__/
 .mypy_cache/
 
 # Local copyrighted curriculum sources (keep out of Git; live in Supabase Storage)
-app/src/assests/
+app/src/assets/
 data/phase1/
 *.pdf
 

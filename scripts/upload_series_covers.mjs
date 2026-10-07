@@ -1,7 +1,7 @@
 /**
  * Upload series cover PNGs into the private `book-assets` bucket.
  *
- * Local source (gitignored): app/src/assests/images/book-series/*_book_series.png
+ * Local source (gitignored): app/src/assets/images/book-series/*_book_series.png
  * Covers live in Storage after upload; drop files back locally only to re-upload.
  *
  * Reads credentials from app/.env.local (or process env):
@@ -24,7 +24,7 @@ const { createClient } = createRequire(resolve(root, 'app', 'package.json'))(
 )
 
 const bucket = 'book-assets'
-const localDir = join(root, 'app', 'src', 'assests', 'images', 'book-series')
+const localDir = join(root, 'app', 'src', 'assets', 'images', 'book-series')
 
 const COVERS = [
   {

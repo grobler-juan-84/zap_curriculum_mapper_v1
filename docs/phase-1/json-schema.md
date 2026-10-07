@@ -153,7 +153,7 @@ Catalog templates for new books:
 - Big English: `big_english_{level}_{sb|wb}`
 - Reach Higher: `reach_higher_{level}` (no `_sb` suffix)
 
-See [`../9-naming-conventions.md`](../9-naming-conventions.md) and [`Book_ID_Alias_Map.md`](./Book_ID_Alias_Map.md).
+See [`../9-naming-conventions.md`](../9-naming-conventions.md) and [`book-id-alias-map.md`](./book-id-alias-map.md).
 
 IDs should be:
 
