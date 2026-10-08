@@ -1,8 +1,8 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.1  
-**Date:** 2026-10-07  
+**Version:** 1.2  
+**Date:** 2026-10-08  
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
 **Purpose:** Define the catalog `book_id` as the stable identity for Phase 1 joins, document extraction-era aliases rewritten at canonical merge time, and align forward naming with D009.
 
@@ -79,13 +79,19 @@ For every book extracted **after** the four COMPLETE pilots:
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
 
-### Next book — BE1-WB
+### Next book — BE2-WB
 
 | Registry | Catalog `book_id` | Series slug | Expected entity prefix | Preferred aliases |
 |---|---|---|---|---|
-| BE1-WB | `big_english_1_wb` | `big-english` | `big_english_1_wb_` | Prefer none; catalog ID only |
+| BE2-WB | `big_english_2_wb` | `big-english` | `big_english_2_wb_` | Prefer none; catalog ID only |
 
-Do **not** use `bep1_wb`, `be1_wb`, or `BE1-WB` as catalog/entity identities.
+Do **not** use `bep2_wb`, `be2_wb`, or `BE2-WB` as catalog/entity identities. Owner is continuing Big English after BE1-WB (BH2 deferred in the draft §15 sequence for now).
+
+### Prior — BE1-WB (complete)
+
+| Registry | Catalog `book_id` | Series slug | Expected entity prefix |
+|---|---|---|---|
+| BE1-WB | `big_english_1_wb` | `big-english` | `big_english_1_wb_` |
 
 ---
 

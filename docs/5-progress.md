@@ -2,25 +2,25 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 83  
+**Last updated:** Step 84  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
 
 ## Done
 
-- Auth, catalog, Validation; D007–D013 locked; D008 validation integrated; D012 R2-only PDFs.
-- **Phase 1 COMPLETE (5/18):** BH1, BE1-SB, BE2-SB, RH2A, **BE1-WB** (with D013 missing-source exception for printed pp. 124–129).
-- BE1-WB: Units 1–9 human-verified → canonical merge → automated validation PASSED WITH WARNINGS → whole-book audit PASSED.
-- All 12 Big English local source PDFs present under `app/src/assets/books/big-english/` (gitignored).
+- Auth, catalog, Validation; D007–D013 locked; D012 R2-only PDFs.
+- **Phase 1 COMPLETE (5/18):** BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013 exception).
+- All 12 Big English local PDFs present.
+- **BE2-WB staged:** catalog registered; source PDF on R2; smoke PASS. Batch JSON not uploaded (local files still empty `{}`).
 
 ## In progress
 
-- Next book in draft continuation order (BH2 / BE2-WB / RH2B).
+- BE2-WB unit extraction (owner continuing Big English; BH2 deferred).
 
 ## Next
 
-- Choose and stage the next book after BE1-WB (registry §15).
+- Extract BE2-WB Units 1–9 → upload to `book-datasets` → Validation → merge/audit.
 
 ## Blocked
 
@@ -31,5 +31,5 @@
 ## Snapshot notes
 
 - **Phase 1 Complete:** 5 / 18.
-- **BE1-WB exception:** printed pages 124–129 absent from source PDF; open `missing_source`; no invented pages.
-- **Project-wide Phase 1** is not complete — remaining books still open.
+- **Active book:** BE2-WB (`big_english_2_wb`).
+- **Draft §15:** owner prefers finishing Big English workbooks/levels before BH2/RH inserts.

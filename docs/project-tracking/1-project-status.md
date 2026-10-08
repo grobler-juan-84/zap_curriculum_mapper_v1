@@ -2,18 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 83  
+**Last updated:** Step 84  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Five books Phase 1 COMPLETE: BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013 missing-source exception for printed pp. 124–129).
-- All 12 Big English PDFs already on disk under `app/src/assets/books/big-english/`.
+- Five books Phase 1 COMPLETE; BE2-WB catalog + R2 PDF staged (batches await extraction).
 
 ## Current status
 
-BE1-WB canonical v1 verified; whole-book audit PASSED. Ready for next book in §15 order.
+Next work is BE2-WB unit extraction. Empty `{}` placeholders under `data/phase1/big_english_2_wb/` must not be uploaded until filled.
 
 ## Next small step
 
-**Suggestion:** Stage BH2 (or next chosen book from registry §15) for extraction/Validation.
+**Suggestion:** Extract BE2-WB Unit 1 with Google AI Studio using catalog IDs (`big_english_2_wb_*`), then upload that batch for Validation.

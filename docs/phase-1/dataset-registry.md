@@ -184,7 +184,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
-| BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -648,6 +648,8 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Status:** DRAFT — practical default, not a locked decision.
 
+**Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first (next: **BE2-WB**) because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
+
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
 - starts with a Workbook so Student Book ↔ Workbook relationships are tested before scaling;
@@ -1012,7 +1014,8 @@ Implemented (machine schema + shared JS validator + CLI)
 Five complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-Continue draft order: BH2 / BE2-WB / RH2B (§15)
+BE2-WB: unit extraction (local placeholders empty) → human verify → merge/audit
+Owner prefers continuing Big English; BH2/RH2B deferred (§15 note)
 ```
 
 ---

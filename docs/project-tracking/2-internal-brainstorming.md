@@ -372,6 +372,7 @@ Storage stays:
 | 2026-10-08 | Textbook PDF object storage | Promoted to D010 — Cloudflare R2 `book-sources`; implementation staged in [`../10-storage-architecture.md`](../10-storage-architecture.md). |
 | 2026-10-08 | BE1-WB U9 missing printed pp. 124–129 | Promoted to D013 — approve available PDF content with open `missing_source`; do not invent pages. Viewer printed↔PDF index mismatch parked as F015. |
 | 2026-10-08 | BE1-WB Phase 1 closeout | Canonical merge + validation PASSED WITH WARNINGS + whole-book audit PASSED; Phase 1 COMPLETE with D013 exception (5/18 books). |
+| 2026-10-08 | Next book after BE1-WB | Owner continues Big English → BE2-WB staged (catalog + R2 PDF); BH2 deferred despite draft §15 order. |
 
 ---
 

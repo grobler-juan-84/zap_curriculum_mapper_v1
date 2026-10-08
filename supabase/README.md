@@ -19,8 +19,9 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261007180000_verify_bh1_u09_u10_rh2a.sql` | Sets BH1 Units 9–10 and all RH2A unit batches to `verified` |
 | `migrations/20261007190000_seed_be1_canonical_v1.sql` | Seeds BE1-SB `canonical_json` + `dataset_versions` v1 pointers |
 | `migrations/20261008120000_seed_big_english_1_wb.sql` | Seeds BE1-WB `books` + `source_pdf` + 9 pending `batch_json` pointers |
+| `migrations/20261008130000_seed_big_english_2_wb.sql` | Seeds BE2-WB `books` + `source_pdf` pointer (batches after extraction) |
 
-Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`). Without the CLI, catalog seed for BE1-WB can also be applied with `node scripts/apply_be1wb_seed.mjs` (service role).
+Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`). Without the CLI, catalog seeds can also be applied with `node scripts/apply_be1wb_seed.mjs` / `node scripts/apply_be2wb_seed.mjs` (service role).
 
 Apply in timestamp order. If the catalog migration was already applied without `label`/`status`, the `20261007130000_…` migration adds those columns. Apply `20261007140000_…` so authenticated clients can read cover images and `cover_path` is stored on series rows. Apply `20261007150000_…` for per-book cover paths.
 

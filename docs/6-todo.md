@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 83  
+**Last updated:** Step 84  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -15,7 +15,8 @@
 - [x] Register BE1-WB + upload PDF/JSON; Unit 9 verify with D013 missing-source exception.
 - [x] BE1-WB book-level HV + canonical merge + automated validation + whole-book audit → Phase 1 COMPLETE (with exception).
 - [x] All 12 Big English PDFs present locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
-- [ ] Choose next book from draft order (BH2 / BE2-WB / RH2B per registry §15) and stage catalog + source.
+- [x] Choose next book: **BE2-WB** (continue Big English; BH2 deferred). Catalog + R2 source PDF staged.
+- [ ] Extract BE2-WB Units 1–9 into `data/phase1/big_english_2_wb/` (replace empty `{}` placeholders), then upload batches + human-verify.
 
 ## Next
 

@@ -1431,4 +1431,26 @@
 
 ---
 
+### Step 84
+
+**Summary:** Chose BE2-WB as next book (owner continuing Big English; BH2 deferred). Seeded catalog + uploaded source PDF to R2; wired scripts/aliases; deferred batch JSON upload because local unit files are still empty placeholders.
+
+**Files touched:**
+- `supabase/migrations/20261008130000_seed_big_english_2_wb.sql` (created)
+- `scripts/apply_be2wb_seed.mjs` (created)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/book-id-alias-map.md` (updated → v1.2)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `supabase/README.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

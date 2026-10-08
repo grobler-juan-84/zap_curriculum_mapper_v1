@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "canonical_rule": "Postgres books.book_id (and matching Storage folder segment) is the catalog identity for joins, Validation, and dataset_versions. Extraction-era book_id strings are aliases only.",
   "entity_id_policy": "Entity IDs (unit_id, page_id, vocabulary_id, …) keep their extraction-era prefixes for stability. Merge-time normalization rewrites book_id fields only — not entity ID strings. New books (D009) should use the full catalog_book_id as the entity prefix and prefer emitting the catalog ID directly (no new abbreviated aliases).",
   "naming_policy": "D009 — docs/9-naming-conventions.md. Pilots are grandfathered. Forward catalog templates: beehive_{level}_sb, big_english_{level}_{sb|wb}, reach_higher_{level}.",
@@ -48,7 +48,16 @@
       "aliases": ["big_english_1_wb"],
       "entity_id_prefix_examples": ["big_english_1_wb_"],
       "naming_policy": "d009",
-      "notes": "Next extraction target. Prefer catalog ID only — do not introduce bep1_wb / be1_wb aliases. Entity IDs must use big_english_1_wb_* forms."
+      "notes": "Phase 1 COMPLETE with D013 missing-source exception (printed pp. 124–129). Prefer catalog ID only."
+    },
+    {
+      "catalog_book_id": "big_english_2_wb",
+      "registry_id": "BE2-WB",
+      "series_slug": "big-english",
+      "aliases": ["big_english_2_wb"],
+      "entity_id_prefix_examples": ["big_english_2_wb_"],
+      "naming_policy": "d009",
+      "notes": "Next extraction target (owner prefers continuing Big English after BE1-WB; skips BH2 for now). Prefer catalog ID only — do not introduce bep2_wb / be2_wb aliases. Entity IDs must use big_english_2_wb_* forms."
     }
   ]
 }
