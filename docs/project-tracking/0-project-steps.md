@@ -1200,3 +1200,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 72
+
+**Summary:** Stage C PASS — migrated Beehive 1 source PDF from Supabase to R2 at verified key `beehive/beehive_1_sb/source.pdf` with matching SHA-256; Supabase original preserved. Clarified that `beehive/beehive/…` is not the catalog path. No app or DB changes.
+
+**Files touched:**
+- `scripts/migrate_pilot_pdf_to_r2.mjs` (created)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

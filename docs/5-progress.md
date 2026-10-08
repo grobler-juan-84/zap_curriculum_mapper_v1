@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 71  
+**Last updated:** Step 72  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,17 +11,18 @@
 
 - Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
 - Schema remains **0.1**; D007–D010 locked; D008 validation integrated.
-- **R2 Stage A + Stage B PASS** — S3-compatible API connected to private `book-sources` (list / upload / checksum download / delete under `_connection-tests/` only).
+- **R2 Stages A–C PASS** — connectivity verified; Beehive 1 PDF integrity-copied to R2 (`beehive/beehive_1_sb/source.pdf`); Supabase original preserved.
 
 ## In progress
 
-- Ready for R2 Stage C (one pilot PDF with existing object key) or BE1-WB prep.
+- App still serves PDFs from Supabase; R2 holds Beehive 1 pilot copy only.
+- Ready for Stage D (adapter) or BE1-WB prep / remaining PDF copies under Stage E planning.
 
 ## Next
 
-- **Stage C** — upload one existing source PDF to R2 with the same logical key; verify size/integrity (still keep Supabase copy).
-- Or prepare BE1-WB source/catalog/unit plan (`big_english_1_wb`).
-- Confirm R2 API token scope in Cloudflare dashboard (Object Read & Write → `book-sources` only).
+- Confirm R2 API token scope in Cloudflare dashboard (if not already).
+- **Stage D** — storage adapter so Validation can read PDFs from R2 (keep JSON/covers on Supabase).
+- Or prepare BE1-WB; or copy remaining pilot PDFs to R2 (still without app cutover / without deleting Supabase).
 
 ## Blocked
 
@@ -32,5 +33,5 @@
 ## Snapshot notes
 
 - **Phase 1 Complete:** 4 / 18.
-- **PDF storage:** live app still Supabase; R2 connectivity verified; migration not started.
+- **PDF storage:** app = Supabase; R2 = Beehive 1 pilot copy + empty/prefix structure for other series.
 - **Draft next book:** BE1-WB (`big_english_1_wb`).

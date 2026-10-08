@@ -145,10 +145,26 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 
 ### Stage C — PDF pilot
 
-- [ ] Select one existing pilot source PDF (prefer a known-good Supabase object, e.g. Beehive 1)
-- [ ] Upload to R2 using the **same** logical object key
-- [ ] Verify size, integrity, and retrieval
-- [ ] Confirm access from the intended server-side / app environment (still without retiring Supabase)
+- [x] Select one existing pilot source PDF: **Beehive 1 Student Book** (`beehive_1_sb`)
+- [x] Upload to R2 using the **same** logical object key verified from `book_files`
+- [x] Verify size, integrity, and retrieval (byte-for-byte SHA-256 match)
+- [ ] Confirm access from the intended **application** environment (Stage D — app still reads Supabase)
+
+**Stage C result:** PASS (2026-10-08) via `scripts/migrate_pilot_pdf_to_r2.mjs`
+
+| Field | Value |
+|---|---|
+| Pilot | Beehive 1 Student Book (`beehive_1_sb`) |
+| Verified object key | `beehive/beehive_1_sb/source.pdf` |
+| Source | Supabase Storage `book-sources` |
+| Destination | Cloudflare R2 `book-sources` |
+| Size | 12,133,731 bytes |
+| SHA-256 (both) | `9005ef26c53283ec0146b06ad9896b9c9d2fbc2dc731c11c44ac14ec3c5053e3` |
+| Integrity | PASS (identical) |
+| Supabase original | Preserved (not deleted) |
+| App cutover | Not done (still Supabase) |
+
+**Path note:** The brief’s `beehive/beehive/beehive_1_sb/…` key is **incorrect**. Catalog, seed SQL, and upload scripts use `{series-slug}/{catalog_book_id}/source.pdf` → `beehive/beehive_1_sb/source.pdf`. The repeated `beehive` tokens are series slug + book id prefix (`beehive_1_sb`), not a duplicated folder segment. Path-generation logic was not changed.
 
 ### Stage D — Application integration
 
@@ -192,3 +208,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 |---|---|
 | 2026-10-08 | Created; documented R2 PDF target, security rules, and Stages A–E (docs-only; no migration executed). |
 | 2026-10-08 | Stage B PASS via `scripts/test_r2_connection.mjs` (list / put / get+SHA-256 / delete under `_connection-tests/`). |
+| 2026-10-08 | Stage C PASS — Beehive 1 PDF copied Supabase→R2 at `beehive/beehive_1_sb/source.pdf` (SHA-256 match; Supabase preserved). |

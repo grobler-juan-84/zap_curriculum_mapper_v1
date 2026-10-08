@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 71  
+**Last updated:** Step 72  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -14,14 +14,14 @@
 - [x] Document Cloudflare R2 PDF storage architecture (D010).
 - [x] **R2 Stage A** — bucket + S3-compatible API token; ops test script + env template.
 - [x] **R2 Stage B** — connectivity PASS (`node scripts/test_r2_connection.mjs`).
+- [x] **R2 Stage C** — Beehive 1 PDF Supabase→R2 integrity PASS (`beehive/beehive_1_sb/source.pdf`).
 - [ ] Confirm R2 API token is scoped to `book-sources` Object Read & Write in Cloudflare dashboard.
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Next
 
-- [ ] **R2 Stage C** — upload one pilot PDF with existing object key; verify integrity (do not retire Supabase yet).
 - [ ] **R2 Stage D** — storage adapter + replace PDF Supabase calls; keep Auth/JSON/covers on Supabase.
-- [ ] **R2 Stage E** — batch migrate PDFs; verify; retire Supabase `book-sources` only after success.
+- [ ] **R2 Stage E** — migrate remaining pilot PDFs; verify; retire Supabase `book-sources` only after app verification.
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon
