@@ -182,7 +182,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 10 | COMPLETE |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
-| BE1-WB | Big English | 1 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | IN PROGRESS | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -969,7 +969,8 @@ Implemented (machine schema + shared JS validator + CLI)
 All four pilots: PASSED WITH WARNINGS (BE2-SB appendix sticker pages added 2026-10-07)
 
 Next Major Checkpoints
-Begin draft remaining-book order with BE1-WB, then BH2 / BE2-WB / RH2B (§15)
+BE1-WB: human-verify Units 1–9 in Validation (PDF via R2; batches pending), then preflight → canonical merge → D008 → audit
+Then continue draft order: BH2 / BE2-WB / RH2B (§15)
 ```
 
 ---

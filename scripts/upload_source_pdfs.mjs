@@ -36,6 +36,7 @@ const localBooksRoot = join(root, 'app', 'src', 'assets', 'books')
 const SOURCES = [
   ['beehive_1_sb', 'beehive', 'beehive/beehive_1_sb/source.pdf'],
   ['big_english_1_sb', 'big-english', 'big-english/big_english_1_sb/source.pdf'],
+  ['big_english_1_wb', 'big-english', 'big-english/big_english_1_wb/source.pdf'],
   ['big_english_2_sb', 'big-english', 'big-english/big_english_2_sb/source.pdf'],
   ['reach_higher_2a', 'reach-higher', 'reach-higher/reach_higher_2a/source.pdf'],
 ]

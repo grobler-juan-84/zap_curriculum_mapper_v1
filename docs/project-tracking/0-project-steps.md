@@ -1360,4 +1360,25 @@
 
 ---
 
+### Step 80
+
+**Summary:** Registered and staged BE1-WB (`big_english_1_wb`) for Validation: catalog seed, R2 source PDF upload, nine pending unit JSON batches on Supabase `book-datasets`. Smoke PASS. Human verify + merge/audit left for follow-up.
+
+**Files touched:**
+- `supabase/migrations/20261008120000_seed_big_english_1_wb.sql` (created)
+- `scripts/apply_be1wb_seed.mjs` (created)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `supabase/README.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

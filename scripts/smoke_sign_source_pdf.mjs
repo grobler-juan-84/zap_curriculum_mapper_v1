@@ -17,6 +17,7 @@ const appRoot = resolve(root, 'app')
 const CATALOG_IDS = [
   'beehive_1_sb',
   'big_english_1_sb',
+  'big_english_1_wb',
   'big_english_2_sb',
   'reach_higher_2a',
 ]
@@ -114,7 +115,7 @@ for (const catalogId of CATALOG_IDS) {
 console.log('')
 console.log('Browser delivery uses same-origin POST /api/source-pdf-content (no R2 CORS required).')
 console.log(
-  'Manual UI: open Validation for beehive_1_sb, big_english_1_sb, and one more pilot; badge should show "via r2" and console delivery=proxy.',
+  'Manual UI: open Validation for big_english_1_wb (and any pilot); badge should show "via r2" and console delivery=proxy.',
 )
 console.log('JSON datasets / covers remain on Supabase; Auth + catalog authorization unchanged.')
 

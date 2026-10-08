@@ -25,6 +25,19 @@ export const PHASE1_BOOKS = {
         `big-english/big_english_1_sb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
     ),
   },
+  big_english_1_wb: {
+    catalogBookId: 'big_english_1_wb',
+    registryId: 'BE1-WB',
+    displayName: 'Big English 1 Workbook',
+    seriesSlug: 'big-english',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE1-WB_canonical_v1_audit.md',
+    unitPaths: Array.from(
+      { length: 9 },
+      (_, index) =>
+        `big-english/big_english_1_wb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
+    ),
+  },
   big_english_2_sb: {
     catalogBookId: 'big_english_2_sb',
     registryId: 'BE2-SB',
