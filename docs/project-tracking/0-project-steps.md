@@ -1247,3 +1247,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 74
+
+**Summary:** Fixed Beehive 1 PDF.js CORS failure by serving R2 PDFs through same-origin `POST /api/source-pdf-content` (blob URL). Presigned sign endpoint retained; dual-read and catalog auth unchanged.
+
+**Files touched:**
+- `app/server/authorizeSourcePdf.ts` (created)
+- `app/server/handleProxySourcePdfRequest.ts` (created)
+- `app/server/handleSignSourcePdfRequest.ts` (updated)
+- `app/server/signSourcePdf.ts` (updated)
+- `app/vite-plugins/signSourcePdfPlugin.ts` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `api/sign-source-pdf.ts` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

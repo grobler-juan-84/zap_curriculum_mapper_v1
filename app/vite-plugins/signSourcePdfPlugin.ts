@@ -1,10 +1,12 @@
 /**
- * Vite-only transport for POST /api/sign-source-pdf.
- * Signing + auth live in app/server/* — keep this file transport-only.
+ * Vite transport for source-PDF APIs:
+ * - POST /api/sign-source-pdf       → R2 presigned URL JSON (optional)
+ * - POST /api/source-pdf-content    → same-origin PDF bytes (preferred for PDF.js)
  */
 import type { Plugin } from 'vite'
 import { loadServerEnv } from '../server/loadServerEnv.ts'
 import { handleSignSourcePdfRequest } from '../server/handleSignSourcePdfRequest.ts'
+import { handleProxySourcePdfRequest } from '../server/handleProxySourcePdfRequest.ts'
 
 async function readJsonBody(req: import('http').IncomingMessage): Promise<unknown> {
   const chunks: Buffer[] = []
@@ -21,6 +23,16 @@ async function readJsonBody(req: import('http').IncomingMessage): Promise<unknow
   }
 }
 
+function sendJson(
+  res: import('http').ServerResponse,
+  status: number,
+  body: Record<string, unknown>,
+): void {
+  res.statusCode = status
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify(body))
+}
+
 export function signSourcePdfPlugin(appRoot: string): Plugin {
   return {
     name: 'gcm-sign-source-pdf',
@@ -29,7 +41,9 @@ export function signSourcePdfPlugin(appRoot: string): Plugin {
 
       server.middlewares.use(async (req, res, next) => {
         const url = req.url?.split('?')[0] ?? ''
-        if (url !== '/api/sign-source-pdf') {
+        const isSign = url === '/api/sign-source-pdf'
+        const isProxy = url === '/api/source-pdf-content'
+        if (!isSign && !isProxy) {
           next()
           return
         }
@@ -43,41 +57,49 @@ export function signSourcePdfPlugin(appRoot: string): Plugin {
         }
 
         if (req.method !== 'POST') {
-          res.statusCode = 405
-          res.setHeader('Content-Type', 'application/json')
-          res.end(JSON.stringify({ error: 'method_not_allowed' }))
+          sendJson(res, 405, { error: 'method_not_allowed' })
           return
         }
 
         const body = await readJsonBody(req)
         if (body === null) {
-          res.statusCode = 400
-          res.setHeader('Content-Type', 'application/json')
-          res.end(JSON.stringify({ error: 'bad_request', message: 'Invalid JSON body.' }))
+          sendJson(res, 400, { error: 'bad_request', message: 'Invalid JSON body.' })
           return
         }
 
         try {
+          if (isProxy) {
+            const result = await handleProxySourcePdfRequest({
+              authorizationHeader: req.headers.authorization,
+              body,
+            })
+            if (!result.ok) {
+              sendJson(res, result.status, result.body)
+              return
+            }
+            res.statusCode = 200
+            res.setHeader('Content-Type', result.contentType)
+            res.setHeader('Cache-Control', 'private, no-store')
+            res.setHeader('X-Gcm-Pdf-Provider', 'r2')
+            res.setHeader('X-Gcm-Pdf-Delivery', 'proxy')
+            res.end(Buffer.from(result.bytes))
+            return
+          }
+
           const result = await handleSignSourcePdfRequest({
             authorizationHeader: req.headers.authorization,
             body,
           })
-          res.statusCode = result.status
-          res.setHeader('Content-Type', 'application/json')
-          res.end(JSON.stringify(result.body))
+          sendJson(res, result.status, result.body)
         } catch (err) {
           console.error(
-            '[sign-source-pdf] unexpected error:',
+            '[source-pdf-api] unexpected error:',
             err instanceof Error ? err.message : 'unknown',
           )
-          res.statusCode = 503
-          res.setHeader('Content-Type', 'application/json')
-          res.end(
-            JSON.stringify({
-              error: 'unavailable',
-              message: 'Signing service failed unexpectedly.',
-            }),
-          )
+          sendJson(res, 503, {
+            error: 'unavailable',
+            message: 'Source PDF service failed unexpectedly.',
+          })
         }
       })
     },

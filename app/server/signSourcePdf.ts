@@ -28,6 +28,16 @@ export type SignSourcePdfFailure = {
 
 export type SignSourcePdfResult = SignSourcePdfSuccess | SignSourcePdfFailure
 
+export type GetSourcePdfSuccess = {
+  ok: true
+  bytes: Uint8Array
+  contentType: string
+  storagePath: string
+  bucket: string
+}
+
+export type GetSourcePdfResult = GetSourcePdfSuccess | SignSourcePdfFailure
+
 function createR2Client(cfg: R2Config): S3Client {
   return new S3Client({
     region: 'auto',
@@ -37,6 +47,71 @@ function createR2Client(cfg: R2Config): S3Client {
       secretAccessKey: cfg.secretAccessKey,
     },
   })
+}
+
+function mapR2Error(err: unknown, fallbackMessage: string): SignSourcePdfFailure {
+  const name = err instanceof Error ? err.name : ''
+  const status =
+    err && typeof err === 'object' && '$metadata' in err
+      ? Number((err as { $metadata?: { httpStatusCode?: number } }).$metadata?.httpStatusCode)
+      : undefined
+
+  if (name === 'NotFound' || name === 'NoSuchKey' || status === 404) {
+    return { ok: false, code: 'not_found', message: 'Object not found on R2.' }
+  }
+  if (status === 401 || status === 403 || name === 'AccessDenied' || name === 'Forbidden') {
+    return {
+      ok: false,
+      code: 'forbidden',
+      message: 'R2 denied access to this object (check token permissions).',
+    }
+  }
+  return {
+    ok: false,
+    code: 'unavailable',
+    message: err instanceof Error ? err.message : fallbackMessage,
+  }
+}
+
+/** Stream/object bytes from R2 for same-origin proxy (avoids browser CORS on R2). */
+export async function getSourcePdfObject(storagePath: string): Promise<GetSourcePdfResult> {
+  const cfg = readR2Config()
+  if (!cfg) {
+    return {
+      ok: false,
+      code: 'not_configured',
+      message: 'R2 credentials are not configured on the server.',
+    }
+  }
+
+  const client = createR2Client(cfg)
+  try {
+    const got = await client.send(
+      new GetObjectCommand({
+        Bucket: cfg.bucket,
+        Key: storagePath,
+      }),
+    )
+    if (!got.Body) {
+      return { ok: false, code: 'unavailable', message: 'R2 GetObject returned empty body.' }
+    }
+    const bytes = await got.Body.transformToByteArray()
+    return {
+      ok: true,
+      bytes,
+      contentType: got.ContentType || 'application/pdf',
+      storagePath,
+      bucket: cfg.bucket,
+    }
+  } catch (err) {
+    return mapR2Error(err, 'R2 GetObject failed.')
+  } finally {
+    try {
+      client.destroy()
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 export async function signSourcePdfObject(

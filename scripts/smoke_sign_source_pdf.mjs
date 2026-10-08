@@ -90,31 +90,28 @@ const signMod = await import(
 
 const beehivePath = paths.beehive_1_sb
 if (beehivePath) {
-  const signed = await signMod.signSourcePdfObject(beehivePath)
-  if (signed.ok) {
-    console.log(`beehive_1_sb R2 sign: PASS (url length=${signed.signedUrl.length}, no secret printed)`)
+  const got = await signMod.getSourcePdfObject(beehivePath)
+  if (got.ok) {
+    console.log(`beehive_1_sb R2 proxy-get: PASS (bytes=${got.bytes.length})`)
   } else {
-    console.log(`beehive_1_sb R2 sign: FAIL code=${signed.code} message=${signed.message}`)
+    console.log(`beehive_1_sb R2 proxy-get: FAIL code=${got.code} message=${got.message}`)
     process.exit(1)
   }
 }
 
 const bePath = paths.big_english_1_sb
 if (bePath) {
-  const signed = await signMod.signSourcePdfObject(bePath)
-  if (!signed.ok && signed.code === 'not_found') {
-    console.log(`big_english_1_sb R2 sign: PASS expected not_found (fallback book)`)
-  } else if (signed.ok) {
-    console.log(`big_english_1_sb R2 sign: NOTE object already on R2`)
+  const got = await signMod.getSourcePdfObject(bePath)
+  if (!got.ok && got.code === 'not_found') {
+    console.log(`big_english_1_sb R2 proxy-get: PASS expected not_found (fallback book)`)
+  } else if (got.ok) {
+    console.log(`big_english_1_sb R2 proxy-get: NOTE object already on R2 (bytes=${got.bytes.length})`)
   } else {
-    console.log(`big_english_1_sb R2 sign: FAIL code=${signed.code}`)
+    console.log(`big_english_1_sb R2 proxy-get: FAIL code=${got.code}`)
     process.exit(1)
   }
 }
 
 console.log('')
-console.log('CORS: Object Read/Write token cannot manage CORS (AccessDenied).')
-console.log(
-  'If PDF.js fails cross-origin, add GET/HEAD for http://localhost:5173 and http://127.0.0.1:5173 in Cloudflare R2 bucket CORS settings.',
-)
-console.log('UI check: Validation badge should show "via r2" for Beehive 1 and "via supabase" for others.')
+console.log('Browser delivery uses same-origin POST /api/source-pdf-content (no R2 CORS required).')
+console.log('UI check: Beehive 1 badge "via r2" + console delivery=proxy; other pilots "via supabase".')

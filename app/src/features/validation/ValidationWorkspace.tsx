@@ -162,6 +162,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
 
   useEffect(() => {
     let cancelled = false
+    let objectUrlToRevoke: string | null = null
     setPdfLoading(true)
     setPdfUrl(null)
     setPdfProvider(null)
@@ -176,20 +177,24 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           return
         }
         const signed = await validationService.createSignedPdfUrl(pdf)
-        if (cancelled) return
+        if (cancelled) {
+          if (signed?.url.startsWith('blob:')) URL.revokeObjectURL(signed.url)
+          return
+        }
         if (!signed) {
           setPdfUrl(null)
           setPdfProvider(null)
           return
         }
+        if (signed.url.startsWith('blob:')) objectUrlToRevoke = signed.url
         console.info(
-          `[validation] PDF provider=${signed.provider} book=${book.stableBookId ?? book.id} path=${pdf.storagePath}`,
+          `[validation] PDF provider=${signed.provider} delivery=${signed.url.startsWith('blob:') ? 'proxy' : 'signed-url'} book=${book.stableBookId ?? book.id} path=${pdf.storagePath}`,
         )
         setPdfUrl(signed.url)
         setPdfProvider(signed.provider)
       } catch (err) {
         if (cancelled) return
-        console.error('[validation] PDF sign failed:', err instanceof Error ? err.message : err)
+        console.error('[validation] PDF load failed:', err instanceof Error ? err.message : err)
         setPdfUrl(null)
         setPdfProvider(null)
       } finally {
@@ -199,6 +204,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
 
     return () => {
       cancelled = true
+      if (objectUrlToRevoke) URL.revokeObjectURL(objectUrlToRevoke)
     }
   }, [book.id])
 

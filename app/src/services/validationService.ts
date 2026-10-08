@@ -8,13 +8,17 @@ import type {
 
 export type { SignedPdfResult, PdfStorageProvider } from '../types/validation'
 
-type R2SignAttempt =
-  | { kind: 'ok'; signedUrl: string }
+type R2ProxyAttempt =
+  | { kind: 'ok'; objectUrl: string }
   | { kind: 'not_found' }
   | { kind: 'unavailable'; reason: string }
   | { kind: 'auth_error'; message: string }
 
-async function trySignSourcePdfViaApi(bookFileId: string): Promise<R2SignAttempt> {
+/**
+ * Fetch PDF bytes via same-origin proxy (avoids R2 CORS for PDF.js).
+ * Caller must revoke the returned object URL when done.
+ */
+async function tryProxySourcePdfViaApi(bookFileId: string): Promise<R2ProxyAttempt> {
   const client = requireClient()
   const { data: sessionData, error: sessionError } = await client.auth.getSession()
   const token = sessionData.session?.access_token
@@ -24,7 +28,7 @@ async function trySignSourcePdfViaApi(bookFileId: string): Promise<R2SignAttempt
 
   let response: Response
   try {
-    response = await fetch('/api/sign-source-pdf', {
+    response = await fetch('/api/source-pdf-content', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,40 +43,42 @@ async function trySignSourcePdfViaApi(bookFileId: string): Promise<R2SignAttempt
     }
   }
 
-  let payload: Record<string, unknown> = {}
-  try {
-    payload = (await response.json()) as Record<string, unknown>
-  } catch {
-    payload = {}
-  }
-
-  const errorCode = typeof payload.error === 'string' ? payload.error : ''
-  const message =
-    typeof payload.message === 'string' && payload.message.trim()
-      ? payload.message
-      : `PDF signing failed (${response.status})`
-
-  if (response.status === 401 || response.status === 403 || errorCode === 'r2_forbidden') {
+  if (response.status === 401 || response.status === 403) {
+    let message = `PDF proxy failed (${response.status})`
+    try {
+      const payload = (await response.json()) as Record<string, unknown>
+      if (typeof payload.message === 'string' && payload.message.trim()) {
+        message = payload.message
+      }
+      if (payload.error === 'r2_forbidden') {
+        return { kind: 'auth_error', message }
+      }
+    } catch {
+      /* keep default message */
+    }
     return { kind: 'auth_error', message }
   }
 
-  if (response.status === 404 || errorCode === 'not_found') {
+  if (response.status === 404) {
     return { kind: 'not_found' }
   }
 
   if (!response.ok) {
-    return {
-      kind: 'unavailable',
-      reason: errorCode || `HTTP ${response.status}`,
+    let reason = `HTTP ${response.status}`
+    try {
+      const payload = (await response.json()) as Record<string, unknown>
+      if (typeof payload.error === 'string') reason = payload.error
+    } catch {
+      /* keep */
     }
+    return { kind: 'unavailable', reason }
   }
 
-  const signedUrl = typeof payload.signedUrl === 'string' ? payload.signedUrl : ''
-  if (!signedUrl) {
-    return { kind: 'unavailable', reason: 'missing signedUrl in response' }
+  const blob = await response.blob()
+  if (!blob.size) {
+    return { kind: 'unavailable', reason: 'empty PDF body from proxy' }
   }
-
-  return { kind: 'ok', signedUrl }
+  return { kind: 'ok', objectUrl: URL.createObjectURL(blob) }
 }
 
 type DbBookFileRow = {
@@ -419,24 +425,26 @@ export const validationService = {
   },
 
   /**
-   * R2-first dual-read (D011): try server `/api/sign-source-pdf`, then Supabase.
+   * R2-first dual-read (D011): try same-origin `/api/source-pdf-content` proxy, then Supabase.
+   * Proxy avoids browser CORS on R2 (Object Read/Write tokens often cannot set bucket CORS).
    * - 404 not_found → Supabase fallback
    * - 503 / network → Supabase fallback (logged)
    * - 401 / 403 (incl. r2_forbidden) → throw (no silent fallback)
+   * Caller must revoke blob: URLs from the R2 path when unloading.
    */
   async createSignedPdfUrl(batch: BookFileBatch): Promise<SignedPdfResult | null> {
     const client = requireClient()
 
-    const r2Attempt = await trySignSourcePdfViaApi(batch.id)
+    const r2Attempt = await tryProxySourcePdfViaApi(batch.id)
     if (r2Attempt.kind === 'ok') {
-      return { url: r2Attempt.signedUrl, provider: 'r2' }
+      return { url: r2Attempt.objectUrl, provider: 'r2' }
     }
     if (r2Attempt.kind === 'auth_error') {
       throw new Error(r2Attempt.message)
     }
     if (r2Attempt.kind === 'unavailable') {
       console.warn(
-        `[validation] R2 sign unavailable (${r2Attempt.reason}); falling back to Supabase for ${batch.storagePath}`,
+        `[validation] R2 proxy unavailable (${r2Attempt.reason}); falling back to Supabase for ${batch.storagePath}`,
       )
     } else if (r2Attempt.kind === 'not_found') {
       console.info(

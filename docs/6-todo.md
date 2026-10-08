@@ -14,8 +14,8 @@
 - [x] Document Cloudflare R2 PDF storage architecture (D010).
 - [x] **R2 Stage A–C** — connectivity + Beehive 1 integrity copy.
 - [x] **R2 Stage D** — `/api/sign-source-pdf` + Validation dual-read (D011).
-- [ ] Set R2 CORS for localhost PDF.js in Cloudflare dashboard (token lacked PutBucketCors).
-- [ ] Confirm in Validation UI: Beehive 1 badge `via r2`; another pilot `via supabase`.
+- [x] Fix Beehive 1 PDF.js CORS failure via same-origin `/api/source-pdf-content` proxy (no bucket CORS admin required).
+- [ ] Confirm in Validation UI: Beehive 1 badge `via r2` + console `delivery=proxy`; another pilot `via supabase`.
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Next

@@ -177,6 +177,8 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 
 **Stage D result:** PASS (2026-10-08) with dual-read. Fallback rules: R2 `not_found` / unavailable → Supabase; R2 or catalog `401`/`403` → visible error (no silent fallback). Supabase PDF originals preserved.
 
+**Browser delivery:** Validation loads R2 PDFs via same-origin `POST /api/source-pdf-content` (blob URL for PDF.js), not a cross-origin R2 signed URL. This avoids requiring bucket CORS when the Object Read/Write token cannot call PutBucketCors. Presigned `/api/sign-source-pdf` remains available for non-browser clients.
+
 ### Stage E — Migration and validation
 
 - [ ] Inventory existing Supabase `book-sources` PDF objects
@@ -212,3 +214,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 | 2026-10-08 | Stage B PASS via `scripts/test_r2_connection.mjs` (list / put / get+SHA-256 / delete under `_connection-tests/`). |
 | 2026-10-08 | Stage C PASS — Beehive 1 PDF copied Supabase→R2 at `beehive/beehive_1_sb/source.pdf` (SHA-256 match; Supabase preserved). |
 | 2026-10-08 | Stage D PASS — Validation PDF via `/api/sign-source-pdf` (R2-first dual-read, D011); CORS may need dashboard if token lacks CORS permission. |
+| 2026-10-08 | Validation R2 delivery switched to same-origin `/api/source-pdf-content` proxy (fixes PDF.js CORS without bucket CORS admin). |
