@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 75  
+**Last updated:** Step 76  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -16,7 +16,7 @@
 - [x] **R2 Stage D** — `/api/sign-source-pdf` + Validation dual-read (D011).
 - [x] Fix Beehive 1 PDF.js CORS failure via same-origin `/api/source-pdf-content` proxy (no bucket CORS admin required).
 - [x] **R2 Stage E** — migrate remaining cataloged pilot PDFs; SHA-256 verify; Supabase originals + dual-read retained.
-- [ ] Confirm in Validation UI: Beehive 1 + ≥2 other pilots badge `via r2` + console `delivery=proxy` (server smoke already PASS).
+- [x] Confirm in Validation UI: all 4 pilots `provider=r2 delivery=proxy` (owner-confirmed 2026-10-08).
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Next

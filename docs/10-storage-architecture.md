@@ -208,7 +208,7 @@ SHA-256 values (identical on Supabase and R2):
 | `big_english_2_sb` | 18,541,226 | `84da7b1ad417351459151ce4a10b146043c2ecafb30ed3bc827a62f3d1c17c98` |
 | `reach_higher_2a` | 27,671,806 | `038437d1b23a66d83e443bbd6609cbc1da72221e438064945f0f3679270e29b3` |
 
-**App verification:** server-side R2 proxy-get PASS for all four. Browser Validation badge (`via r2`) / console `delivery=proxy` — **manual pending** (no automated browser run in this stage). JSON/covers remain on Supabase; Auth + catalog authorization unchanged. Scalability of the same-origin proxy for larger apps is parked as F013 in [`7-future.md`](./7-future.md).
+**App verification:** server-side R2 proxy-get PASS for all four. Browser Validation console (owner-confirmed 2026-10-08): `provider=r2 delivery=proxy` for `beehive_1_sb`, `big_english_1_sb`, `big_english_2_sb`, and `reach_higher_2a`. JSON/covers remain on Supabase; Auth + catalog authorization unchanged. Scalability of the same-origin proxy for larger apps is parked as F013 in [`7-future.md`](./7-future.md).
 
 ---
 

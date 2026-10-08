@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 75  
+**Last updated:** Step 76  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
 - Four pilots Phase 1 COMPLETE; D010–D011 locked; R2 Stages A–E PASS.
-- All 4 cataloged source PDFs on R2 (SHA-256 match); Validation R2-first same-origin proxy; Supabase originals + dual-read retained.
+- All 4 cataloged source PDFs on R2; Validation UI confirms `provider=r2 delivery=proxy` for each.
 
 ## Current status
 
-Server smoke: all four pilots R2 proxy-get PASS. Manual Validation UI badge check still pending.
+R2 PDF migration + Validation delivery fully verified for in-scope pilots. Supabase originals + dual-read fallback retained.
 
 ## Next small step
 
-**Suggestion:** Hard-refresh Validation and confirm **via r2** for Beehive 1 plus two other pilots; then BE1-WB prep.
+**Suggestion:** Prepare BE1-WB (`big_english_1_wb`) as the next extraction checkpoint.
