@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 69  
+**Last updated:** Step 75  
 **Purpose:** Parking lot for good ideas that are explicitly **not now**. Keep them visible without contaminating current Phase 1 scope.
 
 ---
@@ -32,6 +32,15 @@
 | F010 | Persist Validation session notes | Useful ops polish; status writes already land in Postgres | Validation UI |
 | F011 | Generate cover thumbnails and/or linearize source PDFs | First measure the targeted URL-loading fix; avoid changing source assets or Storage architecture without evidence | Storage performance investigation 2026-10-07 |
 | F012 | Move dataset JSON and/or covers from Supabase Storage to R2 | Explicitly out of D010; revisit only after PDF migration is verified | D010 / brainstorming 2026-10-08 |
+| F013 | PDF delivery scalability (presigned URLs + CORS, streaming, HTTP range, caching, or alternate architecture) | Current authenticated same-origin R2 PDF proxy (+ Supabase fallback) is appropriate for this internal app (~10 teachers max). Larger apps should investigate backend memory, bandwidth, serverless limits, and PDF.js behavior before adopting the same pattern. No changes required now. | Stage E / 2026-10-08 |
+
+### PDF Delivery Scalability — Future Consideration
+
+- **Current approach:** authenticated same-origin PDF proxy using Cloudflare R2, with Supabase fallback.
+- **Appropriate for:** the current internal application (approximately 10 teachers maximum).
+- **Later options:** direct presigned URLs with CORS, streaming responses, HTTP range requests, caching, or alternative delivery architecture.
+- **Investigate before scaling up:** backend memory consumption, bandwidth, serverless hosting limits, and PDF.js behavior.
+- **Action now:** none (F013).
 
 ---
 

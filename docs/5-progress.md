@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 74  
+**Last updated:** Step 75  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,16 +11,17 @@
 
 - Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
 - Schema remains **0.1**; D007–D011 locked; D008 validation integrated.
-- **R2 Stages A–D PASS** — Beehive 1 on R2; Validation loads R2 PDFs via same-origin proxy (fixes PDF.js CORS); dual-read for other books.
+- **R2 Stages A–E PASS** — all 4 cataloged source PDFs on R2 (SHA-256 verified); Validation R2-first same-origin proxy + Supabase dual-read fallback; JSON/covers still on Supabase.
 
 ## In progress
 
-- Stage E (remaining PDF copies + retire Supabase `book-sources` after verification) not started.
+- Manual Validation UI check that all pilots show **via r2** / `delivery=proxy` (server smoke already PASS).
+- Optional later: retire/freeze Supabase `book-sources` (not started; fallback kept).
 
 ## Next
 
-- Confirm Beehive 1 Validation badge **via r2** / console `delivery=proxy`; another book **via supabase**.
-- Stage E planning, or BE1-WB prep.
+- Hard-refresh Validation: confirm Beehive 1 + at least two other pilots badge **via r2**.
+- Prepare BE1-WB as the next extraction checkpoint.
 
 ## Blocked
 
@@ -31,5 +32,5 @@
 ## Snapshot notes
 
 - **Phase 1 Complete:** 4 / 18.
-- **PDF storage:** Validation dual-read; R2 has Beehive 1; Supabase originals preserved.
+- **PDF storage:** 4/4 cataloged pilots on R2; Supabase originals preserved; dual-read fallback retained.
 - **Draft next book:** BE1-WB (`big_english_1_wb`).

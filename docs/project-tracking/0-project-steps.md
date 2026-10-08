@@ -1268,3 +1268,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 75
+
+**Summary:** Stage E PASS — audited catalog/Supabase/R2 source PDFs; migrated the three remaining pilots to R2 with SHA-256 verify (Beehive already present); parked PDF delivery scalability as F013; Supabase originals and dual-read fallback retained. Browser Validation badge check left as manual pending.
+
+**Files touched:**
+- `scripts/migrate_source_pdfs_to_r2.mjs` (created)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `docs/7-future.md` (updated — F013)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+

@@ -36,10 +36,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D011 Validation R2 PDF signing / dual-read). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, JSON/covers→R2). | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for good ideas that are explicitly not now (SaaS polish, Sheets explorer, Phase 2+, JSON/covers→R2, PDF delivery scalability F013). | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2 PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). | 1.2 | ACTIVE |
-| [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2 for textbook PDFs (Stages A–D PASS), Supabase for JSON/covers, dual-read Validation signing, staged E remaining. | 1.0 | ACTIVE |
+| [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2 for textbook PDFs (Stages A–E PASS — 4/4 pilots SHA-verified), Supabase for JSON/covers + PDF fallback, same-origin Validation proxy. | 1.1 | ACTIVE |
 
 ### Project tracking
 

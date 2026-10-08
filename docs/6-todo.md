@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 73  
+**Last updated:** Step 75  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -15,12 +15,13 @@
 - [x] **R2 Stage A–C** — connectivity + Beehive 1 integrity copy.
 - [x] **R2 Stage D** — `/api/sign-source-pdf` + Validation dual-read (D011).
 - [x] Fix Beehive 1 PDF.js CORS failure via same-origin `/api/source-pdf-content` proxy (no bucket CORS admin required).
-- [ ] Confirm in Validation UI: Beehive 1 badge `via r2` + console `delivery=proxy`; another pilot `via supabase`.
+- [x] **R2 Stage E** — migrate remaining cataloged pilot PDFs; SHA-256 verify; Supabase originals + dual-read retained.
+- [ ] Confirm in Validation UI: Beehive 1 + ≥2 other pilots badge `via r2` + console `delivery=proxy` (server smoke already PASS).
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Next
 
-- [ ] **R2 Stage E** — migrate remaining pilot PDFs; verify; retire Supabase `book-sources` only after app verification.
+- [ ] Decide whether to freeze/retire Supabase `book-sources` (keep dual-read until explicit unlock).
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon

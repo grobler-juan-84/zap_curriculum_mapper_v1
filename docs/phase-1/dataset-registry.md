@@ -525,7 +525,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`cross-series-schema-review-notes.md`](./cross-series-schema-review-notes.md) §11 (2026-10-07); schema remains 0.1 |
 
-**Infrastructure (pilot books):** unit-batch / canonical JSON remain in private Supabase Storage (`book-datasets`); source PDFs are still **served from Supabase** `book-sources` in the app. Cloudflare R2 `book-sources` holds a Stage C integrity-verified copy of Beehive 1 only (`beehive/beehive_1_sb/source.pdf`; see [`../10-storage-architecture.md`](../10-storage-architecture.md)). Full PDF migration and app cutover not started. `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
+**Infrastructure (pilot books):** unit-batch / canonical JSON remain in private Supabase Storage (`book-datasets`); cover images remain in `book-assets`. Textbook **source PDFs** for all four cataloged pilots are on Cloudflare R2 `book-sources` at the same object keys (Stage E PASS 2026-10-08 — SHA-256 verified; see [`../10-storage-architecture.md`](../10-storage-architecture.md)). Validation loads PDFs **R2-first** via same-origin proxy with Supabase dual-read fallback; Supabase PDF originals are preserved (not deleted). `book_files` rows were not rewritten. Local `data/phase1/` copies are optional working files (gitignored).
 
 The exact extraction sequence may change if practical testing provides a reason.
 

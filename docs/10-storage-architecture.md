@@ -1,11 +1,11 @@
 # General Curriculum Mapper — Storage Architecture
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** 2026-10-08  
 **Purpose:** Describe how object storage is split across providers, what must stay private, and the staged plan to move textbook source PDFs to Cloudflare R2 — without changing Phase 1 curriculum data models.
 
-**Related:** [`2-tech-stack.md`](./2-tech-stack.md) · [`8-database-architecture.md`](./8-database-architecture.md) · [`4-decisions.md`](./4-decisions.md) (D005, D006, D010) · [`9-naming-conventions.md`](./9-naming-conventions.md)
+**Related:** [`2-tech-stack.md`](./2-tech-stack.md) · [`8-database-architecture.md`](./8-database-architecture.md) · [`4-decisions.md`](./4-decisions.md) (D005, D006, D010, D011) · [`9-naming-conventions.md`](./9-naming-conventions.md)
 
 ---
 
@@ -21,7 +21,7 @@ It does **not** redesign:
 - teacher enrichment philosophy;
 - Supabase Auth or PostgreSQL catalog responsibilities.
 
-**Documentation-only status (2026-10-08):** Cloudflare R2 has been selected for textbook source PDFs and a private bucket named `book-sources` exists with the intended logical folder layout. **No PDF upload, app integration, or Supabase Storage retirement has been executed yet.** Follow Stages A–E below before changing runtime code.
+**Runtime status (2026-10-08):** Stages A–E complete for in-scope cataloged source PDFs. Validation reads PDFs **R2-first** via same-origin proxy (D011 dual-read); Supabase `book-sources` originals remain as fallback and are **not** deleted. JSON datasets and covers stay on Supabase.
 
 ---
 
@@ -29,7 +29,7 @@ It does **not** redesign:
 
 | Responsibility | Provider | Notes |
 |---|---|---|
-| Textbook **source PDFs** | **Cloudflare R2** (private bucket `book-sources`) | Selected destination; migration not started |
+| Textbook **source PDFs** | **Cloudflare R2** (private bucket `book-sources`) | Stage E: all 4 cataloged pilot PDFs verified on R2; Supabase originals retained |
 | Unit-batch + **canonical JSON** datasets | **Supabase Storage** (`book-datasets`) until a separate decision | Do **not** auto-migrate JSON to R2 |
 | Series/book **cover images** | **Supabase Storage** (`book-assets`) until reassessed | Unrelated to PDF move |
 | Catalog / file pointers / dataset versions | **Supabase PostgreSQL** | `book_files.bucket` + `storage_path` remain the operational pointers |
@@ -57,33 +57,27 @@ Postgres `book_files` rows for `file_type = source_pdf` already store bucket nam
 
 ---
 
-## 3. Current runtime (as of documentation)
-
-Until Stage D lands, the live app still uses **Supabase Storage** for PDFs:
+## 3. Current runtime (as of Stage E)
 
 | Concern | Current behaviour |
 |---|---|
-| Upload | `scripts/upload_source_pdfs.mjs` → Supabase `book-sources` (service role) |
-| Catalog | `book_files` (`file_type = source_pdf`, `bucket`, `storage_path`) |
-| Validation PDF view | `validationService.createSignedPdfUrl` → Supabase `createSignedUrl` (~15 min TTL) |
+| PDF primary store | Cloudflare R2 `book-sources` (identical object keys) |
+| PDF fallback | Supabase Storage `book-sources` (originals preserved; dual-read on R2 miss) |
+| Catalog | `book_files` (`file_type = source_pdf`, `bucket`, `storage_path`) — unchanged |
+| Validation PDF view | R2-first via same-origin `POST /api/source-pdf-content` (+ optional `/api/sign-source-pdf`); provider badge `via r2` / `via supabase` |
+| Ops upload (local) | `scripts/upload_source_pdfs.mjs` still targets Supabase; Stage E copy via `scripts/migrate_source_pdfs_to_r2.mjs` |
 | JSON download | `validationService.downloadJson` → Supabase `book-datasets` |
 | Covers | `coverImageService` → Supabase `book-assets` signed URLs |
 
-**Affected dependencies when PDFs move to R2:**
-
-- Validation PDF signing / retrieval path
-- Source PDF upload scripts
-- Any RLS / Storage policies that only cover Supabase `book-sources`
-- Environment configuration (new R2 credentials; never `VITE_`-prefixed secrets)
-- Possibly a storage adapter so business logic is not hard-wired to one SDK
-
-**Not automatically in scope for the PDF move:**
+**Out of scope for the PDF move (unchanged):**
 
 - `book-datasets` merge/audit/validate scripts
 - Cover upload scripts
 - Auth, catalog queries, dataset versioning
+- Automatic retirement of Supabase `book-sources` or removal of dual-read fallback
 
 ---
+
 
 ## 4. Application access principles
 
@@ -181,14 +175,43 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 
 ### Stage E — Migration and validation
 
-- [ ] Inventory existing Supabase `book-sources` PDF objects
-- [ ] Migrate in controlled batches (same keys)
-- [ ] Verify object counts, paths, sizes/checksums
-- [ ] Confirm Validation and ops scripts against R2
-- [ ] Retire or freeze Supabase `book-sources` **only after** successful verification
-- [ ] Update Dataset Registry / ops notes that PDFs are R2-backed
+- [x] Inventory existing Supabase `book-sources` PDF objects (catalog + Storage list)
+- [x] Migrate remaining PDFs with identical keys (`scripts/migrate_source_pdfs_to_r2.mjs`)
+- [x] Verify object counts, paths, sizes/SHA-256
+- [x] Confirm R2 retrieval via Stage D `getSourcePdfObject` smoke (`scripts/smoke_sign_source_pdf.mjs`)
+- [ ] Retire or freeze Supabase `book-sources` — **deferred** (dual-read fallback kept; originals not deleted)
+- [x] Update Dataset Registry / ops notes that PDFs are R2-backed
+
+**Stage E result:** PASS (2026-10-08) for all **4** cataloged `source_pdf` rows.
+
+| Book ID | Object key | Supabase | R2 | SHA-256 match | Status |
+|---|---|---|---|---|---|
+| `beehive_1_sb` | `beehive/beehive_1_sb/source.pdf` | present | present | PASS | already migrated (Stage C) |
+| `big_english_1_sb` | `big-english/big_english_1_sb/source.pdf` | present | present | PASS | newly migrated |
+| `big_english_2_sb` | `big-english/big_english_2_sb/source.pdf` | present | present | PASS | newly migrated |
+| `reach_higher_2a` | `reach-higher/reach_higher_2a/source.pdf` | present | present | PASS | newly migrated |
+
+| Metric | Count |
+|---|---:|
+| Total cataloged source PDFs | 4 |
+| Newly migrated | 3 |
+| Previously migrated + re-verified | 1 |
+| Missing sources / conflicts / failed transfers | 0 |
+| Uncataloged PDF objects | 0 |
+
+SHA-256 values (identical on Supabase and R2):
+
+| Book ID | Size (bytes) | SHA-256 |
+|---|---:|---|
+| `beehive_1_sb` | 12,133,731 | `9005ef26c53283ec0146b06ad9896b9c9d2fbc2dc731c11c44ac14ec3c5053e3` |
+| `big_english_1_sb` | 18,406,281 | `4b0b0f169b59e4251a6c2b198ad57022cc3e9cbd615b43a95921b23c056c0699` |
+| `big_english_2_sb` | 18,541,226 | `84da7b1ad417351459151ce4a10b146043c2ecafb30ed3bc827a62f3d1c17c98` |
+| `reach_higher_2a` | 27,671,806 | `038437d1b23a66d83e443bbd6609cbc1da72221e438064945f0f3679270e29b3` |
+
+**App verification:** server-side R2 proxy-get PASS for all four. Browser Validation badge (`via r2`) / console `delivery=proxy` — **manual pending** (no automated browser run in this stage). JSON/covers remain on Supabase; Auth + catalog authorization unchanged. Scalability of the same-origin proxy for larger apps is parked as F013 in [`7-future.md`](./7-future.md).
 
 ---
+
 
 ## 7. JSON and other objects (explicit non-goals for this change)
 
@@ -215,3 +238,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 | 2026-10-08 | Stage C PASS — Beehive 1 PDF copied Supabase→R2 at `beehive/beehive_1_sb/source.pdf` (SHA-256 match; Supabase preserved). |
 | 2026-10-08 | Stage D PASS — Validation PDF via `/api/sign-source-pdf` (R2-first dual-read, D011); CORS may need dashboard if token lacks CORS permission. |
 | 2026-10-08 | Validation R2 delivery switched to same-origin `/api/source-pdf-content` proxy (fixes PDF.js CORS without bucket CORS admin). |
+| 2026-10-08 | Stage E PASS — all 4 cataloged pilot source PDFs on R2 with SHA-256 match; Supabase originals + dual-read fallback retained; `scripts/migrate_source_pdfs_to_r2.mjs`. |

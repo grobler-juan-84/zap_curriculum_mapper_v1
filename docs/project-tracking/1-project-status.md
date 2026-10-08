@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 74  
+**Last updated:** Step 75  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Four pilots Phase 1 COMPLETE; D010–D011 locked; R2 Stages A–D PASS.
-- Validation loads R2 PDFs via same-origin proxy (no browser CORS to R2 required).
+- Four pilots Phase 1 COMPLETE; D010–D011 locked; R2 Stages A–E PASS.
+- All 4 cataloged source PDFs on R2 (SHA-256 match); Validation R2-first same-origin proxy; Supabase originals + dual-read retained.
 
 ## Current status
 
-Beehive 1 should show **via r2** with console `delivery=proxy`. Other books fall back to Supabase.
+Server smoke: all four pilots R2 proxy-get PASS. Manual Validation UI badge check still pending.
 
 ## Next small step
 
-**Suggestion:** Hard-refresh Validation and confirm Beehive 1 PDF renders; then Stage E or BE1-WB.
+**Suggestion:** Hard-refresh Validation and confirm **via r2** for Beehive 1 plus two other pilots; then BE1-WB prep.
