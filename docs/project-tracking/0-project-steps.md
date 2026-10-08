@@ -1509,4 +1509,19 @@
 
 ---
 
+### Step 88
+
+**Summary:** Documented BE2-WB multi-chat Google AI Studio extraction lesson: registry §8F notes, audit root-cause line (mid-book new chats), and prompt caution to carry entity ID counters/slug forms across chats.
+
+**Files touched:**
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-1/audits/BE2-WB_canonical_v1_audit.md` (updated)
+- `docs/phase-1/google-ai-studio-prompt.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

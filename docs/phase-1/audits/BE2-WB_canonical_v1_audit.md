@@ -1,7 +1,7 @@
 # BE2-WB — Canonical v1 Whole-Book Audit
 
 **Status:** ACTIVE  
-**Version:** 1.2  
+**Version:** 1.3  
 **Date:** 2026-10-08  
 **Canonical path:** `big-english/big_english_2_wb/canonical/v1.json`  
 **Catalog book_id:** `big_english_2_wb`
@@ -49,9 +49,11 @@ Structural / integrity evidence for the whole-book audit checklist in `extractio
 
 ### Merge hygiene applied before PASS
 
+- **Root cause:** Units 1–7 were extracted in one continuing Google AI Studio chat; Units 8–9 were started in **new chats** to free context. That mid-book reset (not Validation or merge tooling) caused the ID issues below.
 - Units 8–9 had restarted entity ID counters (collided with Units 1–2). Remumbered to continue from Unit 7; internal references remapped; batches re-uploaded.
-- Language IDs normalized to `big_english_plus_2_wb_lang_*` (Units 8–9 had used `_language_*`).
+- Language IDs normalized to `big_english_plus_2_wb_lang_*` (Units 8–9 had used `_language_*`, matching the prompt template; Units 1–7 had used `_lang_`).
 - Unit 8 relationship to unextracted appendix printed page 141 removed; recorded as open `possible_omission` (no invented appendix page content).
+- Registry note: [`dataset-registry.md`](../dataset-registry.md) §8F.
 
 ### Structural warnings (non-blocking)
 

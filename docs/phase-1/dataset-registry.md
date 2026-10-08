@@ -466,6 +466,51 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8F. BE2-WB — Big English 2 Workbook
+
+**Registry ID:** BE2-WB  
+**Series:** Big English  
+**Level:** 2  
+**Book Type:** Workbook  
+**book_id:** `big_english_2_wb`
+
+### Source
+
+**Source Availability:** AVAILABLE  
+**Source Format:** PDF  
+**Source PDF:** R2 `big-english/big_english_2_wb/source.pdf` (D012)  
+**Printed page range in `pages`:** 2–131 (book metadata also records 2–147; appendix beyond 131 not fully extracted)
+
+### Phase 1 Processing
+
+**Extraction Status:** EXTRACTED (unit batches `01–09`)  
+**Batch Path:** `data/phase1/big_english_2_wb/` (local working copies; Storage `book-datasets` is source of truth after upload)  
+**Automated Validation:** PASSED WITH WARNINGS (2026-10-08; 0 errors)  
+**Human Verification:** COMPLETE (Units 1–9; Validation PDF via R2)  
+**Whole-Book Audit:** PASSED (2026-10-08; see [`audits/BE2-WB_canonical_v1_audit.md`](./audits/BE2-WB_canonical_v1_audit.md))  
+**Canonical Dataset:** CREATED (`big-english/big_english_2_wb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
+**Phase 1 Status:** COMPLETE  
+
+### Extraction notes (Google AI Studio workflow)
+
+- **Prior books** in this project were typically extracted in **one** Google AI Studio chat using one PDF and [`google-ai-studio-prompt.md`](./google-ai-studio-prompt.md) for all units.
+- **BE2-WB:** Units **1–7** used that continuing-chat approach; Units **8–9** were extracted in **new Studio chats** to free context.
+- **Observed effects:** Units 8–9 restarted entity ID counters (collided with earlier units) and used `_language_` while Units 1–7 used `_lang_`. Fixed at merge (remumber + slug normalize); not a Validation/merge tooling defect.
+- Extraction alias `big_english_plus_2_wb` / entity prefix `big_english_plus_2_wb_*` preserved; catalog remains `big_english_2_wb` (D007).
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 19 (mostly `audio_required`; plus `possible_omission` for unextracted appendix printed page 141)  
+**Schema Gaps:** 1  
+
+### Notes
+
+- Canonical merge 2026-10-08: 9 units, 126 pages, 229 vocab, 43 language, 296 activities.
+- When starting a mid-book new Studio chat, carry forward entity ID counters and keep the same ID slug forms (see prompt identifier caution).
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.

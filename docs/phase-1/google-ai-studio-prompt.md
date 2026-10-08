@@ -947,6 +947,8 @@ Identifiers must be unique within the dataset.
 
 Do not change identifiers unnecessarily between extraction batches for the same book.
 
+**Mid-book new Google AI Studio chat:** If later units of the **same** book are extracted in a fresh Studio chat (for example to free context), you must still treat the book as one dataset. Carry forward the **next free counters** for vocabulary, language, activity, text, component, relationship, and issue IDs from the last completed unit, and keep the **same ID slug forms** already used earlier in that book (e.g. if Units 1–7 used `_lang_`, do not switch to `_language_`). BE2-WB Units 8–9 showed that resetting counters / changing slugs in a new chat causes merge collisions that require remumbering.
+
 Pilot books already extracted under legacy prefixes (`bep1_*`, `bep2_*`, `rh_2a_*`, …) keep those entity IDs; do not invent new short prefixes for future books.
 
 ---
