@@ -184,7 +184,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
-| BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | IN PROGRESS | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -1014,8 +1014,8 @@ Implemented (machine schema + shared JS validator + CLI)
 Five complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-BE2-WB: human-verify Units 1–9 in Validation (9 batches uploaded; pending) → merge/audit
-Note: extraction used alias book_id big_english_plus_2_wb (entity prefixes preserved; catalog big_english_2_wb)
+BE2-WB: preflight → canonical merge → D008 → whole-book audit (Units 1–9 human-verified 2026-10-08; PDF via r2)
+Note: extraction alias big_english_plus_2_wb (entity prefixes preserved; catalog big_english_2_wb)
 Owner prefers continuing Big English; BH2/RH2B deferred (§15 note)
 ```
 

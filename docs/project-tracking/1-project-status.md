@@ -2,17 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 85  
+**Last updated:** Step 86  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BE2-WB Units 1–9 extracted and uploaded (`book_files.status = pending`).
+- BE2-WB Units 1–9 human-verified (Validation; PDF via R2); book-level HV recorded.
 
 ## Current status
 
-Ready for human Validation of Big English 2 Workbook.
+BE2-WB ready for canonical merge and whole-book audit.
 
 ## Next small step
 
-**Suggestion:** Open Validation → Big English 2 Workbook; confirm PDF `via r2`; mark Units 1–9 verified.
+**Suggestion:** Run `node scripts/merge_canonical_book.mjs big_english_2_wb`, then audit + mark passed.

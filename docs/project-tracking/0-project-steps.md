@@ -1474,4 +1474,20 @@
 
 ---
 
+### Step 86
+
+**Summary:** Recorded BE2-WB book-level human verification after owner confirmed Units 1–9 verified in Validation (PDF via R2). Synced JSON metadata + `books.status=verified`; merge/audit left for follow-up.
+
+**Files touched:**
+- `scripts/finalize_be2wb_human_verify.mjs` (created)
+- `data/phase1/big_english_2_wb/*.json` (updated locally + Storage; gitignored)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
