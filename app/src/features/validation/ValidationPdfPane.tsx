@@ -13,6 +13,8 @@ interface ValidationPdfPaneProps {
   pdfUrl: string | null
   loading: boolean
   bookTitle: string
+  /** Which store produced the signed URL (D011 dual-read). */
+  pdfProvider?: 'r2' | 'supabase' | null
   /** 1-based page placed on the left; the following page (if any) is on the right. */
   initialPage?: number | null
 }
@@ -26,6 +28,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   pdfUrl,
   loading,
   bookTitle,
+  pdfProvider = null,
   initialPage = null,
 }) => {
   const [numPages, setNumPages] = useState(0)
@@ -91,6 +94,14 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
           <span className="truncate font-mono text-[10px] font-normal text-slate-500">
             {bookTitle}
           </span>
+          {pdfProvider ? (
+            <span
+              className="shrink-0 rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wide text-slate-600"
+              title="Object store that signed this PDF URL"
+            >
+              via {pdfProvider}
+            </span>
+          ) : null}
         </div>
 
         {pdfUrl && numPages > 0 ? (

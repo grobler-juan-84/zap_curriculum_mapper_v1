@@ -1,5 +1,79 @@
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
-import type { BookFileBatch, BookFileStatus, BatchJsonSummary } from '../types/validation'
+import type {
+  BookFileBatch,
+  BookFileStatus,
+  BatchJsonSummary,
+  SignedPdfResult,
+} from '../types/validation'
+
+export type { SignedPdfResult, PdfStorageProvider } from '../types/validation'
+
+type R2SignAttempt =
+  | { kind: 'ok'; signedUrl: string }
+  | { kind: 'not_found' }
+  | { kind: 'unavailable'; reason: string }
+  | { kind: 'auth_error'; message: string }
+
+async function trySignSourcePdfViaApi(bookFileId: string): Promise<R2SignAttempt> {
+  const client = requireClient()
+  const { data: sessionData, error: sessionError } = await client.auth.getSession()
+  const token = sessionData.session?.access_token
+  if (sessionError || !token) {
+    return { kind: 'auth_error', message: 'Sign in required to load source PDFs.' }
+  }
+
+  let response: Response
+  try {
+    response = await fetch('/api/sign-source-pdf', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ bookFileId }),
+    })
+  } catch (err) {
+    return {
+      kind: 'unavailable',
+      reason: err instanceof Error ? err.message : 'network error',
+    }
+  }
+
+  let payload: Record<string, unknown> = {}
+  try {
+    payload = (await response.json()) as Record<string, unknown>
+  } catch {
+    payload = {}
+  }
+
+  const errorCode = typeof payload.error === 'string' ? payload.error : ''
+  const message =
+    typeof payload.message === 'string' && payload.message.trim()
+      ? payload.message
+      : `PDF signing failed (${response.status})`
+
+  if (response.status === 401 || response.status === 403 || errorCode === 'r2_forbidden') {
+    return { kind: 'auth_error', message }
+  }
+
+  if (response.status === 404 || errorCode === 'not_found') {
+    return { kind: 'not_found' }
+  }
+
+  if (!response.ok) {
+    return {
+      kind: 'unavailable',
+      reason: errorCode || `HTTP ${response.status}`,
+    }
+  }
+
+  const signedUrl = typeof payload.signedUrl === 'string' ? payload.signedUrl : ''
+  if (!signedUrl) {
+    return { kind: 'unavailable', reason: 'missing signedUrl in response' }
+  }
+
+  return { kind: 'ok', signedUrl }
+}
 
 type DbBookFileRow = {
   id: string
@@ -344,13 +418,37 @@ export const validationService = {
     return summarizeBatchJson(await this.downloadJson(batch))
   },
 
-  async createSignedPdfUrl(batch: BookFileBatch): Promise<string | null> {
+  /**
+   * R2-first dual-read (D011): try server `/api/sign-source-pdf`, then Supabase.
+   * - 404 not_found → Supabase fallback
+   * - 503 / network → Supabase fallback (logged)
+   * - 401 / 403 (incl. r2_forbidden) → throw (no silent fallback)
+   */
+  async createSignedPdfUrl(batch: BookFileBatch): Promise<SignedPdfResult | null> {
     const client = requireClient()
+
+    const r2Attempt = await trySignSourcePdfViaApi(batch.id)
+    if (r2Attempt.kind === 'ok') {
+      return { url: r2Attempt.signedUrl, provider: 'r2' }
+    }
+    if (r2Attempt.kind === 'auth_error') {
+      throw new Error(r2Attempt.message)
+    }
+    if (r2Attempt.kind === 'unavailable') {
+      console.warn(
+        `[validation] R2 sign unavailable (${r2Attempt.reason}); falling back to Supabase for ${batch.storagePath}`,
+      )
+    } else if (r2Attempt.kind === 'not_found') {
+      console.info(
+        `[validation] PDF not on R2 yet; using Supabase for ${batch.storagePath}`,
+      )
+    }
+
     const { data, error } = await client.storage
       .from(batch.bucket)
       .createSignedUrl(batch.storagePath, 60 * 15)
     if (error || !data?.signedUrl) return null
-    return data.signedUrl
+    return { url: data.signedUrl, provider: 'supabase' }
   },
 
   async updateBatchStatus(batchId: string, status: BookFileStatus): Promise<void> {

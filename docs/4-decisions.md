@@ -45,6 +45,7 @@
 | D008 | Automated structural validation is a separate future gate | 2026-10-07 | LOCKED |
 | D009 | Project-wide naming conventions | 2026-10-07 | LOCKED |
 | D010 | Cloudflare R2 for textbook source PDFs | 2026-10-08 | LOCKED |
+| D011 | Validation PDF signed URLs via server API; R2-first dual-read | 2026-10-08 | LOCKED |
 
 ---
 
@@ -167,9 +168,23 @@
 **Decision:** Cloudflare R2 is the selected object-storage provider for textbook **source PDFs**. The private R2 bucket is named `book-sources`. Existing logical object-key structure (`{series-slug}/{catalog_book_id}/source.pdf`) should be preserved where practical. Supabase remains the backend for PostgreSQL, Auth, and (for now) dataset JSON / cover object storage — it is not removed wholesale. Implementation must follow documentation and connection testing (Stages A–E in [`10-storage-architecture.md`](./10-storage-architecture.md)); this decision does **not** authorize immediate migration or deletion of Supabase PDF objects.  
 **Reason:** Separate large copyrighted PDF binaries onto R2 while keeping Supabase strengths for Auth/catalog; keep object keys stable so `book_files` pointers and Validation workflows need minimal path rewrites; require staged verify-before-cutover because PDFs are live in Validation today.  
 **Alternatives rejected:** Moving all object storage to R2 in one step; auto-migrating canonical/batch JSON to R2 as part of this change; making the R2 bucket public; deleting Supabase `book-sources` before verified migration; exposing R2 secrets to the Vite frontend.  
-**Implications:** Docs and roadmaps treat R2 as the PDF target; app/scripts still use Supabase PDFs until Stages A–E complete. Prefer a server-side storage adapter and short-lived signed URLs. JSON storage provider remains an open question (brainstorming), not locked here.  
+**Implications:** Docs and roadmaps treat R2 as the PDF target. Validation PDF signing is refined by **D011**. JSON storage provider remains an open question (brainstorming), not locked here.  
 **Supersedes:** — (refines D005/D006 object-storage provider for source PDFs only)  
-**Refines:** D005, D006
+**Refines:** D005, D006  
+**Refined by:** D011
+
+---
+
+### D011 — Validation PDF signed URLs via server API; R2-first dual-read
+
+**Date:** 2026-10-08  
+**Status:** LOCKED  
+**Decision:** Validation obtains textbook PDF access through server-side `POST /api/sign-source-pdf` (Vite middleware locally; shared handler for future Vercel). The handler requires a valid Supabase user JWT and authorizes only catalog `book_files` rows (`file_type = source_pdf`) by `bookFileId` — not arbitrary object keys. R2 secrets never use `VITE_*`. Cutover is **R2-first dual-read**: if the object is missing on R2 (`404`) or R2/signing is temporarily unavailable (`5xx` / network), fall back to Supabase Storage signed URLs; if auth/permission fails (`401` / `403`, including R2 AccessDenied), surface the error and do **not** silently fall back. JSON datasets and cover images remain on Supabase Storage. Supabase PDF originals are not deleted in Stage D.  
+**Reason:** Browser cannot hold R2 secrets; only Beehive 1 is on R2 so dual-read keeps other pilots working; distinguishing missing vs forbidden prevents a broken R2 config from hiding behind Supabase.  
+**Alternatives rejected:** Signing R2 URLs in the Vite client; accepting raw `storagePath` without catalog check; hard-cut all PDFs to R2 before Stage E; silent fallback on R2 403; migrating JSON/covers in the same change.  
+**Implications:** Validation UI shows provider (`via r2` / `via supabase`). Bucket CORS for localhost may need Cloudflare dashboard if the Object Read/Write token cannot call PutBucketCors. Stage E still required before retiring Supabase `book-sources`.  
+**Supersedes:** —  
+**Refines:** D010
 
 ---
 
@@ -185,3 +200,4 @@
 | 2026-10-07 | Added D009 — project-wide naming conventions locked; authority doc + always-on Cursor rule. |
 | 2026-10-07 | D009 authority clarified to v1.1 after naming audit (no decision reopen). |
 | 2026-10-08 | Added D010 — Cloudflare R2 for textbook source PDFs; refined D005/D006 implications (docs-only; no migration). |
+| 2026-10-08 | Added D011 — Validation PDF signing via `/api/sign-source-pdf` with R2-first dual-read and catalog authorization. |

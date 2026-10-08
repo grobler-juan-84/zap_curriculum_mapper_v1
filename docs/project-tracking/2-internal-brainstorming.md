@@ -356,7 +356,7 @@ Storage stays:
 
 **Lean / notes:** Prefer documenting Stage A credential choice before writing app code. Do not lock JSON or cover migration here. Do not delete Supabase PDFs until Stage E passes.
 
-**Status:** open (D010 locked for PDF provider + bucket name + key preservation only)
+**Status:** partially promoted — D010 (provider/bucket/keys) + D011 (Vite `/api/sign-source-pdf` + R2-first dual-read). Still open: production Vercel/Worker surface; whether `book_files` needs an explicit provider column; JSON/covers long-term home; CORS admin on least-privilege token.
 
 ---
 

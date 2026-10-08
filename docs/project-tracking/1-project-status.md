@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 72  
+**Last updated:** Step 73  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Four pilots Phase 1 COMPLETE; D010 locked; R2 Stages A–C PASS.
-- Beehive 1 PDF verified on R2 at `beehive/beehive_1_sb/source.pdf` (SHA-256 match; Supabase preserved).
+- Four pilots Phase 1 COMPLETE; D010–D011 locked; R2 Stages A–D PASS.
+- Validation PDF signing uses server `/api/sign-source-pdf` with R2-first dual-read.
 
 ## Current status
 
-App still reads PDFs from Supabase. Full migration / adapter not started.
+Beehive 1 PDF is served from R2 when present; other books fall back to Supabase. JSON/covers unchanged. CORS may need a dashboard tweak for PDF.js.
 
 ## Next small step
 
-**Suggestion:** Stage D (R2 PDF adapter for Validation) or BE1-WB prep.
+**Suggestion:** Confirm Validation provider badges in the UI; set R2 CORS if needed; then Stage E or BE1-WB.

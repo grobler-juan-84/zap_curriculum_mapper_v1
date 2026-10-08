@@ -74,6 +74,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const [jsonError, setJsonError] = useState<string | null>(null)
 
   const [pdfUrl, setPdfUrl] = useState<string | null>(null)
+  const [pdfProvider, setPdfProvider] = useState<'r2' | 'supabase' | null>(null)
   const [pdfLoading, setPdfLoading] = useState(true)
 
   const [statusSaving, setStatusSaving] = useState(false)
@@ -163,6 +164,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     let cancelled = false
     setPdfLoading(true)
     setPdfUrl(null)
+    setPdfProvider(null)
 
     ;(async () => {
       try {
@@ -170,14 +172,26 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         if (cancelled) return
         if (!pdf) {
           setPdfUrl(null)
+          setPdfProvider(null)
           return
         }
-        const url = await validationService.createSignedPdfUrl(pdf)
+        const signed = await validationService.createSignedPdfUrl(pdf)
         if (cancelled) return
-        setPdfUrl(url)
-      } catch {
+        if (!signed) {
+          setPdfUrl(null)
+          setPdfProvider(null)
+          return
+        }
+        console.info(
+          `[validation] PDF provider=${signed.provider} book=${book.stableBookId ?? book.id} path=${pdf.storagePath}`,
+        )
+        setPdfUrl(signed.url)
+        setPdfProvider(signed.provider)
+      } catch (err) {
         if (cancelled) return
+        console.error('[validation] PDF sign failed:', err instanceof Error ? err.message : err)
         setPdfUrl(null)
+        setPdfProvider(null)
       } finally {
         if (!cancelled) setPdfLoading(false)
       }
@@ -422,6 +436,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
               pdfUrl={pdfUrl}
               loading={pdfLoading}
               bookTitle={book.title}
+              pdfProvider={pdfProvider}
               initialPage={pdfInitialPage}
             />
           </div>

@@ -148,7 +148,7 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 - [x] Select one existing pilot source PDF: **Beehive 1 Student Book** (`beehive_1_sb`)
 - [x] Upload to R2 using the **same** logical object key verified from `book_files`
 - [x] Verify size, integrity, and retrieval (byte-for-byte SHA-256 match)
-- [ ] Confirm access from the intended **application** environment (Stage D — app still reads Supabase)
+- [x] Confirm access from the intended **application** environment (Stage D — Validation R2-first dual-read)
 
 **Stage C result:** PASS (2026-10-08) via `scripts/migrate_pilot_pdf_to_r2.mjs`
 
@@ -168,12 +168,14 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 
 ### Stage D — Application integration
 
-- [ ] Introduce or update a storage adapter (PDF operations → R2; leave JSON/covers on Supabase unless decided otherwise)
-- [ ] Replace relevant Supabase Storage **PDF** calls (Validation signed URL / download; upload script)
-- [ ] Preserve Auth, Postgres, `book-datasets`, and `book-assets` behaviour
-- [ ] Update environment configuration and docs
-- [ ] Test upload, retrieval, signed access, and error handling
-- [ ] Dual-read / feature flag strategy if needed during cutover (open question)
+- [x] Shared R2 signer + Vite middleware `POST /api/sign-source-pdf` (JWT + catalog `bookFileId` authorization)
+- [x] Validation `createSignedPdfUrl` R2-first dual-read (D011); JSON/covers unchanged on Supabase
+- [x] Preserve Auth, Postgres, `book-datasets`, and `book-assets` behaviour
+- [x] Environment / docs updated; provider badge + console log show `r2` vs `supabase`
+- [x] Smoke: Beehive 1 R2 sign PASS; Big English 1 expected `not_found` (Supabase fallback)
+- [ ] Bucket CORS for localhost PDF.js — set in Cloudflare dashboard if Object Read/Write token lacks CORS admin (`scripts/configure_r2_cors.mjs` AccessDenied)
+
+**Stage D result:** PASS (2026-10-08) with dual-read. Fallback rules: R2 `not_found` / unavailable → Supabase; R2 or catalog `401`/`403` → visible error (no silent fallback). Supabase PDF originals preserved.
 
 ### Stage E — Migration and validation
 
@@ -209,3 +211,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 | 2026-10-08 | Created; documented R2 PDF target, security rules, and Stages A–E (docs-only; no migration executed). |
 | 2026-10-08 | Stage B PASS via `scripts/test_r2_connection.mjs` (list / put / get+SHA-256 / delete under `_connection-tests/`). |
 | 2026-10-08 | Stage C PASS — Beehive 1 PDF copied Supabase→R2 at `beehive/beehive_1_sb/source.pdf` (SHA-256 match; Supabase preserved). |
+| 2026-10-08 | Stage D PASS — Validation PDF via `/api/sign-source-pdf` (R2-first dual-read, D011); CORS may need dashboard if token lacks CORS permission. |

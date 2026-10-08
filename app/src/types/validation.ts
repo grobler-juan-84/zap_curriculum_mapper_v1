@@ -2,6 +2,14 @@
 
 export type BookFileStatus = 'pending' | 'needs_review' | 'verified'
 
+/** Which object store produced the Validation PDF signed URL (D011). */
+export type PdfStorageProvider = 'r2' | 'supabase'
+
+export type SignedPdfResult = {
+  url: string
+  provider: PdfStorageProvider
+}
+
 export type BookFileBatch = {
   id: string
   bookId: string

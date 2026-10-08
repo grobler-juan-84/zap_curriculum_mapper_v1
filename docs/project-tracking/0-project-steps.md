@@ -1215,3 +1215,35 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 73
+
+**Summary:** Stage D PASS — Validation PDF signing via server `/api/sign-source-pdf` (JWT + catalog bookFileId auth, R2-first dual-read per D011). Provider badge in UI. CORS apply blocked by token (dashboard follow-up). JSON/covers and Supabase PDF originals unchanged.
+
+**Files touched:**
+- `app/server/loadServerEnv.ts` (created)
+- `app/server/r2Config.ts` (created)
+- `app/server/signSourcePdf.ts` (created)
+- `app/server/handleSignSourcePdfRequest.ts` (created)
+- `app/vite-plugins/signSourcePdfPlugin.ts` (created)
+- `app/vite.config.ts` (updated)
+- `app/tsconfig.node.json` (updated)
+- `app/package.json` / `app/package-lock.json` (updated — AWS SDK)
+- `app/src/services/validationService.ts` (updated)
+- `app/src/types/validation.ts` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `api/sign-source-pdf.ts` (created)
+- `scripts/configure_r2_cors.mjs` (created)
+- `scripts/smoke_sign_source_pdf.mjs` (created)
+- `.env.example` (updated)
+- `docs/4-decisions.md` (updated — D011)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
