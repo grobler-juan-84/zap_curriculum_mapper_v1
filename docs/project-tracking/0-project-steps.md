@@ -1419,4 +1419,16 @@
 
 ---
 
+### Step 83
+
+**Summary:** Confirmed all 12 Big English source PDFs are already present under `app/src/assets/books/big-english/` with D009 filenames (`big_english_{1–6}_{sb|wb}.pdf`); marked the related todo complete.
+
+**Files touched:**
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

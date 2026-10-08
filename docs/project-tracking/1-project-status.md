@@ -2,12 +2,13 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 82  
+**Last updated:** Step 83  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
 - Five books Phase 1 COMPLETE: BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013 missing-source exception for printed pp. 124–129).
+- All 12 Big English PDFs already on disk under `app/src/assets/books/big-english/`.
 
 ## Current status
 
