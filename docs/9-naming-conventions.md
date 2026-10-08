@@ -1,7 +1,7 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.3  
+**Version:** 1.4  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
 **Related:** Locked as [D009](./4-decisions.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-decisions.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
@@ -130,11 +130,13 @@ Rules:
 - Do not invent new shortened prefixes (`bep3_*`, `rh_3a_*`, …).
 - If a source requires more than one logical page record for the same printed page, keep the printed page in data and add a deterministic record suffix rather than colliding IDs.
 
-Local / archival batch filename:
+Local / archival batch filename (gitignored under `data/phase1/`):
 
 ```text
-{catalog_book_id}_unit_{NN}.json
+data/phase1/{catalog_book_id}/{catalog_book_id}_unit_{NN}.json
 ```
+
+Example: `data/phase1/big_english_1_wb/big_english_1_wb_unit_01.json`
 
 Storage paths stay:
 

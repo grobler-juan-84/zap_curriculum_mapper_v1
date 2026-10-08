@@ -45,6 +45,9 @@ __pycache__/
 # Canonical local PDF layout (ops upload source):
 #   app/src/assets/books/{series_slug}/{catalog_book_id}.pdf
 # After upload, Storage/R2 keys use: {series_slug}/{catalog_book_id}/source.pdf
+# Local unit-batch JSON (ops / extraction working copies):
+#   data/phase1/{catalog_book_id}/{catalog_book_id}_unit_{NN}.json
+# Tracked layout notes may live in data/README.md (outside data/phase1/).
 app/src/assets/
 data/phase1/
 project-books/

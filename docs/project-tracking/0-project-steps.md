@@ -1319,4 +1319,22 @@
 
 ---
 
+### Step 78
+
+**Summary:** Scaffolded remaining Big English unit-batch working folders under `data/phase1/` with 90 empty `{}` placeholders (`*_unit_01.json`–`*_unit_09.json` for WB/SB levels still to extract). Confirmed `data/phase1/` stays gitignored; added tracked `data/README.md` layout notes only.
+
+**Files touched:**
+- `data/phase1/big_english_{1_wb,2_wb,3_sb,3_wb,4_sb,4_wb,5_sb,5_wb,6_sb,6_wb}/` (created locally; gitignored)
+- `data/phase1/README.md` (created locally; gitignored)
+- `data/README.md` (created; tracked layout notes)
+- `.gitignore` (updated comment)
+- `docs/9-naming-conventions.md` (updated → v1.4)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
