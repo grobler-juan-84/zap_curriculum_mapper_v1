@@ -79,13 +79,13 @@ For every book extracted **after** the four COMPLETE pilots:
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
 
-### Next book — BE2-WB
+### Active book — BE2-WB
 
-| Registry | Catalog `book_id` | Series slug | Expected entity prefix | Preferred aliases |
+| Registry | Catalog `book_id` | Series slug | Entity prefix (as extracted) | Aliases |
 |---|---|---|---|---|
-| BE2-WB | `big_english_2_wb` | `big-english` | `big_english_2_wb_` | Prefer none; catalog ID only |
+| BE2-WB | `big_english_2_wb` | `big-english` | `big_english_plus_2_wb_` (preserved) | `big_english_plus_2_wb` |
 
-Do **not** use `bep2_wb`, `be2_wb`, or `BE2-WB` as catalog/entity identities. Owner is continuing Big English after BE1-WB (BH2 deferred in the draft §15 sequence for now).
+Do **not** use `bep2_wb`, `be2_wb`, or `BE2-WB` as catalog/entity identities. Extraction used `big_english_plus_2_wb`; catalog stays `big_english_2_wb` (D007 merge normalizes `book_id` fields only).
 
 ### Prior — BE1-WB (complete)
 

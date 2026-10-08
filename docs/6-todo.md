@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 84  
+**Last updated:** Step 85  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -16,10 +16,12 @@
 - [x] BE1-WB book-level HV + canonical merge + automated validation + whole-book audit → Phase 1 COMPLETE (with exception).
 - [x] All 12 Big English PDFs present locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
 - [x] Choose next book: **BE2-WB** (continue Big English; BH2 deferred). Catalog + R2 source PDF staged.
-- [ ] Extract BE2-WB Units 1–9 into `data/phase1/big_english_2_wb/` (replace empty `{}` placeholders), then upload batches + human-verify.
+- [x] Extract BE2-WB Units 1–9 + upload 9 batches to `book-datasets` (status `pending`).
+- [ ] **Owner:** Human-verify BE2-WB Units 1–9 in Validation (PDF `via r2`; mark batches verified).
 
 ## Next
 
+- [ ] After BE2-WB units verified: preflight → canonical merge → D008 → whole-book audit.
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon

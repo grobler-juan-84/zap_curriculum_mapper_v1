@@ -1453,4 +1453,25 @@
 
 ---
 
+### Step 85
+
+**Summary:** Uploaded BE2-WB Units 1–9 batch JSON to Supabase `book-datasets` (all `pending`), set `books.status=extracted`, and recorded extraction alias `big_english_plus_2_wb` for D007 merge normalization. Human Validation left for owner.
+
+**Files touched:**
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/set_be2wb_extracted.mjs` (created)
+- `supabase/migrations/20261008140000_seed_big_english_2_wb_batches.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `data/phase1/big_english_2_wb/*.json` (local filled batches; gitignored; uploaded to Storage)
+
+---
+
 

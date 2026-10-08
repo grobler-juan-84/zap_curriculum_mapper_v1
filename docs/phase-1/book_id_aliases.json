@@ -54,10 +54,10 @@
       "catalog_book_id": "big_english_2_wb",
       "registry_id": "BE2-WB",
       "series_slug": "big-english",
-      "aliases": ["big_english_2_wb"],
-      "entity_id_prefix_examples": ["big_english_2_wb_"],
+      "aliases": ["big_english_2_wb", "big_english_plus_2_wb"],
+      "entity_id_prefix_examples": ["big_english_plus_2_wb_", "big_english_2_wb_"],
       "naming_policy": "d009",
-      "notes": "Next extraction target (owner prefers continuing Big English after BE1-WB; skips BH2 for now). Prefer catalog ID only — do not introduce bep2_wb / be2_wb aliases. Entity IDs must use big_english_2_wb_* forms."
+      "notes": "Unit batches extracted with book_id / entity prefix big_english_plus_2_wb_*. Catalog remains big_english_2_wb; merge normalizes book_id fields only (D007). Do not introduce bep2_wb / be2_wb aliases."
     }
   ]
 }
