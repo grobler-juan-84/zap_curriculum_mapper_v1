@@ -1300,4 +1300,23 @@
 
 ---
 
+### Step 77
+
+**Summary:** Aligned local source PDFs to `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf`, created series folders plus a local (gitignored) naming README, and hardened `.gitignore` so `app/src/assets/`, `project-books/`, and all PDFs cannot be committed to GitHub.
+
+**Files touched:**
+- `.gitignore` (updated)
+- `.cursor/rules/naming_conventions.mdc` (updated)
+- `app/src/assets/books/{beehive,big-english,reach-higher}/` (created locally; gitignored)
+- `app/src/assets/books/README.md` (created locally; gitignored)
+- `docs/9-naming-conventions.md` (updated → v1.3)
+- `docs/0-index.md` (updated)
+- `supabase/README.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -97,7 +97,24 @@ This upserts local `data/phase1/**/*.json` unit batches (gitignored working copi
 
 ### Upload source PDFs to Storage
 
-Place the four pilot PDFs under `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf` (gitignored), apply `20261007160000_seed_source_pdf_book_files.sql` if needed, then from repo root:
+**Local layout (gitignored — never commit PDFs to GitHub):**
+
+```text
+app/src/assets/books/{series_slug}/{catalog_book_id}.pdf
+```
+
+Examples:
+
+```text
+app/src/assets/books/beehive/beehive_1_sb.pdf
+app/src/assets/books/big-english/big_english_1_sb.pdf
+app/src/assets/books/big-english/big_english_1_wb.pdf
+app/src/assets/books/reach-higher/reach_higher_2a.pdf
+```
+
+Remaining Big English books use the same pattern (`big_english_{level}_{sb|wb}.pdf` under `big-english/`). Do not use `project-books/` or registry IDs as filenames.
+
+After local placement, apply `20261007160000_seed_source_pdf_book_files.sql` (or a new catalog/seed migration for additional books) if needed, then from repo root:
 
 ```bash
 node scripts/upload_source_pdfs.mjs
@@ -110,7 +127,7 @@ Optional filter (comma-separated `book_id` / filename fragments):
 $env:UPLOAD_ONLY='reach_higher_2a'; node scripts/upload_source_pdfs.mjs
 ```
 
-This upserts PDFs into the private `book-sources` bucket and upserts matching `book_files` rows (`file_type = source_pdf`). The Validation app loads them via short-lived signed URLs for authenticated users only.
+This upserts PDFs into the private `book-sources` bucket and upserts matching `book_files` rows (`file_type = source_pdf`). Storage/R2 object keys use `{series_slug}/{catalog_book_id}/source.pdf`. The Validation app loads them via authorized server-side R2-first delivery (D011).
 
 ### Upload series cover images
 

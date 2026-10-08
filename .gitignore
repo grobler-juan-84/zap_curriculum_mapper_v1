@@ -41,10 +41,15 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Local copyrighted curriculum sources (keep out of Git; live in Supabase Storage)
+# Local copyrighted curriculum sources — never commit to GitHub
+# Canonical local PDF layout (ops upload source):
+#   app/src/assets/books/{series_slug}/{catalog_book_id}.pdf
+# After upload, Storage/R2 keys use: {series_slug}/{catalog_book_id}/source.pdf
 app/src/assets/
 data/phase1/
+project-books/
 *.pdf
+**/*.pdf
 
 # Supabase local CLI artifacts
 supabase/.temp/

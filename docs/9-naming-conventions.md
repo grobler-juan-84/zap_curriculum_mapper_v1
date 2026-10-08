@@ -1,7 +1,7 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.2  
+**Version:** 1.3  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
 **Related:** Locked as [D009](./4-decisions.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-decisions.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
@@ -77,8 +77,19 @@ Registry IDs are never Storage folder names. Catalog `book_id` is never rewritte
 | Cursor rule filenames | `snake_case.mdc` | `naming_conventions.mdc` |
 | Fixed Storage leaf names | stable lowercase names | `source.pdf`, `batches/unit_01.json`, `canonical/v1.json`, `cover.png` |
 | Phase 1 whole-book audit reports | `{registry_id}_canonical_v{N}_audit.md` | Ops-facing; registry ID is intentional. Body must still state catalog `book_id` |
-| Local-only source PDFs (app assets) | prefer catalog `book_id` | e.g. `big_english_1_sb.pdf` under `assets/books/{series_slug}/` |
+| Local-only source PDFs (app assets) | catalog `book_id` + `.pdf` | Path: `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf` (entire `app/src/assets/` + `*.pdf` are gitignored — never commit) |
 | Public static demo assets | presentation kebab-case allowed | e.g. `beehive-1-cover.svg` — not required to match catalog IDs |
+
+**Local PDF placement (canonical):**
+
+```text
+app/src/assets/books/beehive/beehive_1_sb.pdf
+app/src/assets/books/big-english/big_english_1_sb.pdf
+app/src/assets/books/big-english/big_english_1_wb.pdf
+app/src/assets/books/reach-higher/reach_higher_2a.pdf
+```
+
+Do not use `project-books/` or registry filenames (`BE1-WB.pdf`). Storage/R2 object leaf remains `source.pdf` after upload.
 
 ---
 

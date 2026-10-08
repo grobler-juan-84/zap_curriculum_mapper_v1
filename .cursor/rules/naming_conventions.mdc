@@ -36,7 +36,7 @@ Authority: [`docs/9-naming-conventions.md`](docs/9-naming-conventions.md) (D009,
 
 6. New entity IDs use the **full catalog `book_id`** as prefix (`{catalog_book_id}_unit_{NN}`, `_page_{PPP}`, `_vocab_{NNNN}`, …). Do not introduce new `bep`, `be`, or `rh` abbreviations.
 
-7. Phase 1 audit reports may keep `{registry_id}_canonical_v{N}_audit.md` (ops shorthand). Local-only PDFs should prefer catalog IDs. Public demo assets may use presentation kebab-case.
+7. Phase 1 audit reports may keep `{registry_id}_canonical_v{N}_audit.md` (ops shorthand). Local-only PDFs: `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf` (gitignored; never commit). Public demo assets may use presentation kebab-case.
 
 8. **Grandfather** the four COMPLETE pilots’ entity IDs, Storage keys, and catalog IDs. D007 forbids silent entity-ID rewrites. Aliases are compatibility data only.
 
