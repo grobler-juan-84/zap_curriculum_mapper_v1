@@ -47,6 +47,7 @@
 | D010 | Cloudflare R2 for textbook source PDFs | 2026-10-08 | LOCKED |
 | D011 | Validation PDF signed URLs via server API; R2-first dual-read | 2026-10-08 | LOCKED (delivery refined by D012) |
 | D012 | Source PDFs are R2-only; Supabase PDF dual-read retired | 2026-10-08 | LOCKED |
+| D013 | Human verify available PDF content with documented missing-source exception | 2026-10-08 | LOCKED |
 
 ---
 
@@ -203,6 +204,18 @@
 
 ---
 
+### D013 — Human verify available PDF content with documented missing-source exception
+
+**Date:** 2026-10-08  
+**Status:** LOCKED  
+**Decision:** When printed pages are **absent from the supplied source PDF**, human verification may approve a unit batch for the **content that exists in that PDF**, provided the gap is recorded as an open `extraction_issues` entry with `issue_type = missing_source` (and registry notes). Missing pages must **not** be invented, marked verified, or treated as an AI extraction failure. Book-level / Phase 1 completion still requires ordinary gates (remaining units, automated validation, canonical merge, whole-book audit) and is not implied by a single-unit approval with an exception.  
+**Reason:** BE1-WB Unit 9 printed pages 124–129 are missing from the source PDF; extraction correctly omitted them. Blocking human verification of available pages would stall the pipeline without improving evidence quality.  
+**Alternatives rejected:** Fabricating page/entity records for missing printed pages; marking missing content `human_verified`; treating the omission as an extraction defect; requiring a complete replacement PDF before any Unit 9 approval; changing the Phase 1 schema to encode the exception.  
+**Implications:** Unit batches may be `book_files.status = verified` / entity `verification_status = human_verified` while `missing_source` issues remain **open**. Completeness limitations stay visible in the registry and issue list. PDF viewer printed↔PDF index mismatches when pages are absent are a separate deferred UX issue (F015), not a verification blocker.  
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -217,3 +230,4 @@
 | 2026-10-08 | Added D010 — Cloudflare R2 for textbook source PDFs; refined D005/D006 implications (docs-only; no migration). |
 | 2026-10-08 | Added D011 — Validation PDF signing via `/api/sign-source-pdf` with R2-first dual-read and catalog authorization. |
 | 2026-10-08 | Added D012 — source PDFs R2-only; Supabase PDF dual-read retired; originals left unused. |
+| 2026-10-08 | Added D013 — human verify available PDF content with documented missing-source exception (BE1-WB U9). |

@@ -370,6 +370,7 @@ Storage stays:
 | 2026-10-07 | First canonical merge (BE1-SB) | `canonical/v1.json` + `dataset_versions` v1; IDs preserved (`bep1_sb`); whole-book audit still open. |
 | 2026-10-07 | Project-wide naming conventions | Promoted to [`../9-naming-conventions.md`](../9-naming-conventions.md); locked as D009; always-on rule `.cursor/rules/naming_conventions.mdc`. |
 | 2026-10-08 | Textbook PDF object storage | Promoted to D010 — Cloudflare R2 `book-sources`; implementation staged in [`../10-storage-architecture.md`](../10-storage-architecture.md). |
+| 2026-10-08 | BE1-WB U9 missing printed pp. 124–129 | Promoted to D013 — approve available PDF content with open `missing_source`; do not invent pages. Viewer printed↔PDF index mismatch parked as F015. |
 
 ---
 
@@ -381,5 +382,6 @@ Ideas worth keeping but not actively exploring:
 - Whether workbook extraction should follow each SB immediately or wait until SB canonical datasets stabilize.
 - Long-term automation of registry fields from batch metadata.
 - Aligning seed `books.status = verified` with registry Phase 1 IN PROGRESS (docs clarified; data cleanup optional).
+- Validation PDF page spinner vs printed page numbers when source PDF omits pages (F015).
 
 ---

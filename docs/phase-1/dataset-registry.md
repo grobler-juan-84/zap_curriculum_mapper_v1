@@ -182,7 +182,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 10 | COMPLETE |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
-| BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | IN PROGRESS | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | IN PROGRESS | NOT STARTED | NOT CREATED | 0.1 | 18 | — | IN PROGRESS |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -421,6 +421,47 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Unit 4 part1/part2 batch files were merged into `rh2a_sb_unit4.json` (pp. 212–279) before canonical merge.
 - Source PDF in private `book-sources` (`reach-higher/reach_higher_2a/source.pdf`) replaced 2026-10-07 with the full Student Book file (was previously units 1–2 only).
 - Reach Higher remains a structural stress test; Beehive / Big English are higher-priority school curriculum sources (see §14).
+
+---
+
+# 8E. BE1-WB — Big English 1 Workbook (active)
+
+**Registry ID:** BE1-WB  
+**Series:** Big English  
+**Level:** 1  
+**Book Type:** Workbook  
+**book_id:** `big_english_1_wb`
+
+### Source
+
+**Source Availability:** AVAILABLE  
+**Source Format:** PDF  
+**PDF Page Count:** 142 (as recorded in unit batches)  
+**Printed Page Range:** 2–147 (as recorded in unit batches)  
+**Source Notes:** Supplied source PDF omits printed pages **124–129** (Unit 9). Physical PDF jumps from printed 123 → printed 130. Missing pages are a **source-PDF exception**, not an AI extraction failure (D013).
+
+### Phase 1 Processing
+
+**Extraction Status:** EXTRACTED (unit batches `01–09`)  
+**Batch Path:** `data/phase1/big_english_1_wb/` (local working copies; Storage `book-datasets` is source of truth after upload)  
+**Source PDF:** R2 `big-english/big_english_1_wb/source.pdf` (D012)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** IN PROGRESS  
+**Verification Notes:** Unit 9 human-verified 2026-10-08 for **available PDF content only** (`book_files.status = verified`; entity `verification_status = human_verified`). Printed pages 124–129 remain unextracted/unverified (`extraction_issues` `missing_source` left **open**). Units 1–8 not inferred complete from Unit 9 alone.  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 18 open `extraction_issues` across unit batches (includes Unit 9 missing printed pages 124–129; plus audio/visual review items). Missing pages are **non-blocking** for Unit 9 approval of available content (D013); they remain an outstanding completeness limitation for the book.  
+**Schema Gaps:** —  
+
+### Notes
+
+- Do not invent page/activity/vocabulary records for printed 124–129 until a complete source PDF is available.
+- PDF viewer printed-page ↔ PDF-index navigation mismatch when pages are absent is deferred (F015); not blocking Unit 9 approval.
 
 ---
 
@@ -969,7 +1010,7 @@ Implemented (machine schema + shared JS validator + CLI)
 All four pilots: PASSED WITH WARNINGS (BE2-SB appendix sticker pages added 2026-10-07)
 
 Next Major Checkpoints
-BE1-WB: human-verify Units 1–9 in Validation (PDF via R2; batches pending), then preflight → canonical merge → D008 → audit
+BE1-WB: finish human-verify Units 1–8 in Validation (Unit 9 approved 2026-10-08 with missing-source exception for printed pp. 124–129), then preflight → canonical merge → D008 → audit
 Then continue draft order: BH2 / BE2-WB / RH2B (§15)
 ```
 

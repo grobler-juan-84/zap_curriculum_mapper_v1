@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 80  
+**Last updated:** Step 81  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -16,7 +16,8 @@
 - [x] Align local source PDFs to `app/src/assets/books/` and harden gitignore so PDFs never reach GitHub.
 - [x] Scaffold remaining Big English unit-batch JSON folders under `data/phase1/` (gitignored placeholders).
 - [x] Register BE1-WB in catalog + upload source PDF to R2 + upload 9 unit JSON to `book-datasets`.
-- [ ] **Owner:** Human-verify BE1-WB Units 1–9 in Validation (PDF badge `via r2`; mark batches verified).
+- [x] BE1-WB Unit 9 human-verified (available PDF content; missing printed pp. 124–129 = open `missing_source`; D013).
+- [ ] **Owner:** Human-verify BE1-WB Units 1–8 in Validation (do not mark book-level HV complete until all units approved).
 - [ ] Place remaining Big English PDFs locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
 
 ## Next
@@ -29,6 +30,7 @@
 - [ ] Add lightweight naming checks for books under the new policy (legacy pilots exempt).
 - [ ] Review post-form Storage measurements before approving cover thumbnails or PDF linearization.
 - [ ] Persist Validation session notes (optional).
+- [ ] F015 — investigate Validation PDF printed-page ↔ PDF-index navigation when source pages are absent (deferred).
 
 ---
 

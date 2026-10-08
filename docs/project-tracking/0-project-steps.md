@@ -1381,4 +1381,23 @@
 
 ---
 
+### Step 81
+
+**Summary:** Recorded BE1-WB Unit 9 human verification for available PDF content (D013); documented missing printed pages 124–129 as open `missing_source`; parked Validation PDF page-nav mismatch as F015. No curriculum content, schema, or viewer code changes. Book-level HV and Phase 1 remain incomplete.
+
+**Files touched:**
+- `data/phase1/big_english_1_wb/big_english_1_wb_unit_09.json` (updated locally + re-uploaded to Storage; gitignored)
+- `scripts/mark_be1wb_u09_verified.mjs` (created)
+- `docs/4-decisions.md` (updated — D013)
+- `docs/7-future.md` (updated — F015)
+- `docs/phase-1/dataset-registry.md` (updated — §8E + table)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

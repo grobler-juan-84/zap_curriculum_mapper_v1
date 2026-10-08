@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 79  
+**Last updated:** Step 81  
 **Purpose:** Parking lot for good ideas that are explicitly **not now**. Keep them visible without contaminating current Phase 1 scope.
 
 ---
@@ -34,6 +34,7 @@
 | F012 | Move dataset JSON and/or covers from Supabase Storage to R2 | Explicitly out of D010; revisit only after PDF migration is verified | D010 / brainstorming 2026-10-08 |
 | F013 | PDF delivery scalability (presigned URLs + CORS, streaming, HTTP range, caching, or alternate architecture) | Current authenticated same-origin R2 PDF proxy (D012 R2-only) is appropriate for this internal app (~10 teachers max). Larger apps should investigate backend memory, bandwidth, serverless limits, and PDF.js behavior before adopting the same pattern. No changes required now. | Stage E / 2026-10-08 |
 | F014 | Delete unused Supabase Storage `book-sources` PDF objects | D012 stops using them but leaves objects in place; delete only after sustained R2-only confidence | D012 / 2026-10-08 |
+| F015 | Validation PDF viewer printed-page ↔ PDF-index navigation mismatch when source pages are absent | Observed on BE1-WB Unit 9 (printed 124–129 missing). Spinner/nav can misalign with physical PDF indices. Not blocking Unit 9 approval (D013). Investigate actual page mappings rather than a fixed offset; no implementation decision yet. | BE1-WB U9 verify 2026-10-08 |
 
 ### PDF Delivery Scalability — Future Consideration
 
