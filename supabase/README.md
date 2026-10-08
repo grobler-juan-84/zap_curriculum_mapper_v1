@@ -95,7 +95,7 @@ $env:UPLOAD_ONLY='beehive_1_sb_unit_09,beehive_1_sb_unit_10'; node scripts/uploa
 
 This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket and upserts matching `book_files` rows. Missing local files are skipped unless `UPLOAD_ONLY` is set. After upload, Storage is the source of truth.
 
-### Upload source PDFs to Storage
+### Upload source PDFs to Cloudflare R2 (D012)
 
 **Local layout (gitignored — never commit PDFs to GitHub):**
 
@@ -114,7 +114,7 @@ app/src/assets/books/reach-higher/reach_higher_2a.pdf
 
 Remaining Big English books use the same pattern (`big_english_{level}_{sb|wb}.pdf` under `big-english/`). Do not use `project-books/` or registry IDs as filenames.
 
-After local placement, apply `20261007160000_seed_source_pdf_book_files.sql` (or a new catalog/seed migration for additional books) if needed, then from repo root:
+Requires root `.env.local` R2 credentials plus Supabase URL/service role (catalog upsert only). After local placement and any needed `books` / `book_files` seed, from repo root:
 
 ```bash
 node scripts/upload_source_pdfs.mjs
@@ -127,7 +127,7 @@ Optional filter (comma-separated `book_id` / filename fragments):
 $env:UPLOAD_ONLY='reach_higher_2a'; node scripts/upload_source_pdfs.mjs
 ```
 
-This upserts PDFs into the private `book-sources` bucket and upserts matching `book_files` rows (`file_type = source_pdf`). Storage/R2 object keys use `{series_slug}/{catalog_book_id}/source.pdf`. The Validation app loads them via authorized server-side R2-first delivery (D011).
+This **PutObject**s PDF bytes to Cloudflare R2 `book-sources` and upserts matching Postgres `book_files` rows (`file_type = source_pdf`). It does **not** upload PDF bytes to Supabase Storage. Object keys: `{series_slug}/{catalog_book_id}/source.pdf`. Validation loads PDFs R2-only via `/api/source-pdf-content` (D012).
 
 ### Upload series cover images
 

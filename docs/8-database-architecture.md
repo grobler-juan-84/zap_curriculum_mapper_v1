@@ -39,7 +39,7 @@ Copyrighted PDFs must not be public. Intended split (D010):
 
 | Bucket | Provider (intended) | Purpose | Example path |
 |---|---|---|---|
-| `book-sources` | **Cloudflare R2** (migration pending; live app still on Supabase) | Source PDFs | `{series-slug}/{book_id}/source.pdf` |
+| `book-sources` | **Cloudflare R2** (D012 R2-only; unused Supabase copies may remain) | Source PDFs | `{series-slug}/{book_id}/source.pdf` |
 | `book-datasets` | Supabase Storage | Batch + canonical JSON | `{series-slug}/{book_id}/batches/unit_01.json` or `…/canonical/v1.json` |
 | `book-assets` | Supabase Storage | Series/book cover imagery | `series/beehive_book_series.png` |
 
@@ -107,7 +107,7 @@ This is not a full multi-tenant permissions system. Expand later when product ro
 - Automatic continuous sync of local `data/phase1` into Storage (manual upload scripts exist instead)
 - Automatic migration of dataset JSON to R2 as part of the PDF move
 
-Upload tooling today (Supabase service role): `scripts/upload_pilot_batches.mjs`, `scripts/upload_source_pdfs.mjs`, `scripts/upload_series_covers.mjs`, `scripts/upload_book_covers.mjs`. R2 PDF upload tooling is planned in [`10-storage-architecture.md`](./10-storage-architecture.md) Stages A–D — not implemented yet.
+Upload tooling: `scripts/upload_pilot_batches.mjs` / cover scripts use Supabase Storage; `scripts/upload_source_pdfs.mjs` writes PDF bytes to R2 and upserts `book_files` via Supabase service role (D012).
 
 ---
 
@@ -128,7 +128,7 @@ Apply with Dashboard SQL editor, or `supabase link` + `supabase db push`.
 
 - [`2-tech-stack.md`](./2-tech-stack.md) — locked stack
 - [`3-architecture.md`](./3-architecture.md) — phase architecture
-- [`4-decisions.md`](./4-decisions.md) — D005 Supabase, D006 hybrid storage, D010 R2 PDFs
+- [`4-decisions.md`](./4-decisions.md) — D005 Supabase, D006 hybrid storage, D010–D012 R2 PDFs
 - [`10-storage-architecture.md`](./10-storage-architecture.md) — R2 vs Supabase object-storage plan
 - [`phase-1/json-schema.md`](./phase-1/json-schema.md) — curriculum JSON schema
 - [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md) — operational book status

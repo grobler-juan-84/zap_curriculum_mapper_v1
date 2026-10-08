@@ -1337,4 +1337,27 @@
 
 ---
 
+### Step 79
+
+**Summary:** Locked D012 — textbook source PDFs are R2-only. Removed Validation Supabase Storage fallback; retargeted `upload_source_pdfs.mjs` to R2 PutObject + Postgres `book_files` upsert; left existing Supabase `book-sources` objects unused (delete later = F014). Typecheck and R2 smoke PASS.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated — D012)
+- `docs/10-storage-architecture.md` (updated → v1.2)
+- `docs/2-tech-stack.md` (updated)
+- `docs/8-database-architecture.md` (updated)
+- `docs/7-future.md` (updated — F014)
+- `docs/0-index.md` (updated)
+- `supabase/README.md` (updated)
+- `app/src/services/validationService.ts` (updated — R2-only PDF)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated comment)
+- `scripts/upload_source_pdfs.mjs` (updated — R2 PutObject)
+- `scripts/.r2-tools/` (vendor install for AWS SDK)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

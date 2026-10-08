@@ -13,7 +13,7 @@ interface ValidationPdfPaneProps {
   pdfUrl: string | null
   loading: boolean
   bookTitle: string
-  /** Which store produced the signed URL (D011 dual-read). */
+  /** Which store produced the PDF URL (D012 R2-only; `supabase` unused). */
   pdfProvider?: 'r2' | 'supabase' | null
   /** 1-based page placed on the left; the following page (if any) is on the right. */
   initialPage?: number | null

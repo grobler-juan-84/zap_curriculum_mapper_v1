@@ -45,7 +45,8 @@
 | D008 | Automated structural validation is a separate future gate | 2026-10-07 | LOCKED |
 | D009 | Project-wide naming conventions | 2026-10-07 | LOCKED |
 | D010 | Cloudflare R2 for textbook source PDFs | 2026-10-08 | LOCKED |
-| D011 | Validation PDF signed URLs via server API; R2-first dual-read | 2026-10-08 | LOCKED |
+| D011 | Validation PDF signed URLs via server API; R2-first dual-read | 2026-10-08 | LOCKED (delivery refined by D012) |
+| D012 | Source PDFs are R2-only; Supabase PDF dual-read retired | 2026-10-08 | LOCKED |
 
 ---
 
@@ -171,20 +172,34 @@
 **Implications:** Docs and roadmaps treat R2 as the PDF target. Validation PDF signing is refined by **D011**. JSON storage provider remains an open question (brainstorming), not locked here.  
 **Supersedes:** — (refines D005/D006 object-storage provider for source PDFs only)  
 **Refines:** D005, D006  
-**Refined by:** D011
+**Refined by:** D011, D012
 
 ---
 
 ### D011 — Validation PDF signed URLs via server API; R2-first dual-read
 
 **Date:** 2026-10-08  
-**Status:** LOCKED  
-**Decision:** Validation obtains textbook PDF access through server-side APIs (Vite middleware locally; shared handlers for future Vercel): preferred `POST /api/source-pdf-content` (same-origin byte proxy → blob URL for PDF.js) and optional `POST /api/sign-source-pdf` (presigned URL). Handlers require a valid Supabase user JWT and authorize only catalog `book_files` rows (`file_type = source_pdf`) by `bookFileId` — not arbitrary object keys. R2 secrets never use `VITE_*`. Cutover is **R2-first dual-read**: if the object is missing on R2 (`404`) or R2 is temporarily unavailable (`5xx` / network), fall back to Supabase Storage signed URLs; if auth/permission fails (`401` / `403`, including R2 AccessDenied), surface the error and do **not** silently fall back. JSON datasets and cover images remain on Supabase Storage. Supabase PDF originals are not deleted in Stage D.  
-**Reason:** Browser cannot hold R2 secrets; PDF.js cannot reliably use cross-origin R2 URLs without bucket CORS, and Object Read/Write tokens often lack PutBucketCors — same-origin proxy fixes that; only Beehive 1 is on R2 so dual-read keeps other pilots working; distinguishing missing vs forbidden prevents a broken R2 config from hiding behind Supabase.  
-**Alternatives rejected:** Signing R2 URLs in the Vite client; requiring browser CORS to R2 before Validation works; accepting raw `storagePath` without catalog check; hard-cut all PDFs to R2 before Stage E; silent fallback on R2 403; migrating JSON/covers in the same change.  
-**Implications:** Validation UI shows provider (`via r2` / `via supabase`). Console logs `delivery=proxy` for R2. Optional dashboard CORS remains for direct signed-URL use cases. Stage E still required before retiring Supabase `book-sources`.  
+**Status:** LOCKED (delivery refined by D012)  
+**Decision:** Validation obtains textbook PDF access through server-side APIs (Vite middleware locally; shared handlers for future Vercel): preferred `POST /api/source-pdf-content` (same-origin byte proxy → blob URL for PDF.js) and optional `POST /api/sign-source-pdf` (presigned URL). Handlers require a valid Supabase user JWT and authorize only catalog `book_files` rows (`file_type = source_pdf`) by `bookFileId` — not arbitrary object keys. R2 secrets never use `VITE_*`. Historical Stage D cutover was **R2-first dual-read** (Supabase Storage fallback). **D012** removes that fallback: Validation delivery is R2-only. JSON datasets and cover images remain on Supabase Storage.  
+**Reason:** Browser cannot hold R2 secrets; PDF.js cannot reliably use cross-origin R2 URLs without bucket CORS, and Object Read/Write tokens often lack PutBucketCors — same-origin proxy fixes that; dual-read was needed while only some pilots were on R2.  
+**Alternatives rejected:** Signing R2 URLs in the Vite client; requiring browser CORS to R2 before Validation works; accepting raw `storagePath` without catalog check; silent fallback on R2 403; migrating JSON/covers in the same change.  
+**Implications:** Auth + catalog authorization pattern from D011 remains. PDF object delivery provider is refined by **D012**.  
 **Supersedes:** —  
-**Refines:** D010
+**Refines:** D010  
+**Refined by:** D012
+
+---
+
+### D012 — Source PDFs are R2-only; Supabase PDF dual-read retired
+
+**Date:** 2026-10-08  
+**Status:** LOCKED  
+**Decision:** Textbook source PDFs are uploaded to and served from **Cloudflare R2 only**. Validation no longer falls back to Supabase Storage `book-sources`. Ops upload (`scripts/upload_source_pdfs.mjs`) writes PDF bytes to R2 and upserts `book_files` metadata in Postgres. Existing Supabase `book-sources` PDF objects are **left in place unused** (not deleted in this decision). Supabase remains authoritative for PostgreSQL, Auth, `book-datasets` JSON, and `book-assets` covers. Logical bucket id `book-sources` and object keys `{series-slug}/{catalog_book_id}/source.pdf` stay unchanged.  
+**Reason:** All four cataloged pilot PDFs are verified on R2 (Stage E); continuing dual-read and Supabase PDF uploads risks split-brain and unnecessary egress. Stop-using is enough; physical deletion can wait.  
+**Alternatives rejected:** Keeping dual-read indefinitely; deleting Supabase PDF objects in the same change; moving JSON/covers to R2; changing catalog `bucket` / path strings.  
+**Implications:** Missing R2 objects surface as Validation errors. New books (e.g. BE1-WB) must be uploaded to R2. Optional later cleanup of unused Supabase PDF objects is parked (F014).  
+**Supersedes:** — (refines D011 delivery; does not reopen D010 bucket/key choices)  
+**Refines:** D011, D010
 
 ---
 
@@ -201,3 +216,4 @@
 | 2026-10-07 | D009 authority clarified to v1.1 after naming audit (no decision reopen). |
 | 2026-10-08 | Added D010 — Cloudflare R2 for textbook source PDFs; refined D005/D006 implications (docs-only; no migration). |
 | 2026-10-08 | Added D011 — Validation PDF signing via `/api/sign-source-pdf` with R2-first dual-read and catalog authorization. |
+| 2026-10-08 | Added D012 — source PDFs R2-only; Supabase PDF dual-read retired; originals left unused. |

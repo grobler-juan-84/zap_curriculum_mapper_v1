@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 78  
+**Last updated:** Step 79  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,8 +10,9 @@
 ## Done
 
 - Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
-- Schema remains **0.1**; D007–D011 locked; D008 validation integrated.
+- Schema remains **0.1**; D007–D012 locked; D008 validation integrated.
 - **R2 Stages A–E PASS** — all 4 cataloged source PDFs on R2; Validation confirms `provider=r2 delivery=proxy`.
+- **D012:** PDF delivery and uploads are **R2-only**; Supabase `book-sources` dual-read and PDF uploads retired (objects left unused).
 - Local PDF layout under `app/src/assets/books/` (gitignored).
 - Scaffolded remaining Big English unit-batch placeholders under `data/phase1/` (90 empty `{}` files; gitignored).
 
@@ -21,8 +22,7 @@
 
 ## Next
 
-- Prepare BE1-WB as the next extraction checkpoint.
-- Optional later: retire/freeze Supabase `book-sources` (fallback kept).
+- Prepare BE1-WB as the next extraction checkpoint (catalog + R2 upload after local PDF/JSON ready).
 
 ## Blocked
 

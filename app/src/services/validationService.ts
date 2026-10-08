@@ -425,16 +425,13 @@ export const validationService = {
   },
 
   /**
-   * R2-first dual-read (D011): try same-origin `/api/source-pdf-content` proxy, then Supabase.
+   * R2-only PDF delivery (D012): same-origin `/api/source-pdf-content` proxy.
    * Proxy avoids browser CORS on R2 (Object Read/Write tokens often cannot set bucket CORS).
-   * - 404 not_found → Supabase fallback
-   * - 503 / network → Supabase fallback (logged)
-   * - 401 / 403 (incl. r2_forbidden) → throw (no silent fallback)
-   * Caller must revoke blob: URLs from the R2 path when unloading.
+   * - ok → blob URL, provider `r2`
+   * - auth_error / not_found / unavailable → throw (no Supabase Storage fallback)
+   * Caller must revoke blob: URLs when unloading.
    */
   async createSignedPdfUrl(batch: BookFileBatch): Promise<SignedPdfResult | null> {
-    const client = requireClient()
-
     const r2Attempt = await tryProxySourcePdfViaApi(batch.id)
     if (r2Attempt.kind === 'ok') {
       return { url: r2Attempt.objectUrl, provider: 'r2' }
@@ -442,21 +439,14 @@ export const validationService = {
     if (r2Attempt.kind === 'auth_error') {
       throw new Error(r2Attempt.message)
     }
-    if (r2Attempt.kind === 'unavailable') {
-      console.warn(
-        `[validation] R2 proxy unavailable (${r2Attempt.reason}); falling back to Supabase for ${batch.storagePath}`,
-      )
-    } else if (r2Attempt.kind === 'not_found') {
-      console.info(
-        `[validation] PDF not on R2 yet; using Supabase for ${batch.storagePath}`,
+    if (r2Attempt.kind === 'not_found') {
+      throw new Error(
+        `Source PDF not found on R2 for ${batch.storagePath}. Upload with scripts/upload_source_pdfs.mjs.`,
       )
     }
-
-    const { data, error } = await client.storage
-      .from(batch.bucket)
-      .createSignedUrl(batch.storagePath, 60 * 15)
-    if (error || !data?.signedUrl) return null
-    return { url: data.signedUrl, provider: 'supabase' }
+    throw new Error(
+      `R2 PDF proxy unavailable for ${batch.storagePath} (${r2Attempt.reason}).`,
+    )
   },
 
   async updateBatchStatus(batchId: string, status: BookFileStatus): Promise<void> {

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 78  
+**Last updated:** Step 79  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -19,18 +19,19 @@
 - [x] Confirm in Validation UI: all 4 pilots `provider=r2 delivery=proxy` (owner-confirmed 2026-10-08).
 - [x] Align local source PDFs to `app/src/assets/books/` and harden gitignore so PDFs never reach GitHub.
 - [x] Scaffold remaining Big English unit-batch JSON folders under `data/phase1/` (gitignored placeholders).
+- [x] **D012** — retire Supabase as PDF object store: R2-only Validation + `upload_source_pdfs.mjs`; leave Supabase PDF objects unused (delete later = F014).
 - [ ] Place remaining Big English PDFs locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
+- [ ] Register BE1-WB in catalog and upload source PDF to R2 via `upload_source_pdfs.mjs` (after local PDF ready).
 
 ## Next
 
-- [ ] Decide whether to freeze/retire Supabase `book-sources` (keep dual-read until explicit unlock).
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon
 
 - [ ] Add lightweight naming checks for books under the new policy (legacy pilots exempt).
-- [ ] Review post-fix Storage measurements before approving cover thumbnails or PDF linearization.
+- [ ] Review post-form Storage measurements before approving cover thumbnails or PDF linearization.
 - [ ] Persist Validation session notes (optional).
 
 ---

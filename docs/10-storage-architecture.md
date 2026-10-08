@@ -1,11 +1,11 @@
 # General Curriculum Mapper — Storage Architecture
 
 **Status:** ACTIVE  
-**Version:** 1.1  
+**Version:** 1.2  
 **Date:** 2026-10-08  
 **Purpose:** Describe how object storage is split across providers, what must stay private, and the staged plan to move textbook source PDFs to Cloudflare R2 — without changing Phase 1 curriculum data models.
 
-**Related:** [`2-tech-stack.md`](./2-tech-stack.md) · [`8-database-architecture.md`](./8-database-architecture.md) · [`4-decisions.md`](./4-decisions.md) (D005, D006, D010, D011) · [`9-naming-conventions.md`](./9-naming-conventions.md)
+**Related:** [`2-tech-stack.md`](./2-tech-stack.md) · [`8-database-architecture.md`](./8-database-architecture.md) · [`4-decisions.md`](./4-decisions.md) (D005, D006, D010, D011, D012) · [`9-naming-conventions.md`](./9-naming-conventions.md)
 
 ---
 
@@ -21,7 +21,7 @@ It does **not** redesign:
 - teacher enrichment philosophy;
 - Supabase Auth or PostgreSQL catalog responsibilities.
 
-**Runtime status (2026-10-08):** Stages A–E complete for in-scope cataloged source PDFs. Validation reads PDFs **R2-first** via same-origin proxy (D011 dual-read); Supabase `book-sources` originals remain as fallback and are **not** deleted. JSON datasets and covers stay on Supabase.
+**Runtime status (2026-10-08):** Stages A–E complete for in-scope cataloged source PDFs. **D012:** Validation serves PDFs **R2-only** via same-origin proxy; dual-read removed. Supabase `book-sources` originals remain on disk unused (not deleted). JSON datasets and covers stay on Supabase.
 
 ---
 
@@ -29,7 +29,7 @@ It does **not** redesign:
 
 | Responsibility | Provider | Notes |
 |---|---|---|
-| Textbook **source PDFs** | **Cloudflare R2** (private bucket `book-sources`) | Stage E: all 4 cataloged pilot PDFs verified on R2; Supabase originals retained |
+| Textbook **source PDFs** | **Cloudflare R2** (private bucket `book-sources`) | D012: R2-only upload + Validation; Supabase originals frozen unused |
 | Unit-batch + **canonical JSON** datasets | **Supabase Storage** (`book-datasets`) until a separate decision | Do **not** auto-migrate JSON to R2 |
 | Series/book **cover images** | **Supabase Storage** (`book-assets`) until reassessed | Unrelated to PDF move |
 | Catalog / file pointers / dataset versions | **Supabase PostgreSQL** | `book_files.bucket` + `storage_path` remain the operational pointers |
@@ -57,15 +57,16 @@ Postgres `book_files` rows for `file_type = source_pdf` already store bucket nam
 
 ---
 
-## 3. Current runtime (as of Stage E)
+## 3. Current runtime (as of D012)
 
 | Concern | Current behaviour |
 |---|---|
 | PDF primary store | Cloudflare R2 `book-sources` (identical object keys) |
-| PDF fallback | Supabase Storage `book-sources` (originals preserved; dual-read on R2 miss) |
+| PDF fallback | **None** (D012) — R2 miss/unavailable surfaces as Validation error |
 | Catalog | `book_files` (`file_type = source_pdf`, `bucket`, `storage_path`) — unchanged |
-| Validation PDF view | R2-first via same-origin `POST /api/source-pdf-content` (+ optional `/api/sign-source-pdf`); provider badge `via r2` / `via supabase` |
-| Ops upload (local) | `scripts/upload_source_pdfs.mjs` still targets Supabase; Stage E copy via `scripts/migrate_source_pdfs_to_r2.mjs` |
+| Validation PDF view | R2-only via same-origin `POST /api/source-pdf-content` (+ optional `/api/sign-source-pdf`); badge `via r2` |
+| Ops upload (local) | `scripts/upload_source_pdfs.mjs` → R2 PutObject + Postgres `book_files` upsert |
+| Supabase `book-sources` | Existing pilot PDF objects left in place unused (not deleted) |
 | JSON download | `validationService.downloadJson` → Supabase `book-datasets` |
 | Covers | `coverImageService` → Supabase `book-assets` signed URLs |
 
@@ -74,7 +75,7 @@ Postgres `book_files` rows for `file_type = source_pdf` already store bucket nam
 - `book-datasets` merge/audit/validate scripts
 - Cover upload scripts
 - Auth, catalog queries, dataset versioning
-- Automatic retirement of Supabase `book-sources` or removal of dual-read fallback
+- Physical deletion/emptying of unused Supabase `book-sources` objects (parked F014)
 
 ---
 
@@ -179,7 +180,7 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 - [x] Migrate remaining PDFs with identical keys (`scripts/migrate_source_pdfs_to_r2.mjs`)
 - [x] Verify object counts, paths, sizes/SHA-256
 - [x] Confirm R2 retrieval via Stage D `getSourcePdfObject` smoke (`scripts/smoke_sign_source_pdf.mjs`)
-- [ ] Retire or freeze Supabase `book-sources` — **deferred** (dual-read fallback kept; originals not deleted)
+- [x] Freeze Supabase `book-sources` usage — **D012** (stop reading/writing; dual-read removed; originals not deleted)
 - [x] Update Dataset Registry / ops notes that PDFs are R2-backed
 
 **Stage E result:** PASS (2026-10-08) for all **4** cataloged `source_pdf` rows.
@@ -239,3 +240,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 | 2026-10-08 | Stage D PASS — Validation PDF via `/api/sign-source-pdf` (R2-first dual-read, D011); CORS may need dashboard if token lacks CORS permission. |
 | 2026-10-08 | Validation R2 delivery switched to same-origin `/api/source-pdf-content` proxy (fixes PDF.js CORS without bucket CORS admin). |
 | 2026-10-08 | Stage E PASS — all 4 cataloged pilot source PDFs on R2 with SHA-256 match; Supabase originals + dual-read fallback retained; `scripts/migrate_source_pdfs_to_r2.mjs`. |
+| 2026-10-08 | D012 — R2-only PDFs: dual-read removed; `upload_source_pdfs.mjs` targets R2; Supabase `book-sources` objects left unused. |
