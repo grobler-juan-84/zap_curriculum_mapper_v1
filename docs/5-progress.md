@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 69  
+**Last updated:** Step 70  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -16,14 +16,14 @@
 
 ## In progress
 
-- Documentation of R2 PDF storage architecture (implementation not started).
-- Ready for BE1-WB preparation under D009 naming (can proceed in parallel with R2 Stage A).
+- **R2 Stage B** tooling ready; waiting for R2 secrets in root `.env.local` (gitignored) before running the connectivity test.
+- BE1-WB preparation under D009 naming can proceed in parallel.
 
 ## Next
 
-- **Stage A** for R2: verify bucket, choose auth method, configure credentials securely, establish CLI/API access (no app code yet).
+- Fill root `.env.local` with `R2_ACCOUNT_ID` / `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` (never paste into chat), then re-run Stage B test.
 - Prepare BE1-WB source/catalog/unit plan (`big_english_1_wb`).
-- Later: Stages B–E (connectivity → PDF pilot → adapter → migration).
+- Later: Stages C–E after Stage B PASS.
 
 ## Blocked
 

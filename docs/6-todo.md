@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 69  
+**Last updated:** Step 70  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -12,12 +12,11 @@
 - [x] Four Storage-backed pilots Phase 1 COMPLETE (merge + audit + D008 validation).
 - [x] D009 naming authority + safe cosmetic renames.
 - [x] Document Cloudflare R2 PDF storage architecture (D010; Stages A–E checklist; no implementation).
-- [ ] **R2 Stage A** — verify `book-sources` bucket, select auth method, configure secrets, establish CLI/S3 API access ([`10-storage-architecture.md`](./10-storage-architecture.md)).
+- [x] **R2 Stage A** — bucket + S3-compatible API token created by owner; ops test script + env template added.
+- [ ] **R2 Stage B** — fill root `.env.local` R2 secrets (outside chat), then run `node scripts/test_r2_connection.mjs` to PASS.
 - [ ] Prepare BE1-WB as the next extraction checkpoint: confirm source, catalog `book_id` (`big_english_1_wb`), aliases, unit/section plan, and validator profile.
 
 ## Next
-
-- [ ] **R2 Stage B** — connectivity test (upload/retrieve/delete small test object).
 - [ ] **R2 Stage C** — upload one pilot PDF with existing object key; verify integrity.
 - [ ] **R2 Stage D** — storage adapter + replace PDF Supabase calls; keep Auth/JSON/covers on Supabase.
 - [ ] **R2 Stage E** — batch migrate PDFs; verify; retire Supabase `book-sources` only after success.

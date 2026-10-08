@@ -24,6 +24,9 @@ coverage/
 *.pem
 credentials.json
 
+# Ephemeral local tooling for R2 connectivity tests (not committed)
+scripts/.r2-tools/
+
 # Logs / temp
 *.log
 tmp/

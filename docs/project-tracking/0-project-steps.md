@@ -1170,3 +1170,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 70
+
+**Summary:** Added R2 Stage B connectivity-test tooling (`scripts/test_r2_connection.mjs`), gitignored vendor SDK path, and `.env.example` / `.env.local` placeholders. Stage B not marked complete — local R2 secrets were still empty at stop time.
+
+**Files touched:**
+- `scripts/test_r2_connection.mjs` (created)
+- `scripts/_check_r2_env_presence.mjs` (created)
+- `.env.example` (updated)
+- `.gitignore` (updated)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

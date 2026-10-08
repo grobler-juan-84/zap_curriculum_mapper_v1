@@ -107,15 +107,18 @@ Exact signing surface (Vercel serverless, Cloudflare Worker, or other) is **not 
 - Do not delete or overwrite existing Supabase Storage files during Stages A–C.
 - Do not persist temporary signed URLs as the long-term identity of a source file.
 
-Suggested env names (illustrative; finalize during Stage A — use `UPPER_SNAKE_CASE`, never `VITE_*` for secrets):
+Local env names (root `.env.local`, gitignored — use `UPPER_SNAKE_CASE`, never `VITE_*` for secrets):
 
 ```text
 R2_ACCOUNT_ID
 R2_ACCESS_KEY_ID
 R2_SECRET_ACCESS_KEY
-R2_BUCKET_BOOK_SOURCES=book-sources
-R2_ENDPOINT   # S3-compatible endpoint when using S3 API
+R2_BUCKET_NAME=book-sources
+R2_ENDPOINT   # optional; default https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com
 ```
+
+Ops connectivity test (Stage B): `node scripts/test_r2_connection.mjs`  
+Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sdk/client-s3`
 
 ---
 
@@ -123,19 +126,19 @@ R2_ENDPOINT   # S3-compatible endpoint when using S3 API
 
 ### Stage A — Cloudflare setup
 
-- [ ] Verify R2 account and private bucket `book-sources`
-- [ ] Confirm intended object-key prefixes match existing Supabase layout
-- [ ] Select authentication method (S3-compatible access keys vs other Cloudflare auth — open question)
-- [ ] Configure credentials securely (local + eventual host secrets)
-- [ ] Establish CLI and/or S3-compatible API access for ops scripts
+- [x] Verify R2 account and private bucket `book-sources` (owner-confirmed 2026-10-08)
+- [x] Confirm intended object-key prefixes match existing Supabase layout (documented)
+- [x] Select authentication method: **S3-compatible R2 API tokens** (Object Read & Write on `book-sources`)
+- [x] Configure credentials securely (owner-created; local values belong in root `.env.local` only)
+- [x] Establish CLI and/or S3-compatible API access for ops scripts (`scripts/test_r2_connection.mjs` + gitignored `scripts/.r2-tools`)
 
 ### Stage B — Connectivity testing
 
 - [ ] Verify bucket list/access with configured credentials
-- [ ] Upload a small non-curriculum test object
-- [ ] Retrieve and verify the object
+- [ ] Upload a small non-curriculum test object under `_connection-tests/`
+- [ ] Retrieve and verify the object (SHA-256)
 - [ ] Delete the test object
-- [ ] Confirm permissions are least-privilege and bucket remains private
+- [ ] Confirm permissions are least-privilege and bucket remains private (token scope: Cloudflare dashboard confirmation)
 
 ### Stage C — PDF pilot
 

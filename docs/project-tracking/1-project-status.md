@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 69  
+**Last updated:** Step 70  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Four pilots Phase 1 COMPLETE; schema 0.1; D008/D009 locked.
-- **D010:** Cloudflare R2 selected for textbook source PDFs; architecture docs + staged checklist written (no migration).
+- Four pilots Phase 1 COMPLETE; D010 R2 PDF target documented.
+- Stage A owner-complete; Stage B test script ready.
 
 ## Current status
 
-Live PDFs still on Supabase Storage. R2 bucket `book-sources` exists empty. Next infrastructure step is Stage A connection setup — still documentation/ops, not curriculum-schema work.
+R2 connectivity test **blocked** until `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY` are filled in root `.env.local` (gitignored). Do not paste secrets into chat.
 
 ## Next small step
 
-**Suggestion:** Execute R2 Stage A (verify bucket + choose auth + secure credentials + CLI/API access), or continue BE1-WB prep in parallel.
+**Suggestion:** Fill `.env.local`, then ask the agent to re-run `node scripts/test_r2_connection.mjs`.
