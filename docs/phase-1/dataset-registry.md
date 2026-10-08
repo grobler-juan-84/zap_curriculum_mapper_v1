@@ -525,7 +525,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`cross-series-schema-review-notes.md`](./cross-series-schema-review-notes.md) §11 (2026-10-07); schema remains 0.1 |
 
-**Infrastructure (pilot books):** unit-batch JSON and source PDFs are in private Supabase Storage; `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
+**Infrastructure (pilot books):** unit-batch / canonical JSON remain in private Supabase Storage (`book-datasets`); source PDFs are still served from Supabase `book-sources` today, with **Cloudflare R2** selected as the PDF destination (D010 — migration not started; see [`../10-storage-architecture.md`](../10-storage-architecture.md)). `book_files` rows link paths; Validation UI reads them for authenticated users. Local `data/phase1/` copies are optional working files (gitignored).
 
 The exact extraction sequence may change if practical testing provides a reason.
 

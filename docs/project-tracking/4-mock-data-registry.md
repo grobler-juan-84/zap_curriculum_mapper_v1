@@ -12,7 +12,7 @@
 |---|---|---|---|
 | Curriculum catalog | Supabase `book_series`, `books`, `book_files` via `curriculumService` | Curriculum Library, Series Library, Validation book picker | **LIVE** |
 | Unit-batch JSON | Private Storage `book-datasets` via `validationService` | `/app/validation` left panel | **LIVE** |
-| Source PDFs | Private Storage `book-sources` via signed URLs + `react-pdf` | `/app/validation` PDF pane | **LIVE** |
+| Source PDFs | Private Supabase Storage `book-sources` via signed URLs + `react-pdf` (R2 selected as future PDF host per D010; not cut over) | `/app/validation` PDF pane | **LIVE** (Supabase) |
 | Cover images | Private Storage `book-assets` signed URLs | Series / book cards | **LIVE** (with path fallbacks) |
 
 ---

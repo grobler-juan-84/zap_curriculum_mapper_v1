@@ -34,13 +34,12 @@
 
 Current areas where brainstorming is especially useful:
 
-1. Schema gaps revealed by cross-series extraction (SEL / Think Big / Big Question / glosses / intermittent reading prompts).
-2. ID normalization across folder names vs internal `book_id` values (`beehive_american_sb1` vs `beehive_1_sb`, `bep1_sb`, RH mixed IDs).
-3. Canonical merge workflow after unit-batch human verification (first book to merge).
-4. When to run automated validation vs continue human review.
-5. Whether Validation UI as the primary verification surface should become a LOCKED decision (currently implementation-established, not locked).
-6. Whether to wire Book Workspace to Storage JSON or keep it as a separate prototype until Phase 2+.
-7. First canonical merge candidate (BE1-SB vs BH1) and merge procedure.
+1. Post-pilot schema_gap classification vs any future 0.2 candidate (owner-accepted deferral).
+2. R2 integration details after D010 (auth method, signed-URL surface, `book_files` provider field) — see 2026-10-08 entry.
+3. Whether/when dataset JSON or covers leave Supabase Storage (not part of D010).
+4. Whether Validation UI as the primary verification surface should become a LOCKED decision (currently implementation-established, not locked).
+5. Whether to wire Book Workspace to Storage JSON or keep it as a separate prototype until Phase 2+.
+6. BE1-WB extraction prep under D009 naming.
 
 ---
 
@@ -341,6 +340,26 @@ Storage stays:
 
 ---
 
+### 2026-10-08 — Cloudflare R2 PDF cutover open questions
+
+**Question:** After locking D010 (R2 for textbook source PDFs), which integration details remain open before implementation?
+
+**Context:** R2 account + private bucket `book-sources` exist with the intended folder layout; no PDFs uploaded yet. Live Validation still signs PDFs from Supabase Storage. Canonical/batch JSON and covers stay on Supabase for now. See [`../10-storage-architecture.md`](../10-storage-architecture.md).
+
+**Options / open items:**
+1. **R2 auth method** — S3-compatible access key pair vs Cloudflare API token / other; which is simplest for Node ops scripts + eventual server-side signing.
+2. **Signed-URL surface** — Vercel serverless function, Cloudflare Worker, or other backend that never exposes secrets to Vite.
+3. **`book_files` schema** — keep `bucket` + `storage_path` only (bucket name stays `book-sources`) vs add an explicit `storage_provider` / `storage_backend` column for dual-read during migration.
+4. **Cutover strategy** — hard cut after Stage C pilot vs dual-read (try R2, fall back to Supabase) until Stage E verification.
+5. **Canonical / batch JSON long-term home** — remain on Supabase `book-datasets`, move to R2 later, or another pattern (separate decision; not implied by D010).
+6. **Cover images** — remain on Supabase `book-assets` vs eventual R2 (out of scope for PDF move).
+
+**Lean / notes:** Prefer documenting Stage A credential choice before writing app code. Do not lock JSON or cover migration here. Do not delete Supabase PDFs until Stage E passes.
+
+**Status:** open (D010 locked for PDF provider + bucket name + key preservation only)
+
+---
+
 ## Promoted / closed pointers
 
 | Date | Topic | Outcome |
@@ -350,6 +369,7 @@ Storage stays:
 | 2026-10-07 | BH1 U9–10 + RH2A U4 verification | Marked `verified` in `book_files`; registry human verification COMPLETE for BH1 and RH2A. |
 | 2026-10-07 | First canonical merge (BE1-SB) | `canonical/v1.json` + `dataset_versions` v1; IDs preserved (`bep1_sb`); whole-book audit still open. |
 | 2026-10-07 | Project-wide naming conventions | Promoted to [`../9-naming-conventions.md`](../9-naming-conventions.md); locked as D009; always-on rule `.cursor/rules/naming_conventions.mdc`. |
+| 2026-10-08 | Textbook PDF object storage | Promoted to D010 — Cloudflare R2 `book-sources`; implementation staged in [`../10-storage-architecture.md`](../10-storage-architecture.md). |
 
 ---
 

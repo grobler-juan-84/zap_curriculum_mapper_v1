@@ -44,6 +44,7 @@
 | D007 | Catalog book_id is canonical; aliases normalized at merge | 2026-10-07 | LOCKED |
 | D008 | Automated structural validation is a separate future gate | 2026-10-07 | LOCKED |
 | D009 | Project-wide naming conventions | 2026-10-07 | LOCKED |
+| D010 | Cloudflare R2 for textbook source PDFs | 2026-10-08 | LOCKED |
 
 ---
 
@@ -104,8 +105,9 @@
 **Decision:** Supabase is the selected backend platform for the General Curriculum Mapper. It will provide PostgreSQL, authentication, and object storage when those capabilities are required. Canonical curriculum data remains JSON-first, with PostgreSQL JSONB available where database persistence/querying is useful. Locking Supabase does not require immediate implementation of every Supabase capability.  
 **Reason:** The project owner already uses Supabase in KIS Points, reducing unnecessary technology switching and allowing knowledge and development patterns to transfer between projects.  
 **Alternatives rejected:** Leaving PostgreSQL / Auth / Storage providers undecided; selecting a different BaaS solely for novelty; normalizing Phase 1 curriculum JSON into relational tables as a precondition for backend choice.  
-**Implications:** Tech-stack docs treat Supabase PostgreSQL, Auth, and Storage as locked; scaffold may include Supabase client/config without requiring live credentials; curriculum evidence stays under `data/` as JSON.  
-**Supersedes:** —
+**Implications:** Tech-stack docs treat Supabase PostgreSQL and Auth as locked. Supabase Storage remains for dataset JSON and covers unless separately decided. Textbook source PDF object storage is refined by **D010** (Cloudflare R2). Supabase is **not** removed wholesale.  
+**Supersedes:** —  
+**Refined by:** D010 (source PDFs only)
 
 ---
 
@@ -113,11 +115,12 @@
 
 **Date:** 2026-10-07  
 **Status:** LOCKED  
-**Decision:** Use a hybrid architecture. PostgreSQL holds stable catalog/ops metadata (`book_series`, `books`, `book_files`, `dataset_versions`, profiles). Supabase Storage holds source PDFs and dataset JSON files in private buckets. Canonical curriculum content (units, pages, vocabulary, language, activities, etc.) remains inside JSON documents and is not normalized into relational tables.  
+**Decision:** Use a hybrid architecture. PostgreSQL holds stable catalog/ops metadata (`book_series`, `books`, `book_files`, `dataset_versions`, profiles). Object storage holds source PDFs and dataset JSON files in private buckets. Canonical curriculum content (units, pages, vocabulary, language, activities, etc.) remains inside JSON documents and is not normalized into relational tables.  
 **Reason:** Phase 1 schema is still evolving and publishers differ; premature relational curriculum tables would force constant migrations. Metadata and file pointers are stable enough to model early.  
 **Alternatives rejected:** Full relational model of curriculum entities; storing only JSONB blobs with no catalog tables; public Storage buckets for copyrighted PDFs; permanent public URLs as canonical file references.  
-**Implications:** App catalog queries Postgres; curriculum detail loads from Storage/local JSON; `dataset_versions.version` ≠ `schema_version`; see `docs/8-database-architecture.md`.  
-**Supersedes:** —
+**Implications:** App catalog queries Postgres; curriculum detail loads from object storage / local JSON; `dataset_versions.version` ≠ `schema_version`; see `docs/8-database-architecture.md`. Provider split for PDFs vs JSON/covers is refined by **D010**.  
+**Supersedes:** —  
+**Refined by:** D010 (textbook source PDFs → Cloudflare R2; JSON/covers remain on Supabase Storage until separately decided)
 
 ---
 
@@ -157,6 +160,19 @@
 
 ---
 
+### D010 — Cloudflare R2 for textbook source PDFs
+
+**Date:** 2026-10-08  
+**Status:** LOCKED  
+**Decision:** Cloudflare R2 is the selected object-storage provider for textbook **source PDFs**. The private R2 bucket is named `book-sources`. Existing logical object-key structure (`{series-slug}/{catalog_book_id}/source.pdf`) should be preserved where practical. Supabase remains the backend for PostgreSQL, Auth, and (for now) dataset JSON / cover object storage — it is not removed wholesale. Implementation must follow documentation and connection testing (Stages A–E in [`10-storage-architecture.md`](./10-storage-architecture.md)); this decision does **not** authorize immediate migration or deletion of Supabase PDF objects.  
+**Reason:** Separate large copyrighted PDF binaries onto R2 while keeping Supabase strengths for Auth/catalog; keep object keys stable so `book_files` pointers and Validation workflows need minimal path rewrites; require staged verify-before-cutover because PDFs are live in Validation today.  
+**Alternatives rejected:** Moving all object storage to R2 in one step; auto-migrating canonical/batch JSON to R2 as part of this change; making the R2 bucket public; deleting Supabase `book-sources` before verified migration; exposing R2 secrets to the Vite frontend.  
+**Implications:** Docs and roadmaps treat R2 as the PDF target; app/scripts still use Supabase PDFs until Stages A–E complete. Prefer a server-side storage adapter and short-lived signed URLs. JSON storage provider remains an open question (brainstorming), not locked here.  
+**Supersedes:** — (refines D005/D006 object-storage provider for source PDFs only)  
+**Refines:** D005, D006
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -168,3 +184,4 @@
 | 2026-10-07 | Added D008 — automated structural validation is separate from human/source verification and gates future progression on ERROR findings. |
 | 2026-10-07 | Added D009 — project-wide naming conventions locked; authority doc + always-on Cursor rule. |
 | 2026-10-07 | D009 authority clarified to v1.1 after naming audit (no decision reopen). |
+| 2026-10-08 | Added D010 — Cloudflare R2 for textbook source PDFs; refined D005/D006 implications (docs-only; no migration). |

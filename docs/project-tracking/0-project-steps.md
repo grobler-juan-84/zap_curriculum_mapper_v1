@@ -1147,3 +1147,26 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 69
+
+**Summary:** Documented Cloudflare R2 as the textbook PDF object-storage target (D010): storage architecture doc with Stages A–E, security rules, and refined hybrid-storage docs. No R2 configuration, upload, or app code changes.
+
+**Files touched:**
+- `docs/10-storage-architecture.md` (created)
+- `docs/2-tech-stack.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/8-database-architecture.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

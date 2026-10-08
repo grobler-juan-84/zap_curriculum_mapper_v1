@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 68
+**Last updated:** Step 69  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,20 +11,19 @@
 
 - Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
 - Schema remains **0.1**; D007–D009 locked; D008 validation integrated.
-- Extraction/alias docs aligned with D009; BE1-WB pre-registered as `big_english_1_wb`.
-- D009 §7.1 safe renames applied (assets, TeacherAiAssistant, docs kebab-case).
-- Fixed Validation source-PDF loading so `pdfLoading` always clears; aligned `upload_source_pdfs.mjs` with catalog-named local assets. Beehive 1 Storage object confirmed present.
-- Decoupled cover signing from global catalog loading, batch/cached visible cover URLs, and kept PDF.js mounted while loading. Live flow probes reduced Browse data/storage requests from 11 to 5 and Validation pre-PDF requests from 10 to 3.
+- **D010 locked (docs-only):** Cloudflare R2 for textbook source PDFs (`book-sources`); staged plan in `10-storage-architecture.md`.
+- Naming renames, Validation PDF loading fixes, and cover-signing performance work completed earlier.
 
 ## In progress
 
-- Ready for BE1-WB preparation under D009 naming.
+- Documentation of R2 PDF storage architecture (implementation not started).
+- Ready for BE1-WB preparation under D009 naming (can proceed in parallel with R2 Stage A).
 
 ## Next
 
+- **Stage A** for R2: verify bucket, choose auth method, configure credentials securely, establish CLI/API access (no app code yet).
 - Prepare BE1-WB source/catalog/unit plan (`big_english_1_wb`).
-- Review post-fix Storage timings before deciding whether cover thumbnails or PDF linearization are warranted.
-- Later: mapper cleanup (`bookUuid` / `catalogBookId`).
+- Later: Stages B–E (connectivity → PDF pilot → adapter → migration).
 
 ## Blocked
 
@@ -36,5 +35,5 @@
 
 - **Phase 1 Complete:** 4 / 18.
 - **Schema:** 0.1.
-- **Naming:** D009 v1.2; safe cosmetic renames applied; TS identity mapper cleanup still pending.
+- **PDF storage:** live = Supabase `book-sources`; target = Cloudflare R2 `book-sources` (D010).
 - **Draft next book:** BE1-WB (`big_english_1_wb`).

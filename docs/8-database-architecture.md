@@ -1,14 +1,16 @@
 # General Curriculum Mapper — Database Architecture
 
 **Status:** ACTIVE  
-**Version:** 1.0  
-**Purpose:** Explain the hybrid storage prototype: what lives in PostgreSQL, what lives in Supabase Storage, what remains in canonical JSON, and which layer is authoritative.
+**Version:** 1.1  
+**Purpose:** Explain the hybrid storage prototype: what lives in PostgreSQL, what lives in object storage (R2 vs Supabase), what remains in canonical JSON, and which layer is authoritative.
+
+**Related storage plan:** [`10-storage-architecture.md`](./10-storage-architecture.md) (D010 — R2 for textbook PDFs).
 
 ---
 
 ## 1. Core rule
 
-> **Canonical curriculum content stays in JSON. PostgreSQL holds stable operational metadata. Storage holds the files.**
+> **Canonical curriculum content stays in JSON. PostgreSQL holds stable operational metadata. Object storage holds the files.**
 
 Do not convert Phase 1 curriculum entities (units, pages, vocabulary, language, activities, continuous text, curriculum components, relationships, extraction issues, schema gaps, in-JSON verification) into relational tables.
 
@@ -21,27 +23,27 @@ Different publishers and series differ, and schema `0.1` is still evolving. Prem
 | Layer | Holds | Authoritative for |
 |---|---|---|
 | **Canonical JSON** | Full structured curriculum evidence for a book (or unit batch) | What the curriculum contains |
-| **Supabase Storage** | Source PDFs, batch JSON, canonical JSON blobs | The binary/file bytes |
+| **Object storage** | Source PDFs (→ Cloudflare R2), batch/canonical JSON + covers (Supabase Storage for now) | The binary/file bytes |
 | **PostgreSQL (Supabase)** | Series, books, file pointers, dataset versions, app profiles | Catalog identity, versioning, processing status, auth profiles |
 
 ### Canonical JSON (authoritative curriculum)
 
-- Lives as objects in the private `book-datasets` Storage bucket (authoritative file bytes).
+- Lives as objects in the private Supabase `book-datasets` Storage bucket (authoritative file bytes) until a separate decision.
 - Optional local working copies may exist under `data/phase1/…` (gitignored; not committed).
 - Linked from Postgres via `book_files` + `dataset_versions.json_file_id`.
 - Schema defined in `docs/phase-1/json-schema.md`.
 
-### Supabase Storage (authoritative file bytes)
+### Object storage (authoritative file bytes)
 
-Private buckets (copyrighted PDFs must not be public):
+Copyrighted PDFs must not be public. Intended split (D010):
 
-| Bucket | Purpose | Example path |
-|---|---|---|
-| `book-sources` | Source PDFs | `{series-slug}/{book_id}/source.pdf` |
-| `book-datasets` | Batch + canonical JSON | `{series-slug}/{book_id}/batches/unit_01.json` or `…/canonical/v1.json` |
-| `book-assets` | Series/book cover imagery | `series/beehive_book_series.png` |
+| Bucket | Provider (intended) | Purpose | Example path |
+|---|---|---|---|
+| `book-sources` | **Cloudflare R2** (migration pending; live app still on Supabase) | Source PDFs | `{series-slug}/{book_id}/source.pdf` |
+| `book-datasets` | Supabase Storage | Batch + canonical JSON | `{series-slug}/{book_id}/batches/unit_01.json` or `…/canonical/v1.json` |
+| `book-assets` | Supabase Storage | Series/book cover imagery | `series/beehive_book_series.png` |
 
-Store **bucket + `storage_path`** in Postgres. Generate signed/authenticated URLs at read time. Do not store permanent public URLs as the canonical reference.
+Store **bucket + `storage_path`** in Postgres. Generate signed/authenticated URLs at read time. Do not store permanent public URLs as the canonical reference. Preserve logical PDF object keys when moving providers.
 
 ### PostgreSQL (authoritative catalog / ops metadata)
 
@@ -101,10 +103,11 @@ This is not a full multi-tenant permissions system. Expand later when product ro
 
 - Relational tables for curriculum entities inside the JSON
 - Speculative SaaS tables (orgs, schools, jobs, analytics)
-- Public Storage buckets for source PDFs
+- Public object-storage buckets for source PDFs
 - Automatic continuous sync of local `data/phase1` into Storage (manual upload scripts exist instead)
+- Automatic migration of dataset JSON to R2 as part of the PDF move
 
-Upload tooling (service role): `scripts/upload_pilot_batches.mjs`, `scripts/upload_source_pdfs.mjs`, `scripts/upload_series_covers.mjs`, `scripts/upload_book_covers.mjs`.
+Upload tooling today (Supabase service role): `scripts/upload_pilot_batches.mjs`, `scripts/upload_source_pdfs.mjs`, `scripts/upload_series_covers.mjs`, `scripts/upload_book_covers.mjs`. R2 PDF upload tooling is planned in [`10-storage-architecture.md`](./10-storage-architecture.md) Stages A–D — not implemented yet.
 
 ---
 
@@ -125,6 +128,7 @@ Apply with Dashboard SQL editor, or `supabase link` + `supabase db push`.
 
 - [`2-tech-stack.md`](./2-tech-stack.md) — locked stack
 - [`3-architecture.md`](./3-architecture.md) — phase architecture
-- [`4-decisions.md`](./4-decisions.md) — D005 Supabase, D006 hybrid storage
+- [`4-decisions.md`](./4-decisions.md) — D005 Supabase, D006 hybrid storage, D010 R2 PDFs
+- [`10-storage-architecture.md`](./10-storage-architecture.md) — R2 vs Supabase object-storage plan
 - [`phase-1/json-schema.md`](./phase-1/json-schema.md) — curriculum JSON schema
 - [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md) — operational book status

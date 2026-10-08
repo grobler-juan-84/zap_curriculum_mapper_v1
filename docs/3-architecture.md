@@ -442,4 +442,35 @@ Potential evidence may include:
 - curriculum omissions;
 - and successful teaching patterns.
 
-Concept
+Conceptually:
+
+```text
+Evaluation Evidence
+↓
+Refinements to earlier phases / process / schema / tooling
+```
+
+Phase 7 must not silently rewrite Phase 1 book-truth. Corrections that change source evidence should flow back through verification and versioning.
+
+---
+
+# 13. Cross-cutting storage (infrastructure)
+
+Curriculum **content** remains JSON-first (Phase 1). **Files** live in private object storage; **catalog identity** lives in PostgreSQL.
+
+Intended split (D010; see [`10-storage-architecture.md`](./10-storage-architecture.md)):
+
+- **Cloudflare R2** — textbook source PDFs (`book-sources`), preserving existing object keys
+- **Supabase Storage** — dataset JSON (`book-datasets`) and covers (`book-assets`) until separately decided
+- **Supabase** — Auth + PostgreSQL catalog (`book_files` pointers, `dataset_versions`)
+
+This is an infrastructure concern. It does not change phase boundaries or curriculum schema.
+
+---
+
+# 14. Related documents
+
+- [2-tech-stack.md](./2-tech-stack.md)
+- [8-database-architecture.md](./8-database-architecture.md)
+- [10-storage-architecture.md](./10-storage-architecture.md)
+- [4-decisions.md](./4-decisions.md)

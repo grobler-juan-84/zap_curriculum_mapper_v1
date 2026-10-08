@@ -39,13 +39,14 @@ The project should avoid prematurely building complex infrastructure before real
 | Build Tool | Vite | Frontend development and build tooling |
 | Language | TypeScript | Primary frontend/application language |
 | Styling | Tailwind CSS | UI styling |
-| Backend platform | Supabase | Hosted PostgreSQL, Auth, Storage, and related backend services when required |
+| Backend platform | Supabase | Hosted PostgreSQL, Auth, and related backend services; retains Storage for dataset JSON and covers until separately decided |
 | Backend / API logic | TypeScript and/or Python | Application logic, AI workflows and data processing |
 | AI | Google Gemini API | Curriculum extraction and AI-assisted curriculum processing |
 | Structured Curriculum Data | JSON | Canonical curriculum dataset format |
 | Database | Supabase PostgreSQL | Application, operational and relational metadata |
 | Flexible Database Storage | PostgreSQL JSONB | Available where database persistence/querying of curriculum documents is useful |
-| File / Object Storage | Supabase Storage | PDFs, canonical JSON files and other large artifacts when object storage is required |
+| Textbook PDF object storage | Cloudflare R2 | Private bucket `book-sources` for textbook source PDFs (D010; migration not started) |
+| Dataset / asset object storage | Supabase Storage | Unit-batch + canonical JSON (`book-datasets`) and covers (`book-assets`) until a separate decision |
 | Authentication | Supabase Auth | User authentication and authorization when required |
 | Hosting | Vercel preferred for frontend | Web application deployment |
 | Version Control | Git + GitHub | Source control and project history |
@@ -59,7 +60,8 @@ The project should avoid prematurely building complex infrastructure before real
 | Vite + React + TypeScript + Tailwind app under `app/` | **Implemented** — landing, auth pages, app shell, curriculum/series libraries, book workspace prototype, Validation workspace |
 | Supabase Auth + `profiles` | **Implemented** — login/signup/forgot/reset; role on profile (`teacher` / `admin`) |
 | Curriculum catalog (Postgres) | **Implemented** — live `book_series` / `books` / `book_files` / `dataset_versions` with RLS; UI loads catalog from Supabase |
-| Private Storage buckets | **Implemented** — `book-sources`, `book-datasets`, `book-assets`; upload scripts under `scripts/` |
+| Private Storage buckets (Supabase) | **Implemented** — `book-sources` (PDFs, still live), `book-datasets`, `book-assets`; upload scripts under `scripts/` |
+| Cloudflare R2 (`book-sources`) | **Account + empty bucket created** — docs/plan only; PDFs not migrated; app still reads Supabase PDFs |
 | Phase 1 Validation UI (`/app/validation`) | **Implemented** — unit-batch JSON + source PDF (PDF.js) + admin status writes to `book_files.status` |
 | Book Workspace interactive spreads | **Partial / mock** — Beehive 1 page spreads only; other books show empty state |
 | Teacher AI assistant | **Mock** — deterministic responses; Gemini not wired |
@@ -264,27 +266,25 @@ That decision should be driven by demonstrated product requirements rather than 
 
 Original curriculum files such as PDFs should not normally be stored directly inside the relational database.
 
-Long-term storage may include:
+Intended split (D010):
 
 ```text
-Supabase Storage
-├── source PDFs
-├── extraction artifacts
-├── canonical JSON datasets
-└── generated exports
+Cloudflare R2 (private)
+└── book-sources/     textbook source PDFs
+
+Supabase Storage (private)
+├── book-datasets/    unit-batch + canonical JSON
+├── book-assets/      series/book cover images
+└── book-sources/     legacy PDF copies until migration verified (do not delete early)
 ```
 
-The locked object-storage provider is:
+**Locked for textbook source PDFs:** Cloudflare R2, bucket name `book-sources`, preserving existing logical object keys (`{series-slug}/{catalog_book_id}/source.pdf`).
 
-> **Supabase Storage**
+**Still on Supabase Storage for now:** dataset JSON and cover assets. Do not auto-migrate JSON to R2.
 
-Private buckets and upload workflows are in use for the pilot:
+**Runtime today:** Validation and upload scripts still use Supabase `book-sources` until Stages A–E in [`10-storage-architecture.md`](./10-storage-architecture.md) are executed.
 
-- `book-sources` — source PDFs  
-- `book-datasets` — unit-batch (and later canonical) JSON  
-- `book-assets` — series/book cover images  
-
-See `supabase/migrations/`, `supabase/README.md`, and `scripts/upload_*.mjs`.
+See also `supabase/migrations/`, `supabase/README.md`, and `scripts/upload_*.mjs`.
 
 ---
 
@@ -572,7 +572,8 @@ Styling               → Tailwind CSS
 Backend platform      → Supabase
 Database              → Supabase PostgreSQL
 Flexible documents    → PostgreSQL JSONB where useful
-Object storage        → Supabase Storage
+Object storage (PDFs) → Cloudflare R2 `book-sources` (D010; migration pending)
+Object storage (JSON / covers) → Supabase Storage for now
 Authentication        → Supabase Auth
 Curriculum format     → JSON canonical datasets (JSON-first)
 AI                    → Google Gemini API
@@ -587,7 +588,10 @@ Python                → processing / validation / AI tooling where appropriate
 ## Not yet locked / not yet implemented
 
 ```text
-Exact backend API shape (beyond direct Supabase client from the Vite app)
+Exact backend API shape for R2 signed URLs (serverless / Worker / other)
+R2 authentication method details (S3-compatible keys vs alternatives)
+Whether book_files needs an explicit storage-provider field
+Whether/when dataset JSON or covers also move off Supabase Storage
 Exact Python library choices beyond the tooling folder
 Background-job / automated extraction factory
 Search/indexing technology
@@ -595,11 +599,9 @@ Final production deployment architecture beyond Vercel preference
 Final relational curriculum projections (if any)
 When/how to use JSONB for curriculum documents
 Gemini (or other) live AI in the teacher assistant
-Canonical merge tooling and dataset_versions population
-Automated structural validation of Phase 1 JSON
 ```
 
-Live Supabase Auth, catalog tables, RLS, Storage buckets, and the Validation UI are already implemented for the pilot. Remaining items should be decided when product requirements provide enough evidence.
+Live Supabase Auth, catalog tables, RLS, Storage buckets, and the Validation UI are already implemented for the pilot. R2 PDF migration is documented but not started. Remaining items should be decided when product requirements provide enough evidence.
 
 ---
 

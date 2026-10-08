@@ -194,7 +194,7 @@ Phase 1 therefore serves two purposes:
 
 The current working workflow is:
 
-**PDF Source** (private Supabase Storage `book-sources`)
+**PDF Source** (intended: private Cloudflare R2 `book-sources`; live pilot still on Supabase Storage until D010 migration)
 
 ↓
 
@@ -206,7 +206,7 @@ The current working workflow is:
 
 ↓
 
-**Automated Validation** (optional / not yet run at scale)
+**Automated Validation** (D008 structural validator; human/source audit remain separate)
 
 ↓
 
@@ -214,11 +214,11 @@ The current working workflow is:
 
 ↓
 
-**Canonical Book Dataset** (merge after verification — not yet created for pilot books)
+**Canonical Book Dataset** (merge after verification — four Storage-backed pilots COMPLETE)
 
 Google Sheets remains an optional future inspection surface. For the current pilot, the React Validation workspace is the human verification UI.
 
-Canonical curriculum truth remains the verified JSON (and eventually the merged canonical book dataset), not the UI.
+Canonical curriculum truth remains the verified JSON (and the merged canonical book dataset), not the UI. Object-storage provider split: [`10-storage-architecture.md`](./10-storage-architecture.md).
 
 ---
 
