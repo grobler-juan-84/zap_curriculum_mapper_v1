@@ -182,7 +182,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BH1 | Beehive | 1 | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 10 | COMPLETE |
 | BH2 | Beehive | 2 | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
-| BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | IN PROGRESS | NOT STARTED | NOT CREATED | 0.1 | 18 | — | IN PROGRESS |
+| BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -424,7 +424,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
-# 8E. BE1-WB — Big English 1 Workbook (active)
+# 8E. BE1-WB — Big English 1 Workbook
 
 **Registry ID:** BE1-WB  
 **Series:** Big English  
@@ -445,23 +445,24 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Extraction Status:** EXTRACTED (unit batches `01–09`)  
 **Batch Path:** `data/phase1/big_english_1_wb/` (local working copies; Storage `book-datasets` is source of truth after upload)  
 **Source PDF:** R2 `big-english/big_english_1_wb/source.pdf` (D012)  
-**Automated Validation:** NOT RUN  
-**Human Verification:** IN PROGRESS  
-**Verification Notes:** Unit 9 human-verified 2026-10-08 for **available PDF content only** (`book_files.status = verified`; entity `verification_status = human_verified`). Printed pages 124–129 remain unextracted/unverified (`extraction_issues` `missing_source` left **open**). Units 1–8 not inferred complete from Unit 9 alone.  
-**Whole-Book Audit:** NOT STARTED  
-**Canonical Dataset:** NOT CREATED  
-**Phase 1 Status:** IN PROGRESS  
+**Automated Validation:** PASSED WITH WARNINGS (2026-10-08; 0 errors, 4 warnings — book page-range vs represented pages, null `source_filename`, unit range gaps 48–49 and 92–93)  
+**Human Verification:** COMPLETE (available PDF content; Units 1–9; all unit `book_files.status` = `verified`; `book.verification_status` = `human_verified`; `books.status` = `verified`)  
+**Verification Notes:** Approval covers all **available** source-PDF content. Printed pages 124–129 remain unextracted/unverified (`missing_source` left **open** per D013).  
+**Whole-Book Audit:** PASSED (2026-10-08; structural PASS + owner HV; see [`audits/BE1-WB_canonical_v1_audit.md`](./audits/BE1-WB_canonical_v1_audit.md))  
+**Canonical Dataset:** CREATED (`big-english/big_english_1_wb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
+**Phase 1 Status:** COMPLETE **with documented missing-source exception**  
 
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** 18 open `extraction_issues` across unit batches (includes Unit 9 missing printed pages 124–129; plus audio/visual review items). Missing pages are **non-blocking** for Unit 9 approval of available content (D013); they remain an outstanding completeness limitation for the book.  
-**Schema Gaps:** —  
+**Open Issues:** 20 (`audio_required` 19 + `missing_source` 1 for printed pp. 124–129). Missing pages accepted as non-blocking completeness debt (D013).  
+**Schema Gaps:** 0  
 
 ### Notes
 
+- Canonical merge 2026-10-08: 9 units, 120 pages, 211 vocab, 59 language, 276 activities. No page records for printed 124–129.
 - Do not invent page/activity/vocabulary records for printed 124–129 until a complete source PDF is available.
-- PDF viewer printed-page ↔ PDF-index navigation mismatch when pages are absent is deferred (F015); not blocking Unit 9 approval.
+- PDF viewer printed-page ↔ PDF-index navigation mismatch when pages are absent remains deferred (F015).
 
 ---
 
@@ -749,14 +750,14 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 14 |
+| Phase 1 Not Started | 13 |
 | Phase 1 In Progress | 0 |
-| Phase 1 Complete | 4 |
+| Phase 1 Complete | 5 |
 | Phase 1 Blocked | 0 |
-| Canonical Datasets Created | 4 |
-| Human Verification Complete | 4 |
-| Whole-Book Audits Passed | 4 |
-| Automated Validation Passed With Warnings | 4 |
+| Canonical Datasets Created | 5 |
+| Human Verification Complete | 5 |
+| Whole-Book Audits Passed | 5 |
+| Automated Validation Passed With Warnings | 5 |
 | Automated Validation Failed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -768,9 +769,9 @@ These counts should be updated whenever a book changes major processing status.
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Beehive | 2 | 1 | 0 | 1 | 0 |
-| Big English | 12 | 10 | 0 | 2 | 0 |
+| Big English | 12 | 9 | 0 | 3 | 0 |
 | Reach Higher | 4 | 3 | 0 | 1 | 0 |
-| **Total** | **18** | **14** | **0** | **4** | **0** |
+| **Total** | **18** | **13** | **0** | **5** | **0** |
 
 ---
 
@@ -994,11 +995,12 @@ Current Schema
 0.1 Development
 
 Phase 1 Complete
-4 / 18 (BE1-SB, BH1, BE2-SB, RH2A)
+5 / 18 (BE1-SB, BH1, BE2-SB, RH2A, BE1-WB with D013 missing-source exception)
 
-Storage-backed pilot books
+Storage-backed complete books
 Beehive 1 (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Big English 1 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
+Big English 1 WB (Phase 1 COMPLETE with D013 exception — printed pp. 124–129 missing from source PDF)
 Big English 2 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 
@@ -1007,11 +1009,10 @@ React /app/validation (unit-scoped canonical + source PDF)
 
 Automated structural validation
 Implemented (machine schema + shared JS validator + CLI)
-All four pilots: PASSED WITH WARNINGS (BE2-SB appendix sticker pages added 2026-10-07)
+Five complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-BE1-WB: finish human-verify Units 1–8 in Validation (Unit 9 approved 2026-10-08 with missing-source exception for printed pp. 124–129), then preflight → canonical merge → D008 → audit
-Then continue draft order: BH2 / BE2-WB / RH2B (§15)
+Continue draft order: BH2 / BE2-WB / RH2B (§15)
 ```
 
 ---

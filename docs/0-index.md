@@ -59,11 +59,12 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 catalog `book_id` / entity-ID naming for new books; no lesson planning or enrichment. | V2 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Phase 1 data specification: extraction boundaries, uncertainty, D009 batch naming, and verified-batch preflight → merge → automated canonical validation → source-audit workflow. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
-| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; four pilots complete; BE1-WB IN PROGRESS (Unit 9 verified with missing-source exception for printed pp. 124–129). | — | ACTIVE |
+| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; five books Phase 1 COMPLETE (BE1-WB with D013 missing-source exception for printed pp. 124–129). | — | ACTIVE |
 | [phase-1/cross-series-schema-review-notes.md](./phase-1/cross-series-schema-review-notes.md) | Cross-series schema 0.1 review; owner-accepted recommendations, 0.2 deferral, and the later D008 automated-validation status update. | 1.1 | ACTIVE |
 | [phase-1/book-id-alias-map.md](./phase-1/book-id-alias-map.md) | Catalog `book_id` is canonical (D007); D009 forward naming; pilot aliases grandfathered; BE1-WB prepared as `big_english_1_wb`. | 1.1 | ACTIVE |
 | [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map used by merge/normalize scripts; includes D009 BE1-WB entry. | 1 | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
+| [phase-1/audits/BE1-WB_canonical_v1_audit.md](./phase-1/audits/BE1-WB_canonical_v1_audit.md) | BE1-WB canonical whole-book audit PASSED with D013 missing-source exception (printed pp. 124–129); automated validation passed with warnings. | 1.2 | ACTIVE |
 | [phase-1/audits/BH1_canonical_v1_audit.md](./phase-1/audits/BH1_canonical_v1_audit.md) | BH1 canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 | [phase-1/audits/BE2-SB_canonical_v1_audit.md](./phase-1/audits/BE2-SB_canonical_v1_audit.md) | BE2-SB whole-book/source audit PASSED; appendix sticker pages added so automated validation now PASSED WITH WARNINGS. | 1.3 | ACTIVE |
 | [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
@@ -86,7 +87,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 28 | Current working docs, including index, operating trackers, naming conventions, storage architecture, and project-tracking |
+| ACTIVE | 29 | Current working docs, including index, operating trackers, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

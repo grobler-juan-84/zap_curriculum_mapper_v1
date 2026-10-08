@@ -2,36 +2,34 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 81  
+**Last updated:** Step 82  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
 
 ## Done
 
-- Auth, catalog, Validation; four Storage-backed pilots Phase 1 COMPLETE.
-- Schema remains **0.1**; D007–D013 locked; D008 validation integrated.
-- **R2 Stages A–E PASS** + **D012** R2-only source PDFs.
-- **BE1-WB staged** on catalog/R2/`book-datasets`.
-- **BE1-WB Unit 9** human-verified for available PDF content (D013); printed pp. 124–129 documented as open `missing_source`; viewer nav mismatch parked as F015.
+- Auth, catalog, Validation; D007–D013 locked; D008 validation integrated; D012 R2-only PDFs.
+- **Phase 1 COMPLETE (5/18):** BH1, BE1-SB, BE2-SB, RH2A, **BE1-WB** (with D013 missing-source exception for printed pp. 124–129).
+- BE1-WB: Units 1–9 human-verified → canonical merge → automated validation PASSED WITH WARNINGS → whole-book audit PASSED.
 
 ## In progress
 
-- Human Validation for BE1-WB Units 1–8 (Unit 9 approved with documented source exception).
+- Next book in draft continuation order (BH2 / BE2-WB / RH2B).
 
 ## Next
 
-- Owner: verify remaining BE1-WB units in Validation UI.
-- After all units verified: preflight → canonical merge → D008 → whole-book audit (follow-up prompt).
+- Choose and stage the next book after BE1-WB (registry §15).
+- Place remaining Big English PDFs locally under `app/src/assets/books/big-english/` as needed.
 
 ## Blocked
 
-- None (missing U9 printed pages are a completeness limitation, not a Phase 1 blocker for remaining unit review).
+- None.
 
 ---
 
 ## Snapshot notes
 
-- **Phase 1 Complete:** 4 / 18 (BE1-WB IN PROGRESS).
-- **Local working copies:** PDFs in `app/src/assets/books/`; unit JSON in `data/phase1/` — never commit either.
-- **Active book:** BE1-WB (`big_english_1_wb`).
+- **Phase 1 Complete:** 5 / 18.
+- **BE1-WB exception:** printed pages 124–129 absent from source PDF; open `missing_source`; no invented pages.
+- **Project-wide Phase 1** is not complete — remaining books still open.

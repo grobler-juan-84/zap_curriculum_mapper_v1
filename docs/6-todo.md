@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 81  
+**Last updated:** Step 82  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -11,18 +11,14 @@
 
 - [x] Four Storage-backed pilots Phase 1 COMPLETE (merge + audit + D008 validation).
 - [x] D009 naming authority + safe cosmetic renames.
-- [x] Document Cloudflare R2 PDF storage architecture (D010).
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
-- [x] Align local source PDFs to `app/src/assets/books/` and harden gitignore so PDFs never reach GitHub.
-- [x] Scaffold remaining Big English unit-batch JSON folders under `data/phase1/` (gitignored placeholders).
-- [x] Register BE1-WB in catalog + upload source PDF to R2 + upload 9 unit JSON to `book-datasets`.
-- [x] BE1-WB Unit 9 human-verified (available PDF content; missing printed pp. 124–129 = open `missing_source`; D013).
-- [ ] **Owner:** Human-verify BE1-WB Units 1–8 in Validation (do not mark book-level HV complete until all units approved).
+- [x] Register BE1-WB + upload PDF/JSON; Unit 9 verify with D013 missing-source exception.
+- [x] BE1-WB book-level HV + canonical merge + automated validation + whole-book audit → Phase 1 COMPLETE (with exception).
+- [ ] Choose next book from draft order (BH2 / BE2-WB / RH2B per registry §15) and stage catalog + source.
 - [ ] Place remaining Big English PDFs locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
 
 ## Next
 
-- [ ] After BE1-WB units verified: preflight → canonical merge → D008 automated validation → whole-book audit.
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon

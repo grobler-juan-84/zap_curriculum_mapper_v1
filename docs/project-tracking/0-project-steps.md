@@ -1400,4 +1400,23 @@
 
 ---
 
+### Step 82
+
+**Summary:** Finalized BE1-WB Phase 1: confirmed Units 1–9 verified, book-level human verification (available PDF content), canonical merge + automated validation PASSED WITH WARNINGS, whole-book audit PASSED. Kept Unit 9 printed pages 124–129 as open `missing_source` (D013). Project-wide Phase 1 remains incomplete (5/18).
+
+**Files touched:**
+- `scripts/finalize_be1wb_human_verify.mjs` (created)
+- `scripts/check_be1wb_unit_status.mjs` (created)
+- `scripts/check_be1wb_storage_verify.mjs` (created)
+- `data/phase1/big_english_1_wb/` unit + canonical JSON (updated locally + Storage; gitignored)
+- `docs/phase-1/audits/BE1-WB_canonical_v1_audit.md` (created)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
