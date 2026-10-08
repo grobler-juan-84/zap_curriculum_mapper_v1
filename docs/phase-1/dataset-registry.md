@@ -184,7 +184,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-SB | Big English | 1 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 39 | 1 | COMPLETE |
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
-| BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -752,14 +752,14 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 13 |
+| Phase 1 Not Started | 12 |
 | Phase 1 In Progress | 0 |
-| Phase 1 Complete | 5 |
+| Phase 1 Complete | 6 |
 | Phase 1 Blocked | 0 |
-| Canonical Datasets Created | 5 |
-| Human Verification Complete | 5 |
-| Whole-Book Audits Passed | 5 |
-| Automated Validation Passed With Warnings | 5 |
+| Canonical Datasets Created | 6 |
+| Human Verification Complete | 6 |
+| Whole-Book Audits Passed | 6 |
+| Automated Validation Passed With Warnings | 6 |
 | Automated Validation Failed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -771,9 +771,9 @@ These counts should be updated whenever a book changes major processing status.
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Beehive | 2 | 1 | 0 | 1 | 0 |
-| Big English | 12 | 9 | 0 | 3 | 0 |
+| Big English | 12 | 8 | 0 | 4 | 0 |
 | Reach Higher | 4 | 3 | 0 | 1 | 0 |
-| **Total** | **18** | **13** | **0** | **5** | **0** |
+| **Total** | **18** | **12** | **0** | **6** | **0** |
 
 ---
 
@@ -997,13 +997,14 @@ Current Schema
 0.1 Development
 
 Phase 1 Complete
-5 / 18 (BE1-SB, BH1, BE2-SB, RH2A, BE1-WB with D013 missing-source exception)
+6 / 18 (BE1-SB, BH1, BE2-SB, RH2A, BE1-WB with D013 exception, BE2-WB)
 
 Storage-backed complete books
 Beehive 1 (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Big English 1 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Big English 1 WB (Phase 1 COMPLETE with D013 exception — printed pp. 124–129 missing from source PDF)
 Big English 2 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
+Big English 2 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; U8/U9 ID remumber + appendix p.141 omission noted)
 Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 
 Verification UI
@@ -1011,12 +1012,10 @@ React /app/validation (unit-scoped canonical + source PDF)
 
 Automated structural validation
 Implemented (machine schema + shared JS validator + CLI)
-Five complete books: PASSED WITH WARNINGS
+Six complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-BE2-WB: preflight → canonical merge → D008 → whole-book audit (Units 1–9 human-verified 2026-10-08; PDF via r2)
-Note: extraction alias big_english_plus_2_wb (entity prefixes preserved; catalog big_english_2_wb)
-Owner prefers continuing Big English; BH2/RH2B deferred (§15 note)
+Continue Big English (e.g. BE3-SB/WB) or pull BH2/RH2B when ready (§15 note)
 ```
 
 ---

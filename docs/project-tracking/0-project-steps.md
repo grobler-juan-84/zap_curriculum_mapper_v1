@@ -1490,4 +1490,23 @@
 
 ---
 
+### Step 87
+
+**Summary:** Completed BE2-WB Phase 1: remumbered colliding Unit 8–9 entity IDs, fixed language slug + dangling page_141 relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 6/18.
+
+**Files touched:**
+- `scripts/renumber_be2wb_units_08_09.mjs` (created)
+- `scripts/fix_be2wb_merge_blockers.mjs` (created)
+- `scripts/inspect_be2wb_id_ranges.mjs` (created)
+- `data/phase1/big_english_2_wb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE2-WB_canonical_v1_audit.md` (created)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

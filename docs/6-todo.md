@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 86  
+**Last updated:** Step 87  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -12,13 +12,9 @@
 - [x] Four Storage-backed pilots Phase 1 COMPLETE (merge + audit + D008 validation).
 - [x] D009 naming authority + safe cosmetic renames.
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
-- [x] Register BE1-WB + upload PDF/JSON; Unit 9 verify with D013 missing-source exception.
-- [x] BE1-WB book-level HV + canonical merge + automated validation + whole-book audit → Phase 1 COMPLETE (with exception).
-- [x] All 12 Big English PDFs present locally as `big_english_{level}_{sb|wb}.pdf` under `app/src/assets/books/big-english/` (gitignored).
-- [x] Choose next book: **BE2-WB** (continue Big English; BH2 deferred). Catalog + R2 source PDF staged.
-- [x] Extract BE2-WB Units 1–9 + upload 9 batches to `book-datasets`.
-- [x] Human-verify BE2-WB Units 1–9 in Validation (PDF `via r2`; all batches `verified`; book-level HV recorded).
-- [ ] BE2-WB: preflight → canonical merge → D008 automated validation → whole-book audit.
+- [x] BE1-WB Phase 1 COMPLETE (with D013 missing-source exception).
+- [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
+- [ ] Choose next Big English book (e.g. BE3-SB) or pull BH2/RH2B; stage catalog + source.
 
 ## Next
 

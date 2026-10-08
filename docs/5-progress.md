@@ -2,23 +2,23 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 86  
+**Last updated:** Step 87  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
 
 ## Done
 
-- **Phase 1 COMPLETE (5/18):** BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013 exception).
-- **BE2-WB human verification COMPLETE** — Units 1–9 verified in Validation (PDF via R2); `books.status=verified`; JSON metadata synced.
+- **Phase 1 COMPLETE (6/18):** BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013), **BE2-WB**.
+- BE2-WB: merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED (U8/U9 ID remumber; appendix p.141 omission documented).
 
 ## In progress
 
-- BE2-WB ready for canonical merge / D008 / whole-book audit.
+- Choosing next book (continue Big English or pull BH2/RH2B).
 
 ## Next
 
-- Run BE2-WB preflight → merge → automated validation → whole-book audit.
+- Stage next book catalog + source PDF (R2) when chosen.
 
 ## Blocked
 
@@ -28,5 +28,5 @@
 
 ## Snapshot notes
 
-- **Phase 1 Complete:** 5 / 18 (BE2-WB IN PROGRESS post-HV).
-- **Active book:** BE2-WB (`big_english_2_wb`; extraction alias `big_english_plus_2_wb`).
+- **Phase 1 Complete:** 6 / 18.
+- **BE2-WB canonical:** `big-english/big_english_2_wb/canonical/v1.json`
