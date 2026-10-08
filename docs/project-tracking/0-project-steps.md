@@ -1186,3 +1186,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 71
+
+**Summary:** Ran R2 Stage B connectivity test successfully (list / put / get+SHA-256 / delete under `_connection-tests/`). Normalized endpoint when `R2_ACCOUNT_ID` contains a full URL. Marked Stage B PASS in docs; no PDF migration.
+
+**Files touched:**
+- `scripts/test_r2_connection.mjs` (updated)
+- `docs/10-storage-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

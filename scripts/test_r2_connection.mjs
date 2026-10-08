@@ -42,7 +42,34 @@ function loadEnvFile(path) {
 loadEnvFile(resolve(root, '.env.local'))
 loadEnvFile(resolve(root, '.env'))
 
-const accountId = (process.env.R2_ACCOUNT_ID || '').trim()
+function normalizeAccountAndEndpoint(rawAccountId, rawEndpoint) {
+  let accountId = (rawAccountId || '').trim()
+  let endpoint = (rawEndpoint || '').trim()
+
+  // Owners sometimes paste the full S3 endpoint into R2_ACCOUNT_ID.
+  if (/^https?:\/\//i.test(accountId)) {
+    try {
+      const u = new URL(accountId)
+      if (!endpoint) endpoint = `${u.protocol}//${u.host}`
+      const host = u.host
+      const m = host.match(/^([a-f0-9]+)\.r2\.cloudflarestorage\.com$/i)
+      if (m) accountId = m[1]
+    } catch {
+      /* keep raw; validation below will fail clearly */
+    }
+  } else if (/\.r2\.cloudflarestorage\.com$/i.test(accountId)) {
+    if (!endpoint) endpoint = `https://${accountId}`
+    const m = accountId.match(/^([a-f0-9]+)\.r2\.cloudflarestorage\.com$/i)
+    if (m) accountId = m[1]
+  }
+
+  if (!endpoint && accountId) {
+    endpoint = `https://${accountId}.r2.cloudflarestorage.com`
+  }
+
+  return { accountId, endpoint }
+}
+
 const accessKeyId = (process.env.R2_ACCESS_KEY_ID || '').trim()
 const secretAccessKey = (process.env.R2_SECRET_ACCESS_KEY || '').trim()
 const bucket = (
@@ -50,10 +77,10 @@ const bucket = (
   process.env.R2_BUCKET_BOOK_SOURCES ||
   'book-sources'
 ).trim()
-const endpoint =
-  (process.env.R2_ENDPOINT || '').trim() ||
-  (accountId ? `https://${accountId}.r2.cloudflarestorage.com` : '')
-
+const { accountId, endpoint } = normalizeAccountAndEndpoint(
+  process.env.R2_ACCOUNT_ID,
+  process.env.R2_ENDPOINT,
+)
 function redactedStatus(label, ok) {
   console.log(`${label}: ${ok ? 'PASS' : 'FAIL'}`)
 }
@@ -220,26 +247,24 @@ try {
 }
 redactedStatus('Test deletion', results.deletion)
 
-// Unauthenticated public URL probe (r2.dev / pub style is account-specific;
-// path-style on the S3 endpoint without auth should not succeed for a private bucket).
+// Unauthenticated probe against the S3 API endpoint (not a public r2.dev URL).
+// 200 would be concerning; 400/401/403/404 mean the object is not anonymously readable.
 try {
-  const publicProbeUrl = `${endpoint.replace(/\/$/, '')}/${bucket}/${encodeURIComponent(testKey).replace(/%2F/g, '/')}`
-  const res = await fetch(publicProbeUrl, { method: 'HEAD' })
-  // Object was deleted; a private bucket should not return 200 for anonymous access to any key.
-  // Probe a synthetic key that never existed:
   const neverKey = `_connection-tests/does-not-exist-${randomUUID()}.txt`
-  const probe2 = await fetch(
-    `${endpoint.replace(/\/$/, '')}/${bucket}/${neverKey.split('/').map(encodeURIComponent).join('/')}`,
-    { method: 'GET' },
+  const probeUrl = `${endpoint.replace(/\/$/, '')}/${bucket}/${neverKey
+    .split('/')
+    .map(encodeURIComponent)
+    .join('/')}`
+  const probe = await fetch(probeUrl, { method: 'GET' })
+  results.publicDenied = [400, 401, 403, 404].includes(probe.status)
+  console.log(
+    `Anonymous GET probe status: ${probe.status} (${results.publicDenied ? 'not publicly readable' : 'UNEXPECTED — investigate'})`,
   )
-  results.publicDenied = probe2.status === 403 || probe2.status === 401 || probe2.status === 404
-  console.log(`Anonymous GET probe status: ${probe2.status} (${results.publicDenied ? 'not publicly readable' : 'UNEXPECTED — investigate'})`)
-  void publicProbeUrl
-  void res
 } catch (err) {
-  // Network errors still suggest no open public read path from this client
   results.publicDenied = true
-  console.log(`Anonymous GET probe: network/error (${err?.message ?? err}) — treat as not publicly readable from this host`)
+  console.log(
+    `Anonymous GET probe: network/error (${err?.message ?? err}) — treat as not publicly readable from this host`,
+  )
 }
 
 console.log('')
@@ -263,7 +288,12 @@ const allOk =
   results.downloadChecksum &&
   results.deletion
 
+try {
+  client.destroy()
+} catch {
+  /* ignore */
+}
+
 process.exit(allOk ? 0 : 1)
 
-// silence unused import in some bundlers
 void pathToFileURL

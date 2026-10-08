@@ -134,11 +134,14 @@ Vendor SDK install (gitignored): `npm install --prefix scripts/.r2-tools @aws-sd
 
 ### Stage B — Connectivity testing
 
-- [ ] Verify bucket list/access with configured credentials
-- [ ] Upload a small non-curriculum test object under `_connection-tests/`
-- [ ] Retrieve and verify the object (SHA-256)
-- [ ] Delete the test object
-- [ ] Confirm permissions are least-privilege and bucket remains private (token scope: Cloudflare dashboard confirmation)
+- [x] Verify bucket list/access with configured credentials (2026-10-08 — `scripts/test_r2_connection.mjs`)
+- [x] Upload a small non-curriculum test object under `_connection-tests/`
+- [x] Retrieve and verify the object (SHA-256)
+- [x] Delete the test object (verified absent after delete)
+- [x] Anonymous S3-endpoint GET heuristic: not publicly readable (400/401/403/404)
+- [ ] Confirm API token bucket scope in Cloudflare dashboard (Object Read & Write limited to `book-sources` — not provable via S3 API alone)
+
+**Stage B result:** PASS (2026-10-08). No textbook PDFs migrated; existing prefix placeholders under series folders were listed only and not modified. Script accepts either a bare account id or a full `https://…r2.cloudflarestorage.com` value in `R2_ACCOUNT_ID`.
 
 ### Stage C — PDF pilot
 
@@ -188,3 +191,4 @@ D010 refines **only** the object-storage provider for textbook source PDFs (Clou
 | Date | Change |
 |---|---|
 | 2026-10-08 | Created; documented R2 PDF target, security rules, and Stages A–E (docs-only; no migration executed). |
+| 2026-10-08 | Stage B PASS via `scripts/test_r2_connection.mjs` (list / put / get+SHA-256 / delete under `_connection-tests/`). |
