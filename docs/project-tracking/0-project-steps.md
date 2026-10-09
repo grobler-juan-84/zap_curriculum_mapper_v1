@@ -1898,4 +1898,22 @@
 
 ---
 
+### Step 108
+
+**Summary:** Completed BE6-SB Phase 1: HV finalize, U1 wordlist page_id hygiene, canonical v1 merge, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 13/18.
+
+**Files touched:**
+- `scripts/fix_be6sb_merge_blockers.mjs` (created)
+- `data/phase1/big_english_6_sb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE6-SB_canonical_v1_audit.md` (created)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

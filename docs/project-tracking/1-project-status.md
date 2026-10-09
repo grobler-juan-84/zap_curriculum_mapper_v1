@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 107  
+**Last updated:** Step 108  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Twelve books Phase 1 COMPLETE; level 5 Big English pair closed.
+- Thirteen books Phase 1 COMPLETE, including BE6-SB.
 
 ## Current status
 
-BE6-SB and BE6-WB staged and awaiting human verification.
+BE6-WB is the last staged Big English book awaiting human verification.
 
 ## Next small step
 
-**Suggestion:** Verify BE6-SB or BE6-WB in Validation; say when Units 1–9 are done.
+**Suggestion:** Verify BE6-WB Units 1–9 in Validation, then finalize → merge → audit.
 
