@@ -59,9 +59,9 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). | V2 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Phase 1 data specification: extraction boundaries, uncertainty, D009 batch naming, and verified-batch preflight → merge → automated canonical validation → source-audit workflow. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
-| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; eight Phase 1 COMPLETE; BE4-SB HV COMPLETE (merge pending). | — | ACTIVE |
+| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; nine Phase 1 COMPLETE (incl. BE4-SB; BE3-SB D013 pp. 66–67). | — | ACTIVE |
 | [phase-1/cross-series-schema-review-notes.md](./phase-1/cross-series-schema-review-notes.md) | Cross-series schema 0.1 review; owner-accepted recommendations, 0.2 deferral, and the later D008 automated-validation status update. | 1.1 | ACTIVE |
-| [phase-1/book-id-alias-map.md](./phase-1/book-id-alias-map.md) | Catalog `book_id` is canonical (D007); D009 forward naming; active BE4-SB (`bep4_sb`); BE3 pair COMPLETE. | 1.5 | ACTIVE |
+| [phase-1/book-id-alias-map.md](./phase-1/book-id-alias-map.md) | Catalog `book_id` is canonical (D007); D009 forward naming; BE3/BE4-SB COMPLETE with mixed Studio prefixes (grandfathered entity IDs). | 1.5 | ACTIVE |
 | [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map; includes BE4-SB and prior BE Studio aliases for merge-time `book_id` normalization. | 1 | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 | [phase-1/audits/BE1-WB_canonical_v1_audit.md](./phase-1/audits/BE1-WB_canonical_v1_audit.md) | BE1-WB canonical whole-book audit PASSED with D013 missing-source exception (printed pp. 124–129); automated validation passed with warnings. | 1.2 | ACTIVE |
@@ -70,6 +70,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/audits/BE2-WB_canonical_v1_audit.md](./phase-1/audits/BE2-WB_canonical_v1_audit.md) | BE2-WB canonical whole-book audit PASSED; U8/U9 remumber root cause = mid-book new Studio chats; appendix p.141 omission documented. | 1.3 | ACTIVE |
 | [phase-1/audits/BE3-SB_canonical_v1_audit.md](./phase-1/audits/BE3-SB_canonical_v1_audit.md) | BE3-SB canonical whole-book audit PASSED; U3/U4 ID remumber + U2 workbook null-rel fix; missing pp. 66–67 (D013); D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/BE3-WB_canonical_v1_audit.md](./phase-1/audits/BE3-WB_canonical_v1_audit.md) | BE3-WB canonical whole-book audit PASSED; grammar pages 136/139/140; U5 p.138 relationship fix; D008 passed with warnings. | 1.0 | ACTIVE |
+| [phase-1/audits/BE4-SB_canonical_v1_audit.md](./phase-1/audits/BE4-SB_canonical_v1_audit.md) | BE4-SB canonical whole-book audit PASSED; U4/U9 Studio unit-ID relationship remap; checkpoint gaps 52–57 / 106–111; D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 
 ### Phase 4
