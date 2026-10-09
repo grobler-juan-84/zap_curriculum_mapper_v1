@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 112
+**Last updated:** Step 113
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,19 +16,21 @@
 
 - App TS identity mapper cleanup: `catalogBookId` / `bookUuid` (replaces overloaded `bookId` / `stableBookId`).
 
-- **D016:** First Phase 2 candidates locked — BE2-SB Units 6 / 7 / 8; Unit 6 *My Day* first. Candidate note + U6 experiment protocol written (no schema lock). Local BE1-SB canonical restored for offline work.
+- **D016:** First Phase 2 candidates locked — BE2-SB Units 6 / 7 / 8; Unit 6 *My Day* first.
+
+- **P2-EXP-BE2-U06-v1 executed:** review artifact written; self-eval E1–E6 PASS; awaiting owner review (no schema lock).
 
 ## In progress
 
-- **Phase 2 experiment `P2-EXP-BE2-U06-v1`:** protocol READY; interpretation run not yet started.
+- Owner review of [`phase-2/p2-exp-be2-u06-v1-review.md`](./phase-2/p2-exp-be2-u06-v1-review.md).
 
 ## Next
 
-- Run the bounded BE2-SB Unit 6 interpretation pass per [`phase-2/be2-unit-6-experiment-protocol.md`](./phase-2/be2-unit-6-experiment-protocol.md) and owner-review the artifact.
+- Owner accepts, revises protocol, or requests re-run; only then define/run BE2-SB Unit 7.
 
 ## Blocked
 
-- None.
+- None (soft wait on owner review before U7).
 
 ---
 
@@ -38,4 +40,4 @@
 
 - **Deferred Phase 1 books:** BH2, RH2B, RH3A, RH4A (all NOT STARTED).
 
-- **Immediate Phase 2 scope:** Big English only; Beehive and Reach Higher excluded; first run = BE2 U6.
+- **Immediate Phase 2 scope:** Big English only; first run = BE2 U6 (executed, under review).

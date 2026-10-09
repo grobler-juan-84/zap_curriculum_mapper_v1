@@ -18,7 +18,7 @@
 | Focus unit ID | `bep2_unit_06` |
 | Printed pages | 90–105 |
 | Candidate set | [`be2-candidate-units.md`](./be2-candidate-units.md) |
-| Run status | **READY** (protocol defined; interpretation not started) |
+| Run status | **EXECUTED** — review artifact [`p2-exp-be2-u06-v1-review.md`](./p2-exp-be2-u06-v1-review.md) awaiting owner review |
 
 ---
 
@@ -171,3 +171,4 @@ Estimated effort: one focused analysis pass + owner review. No code delivery req
 | Date | Change |
 |---|---|
 | 2026-10-09 | Created bounded first-experiment protocol for BE2-SB Unit 6 (D016). |
+| 2026-10-09 | First run executed; status → EXECUTED (criteria E1–E6 and scope unchanged). |

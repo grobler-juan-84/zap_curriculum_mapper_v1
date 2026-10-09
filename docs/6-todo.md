@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 112
+**Last updated:** Step 113
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -26,11 +26,11 @@
 
 - [x] Record D016: approve BE2-SB U6 / U7 / U8 candidates; define Unit 6 experiment protocol; restore local BE1-SB canonical.
 
+- [x] Execute `P2-EXP-BE2-U06-v1` and produce review artifact (E1–E6 self-eval PASS).
+
 ## Now
 
-- [ ] Run Phase 2 experiment `P2-EXP-BE2-U06-v1` (BE2-SB Unit 6 *My Day*) per [`phase-2/be2-unit-6-experiment-protocol.md`](./phase-2/be2-unit-6-experiment-protocol.md) and produce the review artifact.
-
-- [ ] Owner-review the U6 experiment artifact against evaluation criteria E1–E6.
+- [ ] Owner-review [`phase-2/p2-exp-be2-u06-v1-review.md`](./phase-2/p2-exp-be2-u06-v1-review.md) (accept / revise protocol / re-run).
 
 ## Soon
 
