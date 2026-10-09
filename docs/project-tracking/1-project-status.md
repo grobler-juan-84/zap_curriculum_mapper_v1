@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 104  
+**Last updated:** Step 105  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Ten books Phase 1 COMPLETE, including BE4-WB (level 4 pair closed).
+- Ten books Phase 1 COMPLETE; remaining Big English (BE5/BE6 SB+WB) staged for Validation.
 
 ## Current status
 
-Ready to choose the next book (BE5-SB, BH2, or RH2B).
+BE5-SB, BE5-WB, BE6-SB, BE6-WB ready for human verification (`extracted`, batches `pending`).
 
 ## Next small step
 
-**Suggestion:** Stage BE5-SB when local JSON/PDF are ready (catalog + R2 PDF), or pull BH2/RH2B.
+**Suggestion:** Verify units in Validation (any order); say when a book’s Units 1–9 are done for finalize → merge → audit.
 

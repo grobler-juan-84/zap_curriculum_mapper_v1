@@ -116,6 +116,58 @@ export const PHASE1_BOOKS = {
         `big-english/big_english_4_wb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
     ),
   },
+  big_english_5_sb: {
+    catalogBookId: 'big_english_5_sb',
+    registryId: 'BE5-SB',
+    displayName: 'Big English 5 Student Book',
+    seriesSlug: 'big-english',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE5-SB_canonical_v1_audit.md',
+    unitPaths: Array.from(
+      { length: 9 },
+      (_, index) =>
+        `big-english/big_english_5_sb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
+    ),
+  },
+  big_english_5_wb: {
+    catalogBookId: 'big_english_5_wb',
+    registryId: 'BE5-WB',
+    displayName: 'Big English 5 Workbook',
+    seriesSlug: 'big-english',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE5-WB_canonical_v1_audit.md',
+    unitPaths: Array.from(
+      { length: 9 },
+      (_, index) =>
+        `big-english/big_english_5_wb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
+    ),
+  },
+  big_english_6_sb: {
+    catalogBookId: 'big_english_6_sb',
+    registryId: 'BE6-SB',
+    displayName: 'Big English 6 Student Book',
+    seriesSlug: 'big-english',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE6-SB_canonical_v1_audit.md',
+    unitPaths: Array.from(
+      { length: 9 },
+      (_, index) =>
+        `big-english/big_english_6_sb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
+    ),
+  },
+  big_english_6_wb: {
+    catalogBookId: 'big_english_6_wb',
+    registryId: 'BE6-WB',
+    displayName: 'Big English 6 Workbook',
+    seriesSlug: 'big-english',
+    expectedUnits: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    reportFile: 'BE6-WB_canonical_v1_audit.md',
+    unitPaths: Array.from(
+      { length: 9 },
+      (_, index) =>
+        `big-english/big_english_6_wb/batches/unit_${String(index + 1).padStart(2, '0')}.json`,
+    ),
+  },
   reach_higher_2a: {
     catalogBookId: 'reach_higher_2a',
     registryId: 'RH2A',

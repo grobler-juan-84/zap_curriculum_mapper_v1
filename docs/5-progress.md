@@ -2,24 +2,24 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 104  
+**Last updated:** Step 105  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
 
 ## Done
 
-- **Phase 1 COMPLETE (10/18):** BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013), BE2-WB, BE3-SB (D013 pp. 66–67), BE3-WB, BE4-SB, **BE4-WB**.
-- Level 4 Big English pair closed (SB + WB).
-- BE4-WB: HV → merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED (U7 remumber; grammar overlaps; p.88/137/141 omissions).
+- **Phase 1 COMPLETE (10/18):** BH1, BE1–BE4 SB/WB pairs (with D013 notes on BE1-WB / BE3-SB), RH2A.
+- Remaining Big English books **staged**: BE5-SB, BE5-WB, BE6-SB, BE6-WB (catalog + R2 PDF + 9 batches each; `extracted`).
 
 ## In progress
 
-- Choosing next book (BE5-SB, BH2, or RH2B per §15).
+- Human verification of BE5-SB / BE5-WB / BE6-SB / BE6-WB in Validation (owner).
 
 ## Next
 
-- Stage next book when chosen (catalog + R2 PDF + batches).
+- After HV per book: finalize → merge → D008 → whole-book audit.
+- Or pull BH2 / RH2B when ready.
 
 ## Blocked
 
@@ -30,5 +30,5 @@
 ## Snapshot notes
 
 - **Phase 1 Complete:** 10 / 18.
-- **BE4-WB canonical:** `big-english/big_english_4_wb/canonical/v1.json`
+- **Staged awaiting HV:** BE5-SB, BE5-WB, BE6-SB, BE6-WB.
 

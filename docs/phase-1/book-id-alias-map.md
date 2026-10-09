@@ -1,7 +1,7 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.7  
+**Version:** 1.8  
 **Date:** 2026-10-09  
   
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
@@ -79,6 +79,17 @@ For every book extracted **after** the four COMPLETE pilots:
 
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
+
+### Current — BE5 / BE6 (staged)
+
+| Registry | Catalog `book_id` | Series slug | Aliases (Studio) |
+|---|---|---|---|
+| BE5-SB | `big_english_5_sb` | `big-english` | `bep5_sb`, `bep_5_sb`, `bep_sb_5` |
+| BE5-WB | `big_english_5_wb` | `big-english` | `bep5_wb`, `bep_5_wb` |
+| BE6-SB | `big_english_6_sb` | `big-english` | `bep6_sb`, `bep_6_sb`, `bep_sb6`, `bep_sb_6`, `big_english_plus_6_sb` |
+| BE6-WB | `big_english_6_wb` | `big-english` | `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb` |
+
+Staged 2026-10-09 (catalog + R2 PDF + 9 batches). Local normalize rewrites `book_id` / `unit_id` only; entity ID strings preserved (D007). Awaiting human verification.
 
 ### Prior — BE4-WB (complete)
 

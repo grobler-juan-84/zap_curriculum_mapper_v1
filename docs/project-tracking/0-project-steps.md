@@ -1836,4 +1836,29 @@
 
 ---
 
+### Step 105
+
+**Summary:** Staged remaining Big English books (BE5-SB, BE5-WB, BE6-SB, BE6-WB): sanitized/normalized unit JSON, catalog seed + R2 PDFs, uploaded 9 batches each as `pending`, set `books.status=extracted`. Owner HV next.
+
+**Files touched:**
+- `scripts/sanitize_be_unit_json.mjs` (created)
+- `scripts/normalize_be_units.mjs` (created)
+- `scripts/stage_big_english_books.mjs` (created)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `supabase/migrations/20261009160000_seed_big_english_5_6.sql` (created)
+- `data/phase1/big_english_5_sb/` / `_5_wb/` / `_6_sb/` / `_6_wb/` (updated; gitignored; Storage uploaded)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

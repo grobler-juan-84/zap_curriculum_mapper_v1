@@ -189,10 +189,10 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 31 | 1 | COMPLETE |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 23 | 10 | COMPLETE |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 40 | 3 | COMPLETE |
-| BE5-SB | Big English | 5 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
-| BE6-WB | Big English | 6 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE5-SB | Big English | 5 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
+| BE5-WB | Big English | 5 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
+| BE6-SB | Big English | 6 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
+| BE6-WB | Big English | 6 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
 | RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 14 | 5 | COMPLETE |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -712,6 +712,90 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8K. BE5-SB — Big English 5 Student Book
+
+**Registry ID:** BE5-SB  
+**Catalog `book_id`:** `big_english_5_sb`  
+**Series slug:** `big-english`  
+**Source PDF:** R2 → `big-english/big_english_5_sb/source.pdf` (D012; ~17.1 MB)  
+**Catalog:** seeded (`books` + `book_files` source_pdf + 9 batch_json pointers)  
+**Extraction Status:** EXTRACTED (Units 1–9 in Storage; `books.status=extracted`)  
+**Human Verification:** NOT STARTED (`pending`)  
+**Phase 1 Status:** IN PROGRESS  
+
+Studio aliases: `bep5_sb`, `bep_5_sb`, `bep_sb_5`. Local normalize rewrote `book_id` / `unit_id` to catalog. BE5-SB U03 JSON repaired (corrupt language/activity splice + quote sanitize).
+
+| Unit | Title | Printed pages |
+|---:|---|---|
+| 1 | My Interests | 4–19 |
+| 2 | Family Ties | 20–35 |
+| 3 | Helping Others | 36–51 |
+| 4 | Shopping Around | 58–73 |
+| 5 | Vacation Time | 74–89 |
+| 6 | The Future! | 90–105 |
+| 7 | What's That? | 112–127 |
+| 8 | Where Do They Come From? | 128–143 |
+| 9 | HOW ADVENTUROUS ARE YOU? | 144–159 |
+
+---
+
+# 8L. BE5-WB — Big English 5 Workbook
+
+**Registry ID:** BE5-WB  
+**Catalog `book_id`:** `big_english_5_wb`  
+**Series slug:** `big-english`  
+**Source PDF:** R2 → `big-english/big_english_5_wb/source.pdf` (D012; ~10.8 MB)  
+**Catalog:** seeded  
+**Extraction Status:** EXTRACTED (`books.status=extracted`)  
+**Human Verification:** NOT STARTED (`pending`)  
+**Phase 1 Status:** IN PROGRESS  
+
+Studio aliases: `bep5_wb`, `bep_5_wb`. Grammar/appendix pages appear on U5/U6/U7 (ranges extend to 140–142).
+
+---
+
+# 8M. BE6-SB — Big English 6 Student Book
+
+**Registry ID:** BE6-SB  
+**Catalog `book_id`:** `big_english_6_sb`  
+**Series slug:** `big-english`  
+**Source PDF:** R2 → `big-english/big_english_6_sb/source.pdf` (D012; ~17.0 MB)  
+**Catalog:** seeded  
+**Extraction Status:** EXTRACTED (`books.status=extracted`)  
+**Human Verification:** NOT STARTED (`pending`)  
+**Phase 1 Status:** IN PROGRESS  
+
+Studio aliases: `bep6_sb`, `bep_6_sb`, `bep_sb6`, `bep_sb_6`, `big_english_plus_6_sb`.
+
+| Unit | Title | Printed pages |
+|---:|---|---|
+| 1 | ALL ABOUT SCHOOL | 4–19 |
+| 2 | Amazing Young People | 20–35 |
+| 3 | Dilemmas | 36–51 |
+| 4 | Dreams for the Future | 58–73 |
+| 5 | IF I COULD FLY... | 74–89 |
+| 6 | The Coolest School Subjects | 90–105 |
+| 7 | Mysteries! | 112–127 |
+| 8 | Why Is It Famous? | 128–143 |
+| 9 | That's Entertainment! | 144–159 |
+
+---
+
+# 8N. BE6-WB — Big English 6 Workbook
+
+**Registry ID:** BE6-WB  
+**Catalog `book_id`:** `big_english_6_wb`  
+**Series slug:** `big-english`  
+**Source PDF:** R2 → `big-english/big_english_6_wb/source.pdf` (D012; ~11.5 MB)  
+**Catalog:** seeded  
+**Extraction Status:** EXTRACTED (`books.status=extracted`)  
+**Human Verification:** NOT STARTED (`pending`)  
+**Phase 1 Status:** IN PROGRESS  
+
+Studio aliases: `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb`. U03 JSON repaired (malformed item key). Grammar pages on U3/U4 (ranges to 138–139).
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.
@@ -896,7 +980,7 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
-**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed); **BE4-SB** and **BE4-WB** Phase 1 COMPLETE (level 4 pair closed).
+**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed); **BE4-SB** and **BE4-WB** Phase 1 COMPLETE (level 4 pair closed); **BE5-SB / BE5-WB / BE6-SB / BE6-WB** staged (catalog + R2 PDF + 9 batches each; HV next).
 
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
@@ -1267,7 +1351,8 @@ Implemented (machine schema + shared JS validator + CLI)
 Ten complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-Continue Big English (e.g. BE5-SB) or pull BH2/RH2B when ready (§15 note)
+Human-verify staged BE5-SB / BE5-WB / BE6-SB / BE6-WB → finalize → merge → D008 → audit
+(or pull BH2/RH2B when ready)
 ```
 
 ---

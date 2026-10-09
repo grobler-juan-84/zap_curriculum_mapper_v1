@@ -142,6 +142,83 @@
       ],
       "naming_policy": "d009",
       "notes": "Unit batches extracted with mixed Studio book_id aliases; local normalize rewrites book_id/unit_id to catalog. Unit 7 colliding bep_wb_4_* entity IDs remumbered to catalog prefix; other entity ID prefixes preserved (D007)."
+    },
+    {
+      "catalog_book_id": "big_english_5_sb",
+      "registry_id": "BE5-SB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_5_sb",
+        "bep5_sb",
+        "bep_5_sb",
+        "bep_sb_5"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_5_sb_",
+        "bep5_sb_",
+        "bep_5_sb_",
+        "bep_sb_5_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Staged 2026-10-09; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
+    },
+    {
+      "catalog_book_id": "big_english_5_wb",
+      "registry_id": "BE5-WB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_5_wb",
+        "bep5_wb",
+        "bep_5_wb"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_5_wb_",
+        "bep5_wb_",
+        "bep_5_wb_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Staged 2026-10-09; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
+    },
+    {
+      "catalog_book_id": "big_english_6_sb",
+      "registry_id": "BE6-SB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_6_sb",
+        "bep6_sb",
+        "bep_6_sb",
+        "bep_sb6",
+        "bep_sb_6",
+        "big_english_plus_6_sb"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_6_sb_",
+        "bep6_sb_",
+        "bep_6_sb_",
+        "bep_sb_6_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Staged 2026-10-09; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
+    },
+    {
+      "catalog_book_id": "big_english_6_wb",
+      "registry_id": "BE6-WB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_6_wb",
+        "bep6_wb",
+        "bep_6_wb",
+        "bep_wb_6",
+        "bep_g6_wb",
+        "bep_6_wb_or_sb"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_6_wb_",
+        "bep6_wb_",
+        "bep_6_wb_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Staged 2026-10-09; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
     }
   ]
 }

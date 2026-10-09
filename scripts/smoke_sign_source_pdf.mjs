@@ -24,6 +24,10 @@ const CATALOG_IDS = [
   'big_english_3_wb',
   'big_english_4_sb',
   'big_english_4_wb',
+  'big_english_5_sb',
+  'big_english_5_wb',
+  'big_english_6_sb',
+  'big_english_6_wb',
   'reach_higher_2a',
 ]
 
