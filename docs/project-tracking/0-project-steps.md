@@ -1647,4 +1647,24 @@
 
 ---
 
+### Step 96
+
+**Summary:** Completed BE3-SB Phase 1: remumbered colliding Unit 3–4 entity IDs, fixed Unit 2 null-target workbook relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 7/18 (D013 exception for printed pp. 66–67).
+
+**Files touched:**
+- `scripts/renumber_be3sb_merge_collisions.mjs` (created)
+- `scripts/fix_be3sb_merge_blockers.mjs` (created)
+- `scripts/patch_be3sb_canonical_book_range.mjs` (created)
+- `scripts/inspect_be3sb_u02_storage.mjs` (created)
+- `data/phase1/big_english_3_sb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE3-SB_canonical_v1_audit.md` (created)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

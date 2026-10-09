@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 95  
+**Last updated:** Step 96  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -17,7 +17,8 @@
 - [x] BE3-SB Units 1–9 uploaded to `book-datasets` (`pending`); ready for Validation HV.
 - [x] Validation viewer navigates by extracted `pdf_page` with printed labels (D014; F015 resolved).
 - [x] BE3-SB human verification COMPLETE (Units 1–9; page display confirmed after D014).
-- [ ] BE3-SB: canonical merge → D008 validation → whole-book audit → Phase 1 COMPLETE.
+- [x] BE3-SB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED; D013 pp. 66–67).
+- [ ] Choose next Big English book (e.g. BE3-WB / BE4-SB) or pull BH2/RH2B; stage catalog + source.
 
 ## Next
 

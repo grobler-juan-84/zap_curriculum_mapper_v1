@@ -79,13 +79,13 @@ For every book extracted **after** the four COMPLETE pilots:
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
 
-### Active book — BE3-SB
+### Prior — BE3-SB (complete)
 
 | Registry | Catalog `book_id` | Series slug | Entity prefix (as extracted) | Aliases |
 |---|---|---|---|---|
-| BE3-SB | `big_english_3_sb` | `big-english` | mixed Studio prefixes (`bep_3_sb_`, `bep3_`, `bep_sb_3_`, …) | `bep_3_sb`, `bep3_sb`, `bep_sb_3`, `be_plus_3_sb`, `big_english_plus_3_sb`, `bep_level3_sb` |
+| BE3-SB | `big_english_3_sb` | `big-english` | mixed Studio prefixes (`bep_3_sb_`, `bep3_`, `bep_sb_3_`, …); remumbered collisions use `big_english_3_sb_*` | `bep_3_sb`, `bep3_sb`, `bep_sb_3`, `be_plus_3_sb`, `big_english_plus_3_sb`, `bep_level3_sb` |
 
-Local unit merges normalize `book_id` / `unit_id` fields to catalog; entity ID strings preserved (D007). Prefer catalog ID for remaining Studio batches.
+Phase 1 COMPLETE with D013 missing-source exception (printed pp. 66–67). Local unit merges normalize `book_id` / `unit_id` fields to catalog; non-colliding entity ID strings preserved (D007).
 
 ### Prior — BE2-WB (complete)
 

@@ -2,18 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 95  
+**Last updated:** Step 96  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Six books Phase 1 COMPLETE, including BE2-WB canonical merge + audit PASSED.
-- BE3-SB human verification COMPLETE (Units 1–9); viewer page mapping fixed (D014).
+- Seven books Phase 1 COMPLETE, including BE3-SB canonical merge + audit PASSED (D013 missing pp. 66–67).
 
 ## Current status
 
-BE3-SB ready for canonical merge.
+Ready to choose the next book (continue Big English or pull BH2/RH2B).
 
 ## Next small step
 
-**Suggestion:** Run BE3-SB merge → D008 → whole-book audit.
+**Suggestion:** Pick BE3-WB / BE4-SB (or BH2) and stage catalog + R2 PDF.
