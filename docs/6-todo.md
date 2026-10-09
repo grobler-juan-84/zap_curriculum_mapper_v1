@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 88  
+**Last updated:** Step 89  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -14,7 +14,9 @@
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
 - [x] BE1-WB Phase 1 COMPLETE (with D013 missing-source exception).
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
-- [ ] Choose next Big English book (e.g. BE3-SB) or pull BH2/RH2B; stage catalog + source.
+- [x] BE3-SB Units 1–3: merge split part JSON → unit batches (local trial).
+- [ ] Continue BE3-SB Units 4–9 part extractions; merge each pair into `unit_0N.json`.
+- [ ] Stage BE3-SB catalog + R2 source PDF when ready for Validation upload.
 
 ## Next
 

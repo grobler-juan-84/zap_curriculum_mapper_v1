@@ -1524,4 +1524,19 @@
 
 ---
 
+### Step 89
+
+**Summary:** Trial-merged BE3-SB Units 1–3 split part JSON files (~8 pages each) into single local unit batches; no entity-ID collisions within units. Part files kept for re-merge.
+
+**Files touched:**
+- `scripts/merge_be3sb_unit_parts.mjs` (created)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_01.json` (updated; gitignored)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_02.json` (updated; gitignored)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_03.json` (updated; gitignored)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
