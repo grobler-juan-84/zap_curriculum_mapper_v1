@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 97  
+**Last updated:** Step 98  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -15,8 +15,8 @@
 - [x] BE1-WB Phase 1 COMPLETE (with D013 missing-source exception).
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
 - [x] BE3-SB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED; D013 pp. 66–67).
-- [x] BE3-WB Units 1–9 uploaded to `book-datasets` (`pending`); ready for Validation HV.
-- [ ] BE3-WB human verification in Validation (Units 1–9).
+- [x] BE3-WB Units 1–9 uploaded to `book-datasets` (`pending` → verified).
+- [x] BE3-WB human verification COMPLETE (Units 1–9; Validation + R2 PDF).
 
 ## Next
 

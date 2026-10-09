@@ -186,7 +186,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 11 | COMPLETE |
-| BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE5-SB | Big English | 5 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -568,13 +568,14 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Source PDF:** R2 `curriculum-pdfs` → `big-english/big_english_3_wb/source.pdf` (D012)  
 **Catalog:** seeded (`books` + `book_files` source_pdf + 9 batch_json pointers)
 
-**Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`; `books.status` = `extracted`)  
+**Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`)  
 **Batch Path:** `data/phase1/big_english_3_wb/` (local working copies; Storage is source of truth after upload)  
-**Automated Validation:** NOT RUN (deferred until after human verification / merge per usual gate)  
-**Human Verification:** NOT STARTED (Units 1–9 `book_files.status` = `pending`; ready in Validation)  
+**Automated Validation:** NOT RUN (deferred until merge / canonical gate)  
+**Human Verification:** COMPLETE 2026-10-09 (Units 1–9 `book_files.status` = `verified`; entity `verification_status` = `human_verified`; `books.status` = `verified`)  
+**Verification Notes:** Owner confirmed Units 1–9 in Validation (PDF via R2). Extra grammar pages on Units 3/6/7 (printed 136/139/140) accepted as in-batch content.  
 **Whole-Book Audit:** NOT STARTED  
 **Canonical Dataset:** NOT CREATED  
-**Phase 1 Status:** IN PROGRESS  
+**Phase 1 Status:** IN PROGRESS (HV complete; merge + audit pending)  
 
 ### Schema / Issues
 
@@ -587,8 +588,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Units 1–9 whole-unit Studio exports (no part split).
 - Local sanitize repaired invalid JSON quotes/control chars in Units 3 and 6 (`scripts/fix_be3wb_json_quotes.mjs`).
 - Normalize rewrote `book_id` / `unit_id` fields to catalog (`scripts/normalize_be3wb_units.mjs`); mixed Studio entity ID prefixes preserved (D007).
-- Units 3 / 6 / 7 include extra grammar pages (printed 136 / 139 / 140) outside the main contiguous unit ranges — same pattern as BE3-SB; leave for HV.
-- Uploaded 2026-10-09: R2 source PDF + nine `book-datasets` batches.
+- Units 3 / 6 / 7 include extra grammar pages (printed 136 / 139 / 140) outside the main contiguous unit ranges — accepted at HV.
+- Uploaded 2026-10-09; HV COMPLETE same day.
 
 ### Unit batch ranges (printed)
 
@@ -1151,7 +1152,7 @@ Big English 3 SB (Phase 1 COMPLETE with D013 exception — printed pp. 66–67)
 Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 
 Active extraction
-Big English 3 WB (EXTRACTED; Units 1–9 pending Validation HV)
+Big English 3 WB (EXTRACTED + HV COMPLETE; merge + audit pending)
 
 Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
@@ -1161,7 +1162,7 @@ Implemented (machine schema + shared JS validator + CLI)
 Seven complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-BE3-WB human verification → merge → D008 → whole-book audit (§15 note)
+BE3-WB merge → D008 → whole-book audit (§15 note)
 ```
 
 ---
