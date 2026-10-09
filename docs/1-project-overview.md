@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 2 — Controlled Curriculum Interpretation Experiments (D015)
+**Current Development Focus:** Phase 3 — Controlled Vertical-Mapping Experiments (D017); Phase 2 artifacts preserved (D015/D016)
 
 ---
 

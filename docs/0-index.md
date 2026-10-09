@@ -30,13 +30,13 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18 and makes bounded Big-English-only Phase 2 experiments the active priority. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D017 makes Phase 3 vertical-mapping experiments the active priority while Phase 2 remains preserved/experimental. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D016 first Phase 2 BE2 unit candidates). | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 3 vertical-mapping experiments). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004 Phase 2 promoted by D015, Phase 3 remains parked, and four unfinished Phase 1 books are deferred as F016. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004/F005 promoted (Phase 2/3 experiments); four unfinished Phase 1 books deferred as F016. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch paths (`app/src/assets/books/…`, `data/phase1/…`), asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.5 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
@@ -95,6 +95,14 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
 | [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 preservation snapshot: experiment inventory, what carries to Phase 3, explicit non-claims (methodology/schema still unlocked). | 1.0 | ACTIVE |
 
+### Phase 3
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
+| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | First Phase 3 vertical-mapping scope: BE2-SB Unit 6 hub with BE1/BE3 window (D017); no schema lock. | 1.0 | ACTIVE |
+| [phase-3/p3-exp-be2-u06-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u06-vertical-v1-protocol.md) | First Phase 3 experiment protocol: Previous → Current → Future map for BE2 U6; criteria P3-E1–E7; docs-only. | 1.0 | ACTIVE |
+| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | First vertical-map sketch connecting Phase 2 U6 LRs to BE1 priors and BE3 futures; awaiting owner review. | 1.0 | ACTIVE |
+
 ### Phase 4
 
 | Doc | Summary | Version | Lifecycle |
@@ -113,7 +121,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 48 | Current working docs, including index, operating trackers, Phase 2 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 51 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

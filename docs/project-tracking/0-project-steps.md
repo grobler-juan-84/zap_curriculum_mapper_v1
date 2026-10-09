@@ -2092,4 +2092,23 @@
 
 ---
 
+### Step 119
+
+**Summary:** Locked D017, started Phase 3 on branch `phase-3`, and executed the first controlled vertical-mapping experiment for BE2-SB Unit 6 (Previous → Current → Future) using Phase 2 U6 artifacts — docs-only, no schema/implementation.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/phase-3/p3-vertical-mapping-candidates.md` (created)
+- `docs/phase-3/p3-exp-be2-u06-vertical-v1-protocol.md` (created)
+- `docs/phase-3/p3-exp-be2-u06-vertical-v1-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

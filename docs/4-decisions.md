@@ -51,6 +51,7 @@
 | D014 | Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page | 2026-10-09 | LOCKED |
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
+| D017 | Begin Phase 3 with controlled vertical-mapping experiments | 2026-10-09 | LOCKED |
 
 ---
 
@@ -256,6 +257,18 @@
 
 ---
 
+### D017 — Begin Phase 3 with controlled vertical-mapping experiments
+
+**Date:** 2026-10-09  
+**Status:** LOCKED  
+**Decision:** Preserve completed Phase 2 experiment work on GitHub (`phase-2` branch), then begin Phase 3 as **controlled vertical-mapping experiments** (Previous → Current → Future learning connections) on a new `phase-3` branch. Phase 3 uses verified Phase 1 evidence and appropriate Phase 2 interpretation artifacts as inputs. The first Phase 3 experiment reuses the BE2-SB Unit 6 *My Day* hub and its BE1/BE3 candidate links already explored in `P2-EXP-BE2-U06-v1`. This decision does **not** lock a Phase 3 schema, graph store, API, UI, or pipeline; it does **not** lock Phase 2 methodology either.  
+**Reason:** Phase 2 produced enough interpretation evidence to test curriculum connections without premature productization. Starting from the existing U6 relationship inventory avoids inventing a new hub before the mapping method is tested.  
+**Alternatives rejected:** Building Phase 3 implementation/schema first; starting Phase 3 on a fresh unit with no Phase 2 relationship work; declaring Phase 2 methodology locked as a prerequisite; expanding immediately to cross-series maps.  
+**Implications:** Active priority shifts to Phase 3 experiment docs under [`phase-3/`](./phase-3/). Phase 1 remains PAUSED (D015). Phase 2 artifacts stay experimental inputs. F005 is promoted from parking.  
+**Supersedes:** The “Phase 3 remains parked until Phase 2 experiments” implication sentence in D015 (Phase 3 experiments now active; Phase 2 schema still unlocked).
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -274,3 +287,4 @@
 | 2026-10-09 | Added D014 — Validation viewer navigates by extracted `pdf_page` with printed labels (resolves F015; BE3-SB pp. 66–67 missing). |
 | 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |
 | 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |
+| 2026-10-09 | Added D017 — begin Phase 3 controlled vertical-mapping experiments from preserved Phase 2; BE2 U6 hub first; no Phase 3 schema lock. |

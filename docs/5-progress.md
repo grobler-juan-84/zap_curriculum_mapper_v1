@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 118
+**Last updated:** Step 119
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,24 +14,26 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **Phase 2** controlled Big English experiments complete for preservation: BE2 U6 v1/v2, U7 v1, U8 v1, BE1 U1 transfer test. Methodology remains experimental (not locked). Snapshot: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md).
+- **Phase 2** preserved on GitHub (`origin/phase-2`): BE2 U6–U8 + BE1 U1 experiments; methodology still unlocked.
+
+- **Phase 3** started (D017): first vertical-mapping experiment `P3-EXP-BE2-U06-VERTICAL-v1` executed (docs-only).
 
 ## In progress
 
-- Preserve `phase-2` on GitHub, then branch into Phase 3 controlled vertical-mapping experiments (not implementation).
+- Owner review of the BE2 U6 Previous → Current → Future sketch.
 
 ## Next
 
-- Push `phase-2` → create/push `phase-3` → start first vertical-mapping experiment protocol.
+- Owner decisions: accept vertical-map method seed; choose next hub (U7/U8 refine) — **do not implement schema/UI**.
 
 ## Blocked
 
-- Soft: teacher validation of Phase 2 “one glance” syntheses still pending (does not block Phase 3 experiments).
+- Soft: teacher validation of Phase 2 syntheses still pending (does not block Phase 3 experiments).
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `phase-2` (local tip includes Step 118 closure docs).
+- Active Git branch: `phase-3`.
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.
