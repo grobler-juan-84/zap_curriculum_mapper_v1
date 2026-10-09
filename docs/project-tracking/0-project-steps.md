@@ -1861,4 +1861,23 @@
 
 ---
 
+### Step 106
+
+**Summary:** Completed BE5-SB Phase 1: HV finalize, canonical v1 merge, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 11/18.
+
+**Files touched:**
+- `scripts/finalize_be_human_verify.mjs` (created)
+- `scripts/patch_canonical_book_range.mjs` (created)
+- `data/phase1/big_english_5_sb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE5-SB_canonical_v1_audit.md` (created)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

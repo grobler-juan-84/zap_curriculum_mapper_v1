@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 105  
+**Last updated:** Step 106  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Ten books Phase 1 COMPLETE; remaining Big English (BE5/BE6 SB+WB) staged for Validation.
+- Eleven books Phase 1 COMPLETE, including BE5-SB.
 
 ## Current status
 
-BE5-SB, BE5-WB, BE6-SB, BE6-WB ready for human verification (`extracted`, batches `pending`).
+BE5-WB, BE6-SB, BE6-WB staged and awaiting human verification.
 
 ## Next small step
 
-**Suggestion:** Verify units in Validation (any order); say when a book’s Units 1–9 are done for finalize → merge → audit.
+**Suggestion:** Verify the next staged book in Validation; say when Units 1–9 are done.
 
