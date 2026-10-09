@@ -22,6 +22,7 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261008130000_seed_big_english_2_wb.sql` | Seeds BE2-WB `books` + `source_pdf` pointer (batches after extraction) |
 | `migrations/20261008140000_seed_big_english_2_wb_batches.sql` | Seeds BE2-WB 9 pending `batch_json` pointers + `books.status=extracted` |
 | `migrations/20261009100000_seed_big_english_3_sb.sql` | Seeds BE3-SB `books` + `source_pdf` pointer (batches after Units 8–9 local files land) |
+| `migrations/20261009110000_seed_big_english_3_sb_batches.sql` | Seeds BE3-SB 9 pending `batch_json` pointers + `books.status=extracted` |
 
 Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`). Without the CLI, catalog seeds can also be applied with `node scripts/apply_be1wb_seed.mjs` / `node scripts/apply_be2wb_seed.mjs` / `node scripts/apply_be3sb_seed.mjs` (service role).
 

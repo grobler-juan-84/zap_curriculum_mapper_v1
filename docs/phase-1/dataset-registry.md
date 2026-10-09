@@ -185,7 +185,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
-| BE3-SB | Big English | 3 | Student Book | AVAILABLE | IN PROGRESS (U1–7 local; U8–9 pending files) | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL (ready for HV) | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -527,19 +527,18 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Phase 1 Processing
 
-**Extraction Status:** IN PROGRESS  
-**Batch Path:** `data/phase1/big_english_3_sb/`  
-**Local unit batches ready:** Units **1–7** (Units 1–6 merged from ~8-page part pairs; Unit 7 whole-unit export)  
-**Blocked for Validation upload:** Units **8–9** local files still empty placeholders (`{}`)  
-**Automated Validation:** NOT RUN  
-**Human Verification:** NOT STARTED  
+**Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`)  
+**Batch Path:** `data/phase1/big_english_3_sb/` (local working copies; Storage is source of truth after upload)  
+**Automated Validation:** NOT RUN (runs at canonical merge / D008)  
+**Human Verification:** READY (all nine unit `book_files.status` = `pending`; `books.status` = `extracted`)  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
 
 ### Extraction notes
 
 - Units 1–6: Studio JSON size limits → split each unit into two ~8-page parts; merged locally via `scripts/merge_be3sb_unit_parts.mjs`.
-- Units 7–9: owner reports whole-unit extraction succeeded; Unit 7 is on disk; Units 8–9 still need to be saved as `big_english_3_sb_unit_08.json` / `_09.json` before `book-datasets` upload.
+- Units 7–9: whole-unit Studio exports (no part split).
+- Uploaded 2026-10-09 to `big-english/big_english_3_sb/batches/unit_0N.json` (all `pending` for Validation HV).
 - Mixed Studio `book_id` aliases recorded in [`book-id-alias-map.md`](./book-id-alias-map.md) / `book_id_aliases.json`.
 
 ---

@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 92  
+**Last updated:** Step 93  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -14,9 +14,9 @@
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
 - [x] BE1-WB Phase 1 COMPLETE (with D013 missing-source exception).
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
-- [x] BE3-SB Units 1–7 local batches ready; catalog + R2 PDF seeded.
-- [ ] Save BE3-SB Unit 8–9 JSON into `data/phase1/big_english_3_sb/` (currently empty `{}`).
-- [ ] Upload BE3-SB Units 1–9 to `book-datasets` + set `books.status=extracted` for Validation HV.
+- [x] BE3-SB Units 1–9 uploaded to `book-datasets` (`pending`); ready for Validation HV.
+- [ ] BE3-SB: human-verify Units 1–9 in Validation (PDF via R2).
+- [ ] After HV: finalize → merge → D008 → whole-book audit.
 
 ## Next
 

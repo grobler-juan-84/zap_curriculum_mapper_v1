@@ -1591,4 +1591,23 @@
 
 ---
 
+### Step 93
+
+**Summary:** Normalized BE3-SB Units 8–9, uploaded all nine unit batches to `book-datasets` as `pending`, set `books.status=extracted`. Ready for Validation human verification.
+
+**Files touched:**
+- `scripts/normalize_be3sb_units.mjs` (created)
+- `scripts/set_be3sb_extracted.mjs` (created)
+- `supabase/migrations/20261009110000_seed_big_english_3_sb_batches.sql` (created)
+- `supabase/README.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_08.json` (updated; gitignored; Storage uploaded)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_09.json` (updated; gitignored; Storage uploaded)
+
+---
+
 
