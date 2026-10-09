@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 99  
+**Last updated:** Step 100  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -16,10 +16,12 @@
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
 - [x] BE3-SB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED; D013 pp. 66–67).
 - [x] BE3-WB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED).
-- [ ] Choose next book (e.g. BE4-SB / BE4-WB) or pull BH2/RH2B; stage catalog + source.
+- [x] BE4-SB Units 1–9 uploaded to `book-datasets` (`pending`); ready for Validation HV.
+- [ ] BE4-SB human verification in Validation (Units 1–9).
 
 ## Next
 
+- [ ] BE4-SB merge → D008 → whole-book audit → Phase 1 COMPLETE.
 - [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
 ## Soon

@@ -102,6 +102,26 @@
       ],
       "naming_policy": "d009",
       "notes": "Unit batches extracted with mixed Studio book_id aliases; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
+    },
+    {
+      "catalog_book_id": "big_english_4_sb",
+      "registry_id": "BE4-SB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_4_sb",
+        "bep4_sb",
+        "bep_4_sb",
+        "bep_plus_4_sb",
+        "big_english_plus_4_sb",
+        "bep_level4_sb"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_4_sb_",
+        "bep4_sb_",
+        "bep_4_sb_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Studio extraction alias bep4_sb; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
     }
   ]
 }

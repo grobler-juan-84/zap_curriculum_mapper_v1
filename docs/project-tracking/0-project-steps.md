@@ -1728,4 +1728,29 @@
 
 ---
 
+### Step 100
+
+**Summary:** Staged BE4-SB for Validation: catalog seed + R2 source PDF, normalized Units 1–9 (`bep4_sb` → catalog), uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
+
+**Files touched:**
+- `scripts/normalize_be4sb_units.mjs` (created)
+- `scripts/apply_be4sb_seed.mjs` (created)
+- `scripts/set_be4sb_extracted.mjs` (created)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `supabase/migrations/20261009140000_seed_big_english_4_sb.sql` (created)
+- `data/phase1/big_english_4_sb/` units (updated; gitignored; Storage uploaded)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

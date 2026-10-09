@@ -187,7 +187,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 11 | COMPLETE |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 31 | 1 | COMPLETE |
-| BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE4-SB | Big English | 4 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE5-SB | Big English | 5 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -608,6 +608,56 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8I. BE4-SB — Big English 4 Student Book
+
+**Registry ID:** BE4-SB  
+**Series:** Big English  
+**Level:** 4  
+**Book Type:** Student Book  
+**Catalog `book_id`:** `big_english_4_sb`  
+**Series slug:** `big-english`  
+
+**Source Status:** AVAILABLE  
+**Source PDF:** R2 `curriculum-pdfs` → `big-english/big_english_4_sb/source.pdf` (D012; ~19.6 MB)  
+**Catalog:** seeded (`books` + `book_files` source_pdf + 9 batch_json pointers)
+
+**Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`; `books.status` = `extracted`)  
+**Batch Path:** `data/phase1/big_english_4_sb/` (local working copies; Storage is source of truth after upload)  
+**Automated Validation:** NOT RUN (deferred until after human verification / merge per usual gate)  
+**Human Verification:** NOT STARTED (Units 1–9 `book_files.status` = `pending`; ready in Validation)  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** — (count after HV)  
+**Schema Gaps:** —  
+
+### Extraction notes
+
+- Units 1–9 whole-unit Studio exports (alias `bep4_sb` / entity prefix `bep4_sb_*`).
+- Normalize rewrote `book_id` / `unit_id` to catalog (`scripts/normalize_be4sb_units.mjs`); entity ID prefixes preserved (D007).
+- Printed-page gaps between units (52–57, 106–111) match checkpoint/review sections — confirm in HV.
+- Uploaded 2026-10-09: R2 source PDF + nine `book-datasets` batches.
+
+### Unit batch ranges (printed)
+
+| Unit | Title | Printed pages |
+|---:|---|---|
+| 1 | Kids in My Class | 4–19 |
+| 2 | Our Schedule | 20–35 |
+| 3 | Food Around the World | 36–51 |
+| 4 | How Do You Feel? | 58–73 |
+| 5 | Weird and Wild Animals | 74–89 |
+| 6 | Life Long Ago | 90–105 |
+| 7 | Special Days | 112–127 |
+| 8 | Hobbies | 128–143 |
+| 9 | Learning New Things | 144–159 |
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.
@@ -792,7 +842,7 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
-**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed).
+**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed); **BE4-SB** staged (EXTRACTED; Validation HV next).
 
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
@@ -1160,8 +1210,11 @@ Automated structural validation
 Implemented (machine schema + shared JS validator + CLI)
 Eight complete books: PASSED WITH WARNINGS
 
+Active extraction
+Big English 4 SB (EXTRACTED; Units 1–9 pending Validation HV)
+
 Next Major Checkpoints
-Continue Big English (e.g. BE4-SB / BE4-WB) or pull BH2/RH2B when ready (§15 note)
+BE4-SB human verification → merge → D008 → whole-book audit (§15 note)
 ```
 
 ---

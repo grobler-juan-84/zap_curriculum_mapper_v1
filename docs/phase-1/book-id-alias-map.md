@@ -1,7 +1,7 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.4  
+**Version:** 1.5  
 **Date:** 2026-10-09  
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
 **Purpose:** Define the catalog `book_id` as the stable identity for Phase 1 joins, document extraction-era aliases rewritten at canonical merge time, and align forward naming with D009.
@@ -78,6 +78,14 @@ For every book extracted **after** the four COMPLETE pilots:
 
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
+
+### Active book — BE4-SB
+
+| Registry | Catalog `book_id` | Series slug | Entity prefix (as extracted) | Aliases |
+|---|---|---|---|---|
+| BE4-SB | `big_english_4_sb` | `big-english` | `bep4_sb_` (Studio) | `bep4_sb`, `bep_4_sb`, `bep_plus_4_sb`, `big_english_plus_4_sb`, `bep_level4_sb` |
+
+Local normalize rewrites `book_id` / `unit_id` to catalog; entity ID strings preserved (D007). Prefer catalog ID for remaining Studio batches.
 
 ### Prior — BE3-WB (complete)
 
