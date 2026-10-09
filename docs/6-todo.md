@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 113
+**Last updated:** Step 114
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -22,19 +22,19 @@
 
 - [x] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
-- [x] Record D015: Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority.
+- [x] Record D015 / D016 Phase 2 priority and BE2 U6/U7/U8 candidates.
 
-- [x] Record D016: approve BE2-SB U6 / U7 / U8 candidates; define Unit 6 experiment protocol; restore local BE1-SB canonical.
+- [x] Execute `P2-EXP-BE2-U06-v1` (cross-book relationships).
 
-- [x] Execute `P2-EXP-BE2-U06-v1` and produce review artifact (E1–E6 self-eval PASS).
+- [x] Execute `P2-EXP-BE2-U06-v2` (Unit 6 learning-requirements interpretation).
 
 ## Now
 
-- [ ] Owner-review [`phase-2/p2-exp-be2-u06-v1-review.md`](./phase-2/p2-exp-be2-u06-v1-review.md) (accept / revise protocol / re-run).
+- [ ] Owner-review [`phase-2/p2-exp-be2-u06-v1-review.md`](./phase-2/p2-exp-be2-u06-v1-review.md) and [`phase-2/p2-exp-be2-u06-v2-review.md`](./phase-2/p2-exp-be2-u06-v2-review.md).
 
 ## Soon
 
-- [ ] After U6 acceptance (or protocol revision): define and run BE2-SB Unit 7 experiment.
+- [ ] After owner accept (or protocol revision): apply learning-requirements method to BE2-SB Unit 7 — **only if approved**.
 
 - [ ] Queue BE2-SB Unit 8 modality experiment after U7 or owner re-priority.
 

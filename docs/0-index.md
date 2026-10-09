@@ -85,6 +85,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/be2-candidate-units.md](./phase-2/be2-candidate-units.md) | Owner-approved first Phase 2 candidate set: BE2-SB Units 6 / 7 / 8 with Unit 6 first (D016); evidence rules and non-selected units. | 1.0 | ACTIVE |
 | [phase-2/be2-unit-6-experiment-protocol.md](./phase-2/be2-unit-6-experiment-protocol.md) | Bounded first-experiment protocol for BE2-SB Unit 6 *My Day*: question, inputs, evidence tags, outputs, and evaluation criteria without schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be2-u06-v1-review.md](./phase-2/p2-exp-be2-u06-v1-review.md) | First Phase 2 experiment review artifact for BE2-SB Unit 6: inventory, prior/future candidates, false friends, method lessons, E1–E6 self-eval; awaiting owner review. | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-v2-protocol.md](./phase-2/p2-exp-be2-u06-v2-protocol.md) | Second Phase 2 experiment protocol: interpret BE2-SB Unit 6 into observable learning requirements; evaluation criteria V2-E1–E9 defined before results; no schema lock. | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-v2-review.md](./phase-2/p2-exp-be2-u06-v2-review.md) | Unit 6 learning-requirements review artifact: LRs, grammar/vocab/activities, difficulties, core vs supporting, teacher synthesis, V2-E1–E9 eval; awaiting owner review. | 1.0 | ACTIVE |
 
 ### Phase 4
 
@@ -104,7 +106,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 39 | Current working docs, including index, operating trackers, Phase 2 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 41 | Current working docs, including index, operating trackers, Phase 2 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

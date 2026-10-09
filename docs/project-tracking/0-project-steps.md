@@ -2014,4 +2014,20 @@
 
 ---
 
+### Step 114
+
+**Summary:** Executed second Phase 2 experiment `P2-EXP-BE2-U06-v2` interpreting BE2-SB Unit 6 into observable learning requirements: defined evaluation criteria in the protocol before results, produced the review artifact, and left V2-E8 as PARTIAL (teacher usefulness unvalidated) without locking a schema or starting U7/U8.
+
+**Files touched:**
+- `docs/phase-2/p2-exp-be2-u06-v2-protocol.md` (created)
+- `docs/phase-2/p2-exp-be2-u06-v2-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

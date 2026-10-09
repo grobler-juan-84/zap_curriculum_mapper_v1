@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 113
+**Last updated:** Step 114
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,19 +18,21 @@
 
 - **D016:** First Phase 2 candidates locked — BE2-SB Units 6 / 7 / 8; Unit 6 *My Day* first.
 
-- **P2-EXP-BE2-U06-v1 executed:** review artifact written; self-eval E1–E6 PASS; awaiting owner review (no schema lock).
+- **P2-EXP-BE2-U06-v1 executed:** cross-book prior/future review artifact (E1–E6 PASS); awaiting owner review.
+
+- **P2-EXP-BE2-U06-v2 executed:** Unit 6 learning-requirements interpretation (protocol + artifact); V2-E1–E7/E9 PASS, V2-E8 PARTIAL; no schema lock.
 
 ## In progress
 
-- Owner review of [`phase-2/p2-exp-be2-u06-v1-review.md`](./phase-2/p2-exp-be2-u06-v1-review.md).
+- Owner review of v1 and v2 Unit 6 Phase 2 artifacts.
 
 ## Next
 
-- Owner accepts, revises protocol, or requests re-run; only then define/run BE2-SB Unit 7.
+- Owner decisions on v2 method questions; only then apply LR method to BE2 U7 or revise protocol. Do not auto-start U7/U8.
 
 ## Blocked
 
-- None (soft wait on owner review before U7).
+- Soft wait on owner review before U7.
 
 ---
 
@@ -40,4 +42,4 @@
 
 - **Deferred Phase 1 books:** BH2, RH2B, RH3A, RH4A (all NOT STARTED).
 
-- **Immediate Phase 2 scope:** Big English only; first run = BE2 U6 (executed, under review).
+- **Phase 2:** Two BE2 U6 experiments executed (relationship map v1; learning requirements v2); both experimental pending owner review.
