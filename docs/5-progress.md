@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 124
+**Last updated:** Step 125
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -12,26 +12,24 @@
 
 ## Done
 
-- **Phase 1** PAUSED at 14/18 COMPLETE (D015).
+- **Phase 1** PAUSED at 14/18 (D015). **Phases 2–4** working methodologies locked (D018).
 
-- **Phases 2–4 working methodologies LOCKED** (D018): Learning Requirements; vertical alignment; teacher enrichment. Schemas/UI/architecture **not** locked. Experiment artifacts preserved.
-
-- Phase 4 first enrichment experiment (`P4-EXP-BE2-U08-ENRICH-v1`) complete; F017 Korean learner context remains deferred.
+- **Phase 5** first packaging experiment: Chalkie teaching brief for BE2 U8 (`P5-EXP-BE2-U08-CHALKIE-BRIEF-v1`).
 
 ## In progress
 
-- Git handoff: preserve `phase-4`, create `phase-5` (no Phase 5 experiments yet).
+- Owner review of the U8 Chalkie brief (docs-only; no generation run).
 
 ## Next
 
-- Owner-directed Phase 5 start on `phase-5` — packaging/exploration only when requested.
+- Owner decisions: accept brief; optional Chalkie paste test (Phase 6); or another unit — **do not auto-start**.
 
 ## Blocked
 
-- Soft: classroom validation of enrichment sticky points; F017 deferred until feedback justifies it.
+- Soft: 70–90% prep-target unproven until a generation + teacher trial.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch after handoff: `phase-5`.
+- Active Git branch: `phase-5` (local commit; not pushed this step).

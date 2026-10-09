@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 5 next (branch `phase-5`); Phases 2–4 working methodologies locked (D018); schemas/UI not locked
+**Current Development Focus:** Phase 5 packaging experiments on `phase-5` (BE2 U8 Chalkie brief first); Phases 2–4 working methodologies locked (D018)
 
 ---
 

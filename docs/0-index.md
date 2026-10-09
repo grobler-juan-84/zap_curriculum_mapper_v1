@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 experiment docs are preserved under D015/D016; Phase 3 vertical-mapping experiments begin after the `phase-3` branch handoff.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Phase 5 packaging experiments are active on branch `phase-5` (D018 working methods for Phases 2–4 remain locked).
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -113,11 +113,18 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-4/p4-exp-be2-u08-enrich-v1-protocol.md](./phase-4/p4-exp-be2-u08-enrich-v1-protocol.md) | First Phase 4 enrichment protocol for BE2 U8 *Wild Animals*; beauty-in-simplicity; docs-only; no methodology lock. | 1.0 | ACTIVE |
 | [phase-4/p4-exp-be2-u08-enrich-v1-review.md](./phase-4/p4-exp-be2-u08-enrich-v1-review.md) | Four optional enrichment opportunities for BE2 U8 (short answers, like vs can, adjective scaffold, optional action→ability bridge); awaiting owner review. | 1.0 | ACTIVE |
 
+### Phase 5
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Copy/paste-ready Chalkie teaching brief for BE2 U8 *Wild Animals*: floor, progression, light prior, optional enrichment, generation rules. | 1.0 | ACTIVE |
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Short evaluation of the U8 Chalkie brief vs original handover length/complexity; brief-only (no lesson generation). | 1.0 | ACTIVE |
+
 ### Phase 6
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 handover spec from Chalkie.ai experiments; retained while D015 Phase 2 interpretation experiments are the active priority. | V1 | PARKED |
+| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 handover spec from Chalkie.ai experiments; retained for later generation tests. | V1 | PARKED |
 
 ---
 
@@ -125,7 +132,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 54 | Current working docs, including index, operating trackers, Phase 2–4 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 56 | Current working docs, including index, operating trackers, Phase 2–5 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 2 | Phase 3 candidate scope (paused handoff) + Phase 6 handover spec |
 | LOCKED | 0 | None currently frozen |
 

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 124
+**Last updated:** Step 125
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,27 +12,25 @@
 
 ## Done
 
-- [x] Phase 4 BE2 U8 enrichment experiment; F017 parked.
+- [x] D018 Phase 2–4 methodology locks; `phase-5` branch.
 
-- [x] D018: lock Phase 2–4 working methodologies; prepare `phase-5` handoff.
+- [x] Execute `P5-EXP-BE2-U08-CHALKIE-BRIEF-v1` (docs-only).
 
 ## Now
 
-- [ ] On `phase-5`: wait for owner direction before any Phase 5 work (no experiments/implementation yet).
+- [ ] Owner-review U8 Chalkie teaching brief; decide accept / trim / next step.
 
 ## Soon
 
-- [ ] If approved: teacher validation of Phase 4 enrichment sticky points.
+- [ ] If approved: paste brief into Chalkie and review outline quality (Phase 6 experiment — owner-directed only).
 
-- [ ] Optional later: refine Phase 2–4 methods with owner approval (locks are working, not permanent bans).
+- [ ] If approved: second unit packaging brief.
 
 ## Deferred
 
-- [ ] F017 Korean learner difficulty context — only after classroom feedback justifies it.
+- [ ] F017 Korean learner difficulty context.
 
-- [ ] Phase 2–4 schemas / UI / pipelines — only after explicit owner decision.
-
-- [ ] Resume unfinished Phase 1 books — only after explicit owner decision (D015).
+- [ ] Phase 5/6 schemas, UI, pipelines, auto-generation — only after explicit owner decision.
 
 ---
 

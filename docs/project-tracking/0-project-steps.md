@@ -2195,4 +2195,21 @@
 
 ---
 
+### Step 125
+
+**Summary:** Executed Phase 5 Experiment 1 — packaged a concise copy/paste Chalkie teaching brief for BE2-SB Unit 8 *Wild Animals* from Phases 1–4 evidence, with a short brief-vs-handover review; docs-only; no generation; local commit only.
+
+**Files touched:**
+- `docs/phase-5/p5-exp-be2-u08-chalkie-brief-v1.md` (created)
+- `docs/phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

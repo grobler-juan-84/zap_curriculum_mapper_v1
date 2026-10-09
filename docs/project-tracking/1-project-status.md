@@ -2,17 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 124  
+**Last updated:** Step 125  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- D018: Phase 2–4 working methodologies locked (LR, vertical alignment, enrichment). Schemas not locked. F017 deferred.
+- Phase 5 Experiment 1: Chalkie teaching brief for BE2 U8 packaged from Phases 1–4 (docs-only).
 
 ## Current status
 
-Preserving `phase-4` on GitHub and creating `phase-5`. No Phase 5 experiments started.
+On branch `phase-5`. Awaiting owner review. Not pushed this step.
 
 ## Next small step
 
-**Suggestion:** Owner-direct first Phase 5 work on `phase-5` when ready.
+**Suggestion:** Owner-review [`../phase-5/p5-exp-be2-u08-chalkie-brief-v1.md`](../phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) paste block.
