@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Empty phase folders (`phase-2`, `phase-3`, `phase-5`) are intentional placeholders and have no markdown docs yet.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Empty phase folders (`phase-3`, `phase-5`) are intentional placeholders. Phase 2 now has active experiment docs under D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -33,7 +33,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18 and makes bounded Big-English-only Phase 2 experiments the active priority. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D015 Phase 1 pause / bounded Phase 2 priority). | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D016 first Phase 2 BE2 unit candidates). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004 Phase 2 promoted by D015, Phase 3 remains parked, and four unfinished Phase 1 books are deferred as F016. | 1.0 | ACTIVE |
@@ -78,6 +78,13 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/audits/BE6-WB_canonical_v1_audit.md](./phase-1/audits/BE6-WB_canonical_v1_audit.md) | BE6-WB canonical whole-book audit PASSED; grammar pages 138/139; U8 remumber + unit-alias remap; D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 
+### Phase 2
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
+| [phase-2/be2-candidate-units.md](./phase-2/be2-candidate-units.md) | Owner-approved first Phase 2 candidate set: BE2-SB Units 6 / 7 / 8 with Unit 6 first (D016); evidence rules and non-selected units. | 1.0 | ACTIVE |
+| [phase-2/be2-unit-6-experiment-protocol.md](./phase-2/be2-unit-6-experiment-protocol.md) | Bounded first-experiment protocol for BE2-SB Unit 6 *My Day*: question, inputs, evidence tags, outputs, and evaluation criteria without schema lock. | 1.0 | ACTIVE |
+
 ### Phase 4
 
 | Doc | Summary | Version | Lifecycle |
@@ -96,7 +103,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 36 | Current working docs, including index, operating trackers, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 38 | Current working docs, including index, operating trackers, Phase 2 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

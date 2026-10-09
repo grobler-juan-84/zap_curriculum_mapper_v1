@@ -1979,4 +1979,23 @@
 
 ---
 
+### Step 112
+
+**Summary:** Locked D016 first Phase 2 candidates (BE2-SB U6/U7/U8, Unit 6 first), added the Unit 6 experiment protocol without schema lock, and restored the local BE1-SB canonical dataset for offline experiments.
+
+**Files touched:**
+- `docs/phase-2/be2-candidate-units.md` (created)
+- `docs/phase-2/be2-unit-6-experiment-protocol.md` (created)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/phase-1/curriculum-mapping-process.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `data/phase1/big_english_1_sb/canonical/v1.json` (created; gitignored local working copy)
+
+---
+
 

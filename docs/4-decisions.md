@@ -50,6 +50,7 @@
 | D013 | Human verify available PDF content with documented missing-source exception | 2026-10-08 | LOCKED |
 | D014 | Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page | 2026-10-09 | LOCKED |
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
+| D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
 
 ---
 
@@ -243,6 +244,18 @@
 
 ---
 
+### D016 — First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first
+
+**Date:** 2026-10-09  
+**Status:** LOCKED  
+**Decision:** The first controlled Phase 2 interpretation experiments use three owner-approved Big English 2 Student Book units: Unit 6 *My Day*, Unit 7 *My Favorite Food*, and Unit 8 *Wild Animals*. Unit 6 is the first experiment run. Prior/future vertical links for these experiments draw on completed BE1 and BE3 Student Book (and optionally matching Workbook) canonical datasets. This decision does not lock a Phase 2 schema, prompt, storage model, or implementation; the Unit 6 experiment protocol remains an ACTIVE working procedure.  
+**Reason:** Evidence-backed discovery across BE1–BE3 showed these three units offer the best balanced prior+future linguistic progressions (timed routines; food preference→quantity; ability modality) without relying on topic match alone.  
+**Alternatives rejected:** Starting with BE2 U5 (weak BE1 prior); starting with BE2 U2 (overlaps preference-testing with U7); interpreting a whole BE2 book in one pass; locking a Phase 2 schema before any experiment run.  
+**Implications:** Active work follows [`phase-2/be2-candidate-units.md`](./phase-2/be2-candidate-units.md) and [`phase-2/be2-unit-6-experiment-protocol.md`](./phase-2/be2-unit-6-experiment-protocol.md). U7/U8 wait until U6 is reviewed or the owner re-prioritizes.  
+**Supersedes:** —
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -260,3 +273,4 @@
 | 2026-10-08 | Added D013 — human verify available PDF content with documented missing-source exception (BE1-WB U9). |
 | 2026-10-09 | Added D014 — Validation viewer navigates by extracted `pdf_page` with printed labels (resolves F015; BE3-SB pp. 66–67 missing). |
 | 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |
+| 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |

@@ -1208,6 +1208,8 @@ Begin controlled curriculum and linguistic interpretation experiments using the 
 
 Interpretation has occurred informally during earlier experimentation, but it has not yet been systematically formalized. D015 activates the discovery work without selecting or locking a Phase 2 implementation, JSON schema, storage model or architecture.
 
+**First experiment set (D016):** BE2-SB Units 6 (*My Day*), 7 (*My Favorite Food*), and 8 (*Wild Animals*), with Unit 6 first. Working docs: [`../phase-2/be2-candidate-units.md`](../phase-2/be2-candidate-units.md) and [`../phase-2/be2-unit-6-experiment-protocol.md`](../phase-2/be2-unit-6-experiment-protocol.md).
+
 ---
 
 ## Phase 3

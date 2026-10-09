@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 111
+**Last updated:** Step 112
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,13 +16,15 @@
 
 - App TS identity mapper cleanup: `catalogBookId` / `bookUuid` (replaces overloaded `bookId` / `stableBookId`).
 
+- **D016:** First Phase 2 candidates locked — BE2-SB Units 6 / 7 / 8; Unit 6 *My Day* first. Candidate note + U6 experiment protocol written (no schema lock). Local BE1-SB canonical restored for offline work.
+
 ## In progress
 
-- **Phase 2 is the active development priority (D015):** controlled curriculum-interpretation experiments using the 12 completed Big English canonical datasets.
+- **Phase 2 experiment `P2-EXP-BE2-U06-v1`:** protocol READY; interpretation run not yet started.
 
 ## Next
 
-- Define the first bounded Phase 2 experiment question and evaluation criteria without locking a schema or implementation.
+- Run the bounded BE2-SB Unit 6 interpretation pass per [`phase-2/be2-unit-6-experiment-protocol.md`](./phase-2/be2-unit-6-experiment-protocol.md) and owner-review the artifact.
 
 ## Blocked
 
@@ -36,4 +38,4 @@
 
 - **Deferred Phase 1 books:** BH2, RH2B, RH3A, RH4A (all NOT STARTED).
 
-- **Immediate Phase 2 scope:** Big English only; Beehive and Reach Higher excluded.
+- **Immediate Phase 2 scope:** Big English only; Beehive and Reach Higher excluded; first run = BE2 U6.
