@@ -1631,4 +1631,20 @@
 
 ---
 
+### Step 95
+
+**Summary:** Recorded BE3-SB book-level human verification after owner confirmed Units 1–9 correct and page display fixed (D014). Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Unit 4 already carries open `missing_source` for printed pp. 66–67. Merge/audit left for follow-up.
+
+**Files touched:**
+- `scripts/finalize_be3sb_human_verify.mjs` (created)
+- `data/phase1/big_english_3_sb/*.json` (updated locally + Storage; gitignored)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

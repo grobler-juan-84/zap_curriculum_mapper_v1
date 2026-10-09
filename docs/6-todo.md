@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 94  
+**Last updated:** Step 95  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -16,8 +16,8 @@
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
 - [x] BE3-SB Units 1–9 uploaded to `book-datasets` (`pending`); ready for Validation HV.
 - [x] Validation viewer navigates by extracted `pdf_page` with printed labels (D014; F015 resolved).
-- [ ] BE3-SB: re-check Units 5–9 open on the correct printed pages, then finish HV for Units 1–9.
-- [ ] After HV: finalize (add Unit 4 `missing_source` for pp. 66–67) → merge → D008 → whole-book audit.
+- [x] BE3-SB human verification COMPLETE (Units 1–9; page display confirmed after D014).
+- [ ] BE3-SB: canonical merge → D008 validation → whole-book audit → Phase 1 COMPLETE.
 
 ## Next
 

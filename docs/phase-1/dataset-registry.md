@@ -185,7 +185,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
-| BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | PARTIAL (ready for HV) | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -531,7 +531,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`)  
 **Batch Path:** `data/phase1/big_english_3_sb/` (local working copies; Storage is source of truth after upload)  
 **Automated Validation:** NOT RUN (runs at canonical merge / D008)  
-**Human Verification:** READY (all nine unit `book_files.status` = `pending`; `books.status` = `extracted`)  
+**Human Verification:** COMPLETE 2026-10-09 (Units 1–9 `book_files.status` = `verified`; entity `verification_status` = `human_verified`; `books.status` = `verified`)  
+**Verification Notes:** Owner confirmed vocab/grammar/content correct for all units and page display correct after D014. Printed pp. 66–67 remain open `missing_source` in Unit 4 (D013).  
 **Canonical Dataset:** NOT CREATED  
 **Phase 1 Status:** IN PROGRESS  
 
@@ -541,7 +542,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Units 7–9: whole-unit Studio exports (no part split).
 - Uploaded 2026-10-09 to `big-english/big_english_3_sb/batches/unit_0N.json` (all `pending` for Validation HV).
 - Owner review 2026-10-09: vocab/grammar content correct for all units; Units 5–9 PDF display offset traced to missing pp. 66–67 and fixed in the viewer (D014).
-- At HV finalize: add an open `missing_source` issue in Unit 4 for printed pp. 66–67 (D013) if not already present.
+- Unit 4 already carries open `missing_source` issues for printed pp. 66 and 67 from extraction (no addition needed at HV finalize).
 - Mixed Studio `book_id` aliases recorded in [`book-id-alias-map.md`](./book-id-alias-map.md) / `book_id_aliases.json`.
 
 ---
