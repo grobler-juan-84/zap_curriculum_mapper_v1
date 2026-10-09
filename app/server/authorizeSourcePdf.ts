@@ -5,7 +5,8 @@ import { createClient } from '@supabase/supabase-js'
 
 export type AuthorizedSourcePdf = {
   bookFileId: string
-  bookId: string
+  /** Postgres UUID FK (`book_files.book_id` → `books.id`). */
+  bookUuid: string
   storagePath: string
   bucket: string
 }
@@ -127,7 +128,7 @@ export async function authorizeSourcePdfByBookFileId(
     ok: true,
     file: {
       bookFileId: String(fileRow.id),
-      bookId: String(fileRow.book_id),
+      bookUuid: String(fileRow.book_id),
       storagePath,
       bucket: String(fileRow.bucket ?? 'book-sources'),
     },

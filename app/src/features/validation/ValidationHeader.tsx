@@ -16,7 +16,7 @@ interface ValidationHeaderProps {
   onNext: () => void
   onSelectBatch: (batchId: string) => void
   onSelectSeries: (seriesId: string) => void
-  onSelectBook: (bookId: string) => void
+  onSelectBook: (bookUuid: string) => void
   onBackToBooks: () => void
 }
 

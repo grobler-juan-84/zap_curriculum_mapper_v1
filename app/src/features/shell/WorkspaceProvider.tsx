@@ -14,7 +14,7 @@ interface WorkspaceContextValue {
   catalogLoading: boolean
   catalogError: string | null
   selectedSeriesId: string
-  selectedBookId: string
+  selectedBookUuid: string
   currentSpreadId: string
   sidebarCollapsed: boolean
   currentSeries: CurriculumSeries | null
@@ -23,7 +23,7 @@ interface WorkspaceContextValue {
   setSidebarCollapsed: (collapsed: boolean) => void
   toggleSidebar: () => void
   selectSeries: (seriesId: string) => void
-  selectBook: (bookId: string) => void
+  selectBook: (bookUuid: string) => void
   setCurrentSpreadId: (spreadId: string) => void
   openDefaultBeehiveSpread: () => void
   reloadCatalog: () => void
@@ -36,7 +36,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [catalogLoading, setCatalogLoading] = useState(true)
   const [catalogError, setCatalogError] = useState<string | null>(null)
   const [selectedSeriesId, setSelectedSeriesId] = useState('')
-  const [selectedBookId, setSelectedBookId] = useState('')
+  const [selectedBookUuid, setSelectedBookUuid] = useState('')
   const [currentSpreadId, setCurrentSpreadId] = useState('')
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
@@ -52,7 +52,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         setCatalogLoading(false)
         const defaults = curriculumService.getDefaultSelection()
         setSelectedSeriesId((current) => current || defaults.seriesId)
-        setSelectedBookId((current) => current || defaults.bookId)
+        setSelectedBookUuid((current) => current || defaults.bookUuid)
         setCurrentSpreadId((current) => current || defaults.spreadId)
 
         // If previous selection disappeared after reload, fall back to defaults.
@@ -60,7 +60,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
           const seriesStillExists = seriesList.some((series) => series.id === selectedSeriesId)
           if (selectedSeriesId && !seriesStillExists) {
             setSelectedSeriesId(defaults.seriesId)
-            setSelectedBookId(defaults.bookId)
+            setSelectedBookUuid(defaults.bookUuid)
             setCurrentSpreadId(defaults.spreadId)
           }
         }
@@ -83,7 +83,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const currentSeries =
     curriculumService.getSeriesById(selectedSeriesId) ?? curriculumService.listSeries()[0] ?? null
   const currentBook =
-    currentSeries?.books.find((book) => book.id === selectedBookId) ??
+    currentSeries?.books.find((book) => book.id === selectedBookUuid) ??
     currentSeries?.books[0] ??
     null
   const currentSpread =
@@ -97,31 +97,31 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     setSelectedSeriesId(series.id)
     const firstBook = series.books[0]
     if (firstBook) {
-      setSelectedBookId(firstBook.id)
+      setSelectedBookUuid(firstBook.id)
       setCurrentSpreadId(firstBook.pageSpreads[0]?.id ?? '')
     } else {
-      setSelectedBookId('')
+      setSelectedBookUuid('')
       setCurrentSpreadId('')
     }
   }, [])
 
-  const selectBook = useCallback((bookId: string) => {
-    const match = curriculumService.getBookById(bookId)
+  const selectBook = useCallback((bookUuid: string) => {
+    const match = curriculumService.getBookByUuid(bookUuid)
     if (!match) return
     setSelectedSeriesId(match.series.id)
-    setSelectedBookId(match.book.id)
+    setSelectedBookUuid(match.book.id)
     setCurrentSpreadId(match.book.pageSpreads[0]?.id ?? '')
   }, [])
 
   const openDefaultBeehiveSpread = useCallback(() => {
-    const match = curriculumService.getBookByStableId('beehive_1_sb')
+    const match = curriculumService.getBookByCatalogId('beehive_1_sb')
     if (!match) {
       const beehive = curriculumService.getSeriesByName('Beehive')
       if (beehive) selectSeries(beehive.id)
       return
     }
     setSelectedSeriesId(match.series.id)
-    setSelectedBookId(match.book.id)
+    setSelectedBookUuid(match.book.id)
     setCurrentSpreadId(match.book.pageSpreads[0]?.id ?? '')
   }, [selectSeries])
 
@@ -139,7 +139,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       catalogLoading,
       catalogError,
       selectedSeriesId,
-      selectedBookId,
+      selectedBookUuid,
       currentSpreadId,
       sidebarCollapsed,
       currentSeries,
@@ -157,7 +157,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       catalogLoading,
       catalogError,
       selectedSeriesId,
-      selectedBookId,
+      selectedBookUuid,
       currentSpreadId,
       sidebarCollapsed,
       currentSeries,

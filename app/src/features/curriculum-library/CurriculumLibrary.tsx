@@ -7,7 +7,7 @@ import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
 interface CurriculumLibraryProps {
   seriesList: CurriculumSeries[]
   onSelectSeries: (seriesId: string) => void
-  onDirectOpenBook: (bookId: string) => void
+  onDirectOpenBook: (bookUuid: string) => void
 }
 
 export const CurriculumLibrary: React.FC<CurriculumLibraryProps> = ({

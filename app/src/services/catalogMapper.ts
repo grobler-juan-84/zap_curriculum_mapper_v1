@@ -79,9 +79,9 @@ export function presentationForSeriesName(name: string): SeriesPresentation {
   return DEFAULT_PRESENTATION
 }
 
-function mockSpreadsForStableBookId(stableBookId: string): PageSpread[] {
+function mockSpreadsForCatalogBookId(catalogBookId: string): PageSpread[] {
   // Keep Beehive 1 interactive demo spreads until Storage-backed content is wired.
-  if (stableBookId === 'beehive_1_sb') {
+  if (catalogBookId === 'beehive_1_sb') {
     const mockBook = mockCurriculumSeries
       .find((series) => series.id === 'beehive')
       ?.books.find((book) => book.id === 'beehive-1')
@@ -90,8 +90,8 @@ function mockSpreadsForStableBookId(stableBookId: string): PageSpread[] {
   return []
 }
 
-export function defaultBookCoverPath(stableBookId: string): string | null {
-  switch (stableBookId) {
+export function defaultBookCoverPath(catalogBookId: string): string | null {
+  switch (catalogBookId) {
     case 'beehive_1_sb':
       return 'books/beehive_1_sb/cover.png'
     case 'big_english_1_sb':
@@ -115,12 +115,12 @@ function mapBookType(value: string | null): Book['type'] {
 }
 
 export function mapDbBookToBook(row: DbBookRow): Book {
-  const pageSpreads = mockSpreadsForStableBookId(row.book_id)
+  const pageSpreads = mockSpreadsForCatalogBookId(row.book_id)
   const fileCount = row.book_files?.length ?? 0
   const coverPath = row.cover_path?.trim() || defaultBookCoverPath(row.book_id) || undefined
   return {
     id: row.id,
-    stableBookId: row.book_id,
+    catalogBookId: row.book_id,
     seriesId: row.series_id,
     title: row.title,
     level: row.level ? `Level ${row.level}` : 'Level —',
@@ -162,7 +162,7 @@ export function mapDbSeriesToCurriculumSeries(row: DbSeriesRow): CurriculumSerie
     targetAges: presentation.targetAges,
     levelsCount: presentation.levelsCount,
     availableBooksCount: books.length,
-    featuredBookId: books[0]?.id ?? '',
+    featuredBookUuid: books[0]?.id ?? '',
     coverPath,
     colorScheme: presentation.colorScheme,
     books,

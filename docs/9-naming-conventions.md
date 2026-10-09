@@ -1,7 +1,7 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.4  
+**Version:** 1.5  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
 **Related:** Locked as [D009](./4-decisions.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-decisions.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
@@ -40,7 +40,7 @@ Use `registryId`, `catalogBookId`, and `bookUuid`.
 
 Avoid bare `bookId` unless the meaning is unambiguous in context.
 
-Legacy app alias: `stableBookId` means the same thing as `catalogBookId`. Prefer `catalogBookId` in new and refactored TypeScript.
+Legacy app alias: `stableBookId` meant the same thing as `catalogBookId`. App TypeScript now uses `catalogBookId` / `bookUuid` (Step 110).
 
 ### 2.2 Postgres column collision (do not collapse in TypeScript)
 
@@ -187,9 +187,9 @@ Any canonical entity-ID migration requires a separate locked decision, old→new
 - Phase Title_Case docs under `docs/phase-*` → lowercase kebab-case; live links and Cursor rules updated
 - Historical entries in `project-tracking/0-project-steps.md` intentionally retain old filenames as a chronology
 
-**Still pending (mapper / alias cleanup — not this batch):**
+**Completed 2026-10-09 (mapper / alias cleanup):**
 
-- App TS identity fields: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId`
+- App TS identity fields: `stableBookId` → `catalogBookId`; overloaded `bookId` → `bookUuid` (Postgres UUID) or `catalogBookId` (catalog text); `featuredBookId` → `featuredBookUuid`; service helpers `getBookByUuid` / `getBookByCatalogId`
 
 Audit report filenames using registry IDs (`BE1-SB_canonical_v1_audit.md`, …) are **accepted** under §3.
 
@@ -230,3 +230,4 @@ When creating or renaming project artifacts:
 | 2026-10-07 | Created as project-wide naming authority (D009). Promoted from internal brainstorming. |
 | 2026-10-07 | v1.1 — Clarified doc casing targets, audit-report filenames, local/public assets, schema filenames, Postgres UUID vs catalog collision, and `stableBookId` → `catalogBookId` preference after repo naming audit. |
 | 2026-10-07 | v1.2 — Applied §7.1 safe cosmetic rename batch (assets, TeacherAiAssistant, docs kebab-case). Mapper `bookId` cleanup still pending. |
+| 2026-10-09 | v1.5 — App TS mapper cleanup: `catalogBookId` / `bookUuid` replace overloaded `bookId` / `stableBookId`. |

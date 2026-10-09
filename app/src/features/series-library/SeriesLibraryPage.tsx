@@ -35,12 +35,12 @@ export function SeriesLibraryPage() {
   return (
     <SeriesLibrary
       series={currentSeries}
-      onSelectBook={(bookId) => {
-        selectBook(bookId)
+      onSelectBook={(bookUuid) => {
+        selectBook(bookUuid)
         navigate('/app/workspace')
       }}
-      onValidateBook={(bookId) => {
-        selectBook(bookId)
+      onValidateBook={(bookUuid) => {
+        selectBook(bookUuid)
         navigate('/app/validation')
       }}
       onBackToCurriculum={() => navigate('/app/curriculum')}

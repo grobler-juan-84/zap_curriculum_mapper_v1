@@ -45,8 +45,8 @@ export function CurriculumLibraryPage() {
         selectSeries(seriesId)
         navigate('/app/series')
       }}
-      onDirectOpenBook={(bookId) => {
-        selectBook(bookId)
+      onDirectOpenBook={(bookUuid) => {
+        selectBook(bookUuid)
         navigate('/app/workspace')
       }}
     />

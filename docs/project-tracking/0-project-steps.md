@@ -1935,4 +1935,27 @@
 
 ---
 
+### Step 110
+
+**Summary:** Refactored app TypeScript identity fields to prefer `catalogBookId` / `bookUuid` over overloaded `bookId` / `stableBookId` (D009 mapper cleanup). No stored graph IDs changed.
+
+**Files touched:**
+- `app/src/types/curriculum.ts` (updated)
+- `app/src/types/validation.ts` (updated)
+- `app/src/services/catalogMapper.ts` (updated)
+- `app/src/services/curriculumService.ts` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `app/src/features/shell/WorkspaceProvider.tsx` (updated)
+- `app/src/features/validation/*` + series/curriculum library pages (updated)
+- `app/src/mocks/curriculum/curriculumSeries.ts` (updated)
+- `app/server/authorizeSourcePdf.ts` (updated)
+- `docs/9-naming-conventions.md` (updated → v1.5)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

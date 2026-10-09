@@ -12,7 +12,8 @@ export type SignedPdfResult = {
 
 export type BookFileBatch = {
   id: string
-  bookId: string
+  /** Postgres UUID FK (`book_files.book_id` → `books.id`). */
+  bookUuid: string
   fileType: string
   bucket: string
   storagePath: string
@@ -44,7 +45,8 @@ export type BatchJsonUnit = {
 }
 
 export type BatchJsonSummary = {
-  bookId?: string
+  /** Catalog `book_id` from curriculum JSON (not the Postgres UUID). */
+  catalogBookId?: string
   series?: string
   level?: string
   bookType?: string

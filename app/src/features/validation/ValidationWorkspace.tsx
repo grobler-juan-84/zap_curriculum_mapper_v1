@@ -20,7 +20,7 @@ interface ValidationWorkspaceProps {
   series: CurriculumSeries
   book: Book
   onSelectSeries: (seriesId: string) => void
-  onSelectBook: (bookId: string) => void
+  onSelectBook: (bookUuid: string) => void
   onBackToBooks: () => void
 }
 
@@ -34,7 +34,7 @@ function buildCanonicalUnitNav(
     const titleSuffix = unit.title ? `: ${unit.title}` : ''
     return {
       id: `canonical-unit:${canonical.id}:${unit.unitNumber}`,
-      bookId: canonical.bookId,
+      bookUuid: canonical.bookUuid,
       fileType: 'canonical_json',
       bucket: canonical.bucket,
       storagePath: canonical.storagePath,
@@ -197,7 +197,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         }
         if (signed.url.startsWith('blob:')) objectUrlToRevoke = signed.url
         console.info(
-          `[validation] PDF provider=${signed.provider} delivery=${signed.url.startsWith('blob:') ? 'proxy' : 'signed-url'} book=${book.stableBookId ?? book.id} path=${pdf.storagePath}`,
+          `[validation] PDF provider=${signed.provider} delivery=${signed.url.startsWith('blob:') ? 'proxy' : 'signed-url'} book=${book.catalogBookId ?? book.id} path=${pdf.storagePath}`,
         )
         setPdfUrl(signed.url)
         setPdfProvider(signed.provider)
@@ -408,7 +408,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           No <code className="text-[11px]">batch_json</code> or{' '}
           <code className="text-[11px]">canonical_json</code> rows for{' '}
           <span className="font-semibold">{book.title}</span> (
-          <span className="font-mono">{book.stableBookId ?? book.id}</span>). Confirm seed + Storage
+          <span className="font-mono">{book.catalogBookId ?? book.id}</span>). Confirm seed + Storage
           upload for this book.
         </div>
       ) : null}

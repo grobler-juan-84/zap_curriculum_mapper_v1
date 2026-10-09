@@ -9,7 +9,7 @@ export const mockCurriculumSeries: CurriculumSeries[] = [
     targetAges: 'Ages 6–12',
     levelsCount: 7,
     availableBooksCount: 2,
-    featuredBookId: 'beehive-1',
+    featuredBookUuid: 'beehive-1',
     colorScheme: {
       accent: '#EAB308', // amber-500
       badge: 'bg-amber-100 text-amber-900 border-amber-300',
@@ -856,7 +856,7 @@ export const mockCurriculumSeries: CurriculumSeries[] = [
     targetAges: 'Ages 6–12',
     levelsCount: 6,
     availableBooksCount: 6,
-    featuredBookId: 'big-english-1',
+    featuredBookUuid: 'big-english-1',
     colorScheme: {
       accent: '#2563EB', // blue-600
       badge: 'bg-blue-100 text-blue-900 border-blue-300',
@@ -1007,7 +1007,7 @@ export const mockCurriculumSeries: CurriculumSeries[] = [
     targetAges: 'Ages 6–12',
     levelsCount: 6,
     availableBooksCount: 4,
-    featuredBookId: 'reach-higher-1',
+    featuredBookUuid: 'reach-higher-1',
     colorScheme: {
       accent: '#CA8A04', // yellow-600
       badge: 'bg-yellow-100 text-yellow-900 border-yellow-300',

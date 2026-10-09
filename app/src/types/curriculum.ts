@@ -105,9 +105,10 @@ export interface PageSpread {
 }
 
 export interface Book {
+  /** Postgres `books.id` UUID. Prefer param name `bookUuid` when passing this value. */
   id: string
-  /** Project-level identifier from Postgres `books.book_id` (e.g. beehive_1_sb). */
-  stableBookId?: string
+  /** Catalog identity from Postgres `books.book_id` (e.g. beehive_1_sb). */
+  catalogBookId?: string
   seriesId: string
   title: string
   level: string
@@ -134,7 +135,8 @@ export interface CurriculumSeries {
   targetAges: string
   levelsCount: number
   availableBooksCount: number
-  featuredBookId: string
+  /** Postgres UUID of the featured book (`books.id`). */
+  featuredBookUuid: string
   /** Signed URL for series cover (from Storage), when available. */
   coverImage?: string
   /** Storage object path in book-assets bucket. */

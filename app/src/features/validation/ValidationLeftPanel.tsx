@@ -84,7 +84,7 @@ export const ValidationLeftPanel: React.FC<ValidationLeftPanelProps> = ({
             <div className="space-y-1 border-b border-slate-100 px-3 py-3 text-xs text-slate-600">
               <div className="flex justify-between gap-2">
                 <span className="text-slate-500">book_id</span>
-                <span className="font-mono text-slate-800">{summary.bookId ?? '—'}</span>
+                <span className="font-mono text-slate-800">{summary.catalogBookId ?? '—'}</span>
               </div>
               <div className="flex justify-between gap-2">
                 <span className="text-slate-500">series</span>

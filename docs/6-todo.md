@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 109  
+**Last updated:** Step 110  
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -20,9 +20,9 @@
 
 - [x] **BE1–BE6 SB/WB** Phase 1 COMPLETE (D013 notes on BE1-WB / BE3-SB). Big English set closed.
 
-## Next
+- [x] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
-- [ ] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
+## Next
 
 - [ ] Choose BH2 / RH2B (or RH3A / RH4A) when ready.
 

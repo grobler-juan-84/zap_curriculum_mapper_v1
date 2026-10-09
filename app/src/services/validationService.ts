@@ -102,7 +102,7 @@ function mapStatus(value: string | null): BookFileStatus | null {
 function mapRow(row: DbBookFileRow): BookFileBatch {
   return {
     id: row.id,
-    bookId: row.book_id,
+    bookUuid: row.book_id,
     fileType: row.file_type,
     bucket: row.bucket,
     storagePath: row.storage_path,
@@ -352,7 +352,7 @@ export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
   })
 
   return {
-    bookId: asString(root.book_id),
+    catalogBookId: asString(root.book_id),
     series: asString(root.series),
     level: asString(root.level),
     bookType: asString(root.book_type),

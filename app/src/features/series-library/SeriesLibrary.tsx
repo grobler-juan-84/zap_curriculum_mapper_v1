@@ -6,8 +6,8 @@ import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
 
 interface SeriesLibraryProps {
   series: CurriculumSeries
-  onSelectBook: (bookId: string) => void
-  onValidateBook?: (bookId: string) => void
+  onSelectBook: (bookUuid: string) => void
+  onValidateBook?: (bookUuid: string) => void
   onBackToCurriculum: () => void
 }
 
@@ -57,7 +57,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {series.books.map((book) => {
                 const hasInteractiveSpreads = book.pageSpreads.length > 0
-                const isFeatured = book.stableBookId === 'beehive_1_sb'
+                const isFeatured = book.catalogBookId === 'beehive_1_sb'
                 const coverSrc = book.coverPath
                   ? coverUrls[book.coverPath]
                   : book.coverImage

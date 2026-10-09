@@ -129,17 +129,19 @@ export const curriculumService = {
     )
   },
 
-  getBookById(bookId: string): { series: CurriculumSeries; book: Book } | null {
+  getBookByUuid(bookUuid: string): { series: CurriculumSeries; book: Book } | null {
     for (const series of this.listSeries()) {
-      const book = series.books.find((entry) => entry.id === bookId)
+      const book = series.books.find((entry) => entry.id === bookUuid)
       if (book) return { series, book }
     }
     return null
   },
 
-  getBookByStableId(stableBookId: string): { series: CurriculumSeries; book: Book } | null {
+  getBookByCatalogId(
+    catalogBookId: string,
+  ): { series: CurriculumSeries; book: Book } | null {
     for (const series of this.listSeries()) {
-      const book = series.books.find((entry) => entry.stableBookId === stableBookId)
+      const book = series.books.find((entry) => entry.catalogBookId === catalogBookId)
       if (book) return { series, book }
     }
     return null
@@ -161,17 +163,17 @@ export const curriculumService = {
 
   getDefaultSelection(): {
     seriesId: string
-    bookId: string
+    bookUuid: string
     spreadId: string
   } {
     const series = this.listSeries()[0]
     if (!series) {
-      return { seriesId: '', bookId: '', spreadId: '' }
+      return { seriesId: '', bookUuid: '', spreadId: '' }
     }
     const book = series.books[0]
     return {
       seriesId: series.id,
-      bookId: book?.id ?? '',
+      bookUuid: book?.id ?? '',
       spreadId: book?.pageSpreads[0]?.id ?? '',
     }
   },
