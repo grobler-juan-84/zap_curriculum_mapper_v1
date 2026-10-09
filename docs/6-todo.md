@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 120
+**Last updated:** Step 121
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,21 +12,19 @@
 
 ## Done
 
-- [x] Phase 2 preserved; D017; first BE2 U6 vertical experiment.
+- [x] Phase 3 BE2 U6 and U8 vertical experiments; both provisionally accepted (methodology not locked).
 
-- [x] U6 provisional acceptance (experimental seed, not locked) + light refinements.
-
-- [x] Execute `P3-EXP-BE2-U08-VERTICAL-v1` (docs-only).
+- [x] Phase 3 paused; prepare `phase-4` branch for exploration handoff.
 
 ## Now
 
-- [ ] Owner-review U8 vertical sketch + U6↔U8 comparison; decide next hub, pause, or Phase 4 exploration notes only.
+- [ ] On `phase-4`: wait for owner direction before any Phase 4 exploration notes (no implementation yet).
 
 ## Soon
 
-- [ ] If approved: optional BE2 U7 food vertical hub (same conventions).
+- [ ] If approved: lightweight Phase 4 exploration (philosophy only — no enrichment engine).
 
-- [ ] If approved: lightweight Phase 4 *exploration* notes (philosophy only — no enrichment engine).
+- [ ] Optional later: further Phase 3 hubs (e.g. BE2 U7) — only after explicit owner decision (Phase 3 is paused, not closed).
 
 - [ ] If approved: teacher-validation pass on Phase 2 “one glance” syntheses.
 

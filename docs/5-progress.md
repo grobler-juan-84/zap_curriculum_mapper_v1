@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 120
+**Last updated:** Step 121
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,15 +16,15 @@
 
 - **Phase 2** preserved on `origin/phase-2`.
 
-- **Phase 3:** U6 vertical map provisionally accepted as experimental seed (not locked); U8 vertical experiment executed (`P3-EXP-BE2-U08-VERTICAL-v1`).
+- **Phase 3** exploratory hubs BE2 U6 and U8 **provisionally accepted**; methodology remains experimental (**not locked**). Phase 3 is **paused** (not permanently completed).
 
 ## In progress
 
-- Owner review of BE2 U8 vertical sketch and U6↔U8 comparison / Phase 4 readiness note.
+- Git handoff: preserve `phase-3`, create `phase-4` for Phase 4 exploration (no experiments started yet).
 
 ## Next
 
-- Owner decisions: accept U8 sketch; optional U7 hub or pause; Phase 4 exploration only if approved — **no implementation**.
+- Begin Phase 4 exploration on `phase-4` when the owner directs — **no schema/UI/pipeline**.
 
 ## Blocked
 
@@ -34,6 +34,6 @@
 
 ## Snapshot notes
 
-- Active Git branch: `phase-3` (local commits; push only when owner asks).
+- Active Git branch after handoff: `phase-4`.
 
-- **Phase 1:** PAUSED at 14 / 18 COMPLETE.
+- **Phase 1:** PAUSED at 14 / 18 COMPLETE. **Phase 3:** PAUSED.

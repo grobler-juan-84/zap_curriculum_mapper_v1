@@ -2130,4 +2130,22 @@
 
 ---
 
+### Step 121
+
+**Summary:** Recorded provisional acceptance of Phase 3 BE2 U6 and U8 (methodology still unlocked), paused Phase 3 (not permanently completed), and prepared Git handoff to `phase-4` for Phase 4 exploration without starting experiments or locking schemas.
+
+**Files touched:**
+- `docs/phase-3/p3-vertical-mapping-candidates.md` (updated)
+- `docs/phase-3/p3-exp-be2-u08-vertical-v1-review.md` (updated)
+- `docs/phase-3/p3-exp-be2-u08-vertical-v1-protocol.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

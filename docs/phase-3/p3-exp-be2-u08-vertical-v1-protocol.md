@@ -19,7 +19,7 @@
 | Catalog / unit | `big_english_2_sb` / `bep2_unit_08` |
 | Printed pages | 128–143 |
 | Phase 2 LRs | [`../phase-2/p2-exp-be2-u08-v1-review.md`](../phase-2/p2-exp-be2-u08-v1-review.md) |
-| Run status | **EXECUTED** — see review artifact |
+| Run status | **EXECUTED** — review provisionally accepted (experimental; not locked); Phase 3 paused |
 
 ---
 

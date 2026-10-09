@@ -30,7 +30,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D017 makes Phase 3 vertical-mapping experiments the active priority while Phase 2 remains preserved/experimental. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; Phase 3 paused (U6/U8 provisionally accepted); Phase 4 exploration is next. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 3 vertical-mapping experiments). | 1.0 | ACTIVE |
@@ -99,11 +99,11 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | Phase 3 vertical-mapping hubs: BE2 U6 (provisional acceptance) and BE2 U8; no schema lock. | 1.1 | ACTIVE |
+| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | Phase 3 hubs BE2 U6 + U8 provisionally accepted; Phase 3 paused (methodology not locked); Phase 4 next. | 1.2 | PARKED |
 | [phase-3/p3-exp-be2-u06-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u06-vertical-v1-protocol.md) | First Phase 3 experiment protocol: Previous → Current → Future map for BE2 U6; criteria P3-E1–E7; docs-only. | 1.0 | ACTIVE |
-| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | BE2 U6 vertical-map sketch; v1.1 provisional owner acceptance as experimental seed (not locked); documented absence clarified. | 1.1 | ACTIVE |
+| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | BE2 U6 vertical-map sketch; provisionally accepted as experimental seed (not locked). | 1.1 | ACTIVE |
 | [phase-3/p3-exp-be2-u08-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u08-vertical-v1-protocol.md) | Second Phase 3 protocol: BE2 U8 *Wild Animals* vertical map; owner alignment philosophy; docs-only. | 1.0 | ACTIVE |
-| [phase-3/p3-exp-be2-u08-vertical-v1-review.md](./phase-3/p3-exp-be2-u08-vertical-v1-review.md) | BE2 U8 vertical-map sketch (ability *can*, habitats); U6 comparison; Phase 4 exploration note only. | 1.0 | ACTIVE |
+| [phase-3/p3-exp-be2-u08-vertical-v1-review.md](./phase-3/p3-exp-be2-u08-vertical-v1-review.md) | BE2 U8 vertical-map sketch; provisionally accepted; Phase 3 paused for Phase 4 handoff. | 1.1 | ACTIVE |
 
 ### Phase 4
 
@@ -123,8 +123,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 53 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
-| PARKED | 1 | Retained for future Phase 6 work |
+| ACTIVE | 52 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| PARKED | 2 | Phase 3 candidate scope (paused handoff) + Phase 6 handover spec |
 | LOCKED | 0 | None currently frozen |
 
 ---

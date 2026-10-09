@@ -1,7 +1,7 @@
 # P3-EXP-BE2-U08-VERTICAL-v1 — Vertical Mapping Review
 
-**Status:** ACTIVE (awaiting owner review)  
-**Version:** 1.0  
+**Status:** ACTIVE — **owner provisional acceptance** (experimental evidence; **not** a locked methodology)  
+**Version:** 1.1  
 **Date:** 2026-10-09  
 **Experiment ID:** `P3-EXP-BE2-U08-VERTICAL-v1`  
 **Protocol:** [`p3-exp-be2-u08-vertical-v1-protocol.md`](./p3-exp-be2-u08-vertical-v1-protocol.md)  
@@ -133,13 +133,9 @@ BE2 U7 Do you like…? (same book)  →   preference lead-in (LR-13)         (ho
 
 ---
 
-## 7. Owner decisions
+## 7. Owner status
 
-1. Accept U8 vertical sketch alongside U6 as experimental Phase 3 evidence?  
-2. Next hub (e.g. U7 food) or pause before Phase 4 exploration notes?  
-3. Any edge you want dropped or emphasized?
-
-**Stop for owner review.** No schema/UI/Phase 4 implementation.
+**Provisional acceptance (2026-10-09):** U8 vertical sketch accepted alongside U6 as experimental Phase 3 evidence. Methodology remains **unlocked**. Phase 3 is **paused** (not permanently completed); Phase 4 exploration is next on branch `phase-4`.
 
 ---
 
@@ -148,3 +144,4 @@ BE2 U7 Do you like…? (same book)  →   preference lead-in (LR-13)         (ho
 | Date | Change |
 |---|---|
 | 2026-10-09 | Executed `P3-EXP-BE2-U08-VERTICAL-v1`; compared with U6; Phase 4 readiness note only. |
+| 2026-10-09 | v1.1: owner provisional acceptance; Phase 3 pause / Phase 4 handoff note. |
