@@ -1753,4 +1753,20 @@
 
 ---
 
+### Step 101
+
+**Summary:** Recorded BE4-SB book-level human verification after owner confirmed Units 1–9 in Validation. Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Merge/audit left for follow-up.
+
+**Files touched:**
+- `scripts/finalize_be4sb_human_verify.mjs` (created)
+- `data/phase1/big_english_4_sb/*.json` (updated locally + Storage; gitignored)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
