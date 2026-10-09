@@ -52,6 +52,7 @@
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
 | D017 | Begin Phase 3 with controlled vertical-mapping experiments | 2026-10-09 | LOCKED |
+| D018 | Lock working methodologies for Phases 2, 3, and 4 | 2026-10-09 | LOCKED |
 
 ---
 
@@ -269,6 +270,26 @@
 
 ---
 
+### D018 — Lock working methodologies for Phases 2, 3, and 4
+
+**Date:** 2026-10-09  
+**Status:** LOCKED  
+**Decision:** Accept and lock the **working methodologies** demonstrated in Phase 2–4 experiments as the current project standard for those phases:
+
+| Phase | Working methodology locked |
+|---|---|
+| Phase 2 | Learning Requirements (observable abilities; evidence tags; core vs supporting; book evidence vs AI interpretation) |
+| Phase 3 | Vertical alignment (Previous → Current → Future connections; teaching opportunities without forced or misrepresented progression) |
+| Phase 4 | Teacher enrichment (floor first; optional small enrichment; beauty in simplicity; enrichment distinct from source evidence) |
+
+These are **working methodology locks**, not permanent bans on future improvement. They may be refined later with explicit owner approval (e.g. classroom feedback). This decision does **not** lock JSON schemas, APIs, UI, storage models, pipelines, or product architecture. Existing Phase 2–4 experiment artifacts and Phase 1 evidence remain preserved and are not rewritten by this decision. Korean learner difficulty context for enrichment remains deferred (F017) and is **not** required to accept Phase 4 methodology.  
+**Reason:** Two Phase 3 hubs and the first Phase 4 enrichment experiment provide enough owner-accepted practice to stabilize how these phases work, while keeping implementation intentionally open.  
+**Alternatives rejected:** Leaving all Phase 2–4 methods permanently “experimental only”; locking schemas/UI/pipelines now; treating methodology locks as frozen forever with no improvement path; blocking Phase 4 acceptance on F017 research.  
+**Implications:** New Phase 2–4 experiment docs should follow these working methods unless the owner unlocks or revises them. Phase 5 may begin on a new branch as exploration/packaging work without inheriting a locked Phase 5 schema. Trackers should show Phase 2–4 methodologies as LOCKED (working) and Phase 4 paused for Phase 5 handoff.  
+**Supersedes:** The “Phase 2 methodology not locked” implication in D017 (schemas remain unlocked; working LR/vertical/enrichment methods are now accepted). Does not reopen D001–D017 product/storage decisions.
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -288,3 +309,4 @@
 | 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |
 | 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |
 | 2026-10-09 | Added D017 — begin Phase 3 controlled vertical-mapping experiments from preserved Phase 2; BE2 U6 hub first; no Phase 3 schema lock. |
+| 2026-10-09 | Added D018 — lock working methodologies for Phases 2–4 (LR, vertical alignment, enrichment); schemas/UI/architecture remain unlocked; F017 still deferred. |

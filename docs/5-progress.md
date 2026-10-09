@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 123
+**Last updated:** Step 124
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,24 +14,24 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **Phase 2** preserved; **Phase 3** paused (U6/U8 provisionally accepted; methodology unlocked).
+- **Phases 2–4 working methodologies LOCKED** (D018): Learning Requirements; vertical alignment; teacher enrichment. Schemas/UI/architecture **not** locked. Experiment artifacts preserved.
 
-- **Phase 4** first enrichment experiment executed: `P4-EXP-BE2-U08-ENRICH-v1` (docs-only; 4 optional opportunities).
+- Phase 4 first enrichment experiment (`P4-EXP-BE2-U08-ENRICH-v1`) complete; F017 Korean learner context remains deferred.
 
 ## In progress
 
-- Owner review of BE2 U8 enrichment sketch.
+- Git handoff: preserve `phase-4`, create `phase-5` (no Phase 5 experiments yet).
 
 ## Next
 
-- Owner decisions: accept/drop opportunities (esp. E4 vertical bridge); next unit or pause — **no implementation**.
+- Owner-directed Phase 5 start on `phase-5` — packaging/exploration only when requested.
 
 ## Blocked
 
-- Soft: teacher validation of predicted difficulties and enrichment usefulness.
+- Soft: classroom validation of enrichment sticky points; F017 deferred until feedback justifies it.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `phase-4` (local commit; not pushed this step).
+- Active Git branch after handoff: `phase-5`.

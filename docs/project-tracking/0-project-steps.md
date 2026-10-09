@@ -2179,4 +2179,20 @@
 
 ---
 
+### Step 124
+
+**Summary:** Locked D018 working methodologies for Phases 2–4 (Learning Requirements, vertical alignment, teacher enrichment) without locking schemas/UI/architecture; confirmed F017 deferred; prepared Git handoff from `phase-4` to `phase-5` with no Phase 5 experiments started.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

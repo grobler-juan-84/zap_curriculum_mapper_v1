@@ -30,13 +30,13 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; Phase 3 paused (U6/U8 provisionally accepted); Phase 4 exploration is next. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; Phases 2–4 working methodologies locked (D018); Phase 5 branch next. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 3 vertical-mapping experiments). | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D018 Phase 2–4 working methodology locks). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; includes F017 Korean learner difficulty context for later Phase 4 refinement. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; F017 Korean learner difficulty context deferred (explicit Phase 4 subsection). | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch paths (`app/src/assets/books/…`, `data/phase1/…`), asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.5 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |

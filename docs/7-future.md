@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 123  
+**Last updated:** Step 124  
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 4 experiment scope.
 
 ---
@@ -36,7 +36,16 @@
 | F014 | Delete unused Supabase Storage `book-sources` PDF objects | D012 stops using them but leaves objects in place; delete only after sustained R2-only confidence | D012 / 2026-10-08 |
 | ~~F015~~ | ~~Validation PDF viewer printed-page ↔ PDF-index navigation mismatch when source pages are absent~~ | **Resolved 2026-10-09 (D014):** viewer now navigates by extracted `pdf_page` and labels printed pages. Triggered by BE3-SB Units 5–9 (pp. 66–67 missing). | BE1-WB U9 verify 2026-10-08 |
 | F016 | Complete Phase 1 for BH2, RH2B, RH3A and RH4A | Intentionally deferred by D015 while controlled Phase 2 experiments use the completed Big English sequence | D015 |
-| F017 | Korean learner difficulty context for Phase 4 enrichment | **DEFERRED:** revisit optional enrichment using common Korean→English learning difficulties (grammar, sentence construction, pronunciation, communication) without assuming every learner shares them. Not a prerequisite for locking Phase 4 methodology; revisit when classroom feedback justifies it. Do not research or implement now. | owner / Phase 4 refinement |
+| F017 | Korean learner difficulty context for Phase 4 enrichment | **DEFERRED** — see subsection below. Not required for D018 Phase 4 methodology lock. | owner / Phase 4 refinement |
+
+### Deferred — Korean Learner Difficulty Context (Phase 4)
+
+Future enrichment refinement should investigate difficulties Korean learners may encounter with English grammar, sentence construction, pronunciation, and communication — to improve optional enrichment relevance.
+
+- **Status:** DEFERRED — future refinement of Phase 4.  
+- **Do not** research or implement this now.  
+- **Do not** assume all Korean learners share identical difficulties.  
+- Revisit when practical classroom feedback justifies further refinement.
 
 ### PDF Delivery Scalability — Future Consideration
 

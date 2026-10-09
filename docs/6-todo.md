@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 123
+**Last updated:** Step 124
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,25 +12,25 @@
 
 ## Done
 
-- [x] Phase 3 paused; `phase-4` branch ready.
+- [x] Phase 4 BE2 U8 enrichment experiment; F017 parked.
 
-- [x] Execute `P4-EXP-BE2-U08-ENRICH-v1` (docs-only).
+- [x] D018: lock Phase 2–4 working methodologies; prepare `phase-5` handoff.
 
 ## Now
 
-- [ ] Owner-review BE2 U8 enrichment opportunities; decide accept / drop E4 / next step.
+- [ ] On `phase-5`: wait for owner direction before any Phase 5 work (no experiments/implementation yet).
 
 ## Soon
 
-- [ ] If approved: teacher validation of sticky points (*it/they*, *like* vs *can*, adjective scaffold).
+- [ ] If approved: teacher validation of Phase 4 enrichment sticky points.
 
-- [ ] If approved: second enrichment experiment on another unit — only after owner decision.
+- [ ] Optional later: refine Phase 2–4 methods with owner approval (locks are working, not permanent bans).
 
 ## Deferred
 
-- [ ] Phase 4 schema / UI / pipeline / lesson generation — only after explicit owner decision.
+- [ ] F017 Korean learner difficulty context — only after classroom feedback justifies it.
 
-- [ ] Any Phase 2/3/4 methodology lock — only after explicit owner decision.
+- [ ] Phase 2–4 schemas / UI / pipelines — only after explicit owner decision.
 
 - [ ] Resume unfinished Phase 1 books — only after explicit owner decision (D015).
 
