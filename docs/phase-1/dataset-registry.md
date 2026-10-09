@@ -188,7 +188,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 11 | COMPLETE |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 31 | 1 | COMPLETE |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 23 | 10 | COMPLETE |
-| BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE4-WB | Big English | 4 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
 | BE5-SB | Big English | 5 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -660,6 +660,56 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ---
 
+# 8J. BE4-WB — Big English 4 Workbook
+
+**Registry ID:** BE4-WB  
+**Series:** Big English  
+**Level:** 4  
+**Book Type:** Workbook  
+**Catalog `book_id`:** `big_english_4_wb`  
+**Series slug:** `big-english`  
+
+**Source Status:** AVAILABLE  
+**Source PDF:** R2 `curriculum-pdfs` → `big-english/big_english_4_wb/source.pdf` (D012; ~11.1 MB)  
+**Catalog:** seeded (`books` + `book_files` source_pdf + 9 batch_json pointers)
+
+**Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`)  
+**Batch Path:** `data/phase1/big_english_4_wb/` (local working copies; Storage is source of truth after upload)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** NOT STARTED (`book_files.status` = `pending`; `books.status` = `extracted`)  
+**Whole-Book Audit:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Schema / Issues
+
+**Schema Version:** —  
+**Open Issues:** —  
+**Schema Gaps:** —  
+
+### Extraction notes
+
+- Units 1–9 whole-unit Studio exports with mixed aliases (`bep4_wb`, `bep_4_wb`, `bep_wb_4`, `be4plus_wb`).
+- Normalize rewrote `book_id` / `unit_id` to catalog (`scripts/normalize_be4wb_units.mjs`); entity ID prefixes preserved (D007).
+- Extra grammar/appendix pages attached to units: U1 p.134, U2 p.135, U6 p.139, U7 p.140, U9 p.142 (same pattern as BE3-WB).
+- Uploaded 2026-10-09; awaiting human verification in Validation.
+
+### Unit batch ranges (printed)
+
+| Unit | Title | Printed pages | Notes |
+|---:|---|---|---|
+| 1 | Kids in My Class | 2–15 + 134 | + grammar |
+| 2 | Our Schedule | 16–29 + 135 | + grammar |
+| 3 | Food Around the World | 30–43 | contiguous |
+| 4 | How Do You Feel? | 46–59 | contiguous |
+| 5 | Weird and Wild Animals | 60–73 | contiguous |
+| 6 | Life Long Ago | 74–87 + 139 | + grammar |
+| 7 | Special Days | 90–103 + 140 | + grammar |
+| 8 | Hobbies | 104–117 | contiguous |
+| 9 | Learning New Things | 118–131 + 142 | + grammar |
+
+---
+
 # 9. Extraction Batch Tracking
 
 During active extraction, individual books may require batch-level tracking.
@@ -844,7 +894,7 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
-**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed); **BE4-SB** Phase 1 COMPLETE.
+**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed); **BE4-SB** Phase 1 COMPLETE; **BE4-WB** staged (catalog + R2 PDF + 9 batches; HV next).
 
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
@@ -1214,7 +1264,7 @@ Implemented (machine schema + shared JS validator + CLI)
 Nine complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-Continue Big English (e.g. BE4-WB) or pull BH2/RH2B when ready (§15 note)
+BE4-WB human verification → merge → D008 → whole-book audit
 ```
 
 ---

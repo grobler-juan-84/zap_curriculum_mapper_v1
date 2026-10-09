@@ -23,6 +23,7 @@ const CATALOG_IDS = [
   'big_english_3_sb',
   'big_english_3_wb',
   'big_english_4_sb',
+  'big_english_4_wb',
   'reach_higher_2a',
 ]
 

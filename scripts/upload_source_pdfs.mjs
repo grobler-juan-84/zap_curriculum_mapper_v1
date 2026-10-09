@@ -42,6 +42,7 @@ const SOURCES = [
   ['big_english_3_sb', 'big-english', 'big-english/big_english_3_sb/source.pdf'],
   ['big_english_3_wb', 'big-english', 'big-english/big_english_3_wb/source.pdf'],
   ['big_english_4_sb', 'big-english', 'big-english/big_english_4_sb/source.pdf'],
+  ['big_english_4_wb', 'big-english', 'big-english/big_english_4_wb/source.pdf'],
   ['reach_higher_2a', 'reach-higher', 'reach-higher/reach_higher_2a/source.pdf'],
 ]
 
