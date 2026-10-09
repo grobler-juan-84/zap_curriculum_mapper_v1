@@ -1,7 +1,7 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.9  
+**Version:** 2.0  
 **Date:** 2026-10-09  
   
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
@@ -88,11 +88,18 @@ For every book extracted **after** the four COMPLETE pilots:
 
 Phase 1 COMPLETE; entity ID strings preserved (D007). Checkpoint gaps 52–57 / 106–111.
 
-### Current — BE5-WB / BE6 (staged)
+### Prior — BE5-WB (complete)
 
 | Registry | Catalog `book_id` | Series slug | Aliases (Studio) |
 |---|---|---|---|
 | BE5-WB | `big_english_5_wb` | `big-english` | `bep5_wb`, `bep_5_wb` |
+
+Phase 1 COMPLETE; grammar pages 140/141/142; U2 vocab relationship remap.
+
+### Current — BE6 (staged)
+
+| Registry | Catalog `book_id` | Series slug | Aliases (Studio) |
+|---|---|---|---|
 | BE6-SB | `big_english_6_sb` | `big-english` | `bep6_sb`, `bep_6_sb`, `bep_sb6`, `bep_sb_6`, `big_english_plus_6_sb` |
 | BE6-WB | `big_english_6_wb` | `big-english` | `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb` |
 

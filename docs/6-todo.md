@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 106  
+**Last updated:** Step 107  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -12,10 +12,8 @@
 - [x] Four Storage-backed pilots Phase 1 COMPLETE (merge + audit + D008 validation).
 - [x] D009 naming authority + safe cosmetic renames.
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
-- [x] BE1–BE4 SB/WB Phase 1 COMPLETE (D013 notes on BE1-WB / BE3-SB).
+- [x] BE1–BE5 SB/WB Phase 1 COMPLETE (D013 notes on BE1-WB / BE3-SB).
 - [x] Stage remaining Big English: BE5-SB, BE5-WB, BE6-SB, BE6-WB (catalog + R2 + 9 batches).
-- [x] BE5-SB human verify → finalize → merge → D008 → audit → Phase 1 COMPLETE.
-- [ ] Human-verify BE5-WB Units 1–9 → finalize → merge → D008 → audit.
 - [ ] Human-verify BE6-SB Units 1–9 → finalize → merge → D008 → audit.
 - [ ] Human-verify BE6-WB Units 1–9 → finalize → merge → D008 → audit.
 
