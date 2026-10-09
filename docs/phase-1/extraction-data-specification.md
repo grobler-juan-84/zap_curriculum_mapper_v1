@@ -3,7 +3,7 @@
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
 **Phase:** 1 — Curriculum Extraction & Structure  
-**Current Priority:** Build and validate structured datasets across multiple textbook series.
+**Current Priority:** PAUSED at 14 / 18 COMPLETE (D015). This specification remains authoritative when Phase 1 resumes.
 
 ---
 
@@ -988,9 +988,9 @@ It is not a failure of the phase model.
 
 ---
 
-# 30. Current Immediate Experiment
+# 30. Historical Phase 1 Pilot
 
-Before processing all 18 books, the Phase 1 workflow should be proven on representative material from each textbook series.
+The Phase 1 workflow was first proven on representative material from each textbook series.
 
 Initial representative sources:
 
@@ -998,15 +998,13 @@ Initial representative sources:
 2. **Big English 1**
 3. **Reach Higher 2A**
 
-The first objective is not necessarily to complete all three immediately.
-
-The objective is to prove:
+The objective was to prove:
 
 **PDF → Extraction Batch → Structured JSON → Validation → Human Verification → Canonical Dataset**
 
 while exposing the current schema to three different textbook structures.
 
-Once this workflow is sufficiently reliable, processing of the broader 18-book dataset can accelerate.
+That pipeline is now complete for 14 books. Under D015, Phase 1 is intentionally paused at 14 / 18 COMPLETE; BH2, RH2B, RH3A and RH4A remain deferred and NOT STARTED.
 
 ---
 

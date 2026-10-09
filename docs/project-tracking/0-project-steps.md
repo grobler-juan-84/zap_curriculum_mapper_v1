@@ -1958,4 +1958,25 @@
 
 ---
 
+### Step 111
+
+**Summary:** Intentionally paused project-wide Phase 1 at 14/18 COMPLETE and made bounded Big-English-only Phase 2 interpretation experiments the active priority (D015). Preserved the four remaining Phase 1 book pipelines as deferred work without defining a Phase 2 schema or implementation.
+
+**Files touched:**
+- `.cursor/rules/project_status_rule.mdc` (updated)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/phase-1/curriculum-mapping-process.md` (updated)
+- `docs/phase-1/extraction-data-specification.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-6/chalkie-ai-handover-specifications.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

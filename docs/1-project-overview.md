@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 1 — Curriculum Extraction & Dataset Development
+**Current Development Focus:** Phase 2 — Controlled Curriculum Interpretation Experiments (D015)
 
 ---
 
@@ -165,28 +165,22 @@ Evaluate outputs, identify where problems originated, and improve the appropriat
 
 ---
 
-## 6. Current Priority — Phase 1
+## 6. Current Priority — Phase 2
 
-The immediate priority is to build a reliable **Phase 1 dataset** from the available 18 books.
+Phase 1 is intentionally **PAUSED at 14 / 18 COMPLETE** (D015). All 12 Big English books, Beehive 1 and Reach Higher 2A have completed extraction, human verification, canonical merge, D008 validation and whole-book audit. Phase 1 is neither completed nor abandoned.
 
-The purpose is not merely to finish extracting the books.
+The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and Reach Higher 4A remain deferred.
 
-Processing these books should teach us:
+The active priority is controlled **Phase 2 curriculum interpretation** experimentation using the 12 completed Big English canonical datasets. Beehive and Reach Higher are excluded from the immediate experiments.
 
-- which data structures are common across textbook series,
-- which structures are series-specific,
-- which fields are genuinely useful,
-- which fields are unnecessary,
-- which information is difficult for AI to classify,
-- where human verification is necessary,
-- where the current schema fails,
-- and what the eventual automated system needs to support.
+This transition is intended to discover what useful linguistic and pedagogical interpretation should contain. It does not yet select or lock:
 
-Phase 1 therefore serves two purposes:
+- a Phase 2 implementation;
+- a Phase 2 JSON schema;
+- a storage model;
+- or a Phase 2 architecture.
 
-**1. Build useful curriculum datasets.**
-
-**2. Discover the correct architecture for future curriculum ingestion.**
+Phase 3 curriculum connections and vertical mapping will follow through later controlled experiments after Phase 2 produces sufficient evidence.
 
 ---
 
@@ -194,7 +188,7 @@ Phase 1 therefore serves two purposes:
 
 The current working workflow is:
 
-**PDF Source** (intended: private Cloudflare R2 `book-sources`; live pilot still on Supabase Storage until D010 migration)
+**PDF Source** (private Cloudflare R2 `book-sources`; R2-only under D012)
 
 ↓
 
@@ -214,7 +208,7 @@ The current working workflow is:
 
 ↓
 
-**Canonical Book Dataset** (merge after verification — four Storage-backed pilots COMPLETE)
+**Canonical Book Dataset** (merge after verification — 14 books COMPLETE)
 
 Google Sheets remains an optional future inspection surface. For the current pilot, the React Validation workspace is the human verification UI.
 
@@ -274,6 +268,8 @@ The objective is to discover a structure capable of representing all three while
 Early testing should therefore include material from different series rather than completing an entire series before testing another.
 
 This reduces the risk of accidentally designing the system around one publisher's curriculum structure.
+
+This remains a Phase 1 schema-generalization principle. D015 deliberately limits the immediate Phase 2 interpretation experiments to Big English; it does not claim that Big English alone proves cross-series generality.
 
 ---
 
@@ -383,11 +379,13 @@ The interface should therefore evolve alongside the curriculum model.
 
 The current project milestone is:
 
-> **Prove that the General Curriculum Mapper can reliably extract, structure, verify and display curriculum data from substantially different textbook series without losing important curriculum information or forcing every source into an inappropriate fixed structure.**
+> **Use the completed Big English evidence base to learn what reliable, traceable curriculum and linguistic interpretation should contain before committing to a Phase 2 schema or implementation.**
 
 Success at this stage does **not** require:
 
 - complete automation,
+- completion of the four deferred Phase 1 books,
+- a finalized Phase 2 schema or architecture,
 - perfect extraction,
 - perfect enrichment,
 - perfect lesson generation,

@@ -48,6 +48,8 @@
 | D011 | Validation PDF signed URLs via server API; R2-first dual-read | 2026-10-08 | LOCKED (delivery refined by D012) |
 | D012 | Source PDFs are R2-only; Supabase PDF dual-read retired | 2026-10-08 | LOCKED |
 | D013 | Human verify available PDF content with documented missing-source exception | 2026-10-08 | LOCKED |
+| D014 | Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page | 2026-10-09 | LOCKED |
+| D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 
 ---
 
@@ -229,6 +231,18 @@
 
 ---
 
+### D015 — Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments
+
+**Date:** 2026-10-09
+**Status:** LOCKED
+**Decision:** Intentionally pause Phase 1 with 14 of 18 books COMPLETE and make Phase 2 curriculum interpretation the active development priority. Immediate Phase 2 experiments use the 12 completed Big English Student Books and Workbooks (Levels 1–6). Beehive and Reach Higher are excluded from the immediate experiments; BH1 and RH2A remain valid completed Phase 1 assets, while BH2, RH2B, RH3A, and RH4A remain NOT STARTED and deferred. Phase 3 follows through later controlled experiments. This decision does not select or lock a Phase 2 implementation, JSON schema, storage model, or architecture.
+**Reason:** The complete Big English sequence provides a coherent evidence base for learning how curriculum interpretation should work before more extraction or downstream mapping architecture is committed. The phase model is intentionally iterative, so useful Phase 2 evidence can guide whether later Phase 1 work needs adjustment.
+**Alternatives rejected:** Treating all 18 books as a prerequisite for Phase 2; declaring project-wide Phase 1 complete; abandoning the four remaining books; including Beehive or Reach Higher in the immediate Phase 2 experiments; prematurely fixing a Phase 2 schema or implementation.
+**Implications:** Operating trackers and current-status documentation must show Phase 1 as **PAUSED at 14/18 COMPLETE**, not completed or abandoned. The full Phase 1 pipeline for BH2, RH2B, RH3A, and RH4A stays visible as deferred work. Phase 2 remains a separate interpretation layer over verified Phase 1 evidence (D001), and Phase 3 remains parked until controlled Phase 2 experiments provide enough evidence.
+**Supersedes:** The draft Phase 1 processing order in `phase-1/dataset-registry.md` §15 as an active priority; the table remains historical context.
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -245,3 +259,4 @@
 | 2026-10-08 | Added D012 — source PDFs R2-only; Supabase PDF dual-read retired; originals left unused. |
 | 2026-10-08 | Added D013 — human verify available PDF content with documented missing-source exception (BE1-WB U9). |
 | 2026-10-09 | Added D014 — Validation viewer navigates by extracted `pdf_page` with printed labels (resolves F015; BE3-SB pp. 66–67 missing). |
+| 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |

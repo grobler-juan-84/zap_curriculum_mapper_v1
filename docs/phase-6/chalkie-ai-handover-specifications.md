@@ -6,7 +6,7 @@
 **Project:** General Curriculum Mapper  
 **Relevant Phases:** Phase 5 — Lesson Packaging & Structure / Phase 6 — Lesson Generation  
 **Original Development Context:** Chalkie.ai lesson-slide generation experiments  
-**Current Development Priority:** None — Phase 1 currently takes priority
+**Current Development Priority:** None — Phase 2 controlled interpretation experiments currently take priority (D015)
 
 ---
 
@@ -39,7 +39,7 @@ However:
 
 The General Curriculum Mapper is currently focused primarily on:
 
-> **Phase 1 — Curriculum Extraction & Dataset Development**
+> **Phase 2 — Controlled Curriculum Interpretation Experiments**
 
 Therefore this document should remain available as downstream development evidence but should not drive current architecture decisions prematurely.
 
@@ -1197,9 +1197,9 @@ The more important question now sits upstream:
 
 > **Can the General Curriculum Mapper reliably build the curriculum intelligence required to support this across different books and textbook series?**
 
-That is why current development returns primarily to:
+That is why current development remains upstream in:
 
-> **Phase 1 — Curriculum Extraction & Dataset Development.**
+> **Phase 2 — AI Curriculum & Linguistic Interpretation.**
 
 ---
 

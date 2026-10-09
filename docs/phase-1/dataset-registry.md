@@ -973,9 +973,9 @@ and record a short explanation.
 
 ---
 
-# 13. Current Cross-Series Pilot
+# 13. Historical Cross-Series Pilot
 
-Before aggressively processing all 18 books, the initial Phase 1 architecture should be challenged using representative books from each series.
+The initial Phase 1 architecture was challenged using representative books from each series before broader processing.
 
 ## Pilot Books
 
@@ -987,7 +987,7 @@ Before aggressively processing all 18 books, the initial Phase 1 architecture sh
 | 4 | Big English 2 SB | Extra vertical check (same publisher, next level) | **Phase 1 COMPLETE** (canonical v1 + whole-book audit PASSED 2026-10-07) |
 | 5 | Schema Review | Review findings across pilot series | **0.2 DEFERRED** — post-pilot candidate in [`cross-series-schema-review-notes.md`](./cross-series-schema-review-notes.md) §11 (2026-10-07); schema remains 0.1 |
 
-**Infrastructure (pilot books):** unit-batch / canonical JSON remain in private Supabase Storage (`book-datasets`); cover images remain in `book-assets`. Textbook **source PDFs** for all four cataloged pilots are on Cloudflare R2 `book-sources` at the same object keys (Stage E PASS 2026-10-08 — SHA-256 verified; see [`../10-storage-architecture.md`](../10-storage-architecture.md)). Validation loads PDFs **R2-first** via same-origin proxy with Supabase dual-read fallback; Supabase PDF originals are preserved (not deleted). `book_files` rows were not rewritten. Local `data/phase1/` copies are optional working files (gitignored).
+**Infrastructure (pilot books):** unit-batch / canonical JSON remain in private Supabase Storage (`book-datasets`); cover images remain in `book-assets`. Textbook source PDFs are served from Cloudflare R2 `book-sources` only (D012); unused Supabase PDF originals remain preserved. Local `data/phase1/` copies are optional working files (gitignored).
 
 The exact extraction sequence may change if practical testing provides a reason.
 
@@ -1023,7 +1023,7 @@ Observed for the pilot set:
 - vocabulary extraction is accurate enough;
 - important language / sentence structures are captured to a satisfactory level.
 
-**Priorities going forward:** Beehive and Big English remain the higher-priority curriculum sources; Reach Higher remains valuable as a structurally different stress test.
+**Historical pilot priority:** Beehive and Big English were the higher-priority curriculum sources; Reach Higher provided a structurally different stress test. D015 now controls current priority and immediate experiment scope.
 
 **All four Storage-backed pilots remain Phase 1 COMPLETE** (BE1-SB, BH1, BE2-SB, RH2A — canonical v1 + whole-book audit PASSED). Automated structural validation now reports **PASSED WITH WARNINGS** for all four after BE2-SB appendix sticker pages `bep2_p189`–`bep2_p191` were added (2026-10-07). Schema review working recommendations are owner-accepted. The post-pilot 0.2 candidate (2026-10-07) **defers** a schema bump; schema remains 0.1.
 
@@ -1064,15 +1064,17 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 ---
 
-# 15. Recommended Processing Order After Pilot
+# 15. Historical Processing Order After Pilot
 
-**Status:** DRAFT — practical default, not a locked decision.
+**Status:** SUPERSEDED AS AN ACTIVE PRIORITY by D015. Retained as processing history.
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
 **Owner adjustment (2026-10-09):** BE3–BE6 SB/WB pairs COMPLETE (Big English set closed). Remaining Phase 1 books: BH2, RH2B, RH3A, RH4A.
 
-The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
+**Owner adjustment (2026-10-09; D015):** Phase 1 is intentionally PAUSED at 14 / 18 COMPLETE. BH2, RH2B, RH3A and RH4A remain NOT STARTED and their full Phase 1 pipelines are deferred. Phase 2 controlled interpretation experiments using the 12 completed Big English datasets are now the active priority. Beehive and Reach Higher are excluded from the immediate Phase 2 experiment scope.
+
+The pilot is complete and schema 0.2 remains deferred. If Phase 1 resumes, continue on schema 0.1 using the D008 validator and existing human/source audit gates unless a later evidence-backed decision changes that direction. The historical order deliberately:
 
 - starts with a Workbook so Student Book ↔ Workbook relationships are tested before scaling;
 - keeps Beehive and Big English as the higher-priority curriculum sources;
@@ -1080,7 +1082,7 @@ The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using
 - processes later Big English levels as Student Book / Workbook pairs;
 - avoids extracting all books from one series before checking another.
 
-## Draft Remaining-Book Order (14 books)
+## Historical Post-Pilot Order (14 books)
 
 | Order | Registry ID | Book | Why here |
 |---:|---|---|---|
@@ -1124,7 +1126,7 @@ Continue recording:
 
 throughout the entire 18-book dataset.
 
-Reorder only for a concrete source/readiness reason (missing/incomplete PDF, unresolved identity, extraction failure, or a deliberate owner priority change). Record the reason rather than silently changing the sequence.
+This table no longer controls current work. D015 records the deliberate owner priority change; retain the table as chronology rather than silently rewriting it.
 
 ---
 
@@ -1408,18 +1410,21 @@ Reach Higher
 4 books
 
 Current Priority
-Phase 1 — Curriculum Extraction & Dataset Development
-(extraction quality checkpoint accepted 2026-10-07;
- all four Storage-backed pilots Phase 1 COMPLETE)
+Phase 2 — Controlled Curriculum Interpretation Experiments (D015)
+(Big English BE1–BE6 SB/WB only; no Phase 2 schema or implementation locked)
 
 Current Canonical Format
-Structured JSON (all four pilot books have verified canonical v1 in Supabase Storage)
+Structured JSON (14 completed books have verified canonical v1 in Supabase Storage)
 
 Current Schema
 0.1 Development
 
 Phase 1 Complete
 14 / 18 (all Big English BE1–BE6 SB/WB + BH1 + RH2A; D013 notes on BE1-WB / BE3-SB)
+
+Phase 1 Status
+PAUSED — intentionally unfinished, not abandoned
+Deferred / NOT STARTED: BH2, RH2B, RH3A, RH4A
 
 Storage-backed complete books
 Beehive 1 (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
@@ -1445,7 +1450,8 @@ Implemented (machine schema + shared JS validator + CLI)
 Fourteen complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-Choose BH2 / RH2B (or mapper cleanup) — Big English set closed
+Define and run bounded Phase 2 interpretation experiments using completed Big English canonical datasets
+Phase 3 remains a later controlled experiment
 ```
 
 ---

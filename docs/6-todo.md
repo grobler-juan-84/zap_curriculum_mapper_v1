@@ -4,13 +4,13 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 110  
+**Last updated:** Step 111
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
 
-## Now
+## Done
 
 - [x] Four Storage-backed pilots Phase 1 COMPLETE (merge + audit + D008 validation).
 
@@ -22,9 +22,13 @@
 
 - [x] Mapper cleanup: prefer `bookUuid` / `catalogBookId` over overloaded `bookId` / `stableBookId` in app TS.
 
-## Next
+- [x] Record D015: Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority.
 
-- [ ] Choose BH2 / RH2B (or RH3A / RH4A) when ready.
+## Now
+
+- [ ] Define the first controlled Phase 2 interpretation experiment: question, Big English input subset, expected evidence and evaluation criteria.
+
+- [ ] Inventory existing informal interpretation work that may inform the experiment without treating it as a locked schema.
 
 ## Soon
 
@@ -33,6 +37,10 @@
 - [ ] Review post-form Storage measurements before approving cover thumbnails or PDF linearization.
 
 - [ ] Persist Validation session notes (optional).
+
+## Deferred
+
+- [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after an explicit owner decision (currently deferred by D015).
 
 ---
 

@@ -37,7 +37,7 @@ Coordinate with `.cursor/rules/operating_trackers.mdc` so `6-todo.md` / `4-decis
 
 - Keep the whole file short and scannable.
 - Prefer plain language over exhaustive file lists.
-- Align with real project priorities (currently Phase 1 unless the user changes focus).
+- Align with real project priorities (currently bounded Phase 2 interpretation experiments under D015; Phase 1 is paused at 14/18).
 - Do not invent completed work; base the snapshot on evidence from this session and existing docs/trackers.
 
 ## Order relative to other rules

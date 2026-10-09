@@ -6,7 +6,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Priority:** Phase 1 — Curriculum Extraction & Dataset Development
+**Current Development Priority:** Phase 2 — Controlled Curriculum Interpretation Experiments (D015)
 
 This document is intentionally not locked.
 
@@ -1186,26 +1186,27 @@ We are evolving the architecture based on what previous experiments have taught 
 
 ## Phase 1
 
-**CURRENT PRIMARY DEVELOPMENT FOCUS**
+**PAUSED AT 14 / 18 COMPLETE (D015)**
 
-Cross-series pilot extraction is substantially in place for:
+Phase 1 is intentionally paused, not completed or abandoned. The following books have completed extraction, human verification, canonical merge, D008 validation and whole-book audit:
 
-- Beehive 1 (units 01–10);
-- Big English 1 Student Book (units 01–09);
-- Big English 2 Student Book (units 01–09; additional extracted book);
-- Reach Higher 2A (units 1–4).
+- all 12 Big English Student Books and Workbooks (Levels 1–6);
+- Beehive 1;
+- Reach Higher 2A.
 
-Unit batches and source PDFs live in private Supabase Storage and are reviewed in the React Validation workspace. All four pilots have verified canonical v1 datasets and passed historical whole-book/source audits; the cross-series 0.2 candidate was deferred. Automated structural validation is now implemented as a separate D008 gate for future progression. All four pilots currently pass automated validation with warnings after BE2-SB appendix sticker pages were added to resolve dangling Activity 11 relationships.
+Beehive 2, Reach Higher 2B, Reach Higher 3A and Reach Higher 4A remain NOT STARTED. Their complete Phase 1 pipelines are deferred while Phase 2 experiments are active. The cross-series 0.2 schema candidate also remains deferred.
 
-The current project judgement (2026-10-07) is that first-iteration extraction quality is **satisfactory to continue development**, while Phase 1 remains iterative if later phases expose missing evidence.
+Phase 1 remains iterative: later experiments may reveal missing evidence that justifies a controlled return to extraction or schema work.
 
 ---
 
 ## Phase 2
 
-AI linguistic and curriculum interpretation has already occurred informally during experimentation.
+**CURRENT PRIMARY DEVELOPMENT FOCUS**
 
-It has not yet been systematically formalized across the broader dataset.
+Begin controlled curriculum and linguistic interpretation experiments using the 12 completed Big English canonical datasets. Beehive and Reach Higher are excluded from the immediate experiment scope.
+
+Interpretation has occurred informally during earlier experimentation, but it has not yet been systematically formalized. D015 activates the discovery work without selecting or locking a Phase 2 implementation, JSON schema, storage model or architecture.
 
 ---
 
@@ -1257,22 +1258,13 @@ It should become increasingly systematic as the earlier phases mature.
 
 ---
 
-# 36. Current Phase 1 Milestone
+# 36. Phase 1 Pause and Phase 2 Transition
 
-The immediate milestone was:
+The Phase 1 pilot milestone was:
 
 > **Prove the Phase 1 extraction and dataset architecture across three substantially different textbook series.**
 
-Representative pilot books:
-
-- Beehive 1;
-- Big English 1;
-- Reach Higher 2A;
-- (plus Big English 2 SB as an additional extracted Student Book).
-
-**Status (2026-10-07):** pilot extraction + Storage + first-iteration human verification are in place; extraction quality is judged satisfactory to continue. Remaining milestone work: formal schema review, canonical merge, whole-book audit — not greenfield extraction setup.
-
-We should still prove:
+That pipeline is now proven on 14 completed books:
 
 ```text
 PDF
@@ -1287,10 +1279,12 @@ HUMAN VERIFICATION
 ↓
 CANONICAL DATASET
 ↓
-GOOGLE SHEETS / REACT
+WHOLE-BOOK AUDIT
 ```
 
-before aggressively processing the remainder of the 18-book dataset.
+**Status (2026-10-09):** Phase 1 is paused at 14 / 18 COMPLETE. The remaining four books—BH2, RH2B, RH3A and RH4A—are deferred with no work started.
+
+The current milestone is to run controlled Phase 2 interpretation experiments against the 12 completed Big English datasets, learn from those experiments, and only then propose any Phase 2 schema or implementation. Phase 3 follows through later controlled experiments.
 
 ---
 
