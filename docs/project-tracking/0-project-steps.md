@@ -2046,4 +2046,20 @@
 
 ---
 
+### Step 116
+
+**Summary:** Executed `P2-EXP-BE2-U08-v1` on BE2-SB Unit 8 *Wild Animals* using the Unit 7 LR method (no redesign), produced the three-unit methodology comparison across U6–U8, and left further Phase 2 work for owner decision without locking a schema.
+
+**Files touched:**
+- `docs/phase-2/p2-exp-be2-u08-v1-protocol.md` (created)
+- `docs/phase-2/p2-exp-be2-u08-v1-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

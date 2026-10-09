@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 115
+**Last updated:** Step 116
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,19 +12,17 @@
 
 ## Done
 
-- [x] Phase 1 pilots + BE1–BE6 SB/WB COMPLETE; D015/D016 recorded.
+- [x] Phase 1 PAUSED / D015–D016 recorded; BE1–BE6 COMPLETE.
 
-- [x] Execute `P2-EXP-BE2-U06-v1` and `P2-EXP-BE2-U06-v2`.
-
-- [x] Execute `P2-EXP-BE2-U07-v1` (Unit 7 LRs + methodology generalization).
+- [x] Execute U6 v1, U6 v2, U7 v1, and U8 v1 Phase 2 experiments (D016 candidate set).
 
 ## Now
 
-- [ ] Owner-review U6 v1/v2 and U7 v1 artifacts; decide whether to authorize Unit 8 experiment.
+- [ ] Owner-review U6–U8 Phase 2 artifacts; decide next Phase 2 move (accept method-as-experimental, teacher validation, further units/books, or pause).
 
 ## Soon
 
-- [ ] If approved: run BE2-SB Unit 8 (*Wild Animals*) with language-systems-first refinement — **only if approved**.
+- [ ] If approved: teacher-validation pass on the three “one glance” syntheses.
 
 - [ ] Inventory informal interpretation work without locking a schema.
 
@@ -37,6 +35,8 @@
 ## Deferred
 
 - [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after explicit owner decision (D015).
+
+- [ ] Any Phase 2 schema / methodology lock — only after explicit owner decision.
 
 ---
 

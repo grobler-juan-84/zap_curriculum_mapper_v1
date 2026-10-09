@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 115
+**Last updated:** Step 116
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -12,30 +12,28 @@
 
 ## Done
 
-- **Phase 1 book completion (14/18):** BH1, **BE1–BE6 SB/WB**, RH2A (D013 notes).
+- **Phase 1** PAUSED at 14/18 COMPLETE (D015); D016 candidates BE2-SB U6 / U7 / U8.
 
-- **D016:** Phase 2 candidates BE2-SB U6 / U7 / U8.
+- Phase 2 experiments executed: **U6 v1** (relationships), **U6 v2** (LRs), **U7 v1** (LRs + generalization), **U8 v1** (LRs + three-unit comparison).
 
-- **P2-EXP-BE2-U06-v1** (relationships) and **v2** (learning requirements) executed.
-
-- **P2-EXP-BE2-U07-v1 executed:** Unit 7 learning-requirements + U6↔U7 method generalization; criteria PASS (U7-E8 AI-assessed / validation pending); method judged reusable with justified adaptations; U8 not started.
+- Across U6–U8, the Unit 7 LR method appears reusable with evidence-justified adaptations; **no Phase 2 schema locked**.
 
 ## In progress
 
-- Owner review of U6 v1/v2 and U7 v1 Phase 2 artifacts.
+- Owner review of the D016 three-unit Phase 2 experiment set (especially U8 three-unit comparison).
 
 ## Next
 
-- Owner decision whether to run BE2-SB Unit 8 (*Wild Animals*) with the refined method; do not auto-start.
+- Owner decisions: accept D016 LR set as complete for this method test; optional teacher validation; optional next experiment — **do not auto-start**.
 
 ## Blocked
 
-- Soft wait on owner review before U8.
+- Soft wait on owner review before further Phase 2 experiments or any methodology lock.
 
 ---
 
 ## Snapshot notes
 
-- **Phase 1:** PAUSED at 14 / 18 COMPLETE.
+- Active Git branch for Phase 2 work: `phase-2` (local).
 
-- **Phase 2:** Three experimental runs on BE2 (U6×2, U7×1); no schema locked.
+- **Phase 1:** PAUSED at 14 / 18 COMPLETE.

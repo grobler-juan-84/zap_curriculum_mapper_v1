@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 115  
+**Last updated:** Step 116  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED at 14/18 COMPLETE (D015); D016 candidates U6/U7/U8.
-- Phase 2 experiments: U6 v1 (relationships), U6 v2 (LRs), U7 v1 (LRs + generalization).
+- Phase 1 PAUSED at 14/18 (D015); D016 candidates U6/U7/U8.
+- Phase 2 LR experiments completed for all three D016 units (U6 v2, U7 v1, U8 v1), plus U6 v1 relationships.
 
 ## Current status
 
-U7 method generalization executed; results await owner review. Method appears reusable with justified adaptations. No Phase 2 schema locked. Unit 8 not started.
+On branch `phase-2`. Three-unit methodology comparison executed; method appears reusable with adaptations. No Phase 2 schema locked. Awaiting owner review.
 
 ## Next small step
 
-**Suggestion:** Owner-review U7 artifact §11 comparison and authorize or refine before any Unit 8 experiment.
+**Suggestion:** Owner-review U8 §12 three-unit comparison and decide the next Phase 2 move (do not auto-start further experiments).
