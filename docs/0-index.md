@@ -99,9 +99,11 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | First Phase 3 vertical-mapping scope: BE2-SB Unit 6 hub with BE1/BE3 window (D017); no schema lock. | 1.0 | ACTIVE |
+| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | Phase 3 vertical-mapping hubs: BE2 U6 (provisional acceptance) and BE2 U8; no schema lock. | 1.1 | ACTIVE |
 | [phase-3/p3-exp-be2-u06-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u06-vertical-v1-protocol.md) | First Phase 3 experiment protocol: Previous → Current → Future map for BE2 U6; criteria P3-E1–E7; docs-only. | 1.0 | ACTIVE |
-| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | First vertical-map sketch connecting Phase 2 U6 LRs to BE1 priors and BE3 futures; awaiting owner review. | 1.0 | ACTIVE |
+| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | BE2 U6 vertical-map sketch; v1.1 provisional owner acceptance as experimental seed (not locked); documented absence clarified. | 1.1 | ACTIVE |
+| [phase-3/p3-exp-be2-u08-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u08-vertical-v1-protocol.md) | Second Phase 3 protocol: BE2 U8 *Wild Animals* vertical map; owner alignment philosophy; docs-only. | 1.0 | ACTIVE |
+| [phase-3/p3-exp-be2-u08-vertical-v1-review.md](./phase-3/p3-exp-be2-u08-vertical-v1-review.md) | BE2 U8 vertical-map sketch (ability *can*, habitats); U6 comparison; Phase 4 exploration note only. | 1.0 | ACTIVE |
 
 ### Phase 4
 
@@ -121,7 +123,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 51 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 53 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

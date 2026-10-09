@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 119  
+**Last updated:** Step 120  
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 3 experiment scope.
 
 ---
@@ -25,7 +25,7 @@
 | F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
 | ~~F005~~ | ~~Phase 3 connections / mapping products~~ | **Promoted 2026-10-09 (D017):** controlled vertical-mapping **experiments** are now active on `phase-3`. No Phase 3 schema, graph store, or product implementation is locked. | architecture / D017 |
-| F006 | Phase 4 teacher enrichment productization | Philosophy exists; no enrichment engine work yet | phase-4 doc |
+| F006 | Phase 4 teacher enrichment productization | Philosophy exists; two Phase 3 hubs give enough insight to *explore* Phase 4 later, not enough to implement; wait for owner | phase-4 doc / P3 U8 eval |
 | F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai handover patterns) | Parked handover spec; not current priority | phase-6 doc |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
 | F009 | Wire Book Workspace to Storage-backed page models (replace Beehive mock spreads) | Valuable UX bridge; not required to finish Phase 1 evidence quality | app audit 2026-10-07 |

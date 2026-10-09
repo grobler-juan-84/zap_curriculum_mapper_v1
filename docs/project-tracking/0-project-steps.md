@@ -2111,4 +2111,23 @@
 
 ---
 
+### Step 120
+
+**Summary:** Recorded provisional owner acceptance of the BE2 U6 vertical seed (not locked), clarified documented absence vs `MISSING_EVIDENCE`, executed `P3-EXP-BE2-U08-VERTICAL-v1` for *Wild Animals*, and compared U8 with U6 (Phase 4 exploration insight only — no implementation). Local commit on `phase-3`; no push.
+
+**Files touched:**
+- `docs/phase-3/p3-exp-be2-u06-vertical-v1-review.md` (updated)
+- `docs/phase-3/p3-exp-be2-u06-vertical-v1-protocol.md` (updated)
+- `docs/phase-3/p3-vertical-mapping-candidates.md` (updated)
+- `docs/phase-3/p3-exp-be2-u08-vertical-v1-protocol.md` (created)
+- `docs/phase-3/p3-exp-be2-u08-vertical-v1-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

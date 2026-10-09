@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 119
+**Last updated:** Step 120
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,26 +14,26 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **Phase 2** preserved on GitHub (`origin/phase-2`): BE2 U6–U8 + BE1 U1 experiments; methodology still unlocked.
+- **Phase 2** preserved on `origin/phase-2`.
 
-- **Phase 3** started (D017): first vertical-mapping experiment `P3-EXP-BE2-U06-VERTICAL-v1` executed (docs-only).
+- **Phase 3:** U6 vertical map provisionally accepted as experimental seed (not locked); U8 vertical experiment executed (`P3-EXP-BE2-U08-VERTICAL-v1`).
 
 ## In progress
 
-- Owner review of the BE2 U6 Previous → Current → Future sketch.
+- Owner review of BE2 U8 vertical sketch and U6↔U8 comparison / Phase 4 readiness note.
 
 ## Next
 
-- Owner decisions: accept vertical-map method seed; choose next hub (U7/U8 refine) — **do not implement schema/UI**.
+- Owner decisions: accept U8 sketch; optional U7 hub or pause; Phase 4 exploration only if approved — **no implementation**.
 
 ## Blocked
 
-- Soft: teacher validation of Phase 2 syntheses still pending (does not block Phase 3 experiments).
+- Soft: teacher validation of Phase 2 syntheses still pending.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `phase-3`.
+- Active Git branch: `phase-3` (local commits; push only when owner asks).
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.

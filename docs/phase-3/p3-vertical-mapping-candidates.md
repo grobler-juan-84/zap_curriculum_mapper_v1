@@ -1,50 +1,31 @@
-# Phase 3 — First Vertical-Mapping Candidate Scope
+# Phase 3 — Vertical-Mapping Candidate Scope
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** 2026-10-09  
 **Decision:** [D017](../4-decisions.md)  
-**Purpose:** Record the owner-directed first Phase 3 vertical-mapping experiment scope. Does **not** lock a Phase 3 schema, graph, storage model, or product.
+**Purpose:** Record Phase 3 vertical-mapping hubs. Does **not** lock a Phase 3 schema or methodology.
 
 ---
 
-## 1. First experiment hub
+## Experiments
 
-| Field | Value |
+| # | Experiment ID | Hub | Status |
+|---|---|---|---|
+| 1 | `P3-EXP-BE2-U06-VERTICAL-v1` | BE2-SB U6 *My Day* | **Provisional owner acceptance** as experimental starting point (not locked) — [`p3-exp-be2-u06-vertical-v1-review.md`](./p3-exp-be2-u06-vertical-v1-review.md) v1.1 |
+| 2 | `P3-EXP-BE2-U08-VERTICAL-v1` | BE2-SB U8 *Wild Animals* | **Executed** — awaiting owner review — [`p3-exp-be2-u08-vertical-v1-review.md`](./p3-exp-be2-u08-vertical-v1-review.md) |
+
+---
+
+## Hub 2 window (U8)
+
+| Role | Seed units |
 |---|---|
-| Experiment ID | `P3-EXP-BE2-U06-VERTICAL-v1` |
-| Current Learning hub | BE2-SB Unit 6 — **My Day** (`bep2_unit_06`, pp. 90–105) |
-| Why this hub | Phase 2 already produced relationship inventory (`P2-EXP-BE2-U06-v1`) and LRs (`P2-EXP-BE2-U06-v2`); best evidence base for testing Previous → Current → Future maps |
+| Previous | BE1 U6 *On the Farm* (animal actions; not ability *can*); reject BE1 U2 help *can* |
+| Current | BE2 U8 *Wild Animals* |
+| Future | BE3 U4 *Amazing Animals* (primary); BE4 U5 past *could* (further, optional) |
 
----
-
-## 2. Bounded vertical window
-
-| Role | Book | Seed units (from Phase 2) |
-|---|---|---|
-| Previous | BE1-SB (+ optional WB) | U5 *Busy at Home*; U7 meal-habit strand; distributed Wh-forms |
-| Current | BE2-SB (+ optional WB) | U6 *My Day* |
-| Future | BE3-SB (+ optional WB) | U1 *Wake Up!* (primary); U8 bedtime example (weak only) |
-
-Out of scope for v1: Beehive, Reach Higher, BE4–BE6, whole-book maps, cross-series links.
-
----
-
-## 3. Inputs
-
-| Layer | Sources |
-|---|---|
-| Phase 1 | Canonical JSON for BE1/BE2/BE3 SB (WB corroboration only) |
-| Phase 2 | [`../phase-2/p2-exp-be2-u06-v1-review.md`](../phase-2/p2-exp-be2-u06-v1-review.md), [`../phase-2/p2-exp-be2-u06-v2-review.md`](../phase-2/p2-exp-be2-u06-v2-review.md) |
-
----
-
-## 4. Explicit non-goals (v1)
-
-- No Phase 3 JSON schema / graph database / UI.
-- No invented publisher prerequisite maps.
-- No topic-only progression claims.
-- Do not silently rewrite Phase 1 evidence or Phase 2 LRs.
+Out of scope for v1 runs: Beehive, Reach Higher, whole-book maps, implementation.
 
 ---
 
@@ -53,3 +34,4 @@ Out of scope for v1: Beehive, Reach Higher, BE4–BE6, whole-book maps, cross-se
 | Date | Change |
 |---|---|
 | 2026-10-09 | Created first Phase 3 candidate scope (D017); BE2 U6 vertical hub. |
+| 2026-10-09 | v1.1: U6 provisional acceptance; added BE2 U8 as Experiment 2. |

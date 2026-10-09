@@ -19,7 +19,7 @@
 | Catalog ID | `big_english_2_sb` |
 | Unit ID | `bep2_unit_06` |
 | Printed pages | 90–105 |
-| Run status | **EXECUTED** — review [`p3-exp-be2-u06-vertical-v1-review.md`](./p3-exp-be2-u06-vertical-v1-review.md) awaiting owner review |
+| Run status | **EXECUTED** — review [`p3-exp-be2-u06-vertical-v1-review.md`](./p3-exp-be2-u06-vertical-v1-review.md) v1.1; **owner provisional acceptance** as experimental starting point (not a locked methodology) |
 
 ---
 
