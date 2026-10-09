@@ -2078,4 +2078,18 @@
 
 ---
 
+### Step 118
+
+**Summary:** Finalized Phase 2 for GitHub preservation with an experiment-status snapshot and tracker updates; prepared handoff to a `phase-3` branch for controlled vertical-mapping experiments (no Phase 2 methodology/schema lock).
+
+**Files touched:**
+- `docs/phase-2/phase-2-experiment-status.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

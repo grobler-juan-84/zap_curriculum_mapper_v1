@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 117
+**Last updated:** Step 118
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -14,17 +14,17 @@
 
 - [x] Phase 1 PAUSED / D015–D016 recorded; BE1–BE6 COMPLETE.
 
-- [x] Execute U6 v1, U6 v2, U7 v1, and U8 v1 Phase 2 experiments (D016 candidate set).
+- [x] Execute U6 v1, U6 v2, U7 v1, U8 v1, and BE1 U1 Phase 2 experiments.
 
-- [x] Execute BE1 U1 LR method transfer test (`P2-EXP-BE1-U01-v1`); stop for owner review.
+- [x] Write Phase 2 preservation snapshot for GitHub branch handoff.
 
 ## Now
 
-- [ ] Owner-review BE2 U6–U8 + BE1 U1 transfer artifacts; decide next Phase 2 move (accept method-as-experimental, teacher validation, further units/books, or pause).
+- [ ] Push `phase-2` to GitHub; create and push `phase-3`; start controlled vertical-mapping experiment (docs only — no implementation).
 
 ## Soon
 
-- [ ] If approved: teacher-validation pass on the “one glance” syntheses (BE2 U6–U8 and/or BE1 U1).
+- [ ] If approved: teacher-validation pass on Phase 2 “one glance” syntheses.
 
 - [ ] Inventory informal interpretation work without locking a schema.
 

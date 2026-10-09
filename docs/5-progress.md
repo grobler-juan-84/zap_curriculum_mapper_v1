@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 117
+**Last updated:** Step 118
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -12,28 +12,26 @@
 
 ## Done
 
-- **Phase 1** PAUSED at 14/18 COMPLETE (D015); D016 candidates BE2-SB U6 / U7 / U8.
+- **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- Phase 2 experiments executed: **U6 v1** (relationships), **U6 v2** (LRs), **U7 v1** (LRs + generalization), **U8 v1** (LRs + three-unit comparison).
-
-- **BE1 U1 transfer test** (`P2-EXP-BE1-U01-v1`): LR method applied as-is to *Good Morning, Class!*; methodology transfers; no `METHOD_WEAKNESS`; no schema locked.
+- **Phase 2** controlled Big English experiments complete for preservation: BE2 U6 v1/v2, U7 v1, U8 v1, BE1 U1 transfer test. Methodology remains experimental (not locked). Snapshot: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md).
 
 ## In progress
 
-- Owner review of BE2 U6–U8 artifacts **and** the BE1 U1 transfer-test report.
+- Preserve `phase-2` on GitHub, then branch into Phase 3 controlled vertical-mapping experiments (not implementation).
 
 ## Next
 
-- Owner decisions: accept BE1 transfer findings; optional recycled-vocab documentation habit; next experiment (further BE1, BE6, teacher validation, or pause) — **do not auto-start**.
+- Push `phase-2` → create/push `phase-3` → start first vertical-mapping experiment protocol.
 
 ## Blocked
 
-- Soft wait on owner review before further Phase 2 experiments or any methodology lock.
+- Soft: teacher validation of Phase 2 “one glance” syntheses still pending (does not block Phase 3 experiments).
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch for Phase 2 work: `phase-2` (local).
+- Active Git branch: `phase-2` (local tip includes Step 118 closure docs).
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.

@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 117  
+**Last updated:** Step 118  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED at 14/18 (D015); D016 candidates U6/U7/U8 LR experiments complete.
-- BE1 U1 LR transfer test (`P2-EXP-BE1-U01-v1`) complete; method transfers; no schema locked.
+- Phase 1 PAUSED at 14/18 (D015).
+- Phase 2 Big English experiments complete for GitHub preservation (see [`../phase-2/phase-2-experiment-status.md`](../phase-2/phase-2-experiment-status.md)). Methodology not locked.
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner review of BE2 U6–U8 and BE1 U1 transfer findings. Do not auto-start BE6 or further units.
+On branch `phase-2`. Preparing to push `phase-2`, then create/push `phase-3` for controlled vertical-mapping experiments.
 
 ## Next small step
 
-**Suggestion:** Owner-review BE1 U1 §§10–13 (eval, comparison, recommendations) and decide the next Phase 2 move.
+**Suggestion:** Push `phase-2` → branch `phase-3` → define first vertical-mapping experiment (no implementation).
