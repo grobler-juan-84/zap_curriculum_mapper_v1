@@ -1667,4 +1667,30 @@
 
 ---
 
+### Step 97
+
+**Summary:** Staged BE3-WB for Validation: catalog seed + R2 source PDF, sanitized/normalized Units 1–9, uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
+
+**Files touched:**
+- `scripts/fix_be3wb_json_quotes.mjs` (created)
+- `scripts/normalize_be3wb_units.mjs` (created)
+- `scripts/apply_be3wb_seed.mjs` (created)
+- `scripts/set_be3wb_extracted.mjs` (created)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `supabase/migrations/20261009120000_seed_big_english_3_wb.sql` (created)
+- `data/phase1/big_english_3_wb/` units (updated; gitignored; Storage uploaded)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
