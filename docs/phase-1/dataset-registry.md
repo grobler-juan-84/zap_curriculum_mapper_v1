@@ -192,7 +192,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE5-SB | Big English | 5 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 23 | 1 | COMPLETE |
 | BE5-WB | Big English | 5 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 25 | 4 | COMPLETE |
 | BE6-SB | Big English | 6 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 27 | 3 | COMPLETE |
-| BE6-WB | Big English | 6 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | IN PROGRESS |
+| BE6-WB | Big English | 6 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 30 | 1 | COMPLETE |
 | RH2A | Reach Higher | 2A | Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 14 | 5 | COMPLETE |
 | RH2B | Reach Higher | 2B | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | RH3A | Reach Higher | 3A | Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -842,15 +842,47 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 # 8N. BE6-WB — Big English 6 Workbook
 
 **Registry ID:** BE6-WB  
+**Series:** Big English  
+**Level:** 6  
+**Book Type:** Workbook  
 **Catalog `book_id`:** `big_english_6_wb`  
 **Series slug:** `big-english`  
+
+**Source Status:** AVAILABLE  
 **Source PDF:** R2 → `big-english/big_english_6_wb/source.pdf` (D012; ~11.5 MB)  
 **Catalog:** seeded  
-**Extraction Status:** EXTRACTED (`books.status=extracted`)  
-**Human Verification:** NOT STARTED (`pending`)  
-**Phase 1 Status:** IN PROGRESS  
 
-Studio aliases: `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb`. U03 JSON repaired (malformed item key). Grammar pages on U3/U4 (ranges to 138–139).
+**Extraction Status:** EXTRACTED (Units 1–9 in Storage)  
+**Automated Validation:** PASSED WITH WARNINGS (2026-10-09; 0 errors — grammar overlaps U3/U4; gap 90–91)  
+**Human Verification:** COMPLETE 2026-10-09  
+**Whole-Book Audit:** PASSED (2026-10-09; see [`audits/BE6-WB_canonical_v1_audit.md`](./audits/BE6-WB_canonical_v1_audit.md))  
+**Canonical Dataset:** CREATED (`big-english/big_english_6_wb/canonical/v1.json`; `dataset_versions` v1 verified)  
+**Phase 1 Status:** COMPLETE  
+
+### Schema / Issues
+
+**Schema Version:** 0.1  
+**Open Issues:** 30  
+**Schema Gaps:** 1  
+
+### Extraction notes
+
+- Studio aliases `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb`.
+- U03 JSON repaired at staging (malformed item key).
+- Merge hygiene: grammar-inclusive U3/U4 ranges (138/139); U8 vocab/lang collision remumber; `bep6_wb_u8` unit-alias remap.
+- Canonical merge 2026-10-09: 9 units, 128 pages, 275 vocab, 63 language, 308 activities.
+
+| Unit | Title | Printed pages |
+|---:|---|---|
+| 1 | ALL ABOUT SCHOOL | 4–17 |
+| 2 | Amazing Young People | 18–31 |
+| 3 | DILEMMAS | 32–138 |
+| 4 | Dreams for the Future | 48–139 |
+| 5 | If I Could Fly... | 62–75 |
+| 6 | The Coolest School Subjects | 76–89 |
+| 7 | Mysteries! | 92–105 |
+| 8 | Why Is It Famous? | 106–119 |
+| 9 | That's Entertainment! | 120–133 |
 
 ---
 
@@ -1038,7 +1070,7 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
-**Owner adjustment (2026-10-09):** BE3–BE5 pairs COMPLETE; **BE6-SB** Phase 1 COMPLETE; BE6-WB still staged awaiting HV.
+**Owner adjustment (2026-10-09):** BE3–BE6 SB/WB pairs COMPLETE (Big English set closed). Remaining Phase 1 books: BH2, RH2B, RH3A, RH4A.
 
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
@@ -1142,14 +1174,14 @@ Update this section as books progress.
 |---|---:|
 | Total Books | 18 |
 | Sources Available | 18 |
-| Phase 1 Not Started | 9 |
+| Phase 1 Not Started | 4 |
 | Phase 1 In Progress | 0 |
-| Phase 1 Complete | 9 |
+| Phase 1 Complete | 14 |
 | Phase 1 Blocked | 0 |
-| Canonical Datasets Created | 9 |
-| Human Verification Complete | 9 |
-| Whole-Book Audits Passed | 9 |
-| Automated Validation Passed With Warnings | 9 |
+| Canonical Datasets Created | 14 |
+| Human Verification Complete | 14 |
+| Whole-Book Audits Passed | 14 |
+| Automated Validation Passed With Warnings | 14 |
 | Automated Validation Failed | 0 |
 
 These counts should be updated whenever a book changes major processing status.
@@ -1161,9 +1193,9 @@ These counts should be updated whenever a book changes major processing status.
 | Series | Total Books | Not Started | In Progress | Complete | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Beehive | 2 | 1 | 0 | 1 | 0 |
-| Big English | 12 | 8 | 0 | 4 | 0 |
+| Big English | 12 | 0 | 0 | 12 | 0 |
 | Reach Higher | 4 | 3 | 0 | 1 | 0 |
-| **Total** | **18** | **12** | **0** | **6** | **0** |
+| **Total** | **18** | **4** | **0** | **14** | **0** |
 
 ---
 
@@ -1387,7 +1419,7 @@ Current Schema
 0.1 Development
 
 Phase 1 Complete
-13 / 18 (… + BE5-SB, BE5-WB, BE6-SB; D013 notes on BE1-WB / BE3-SB)
+14 / 18 (all Big English BE1–BE6 SB/WB + BH1 + RH2A; D013 notes on BE1-WB / BE3-SB)
 
 Storage-backed complete books
 Beehive 1 (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
@@ -1402,6 +1434,7 @@ Big English 4 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; g
 Big English 5 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; checkpoint gaps 52–57 / 106–111)
 Big English 5 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; grammar pages 140/141/142)
 Big English 6 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; checkpoint gaps 52–57 / 106–111)
+Big English 6 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; grammar 138/139; U8 remumber)
 Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 
 Verification UI
@@ -1409,10 +1442,10 @@ React /app/validation (unit-scoped canonical + source PDF)
 
 Automated structural validation
 Implemented (machine schema + shared JS validator + CLI)
-Thirteen complete books: PASSED WITH WARNINGS
+Fourteen complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-Human-verify staged BE6-WB → finalize → merge → D008 → audit
+Choose BH2 / RH2B (or mapper cleanup) — Big English set closed
 ```
 
 ---

@@ -1916,4 +1916,23 @@
 
 ---
 
+### Step 109
+
+**Summary:** Completed BE6-WB Phase 1: HV finalize, grammar-range + U8 remumber + unit-alias hygiene, canonical v1 merge, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Big English set closed; Phase 1 now 14/18.
+
+**Files touched:**
+- `scripts/fix_be6wb_merge_blockers.mjs` (created)
+- `scripts/renumber_be6wb_merge_collisions.mjs` (created)
+- `data/phase1/big_english_6_wb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE6-WB_canonical_v1_audit.md` (created)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

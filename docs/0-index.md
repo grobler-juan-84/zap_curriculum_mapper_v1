@@ -59,9 +59,9 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). | V2 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Phase 1 data specification: extraction boundaries, uncertainty, D009 batch naming, and verified-batch preflight → merge → automated canonical validation → source-audit workflow. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
-| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; thirteen Phase 1 COMPLETE (incl. BE6-SB); BE6-WB staged. | — | ACTIVE |
+| [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of the 18 development books; fourteen Phase 1 COMPLETE (Big English BE1–BE6 closed). | — | ACTIVE |
 | [phase-1/cross-series-schema-review-notes.md](./phase-1/cross-series-schema-review-notes.md) | Cross-series schema 0.1 review; owner-accepted recommendations, 0.2 deferral, and the later D008 automated-validation status update. | 1.1 | ACTIVE |
-| [phase-1/book-id-alias-map.md](./phase-1/book-id-alias-map.md) | Catalog `book_id` is canonical (D007); D009 forward naming; BE6-SB COMPLETE; BE6-WB staged. | 2.1 | ACTIVE |
+| [phase-1/book-id-alias-map.md](./phase-1/book-id-alias-map.md) | Catalog `book_id` is canonical (D007); D009 forward naming; BE1–BE6 SB/WB COMPLETE. | 2.1 | ACTIVE |
 | [phase-1/book_id_aliases.json](./phase-1/book_id_aliases.json) | Machine-readable catalog↔alias map; includes BE5/BE6 and prior BE Studio aliases for merge-time `book_id` normalization. | 1 | ACTIVE |
 | [phase-1/audits/BE1-SB_canonical_v1_audit.md](./phase-1/audits/BE1-SB_canonical_v1_audit.md) | BE1-SB canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 | [phase-1/audits/BE1-WB_canonical_v1_audit.md](./phase-1/audits/BE1-WB_canonical_v1_audit.md) | BE1-WB canonical whole-book audit PASSED with D013 missing-source exception (printed pp. 124–129); automated validation passed with warnings. | 1.2 | ACTIVE |
@@ -75,6 +75,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-1/audits/BE5-SB_canonical_v1_audit.md](./phase-1/audits/BE5-SB_canonical_v1_audit.md) | BE5-SB canonical whole-book audit PASSED; checkpoint gaps 52–57 / 106–111; U3 lang_05/07 unresolved warnings; D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/BE5-WB_canonical_v1_audit.md](./phase-1/audits/BE5-WB_canonical_v1_audit.md) | BE5-WB canonical whole-book audit PASSED; grammar pages 140/141/142; U2 vocab relationship remap; D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/BE6-SB_canonical_v1_audit.md](./phase-1/audits/BE6-SB_canonical_v1_audit.md) | BE6-SB canonical whole-book audit PASSED; checkpoint gaps 52–57 / 106–111; U1 wordlist page_id cleared; D008 passed with warnings. | 1.0 | ACTIVE |
+| [phase-1/audits/BE6-WB_canonical_v1_audit.md](./phase-1/audits/BE6-WB_canonical_v1_audit.md) | BE6-WB canonical whole-book audit PASSED; grammar pages 138/139; U8 remumber + unit-alias remap; D008 passed with warnings. | 1.0 | ACTIVE |
 | [phase-1/audits/RH2A_canonical_v1_audit.md](./phase-1/audits/RH2A_canonical_v1_audit.md) | RH2A canonical whole-book/source audit PASSED; retrospective automated validation passed with warnings. | 1.2 | ACTIVE |
 
 ### Phase 4
@@ -95,7 +96,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 35 | Current working docs, including index, operating trackers, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 36 | Current working docs, including index, operating trackers, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 

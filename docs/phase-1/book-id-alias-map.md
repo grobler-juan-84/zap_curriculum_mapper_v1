@@ -104,13 +104,13 @@ Phase 1 COMPLETE; grammar pages 140/141/142; U2 vocab relationship remap.
 
 Phase 1 COMPLETE; checkpoint gaps 52–57 / 106–111; U1 wordlist page_id cleared.
 
-### Current — BE6-WB (staged)
+### Prior — BE6-WB (complete)
 
 | Registry | Catalog `book_id` | Series slug | Aliases (Studio) |
 |---|---|---|---|
 | BE6-WB | `big_english_6_wb` | `big-english` | `bep6_wb`, `bep_6_wb`, `bep_wb_6`, `bep_g6_wb`, `bep_6_wb_or_sb` |
 
-Staged 2026-10-09. Awaiting human verification.
+Phase 1 COMPLETE; grammar pages 138/139 on U3/U4; U8 vocab/lang collision remumber; `bep6_wb_u8` unit-alias remap.
 
 ### Prior — BE4-WB (complete)
 
