@@ -1539,4 +1539,18 @@
 
 ---
 
+### Step 90
+
+**Summary:** Merged BE3-SB Units 4–5 part pairs into unit batches. Unit 6 blocked — `*_p98_105.json` is byte-identical to `*_p90-97.json` (needs re-export of pp. 98–105). Extended merge script with unit CLI args + page-overlap guard.
+
+**Files touched:**
+- `scripts/merge_be3sb_unit_parts.mjs` (updated)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_04.json` (updated; gitignored)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_05.json` (updated; gitignored)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

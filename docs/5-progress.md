@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 89  
+**Last updated:** Step 90  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -14,20 +14,20 @@
 
 ## In progress
 
-- **BE3-SB extraction trial:** Units 1–3 extracted as ~8-page part pairs (Studio JSON limits); local part→unit merge working for U1–U3.
+- **BE3-SB extraction trial:** Units **1–5** locally merged from ~8-page part pairs. Unit 6 blocked: `p98_105` file is a duplicate of `p90-97` (needs re-export of pp. 98–105).
 
 ## Next
 
-- Continue BE3-SB unit part extractions; merge remaining units the same way when ready.
+- Replace Unit 6 second-part JSON (pp. 98–105), then merge; continue Units 7–9.
 - Stage BE3-SB catalog + R2 PDF / Validation upload when owner is ready.
 
 ## Blocked
 
-- None.
+- Soft: BE3-SB Unit 6 merge waiting on correct `p98-105` extraction file.
 
 ---
 
 ## Snapshot notes
 
 - **Phase 1 Complete:** 6 / 18.
-- **BE3-SB local batches:** `data/phase1/big_english_3_sb/big_english_3_sb_unit_0{1,2,3}.json` (merged); part files kept.
+- **BE3-SB local batches:** units `01–05` merged; part files kept.

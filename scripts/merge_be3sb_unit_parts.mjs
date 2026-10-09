@@ -3,6 +3,7 @@
  *
  * Usage (from repo root):
  *   node scripts/merge_be3sb_unit_parts.mjs
+ *   node scripts/merge_be3sb_unit_parts.mjs 4 5 6
  *
  * Writes:
  *   data/phase1/big_english_3_sb/big_english_3_sb_unit_0N.json
@@ -55,6 +56,30 @@ const UNITS = [
     parts: [
       'big_english_3_sb_unit_03_p36-43.json',
       'big_english_3_sb_unit_03_p44-51.json',
+    ],
+  },
+  {
+    unitNumber: 4,
+    out: 'big_english_3_sb_unit_04.json',
+    parts: [
+      'big_english_3_sb_unit_04_p58-65.json',
+      'big_english_3_sb_unit_04_p66-73.json',
+    ],
+  },
+  {
+    unitNumber: 5,
+    out: 'big_english_3_sb_unit_05.json',
+    parts: [
+      'big_english_3_sb_unit_05_p74-81.json',
+      'big_english_3_sb_unit_05_p82-89.json',
+    ],
+  },
+  {
+    unitNumber: 6,
+    out: 'big_english_3_sb_unit_06.json',
+    parts: [
+      'big_english_3_sb_unit_06_p90-97.json',
+      'big_english_3_sb_unit_06_p98_105.json',
     ],
   },
 ]
@@ -113,6 +138,38 @@ function mergeUnit({ unitNumber, out, parts }) {
     loaded.push({ name, data: JSON.parse(readFileSync(path, 'utf8')) })
   }
 
+  const first = loaded[0].data
+  const last = loaded[loaded.length - 1].data
+  const unitRecs = loaded.flatMap(({ data }) => asArray(data.units).map(asRecord)).filter(Boolean)
+  const pages = loaded.flatMap(({ data }) => asArray(data.pages))
+  const printed = pages
+    .map((p) => asRecord(p)?.printed_page)
+    .filter((n) => typeof n === 'number')
+  const pdf = pages
+    .map((p) => asRecord(p)?.pdf_page)
+    .filter((n) => typeof n === 'number')
+
+  const printedByPart = loaded.map(({ name, data }) => {
+    const nums = asArray(data.pages)
+      .map((p) => asRecord(p)?.printed_page)
+      .filter((n) => typeof n === 'number')
+    return { name, start: nums.length ? Math.min(...nums) : null, end: nums.length ? Math.max(...nums) : null }
+  })
+  for (let i = 0; i < printedByPart.length; i++) {
+    for (let j = i + 1; j < printedByPart.length; j++) {
+      const a = printedByPart[i]
+      const b = printedByPart[j]
+      if (a.start == null || b.start == null) continue
+      const overlap = !(a.end < b.start || b.end < a.start)
+      if (overlap) {
+        throw new Error(
+          `Unit ${unitNumber}: overlapping printed pages between ${a.name} (${a.start}-${a.end}) and ${b.name} (${b.start}-${b.end}). ` +
+            `Replace the wrong part file before merging.`,
+        )
+      }
+    }
+  }
+
   // Collision check across parts (entity ids other than book_id)
   const seen = new Set()
   const collisions = []
@@ -127,17 +184,6 @@ function mergeUnit({ unitNumber, out, parts }) {
       `Unit ${unitNumber}: ${collisions.length} cross-part ID collision(s), e.g. ${collisions[0].id}`,
     )
   }
-
-  const first = loaded[0].data
-  const last = loaded[loaded.length - 1].data
-  const unitRecs = loaded.flatMap(({ data }) => asArray(data.units).map(asRecord)).filter(Boolean)
-  const pages = loaded.flatMap(({ data }) => asArray(data.pages))
-  const printed = pages
-    .map((p) => asRecord(p)?.printed_page)
-    .filter((n) => typeof n === 'number')
-  const pdf = pages
-    .map((p) => asRecord(p)?.pdf_page)
-    .filter((n) => typeof n === 'number')
 
   const printedStart = printed.length ? Math.min(...printed) : null
   const printedEnd = printed.length ? Math.max(...printed) : null
@@ -213,14 +259,31 @@ function mergeUnit({ unitNumber, out, parts }) {
   }
 }
 
-const results = []
-for (const spec of UNITS) {
-  const result = mergeUnit(spec)
-  results.push(result)
-  console.log(
-    `OK ${result.out}: pages ${result.printedStart}-${result.printedEnd} (${result.pageCount}), ` +
-      `vocab ${result.counts.vocabulary}, lang ${result.counts.language}, acts ${result.counts.activities}`,
-  )
+const requested = process.argv.slice(2).map((s) => Number.parseInt(s, 10)).filter((n) => Number.isFinite(n))
+const selected = requested.length
+  ? UNITS.filter((u) => requested.includes(u.unitNumber))
+  : UNITS
+
+if (!selected.length) {
+  console.error(`No matching units. Available: ${UNITS.map((u) => u.unitNumber).join(', ')}`)
+  process.exit(1)
 }
 
-console.log('\nDone. Part files left in place for re-merge if needed.')
+const results = []
+let failures = 0
+for (const spec of selected) {
+  try {
+    const result = mergeUnit(spec)
+    results.push(result)
+    console.log(
+      `OK ${result.out}: pages ${result.printedStart}-${result.printedEnd} (${result.pageCount}), ` +
+        `vocab ${result.counts.vocabulary}, lang ${result.counts.language}, acts ${result.counts.activities}`,
+    )
+  } catch (err) {
+    failures += 1
+    console.error(`FAIL unit ${spec.unitNumber}: ${err.message}`)
+  }
+}
+
+console.log(`\nDone. ${results.length} merged, ${failures} failed. Part files left in place.`)
+if (failures) process.exit(1)

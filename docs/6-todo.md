@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 89  
+**Last updated:** Step 90  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -14,8 +14,9 @@
 - [x] **R2 Stage A–E** + **D012** R2-only PDFs.
 - [x] BE1-WB Phase 1 COMPLETE (with D013 missing-source exception).
 - [x] BE2-WB extract → upload → human verify → merge → D008 → whole-book audit → Phase 1 COMPLETE.
-- [x] BE3-SB Units 1–3: merge split part JSON → unit batches (local trial).
-- [ ] Continue BE3-SB Units 4–9 part extractions; merge each pair into `unit_0N.json`.
+- [x] BE3-SB Units 1–5: merge split part JSON → unit batches (local trial).
+- [ ] Re-export BE3-SB Unit 6 pp. 98–105 (current `*_p98_105.json` is a duplicate of pp. 90–97); then `node scripts/merge_be3sb_unit_parts.mjs 6`.
+- [ ] Continue BE3-SB Units 7–9 part extractions; merge each pair into `unit_0N.json`.
 - [ ] Stage BE3-SB catalog + R2 source PDF when ready for Validation upload.
 
 ## Next
