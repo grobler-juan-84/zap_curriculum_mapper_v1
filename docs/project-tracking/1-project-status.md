@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 98  
+**Last updated:** Step 99  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Seven books Phase 1 COMPLETE, including BE3-SB.
-- BE3-WB human verification COMPLETE (Units 1–9).
+- Eight books Phase 1 COMPLETE, including BE3-WB canonical merge + audit PASSED.
+- Big English level 3 pair (BE3-SB + BE3-WB) closed.
 
 ## Current status
 
-BE3-WB ready for canonical merge → D008 → whole-book audit.
+Ready to choose the next book (BE4-SB / BE4-WB, BH2, or RH2B).
 
 ## Next small step
 
-**Suggestion:** Merge BE3-WB verified batches to `canonical/v1.json` (follow BE2-WB / BE3-SB script pattern).
+**Suggestion:** Stage BE4-SB or BE4-WB when local JSON/PDF are ready (catalog + R2 PDF).

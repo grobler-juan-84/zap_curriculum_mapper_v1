@@ -79,13 +79,13 @@ For every book extracted **after** the four COMPLETE pilots:
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
 
-### Active book — BE3-WB
+### Prior — BE3-WB (complete)
 
 | Registry | Catalog `book_id` | Series slug | Entity prefix (as extracted) | Aliases |
 |---|---|---|---|---|
 | BE3-WB | `big_english_3_wb` | `big-english` | mixed Studio prefixes (`bep3_wb_`, `bep_3_wb_`, `bep_plus_3_wb_`, …) | `bep3_wb`, `bep_3_wb`, `bep_plus_3_wb`, `bep_level3_wb` |
 
-Local normalize rewrites `book_id` / `unit_id` to catalog; entity ID strings preserved (D007). Prefer catalog ID for remaining Studio batches.
+Phase 1 COMPLETE; entity ID strings preserved (D007).
 
 ### Prior — BE3-SB (complete)
 

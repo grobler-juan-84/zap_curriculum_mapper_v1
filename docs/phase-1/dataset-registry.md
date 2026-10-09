@@ -186,7 +186,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
 | BE3-SB | Big English | 3 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 37 | 11 | COMPLETE |
-| BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | NOT RUN | COMPLETE | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
+| BE3-WB | Big English | 3 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 31 | 1 | COMPLETE |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE5-SB | Big English | 5 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -570,26 +570,27 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 **Extraction Status:** EXTRACTED (unit batches `01–09` in Storage `book-datasets`)  
 **Batch Path:** `data/phase1/big_english_3_wb/` (local working copies; Storage is source of truth after upload)  
-**Automated Validation:** NOT RUN (deferred until merge / canonical gate)  
+**Automated Validation:** PASSED WITH WARNINGS (2026-10-09; 0 errors — `source_filename` null; grammar unit-range overlap warnings)  
 **Human Verification:** COMPLETE 2026-10-09 (Units 1–9 `book_files.status` = `verified`; entity `verification_status` = `human_verified`; `books.status` = `verified`)  
-**Verification Notes:** Owner confirmed Units 1–9 in Validation (PDF via R2). Extra grammar pages on Units 3/6/7 (printed 136/139/140) accepted as in-batch content.  
-**Whole-Book Audit:** NOT STARTED  
-**Canonical Dataset:** NOT CREATED  
-**Phase 1 Status:** IN PROGRESS (HV complete; merge + audit pending)  
+**Verification Notes:** Owner confirmed Units 1–9 in Validation (PDF via R2). Grammar pages 136/139/140 on Units 3/6/7 accepted at HV.  
+**Whole-Book Audit:** PASSED (2026-10-09; see [`audits/BE3-WB_canonical_v1_audit.md`](./audits/BE3-WB_canonical_v1_audit.md))  
+**Canonical Dataset:** CREATED (`big-english/big_english_3_wb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
+**Phase 1 Status:** COMPLETE  
 
 ### Schema / Issues
 
 **Schema Version:** 0.1  
-**Open Issues:** — (count after HV)  
-**Schema Gaps:** —  
+**Open Issues:** 31 (`audio_required` 29 + `possible_omission` 1 + other review debt)  
+**Schema Gaps:** 1  
 
 ### Extraction notes
 
 - Units 1–9 whole-unit Studio exports (no part split).
 - Local sanitize repaired invalid JSON quotes/control chars in Units 3 and 6 (`scripts/fix_be3wb_json_quotes.mjs`).
 - Normalize rewrote `book_id` / `unit_id` fields to catalog (`scripts/normalize_be3wb_units.mjs`); mixed Studio entity ID prefixes preserved (D007).
-- Units 3 / 6 / 7 include extra grammar pages (printed 136 / 139 / 140) outside the main contiguous unit ranges — accepted at HV.
-- Uploaded 2026-10-09; HV COMPLETE same day.
+- Merge hygiene: grammar pages 136/139/140 extend unit ranges; Unit 5 invalid p.138 relationship removed → `possible_omission`.
+- Canonical merge 2026-10-09: 9 units, 129 pages, 284 vocab, 79 language, 333 activities.
+- Uploaded 2026-10-09; HV + whole-book audit COMPLETE same day.
 
 ### Unit batch ranges (printed)
 
@@ -791,7 +792,7 @@ This checkpoint exists to prevent us from processing all 18 books using a schema
 
 **Owner adjustment (2026-10-08):** After BE1-WB, continue with **Big English** first because the local BE PDF set is the most complete. BH2 / RH2B remain in the draft table but are deferred until the owner pulls them forward.
 
-**Owner adjustment (2026-10-09):** BE3-SB Phase 1 COMPLETE; **BE3-WB** staged (EXTRACTED; Validation HV next).
+**Owner adjustment (2026-10-09):** BE3-SB and **BE3-WB** Phase 1 COMPLETE (level 3 pair closed).
 
 The pilot is complete and schema 0.2 was deferred. Continue on schema 0.1, using the D008 validator and the existing human/source audit gates. The order deliberately:
 
@@ -1140,7 +1141,7 @@ Current Schema
 0.1 Development
 
 Phase 1 Complete
-7 / 18 (BE1-SB, BH1, BE2-SB, RH2A, BE1-WB with D013 exception, BE2-WB, BE3-SB with D013 exception)
+8 / 18 (BE1-SB, BH1, BE2-SB, RH2A, BE1-WB with D013 exception, BE2-WB, BE3-SB with D013 exception, BE3-WB)
 
 Storage-backed complete books
 Beehive 1 (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
@@ -1149,20 +1150,18 @@ Big English 1 WB (Phase 1 COMPLETE with D013 exception — printed pp. 124–129
 Big English 2 SB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
 Big English 2 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; U8/U9 ID remumber + appendix p.141 omission noted)
 Big English 3 SB (Phase 1 COMPLETE with D013 exception — printed pp. 66–67)
+Big English 3 WB (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED; grammar page range overlap warnings)
 Reach Higher 2A (Phase 1 COMPLETE — canonical v1 + whole-book audit PASSED)
-
-Active extraction
-Big English 3 WB (EXTRACTED + HV COMPLETE; merge + audit pending)
 
 Verification UI
 React /app/validation (unit-scoped canonical + source PDF)
 
 Automated structural validation
 Implemented (machine schema + shared JS validator + CLI)
-Seven complete books: PASSED WITH WARNINGS
+Eight complete books: PASSED WITH WARNINGS
 
 Next Major Checkpoints
-BE3-WB merge → D008 → whole-book audit (§15 note)
+Continue Big English (e.g. BE4-SB / BE4-WB) or pull BH2/RH2B when ready (§15 note)
 ```
 
 ---
