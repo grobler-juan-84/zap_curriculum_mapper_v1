@@ -1,7 +1,7 @@
 # Book ID Alias Map
 
 **Status:** ACTIVE  
-**Version:** 1.6  
+**Version:** 1.7  
 **Date:** 2026-10-09  
   
 **Machine-readable map:** [`book_id_aliases.json`](./book_id_aliases.json)  
@@ -80,13 +80,13 @@ For every book extracted **after** the four COMPLETE pilots:
 4. Local batch filename: `{catalog_book_id}_unit_{NN}.json`
 5. If an extractor still emits a temporary alias, record it here and in `book_id_aliases.json`; merge normalizes `book_id` fields only (D007).
 
-### Current — BE4-WB (staged)
+### Prior — BE4-WB (complete)
 
 | Registry | Catalog `book_id` | Series slug | Entity prefix (as extracted) | Aliases |
 |---|---|---|---|---|
-| BE4-WB | `big_english_4_wb` | `big-english` | mixed Studio prefixes (`bep4_wb_`, `bep_wb_4_`, …) | `bep4_wb`, `bep_4_wb`, `bep_wb_4`, `be4plus_wb` |
+| BE4-WB | `big_english_4_wb` | `big-english` | mixed Studio prefixes (`bep4_wb_`, `bep_wb_4_`, `be4plus_wb_`, …); Unit 7 collisions remumbered to `big_english_4_wb_*` | `bep4_wb`, `bep_4_wb`, `bep_wb_4`, `be4plus_wb` |
 
-Prefer catalog ID in new batches. Local normalize rewrites `book_id` / `unit_id` fields only; entity ID strings preserved (D007).
+Phase 1 COMPLETE; entity ID strings preserved except U7 collision remumber (D007). Grammar pages 134/135/139/140/142; missing-page cross-refs 88/137/141 recorded as `possible_omission`.
 
 ### Prior — BE4-SB (complete)
 

@@ -141,7 +141,7 @@
         "be4plus_wb_"
       ],
       "naming_policy": "d009",
-      "notes": "Unit batches extracted with mixed Studio book_id aliases; local normalize rewrites book_id/unit_id to catalog. Entity ID prefixes preserved (D007)."
+      "notes": "Unit batches extracted with mixed Studio book_id aliases; local normalize rewrites book_id/unit_id to catalog. Unit 7 colliding bep_wb_4_* entity IDs remumbered to catalog prefix; other entity ID prefixes preserved (D007)."
     }
   ]
 }

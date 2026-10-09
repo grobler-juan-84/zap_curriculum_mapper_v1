@@ -1813,4 +1813,27 @@
 
 ---
 
+### Step 104
+
+**Summary:** Completed BE4-WB Phase 1: HV finalize, grammar-range + relationship hygiene, Unit 7 collision remumber, canonical v1 merge, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 10/18 (level 4 pair closed).
+
+**Files touched:**
+- `scripts/finalize_be4wb_human_verify.mjs` (created)
+- `scripts/fix_be4wb_merge_blockers.mjs` (created)
+- `scripts/renumber_be4wb_merge_collisions.mjs` (created)
+- `scripts/fix_be4wb_missing_page_rels.mjs` (created)
+- `scripts/patch_be4wb_canonical_book_range.mjs` (created)
+- `data/phase1/big_english_4_wb/` batches + canonical (updated; gitignored; Storage uploaded)
+- `docs/phase-1/audits/BE4-WB_canonical_v1_audit.md` (created)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

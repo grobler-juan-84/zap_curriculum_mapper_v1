@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 103  
+**Last updated:** Step 104  
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
 ---
@@ -17,8 +17,8 @@
 - [x] BE3-SB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED; D013 pp. 66–67).
 - [x] BE3-WB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED).
 - [x] BE4-SB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED).
-- [x] Choose next book: **BE4-WB** — catalog + R2 source + 9 batches staged (`extracted`).
-- [ ] BE4-WB human verify Units 1–9 in Validation → finalize → merge → D008 → whole-book audit.
+- [x] BE4-WB Phase 1 COMPLETE (merge + D008 PASSED WITH WARNINGS + whole-book audit PASSED).
+- [ ] Choose next book (e.g. BE5-SB) or pull BH2/RH2B; stage catalog + source.
 
 ## Next
 
