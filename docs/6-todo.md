@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 122
+**Last updated:** Step 123
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 

@@ -2165,4 +2165,18 @@
 
 ---
 
+### Step 123
+
+**Summary:** Parked F017 — deferred Korean learner difficulty context for later Phase 4 enrichment refinement; not researched or implemented now; not a prerequisite for locking Phase 4 methodology.
+
+**Files touched:**
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

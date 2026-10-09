@@ -36,7 +36,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 3 vertical-mapping experiments). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004/F005 promoted (Phase 2/3 experiments); four unfinished Phase 1 books deferred as F016. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; includes F017 Korean learner difficulty context for later Phase 4 refinement. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch paths (`app/src/assets/books/…`, `data/phase1/…`), asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.5 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
