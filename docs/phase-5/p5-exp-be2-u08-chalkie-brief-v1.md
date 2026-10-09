@@ -1,9 +1,14 @@
-# Chalkie Teaching Brief — BE2 Unit 8 *Wild Animals*
+# Chalkie Teaching Brief — BE2 Unit 8 *Wild Animals* (WHOLE UNIT — SUPERSEDED)
+
+**Status:** SUPERSEDED — incorrect Phase 5 scope (whole unit).  
+**Correct experiment:** [`p5-exp-be2-u08-p128-129-chalkie-brief-v1.md`](./p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) (pp. 128–129 only).
 
 **Experiment:** `P5-EXP-BE2-U08-CHALKIE-BRIEF-v1`  
 **Book:** Big English 2 Student Book · Unit 8 · pages 128–143  
 **Audience:** Primary EFL · copy/paste into Chalkie  
 **Principle:** Beauty in simplicity — cover the textbook floor; leave room for the teacher.
+
+> **Do not use this paste block for Phase 5.** Kept for history only.
 
 **Labels for Chalkie (do not hide these from the teacher):**
 - **Required (textbook)** — must support the book

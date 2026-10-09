@@ -117,8 +117,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Copy/paste-ready Chalkie teaching brief for BE2 U8 *Wild Animals*: floor, progression, light prior, optional enrichment, generation rules. | 1.0 | ACTIVE |
-| [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Short evaluation of the U8 Chalkie brief vs original handover length/complexity; brief-only (no lesson generation). | 1.0 | ACTIVE |
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | SUPERSEDED whole-unit Chalkie brief (incorrect Phase 5 scope); kept for history. | 1.0 | PARKED |
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | SUPERSEDED review of the whole-unit brief; points to page-scoped correction. | 1.1 | PARKED |
+| [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) | Corrected Phase 5 Experiment 1: copy/paste Chalkie brief for BE2 SB pp. 128–129 only. | 1.0 | ACTIVE |
+| [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md) | Scope-discipline review: included/excluded content vs whole-unit brief; page packaging only. | 1.0 | ACTIVE |
 
 ### Phase 6
 
@@ -133,7 +135,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Lifecycle | Count | Notes |
 |---|---:|---|
 | ACTIVE | 56 | Current working docs, including index, operating trackers, Phase 2–5 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
-| PARKED | 2 | Phase 3 candidate scope (paused handoff) + Phase 6 handover spec |
+| PARKED | 4 | Phase 3 candidate scope; superseded whole-unit Phase 5 brief+review; Phase 6 handover |
 | LOCKED | 0 | None currently frozen |
 
 ---

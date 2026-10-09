@@ -1,13 +1,15 @@
 # P5-EXP-BE2-U08-CHALKIE-BRIEF-v1 — Experiment Review
 
-**Status:** ACTIVE (awaiting owner review)  
-**Version:** 1.0  
+**Status:** SUPERSEDED (incorrect whole-unit Phase 5 scope)  
+**Version:** 1.1  
 **Date:** 2026-10-09  
 **Experiment ID:** `P5-EXP-BE2-U08-CHALKIE-BRIEF-v1`  
 **Brief:** [`p5-exp-be2-u08-chalkie-brief-v1.md`](./p5-exp-be2-u08-chalkie-brief-v1.md)  
-**Focus:** Package Phases 1–4 into one Chalkie-ready teaching brief for BE2 Unit 8.
+**Corrected by:** [`p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md`](./p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md)
 
 This evaluates the **brief**, not a generated lesson. Do **not** claim the 70–90% teacher-prep target is achieved.
+
+> **Phase 5 correction:** Packaging must follow the teacher-requested page scope, not the whole unit. This whole-unit attempt is retained only as a negative lesson.
 
 ---
 

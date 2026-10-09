@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 5 packaging experiments on `phase-5` (BE2 U8 Chalkie brief first); Phases 2–4 working methodologies locked (D018)
+**Current Development Focus:** Phase 5 page-scoped packaging on `phase-5` (BE2 SB pp. 128–129 example); Phases 2–4 working methodologies locked (D018)
 
 ---
 

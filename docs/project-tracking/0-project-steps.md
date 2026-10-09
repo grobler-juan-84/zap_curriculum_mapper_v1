@@ -2212,4 +2212,23 @@
 
 ---
 
+### Step 126
+
+**Summary:** Corrected Phase 5 Experiment 1 to page-scoped packaging for BE2-SB Unit 8 printed pp. 128–129 only; superseded the whole-unit Chalkie brief; documented include/exclude scope discipline; local commit only.
+
+**Files touched:**
+- `docs/phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md` (created)
+- `docs/phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md` (created)
+- `docs/phase-5/p5-exp-be2-u08-chalkie-brief-v1.md` (updated)
+- `docs/phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

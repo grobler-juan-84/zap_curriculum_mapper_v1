@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 125  
+**Last updated:** Step 126  
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 4 experiment scope.
 
 ---

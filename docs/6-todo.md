@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 125
+**Last updated:** Step 126
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,25 +12,23 @@
 
 ## Done
 
-- [x] D018 Phase 2–4 methodology locks; `phase-5` branch.
-
-- [x] Execute `P5-EXP-BE2-U08-CHALKIE-BRIEF-v1` (docs-only).
+- [x] Correct Phase 5 Exp 1 to page-scoped packaging (BE2 SB pp. 128–129).
 
 ## Now
 
-- [ ] Owner-review U8 Chalkie teaching brief; decide accept / trim / next step.
+- [ ] Owner-review pp. 128–129 Chalkie brief; confirm Phase 5 = requested lesson scope (not whole unit).
 
 ## Soon
 
-- [ ] If approved: paste brief into Chalkie and review outline quality (Phase 6 experiment — owner-directed only).
+- [ ] If approved: optional Chalkie paste test of the page brief (owner-directed).
 
-- [ ] If approved: second unit packaging brief.
+- [ ] Later: design teacher page-scope input — only after explicit owner decision.
 
 ## Deferred
 
 - [ ] F017 Korean learner difficulty context.
 
-- [ ] Phase 5/6 schemas, UI, pipelines, auto-generation — only after explicit owner decision.
+- [ ] Phase 5/6 schemas, UI, pipelines — only after explicit owner decision.
 
 ---
 
