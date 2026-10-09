@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 116
+**Last updated:** Step 117
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,15 +16,15 @@
 
 - Phase 2 experiments executed: **U6 v1** (relationships), **U6 v2** (LRs), **U7 v1** (LRs + generalization), **U8 v1** (LRs + three-unit comparison).
 
-- Across U6–U8, the Unit 7 LR method appears reusable with evidence-justified adaptations; **no Phase 2 schema locked**.
+- **BE1 U1 transfer test** (`P2-EXP-BE1-U01-v1`): LR method applied as-is to *Good Morning, Class!*; methodology transfers; no `METHOD_WEAKNESS`; no schema locked.
 
 ## In progress
 
-- Owner review of the D016 three-unit Phase 2 experiment set (especially U8 three-unit comparison).
+- Owner review of BE2 U6–U8 artifacts **and** the BE1 U1 transfer-test report.
 
 ## Next
 
-- Owner decisions: accept D016 LR set as complete for this method test; optional teacher validation; optional next experiment — **do not auto-start**.
+- Owner decisions: accept BE1 transfer findings; optional recycled-vocab documentation habit; next experiment (further BE1, BE6, teacher validation, or pause) — **do not auto-start**.
 
 ## Blocked
 

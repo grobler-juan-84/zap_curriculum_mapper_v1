@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 116
+**Last updated:** Step 117
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -16,13 +16,15 @@
 
 - [x] Execute U6 v1, U6 v2, U7 v1, and U8 v1 Phase 2 experiments (D016 candidate set).
 
+- [x] Execute BE1 U1 LR method transfer test (`P2-EXP-BE1-U01-v1`); stop for owner review.
+
 ## Now
 
-- [ ] Owner-review U6–U8 Phase 2 artifacts; decide next Phase 2 move (accept method-as-experimental, teacher validation, further units/books, or pause).
+- [ ] Owner-review BE2 U6–U8 + BE1 U1 transfer artifacts; decide next Phase 2 move (accept method-as-experimental, teacher validation, further units/books, or pause).
 
 ## Soon
 
-- [ ] If approved: teacher-validation pass on the three “one glance” syntheses.
+- [ ] If approved: teacher-validation pass on the “one glance” syntheses (BE2 U6–U8 and/or BE1 U1).
 
 - [ ] Inventory informal interpretation work without locking a schema.
 
@@ -37,6 +39,8 @@
 - [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after explicit owner decision (D015).
 
 - [ ] Any Phase 2 schema / methodology lock — only after explicit owner decision.
+
+- [ ] Further BE1 units or BE6 Phase 2 experiments — only after explicit owner decision.
 
 ---
 
