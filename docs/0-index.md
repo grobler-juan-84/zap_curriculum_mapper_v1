@@ -110,6 +110,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-4/teacher-enrichment-philosophy.md](./phase-4/teacher-enrichment-philosophy.md) | Phase 4 philosophy for teacher enrichment: floor-first depth, curriculum fidelity, productive language practice, and how enrichment must stay distinct from source evidence. | V1 | ACTIVE |
+| [phase-4/p4-exp-be2-u08-enrich-v1-protocol.md](./phase-4/p4-exp-be2-u08-enrich-v1-protocol.md) | First Phase 4 enrichment protocol for BE2 U8 *Wild Animals*; beauty-in-simplicity; docs-only; no methodology lock. | 1.0 | ACTIVE |
+| [phase-4/p4-exp-be2-u08-enrich-v1-review.md](./phase-4/p4-exp-be2-u08-enrich-v1-review.md) | Four optional enrichment opportunities for BE2 U8 (short answers, like vs can, adjective scaffold, optional action→ability bridge); awaiting owner review. | 1.0 | ACTIVE |
 
 ### Phase 6
 
@@ -123,7 +125,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 52 | Current working docs, including index, operating trackers, Phase 2/3 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 54 | Current working docs, including index, operating trackers, Phase 2–4 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 2 | Phase 3 candidate scope (paused handoff) + Phase 6 handover spec |
 | LOCKED | 0 | None currently frozen |
 

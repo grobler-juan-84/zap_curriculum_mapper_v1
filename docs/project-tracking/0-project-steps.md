@@ -2148,4 +2148,21 @@
 
 ---
 
+### Step 122
+
+**Summary:** Executed first Phase 4 enrichment experiment `P4-EXP-BE2-U08-ENRICH-v1` for BE2-SB Unit 8 *Wild Animals*: four optional, floor-first enrichment opportunities from Phases 1–3 evidence; docs-only; stopped for owner review (no push).
+
+**Files touched:**
+- `docs/phase-4/p4-exp-be2-u08-enrich-v1-protocol.md` (created)
+- `docs/phase-4/p4-exp-be2-u08-enrich-v1-review.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

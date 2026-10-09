@@ -2,17 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 121  
+**Last updated:** Step 122  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 3 BE2 U6 + U8 provisionally accepted; methodology not locked; Phase 3 paused.
+- First Phase 4 enrichment experiment for BE2 U8 (*Wild Animals*): four optional opportunities; methodology not locked.
 
 ## Current status
 
-Preserving `phase-3` on GitHub and creating `phase-4` for Phase 4 exploration. No Phase 4 experiments started.
+On branch `phase-4`. Awaiting owner review. Not pushed this step.
 
 ## Next small step
 
-**Suggestion:** Owner-direct first Phase 4 exploration notes on `phase-4` (docs only).
+**Suggestion:** Owner-review [`../phase-4/p4-exp-be2-u08-enrich-v1-review.md`](../phase-4/p4-exp-be2-u08-enrich-v1-review.md) §§3–6.

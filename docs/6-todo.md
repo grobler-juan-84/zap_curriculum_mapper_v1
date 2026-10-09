@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 121
+**Last updated:** Step 122
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -12,29 +12,27 @@
 
 ## Done
 
-- [x] Phase 3 BE2 U6 and U8 vertical experiments; both provisionally accepted (methodology not locked).
+- [x] Phase 3 paused; `phase-4` branch ready.
 
-- [x] Phase 3 paused; prepare `phase-4` branch for exploration handoff.
+- [x] Execute `P4-EXP-BE2-U08-ENRICH-v1` (docs-only).
 
 ## Now
 
-- [ ] On `phase-4`: wait for owner direction before any Phase 4 exploration notes (no implementation yet).
+- [ ] Owner-review BE2 U8 enrichment opportunities; decide accept / drop E4 / next step.
 
 ## Soon
 
-- [ ] If approved: lightweight Phase 4 exploration (philosophy only — no enrichment engine).
+- [ ] If approved: teacher validation of sticky points (*it/they*, *like* vs *can*, adjective scaffold).
 
-- [ ] Optional later: further Phase 3 hubs (e.g. BE2 U7) — only after explicit owner decision (Phase 3 is paused, not closed).
-
-- [ ] If approved: teacher-validation pass on Phase 2 “one glance” syntheses.
+- [ ] If approved: second enrichment experiment on another unit — only after owner decision.
 
 ## Deferred
 
-- [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after explicit owner decision (D015).
+- [ ] Phase 4 schema / UI / pipeline / lesson generation — only after explicit owner decision.
 
-- [ ] Any Phase 2/3 schema or methodology lock — only after explicit owner decision.
+- [ ] Any Phase 2/3/4 methodology lock — only after explicit owner decision.
 
-- [ ] Phase 3/4 graph store, API, UI, pipeline — only after explicit owner decision.
+- [ ] Resume unfinished Phase 1 books — only after explicit owner decision (D015).
 
 ---
 

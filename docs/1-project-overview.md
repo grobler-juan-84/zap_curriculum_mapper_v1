@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 4 exploration next (branch `phase-4`); Phase 3 paused with U6/U8 provisionally accepted (D017; methodology not locked)
+**Current Development Focus:** Phase 4 enrichment experiments on `phase-4` (BE2 U8 first); Phase 3 paused with U6/U8 provisionally accepted (methodology not locked)
 
 ---
 
