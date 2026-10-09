@@ -264,6 +264,8 @@ export function listUnitsFromJson(raw: unknown): Array<{
   theme?: string
   printedPageStart: number | null
   printedPageEnd: number | null
+  pdfPageStart: number | null
+  pdfPageEnd: number | null
 }> {
   return asArray(asRecord(raw).units)
     .map((entry) => {
@@ -275,6 +277,8 @@ export function listUnitsFromJson(raw: unknown): Array<{
         theme: asString(u.theme),
         printedPageStart: asNumber(u.printed_page_start) ?? null,
         printedPageEnd: asNumber(u.printed_page_end) ?? null,
+        pdfPageStart: asNumber(u.pdf_page_start) ?? null,
+        pdfPageEnd: asNumber(u.pdf_page_end) ?? null,
       }
     })
     .filter((u) => u.unitNumber !== '')
@@ -305,6 +309,8 @@ export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
       theme: asString(u.theme),
       printedPageStart: asNumber(u.printed_page_start) ?? null,
       printedPageEnd: asNumber(u.printed_page_end) ?? null,
+      pdfPageStart: asNumber(u.pdf_page_start) ?? null,
+      pdfPageEnd: asNumber(u.pdf_page_end) ?? null,
     }
   })
 
@@ -339,6 +345,7 @@ export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
     const p = asRecord(entry)
     return {
       printedPage: asNumber(p.printed_page) ?? null,
+      pdfPage: asNumber(p.pdf_page) ?? null,
       sectionTitle: asString(p.section_title),
       sectionType: asString(p.section_type),
     }

@@ -1610,4 +1610,25 @@
 
 ---
 
+### Step 94
+
+**Summary:** Fixed Validation PDF navigation for source PDFs with missing pages: the viewer now opens units at the extracted `pdf_page_start`, shows printed page numbers in the counter, accepts printed pages in the Go box, and flags missing-page gaps. Locked D014, resolved F015, and recorded BE3-SB missing pp. 66–67.
+
+**Files touched:**
+- `app/src/features/validation/pdfPageMap.ts` (created)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `app/src/types/validation.ts` (updated)
+- `docs/4-decisions.md` (updated — D014)
+- `docs/7-future.md` (updated — F015 resolved)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

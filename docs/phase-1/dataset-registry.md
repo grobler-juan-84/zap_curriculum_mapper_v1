@@ -523,7 +523,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 **Source Availability:** AVAILABLE  
 **Source Format:** PDF  
-**Source PDF:** R2 `big-english/big_english_3_sb/source.pdf` (D012; local `app/src/assets/books/big-english/big_english_3_sb.pdf`)
+**Source PDF:** R2 `big-english/big_english_3_sb/source.pdf` (D012; local `app/src/assets/books/big-english/big_english_3_sb.pdf`)  
+**Source Notes:** Supplied PDF omits printed pages **66–67** (Unit 4). Physical PDF jumps from printed 65 → 68, so Units 5–9 sit 2 PDF indices before their printed numbers. Accepted as a source-PDF exception (D013); no re-scan. Validation viewer handles the offset via extracted `pdf_page` (D014).
 
 ### Phase 1 Processing
 
@@ -539,6 +540,8 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Units 1–6: Studio JSON size limits → split each unit into two ~8-page parts; merged locally via `scripts/merge_be3sb_unit_parts.mjs`.
 - Units 7–9: whole-unit Studio exports (no part split).
 - Uploaded 2026-10-09 to `big-english/big_english_3_sb/batches/unit_0N.json` (all `pending` for Validation HV).
+- Owner review 2026-10-09: vocab/grammar content correct for all units; Units 5–9 PDF display offset traced to missing pp. 66–67 and fixed in the viewer (D014).
+- At HV finalize: add an open `missing_source` issue in Unit 4 for printed pp. 66–67 (D013) if not already present.
 - Mixed Studio `book_id` aliases recorded in [`book-id-alias-map.md`](./book-id-alias-map.md) / `book_id_aliases.json`.
 
 ---

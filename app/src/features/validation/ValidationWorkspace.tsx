@@ -12,6 +12,7 @@ import {
 import { ValidationHeader } from './ValidationHeader'
 import { ValidationLeftPanel } from './ValidationLeftPanel'
 import { ValidationPdfPane } from './ValidationPdfPane'
+import { buildPageMap, pdfForPrinted } from './pdfPageMap'
 import { ValidationToolsPanel } from './ValidationToolsPanel'
 
 interface ValidationWorkspaceProps {
@@ -92,9 +93,17 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const currentBatch =
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
 
-  const pdfInitialPage =
-    summary?.units.find((unit) => typeof unit.printedPageStart === 'number')?.printedPageStart ??
-    null
+  const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
+
+  const pdfInitialPage = useMemo(() => {
+    const unit = summary?.units[0]
+    if (!unit) return null
+    if (typeof unit.pdfPageStart === 'number') return unit.pdfPageStart
+    if (typeof unit.printedPageStart === 'number') {
+      return pdfForPrinted(pageMap, unit.printedPageStart)
+    }
+    return null
+  }, [summary, pageMap])
 
   const statusBatch = useMemo(() => {
     if (!currentBatch) return null
@@ -444,6 +453,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
               bookTitle={book.title}
               pdfProvider={pdfProvider}
               initialPage={pdfInitialPage}
+              pageMap={pageMap}
             />
           </div>
 

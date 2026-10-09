@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, FileText } from 'lucide-react'
 import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
+import { type PageMap, pdfForPrinted, printedForPdf } from './pdfPageMap'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -15,9 +16,13 @@ interface ValidationPdfPaneProps {
   bookTitle: string
   /** Which store produced the PDF URL (D012 R2-only; `supabase` unused). */
   pdfProvider?: 'r2' | 'supabase' | null
-  /** 1-based page placed on the left; the following page (if any) is on the right. */
+  /** 1-based PDF index placed on the left; the following page (if any) is on the right. */
   initialPage?: number | null
+  /** Printed ↔ PDF index map for the current unit; empty means printed = PDF index. */
+  pageMap?: PageMap
 }
+
+const EMPTY_PAGE_MAP: PageMap = []
 
 function clampPage(page: number, numPages: number): number {
   if (numPages <= 0) return 1
@@ -30,11 +35,14 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   bookTitle,
   pdfProvider = null,
   initialPage = null,
+  pageMap = EMPTY_PAGE_MAP,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
   const [jumpValue, setJumpValue] = useState('1')
   const [docError, setDocError] = useState<string | null>(null)
+
+  const printedLabel = (pdfIndex: number): number => printedForPdf(pageMap, pdfIndex) ?? pdfIndex
 
   useEffect(() => {
     setNumPages(0)
@@ -47,24 +55,41 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     if (!numPages || !initialPage) return
     const start = clampPage(initialPage, numPages)
     setPairStart(start)
-    setJumpValue(String(start))
-  }, [initialPage, numPages])
+    setJumpValue(String(printedForPdf(pageMap, start) ?? start))
+  }, [initialPage, numPages, pageMap])
 
   const leftPage = pairStart
   const rightPage = pairStart + 1 <= numPages ? pairStart + 1 : null
   const canPrev = pairStart > 1
   const canNext = pairStart < numPages
 
-  const pageLabel = useMemo(() => {
+  const leftPrinted = printedForPdf(pageMap, leftPage)
+  const rightPrinted = rightPage ? printedForPdf(pageMap, rightPage) : null
+
+  const pdfLabel = useMemo(() => {
     if (!numPages) return '—'
     if (rightPage) return `${leftPage}–${rightPage} of ${numPages}`
     return `${leftPage} of ${numPages}`
   }, [leftPage, rightPage, numPages])
 
+  const printedRangeLabel =
+    leftPrinted == null
+      ? null
+      : rightPrinted != null
+        ? `p. ${leftPrinted}–${rightPrinted}`
+        : `p. ${leftPrinted}`
+
+  const missingLabel =
+    leftPrinted != null && rightPrinted != null && rightPrinted - leftPrinted > 1
+      ? rightPrinted - leftPrinted === 2
+        ? `p. ${leftPrinted + 1} missing from source PDF`
+        : `pp. ${leftPrinted + 1}–${rightPrinted - 1} missing from source PDF`
+      : null
+
   const goPrev = () => {
     setPairStart((current) => {
       const next = clampPage(current - 2, numPages)
-      setJumpValue(String(next))
+      setJumpValue(String(printedLabel(next)))
       return next
     })
   }
@@ -72,7 +97,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const goNext = () => {
     setPairStart((current) => {
       const next = clampPage(current + 2, numPages)
-      setJumpValue(String(next))
+      setJumpValue(String(printedLabel(next)))
       return next
     })
   }
@@ -80,9 +105,9 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const jumpToPage = () => {
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
-    const start = clampPage(parsed, numPages)
+    const start = clampPage(pdfForPrinted(pageMap, parsed), numPages)
     setPairStart(start)
-    setJumpValue(String(start))
+    setJumpValue(String(printedLabel(start)))
   }
 
   return (
@@ -102,6 +127,11 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
               via {pdfProvider}
             </span>
           ) : null}
+          {missingLabel ? (
+            <span className="shrink-0 rounded border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-[9px] font-semibold text-amber-800">
+              {missingLabel}
+            </span>
+          ) : null}
         </div>
 
         {pdfUrl && numPages > 0 ? (
@@ -115,9 +145,21 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
             >
               <ChevronLeft className="h-3.5 w-3.5" />
             </button>
-            <span className="min-w-[5.5rem] text-center font-mono text-[10px] text-slate-600">
-              {pageLabel}
-            </span>
+            {printedRangeLabel ? (
+              <span
+                className="flex min-w-[5.5rem] flex-col items-center leading-tight"
+                title="Printed page numbers (physical PDF index below)"
+              >
+                <span className="font-mono text-[10px] font-semibold text-slate-700">
+                  {printedRangeLabel}
+                </span>
+                <span className="font-mono text-[9px] text-slate-400">PDF {pdfLabel}</span>
+              </span>
+            ) : (
+              <span className="min-w-[5.5rem] text-center font-mono text-[10px] text-slate-600">
+                {pdfLabel}
+              </span>
+            )}
             <button
               type="button"
               onClick={goNext}
@@ -135,13 +177,13 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
               }}
             >
               <label className="sr-only" htmlFor="pdf-jump-page">
-                Jump to page
+                Jump to printed page
               </label>
               <input
                 id="pdf-jump-page"
                 type="number"
                 min={1}
-                max={numPages || undefined}
+                title="Printed page number"
                 value={jumpValue}
                 onChange={(e) => setJumpValue(e.target.value)}
                 className="h-6 w-14 rounded border border-slate-300 px-1.5 font-mono text-[10px] text-slate-700"

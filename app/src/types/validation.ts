@@ -38,6 +38,9 @@ export type BatchJsonUnit = {
   theme?: string
   printedPageStart?: number | null
   printedPageEnd?: number | null
+  /** 1-based physical PDF index; differs from printed when the source scan omits pages. */
+  pdfPageStart?: number | null
+  pdfPageEnd?: number | null
 }
 
 export type BatchJsonSummary = {
@@ -49,6 +52,11 @@ export type BatchJsonSummary = {
   vocabulary: Array<{ term?: string; classification?: string; pageId?: string }>
   language: Array<{ prompt?: string; response?: string; languageType?: string }>
   activities: Array<{ title?: string; activityType?: string; pageId?: string }>
-  pages: Array<{ printedPage?: number | null; sectionTitle?: string; sectionType?: string }>
+  pages: Array<{
+    printedPage?: number | null
+    pdfPage?: number | null
+    sectionTitle?: string
+    sectionType?: string
+  }>
   raw: unknown
 }

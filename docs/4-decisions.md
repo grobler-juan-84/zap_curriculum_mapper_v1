@@ -216,6 +216,19 @@
 
 ---
 
+### D014 — Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page
+
+**Date:** 2026-10-09  
+**Status:** LOCKED  
+**Decision:** The Validation PDF viewer opens each unit at the unit's extracted `pdf_page_start` (physical PDF index) and builds a printed↔PDF page map from the unit's page records (`printed_page` + `pdf_page`). The counter shows printed page numbers with the PDF index as secondary text; the Go box accepts printed page numbers. Pages outside the loaded unit are extrapolated from the nearest known mapping. When `pdf_page` is absent, the viewer falls back to printed = PDF index (prior behaviour). Source PDFs with omitted pages are accepted as-is (no re-scan).  
+**Reason:** BE3-SB omits printed pp. 66–67 and BE1-WB omits pp. 124–129, shifting every later unit when printed numbers were used as PDF indices. Extraction already records the correct `pdf_page` values, so the data is the single source of truth.  
+**Alternatives rejected:** Per-book manual offset or missing-page config in Postgres; inserting blank pages into the source PDFs; re-scanning books; OCR-based page detection.  
+**Implications:** Extraction must keep emitting accurate `pdf_page` / `pdf_page_start` values (null for printed pages absent from the PDF). Resolves F015. Extends D013 (missing pages stay documented as `missing_source`).  
+**Supersedes:** —  
+**Refines:** D013
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -231,3 +244,4 @@
 | 2026-10-08 | Added D011 — Validation PDF signing via `/api/sign-source-pdf` with R2-first dual-read and catalog authorization. |
 | 2026-10-08 | Added D012 — source PDFs R2-only; Supabase PDF dual-read retired; originals left unused. |
 | 2026-10-08 | Added D013 — human verify available PDF content with documented missing-source exception (BE1-WB U9). |
+| 2026-10-09 | Added D014 — Validation viewer navigates by extracted `pdf_page` with printed labels (resolves F015; BE3-SB pp. 66–67 missing). |
