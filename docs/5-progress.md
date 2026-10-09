@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 91  
+**Last updated:** Step 92  
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,24 +10,23 @@
 ## Done
 
 - **Phase 1 COMPLETE (6/18):** BH1, BE1-SB, BE2-SB, RH2A, BE1-WB (D013), **BE2-WB**.
-- BE2-WB multi-chat Studio extraction lesson documented (registry §8F, audit root cause, prompt mid-book new-chat caution).
+- BE3-SB catalog seeded + source PDF on R2 (`big-english/big_english_3_sb/source.pdf`).
 
 ## In progress
 
-- **BE3-SB extraction trial:** Units **1–6** locally merged from ~8-page part pairs.
+- **BE3-SB:** Local units **1–7** ready; Validation batch upload blocked until Units **8–9** JSON files are saved (current files are empty `{}`).
 
 ## Next
 
-- Continue BE3-SB Units 7–9 part extractions and merge.
-- Stage BE3-SB catalog + R2 PDF / Validation upload when owner is ready.
+- Drop `big_english_3_sb_unit_08.json` and `_09.json` into `data/phase1/big_english_3_sb/`, then upload batches + set `extracted` for HV.
 
 ## Blocked
 
-- None.
+- Soft: BE3-SB Units 8–9 local extraction files missing.
 
 ---
 
 ## Snapshot notes
 
 - **Phase 1 Complete:** 6 / 18.
-- **BE3-SB local batches:** units `01–06` merged; part files kept.
+- **BE3-SB book UUID:** `4d6f50ef-a4d0-42f2-9c21-3bb69c9130da`

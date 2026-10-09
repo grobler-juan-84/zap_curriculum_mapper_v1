@@ -58,6 +58,29 @@
       "entity_id_prefix_examples": ["big_english_plus_2_wb_", "big_english_2_wb_"],
       "naming_policy": "d009",
       "notes": "Unit batches extracted with book_id / entity prefix big_english_plus_2_wb_*. Catalog remains big_english_2_wb; merge normalizes book_id fields only (D007). Do not introduce bep2_wb / be2_wb aliases."
+    },
+    {
+      "catalog_book_id": "big_english_3_sb",
+      "registry_id": "BE3-SB",
+      "series_slug": "big-english",
+      "aliases": [
+        "big_english_3_sb",
+        "bep_3_sb",
+        "bep3_sb",
+        "bep_sb_3",
+        "be_plus_3_sb",
+        "big_english_plus_3_sb",
+        "bep_level3_sb"
+      ],
+      "entity_id_prefix_examples": [
+        "big_english_3_sb_",
+        "bep_3_sb_",
+        "bep3_",
+        "bep_sb_3_",
+        "be_plus_3_sb_"
+      ],
+      "naming_policy": "d009",
+      "notes": "Units 1–6 often used abbreviated Studio book_id aliases across part splits; local merge normalized book_id/unit_id fields to catalog. Entity ID prefixes remain mixed until optional later cleanup. Prefer catalog ID for new batches."
     }
   ]
 }

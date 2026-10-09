@@ -185,7 +185,7 @@ If an older dataset requires migration or reprocessing, record that explicitly.
 | BE1-WB | Big English | 1 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 20 | 0 | COMPLETE |
 | BE2-SB | Big English | 2 | Student Book | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 16 | 0 | COMPLETE |
 | BE2-WB | Big English | 2 | Workbook | AVAILABLE | EXTRACTED | PASSED WITH WARNINGS | COMPLETE | PASSED | CREATED | 0.1 | 19 | 1 | COMPLETE |
-| BE3-SB | Big English | 3 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
+| BE3-SB | Big English | 3 | Student Book | AVAILABLE | IN PROGRESS (U1–7 local; U8–9 pending files) | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | 0.1 | — | — | IN PROGRESS |
 | BE3-WB | Big English | 3 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-SB | Big English | 4 | Student Book | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
 | BE4-WB | Big English | 4 | Workbook | AVAILABLE | NOT STARTED | NOT RUN | NOT STARTED | NOT STARTED | NOT CREATED | — | — | — | NOT STARTED |
@@ -508,6 +508,39 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 - Canonical merge 2026-10-08: 9 units, 126 pages, 229 vocab, 43 language, 296 activities.
 - When starting a mid-book new Studio chat, carry forward entity ID counters and keep the same ID slug forms (see prompt identifier caution).
+
+---
+
+# 8G. BE3-SB — Big English 3 Student Book
+
+**Registry ID:** BE3-SB  
+**Series:** Big English  
+**Level:** 3  
+**Book Type:** Student Book  
+**book_id:** `big_english_3_sb`
+
+### Source
+
+**Source Availability:** AVAILABLE  
+**Source Format:** PDF  
+**Source PDF:** R2 `big-english/big_english_3_sb/source.pdf` (D012; local `app/src/assets/books/big-english/big_english_3_sb.pdf`)
+
+### Phase 1 Processing
+
+**Extraction Status:** IN PROGRESS  
+**Batch Path:** `data/phase1/big_english_3_sb/`  
+**Local unit batches ready:** Units **1–7** (Units 1–6 merged from ~8-page part pairs; Unit 7 whole-unit export)  
+**Blocked for Validation upload:** Units **8–9** local files still empty placeholders (`{}`)  
+**Automated Validation:** NOT RUN  
+**Human Verification:** NOT STARTED  
+**Canonical Dataset:** NOT CREATED  
+**Phase 1 Status:** IN PROGRESS  
+
+### Extraction notes
+
+- Units 1–6: Studio JSON size limits → split each unit into two ~8-page parts; merged locally via `scripts/merge_be3sb_unit_parts.mjs`.
+- Units 7–9: owner reports whole-unit extraction succeeded; Unit 7 is on disk; Units 8–9 still need to be saved as `big_english_3_sb_unit_08.json` / `_09.json` before `book-datasets` upload.
+- Mixed Studio `book_id` aliases recorded in [`book-id-alias-map.md`](./book-id-alias-map.md) / `book_id_aliases.json`.
 
 ---
 

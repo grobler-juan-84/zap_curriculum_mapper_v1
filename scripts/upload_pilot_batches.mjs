@@ -74,6 +74,15 @@ const BATCHES = [
   ['big_english_2_wb', 'big_english_2_wb_unit_07.json', 'big-english/big_english_2_wb/batches/unit_07.json', 'Unit 7', 'pending'],
   ['big_english_2_wb', 'big_english_2_wb_unit_08.json', 'big-english/big_english_2_wb/batches/unit_08.json', 'Unit 8', 'pending'],
   ['big_english_2_wb', 'big_english_2_wb_unit_09.json', 'big-english/big_english_2_wb/batches/unit_09.json', 'Unit 9', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_01.json', 'big-english/big_english_3_sb/batches/unit_01.json', 'Unit 1', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_02.json', 'big-english/big_english_3_sb/batches/unit_02.json', 'Unit 2', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_03.json', 'big-english/big_english_3_sb/batches/unit_03.json', 'Unit 3', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_04.json', 'big-english/big_english_3_sb/batches/unit_04.json', 'Unit 4', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_05.json', 'big-english/big_english_3_sb/batches/unit_05.json', 'Unit 5', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_06.json', 'big-english/big_english_3_sb/batches/unit_06.json', 'Unit 6', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_07.json', 'big-english/big_english_3_sb/batches/unit_07.json', 'Unit 7', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_08.json', 'big-english/big_english_3_sb/batches/unit_08.json', 'Unit 8', 'pending'],
+  ['big_english_3_sb', 'big_english_3_sb_unit_09.json', 'big-english/big_english_3_sb/batches/unit_09.json', 'Unit 9', 'pending'],
   ['reach_higher_2a', 'rh2a_sb_unit1.json', 'reach-higher/reach_higher_2a/batches/unit_01.json', 'Unit 1', 'verified'],
   ['reach_higher_2a', 'rh2a_sb_unit2.json', 'reach-higher/reach_higher_2a/batches/unit_02.json', 'Unit 2', 'verified'],
   ['reach_higher_2a', 'rh2a_sb_unit3.json', 'reach-higher/reach_higher_2a/batches/unit_03.json', 'Unit 3', 'verified'],
@@ -177,6 +186,26 @@ for (const [bookKey, filename, storagePath, label, status] of selected) {
 
   const body = readFileSync(localPath)
   const size = statSync(localPath).size
+  // Reject empty placeholders (`{}`) and truncated Studio dumps.
+  if (size < 1000) {
+    console.error(`FAIL   ${localPath}: file too small (${size} bytes) — refusing to upload placeholder`)
+    failed += 1
+    continue
+  }
+  try {
+    const parsed = JSON.parse(body.toString('utf8'))
+    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
+      console.error(`FAIL   ${localPath}: JSON missing non-empty pages[]`)
+      failed += 1
+      continue
+    }
+  } catch (err) {
+    console.error(
+      `FAIL   ${localPath}: invalid JSON (${err instanceof Error ? err.message : err})`,
+    )
+    failed += 1
+    continue
+  }
 
   const { error: uploadError } = await supabase.storage
     .from(bucket)

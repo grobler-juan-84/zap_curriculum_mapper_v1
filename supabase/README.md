@@ -21,8 +21,9 @@ This folder holds local Supabase project configuration and versioned migrations.
 | `migrations/20261008120000_seed_big_english_1_wb.sql` | Seeds BE1-WB `books` + `source_pdf` + 9 pending `batch_json` pointers |
 | `migrations/20261008130000_seed_big_english_2_wb.sql` | Seeds BE2-WB `books` + `source_pdf` pointer (batches after extraction) |
 | `migrations/20261008140000_seed_big_english_2_wb_batches.sql` | Seeds BE2-WB 9 pending `batch_json` pointers + `books.status=extracted` |
+| `migrations/20261009100000_seed_big_english_3_sb.sql` | Seeds BE3-SB `books` + `source_pdf` pointer (batches after Units 8–9 local files land) |
 
-Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`). Without the CLI, catalog seeds can also be applied with `node scripts/apply_be1wb_seed.mjs` / `node scripts/apply_be2wb_seed.mjs` (service role).
+Apply to the remote project manually (Dashboard SQL editor, or `supabase link` + `supabase db push`). Without the CLI, catalog seeds can also be applied with `node scripts/apply_be1wb_seed.mjs` / `node scripts/apply_be2wb_seed.mjs` / `node scripts/apply_be3sb_seed.mjs` (service role).
 
 Apply in timestamp order. If the catalog migration was already applied without `label`/`status`, the `20261007130000_…` migration adds those columns. Apply `20261007140000_…` so authenticated clients can read cover images and `cover_path` is stored on series rows. Apply `20261007150000_…` for per-book cover paths.
 

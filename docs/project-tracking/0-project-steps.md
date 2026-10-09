@@ -1567,4 +1567,28 @@
 
 ---
 
+### Step 92
+
+**Summary:** Staged BE3-SB for Validation: catalog seed + R2 source PDF upload, script/alias wiring, Unit 7 catalog normalize. Batch JSON upload deferred — Units 8–9 local files are still empty `{}`.
+
+**Files touched:**
+- `supabase/migrations/20261009100000_seed_big_english_3_sb.sql` (created)
+- `scripts/apply_be3sb_seed.mjs` (created)
+- `scripts/normalize_be3sb_unit07.mjs` (created)
+- `scripts/upload_source_pdfs.mjs` (updated)
+- `scripts/upload_pilot_batches.mjs` (updated)
+- `scripts/lib/phase1Books.mjs` (updated)
+- `scripts/smoke_sign_source_pdf.mjs` (updated)
+- `docs/phase-1/book_id_aliases.json` (updated)
+- `docs/phase-1/book-id-alias-map.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `supabase/README.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_07.json` (updated; gitignored)
+
+---
+
 
