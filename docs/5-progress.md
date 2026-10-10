@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 127
+**Last updated:** Step 128
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,15 +18,17 @@
 
 - **Chalkie Workspace UI prototype** on `feature/chalkie-workspace`: `/app/chalkie` with Phase 1 summaries and PDF; generate disabled pending OpenAI.
 
+- **Owner approved** (2026-10-10): pp. 128–129 packaging brief and Chalkie Workspace UI prototype.
+
 ## In progress
 
-- Owner review of the pp. 128–129 packaging brief and the new Chalkie Workspace UI slice.
+- None (waiting for explicit request to wire OpenAI generation).
 
 ## Next
 
-- Server-side OpenAI prompt generation wired to Generate button (after owner approval).
+- Server-side OpenAI prompt generation wired to Generate button — **do not auto-start**.
 
-- Owner decisions: accept page-scoped packaging rule; optional Chalkie paste test — **do not auto-start**.
+- Optional Chalkie paste test of the page brief (owner-directed).
 
 ## Blocked
 
@@ -36,4 +38,4 @@
 
 ## Snapshot notes
 
-- Active Git branch: `feature/chalkie-workspace` (local commit; not pushed unless requested).
+- Active Git branch: `feature/chalkie-workspace` (ahead of origin by local commits; not pushed unless requested).

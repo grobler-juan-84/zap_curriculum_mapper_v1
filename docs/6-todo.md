@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 127
+**Last updated:** Step 128
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -16,15 +16,15 @@
 
 - [x] Chalkie Workspace UI slice (`/app/chalkie`) — summaries + PDF; generation placeholder only.
 
+- [x] Owner-review pp. 128–129 Chalkie brief and Chalkie Workspace UI prototype (approved 2026-10-10).
+
 ## Now
 
-- [ ] Owner-review pp. 128–129 Chalkie brief and Chalkie Workspace UI prototype.
+- [ ] OpenAI server route + enable Generate on Chalkie Workspace (owner-approved next step; start only when explicitly requested).
 
 ## Soon
 
-- [ ] If approved: OpenAI server route + enable Generate on Chalkie Workspace.
-
-- [ ] If approved: optional Chalkie paste test of the page brief (owner-directed).
+- [ ] Optional Chalkie paste test of the page brief (owner-directed).
 
 - [ ] Later: design teacher page-scope input beyond PDF spread — only after explicit owner decision.
 

@@ -69,3 +69,4 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 | Date | Change |
 |---|---|
 | 2026-10-10 | Initial UI prototype on `feature/chalkie-workspace`. |
+| 2026-10-10 | Owner approved UI prototype and pp. 128–129 packaging brief; OpenAI wiring not started. |
