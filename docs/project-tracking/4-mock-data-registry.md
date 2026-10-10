@@ -13,7 +13,7 @@
 | Curriculum catalog | Supabase `book_series`, `books`, `book_files` via `curriculumService` | Curriculum Library, Series Library, Validation book picker | **LIVE** |
 | Unit-batch JSON | Private Storage `book-datasets` via `validationService` | `/app/validation` left panel; `/app/chalkie` summaries | **LIVE** |
 | Source PDFs | R2 proxy `/api/source-pdf-content`; `react-pdf` (D012 R2-only) | `/app/validation` and `/app/chalkie` PDF panes | **LIVE** |
-| Chalkie prompt generation | Not connected | `/app/chalkie` bottom panel | **PENDING** (no mock; Generate disabled) |
+| Chalkie prompt generation | `POST /api/generate-chalkie-prompt` + `OPENAI_API_KEY` | `/app/chalkie` bottom panel | **LIVE** (server OpenAI; not mock) |
 | Cover images | Private Storage `book-assets` signed URLs | Series / book cards | **LIVE** (with path fallbacks) |
 
 ---

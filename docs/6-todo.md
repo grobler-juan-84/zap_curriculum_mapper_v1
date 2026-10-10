@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 129
+**Last updated:** Step 130
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -20,13 +20,13 @@
 
 - [x] OpenAI env convention: `OPENAI_API_KEY` in root `.env.local` (documented; placeholder added).
 
+- [x] OpenAI server route + enable Generate on Chalkie Workspace (`POST /api/generate-chalkie-prompt`).
+
 ## Now
 
-- [ ] OpenAI server route + enable Generate on Chalkie Workspace (env ready; implement when key is set / owner requests).
+- [ ] Optional Chalkie paste test of a generated page brief (owner-directed).
 
 ## Soon
-
-- [ ] Optional Chalkie paste test of the page brief (owner-directed).
 
 - [ ] Later: design teacher page-scope input beyond PDF spread — only after explicit owner decision.
 

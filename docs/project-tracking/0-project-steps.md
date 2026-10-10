@@ -2280,4 +2280,26 @@
 
 ---
 
+### Step 130
+
+**Summary:** Enabled Chalkie Workspace Generate via authenticated `POST /api/generate-chalkie-prompt` (OpenAI, Phase 1 evidence + Phase 5 scaffold); wired copy controls for topic, prompt, and vocabulary CSV.
+
+**Files touched:**
+- `app/server/authorizeBearerUser.ts` (created)
+- `app/server/chalkiePromptScaffold.ts` (created)
+- `app/server/handleGenerateChalkiePromptRequest.ts` (created)
+- `app/vite-plugins/generateChalkiePromptPlugin.ts` (created)
+- `app/vite.config.ts` (updated)
+- `app/src/services/chalkieGenerateService.ts` (created)
+- `app/src/features/chalkie/ChalkieOutputPanel.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `.env.example` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

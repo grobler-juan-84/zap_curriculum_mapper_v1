@@ -8,11 +8,13 @@ import {
   summarizeBatchJson,
   validationService,
 } from '../../services/validationService'
+import { chalkieGenerateService } from '../../services/chalkieGenerateService'
 import { ValidationHeader } from '../validation/ValidationHeader'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
 import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
+import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
-import { ChalkieOutputPanel } from './ChalkieOutputPanel'
+import { ChalkieOutputPanel, type ChalkieGeneratedOutput } from './ChalkieOutputPanel'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -75,6 +77,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const [visiblePrintedPages, setVisiblePrintedPages] = useState<number[]>([])
 
+  const [generating, setGenerating] = useState(false)
+  const [generateError, setGenerateError] = useState<string | null>(null)
+  const [generated, setGenerated] = useState<ChalkieGeneratedOutput | null>(null)
+
   const [topPaneHeightPercent, setTopPaneHeightPercent] = useState(62)
   const [isDraggingRowSplitter, setIsDraggingRowSplitter] = useState(false)
   const [leftPaneWidthPercent, setLeftPaneWidthPercent] = useState(33)
@@ -103,6 +109,81 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setVisiblePrintedPages(pages)
   }, [])
 
+  const unitView = useMemo(
+    () => (summary ? buildUnitSummaryView(summary) : null),
+    [summary],
+  )
+  const visibleView = useMemo(
+    () => buildVisiblePagesView(summary, visiblePrintedPages),
+    [summary, visiblePrintedPages],
+  )
+
+  const canGenerate = Boolean(
+    summary && unitView && visiblePrintedPages.length > 0 && !jsonLoading && !batchesLoading,
+  )
+  const disabledReason = !summary
+    ? 'Select a unit with Phase 1 evidence first.'
+    : visiblePrintedPages.length === 0
+      ? 'Navigate the PDF so a printed-page spread is visible.'
+      : null
+
+  const handleGenerate = useCallback(async () => {
+    if (!summary || !unitView || visiblePrintedPages.length === 0) return
+    setGenerating(true)
+    setGenerateError(null)
+    try {
+      const unitVocabulary = summary.vocabulary
+        .map((v) => v.term?.trim())
+        .filter((t): t is string => Boolean(t))
+      const unitLanguage = summary.language
+        .map((item) => {
+          const q = item.prompt?.trim()
+          const a = item.response?.trim()
+          if (q && a) return `${q} → ${a}`
+          return q || a || ''
+        })
+        .filter(Boolean)
+      const unitActivities = summary.activities
+        .map((a) => a.title?.trim() || a.activityType?.trim() || '')
+        .filter(Boolean)
+
+      const result = await chalkieGenerateService.generate({
+        bookTitle: book.title,
+        catalogBookId: book.catalogBookId ?? summary.catalogBookId,
+        series: summary.series ?? series.name,
+        unitLabel: unitView.unitLabel,
+        unitTheme: unitView.theme,
+        unitPageRange: unitView.pageRange,
+        learningFocus: unitView.learningFocus,
+        visiblePrintedPages,
+        unitVocabulary,
+        unitLanguage,
+        unitActivities,
+        visiblePageLabels: visibleView.pageLabels,
+        visibleVocabulary: visibleView.vocabulary,
+        visibleLanguage: visibleView.languageLines,
+        visibleActivities: visibleView.activityLines,
+      })
+      setGenerated({
+        lessonTopic: result.lessonTopic,
+        chalkiePrompt: result.chalkiePrompt,
+        vocabularyCsv: result.vocabularyCsv,
+      })
+    } catch (err: unknown) {
+      setGenerateError(err instanceof Error ? err.message : 'Generate failed.')
+    } finally {
+      setGenerating(false)
+    }
+  }, [
+    summary,
+    unitView,
+    visiblePrintedPages,
+    visibleView,
+    book.title,
+    book.catalogBookId,
+    series.name,
+  ])
+
   useEffect(() => {
     let cancelled = false
     setBatchesLoading(true)
@@ -113,6 +194,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setFromCanonical(false)
     setBatches([])
     setVisiblePrintedPages([])
+    setGenerated(null)
+    setGenerateError(null)
 
     ;(async () => {
       try {
@@ -198,6 +281,11 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       if (objectUrlToRevoke) URL.revokeObjectURL(objectUrlToRevoke)
     }
   }, [book.id])
+
+  useEffect(() => {
+    setGenerated(null)
+    setGenerateError(null)
+  }, [selectedBatchId])
 
   useEffect(() => {
     if (!currentBatch) {
@@ -422,7 +510,14 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
             style={{ height: `${100 - topPaneHeightPercent}%` }}
             className="flex flex-col overflow-hidden transition-all duration-75"
           >
-            <ChalkieOutputPanel />
+            <ChalkieOutputPanel
+              canGenerate={canGenerate}
+              generating={generating}
+              error={generateError}
+              output={generated}
+              disabledReason={disabledReason}
+              onGenerate={handleGenerate}
+            />
           </div>
         </section>
       </div>
