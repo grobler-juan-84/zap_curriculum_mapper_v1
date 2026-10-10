@@ -108,7 +108,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
           <p className="p-4 text-sm text-slate-500">Select a unit to prepare a Chalkie prompt.</p>
         ) : (
           <>
-            <Section title="Unit Summary" icon={BookMarked} defaultOpen>
+            <Section title="Unit Summary" icon={BookMarked} defaultOpen={false}>
               <p className="text-xs font-semibold text-slate-900">{unitView.unitLabel}</p>
               {unitView.pageRange ? (
                 <p className="text-[11px] text-slate-500">{unitView.pageRange}</p>
@@ -155,7 +155,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
               ) : null}
             </Section>
 
-            <Section title="Visible Pages Summary" icon={Eye} defaultOpen>
+            <Section title="Visible Pages Summary" icon={Eye} defaultOpen={false}>
               {visibleRangeLabel ? (
                 <p className="text-[11px] font-mono text-indigo-700">{visibleRangeLabel}</p>
               ) : null}
