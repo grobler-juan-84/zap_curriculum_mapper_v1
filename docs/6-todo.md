@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 118
+**Last updated:** Step 119
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -18,15 +18,23 @@
 
 - [x] Write Phase 2 preservation snapshot for GitHub branch handoff.
 
+- [x] Draft Phase 2 overview v2 (`phase-2/phase-2-overview-v2`) as planning SoT for the next iteration.
+
 ## Now
 
-- [ ] Push `phase-2` to GitHub; create and push `phase-3`; start controlled vertical-mapping experiment (docs only — no implementation).
+- [ ] Inspect existing Phase 1 JSON for Big English 2 and prior Phase 2 experiment artifacts (U6–U8, BE1 U1).
+
+- [ ] Design the smallest practical Google AI Studio prompt + JSON output structure for **Big English 2 Unit 8** (no infrastructure).
+
+- [ ] Run that prompt, evaluate linguistic accuracy / evidence support / usefulness / structural validity, then refine.
 
 ## Soon
 
+- [ ] Repeat the validated method successfully on another BE2 unit (Stage 1).
+
 - [ ] If approved: teacher-validation pass on Phase 2 “one glance” syntheses.
 
-- [ ] Inventory informal interpretation work without locking a schema.
+- [ ] Push `phase-2` / Phase 3 vertical-mapping experiments — only after this Phase 2 iteration is useful enough to climb again.
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 
@@ -40,7 +48,11 @@
 
 - [ ] Any Phase 2 schema / methodology lock — only after explicit owner decision.
 
-- [ ] Further BE1 units or BE6 Phase 2 experiments — only after explicit owner decision.
+- [ ] Phase 2 infrastructure (admin workspace, job queues, automation pipelines) — only when a real problem justifies it.
+
+- [ ] Book-level consolidation for full Big English 2 (Stage 2) — after Stage 1 units validate.
+
+- [ ] Expand Phase 2 beyond Big English (Beehive / Reach Higher) — Stage 4 only.
 
 ---
 

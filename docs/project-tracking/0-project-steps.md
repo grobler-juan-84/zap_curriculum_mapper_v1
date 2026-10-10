@@ -2092,4 +2092,18 @@
 
 ---
 
+### Step 119
+
+**Summary:** Realigned operating trackers to Phase 2 overview v2: near-term work is a minimal BE2 Unit 8 Google AI Studio interpretation loop (inspect → prompt/JSON → evaluate), not Phase 3 branch handoff or infrastructure.
+
+**Files touched:**
+- `docs/phase-2/phase-2-overview-v2` (created)
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

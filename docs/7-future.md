@@ -2,8 +2,8 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 117  
-**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 2 experiment scope.
+**Last updated:** Step 119  
+**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 2 iteration.
 
 ---
 
