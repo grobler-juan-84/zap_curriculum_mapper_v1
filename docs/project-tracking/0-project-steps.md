@@ -2120,4 +2120,19 @@
 
 ---
 
+### Step 121
+
+**Summary:** Designed the experimental Google AI Studio unit-interpretation prompt V1 and Phase 2 unit+page JSON output sketch v0.1 for BE2 Unit 8 (docs only; no infrastructure; not locked).
+
+**Files touched:**
+- `docs/phase-2/google-ai-studio-unit-interpretation-prompt-v1.md` (created)
+- `docs/phase-2/phase2-unit-page-output-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

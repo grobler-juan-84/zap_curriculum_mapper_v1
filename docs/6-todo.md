@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 120
+**Last updated:** Step 121
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -22,11 +22,11 @@
 
 - [x] Inspect Phase 1 BE2 JSON + prior Phase 2 artifacts (U6–U8, BE1 U1) — see [`phase-2/p2-inspect-be2-inputs.md`](./phase-2/p2-inspect-be2-inputs.md).
 
+- [x] Design experimental Studio unit prompt + unit/page JSON sketch for BE2 U8 — [`phase-2/google-ai-studio-unit-interpretation-prompt-v1.md`](./phase-2/google-ai-studio-unit-interpretation-prompt-v1.md), [`phase-2/phase2-unit-page-output-v0.1.md`](./phase-2/phase2-unit-page-output-v0.1.md).
+
 ## Now
 
-- [ ] Design the smallest practical Google AI Studio prompt + JSON output structure for **Big English 2 Unit 8** (no infrastructure).
-
-- [ ] Run that prompt, evaluate linguistic accuracy / evidence support / usefulness / structural validity, then refine.
+- [ ] Run that prompt on BE2 U8, evaluate linguistic accuracy / evidence support / usefulness / structural validity, then refine.
 
 ## Soon
 

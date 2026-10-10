@@ -96,6 +96,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 preservation snapshot: experiment inventory, what carries to Phase 3, explicit non-claims (methodology/schema still unlocked). | 1.0 | ACTIVE |
 | [phase-2/phase-2-overview-v2](./phase-2/phase-2-overview-v2) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, BE2 U8-first experiment, expansion stages; beauty in simplicity. | — | ACTIVE |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before next Studio prompt design. | 1.0 | ACTIVE |
+| [phase-2/google-ai-studio-unit-interpretation-prompt-v1.md](./phase-2/google-ai-studio-unit-interpretation-prompt-v1.md) | Paste-ready experimental Google AI Studio prompt: Phase 1 unit JSON → Phase 2 unit+page interpretation; includes BE2 U8 run appendix. | V1 | ACTIVE |
+| [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Experimental Phase 2 unit+page JSON output sketch (0.1-experimental) with field reference and partial BE2 U8 fragment; not locked. | 0.1-experimental | ACTIVE |
 
 ### Phase 4
 
@@ -115,7 +117,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 50 | Current working docs, including index, operating trackers, Phase 2 overview v2 + inspection memo, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 52 | Current working docs, including index, operating trackers, Phase 2 Studio prompt + JSON sketch, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 
