@@ -11,8 +11,9 @@
 | Dataset | Location / source | Used By | Status |
 |---|---|---|---|
 | Curriculum catalog | Supabase `book_series`, `books`, `book_files` via `curriculumService` | Curriculum Library, Series Library, Validation book picker | **LIVE** |
-| Unit-batch JSON | Private Storage `book-datasets` via `validationService` | `/app/validation` left panel | **LIVE** |
-| Source PDFs | R2-first dual-read (D011): `/api/sign-source-pdf` then Supabase fallback; `react-pdf` | `/app/validation` PDF pane | **LIVE** (Beehive 1 → R2; others → Supabase until Stage E) |
+| Unit-batch JSON | Private Storage `book-datasets` via `validationService` | `/app/validation` left panel; `/app/chalkie` summaries | **LIVE** |
+| Source PDFs | R2 proxy `/api/source-pdf-content`; `react-pdf` (D012 R2-only) | `/app/validation` and `/app/chalkie` PDF panes | **LIVE** |
+| Chalkie prompt generation | Not connected | `/app/chalkie` bottom panel | **PENDING** (no mock; Generate disabled) |
 | Cover images | Private Storage `book-assets` signed URLs | Series / book cards | **LIVE** (with path fallbacks) |
 
 ---
@@ -36,6 +37,10 @@ Catalog UI
 
 Validation UI
   → validationService → Supabase book_files + Storage download / signed PDF URL
+
+Chalkie Workspace UI
+  → validationService (same catalog + JSON + PDF as Validation)
+  → chalkieEvidence helpers (Phase 1 summaries only; no model yet)
 
 Teacher AI
   → useTeacherAiResponses → aiAssistantService → mocks/ai/*

@@ -18,6 +18,8 @@ interface ValidationHeaderProps {
   onSelectSeries: (seriesId: string) => void
   onSelectBook: (bookUuid: string) => void
   onBackToBooks: () => void
+  /** When false, hides batch verification status badge (Chalkie Workspace). Default true. */
+  showVerificationStatus?: boolean
 }
 
 function batchLabel(batch: BookFileBatch): string {
@@ -38,6 +40,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   onSelectSeries,
   onSelectBook,
   onBackToBooks,
+  showVerificationStatus = true,
 }) => {
   const hasPrev = currentIndex > 0
   const hasNext = currentIndex >= 0 && currentIndex < batches.length - 1
@@ -90,17 +93,19 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
                 from canonical
               </span>
             ) : null}
-            <span
-              className={`hidden rounded border px-1.5 py-0.5 font-mono text-[11px] lg:inline ${
-                status === 'verified'
-                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                  : status === 'needs_review'
-                    ? 'border-amber-300 bg-amber-50 text-amber-900'
-                    : 'border-slate-300 bg-slate-50 text-slate-700'
-              }`}
-            >
-              {status}
-            </span>
+            {showVerificationStatus ? (
+              <span
+                className={`hidden rounded border px-1.5 py-0.5 font-mono text-[11px] lg:inline ${
+                  status === 'verified'
+                    ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                    : status === 'needs_review'
+                      ? 'border-amber-300 bg-amber-50 text-amber-900'
+                      : 'border-slate-300 bg-slate-50 text-slate-700'
+                }`}
+              >
+                {status}
+              </span>
+            ) : null}
           </>
         ) : null}
       </div>

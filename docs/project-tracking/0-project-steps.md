@@ -2231,4 +2231,27 @@
 
 ---
 
+### Step 127
+
+**Summary:** Added teacher-facing Chalkie Workspace UI at `/app/chalkie` on `feature/chalkie-workspace`: reuses Validation navigation and R2 PDF with visible-page callbacks, concise Phase 1 left summaries, disabled generate placeholder; Validation behavior unchanged except optional PDF callback and hideable status badge.
+
+**Files touched:**
+- `app/src/features/chalkie/ChalkiePage.tsx` (created)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (created)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (created)
+- `app/src/features/chalkie/ChalkieOutputPanel.tsx` (created)
+- `app/src/features/chalkie/chalkieEvidence.ts` (created)
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -121,6 +121,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | SUPERSEDED review of the whole-unit brief; points to page-scoped correction. | 1.1 | PARKED |
 | [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) | Corrected Phase 5 Experiment 1: copy/paste Chalkie brief for BE2 SB pp. 128–129 only. | 1.0 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md) | Scope-discipline review: included/excluded content vs whole-unit brief; page packaging only. | 1.0 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Phase 5 teacher UI prototype at `/app/chalkie`: PDF + Phase 1 summaries; generation pending OpenAI. | 1.0 | ACTIVE |
 
 ### Phase 6
 
@@ -134,7 +135,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 56 | Current working docs, including index, operating trackers, Phase 2–5 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 57 | Current working docs, including index, operating trackers, Phase 2–5 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 4 | Phase 3 candidate scope; superseded whole-unit Phase 5 brief+review; Phase 6 handover |
 | LOCKED | 0 | None currently frozen |
 

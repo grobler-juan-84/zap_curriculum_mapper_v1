@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  FileCode,
   Layers,
   LayoutDashboard,
   LogOut,
@@ -68,6 +69,11 @@ export function Sidebar() {
       to: '/app/validation',
       label: 'Validation',
       icon: CheckSquare,
+    },
+    {
+      to: '/app/chalkie',
+      label: 'Chalkie Workspace',
+      icon: FileCode,
     },
   ]
 
