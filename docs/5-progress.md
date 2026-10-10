@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 128
+**Last updated:** Step 129
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,28 +14,28 @@
 
 - **Phases 2–4** working methodologies locked (D018).
 
-- **Phase 5 Experiment 1 corrected:** page-scoped Chalkie brief for BE2 SB **pp. 128–129** (whole-unit brief superseded).
+- **Phase 5 Experiment 1 corrected:** page-scoped Chalkie brief for BE2 SB **pp. 128–129**.
 
-- **Chalkie Workspace UI prototype** on `feature/chalkie-workspace`: `/app/chalkie` with Phase 1 summaries and PDF; generate disabled pending OpenAI.
+- **Chalkie Workspace UI prototype** approved; `/app/chalkie` live for summaries + PDF.
 
-- **Owner approved** (2026-10-10): pp. 128–129 packaging brief and Chalkie Workspace UI prototype.
+- **OpenAI env prepared:** `OPENAI_API_KEY` documented in `.env.example`; placeholder in root `.env.local`.
 
 ## In progress
 
-- None (waiting for explicit request to wire OpenAI generation).
+- Waiting for owner to paste OpenAI key and request Generate API wiring.
 
 ## Next
 
-- Server-side OpenAI prompt generation wired to Generate button — **do not auto-start**.
+- Implement `POST /api/generate-chalkie-prompt` + enable Generate button (after key is present).
 
 - Optional Chalkie paste test of the page brief (owner-directed).
 
 ## Blocked
 
-- Soft: teacher page-range picker beyond PDF spread not built (spread-only for now).
+- Soft: Generate cannot run until `OPENAI_API_KEY` is set in root `.env.local`.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `feature/chalkie-workspace` (ahead of origin by local commits; not pushed unless requested).
+- Active Git branch: `feature/chalkie-workspace` (local commits; not pushed unless requested).

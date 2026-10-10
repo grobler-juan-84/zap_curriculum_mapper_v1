@@ -2266,4 +2266,18 @@
 
 ---
 
+### Step 129
+
+**Summary:** Prepared OpenAI environment convention for Chalkie Generate: documented `OPENAI_API_KEY` in `.env.example` and prototype doc; added empty placeholder to gitignored root `.env.local` (no secret values committed).
+
+**Files touched:**
+- `.env.example` (updated)
+- `.env.local` (updated locally; gitignored)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

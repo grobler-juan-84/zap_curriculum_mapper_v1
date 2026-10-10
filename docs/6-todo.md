@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 128
+**Last updated:** Step 129
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -18,9 +18,11 @@
 
 - [x] Owner-review pp. 128–129 Chalkie brief and Chalkie Workspace UI prototype (approved 2026-10-10).
 
+- [x] OpenAI env convention: `OPENAI_API_KEY` in root `.env.local` (documented; placeholder added).
+
 ## Now
 
-- [ ] OpenAI server route + enable Generate on Chalkie Workspace (owner-approved next step; start only when explicitly requested).
+- [ ] OpenAI server route + enable Generate on Chalkie Workspace (env ready; implement when key is set / owner requests).
 
 ## Soon
 

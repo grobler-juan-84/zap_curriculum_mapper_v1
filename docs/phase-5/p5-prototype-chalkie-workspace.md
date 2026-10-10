@@ -39,9 +39,21 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 
 ---
 
+## Environment (OpenAI key)
+
+Server-only secret. Never prefix with `VITE_` (that would expose it to the browser).
+
+| Where | Purpose |
+|---|---|
+| **Root** [`.env.local`](../../.env.local) (gitignored) | **Put your real `OPENAI_API_KEY` here** — preferred for Vite middleware / API handlers via `loadServerEnv` |
+| Root [`.env.example`](../../.env.example) | Documented empty template (committed; no secrets) |
+| `app/.env.local` | Public Supabase `VITE_*` only — **do not** put OpenAI here |
+
+After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
+
 ## What remains pending
 
-1. Server route (e.g. `POST /api/generate-chalkie-prompt`) with session auth and `OPENAI_API_KEY`.
+1. Server route (e.g. `POST /api/generate-chalkie-prompt`) with session auth reading `OPENAI_API_KEY` from env.
 2. Wire Generate button; populate lesson topic, full prompt, and vocabulary CSV with individual copy actions.
 3. Optional: teacher page-range picker beyond the current PDF spread.
 4. Optional: attach approved Phase 5 brief scaffolding server-side (e.g. page-scoped BE2 U8 pp. 128–129 pattern).
@@ -70,3 +82,4 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 |---|---|
 | 2026-10-10 | Initial UI prototype on `feature/chalkie-workspace`. |
 | 2026-10-10 | Owner approved UI prototype and pp. 128–129 packaging brief; OpenAI wiring not started. |
+| 2026-10-10 | Documented `OPENAI_API_KEY` env setup (root `.env.local`); Generate route still pending. |
