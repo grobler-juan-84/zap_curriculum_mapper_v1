@@ -2254,4 +2254,16 @@
 
 ---
 
+### Step 128
+
+**Summary:** Recorded owner approval of the pp. 128–129 Chalkie brief and Chalkie Workspace UI prototype; advanced trackers so OpenAI Generate wiring is next but not auto-started.
+
+**Files touched:**
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
