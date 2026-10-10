@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 121
+**Last updated:** Step 122
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -22,11 +22,15 @@
 
 - [x] Inspect Phase 1 BE2 JSON + prior Phase 2 artifacts (U6–U8, BE1 U1) — see [`phase-2/p2-inspect-be2-inputs.md`](./phase-2/p2-inspect-be2-inputs.md).
 
-- [x] Design experimental Studio unit prompt + unit/page JSON sketch for BE2 U8 — [`phase-2/google-ai-studio-unit-interpretation-prompt-v1.md`](./phase-2/google-ai-studio-unit-interpretation-prompt-v1.md), [`phase-2/phase2-unit-page-output-v0.1.md`](./phase-2/phase2-unit-page-output-v0.1.md).
+- [x] Design experimental Studio unit prompt + unit/page JSON sketch (v1 → superseded by v3.1).
+
+- [x] Run Phase 2 prompt v3.1 independently on BE2-SB Units 1, 6, and 8.
+
+- [x] Create blank feedback JSON templates for BE2 U1 / U6 / U8 v3.1 runs.
 
 ## Now
 
-- [ ] Run that prompt on BE2 U8, evaluate linguistic accuracy / evidence support / usefulness / structural validity, then refine.
+- [ ] Fill feedback for BE2 U1 / U6 / U8 (`p2-feedback-be2-u0{1,6,8}-v3.1.json`), then refine the prompt if needed.
 
 ## Soon
 

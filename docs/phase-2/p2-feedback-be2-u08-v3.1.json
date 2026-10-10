@@ -1,0 +1,81 @@
+{
+  "schema": {
+    "name": "phase2_experiment_feedback",
+    "version": "0.1-experimental",
+    "status": "experimental"
+  },
+  "experiment": {
+    "prompt_version": "3.1",
+    "prompt_doc": "docs/phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md",
+    "catalog_book_id": "big_english_2_sb",
+    "unit_id": "bep2_unit_08",
+    "unit_title": "Wild Animals",
+    "printed_pages": [128, 143],
+    "output_file": "",
+    "reviewed_at": "",
+    "reviewer": ""
+  },
+  "overall": {
+    "rating_1_to_5": null,
+    "verdict": "",
+    "summary": "",
+    "good_enough_to_reuse_prompt": null
+  },
+  "checklist": {
+    "correct_book_unit_pages": { "pass": null, "notes": "" },
+    "all_requested_pages_included": { "pass": null, "notes": "" },
+    "main_vs_supporting_structures": { "pass": null, "notes": "" },
+    "foundational_skills_captured": { "pass": null, "notes": "" },
+    "phonics_or_other_sections_considered": { "pass": null, "notes": "" },
+    "vocabulary_categorization": { "pass": null, "notes": "" },
+    "plain_english_explanations": { "pass": null, "notes": "" },
+    "evidence_refs_preserved": { "pass": null, "notes": "" },
+    "no_unsupported_mastery_or_prior_claims": { "pass": null, "notes": "" },
+    "no_lesson_planning_material": { "pass": null, "notes": "" },
+    "no_excessive_duplication": { "pass": null, "notes": "" },
+    "valid_json": { "pass": null, "notes": "" }
+  },
+  "language_structures": {
+    "accurate": null,
+    "main_vs_supporting_ok": null,
+    "missing_or_over_split": "",
+    "notes": "",
+    "issues": []
+  },
+  "foundational_skills": {
+    "accurate": null,
+    "teaching_status_ok": null,
+    "frequent_reinforcement_flags_ok": null,
+    "notes": "",
+    "issues": []
+  },
+  "vocabulary": {
+    "core_ok": null,
+    "instructional_ok": null,
+    "supporting_ok": null,
+    "notes": "",
+    "issues": []
+  },
+  "pages": {
+    "coverage_ok": null,
+    "structure_skill_links_ok": null,
+    "notes": "",
+    "issues": []
+  },
+  "evidence": {
+    "traceable": null,
+    "invented_content": null,
+    "gaps_recorded_appropriately": null,
+    "notes": "",
+    "issues": []
+  },
+  "usefulness": {
+    "teacher_readable": null,
+    "reusable_for_later_phases": null,
+    "notes": ""
+  },
+  "prompt_issues": [],
+  "output_issues": [],
+  "suggested_prompt_edits": [],
+  "freeform_notes": ""
+}

@@ -2135,4 +2135,22 @@
 
 ---
 
+### Step 122
+
+**Summary:** Added blank Phase 2 v3.1 feedback JSON templates for BE2-SB Units 1, 6, and 8; recorded owner v3.1 prompt adoption (v1 removed) and tracker/index updates for the feedback pass.
+
+**Files touched:**
+- `docs/phase-2/p2-feedback-be2-u01-v3.1.json` (created)
+- `docs/phase-2/p2-feedback-be2-u06-v3.1.json` (created)
+- `docs/phase-2/p2-feedback-be2-u08-v3.1.json` (created)
+- `docs/phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md` (created)
+- `docs/phase-2/google-ai-studio-unit-interpretation-prompt-v1.md` (deleted)
+- `docs/0-index.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

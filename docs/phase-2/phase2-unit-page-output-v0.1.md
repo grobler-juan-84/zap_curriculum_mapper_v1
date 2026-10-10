@@ -1,10 +1,10 @@
 # Phase 2 Unit + Page Output Sketch v0.1
 
-**Status:** ACTIVE / EXPERIMENTAL  
+**Status:** PARKED  
 **Version:** 0.1-experimental  
 **Date:** 2026-10-11  
-**Purpose:** Smallest practical JSON shape for Phase 2 unit + page curriculum intelligence produced from Phase 1 JSON via Google AI Studio.  
-**Companion prompt:** [`google-ai-studio-unit-interpretation-prompt-v1.md`](./google-ai-studio-unit-interpretation-prompt-v1.md)
+**Purpose:** Earlier experimental JSON shape for Phase 2 unit + page curriculum intelligence. Superseded in active use by prompt v3.1 (`phase2_linguistic_anatomy`). Retained for history.  
+**Companion prompt (historical):** v1 unit-interpretation prompt (removed; see [`google-ai-studio-unit-interpretation-prompt-v3.1.md`](./google-ai-studio-unit-interpretation-prompt-v3.1.md)).
 
 **Not locked.** Not a machine JSON Schema file. Optional fields may be omitted when unsupported. No activity-level records. No book-level block in this version.
 

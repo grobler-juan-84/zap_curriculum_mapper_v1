@@ -96,8 +96,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 preservation snapshot: experiment inventory, what carries to Phase 3, explicit non-claims (methodology/schema still unlocked). | 1.0 | ACTIVE |
 | [phase-2/phase-2-overview-v2](./phase-2/phase-2-overview-v2) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, BE2 U8-first experiment, expansion stages; beauty in simplicity. | — | ACTIVE |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before next Studio prompt design. | 1.0 | ACTIVE |
-| [phase-2/google-ai-studio-unit-interpretation-prompt-v1.md](./phase-2/google-ai-studio-unit-interpretation-prompt-v1.md) | Paste-ready experimental Google AI Studio prompt: Phase 1 unit JSON → Phase 2 unit+page interpretation; includes BE2 U8 run appendix. | V1 | ACTIVE |
-| [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Experimental Phase 2 unit+page JSON output sketch (0.1-experimental) with field reference and partial BE2 U8 fragment; not locked. | 0.1-experimental | ACTIVE |
+| [phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md](./phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md) | Paste-ready experimental Google AI Studio prompt v3.1: unit-neutral linguistic anatomy (structures, foundational skills, vocabulary, page mapping) from Phase 1 canonical JSON. | 3.1 | ACTIVE |
+| [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Earlier experimental Phase 2 unit+page JSON output sketch (0.1-experimental); superseded in practice by v3.1 `phase2_linguistic_anatomy` output shape; retained for history. | 0.1-experimental | PARKED |
 
 ### Phase 4
 
@@ -117,8 +117,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 52 | Current working docs, including index, operating trackers, Phase 2 Studio prompt + JSON sketch, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
-| PARKED | 1 | Retained for future Phase 6 work |
+| ACTIVE | 51 | Current working docs, including index, operating trackers, Phase 2 v3.1 Studio prompt, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| PARKED | 2 | Phase 6 handover spec; earlier Phase 2 unit+page output sketch v0.1 |
 | LOCKED | 0 | None currently frozen |
 
 ---

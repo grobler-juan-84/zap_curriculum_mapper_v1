@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 121
+**Last updated:** Step 122
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,19 +16,21 @@
 
 - **Phase 2** feasibility experiments preserved; overview v2 + input inspection complete.
 
-- Experimental Studio **unit-interpretation prompt V1** and **unit+page JSON sketch v0.1** designed (no infrastructure; not locked).
+- Phase 2 Studio prompt advanced to **v3.1** (linguistic anatomy). Independent runs completed for BE2-SB Units **1, 6, and 8**.
+
+- Blank feedback templates created for those three runs.
 
 ## In progress
 
-- First Studio run of the V1 prompt on Big English 2 Unit 8 (SB unit slice → Phase 2 JSON), then evaluate and refine.
+- Owner feedback entry on the three v3.1 outputs (U1 / U6 / U8).
 
 ## Next
 
-- Build the ~49 KB U8 Phase 1 slice → paste prompt + slice into Google AI Studio → save `big_english_2_sb_bep2_unit_08_phase2_v0.1.json` → evaluate against the checklist in the prompt doc.
+- Fill [`p2-feedback-be2-u01-v3.1.json`](./phase-2/p2-feedback-be2-u01-v3.1.json), [`p2-feedback-be2-u06-v3.1.json`](./phase-2/p2-feedback-be2-u06-v3.1.json), [`p2-feedback-be2-u08-v3.1.json`](./phase-2/p2-feedback-be2-u08-v3.1.json); then refine prompt if patterns emerge.
 
 ## Blocked
 
-- Soft: teacher validation of Phase 2 “one glance” syntheses still pending (does not block the Studio run).
+- Soft: teacher validation of earlier “one glance” syntheses still pending (does not block v3.1 feedback).
 
 ---
 
@@ -36,7 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Prompt: [`phase-2/google-ai-studio-unit-interpretation-prompt-v1.md`](./phase-2/google-ai-studio-unit-interpretation-prompt-v1.md)  
-- Output sketch: [`phase-2/phase2-unit-page-output-v0.1.md`](./phase-2/phase2-unit-page-output-v0.1.md)
+- Prompt: [`phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md`](./phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md)
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.
