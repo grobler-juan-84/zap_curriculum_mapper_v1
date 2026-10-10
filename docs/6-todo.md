@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 119
+**Last updated:** Step 120
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -20,9 +20,9 @@
 
 - [x] Draft Phase 2 overview v2 (`phase-2/phase-2-overview-v2`) as planning SoT for the next iteration.
 
-## Now
+- [x] Inspect Phase 1 BE2 JSON + prior Phase 2 artifacts (U6–U8, BE1 U1) — see [`phase-2/p2-inspect-be2-inputs.md`](./phase-2/p2-inspect-be2-inputs.md).
 
-- [ ] Inspect existing Phase 1 JSON for Big English 2 and prior Phase 2 experiment artifacts (U6–U8, BE1 U1).
+## Now
 
 - [ ] Design the smallest practical Google AI Studio prompt + JSON output structure for **Big English 2 Unit 8** (no infrastructure).
 

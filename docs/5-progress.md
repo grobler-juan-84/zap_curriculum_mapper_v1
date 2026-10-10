@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 119
+**Last updated:** Step 120
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,17 +14,19 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **Phase 2** feasibility experiments preserved: BE2 U6 v1/v2, U7 v1, U8 v1, BE1 U1 transfer test. Methodology remains experimental (not locked). Snapshot: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md).
+- **Phase 2** feasibility experiments preserved: BE2 U6 v1/v2, U7 v1, U8 v1, BE1 U1 transfer test. Methodology remains experimental (not locked).
 
-- Phase 2 overview v2 drafted as planning SoT for the next iteration (`phase-2/phase-2-overview-v2`).
+- Phase 2 overview v2 drafted as planning SoT.
+
+- Inspected BE2 Phase 1 JSON + prior experiment artifacts; memo: [`phase-2/p2-inspect-be2-inputs.md`](./phase-2/p2-inspect-be2-inputs.md).
 
 ## In progress
 
-- Revisiting Phase 2 under the v2 overview: smallest practical interpretation loop (Phase 1 JSON → AI Studio prompt → Phase 2 JSON), starting with Big English 2 Unit 8. No infrastructure first.
+- Designing the smallest practical Google AI Studio prompt + Phase 2 JSON output for Big English 2 Unit 8 (no infrastructure).
 
 ## Next
 
-- Inspect Phase 1 BE2 JSON + prior experiment artifacts → design minimal prompt/output for BE2 U8 → test and evaluate before scaling.
+- Draft reusable Studio prompt + minimal JSON shape using the ~49 KB U8 Phase 1 slice and lessons from the U8 v1 review (compress into structured JSON, don’t re-prove LRs from scratch).
 
 ## Blocked
 
@@ -36,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Iteration model: improve earlier phases, then climb again to test whether Chalkie/context prompts are useful. Phase 3 branch handoff is paused while this Phase 2 iteration runs.
+- BE2 U8 Phase 1 slice is ready (~49 KB; 5 language rows; 13 LRs already in markdown review). Gap: I Can text not extracted on p.143.
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.

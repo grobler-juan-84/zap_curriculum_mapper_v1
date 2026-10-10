@@ -2106,4 +2106,18 @@
 
 ---
 
+### Step 120
+
+**Summary:** Inspected local BE2/BE1 Phase 1 canonical JSON and prior Phase 2 U6–U8 / BE1 U1 experiment artifacts; recorded U8 slice readiness (~49 KB, 5 language rows) and implications for the next minimal Studio prompt/JSON design.
+
+**Files touched:**
+- `docs/phase-2/p2-inspect-be2-inputs.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

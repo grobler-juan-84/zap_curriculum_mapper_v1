@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 experiment docs are preserved under D015/D016; Phase 3 vertical-mapping experiments begin after the `phase-3` branch handoff.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 is in a second iteration under overview v2 (minimal Studio prompt/JSON); prior experiment docs remain under D015/D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -94,6 +94,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
 | [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 preservation snapshot: experiment inventory, what carries to Phase 3, explicit non-claims (methodology/schema still unlocked). | 1.0 | ACTIVE |
+| [phase-2/phase-2-overview-v2](./phase-2/phase-2-overview-v2) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, BE2 U8-first experiment, expansion stages; beauty in simplicity. | — | ACTIVE |
+| [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before next Studio prompt design. | 1.0 | ACTIVE |
 
 ### Phase 4
 
@@ -113,7 +115,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 48 | Current working docs, including index, operating trackers, Phase 2 experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 50 | Current working docs, including index, operating trackers, Phase 2 overview v2 + inspection memo, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 1 | Retained for future Phase 6 work |
 | LOCKED | 0 | None currently frozen |
 
