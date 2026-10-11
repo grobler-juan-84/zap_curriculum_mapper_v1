@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 122
+**Last updated:** Step 123
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,21 +16,21 @@
 
 - **Phase 2** feasibility experiments preserved; overview v2 + input inspection complete.
 
-- Phase 2 Studio prompt advanced to **v3.1** (linguistic anatomy). Independent runs completed for BE2-SB Units **1, 6, and 8**.
+- Phase 2 Studio prompt **v3.1** run on BE2-SB Units **1, 6, and 8**.
 
-- Blank feedback templates created for those three runs.
+- Phase 2 working data folder created; feedback JSON moved to `data/phase2/big_english_2_sb/feedback/`.
 
 ## In progress
 
-- Owner feedback entry on the three v3.1 outputs (U1 / U6 / U8).
+- Owner feedback / review of the three v3.1 unit JSON files under the new data path.
 
 ## Next
 
-- Fill [`p2-feedback-be2-u01-v3.1.json`](./phase-2/p2-feedback-be2-u01-v3.1.json), [`p2-feedback-be2-u06-v3.1.json`](./phase-2/p2-feedback-be2-u06-v3.1.json), [`p2-feedback-be2-u08-v3.1.json`](./phase-2/p2-feedback-be2-u08-v3.1.json); then refine prompt if patterns emerge.
+- Review files in [`data/phase2/big_english_2_sb/feedback/`](../data/phase2/big_english_2_sb/feedback/); refine prompt if patterns emerge. Add `interpretations/` only when storing Studio outputs separately.
 
 ## Blocked
 
-- Soft: teacher validation of earlier “one glance” syntheses still pending (does not block v3.1 feedback).
+- Soft: teacher validation of earlier “one glance” syntheses still pending (does not block v3.1 review).
 
 ---
 

@@ -1,0 +1,1288 @@
+{
+  "schema": {
+    "name": "phase2_linguistic_anatomy",
+    "version": "0.3.1-experimental"
+  },
+  "source": {
+    "catalog_book_id": "big_english_2_sb",
+    "unit_id": "bep2_unit_06",
+    "unit_title": "My Day",
+    "printed_pages": [
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105
+    ]
+  },
+  "language_structures": [
+    {
+      "id": "STR-01",
+      "name": "Asking and Telling the Time (o'clock)",
+      "instructional_role": "main_target",
+      "pattern": "What time is it? / It's [number] o'clock.",
+      "source_examples": [
+        "What time is it? It's one o'clock.",
+        "Tick, tock. It's seven o'clock."
+      ],
+      "plain_english_explanation": "Use 'What time is it?' to ask the hour, and answer with 'It's' followed by the number and 'o'clock'.",
+      "components": [
+        {
+          "name": "Time Question Frame",
+          "explanation": "Fixed phrase 'What time is it?' used to request the current time."
+        },
+        {
+          "name": "Hourly Time Statement",
+          "explanation": "Subject-verb contraction 'It's' + cardinal number (one to twelve) + 'o'clock'."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_lang_u6_001",
+        "bep2_act_u6_01",
+        "bep2_act_u6_04",
+        "bep2_act_u6_06",
+        "bep2_text_u6_01",
+        "bep2_act_u6_36"
+      ]
+    },
+    {
+      "id": "STR-02",
+      "name": "Asking and Talking About Daily Routine Times",
+      "instructional_role": "main_target",
+      "pattern": "When do/does [subject] [base verb]? / [Subject] [verb(-s/-es)] at [time].",
+      "source_examples": [
+        "When does he get up? He gets up at 6:00.",
+        "When do you go to bed? I go to bed at 8:00."
+      ],
+      "plain_english_explanation": "Use 'When do' or 'When does' to ask about routine times, and answer with the verb phrase and 'at' plus the specific time.",
+      "components": [
+        {
+          "name": "Wh- Routine Question",
+          "explanation": "Question word 'When' + helping verb 'do/does' + subject pronoun + base routine verb."
+        },
+        {
+          "name": "Time Preposition Phrase",
+          "explanation": "Preposition 'at' followed by clock time (either written or numeric)."
+        },
+        {
+          "name": "Subject-Verb Agreement in Present Simple",
+          "explanation": "Base verb with 'I/you/we/they' (e.g., 'go') vs. '-s/-es' inflection with 'he/she/it' (e.g., 'gets up', 'eats')."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_lang_u6_002",
+        "bep2_lang_u6_003",
+        "bep2_act_u6_09",
+        "bep2_act_u6_10",
+        "bep2_act_u6_12",
+        "bep2_text_u6_02"
+      ]
+    },
+    {
+      "id": "STR-03",
+      "name": "Stating Event Schedules with Start and Finish",
+      "instructional_role": "main_target",
+      "pattern": "When does [event] start/finish? / It starts/finishes at [time].",
+      "source_examples": [
+        "When does the movie start? It starts at 8:00.",
+        "When does the movie end? It ends at 10:00."
+      ],
+      "plain_english_explanation": "Ask when scheduled activities begin or end using 'start' or 'finish'/'end', and answer with 'It starts/finishes at' plus the time.",
+      "components": [
+        {
+          "name": "Event Schedule Question",
+          "explanation": "'When does' + noun phrase + 'start/finish'?"
+        },
+        {
+          "name": "Event Schedule Response",
+          "explanation": "Pronoun 'It' + 3rd person singular verb ('starts' / 'finishes' / 'ends') + 'at' + time."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_lang_u6_004",
+        "bep2_act_u6_13"
+      ]
+    },
+    {
+      "id": "STR-04",
+      "name": "Forming Wh- Questions with Be and Do",
+      "instructional_role": "main_target",
+      "pattern": "[Wh- word] + [be / do / does] + [subject] (+ [base verb])?",
+      "source_examples": [
+        "Who are you?",
+        "What's your job?",
+        "Where do you work?",
+        "How do you get to work?",
+        "When do you work?",
+        "How many students are in your class?"
+      ],
+      "plain_english_explanation": "Choose the right question word (Who, What, Where, When, How, How many) depending on the requested information, followed by the correct helping or linking verb.",
+      "components": [
+        {
+          "name": "Wh- Question Word Selection",
+          "explanation": "'Who' (person), 'What' (thing/job), 'Where' (place), 'When' (time/day), 'How' (manner/means), 'How many' (quantity)."
+        },
+        {
+          "name": "Inversion with Helping/Linking Verb",
+          "explanation": "Placing 'is/are' or auxiliary 'do/does' directly before the subject."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_lang_u6_005",
+        "bep2_act_u6_19",
+        "bep2_act_u6_20",
+        "bep2_act_u6_21",
+        "bep2_act_u6_22",
+        "bep2_act_u6_23",
+        "bep2_act_u6_24",
+        "bep2_text_u6_04",
+        "bep2_act_u6_37"
+      ]
+    },
+    {
+      "id": "STR-05",
+      "name": "Describing Mechanisms with Present Simple",
+      "instructional_role": "supporting",
+      "pattern": "[Subject] uses [means/substance] to tell the time.",
+      "source_examples": [
+        "A sundial uses the sun to tell the time.",
+        "An hourglass uses sand to tell the time."
+      ],
+      "plain_english_explanation": "State what instrument or material an object operates with using 'uses' + noun + 'to tell the time'.",
+      "components": [
+        {
+          "name": "Instrument + Purpose Clause",
+          "explanation": "Singular noun + 'uses' + noun + infinitive of purpose 'to tell the time'."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_act_u6_15",
+        "bep2_act_u6_17",
+        "bep2_text_u6_03",
+        "bep2_act_u6_38"
+      ]
+    },
+    {
+      "id": "STR-06",
+      "name": "Consonant Digraphs and Trigraphs (ch, tch, sh)",
+      "instructional_role": "main_target",
+      "pattern": "Sound-spelling patterns: /tʃ/ spelled 'ch' or 'tch', and /ʃ/ spelled 'sh'",
+      "source_examples": [
+        "chin, rich, chop, lunch",
+        "witch, match, watch",
+        "ship, fish, she, dish"
+      ],
+      "plain_english_explanation": "Recognize and pronounce the /tʃ/ sound spelled with 'ch' or 'tch' and the /ʃ/ sound spelled with 'sh' in word-initial and word-final positions.",
+      "components": [
+        {
+          "name": "Affricate vs. Fricative Distinction",
+          "explanation": "Distinguishing the stop-release /tʃ/ ('ch'/'tch') from the continuous /ʃ/ ('sh')."
+        },
+        {
+          "name": "Spelling Pattern: -tch",
+          "explanation": "The trigraph 'tch' used after a short vowel at the end of a syllable (e.g., 'witch', 'match', 'watch')."
+        }
+      ],
+      "evidence_refs": [
+        "bep2_act_u6_31",
+        "bep2_act_u6_32",
+        "bep2_act_u6_33",
+        "bep2_act_u6_34",
+        "bep2_text_u6_06"
+      ]
+    }
+  ],
+  "foundational_skills": [
+    {
+      "id": "FS-01",
+      "name": "Third-Person Singular Verb Inflection (-s / -es)",
+      "explanation": "Adding -s or -es to verbs when the subject is he, she, it, or a singular noun in present simple affirmative statements (e.g., gets up, starts, brushes).",
+      "related_structure_ids": [
+        "STR-02",
+        "STR-03",
+        "STR-05"
+      ],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": [
+        "bep2_lang_u6_002",
+        "bep2_lang_u6_004",
+        "bep2_act_u6_09",
+        "bep2_act_u6_10",
+        "bep2_act_u6_13"
+      ]
+    },
+    {
+      "id": "FS-02",
+      "name": "Choosing Auxiliary 'do' vs. 'does'",
+      "explanation": "Selecting 'do' for you/they/we and 'does' for he/she/singular nouns in present simple questions.",
+      "related_structure_ids": [
+        "STR-02",
+        "STR-03",
+        "STR-04"
+      ],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": [
+        "bep2_lang_u6_002",
+        "bep2_lang_u6_003",
+        "bep2_act_u6_10",
+        "bep2_act_u6_23"
+      ]
+    },
+    {
+      "id": "FS-03",
+      "name": "Preposition of Time: 'at'",
+      "explanation": "Using the preposition 'at' specifically before exact clock times (e.g., 'at 6:00', 'at eight o'clock').",
+      "related_structure_ids": [
+        "STR-02",
+        "STR-03"
+      ],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": [
+        "bep2_lang_u6_002",
+        "bep2_lang_u6_003",
+        "bep2_lang_u6_004",
+        "bep2_act_u6_09",
+        "bep2_act_u6_12"
+      ]
+    },
+    {
+      "id": "FS-04",
+      "name": "Clock Face and Number Word Association",
+      "explanation": "Reading hour hands on analog clocks and expressing the corresponding number words from one to twelve followed by o'clock.",
+      "related_structure_ids": [
+        "STR-01"
+      ],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": false,
+      "evidence_refs": [
+        "bep2_vocab_u6_001",
+        "bep2_vocab_u6_012",
+        "bep2_act_u6_01",
+        "bep2_act_u6_06",
+        "bep2_act_u6_36"
+      ]
+    },
+    {
+      "id": "FS-05",
+      "name": "Wh- Question Word Meaning and Function Matching",
+      "explanation": "Understanding what category of information each question word demands: who (person), what (thing/action), where (place), when (time), how (manner/transport), how many (count).",
+      "related_structure_ids": [
+        "STR-04"
+      ],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": [
+        "bep2_lang_u6_005",
+        "bep2_act_u6_20",
+        "bep2_act_u6_21",
+        "bep2_act_u6_22",
+        "bep2_act_u6_23",
+        "bep2_act_u6_37"
+      ]
+    },
+    {
+      "id": "FS-06",
+      "name": "Auditory and Phonological Blending of Digraphs (ch, tch, sh)",
+      "explanation": "Blending individual phonemes containing initial and final consonant digraphs into single words (e.g., ch-o-p -> chop, d-i-sh -> dish).",
+      "related_structure_ids": [
+        "STR-06"
+      ],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": false,
+      "evidence_refs": [
+        "bep2_act_u6_31",
+        "bep2_act_u6_32",
+        "bep2_act_u6_33",
+        "bep2_act_u6_34"
+      ]
+    },
+    {
+      "id": "FS-07",
+      "name": "Subject-Verb Contraction 'It's'",
+      "explanation": "Recognizing and writing 'It's' as the contracted form of 'It is' when stating time and describing facts.",
+      "related_structure_ids": [
+        "STR-01",
+        "STR-03"
+      ],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": [
+        "bep2_lang_u6_001",
+        "bep2_act_u6_06",
+        "bep2_act_u6_36"
+      ]
+    }
+  ],
+  "vocabulary": {
+    "core": [
+      {
+        "term": "one o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_001",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "two o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_002",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "three o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_003",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "four o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_004",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "five o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_005",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "six o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_006",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "seven o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_007",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "eight o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_008",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "nine o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_009",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "ten o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_010",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "eleven o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_011",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "twelve o'clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_012",
+          "bep2_act_u6_01"
+        ]
+      },
+      {
+        "term": "get up",
+        "evidence_refs": [
+          "bep2_vocab_u6_013",
+          "bep2_act_u6_04",
+          "bep2_act_u6_09"
+        ]
+      },
+      {
+        "term": "go to bed",
+        "evidence_refs": [
+          "bep2_vocab_u6_014",
+          "bep2_act_u6_04",
+          "bep2_act_u6_09"
+        ]
+      },
+      {
+        "term": "start school",
+        "evidence_refs": [
+          "bep2_vocab_u6_015",
+          "bep2_act_u6_04"
+        ]
+      },
+      {
+        "term": "go out",
+        "evidence_refs": [
+          "bep2_vocab_u6_016",
+          "bep2_act_u6_04",
+          "bep2_text_u6_02"
+        ]
+      },
+      {
+        "term": "watch TV",
+        "evidence_refs": [
+          "bep2_vocab_u6_017",
+          "bep2_act_u6_04",
+          "bep2_text_u6_02"
+        ]
+      },
+      {
+        "term": "finish school",
+        "evidence_refs": [
+          "bep2_vocab_u6_018",
+          "bep2_act_u6_13"
+        ]
+      },
+      {
+        "term": "candle",
+        "evidence_refs": [
+          "bep2_vocab_u6_019",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "cup",
+        "evidence_refs": [
+          "bep2_vocab_u6_020",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "fall",
+        "evidence_refs": [
+          "bep2_vocab_u6_021",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "height",
+        "evidence_refs": [
+          "bep2_vocab_u6_022",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "hourglass",
+        "evidence_refs": [
+          "bep2_vocab_u6_023",
+          "bep2_act_u6_15",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "sand",
+        "evidence_refs": [
+          "bep2_vocab_u6_024",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "shadow",
+        "evidence_refs": [
+          "bep2_vocab_u6_025",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "sundial",
+        "evidence_refs": [
+          "bep2_vocab_u6_026",
+          "bep2_act_u6_15",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "water clock",
+        "evidence_refs": [
+          "bep2_vocab_u6_027",
+          "bep2_act_u6_15"
+        ]
+      },
+      {
+        "term": "tired",
+        "evidence_refs": [
+          "bep2_vocab_u6_028",
+          "bep2_text_u6_05"
+        ]
+      },
+      {
+        "term": "recess",
+        "evidence_refs": [
+          "bep2_vocab_u6_029",
+          "bep2_text_u6_05"
+        ]
+      },
+      {
+        "term": "on time",
+        "evidence_refs": [
+          "bep2_vocab_u6_030",
+          "bep2_act_u6_29"
+        ]
+      },
+      {
+        "term": "early",
+        "evidence_refs": [
+          "bep2_vocab_u6_031",
+          "bep2_act_u6_29"
+        ]
+      },
+      {
+        "term": "witch",
+        "evidence_refs": [
+          "bep2_vocab_u6_032",
+          "bep2_act_u6_32"
+        ]
+      },
+      {
+        "term": "ship",
+        "evidence_refs": [
+          "bep2_vocab_u6_033",
+          "bep2_act_u6_32"
+        ]
+      },
+      {
+        "term": "fish",
+        "evidence_refs": [
+          "bep2_vocab_u6_034",
+          "bep2_act_u6_32"
+        ]
+      },
+      {
+        "term": "chin",
+        "evidence_refs": [
+          "bep2_vocab_u6_035",
+          "bep2_act_u6_32"
+        ]
+      },
+      {
+        "term": "rich",
+        "evidence_refs": [
+          "bep2_vocab_u6_036",
+          "bep2_act_u6_32"
+        ]
+      }
+    ],
+    "instructional": [
+      {
+        "term": "listen",
+        "evidence_refs": [
+          "bep2_act_u6_01",
+          "bep2_act_u6_04",
+          "bep2_act_u6_09",
+          "bep2_act_u6_11",
+          "bep2_act_u6_19",
+          "bep2_act_u6_29",
+          "bep2_act_u6_31"
+        ]
+      },
+      {
+        "term": "look",
+        "evidence_refs": [
+          "bep2_act_u6_01",
+          "bep2_act_u6_06",
+          "bep2_act_u6_08",
+          "bep2_act_u6_10",
+          "bep2_act_u6_12",
+          "bep2_act_u6_31",
+          "bep2_act_u6_36"
+        ]
+      },
+      {
+        "term": "say",
+        "evidence_refs": [
+          "bep2_act_u6_01",
+          "bep2_act_u6_02",
+          "bep2_act_u6_05",
+          "bep2_act_u6_11",
+          "bep2_act_u6_19",
+          "bep2_act_u6_29",
+          "bep2_act_u6_32"
+        ]
+      },
+      {
+        "term": "find",
+        "evidence_refs": [
+          "bep2_act_u6_02",
+          "bep2_act_u6_04",
+          "bep2_act_u6_32",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "play a game",
+        "evidence_refs": [
+          "bep2_act_u6_03",
+          "bep2_act_u6_17",
+          "bep2_act_u6_35"
+        ]
+      },
+      {
+        "term": "sing",
+        "evidence_refs": [
+          "bep2_act_u6_04"
+        ]
+      },
+      {
+        "term": "ask and answer",
+        "evidence_refs": [
+          "bep2_act_u6_06",
+          "bep2_act_u6_12",
+          "bep2_act_u6_17",
+          "bep2_act_u6_24"
+        ]
+      },
+      {
+        "term": "read",
+        "evidence_refs": [
+          "bep2_act_u6_07",
+          "bep2_act_u6_15",
+          "bep2_act_u6_16",
+          "bep2_act_u6_19",
+          "bep2_act_u6_20",
+          "bep2_act_u6_21",
+          "bep2_act_u6_22",
+          "bep2_act_u6_26",
+          "bep2_act_u6_27",
+          "bep2_act_u6_37"
+        ]
+      },
+      {
+        "term": "number in order",
+        "evidence_refs": [
+          "bep2_act_u6_08",
+          "bep2_act_u6_29"
+        ]
+      },
+      {
+        "term": "write",
+        "evidence_refs": [
+          "bep2_act_u6_10",
+          "bep2_act_u6_13",
+          "bep2_act_u6_23",
+          "bep2_act_u6_28",
+          "bep2_act_u6_36",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "stick",
+        "evidence_refs": [
+          "bep2_act_u6_11"
+        ]
+      },
+      {
+        "term": "circle",
+        "evidence_refs": [
+          "bep2_act_u6_16",
+          "bep2_act_u6_20",
+          "bep2_act_u6_22",
+          "bep2_act_u6_27"
+        ]
+      },
+      {
+        "term": "match",
+        "evidence_refs": [
+          "bep2_act_u6_15",
+          "bep2_act_u6_21",
+          "bep2_act_u6_37"
+        ]
+      },
+      {
+        "term": "present",
+        "evidence_refs": [
+          "bep2_act_u6_18"
+        ]
+      },
+      {
+        "term": "repeat",
+        "evidence_refs": [
+          "bep2_act_u6_31"
+        ]
+      },
+      {
+        "term": "blend the sounds",
+        "evidence_refs": [
+          "bep2_act_u6_33"
+        ]
+      },
+      {
+        "term": "chant",
+        "evidence_refs": [
+          "bep2_act_u6_34"
+        ]
+      },
+      {
+        "term": "underline",
+        "evidence_refs": [
+          "bep2_act_u6_34"
+        ]
+      }
+    ],
+    "supporting": [
+      {
+        "term": "brush teeth",
+        "evidence_refs": [
+          "bep2_act_u6_10",
+          "bep2_text_u6_01"
+        ]
+      },
+      {
+        "term": "get dressed",
+        "evidence_refs": [
+          "bep2_act_u6_29",
+          "bep2_text_u6_01"
+        ]
+      },
+      {
+        "term": "eat breakfast",
+        "evidence_refs": [
+          "bep2_act_u6_29",
+          "bep2_text_u6_01"
+        ]
+      },
+      {
+        "term": "eat lunch",
+        "evidence_refs": [
+          "bep2_act_u6_10",
+          "bep2_text_u6_05"
+        ]
+      },
+      {
+        "term": "have dinner",
+        "evidence_refs": [
+          "bep2_act_u6_28",
+          "bep2_text_u6_05"
+        ]
+      },
+      {
+        "term": "do homework",
+        "evidence_refs": [
+          "bep2_text_u6_01",
+          "bep2_text_u6_02",
+          "bep2_text_u6_05"
+        ]
+      },
+      {
+        "term": "come back / come home",
+        "evidence_refs": [
+          "bep2_act_u6_08",
+          "bep2_text_u6_02"
+        ]
+      },
+      {
+        "term": "tick, tock",
+        "evidence_refs": [
+          "bep2_text_u6_01"
+        ]
+      },
+      {
+        "term": "clock",
+        "evidence_refs": [
+          "bep2_act_u6_18",
+          "bep2_text_u6_03",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "watch",
+        "evidence_refs": [
+          "bep2_text_u6_03",
+          "bep2_act_u6_38"
+        ]
+      },
+      {
+        "term": "boring",
+        "evidence_refs": [
+          "bep2_text_u6_02"
+        ]
+      },
+      {
+        "term": "backpack",
+        "evidence_refs": [
+          "bep2_act_u6_29"
+        ]
+      },
+      {
+        "term": "silly",
+        "evidence_refs": [
+          "bep2_lang_u6_006",
+          "bep2_act_u6_35"
+        ]
+      }
+    ]
+  },
+  "pages": [
+    {
+      "printed_page": 90,
+      "structure_ids": [
+        "STR-01"
+      ],
+      "foundational_skill_ids": [
+        "FS-04"
+      ],
+      "core_vocabulary_refs": [
+        "one o'clock",
+        "two o'clock",
+        "three o'clock",
+        "four o'clock",
+        "five o'clock",
+        "six o'clock",
+        "seven o'clock",
+        "eight o'clock",
+        "nine o'clock",
+        "ten o'clock",
+        "eleven o'clock",
+        "twelve o'clock"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "look",
+        "say",
+        "find",
+        "play a game"
+      ],
+      "evidence_refs": [
+        "bep2_p090",
+        "bep2_act_u6_01",
+        "bep2_act_u6_02",
+        "bep2_act_u6_03"
+      ]
+    },
+    {
+      "printed_page": 91,
+      "structure_ids": [
+        "STR-01"
+      ],
+      "foundational_skill_ids": [
+        "FS-04",
+        "FS-07"
+      ],
+      "core_vocabulary_refs": [
+        "get up",
+        "go to bed",
+        "start school",
+        "go out",
+        "watch TV"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "sing",
+        "find",
+        "say",
+        "ask and answer"
+      ],
+      "evidence_refs": [
+        "bep2_p091",
+        "bep2_lang_u6_001",
+        "bep2_act_u6_04",
+        "bep2_act_u6_05",
+        "bep2_act_u6_06",
+        "bep2_text_u6_01"
+      ]
+    },
+    {
+      "printed_page": 92,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-01",
+        "FS-02",
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "get up"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "read"
+      ],
+      "evidence_refs": [
+        "bep2_p092",
+        "bep2_act_u6_07",
+        "bep2_text_u6_02"
+      ]
+    },
+    {
+      "printed_page": 93,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-01"
+      ],
+      "core_vocabulary_refs": [
+        "get up",
+        "go out"
+      ],
+      "instructional_vocabulary_refs": [
+        "look",
+        "number in order"
+      ],
+      "evidence_refs": [
+        "bep2_p093",
+        "bep2_act_u6_08",
+        "bep2_text_u6_02"
+      ]
+    },
+    {
+      "printed_page": 94,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-01",
+        "FS-02",
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "get up",
+        "go to bed",
+        "finish school"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "look",
+        "write"
+      ],
+      "evidence_refs": [
+        "bep2_p094",
+        "bep2_lang_u6_002",
+        "bep2_lang_u6_003",
+        "bep2_act_u6_09",
+        "bep2_act_u6_10"
+      ]
+    },
+    {
+      "printed_page": 95,
+      "structure_ids": [
+        "STR-02",
+        "STR-03"
+      ],
+      "foundational_skill_ids": [
+        "FS-01",
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "go to bed"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "stick",
+        "say",
+        "look",
+        "ask and answer",
+        "write"
+      ],
+      "evidence_refs": [
+        "bep2_p095",
+        "bep2_lang_u6_004",
+        "bep2_act_u6_11",
+        "bep2_act_u6_12",
+        "bep2_act_u6_13"
+      ]
+    },
+    {
+      "printed_page": 96,
+      "structure_ids": [
+        "STR-05"
+      ],
+      "foundational_skill_ids": [
+        "FS-01"
+      ],
+      "core_vocabulary_refs": [
+        "candle",
+        "cup",
+        "fall",
+        "height",
+        "hourglass",
+        "sand",
+        "shadow",
+        "sundial",
+        "water clock"
+      ],
+      "instructional_vocabulary_refs": [
+        "look",
+        "listen",
+        "read",
+        "match",
+        "write"
+      ],
+      "evidence_refs": [
+        "bep2_p096",
+        "bep2_act_u6_14",
+        "bep2_act_u6_15",
+        "bep2_text_u6_03"
+      ]
+    },
+    {
+      "printed_page": 97,
+      "structure_ids": [
+        "STR-05"
+      ],
+      "foundational_skill_ids": [
+        "FS-01"
+      ],
+      "core_vocabulary_refs": [
+        "candle",
+        "cup",
+        "hourglass",
+        "sand",
+        "sundial",
+        "water clock"
+      ],
+      "instructional_vocabulary_refs": [
+        "look",
+        "read",
+        "circle",
+        "play a game",
+        "ask and answer",
+        "present"
+      ],
+      "evidence_refs": [
+        "bep2_p097",
+        "bep2_act_u6_16",
+        "bep2_act_u6_17",
+        "bep2_act_u6_18"
+      ]
+    },
+    {
+      "printed_page": 98,
+      "structure_ids": [
+        "STR-04"
+      ],
+      "foundational_skill_ids": [
+        "FS-02",
+        "FS-05"
+      ],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "read",
+        "say",
+        "circle"
+      ],
+      "evidence_refs": [
+        "bep2_p098",
+        "bep2_lang_u6_005",
+        "bep2_act_u6_19",
+        "bep2_act_u6_20",
+        "bep2_text_u6_04"
+      ]
+    },
+    {
+      "printed_page": 99,
+      "structure_ids": [
+        "STR-04"
+      ],
+      "foundational_skill_ids": [
+        "FS-02",
+        "FS-05"
+      ],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": [
+        "read",
+        "match",
+        "circle",
+        "write",
+        "look",
+        "ask and answer"
+      ],
+      "evidence_refs": [
+        "bep2_p099",
+        "bep2_act_u6_21",
+        "bep2_act_u6_22",
+        "bep2_act_u6_23",
+        "bep2_act_u6_24"
+      ]
+    },
+    {
+      "printed_page": 100,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-01",
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "tired"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "read",
+        "look",
+        "circle"
+      ],
+      "evidence_refs": [
+        "bep2_p100",
+        "bep2_act_u6_25",
+        "bep2_act_u6_26",
+        "bep2_act_u6_27",
+        "bep2_text_u6_05"
+      ]
+    },
+    {
+      "printed_page": 101,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-01",
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "recess"
+      ],
+      "instructional_vocabulary_refs": [
+        "look",
+        "write"
+      ],
+      "evidence_refs": [
+        "bep2_p101",
+        "bep2_act_u6_28",
+        "bep2_text_u6_05"
+      ]
+    },
+    {
+      "printed_page": 102,
+      "structure_ids": [],
+      "foundational_skill_ids": [],
+      "core_vocabulary_refs": [
+        "on time",
+        "early"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "number in order",
+        "say"
+      ],
+      "evidence_refs": [
+        "bep2_p102",
+        "bep2_act_u6_29",
+        "bep2_act_u6_30"
+      ]
+    },
+    {
+      "printed_page": 103,
+      "structure_ids": [
+        "STR-06"
+      ],
+      "foundational_skill_ids": [
+        "FS-06"
+      ],
+      "core_vocabulary_refs": [
+        "witch",
+        "ship",
+        "fish",
+        "chin",
+        "rich"
+      ],
+      "instructional_vocabulary_refs": [
+        "listen",
+        "look",
+        "repeat",
+        "find",
+        "say",
+        "blend the sounds",
+        "underline",
+        "chant"
+      ],
+      "evidence_refs": [
+        "bep2_p103",
+        "bep2_act_u6_31",
+        "bep2_act_u6_32",
+        "bep2_act_u6_33",
+        "bep2_act_u6_34",
+        "bep2_text_u6_06"
+      ]
+    },
+    {
+      "printed_page": 104,
+      "structure_ids": [
+        "STR-02"
+      ],
+      "foundational_skill_ids": [
+        "FS-03"
+      ],
+      "core_vocabulary_refs": [
+        "go to bed"
+      ],
+      "instructional_vocabulary_refs": [
+        "play a game"
+      ],
+      "evidence_refs": [
+        "bep2_p104",
+        "bep2_lang_u6_006",
+        "bep2_act_u6_35"
+      ]
+    },
+    {
+      "printed_page": 105,
+      "structure_ids": [
+        "STR-01",
+        "STR-04",
+        "STR-05"
+      ],
+      "foundational_skill_ids": [
+        "FS-04",
+        "FS-05"
+      ],
+      "core_vocabulary_refs": [
+        "hourglass",
+        "sundial"
+      ],
+      "instructional_vocabulary_refs": [
+        "look",
+        "write",
+        "read",
+        "match",
+        "find"
+      ],
+      "evidence_refs": [
+        "bep2_p105",
+        "bep2_act_u6_36",
+        "bep2_act_u6_37",
+        "bep2_act_u6_38"
+      ]
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "issue_id": "bep2_issue_0010",
+      "activity_id": "bep2_act_u6_05",
+      "description": "Activity 5 yes/no responses to song statements depend on audio Track 122."
+    },
+    {
+      "issue_id": "bep2_issue_0011",
+      "activity_id": "bep2_act_u6_29",
+      "description": "Activity 29 numbering sequence depends on audio Track 133."
+    }
+  ]
+}

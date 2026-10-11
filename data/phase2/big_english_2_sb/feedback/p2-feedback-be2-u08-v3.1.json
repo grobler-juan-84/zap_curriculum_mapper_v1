@@ -1,0 +1,735 @@
+{
+  "schema": {
+    "name": "phase2_linguistic_anatomy",
+    "version": "0.3.1-experimental"
+  },
+  "source": {
+    "catalog_book_id": "big_english_2_sb",
+    "unit_id": "bep2_unit_08",
+    "unit_title": "Wild Animals",
+    "printed_pages": [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143]
+  },
+  "language_structures": [
+    {
+      "id": "STR-01",
+      "name": "Asking and Answering About Abilities with Modal Can (Yes/No Questions)",
+      "instructional_role": "main_target",
+      "pattern": "Can + subject + base verb? -> Yes, subject + can. / No, subject + can't.",
+      "source_examples": [
+        "Can a kangaroo jump? Yes, it can.",
+        "Can snakes run? No, they can't."
+      ],
+      "plain_english_explanation": "Use 'Can' at the beginning of a question to ask if an animal or person has an ability, followed by the subject and base action word. Answer with 'Yes' or 'No', matching the subject pronoun and 'can' or 'can't'.",
+      "components": [
+        {
+          "name": "Fronted modal verb 'Can'",
+          "explanation": "Places 'Can' first to form a yes/no question."
+        },
+        {
+          "name": "Subject (singular noun phrase or plural noun)",
+          "explanation": "Identifies who or what is performing the action (e.g., 'a kangaroo', 'snakes')."
+        },
+        {
+          "name": "Base form of verb",
+          "explanation": "The action word without endings like -s or -ing (e.g., 'jump', 'run', 'climb')."
+        },
+        {
+          "name": "Short answer form",
+          "explanation": "Uses 'Yes, it/they can.' or 'No, it/they can't.' with subject pronoun agreement."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09", "bep2_act_u8_10", "bep2_act_u8_12"]
+    },
+    {
+      "id": "STR-02",
+      "name": "Order of Adjectives Before Nouns (Opinion, Size/Shape, Age, Color)",
+      "instructional_role": "main_target",
+      "pattern": "adjective (opinion) + adjective (size/shape) + adjective (age) + adjective (color) + noun",
+      "source_examples": [
+        "nice, green leaves",
+        "a cool blue jacket",
+        "two big, green heads"
+      ],
+      "plain_english_explanation": "When using multiple describing words before a noun, put them in a specific order: first an opinion or feeling word, then size or shape, then age, and finally color.",
+      "components": [
+        {
+          "name": "Opinion adjective",
+          "explanation": "Words showing personal judgement or view (e.g., 'nice', 'cool', 'beautiful', 'funny')."
+        },
+        {
+          "name": "Size/Shape adjective",
+          "explanation": "Words describing physical dimensions (e.g., 'big', 'long', 'short', 'tall')."
+        },
+        {
+          "name": "Age adjective",
+          "explanation": "Words describing how old something is (e.g., 'new', 'old', 'young')."
+        },
+        {
+          "name": "Color adjective",
+          "explanation": "Words describing color (e.g., 'green', 'black', 'red', 'blue')."
+        },
+        {
+          "name": "Head noun",
+          "explanation": "The person, animal, or object being described."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_20", "bep2_act_u8_21", "bep2_act_u8_22", "bep2_act_u8_23", "bep2_act_u8_36"]
+    },
+    {
+      "id": "STR-03",
+      "name": "Stating Abilities with Can and Inabilities with Can't",
+      "instructional_role": "supporting",
+      "pattern": "subject + can / can't + base verb",
+      "source_examples": [
+        "Cheetahs can run.",
+        "A giraffe can't fly or jump up high."
+      ],
+      "plain_english_explanation": "State what an animal is able to do using 'can' plus the action, or what it is unable to do using 'can't' plus the action.",
+      "components": [
+        {
+          "name": "Subject",
+          "explanation": "The animal or person (e.g., 'Cheetahs', 'A giraffe', 'Monkeys')."
+        },
+        {
+          "name": "Modal verb can/can't",
+          "explanation": "Shows ability or lack of ability without changing form for singular or plural."
+        },
+        {
+          "name": "Base verb",
+          "explanation": "The action verb in simple root form."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u8_001", "bep2_act_u8_06", "bep2_act_u8_08", "bep2_text_u8_01", "bep2_text_u8_02"]
+    },
+    {
+      "id": "STR-04",
+      "name": "Describing Animal Habitats with Simple Present",
+      "instructional_role": "supporting",
+      "pattern": "subject + live / lives in + the + habitat noun",
+      "source_examples": [
+        "Whales live in the ocean.",
+        "Foxes live in the forest."
+      ],
+      "plain_english_explanation": "Explain where animals make their homes by using the verb 'live' or 'lives' followed by 'in the' and the name of the biome or habitat.",
+      "components": [
+        {
+          "name": "Subject noun",
+          "explanation": "The animal species (usually plural, e.g., 'Whales', 'Snakes')."
+        },
+        {
+          "name": "Present simple verb (live/lives)",
+          "explanation": "Agrees with singular or plural subject to state a factual habitat."
+        },
+        {
+          "name": "Prepositional phrase of place",
+          "explanation": "'in the' followed by habitat types like 'ocean', 'desert', 'forest', 'jungle'."
+        }
+      ],
+      "evidence_refs": ["bep2_act_u8_16", "bep2_act_u8_18", "bep2_act_u8_37", "bep2_text_u8_03"]
+    },
+    {
+      "id": "STR-05",
+      "name": "Expressing Appreciation Using Intensive 'So'",
+      "instructional_role": "supporting",
+      "pattern": "They're / Subject + is/are + so + adjective",
+      "source_examples": [
+        "I like parrots. They're so beautiful.",
+        "Monkeys are so smart."
+      ],
+      "plain_english_explanation": "Use 'so' before a descriptive adjective to emphasize strong appreciation or wonder about an animal's qualities.",
+      "components": [
+        {
+          "name": "Subject pronoun or noun with 'be'",
+          "explanation": "Points to the animals being admired (e.g., 'They're', 'Monkeys are')."
+        },
+        {
+          "name": "Intensifier 'so'",
+          "explanation": "Adds emotional emphasis meaning 'very' or 'remarkably'."
+        },
+        {
+          "name": "Descriptive adjective",
+          "explanation": "Positive trait word (e.g., 'beautiful', 'smart', 'amazing')."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u8_005", "bep2_act_u8_29", "bep2_act_u8_30"]
+    },
+    {
+      "id": "STR-06",
+      "name": "Phonics Sound Focus: Digraphs 'ou' and 'ow'",
+      "instructional_role": "main_target",
+      "pattern": "Sound-spelling recognition and blending of /aʊ/ and /uː/ spelled with 'ou' and 'ow'",
+      "source_examples": [
+        "c-ow -> cow",
+        "s-ou-p -> soup",
+        "t-ow-n -> town"
+      ],
+      "plain_english_explanation": "Recognize and pronounce the vowel spellings 'ou' and 'ow', blending them with surrounding consonant sounds to read and chant words.",
+      "components": [
+        {
+          "name": "Spelling pattern 'ou'",
+          "explanation": "Represents vowel sounds in words such as 'soup' (/uː/) and 'group' or 'out' (/aʊ/)."
+        },
+        {
+          "name": "Spelling pattern 'ow'",
+          "explanation": "Represents vowel diphthong /aʊ/ in words like 'cow', 'owl', 'town', 'down'."
+        },
+        {
+          "name": "Phoneme blending",
+          "explanation": "Connecting individual sounds sequentially into whole words (e.g., d-ow-n -> down)."
+        }
+      ],
+      "evidence_refs": ["bep2_vocab_u8_032", "bep2_vocab_u8_033", "bep2_vocab_u8_034", "bep2_act_u8_31", "bep2_act_u8_32", "bep2_act_u8_33", "bep2_act_u8_34", "bep2_text_u8_06"]
+    }
+  ],
+  "foundational_skills": [
+    {
+      "id": "FS-01",
+      "name": "Inverting Subject and Modal Auxiliary in Questions",
+      "explanation": "Placing 'Can' before the subject instead of after it when turning a statement into a question.",
+      "related_structure_ids": ["STR-01"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_act_u8_09", "bep2_act_u8_10"]
+    },
+    {
+      "id": "FS-02",
+      "name": "Selecting Singular vs. Plural Pronoun in Short Answers with Can",
+      "explanation": "Using 'it' to refer to a singular animal ('a kangaroo -> Yes, it can') and 'they' to refer to plural animals ('snakes -> No, they can't').",
+      "related_structure_ids": ["STR-01"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09", "bep2_act_u8_10"]
+    },
+    {
+      "id": "FS-03",
+      "name": "Negative Contraction 'can't'",
+      "explanation": "Understanding that 'can't' is the contracted negative form of 'cannot' used in short answers and negative statements.",
+      "related_structure_ids": ["STR-01", "STR-03"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_lang_u8_003", "bep2_act_u8_08", "bep2_act_u8_10"]
+    },
+    {
+      "id": "FS-04",
+      "name": "Invariable Modal Verb Agreement",
+      "explanation": "Recognizing that 'can' and 'can't' do not add -s or change form whether the subject is singular (he/she/it) or plural (they).",
+      "related_structure_ids": ["STR-01", "STR-03"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_act_u8_09", "bep2_act_u8_10"]
+    },
+    {
+      "id": "FS-05",
+      "name": "Commas in Direct Affirmative and Negative Short Answers",
+      "explanation": "Placing a comma directly after 'Yes' or 'No' before the pronoun and modal verb ('Yes, it can.' / 'No, they can't.').",
+      "related_structure_ids": ["STR-01"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09"]
+    },
+    {
+      "id": "FS-06",
+      "name": "Categorizing Adjective Types (Opinion, Size/Shape, Age, Color)",
+      "explanation": "Distinguishing whether a descriptive word expresses an opinion (funny), a physical measurement (long), an age (young), or a color (green).",
+      "related_structure_ids": ["STR-02"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_act_u8_20", "bep2_act_u8_22"]
+    },
+    {
+      "id": "FS-07",
+      "name": "Prenominal Adjective Placement and Comma Usage",
+      "explanation": "Placing modifying adjectives before the noun rather than after it, and using a comma between coordinate adjectives of distinct categories where appropriate.",
+      "related_structure_ids": ["STR-02"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_21", "bep2_act_u8_23", "bep2_act_u8_36"]
+    },
+    {
+      "id": "FS-08",
+      "name": "Singular vs. Plural Animal Noun Formation",
+      "explanation": "Forming regular plural animal nouns with -s (cheetahs, kangaroos, monkeys, snakes) and recognizing singular nouns with 'a/an' (a giraffe, an elephant).",
+      "related_structure_ids": ["STR-01", "STR-03", "STR-04"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_vocab_u8_001", "bep2_vocab_u8_010", "bep2_vocab_u8_012", "bep2_act_u8_10", "bep2_act_u8_11"]
+    },
+    {
+      "id": "FS-09",
+      "name": "Digraph Phonic Decoding for 'ou' and 'ow'",
+      "explanation": "Blending onset consonants with rime digraphs containing 'ou' or 'ow' to read target monosyllabic words accurately.",
+      "related_structure_ids": ["STR-06"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": false,
+      "evidence_refs": ["bep2_act_u8_31", "bep2_act_u8_32", "bep2_act_u8_33"]
+    }
+  ],
+  "vocabulary": {
+    "core": [
+      {
+        "term": "giraffe",
+        "evidence_refs": ["bep2_vocab_u8_001"]
+      },
+      {
+        "term": "hippo",
+        "evidence_refs": ["bep2_vocab_u8_002"]
+      },
+      {
+        "term": "kangaroo",
+        "evidence_refs": ["bep2_vocab_u8_003"]
+      },
+      {
+        "term": "cheetah",
+        "evidence_refs": ["bep2_vocab_u8_004"]
+      },
+      {
+        "term": "polar bear",
+        "evidence_refs": ["bep2_vocab_u8_005"]
+      },
+      {
+        "term": "zebra",
+        "evidence_refs": ["bep2_vocab_u8_006"]
+      },
+      {
+        "term": "parrot",
+        "evidence_refs": ["bep2_vocab_u8_007"]
+      },
+      {
+        "term": "monkey",
+        "evidence_refs": ["bep2_vocab_u8_008"]
+      },
+      {
+        "term": "peacock",
+        "evidence_refs": ["bep2_vocab_u8_009"]
+      },
+      {
+        "term": "elephant",
+        "evidence_refs": ["bep2_vocab_u8_010"]
+      },
+      {
+        "term": "crocodile",
+        "evidence_refs": ["bep2_vocab_u8_011"]
+      },
+      {
+        "term": "snake",
+        "evidence_refs": ["bep2_vocab_u8_012"]
+      },
+      {
+        "term": "chase",
+        "evidence_refs": ["bep2_vocab_u8_013"]
+      },
+      {
+        "term": "cover",
+        "evidence_refs": ["bep2_vocab_u8_014"]
+      },
+      {
+        "term": "desert",
+        "evidence_refs": ["bep2_vocab_u8_015"]
+      },
+      {
+        "term": "forest",
+        "evidence_refs": ["bep2_vocab_u8_016"]
+      },
+      {
+        "term": "fox",
+        "evidence_refs": ["bep2_vocab_u8_017"]
+      },
+      {
+        "term": "jungle",
+        "evidence_refs": ["bep2_vocab_u8_018"]
+      },
+      {
+        "term": "lizard",
+        "evidence_refs": ["bep2_vocab_u8_019"]
+      },
+      {
+        "term": "ocean",
+        "evidence_refs": ["bep2_vocab_u8_020"]
+      },
+      {
+        "term": "raccoon",
+        "evidence_refs": ["bep2_vocab_u8_021"]
+      },
+      {
+        "term": "seal",
+        "evidence_refs": ["bep2_vocab_u8_022"]
+      },
+      {
+        "term": "whale",
+        "evidence_refs": ["bep2_vocab_u8_023"]
+      },
+      {
+        "term": "koala",
+        "evidence_refs": ["bep2_vocab_u8_024"]
+      },
+      {
+        "term": "gum tree",
+        "evidence_refs": ["bep2_vocab_u8_025"]
+      },
+      {
+        "term": "llama",
+        "evidence_refs": ["bep2_vocab_u8_026"]
+      },
+      {
+        "term": "snowball",
+        "evidence_refs": ["bep2_vocab_u8_027"]
+      },
+      {
+        "term": "amazing",
+        "evidence_refs": ["bep2_vocab_u8_028"]
+      },
+      {
+        "term": "beautiful",
+        "evidence_refs": ["bep2_vocab_u8_029"]
+      },
+      {
+        "term": "smart",
+        "evidence_refs": ["bep2_vocab_u8_030"]
+      },
+      {
+        "term": "strong",
+        "evidence_refs": ["bep2_vocab_u8_031"]
+      },
+      {
+        "term": "cow",
+        "evidence_refs": ["bep2_vocab_u8_032"]
+      },
+      {
+        "term": "soup",
+        "evidence_refs": ["bep2_vocab_u8_033"]
+      },
+      {
+        "term": "owl",
+        "evidence_refs": ["bep2_vocab_u8_034"]
+      }
+    ],
+    "instructional": [
+      {
+        "term": "listen",
+        "evidence_refs": ["bep2_act_u8_01", "bep2_act_u8_02", "bep2_act_u8_04", "bep2_act_u8_07", "bep2_act_u8_09", "bep2_act_u8_11", "bep2_act_u8_15", "bep2_act_u8_19", "bep2_act_u8_26", "bep2_act_u8_29", "bep2_act_u8_31", "bep2_act_u8_32", "bep2_act_u8_33", "bep2_act_u8_34"]
+      },
+      {
+        "term": "look",
+        "evidence_refs": ["bep2_act_u8_01", "bep2_act_u8_04", "bep2_act_u8_06", "bep2_act_u8_08", "bep2_act_u8_10", "bep2_act_u8_12", "bep2_act_u8_14", "bep2_act_u8_15", "bep2_act_u8_16", "bep2_act_u8_21", "bep2_act_u8_22", "bep2_act_u8_25", "bep2_act_u8_27", "bep2_act_u8_30", "bep2_act_u8_31", "bep2_act_u8_36"]
+      },
+      {
+        "term": "say",
+        "evidence_refs": ["bep2_act_u8_01", "bep2_act_u8_02", "bep2_act_u8_05", "bep2_act_u8_13", "bep2_act_u8_19", "bep2_act_u8_29", "bep2_act_u8_31", "bep2_act_u8_32"]
+      },
+      {
+        "term": "find",
+        "evidence_refs": ["bep2_act_u8_02", "bep2_act_u8_04", "bep2_act_u8_32"]
+      },
+      {
+        "term": "play a game",
+        "evidence_refs": ["bep2_act_u8_03", "bep2_act_u8_35"]
+      },
+      {
+        "term": "sing",
+        "evidence_refs": ["bep2_act_u8_04"]
+      },
+      {
+        "term": "ask and answer",
+        "evidence_refs": ["bep2_act_u8_06", "bep2_act_u8_12", "bep2_act_u8_17", "bep2_act_u8_28", "bep2_act_u8_30"]
+      },
+      {
+        "term": "read",
+        "evidence_refs": ["bep2_act_u8_07", "bep2_act_u8_15", "bep2_act_u8_16", "bep2_act_u8_19", "bep2_act_u8_20", "bep2_act_u8_21", "bep2_act_u8_23", "bep2_act_u8_26", "bep2_act_u8_27", "bep2_act_u8_37"]
+      },
+      {
+        "term": "circle",
+        "evidence_refs": ["bep2_act_u8_08", "bep2_act_u8_15", "bep2_act_u8_20", "bep2_act_u8_37"]
+      },
+      {
+        "term": "write",
+        "evidence_refs": ["bep2_act_u8_10", "bep2_act_u8_11", "bep2_act_u8_13", "bep2_act_u8_22", "bep2_act_u8_23"]
+      },
+      {
+        "term": "stick",
+        "evidence_refs": ["bep2_act_u8_11"]
+      },
+      {
+        "term": "draw",
+        "evidence_refs": ["bep2_act_u8_10", "bep2_act_u8_13", "bep2_act_u8_24"]
+      },
+      {
+        "term": "match",
+        "evidence_refs": ["bep2_act_u8_16", "bep2_act_u8_25", "bep2_act_u8_27"]
+      },
+      {
+        "term": "make a poster",
+        "evidence_refs": ["bep2_act_u8_18"]
+      },
+      {
+        "term": "present to the class",
+        "evidence_refs": ["bep2_act_u8_18"]
+      },
+      {
+        "term": "check",
+        "evidence_refs": ["bep2_act_u8_21", "bep2_act_u8_26", "bep2_act_u8_36"]
+      },
+      {
+        "term": "order",
+        "evidence_refs": ["bep2_act_u8_23"]
+      },
+      {
+        "term": "choose",
+        "evidence_refs": ["bep2_act_u8_24"]
+      },
+      {
+        "term": "complete the chart",
+        "evidence_refs": ["bep2_act_u8_28"]
+      },
+      {
+        "term": "number",
+        "evidence_refs": ["bep2_act_u8_29"]
+      },
+      {
+        "term": "repeat",
+        "evidence_refs": ["bep2_act_u8_31"]
+      },
+      {
+        "term": "blend the sounds",
+        "evidence_refs": ["bep2_act_u8_33"]
+      },
+      {
+        "term": "underline",
+        "evidence_refs": ["bep2_act_u8_34"]
+      },
+      {
+        "term": "chant",
+        "evidence_refs": ["bep2_act_u8_34"]
+      }
+    ],
+    "supporting": [
+      {
+        "term": "jump",
+        "evidence_refs": ["bep2_act_u8_08", "bep2_act_u8_09", "bep2_text_u8_01", "bep2_text_u8_02"]
+      },
+      {
+        "term": "climb trees",
+        "evidence_refs": ["bep2_act_u8_08", "bep2_act_u8_10", "bep2_act_u8_11", "bep2_text_u8_01", "bep2_text_u8_02"]
+      },
+      {
+        "term": "run",
+        "evidence_refs": ["bep2_lang_u8_001", "bep2_act_u8_09", "bep2_act_u8_10", "bep2_act_u8_11", "bep2_text_u8_01"]
+      },
+      {
+        "term": "fly",
+        "evidence_refs": ["bep2_act_u8_11", "bep2_text_u8_01"]
+      },
+      {
+        "term": "swim",
+        "evidence_refs": ["bep2_act_u8_17", "bep2_text_u8_01"]
+      },
+      {
+        "term": "habitat",
+        "evidence_refs": ["bep2_text_u8_03"]
+      },
+      {
+        "term": "planet",
+        "evidence_refs": ["bep2_act_u8_15", "bep2_text_u8_03"]
+      },
+      {
+        "term": "tongue",
+        "evidence_refs": ["bep2_text_u8_04"]
+      },
+      {
+        "term": "opinion",
+        "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_22"]
+      },
+      {
+        "term": "size",
+        "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_22"]
+      },
+      {
+        "term": "age",
+        "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_22"]
+      },
+      {
+        "term": "color",
+        "evidence_refs": ["bep2_lang_u8_004", "bep2_act_u8_22"]
+      },
+      {
+        "term": "wild",
+        "evidence_refs": ["bep2_text_u8_05"]
+      },
+      {
+        "term": "pet",
+        "evidence_refs": ["bep2_act_u8_25", "bep2_text_u8_05"]
+      },
+      {
+        "term": "neck",
+        "evidence_refs": ["bep2_act_u8_29"]
+      }
+    ]
+  },
+  "pages": [
+    {
+      "printed_page": 128,
+      "structure_ids": [],
+      "foundational_skill_ids": ["FS-08"],
+      "core_vocabulary_refs": [
+        "bep2_vocab_u8_001",
+        "bep2_vocab_u8_002",
+        "bep2_vocab_u8_003",
+        "bep2_vocab_u8_004",
+        "bep2_vocab_u8_005",
+        "bep2_vocab_u8_006",
+        "bep2_vocab_u8_007",
+        "bep2_vocab_u8_008",
+        "bep2_vocab_u8_009",
+        "bep2_vocab_u8_010",
+        "bep2_vocab_u8_011",
+        "bep2_vocab_u8_012"
+      ],
+      "instructional_vocabulary_refs": ["listen", "look", "say", "find", "play a game"],
+      "evidence_refs": ["bep2_p128", "bep2_act_u8_01", "bep2_act_u8_02", "bep2_act_u8_03", "bep2_comp_u8_01", "bep2_rel_0020"]
+    },
+    {
+      "printed_page": 129,
+      "structure_ids": ["STR-03"],
+      "foundational_skill_ids": ["FS-04", "FS-08"],
+      "core_vocabulary_refs": ["bep2_vocab_u8_013"],
+      "instructional_vocabulary_refs": ["listen", "sing", "look", "find", "say", "ask and answer"],
+      "evidence_refs": ["bep2_p129", "bep2_lang_u8_001", "bep2_act_u8_04", "bep2_act_u8_05", "bep2_act_u8_06", "bep2_text_u8_01", "bep2_comp_u8_02", "bep2_rel_0021"]
+    },
+    {
+      "printed_page": 130,
+      "structure_ids": ["STR-01", "STR-03"],
+      "foundational_skill_ids": ["FS-01", "FS-02", "FS-03", "FS-04"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["listen", "read"],
+      "evidence_refs": ["bep2_p130", "bep2_act_u8_07", "bep2_text_u8_02", "bep2_comp_u8_03"]
+    },
+    {
+      "printed_page": 131,
+      "structure_ids": ["STR-03"],
+      "foundational_skill_ids": ["FS-03", "FS-04", "FS-08"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["look", "circle"],
+      "evidence_refs": ["bep2_p131", "bep2_act_u8_08", "bep2_text_u8_02"]
+    },
+    {
+      "printed_page": 132,
+      "structure_ids": ["STR-01"],
+      "foundational_skill_ids": ["FS-01", "FS-02", "FS-03", "FS-04", "FS-05", "FS-08"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["listen", "look", "write", "draw"],
+      "evidence_refs": ["bep2_p132", "bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09", "bep2_act_u8_10", "bep2_comp_u8_04"]
+    },
+    {
+      "printed_page": 133,
+      "structure_ids": ["STR-01"],
+      "foundational_skill_ids": ["FS-01", "FS-02", "FS-04", "FS-08"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["listen", "stick", "write", "ask and answer", "draw", "say"],
+      "evidence_refs": ["bep2_p133", "bep2_act_u8_11", "bep2_act_u8_12", "bep2_act_u8_13", "bep2_rel_0022"]
+    },
+    {
+      "printed_page": 134,
+      "structure_ids": ["STR-04"],
+      "foundational_skill_ids": ["FS-08"],
+      "core_vocabulary_refs": [
+        "bep2_vocab_u8_014",
+        "bep2_vocab_u8_015",
+        "bep2_vocab_u8_016",
+        "bep2_vocab_u8_017",
+        "bep2_vocab_u8_018",
+        "bep2_vocab_u8_019",
+        "bep2_vocab_u8_020",
+        "bep2_vocab_u8_021",
+        "bep2_vocab_u8_022",
+        "bep2_vocab_u8_023"
+      ],
+      "instructional_vocabulary_refs": ["look", "listen", "read", "circle"],
+      "evidence_refs": ["bep2_p134", "bep2_act_u8_14", "bep2_act_u8_15", "bep2_text_u8_03", "bep2_comp_u8_05"]
+    },
+    {
+      "printed_page": 135,
+      "structure_ids": ["STR-01", "STR-04"],
+      "foundational_skill_ids": ["FS-01", "FS-04", "FS-08"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["look", "read", "match", "ask and answer", "make a poster", "present to the class"],
+      "evidence_refs": ["bep2_p135", "bep2_act_u8_16", "bep2_act_u8_17", "bep2_act_u8_18"]
+    },
+    {
+      "printed_page": 136,
+      "structure_ids": ["STR-02"],
+      "foundational_skill_ids": ["FS-06", "FS-07"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["listen", "read", "say", "circle", "look", "check"],
+      "evidence_refs": ["bep2_p136", "bep2_lang_u8_004", "bep2_act_u8_19", "bep2_act_u8_20", "bep2_act_u8_21", "bep2_text_u8_04", "bep2_comp_u8_06"]
+    },
+    {
+      "printed_page": 137,
+      "structure_ids": ["STR-02"],
+      "foundational_skill_ids": ["FS-06", "FS-07"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["look", "write", "read", "order", "choose", "draw"],
+      "evidence_refs": ["bep2_p137", "bep2_act_u8_22", "bep2_act_u8_23", "bep2_act_u8_24"]
+    },
+    {
+      "printed_page": 138,
+      "structure_ids": [],
+      "foundational_skill_ids": ["FS-08"],
+      "core_vocabulary_refs": ["bep2_vocab_u8_024", "bep2_vocab_u8_025"],
+      "instructional_vocabulary_refs": ["look", "match", "listen", "read", "check"],
+      "evidence_refs": ["bep2_p138", "bep2_act_u8_25", "bep2_act_u8_26", "bep2_text_u8_05", "bep2_comp_u8_07"]
+    },
+    {
+      "printed_page": 139,
+      "structure_ids": [],
+      "foundational_skill_ids": ["FS-08"],
+      "core_vocabulary_refs": ["bep2_vocab_u8_026", "bep2_vocab_u8_027"],
+      "instructional_vocabulary_refs": ["look", "read", "match", "complete the chart", "ask and answer"],
+      "evidence_refs": ["bep2_p139", "bep2_act_u8_27", "bep2_act_u8_28", "bep2_text_u8_05"]
+    },
+    {
+      "printed_page": 140,
+      "structure_ids": ["STR-05"],
+      "foundational_skill_ids": ["FS-08"],
+      "core_vocabulary_refs": ["bep2_vocab_u8_028", "bep2_vocab_u8_029", "bep2_vocab_u8_030", "bep2_vocab_u8_031"],
+      "instructional_vocabulary_refs": ["listen", "number", "say", "look", "ask and answer"],
+      "evidence_refs": ["bep2_p140", "bep2_lang_u8_005", "bep2_act_u8_29", "bep2_act_u8_30", "bep2_comp_u8_08"]
+    },
+    {
+      "printed_page": 141,
+      "structure_ids": ["STR-06"],
+      "foundational_skill_ids": ["FS-09"],
+      "core_vocabulary_refs": ["bep2_vocab_u8_032", "bep2_vocab_u8_033", "bep2_vocab_u8_034"],
+      "instructional_vocabulary_refs": ["listen", "look", "repeat", "find", "say", "blend the sounds", "underline", "chant"],
+      "evidence_refs": ["bep2_p141", "bep2_act_u8_31", "bep2_act_u8_32", "bep2_act_u8_33", "bep2_act_u8_34", "bep2_text_u8_06", "bep2_comp_u8_09"]
+    },
+    {
+      "printed_page": 142,
+      "structure_ids": ["STR-01"],
+      "foundational_skill_ids": ["FS-01", "FS-03", "FS-05"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["play a game"],
+      "evidence_refs": ["bep2_p142", "bep2_act_u8_35", "bep2_comp_u8_10"]
+    },
+    {
+      "printed_page": 143,
+      "structure_ids": ["STR-02", "STR-04"],
+      "foundational_skill_ids": ["FS-06", "FS-07", "FS-08"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["look", "check", "read", "circle"],
+      "evidence_refs": ["bep2_p143", "bep2_act_u8_36", "bep2_act_u8_37"]
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "issue_id": "bep2_issue_0013",
+      "entity_type": "activity",
+      "entity_id": "bep2_act_u8_05",
+      "description": "Activity 5 true/false statements depend on audio Track 167, which is unavailable in the transcript."
+    },
+    {
+      "issue_id": "bep2_issue_0014",
+      "entity_type": "activity",
+      "entity_id": "bep2_act_u8_29",
+      "description": "Activity 29 numbering sequence depends on audio Track 177, which is unavailable in the transcript."
+    }
+  ]
+}

@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 122  
+**Last updated:** Step 123  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
 - Phase 1 PAUSED at 14/18 (D015).
 - Phase 2 prompt v3.1 run on BE2-SB U1, U6, U8.
-- Blank feedback JSON templates created for those three runs.
+- Feedback / experiment JSON relocated to `data/phase2/big_english_2_sb/feedback/`.
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner feedback in the three `p2-feedback-be2-u0*-v3.1.json` files.
+On branch `phase-2`. Phase 2 working data lives under `data/phase2/` (parallel to `data/phase1/`).
 
 ## Next small step
 
-**Suggestion:** Fill the U1 / U6 / U8 feedback JSON files (ratings, checklist passes, issues), then decide prompt refinements.
+**Suggestion:** Review the three v3.1 JSON files in `data/phase2/big_english_2_sb/feedback/`, then decide prompt refinements.

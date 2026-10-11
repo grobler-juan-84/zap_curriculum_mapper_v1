@@ -1,0 +1,404 @@
+{
+  "schema": {
+    "name": "phase2_linguistic_anatomy",
+    "version": "0.3.1-experimental"
+  },
+  "source": {
+    "catalog_book_id": "big_english_2_sb",
+    "unit_id": "bep2_unit_01",
+    "unit_title": "In My Classroom",
+    "printed_pages": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  },
+  "language_structures": [
+    {
+      "id": "STR-01",
+      "name": "Asking and answering about actions happening now (singular)",
+      "instructional_role": "main_target",
+      "pattern": "What's [he / she] doing? -> [He's / She's] [verb-ing] [noun / complement].",
+      "source_examples": [
+        "What's she doing? She's coloring.",
+        "What's she doing? She's using the computer."
+      ],
+      "plain_english_explanation": "Use 'What's he/she doing?' to ask about an action in progress right now, and answer with 'He's' or 'She's' followed by an -ing action verb.",
+      "components": [
+        {
+          "name": "Question frame",
+          "explanation": "Question word 'What' combined with contracted helping verb 's (is) and subject pronoun."
+        },
+        {
+          "name": "Present continuous verb phrase",
+          "explanation": "Subject pronoun contracted with 'is' (He's / She's) plus a verb ending in -ing."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u1_001", "bep2_lang_u1_002", "bep2_act_u1_06", "bep2_act_u1_10"]
+    },
+    {
+      "id": "STR-02",
+      "name": "Asking and answering about actions happening now (plural)",
+      "instructional_role": "main_target",
+      "pattern": "What are they doing? -> They're [verb-ing] [noun / complement].",
+      "source_examples": [
+        "What are they doing? They're gluing."
+      ],
+      "plain_english_explanation": "Use 'What are they doing?' to ask about two or more people's current actions, and answer with 'They're' plus an -ing verb.",
+      "components": [
+        {
+          "name": "Plural question frame",
+          "explanation": "'What are' followed by the plural pronoun 'they' and 'doing'."
+        },
+        {
+          "name": "Plural response phrase",
+          "explanation": "Contracted subject and helping verb 'They're' (They are) followed by the -ing verb form."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u1_003", "bep2_act_u1_09", "bep2_act_u1_10", "bep2_act_u1_34"]
+    },
+    {
+      "id": "STR-03",
+      "name": "Asking and answering about quantities using There is / There are",
+      "instructional_role": "main_target",
+      "pattern": "How many [plural noun] are there? -> There's [one singular noun] / There are [number] [plural noun].",
+      "source_examples": [
+        "How many computers are there? There are two computers.",
+        "How many Marias are there? There are two Marias."
+      ],
+      "plain_english_explanation": "Ask about quantity with 'How many' plus a plural noun and 'are there?'. Answer with 'There's' for one item or 'There are' for more than one.",
+      "components": [
+        {
+          "name": "Quantity question phrase",
+          "explanation": "'How many' followed by plural count noun and inverted helping verb 'are there'."
+        },
+        {
+          "name": "Existential statement",
+          "explanation": "'There's' with a single item or 'There are' with a count greater than one."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u1_004", "bep2_act_u1_07", "bep2_act_u1_12", "bep2_act_u1_13", "bep2_act_u1_36"]
+    },
+    {
+      "id": "STR-04",
+      "name": "Classroom rules and instructions (Imperatives)",
+      "instructional_role": "main_target",
+      "pattern": "[Base verb] [complement]. / Don't [base verb] [complement].",
+      "source_examples": [
+        "Stand on the chair. / Don't stand on the table.",
+        "Be careful. / Don't be silly."
+      ],
+      "plain_english_explanation": "Give direct instructions or rules by starting directly with a base verb. To tell someone not to do something, start with 'Don't' followed by the base verb.",
+      "components": [
+        {
+          "name": "Affirmative imperative",
+          "explanation": "Begins directly with the base form of the verb without a stated subject pronoun."
+        },
+        {
+          "name": "Negative imperative",
+          "explanation": "'Don't' placed immediately before the base verb to prohibit an action."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u1_005", "bep2_act_u1_20", "bep2_act_u1_21", "bep2_act_u1_22", "bep2_act_u1_23", "bep2_act_u1_35"]
+    },
+    {
+      "id": "STR-05",
+      "name": "Stating math equations",
+      "instructional_role": "supporting",
+      "pattern": "[Number] [plus / minus] [number] equals [number].",
+      "source_examples": [
+        "Four plus three equals seven.",
+        "Eight minus two equals six."
+      ],
+      "plain_english_explanation": "Say basic addition and subtraction problems aloud by joining numbers with 'plus' or 'minus' and finishing with 'equals'.",
+      "components": [
+        {
+          "name": "Arithmetic operators",
+          "explanation": "Prepositions 'plus' for addition and 'minus' for subtraction."
+        },
+        {
+          "name": "Equation verb",
+          "explanation": "'Equals' used as the third-person singular linking verb."
+        }
+      ],
+      "evidence_refs": ["bep2_act_u1_14", "bep2_act_u1_17"]
+    },
+    {
+      "id": "STR-06",
+      "name": "Asking permission and making suggestions",
+      "instructional_role": "supporting",
+      "pattern": "May I [base verb] [noun]? -> Yes! Let's [base verb].",
+      "source_examples": [
+        "May I use the computer now? Yes! Let's take turns."
+      ],
+      "plain_english_explanation": "Use 'May I' to ask polite permission to do something, and 'Let's' to suggest doing an action together.",
+      "components": [
+        {
+          "name": "Polite permission frame",
+          "explanation": "Modal verb 'May' placed before subject 'I' and base verb."
+        },
+        {
+          "name": "Cooperative suggestion",
+          "explanation": "'Let's' (Let us) followed by a base verb phrase."
+        }
+      ],
+      "evidence_refs": ["bep2_lang_u1_006", "bep2_act_u1_29"]
+    }
+  ],
+  "foundational_skills": [
+    {
+      "id": "FS-01",
+      "name": "Pronoun-verb contraction recognition (He's, She's, They're)",
+      "explanation": "Recognizing and forming spoken and written contractions of subject pronouns with the helping verb 'is' and 'are' (he's, she's, they're).",
+      "related_structure_ids": ["STR-01", "STR-02"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p008", "bep2_lang_u1_002", "bep2_lang_u1_003"]
+    },
+    {
+      "id": "FS-02",
+      "name": "Forming -ing action verbs with spelling changes",
+      "explanation": "Adding -ing to base verbs, including dropping final silent -e (write -> writing, use -> using) and doubling single final consonants (cut -> cutting).",
+      "related_structure_ids": ["STR-01", "STR-02"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p004", "bep2_vocab_u1_003", "bep2_vocab_u1_007", "bep2_vocab_u1_008"]
+    },
+    {
+      "id": "FS-03",
+      "name": "Singular vs. plural existential selection (There's vs. There are)",
+      "explanation": "Selecting 'There's' when followed by one person or thing, and 'There are' when followed by two or more.",
+      "related_structure_ids": ["STR-03"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p009", "bep2_act_u1_13", "bep2_act_u1_36"]
+    },
+    {
+      "id": "FS-04",
+      "name": "Affirmative vs. negative imperative contrast",
+      "explanation": "Distinguishing positive instructions (Listen) from prohibitions (Don't talk) by adding or removing 'Don't' before the base verb.",
+      "related_structure_ids": ["STR-04"],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p012", "bep2_act_u1_20", "bep2_act_u1_21", "bep2_act_u1_23"]
+    },
+    {
+      "id": "FS-05",
+      "name": "Phonemic discrimination and articulation of unvoiced and voiced digraph /θ/ and /ð/",
+      "explanation": "Distinguishing and pronouncing the unvoiced /θ/ sound (bath, thin, math) and voiced /ð/ sound (this, that, then, with).",
+      "related_structure_ids": [],
+      "teaching_status": "explicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p017", "bep2_act_u1_30", "bep2_act_u1_31", "bep2_act_u1_32", "bep2_act_u1_33"]
+    },
+    {
+      "id": "FS-06",
+      "name": "Auditory number discrimination between -teen and -ty numbers",
+      "explanation": "Distinguishing between similar-sounding teen and tens numbers (e.g., 17 vs. 70).",
+      "related_structure_ids": ["STR-05"],
+      "teaching_status": "implicit",
+      "frequent_reinforcement_candidate": true,
+      "evidence_refs": ["bep2_p011", "bep2_act_u1_16"]
+    }
+  ],
+  "vocabulary": {
+    "core": [
+      { "term": "coloring", "evidence_refs": ["bep2_vocab_u1_001"] },
+      { "term": "counting", "evidence_refs": ["bep2_vocab_u1_002"] },
+      { "term": "cutting", "evidence_refs": ["bep2_vocab_u1_003"] },
+      { "term": "gluing", "evidence_refs": ["bep2_vocab_u1_004"] },
+      { "term": "listening", "evidence_refs": ["bep2_vocab_u1_005"] },
+      { "term": "watching a DVD", "evidence_refs": ["bep2_vocab_u1_006"] },
+      { "term": "using the computer", "evidence_refs": ["bep2_vocab_u1_007"] },
+      { "term": "writing", "evidence_refs": ["bep2_vocab_u1_008"] },
+      { "term": "playing a game", "evidence_refs": ["bep2_vocab_u1_009"] },
+      { "term": "plus", "evidence_refs": ["bep2_vocab_u1_010"] },
+      { "term": "minus", "evidence_refs": ["bep2_vocab_u1_011"] },
+      { "term": "equals", "evidence_refs": ["bep2_vocab_u1_012"] },
+      { "term": "a hundred", "evidence_refs": ["bep2_vocab_u1_013"] },
+      { "term": "in a forest", "evidence_refs": ["bep2_vocab_u1_014"] },
+      { "term": "in a garden", "evidence_refs": ["bep2_vocab_u1_015"] },
+      { "term": "in the mountains", "evidence_refs": ["bep2_vocab_u1_016"] },
+      { "term": "on a boat", "evidence_refs": ["bep2_vocab_u1_017"] },
+      { "term": "take turns", "evidence_refs": ["bep2_vocab_u1_018"] },
+      { "term": "bath", "evidence_refs": ["bep2_vocab_u1_019"] },
+      { "term": "thin", "evidence_refs": ["bep2_vocab_u1_020"] },
+      { "term": "this", "evidence_refs": ["bep2_vocab_u1_021"] },
+      { "term": "that", "evidence_refs": ["bep2_vocab_u1_022"] }
+    ],
+    "instructional": [
+      { "term": "listen", "evidence_refs": ["bep2_act_u1_01", "bep2_act_u1_02", "bep2_act_u1_04"] },
+      { "term": "look", "evidence_refs": ["bep2_act_u1_01", "bep2_act_u1_06", "bep2_act_u1_10"] },
+      { "term": "say", "evidence_refs": ["bep2_act_u1_01", "bep2_act_u1_02", "bep2_act_u1_05"] },
+      { "term": "find", "evidence_refs": ["bep2_act_u1_02", "bep2_act_u1_04", "bep2_act_u1_05"] },
+      { "term": "play a game", "evidence_refs": ["bep2_act_u1_03"] },
+      { "term": "sing", "evidence_refs": ["bep2_act_u1_04"] },
+      { "term": "ask and answer", "evidence_refs": ["bep2_act_u1_06", "bep2_act_u1_12", "bep2_act_u1_29"] },
+      { "term": "read", "evidence_refs": ["bep2_act_u1_07", "bep2_act_u1_15", "bep2_act_u1_19"] },
+      { "term": "match", "evidence_refs": ["bep2_act_u1_08", "bep2_act_u1_15", "bep2_act_u1_25"] },
+      { "term": "write", "evidence_refs": ["bep2_act_u1_10", "bep2_act_u1_13", "bep2_act_u1_23"] },
+      { "term": "stick", "evidence_refs": ["bep2_act_u1_11"] },
+      { "term": "draw", "evidence_refs": ["bep2_act_u1_13"] },
+      { "term": "count", "evidence_refs": ["bep2_act_u1_17", "bep2_act_u1_36"] },
+      { "term": "circle", "evidence_refs": ["bep2_act_u1_16", "bep2_act_u1_20", "bep2_act_u1_21"] },
+      { "term": "put the words in order", "evidence_refs": ["bep2_act_u1_22"] },
+      { "term": "number in order", "evidence_refs": ["bep2_act_u1_28"] },
+      { "term": "repeat", "evidence_refs": ["bep2_act_u1_30"] },
+      { "term": "blend the sounds", "evidence_refs": ["bep2_act_u1_32"] },
+      { "term": "underline", "evidence_refs": ["bep2_act_u1_33"] },
+      { "term": "chant", "evidence_refs": ["bep2_act_u1_33"] }
+    ],
+    "supporting": [
+      { "term": "classroom", "evidence_refs": ["bep2_text_u1_01", "bep2_p004"] },
+      { "term": "board", "evidence_refs": ["bep2_text_u1_02", "bep2_act_u1_08"] },
+      { "term": "paper", "evidence_refs": ["bep2_text_u1_01", "bep2_text_u1_02"] },
+      { "term": "cupcake", "evidence_refs": ["bep2_text_u1_03", "bep2_act_u1_15"] },
+      { "term": "playground", "evidence_refs": ["bep2_text_u1_03", "bep2_act_u1_15"] },
+      { "term": "careful", "evidence_refs": ["bep2_lang_u1_005", "bep2_text_u1_04"] },
+      { "term": "silly", "evidence_refs": ["bep2_lang_u1_005", "bep2_text_u1_04"] },
+      { "term": "rules", "evidence_refs": ["bep2_act_u1_21", "bep2_act_u1_35"] },
+      { "term": "skiing", "evidence_refs": ["bep2_text_u1_05", "bep2_act_u1_26"] },
+      { "term": "plants", "evidence_refs": ["bep2_text_u1_05"] }
+    ]
+  },
+  "pages": [
+    {
+      "printed_page": 4,
+      "structure_ids": ["STR-01", "STR-02"],
+      "foundational_skill_ids": ["FS-02"],
+      "core_vocabulary_refs": [
+        "bep2_vocab_u1_001", "bep2_vocab_u1_002", "bep2_vocab_u1_003",
+        "bep2_vocab_u1_004", "bep2_vocab_u1_005", "bep2_vocab_u1_006",
+        "bep2_vocab_u1_007", "bep2_vocab_u1_008", "bep2_vocab_u1_009"
+      ],
+      "instructional_vocabulary_refs": ["listen", "look", "say", "find", "play a game"],
+      "evidence_refs": ["bep2_p004", "bep2_act_u1_01", "bep2_act_u1_02", "bep2_act_u1_03"]
+    },
+    {
+      "printed_page": 5,
+      "structure_ids": ["STR-01"],
+      "foundational_skill_ids": ["FS-01", "FS-02"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_001"],
+      "instructional_vocabulary_refs": ["listen", "sing", "find", "say", "look", "ask and answer"],
+      "evidence_refs": ["bep2_p005", "bep2_act_u1_04", "bep2_act_u1_05", "bep2_act_u1_06", "bep2_lang_u1_001", "bep2_text_u1_01"]
+    },
+    {
+      "printed_page": 6,
+      "structure_ids": ["STR-01", "STR-03"],
+      "foundational_skill_ids": ["FS-01", "FS-02", "FS-03"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_003", "bep2_vocab_u1_007"],
+      "instructional_vocabulary_refs": ["listen", "read"],
+      "evidence_refs": ["bep2_p006", "bep2_act_u1_07", "bep2_text_u1_02"]
+    },
+    {
+      "printed_page": 7,
+      "structure_ids": ["STR-01", "STR-03"],
+      "foundational_skill_ids": ["FS-01", "FS-02", "FS-03"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_003", "bep2_vocab_u1_004", "bep2_vocab_u1_007", "bep2_vocab_u1_008"],
+      "instructional_vocabulary_refs": ["look", "match"],
+      "evidence_refs": ["bep2_p007", "bep2_act_u1_08", "bep2_text_u1_02"]
+    },
+    {
+      "printed_page": 8,
+      "structure_ids": ["STR-01", "STR-02"],
+      "foundational_skill_ids": ["FS-01", "FS-02"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_001", "bep2_vocab_u1_003", "bep2_vocab_u1_004", "bep2_vocab_u1_005", "bep2_vocab_u1_007", "bep2_vocab_u1_008"],
+      "instructional_vocabulary_refs": ["listen", "look", "write"],
+      "evidence_refs": ["bep2_p008", "bep2_act_u1_09", "bep2_act_u1_10", "bep2_lang_u1_002", "bep2_lang_u1_003"]
+    },
+    {
+      "printed_page": 9,
+      "structure_ids": ["STR-03"],
+      "foundational_skill_ids": ["FS-03"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_007"],
+      "instructional_vocabulary_refs": ["listen", "stick", "say", "look", "ask and answer", "draw", "write"],
+      "evidence_refs": ["bep2_p009", "bep2_act_u1_11", "bep2_act_u1_12", "bep2_act_u1_13", "bep2_lang_u1_004"]
+    },
+    {
+      "printed_page": 10,
+      "structure_ids": ["STR-03", "STR-05"],
+      "foundational_skill_ids": ["FS-03"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_010", "bep2_vocab_u1_011", "bep2_vocab_u1_012", "bep2_vocab_u1_013"],
+      "instructional_vocabulary_refs": ["listen", "look", "read", "match", "write"],
+      "evidence_refs": ["bep2_p010", "bep2_act_u1_14", "bep2_act_u1_15", "bep2_text_u1_03"]
+    },
+    {
+      "printed_page": 11,
+      "structure_ids": ["STR-05"],
+      "foundational_skill_ids": ["FS-06"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_010", "bep2_vocab_u1_011", "bep2_vocab_u1_012"],
+      "instructional_vocabulary_refs": ["listen", "circle", "ask and answer", "count", "write", "say"],
+      "evidence_refs": ["bep2_p011", "bep2_act_u1_16", "bep2_act_u1_17", "bep2_act_u1_18"]
+    },
+    {
+      "printed_page": 12,
+      "structure_ids": ["STR-04"],
+      "foundational_skill_ids": ["FS-04"],
+      "core_vocabulary_refs": [],
+      "instructional_vocabulary_refs": ["listen", "read", "say", "circle"],
+      "evidence_refs": ["bep2_p012", "bep2_act_u1_19", "bep2_act_u1_20", "bep2_act_u1_21", "bep2_lang_u1_005", "bep2_text_u1_04"]
+    },
+    {
+      "printed_page": 13,
+      "structure_ids": ["STR-04"],
+      "foundational_skill_ids": ["FS-04"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_001", "bep2_vocab_u1_007", "bep2_vocab_u1_009"],
+      "instructional_vocabulary_refs": ["put the words in order", "say", "look", "write"],
+      "evidence_refs": ["bep2_p013", "bep2_act_u1_22", "bep2_act_u1_23"]
+    },
+    {
+      "printed_page": 14,
+      "structure_ids": ["STR-01", "STR-02"],
+      "foundational_skill_ids": ["FS-01", "FS-02"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_014", "bep2_vocab_u1_015", "bep2_vocab_u1_016", "bep2_vocab_u1_017"],
+      "instructional_vocabulary_refs": ["look", "listen", "read", "match", "write", "circle"],
+      "evidence_refs": ["bep2_p014", "bep2_act_u1_24", "bep2_act_u1_25", "bep2_act_u1_26", "bep2_text_u1_05"]
+    },
+    {
+      "printed_page": 15,
+      "structure_ids": ["STR-03"],
+      "foundational_skill_ids": ["FS-03"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_007"],
+      "instructional_vocabulary_refs": ["say"],
+      "evidence_refs": ["bep2_p015", "bep2_act_u1_27", "bep2_text_u1_05"]
+    },
+    {
+      "printed_page": 16,
+      "structure_ids": ["STR-06"],
+      "foundational_skill_ids": [],
+      "core_vocabulary_refs": ["bep2_vocab_u1_018"],
+      "instructional_vocabulary_refs": ["listen", "look", "number in order", "ask and answer"],
+      "evidence_refs": ["bep2_p016", "bep2_act_u1_28", "bep2_act_u1_29", "bep2_lang_u1_006"]
+    },
+    {
+      "printed_page": 17,
+      "structure_ids": [],
+      "foundational_skill_ids": ["FS-05"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_019", "bep2_vocab_u1_020", "bep2_vocab_u1_021", "bep2_vocab_u1_022"],
+      "instructional_vocabulary_refs": ["listen", "look", "repeat", "find", "say", "blend the sounds", "underline", "chant"],
+      "evidence_refs": ["bep2_p017", "bep2_act_u1_30", "bep2_act_u1_31", "bep2_act_u1_32", "bep2_act_u1_33", "bep2_text_u1_06"]
+    },
+    {
+      "printed_page": 18,
+      "structure_ids": ["STR-01", "STR-02"],
+      "foundational_skill_ids": ["FS-01", "FS-02"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_009"],
+      "instructional_vocabulary_refs": ["listen", "find", "say", "ask and answer"],
+      "evidence_refs": ["bep2_p018", "bep2_act_u1_34"]
+    },
+    {
+      "printed_page": 19,
+      "structure_ids": ["STR-03", "STR-04"],
+      "foundational_skill_ids": ["FS-03", "FS-04"],
+      "core_vocabulary_refs": ["bep2_vocab_u1_005", "bep2_vocab_u1_006", "bep2_vocab_u1_008"],
+      "instructional_vocabulary_refs": ["look", "write", "count"],
+      "evidence_refs": ["bep2_p019", "bep2_act_u1_35", "bep2_act_u1_36"]
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "description": "Activity 16 on page 11 requires audio Track 15 to determine which specific number within each pair (e.g., 17 vs 70) was intended as the correct circled answer.",
+      "evidence_refs": ["bep2_act_u1_16", "bep2_issue_0001"]
+    },
+    {
+      "description": "Activity 28 on page 16 requires audio Track 21 to determine the verified chronological numbering order of pictures a, b, and c.",
+      "evidence_refs": ["bep2_act_u1_28", "bep2_issue_0002"]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 122
+**Last updated:** Step 123
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -28,9 +28,11 @@
 
 - [x] Create blank feedback JSON templates for BE2 U1 / U6 / U8 v3.1 runs.
 
+- [x] Move Phase 2 feedback JSON to `data/phase2/big_english_2_sb/feedback/` (no extra nesting beyond book + feedback).
+
 ## Now
 
-- [ ] Fill feedback for BE2 U1 / U6 / U8 (`p2-feedback-be2-u0{1,6,8}-v3.1.json`), then refine the prompt if needed.
+- [ ] Review BE2 U1 / U6 / U8 v3.1 JSON under `data/phase2/big_english_2_sb/feedback/`, then refine the prompt if needed.
 
 ## Soon
 

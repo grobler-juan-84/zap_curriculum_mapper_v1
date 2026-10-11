@@ -7,7 +7,8 @@ Textbook-agnostic curriculum intelligence system. Current focus: **Phase 1 — C
 ```text
 /
 ├── app/                 # Vite + React + TypeScript + Tailwind frontend
-├── data/phase1/         # Local working copies of unit-batch JSON (gitignored; Storage is source of truth)
+├── data/phase1/         # Local Phase 1 unit-batch JSON (gitignored; Storage is source of truth)
+├── data/phase2/         # Local Phase 2 feedback / interpretation working data (feedback tracked)
 ├── docs/                # Project documentation and operating trackers
 ├── python/              # Future validation / processing / AI tooling
 ├── schemas/             # Reserved for machine-readable schema artifacts
