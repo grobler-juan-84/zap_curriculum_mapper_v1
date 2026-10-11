@@ -2218,4 +2218,18 @@
 
 ---
 
+### Step 126
+
+**Summary:** Ran bounded Phase 4 enrichment probe `P4-EXP-BE2-U06-ENRICH-v1` (BE2 U6): Proposal A from Phase 1 only, Proposal B with V3.1 + CON-01/02, and evaluation concluding Phase 2 did not change the three enrichment decisions. Indexed the new probe plus the prior e2e brief folder; operating trackers left unchanged per experiment restrictions.
+
+**Files touched:**
+- `docs/phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-protocol.md` (created)
+- `docs/phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-a-phase1.md` (created)
+- `docs/phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md` (created)
+- `docs/phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-evaluation.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -99,6 +99,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
 | [phase-2/cross-unit-v1.2-prompt.md](./phase-2/cross-unit-v1.2-prompt.md) | Preferred experimental cross-unit prompt V1.2: connections only (≥2 units); shared_skill vs related_knowledge; not a methodology lock. | 1.2 | ACTIVE |
 | [phase-2/p2-exp-be2-v3.1-cross-unit-status.md](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) | Inventory/validation for BE2 U1/U6/U8 V3.1 unit JSON + cross-unit V1.1/V1.2 artifacts; confirmed vs preferences vs unresolved; V1.2 connections structurally validated. | 1.1 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-protocol.md](./phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-protocol.md) | Bounded end-to-end teacher-brief protocol: BE2 U6 Phase 1 vs V3.1+V1.2; isolation rule and evaluation criteria; not a Phase 3 start. | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-brief-a-baseline.md](./phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-brief-a-baseline.md) | Teacher curriculum Brief A for BE2 U6 focus: Phase 1–only baseline drafted before V3.1/V1.2. | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-brief-b-informed.md](./phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-brief-b-informed.md) | Teacher curriculum Brief B for BE2 U6 focus: Phase 1 + V3.1 + selected CON-01/CON-02. | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-evaluation.md](./phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-evaluation.md) | Comparative evaluation of teacher Briefs A vs B; modest planning usefulness; not a methodology lock. | 1.0 | ACTIVE |
 | [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Earlier experimental Phase 2 unit+page JSON output sketch (0.1-experimental); superseded in practice by v3.1 `phase2_linguistic_anatomy` output shape; retained for history. | 0.1-experimental | PARKED |
 
 ### Phase 4
@@ -106,6 +110,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-4/teacher-enrichment-philosophy.md](./phase-4/teacher-enrichment-philosophy.md) | Phase 4 philosophy for teacher enrichment: floor-first depth, curriculum fidelity, productive language practice, and how enrichment must stay distinct from source evidence. | V1 | ACTIVE |
+| [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-protocol.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-protocol.md) | Bounded Phase 4 enrichment probe protocol: BE2 U6 A/B (Phase 1 vs V3.1+V1.2); isolation, classification, and decision-change rules; not a Phase 4 start. | 1.0 | ACTIVE |
+| [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-a-phase1.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-a-phase1.md) | Enrichment Proposal A for BE2 U6 focus: up to three conditional opportunities from Phase 1 only (isolation before V3.1/V1.2). | 1.0 | ACTIVE |
+| [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md) | Enrichment Proposal B for BE2 U6 focus: Phase 1 + V3.1 + CON-01/CON-02; same format as A; CON-01 declined as enrichment driver. | 1.0 | ACTIVE |
+| [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-evaluation.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-evaluation.md) | Comparative evaluation of enrichment Proposals A vs B; criterion scores plus decision-change analysis (same three interventions). | 1.0 | ACTIVE |
 
 ### Phase 6
 
@@ -119,7 +127,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 53 | Current working docs, including index, operating trackers, Phase 2 V3.1 + cross-unit V1.2 docs, experiment status, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 61 | Current working docs, including index, operating trackers, Phase 2 V3.1 + e2e + cross-unit V1.2 docs, Phase 4 enrichment probe, experiment status, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 2 | Phase 6 handover spec; earlier Phase 2 unit+page output sketch v0.1 |
 | LOCKED | 0 | None currently frozen |
 
