@@ -173,6 +173,12 @@ The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and R
 
 The active priority is controlled **Phase 2 curriculum interpretation** experimentation using the 12 completed Big English canonical datasets. Beehive and Reach Higher are excluded from the immediate experiments.
 
+Current experimental lineage (not production-locked — D017):
+
+- Unit analysis: Phase 2 **V3.1** linguistic anatomy on BE2-SB Units 1, 6, and 8.
+- Cross-unit: prefer **V1.2 connections-only** (≥2 units); unit V3.1 JSON remains the source of truth for unit findings.
+- Next priority: a bounded **end-to-end** experiment on how Phase 2 findings influence later curriculum phases — before whole-book scale-up.
+
 This transition is intended to discover what useful linguistic and pedagogical interpretation should contain. It does not yet select or lock:
 
 - a Phase 2 implementation;
@@ -180,7 +186,7 @@ This transition is intended to discover what useful linguistic and pedagogical i
 - a storage model;
 - or a Phase 2 architecture.
 
-Phase 3 curriculum connections and vertical mapping will follow through later controlled experiments after Phase 2 produces sufficient evidence.
+Phase 3 curriculum connections and vertical mapping remain later controlled experiments; early cross-unit connection trials under Phase 2 must not be mistaken for a locked Phase 3 product.
 
 ---
 

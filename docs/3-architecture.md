@@ -257,6 +257,8 @@ Phase 2 outputs should remain identifiable as interpretation.
 
 They should not silently become Phase 1 book truth.
 
+**Current experimental practice (D017 — not a methodology lock):** unit-level V3.1 linguistic analyses are the unit source of truth; preferred cross-unit work uses connections-only V1.2 (≥2 units, exact source IDs). Cross-unit outputs must not rewrite unit findings. See [`phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md).
+
 ---
 
 # 8. Phase 3 — Curriculum Connections & Vertical Mapping

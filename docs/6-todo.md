@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 123
+**Last updated:** Step 124
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -14,39 +14,29 @@
 
 - [x] Phase 1 PAUSED / D015–D016 recorded; BE1–BE6 COMPLETE.
 
-- [x] Execute U6 v1, U6 v2, U7 v1, U8 v1, and BE1 U1 Phase 2 experiments.
+- [x] Execute early Phase 2 LR experiments (U6–U8, BE1 U1) and preserve artifacts.
 
-- [x] Write Phase 2 preservation snapshot for GitHub branch handoff.
+- [x] Run Phase 2 V3.1 independently on BE2-SB Units 1, 6, and 8.
 
-- [x] Draft Phase 2 overview v2 (`phase-2/phase-2-overview-v2`) as planning SoT for the next iteration.
+- [x] Organize Phase 2 data under `data/phase2/big_english_2_sb/{interpretations,cross-unit}/`.
 
-- [x] Inspect Phase 1 BE2 JSON + prior Phase 2 artifacts (U6–U8, BE1 U1) — see [`phase-2/p2-inspect-be2-inputs.md`](./phase-2/p2-inspect-be2-inputs.md).
-
-- [x] Design experimental Studio unit prompt + unit/page JSON sketch (v1 → superseded by v3.1).
-
-- [x] Run Phase 2 prompt v3.1 independently on BE2-SB Units 1, 6, and 8.
-
-- [x] Create blank feedback JSON templates for BE2 U1 / U6 / U8 v3.1 runs.
-
-- [x] Move Phase 2 feedback JSON to `data/phase2/big_english_2_sb/feedback/` (no extra nesting beyond book + feedback).
+- [x] Sync docs for V3.1 + cross-unit experiments; record D017 experimental preference; document V1.2 file mismatch.
 
 ## Now
 
-- [ ] Review BE2 U1 / U6 / U8 v3.1 JSON under `data/phase2/big_english_2_sb/feedback/`, then refine the prompt if needed.
+- [ ] Define and run a bounded end-to-end experiment: how BE2 U1/U6/U8 V3.1 findings influence a later curriculum phase (before whole-book scale).
 
 ## Soon
 
-- [ ] Repeat the validated method successfully on another BE2 unit (Stage 1).
+- [ ] If still needed: re-run Cross-Unit V1.2 and save a true `phase2_cross_unit_connections` JSON (new filename; keep historical mislabeled file).
 
-- [ ] If approved: teacher-validation pass on Phase 2 “one glance” syntheses.
+- [ ] If approved: teacher-validation pass on earlier Phase 2 “one glance” syntheses.
 
-- [ ] Push `phase-2` / Phase 3 vertical-mapping experiments — only after this Phase 2 iteration is useful enough to climb again.
+- [ ] Push `phase-2` / climb to Phase 3 experiments — only after end-to-end usefulness is clearer.
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 
 - [ ] Review post-form Storage measurements before cover thumbnails / PDF linearization.
-
-- [ ] Persist Validation session notes (optional).
 
 ## Deferred
 
@@ -56,7 +46,7 @@
 
 - [ ] Phase 2 infrastructure (admin workspace, job queues, automation pipelines) — only when a real problem justifies it.
 
-- [ ] Book-level consolidation for full Big English 2 (Stage 2) — after Stage 1 units validate.
+- [ ] Book-level consolidation for full Big English 2 — after end-to-end usefulness and Stage 1 validation.
 
 - [ ] Expand Phase 2 beyond Big English (Beehive / Reach Higher) — Stage 4 only.
 

@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 is in a second iteration under overview v2 (minimal Studio prompt/JSON); prior experiment docs remain under D015/D016.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 active lineage is V3.1 unit analysis + Cross-Unit V1.2 connections (experimental; D017); earlier LR experiments remain historical under D015/D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -33,7 +33,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18 and makes bounded Big-English-only Phase 2 experiments the active priority. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D016 first Phase 2 BE2 unit candidates). | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 2 V3.1 + Cross-Unit V1.2 experimental preference). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004 Phase 2 promoted by D015, Phase 3 remains parked, and four unfinished Phase 1 books are deferred as F016. | 1.0 | ACTIVE |
@@ -93,10 +93,12 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u08-v1-review.md](./phase-2/p2-exp-be2-u08-v1-review.md) | Unit 8 LR interpretation + three-unit method comparison; D016 candidate set LR experiments complete pending owner review. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
-| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 preservation snapshot: experiment inventory, what carries to Phase 3, explicit non-claims (methodology/schema still unlocked). | 1.0 | ACTIVE |
-| [phase-2/phase-2-overview-v2](./phase-2/phase-2-overview-v2) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, BE2 U8-first experiment, expansion stages; beauty in simplicity. | — | ACTIVE |
-| [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before next Studio prompt design. | 1.0 | ACTIVE |
-| [phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md](./phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md) | Paste-ready experimental Google AI Studio prompt v3.1: unit-neutral linguistic anatomy (structures, foundational skills, vocabulary, page mapping) from Phase 1 canonical JSON. | 3.1 | ACTIVE |
+| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status: active V3.1 + cross-unit lineage, historical LR inventory, explicit non-claims (methodology/schema still unlocked). | 1.1 | ACTIVE |
+| [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, expansion stages; beauty in simplicity. | — | ACTIVE |
+| [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
+| [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
+| [phase-2/cross-unit-v1.2-prompt.md](./phase-2/cross-unit-v1.2-prompt.md) | Preferred experimental cross-unit prompt V1.2: connections only (≥2 units); shared_skill vs related_knowledge; not a methodology lock. | 1.2 | ACTIVE |
+| [phase-2/p2-exp-be2-v3.1-cross-unit-status.md](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) | Inventory/validation for BE2 U1/U6/U8 V3.1 unit JSON + cross-unit V1.1/V1.2 artifacts; confirmed vs preferences vs unresolved (incl. mislabeled V1.2 file). | 1.0 | ACTIVE |
 | [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Earlier experimental Phase 2 unit+page JSON output sketch (0.1-experimental); superseded in practice by v3.1 `phase2_linguistic_anatomy` output shape; retained for history. | 0.1-experimental | PARKED |
 
 ### Phase 4
@@ -117,7 +119,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 51 | Current working docs, including index, operating trackers, Phase 2 v3.1 Studio prompt, experiment docs, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 53 | Current working docs, including index, operating trackers, Phase 2 V3.1 + cross-unit V1.2 docs, experiment status, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 2 | Phase 6 handover spec; earlier Phase 2 unit+page output sketch v0.1 |
 | LOCKED | 0 | None currently frozen |
 

@@ -2170,4 +2170,35 @@
 
 ---
 
+### Step 124
+
+**Summary:** Synced Phase 2 V3.1 + cross-unit experiment docs/data: reorganized unit JSON into `interpretations/` and cross-unit JSON into `cross-unit/`; documented validation (V1.2 file = V1.1 duplicate); recorded D017 experimental preference; pointed next work at an end-to-end later-phase influence experiment.
+
+**Files touched:**
+- `data/phase2/big_english_2_sb/interpretations/be2-sb-u01-v3.1.json` (renamed/moved)
+- `data/phase2/big_english_2_sb/interpretations/be2-sb-u06-v3.1.json` (renamed/moved)
+- `data/phase2/big_english_2_sb/interpretations/be2-sb-u08-v3.1.json` (renamed/moved)
+- `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.1.json` (created/moved)
+- `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` (created/moved)
+- `data/README.md` (updated)
+- `README.md` (updated)
+- `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/phase-2/phase2-v3.1-prompt.md` (created)
+- `docs/phase-2/cross-unit-v1.2-prompt.md` (created)
+- `docs/phase-2/phase-2-overview-v2.md` (created)
+- `docs/phase-2/phase-2-overview-v2` (deleted)
+- `docs/phase-2/google-ai-studio-unit-interpretation-prompt-v3.1.md` (deleted)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/phase-1/curriculum-mapping-process.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

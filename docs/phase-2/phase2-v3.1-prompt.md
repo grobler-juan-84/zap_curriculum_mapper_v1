@@ -1,5 +1,21 @@
 # PHASE 2 V3.1 — UNIT-NEUTRAL LINGUISTIC ANALYSIS
 
+Run Phase 2 V3.1 using the attached merged Phase 1 canonical JSON.
+
+
+Target:
+
+Catalog book ID: [BOOK_ID]
+
+Unit ID: [UNIT_ID]
+
+Unit title: [UNIT_TITLE]
+
+Printed pages: [START_PAGE–END_PAGE]
+
+Return valid JSON only.
+
+
 ##1. TARGET CONFIGURATION
 
 The target book, unit, and printed page range will be provided separately in the user message.

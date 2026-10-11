@@ -51,6 +51,7 @@
 | D014 | Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page | 2026-10-09 | LOCKED |
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
+| D017 | Prefer Phase 2 V3.1 + Cross-Unit V1.2 (experimental; not methodology lock) | 2026-10-11 | LOCKED |
 
 ---
 
@@ -256,6 +257,19 @@
 
 ---
 
+### D017 — Prefer Phase 2 V3.1 + Cross-Unit V1.2 (experimental; not methodology lock)
+
+**Date:** 2026-10-11  
+**Status:** LOCKED  
+**Decision:** For the current Phase 2 iteration on Big English 2 Student Book: (1) treat completed **V3.1** unit linguistic analyses as the **unit-level source of truth** for Units 1, 6, and 8; (2) prefer **Cross-Unit V1.2** (connections only; each connection involves at least two different units; exact source IDs preserved) for subsequent cross-unit experiments. This records an experimental process preference only. It does **not** lock a Phase 2 or cross-unit production methodology, JSON schema, storage model, or pipeline. Cross-unit outputs must not silently rewrite unit findings. Historical consolidation files (including a mislabeled V1.2 copy of V1.1) are preserved but not treated as successful V1.2 runs.  
+**Reason:** V3.1 produced usable unit JSON for three BE2 units; V1.2’s connections-only rule better matches the goal of reusable cross-unit intelligence without duplicating unit inventories. Whole-book scale remains deferred until an end-to-end later-phase influence experiment clarifies usefulness.  
+**Alternatives rejected:** Treating the on-disk `be2-cross-unit-v1.2.json` consolidation dump as a successful V1.2 run; locking V3.1 or V1.2 as production schema; scaling Phase 2 to a full book before end-to-end usefulness is tested; silently “fixing” historical cross-unit files.  
+**Implications:** Operating trackers and [`phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) document confirmed findings, preferences, and unresolved issues (including the need for a true V1.2 connections output). Next priority is a bounded end-to-end later-phase experiment, not book-wide extraction.  
+**Supersedes:** —  
+**Does not supersede:** D015, D016
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -274,3 +288,4 @@
 | 2026-10-09 | Added D014 — Validation viewer navigates by extracted `pdf_page` with printed labels (resolves F015; BE3-SB pp. 66–67 missing). |
 | 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |
 | 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |
+| 2026-10-11 | Added D017 — prefer V3.1 unit SoT + Cross-Unit V1.2 connections for BE2 experiments; explicitly not a methodology/schema lock. |

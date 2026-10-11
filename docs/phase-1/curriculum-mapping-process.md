@@ -1210,6 +1210,8 @@ Interpretation has occurred informally during earlier experimentation, but it ha
 
 **First experiment set (D016):** BE2-SB Units 6 (*My Day*), 7 (*My Favorite Food*), and 8 (*Wild Animals*), with Unit 6 first. Working docs: [`../phase-2/be2-candidate-units.md`](../phase-2/be2-candidate-units.md) and [`../phase-2/be2-unit-6-experiment-protocol.md`](../phase-2/be2-unit-6-experiment-protocol.md).
 
+**Current experimental lineage (D017 — not production-locked):** Phase 2 **V3.1** unit analyses for BE2-SB Units 1, 6, and 8 live under `data/phase2/big_english_2_sb/interpretations/`. Preferred cross-unit approach is **V1.2 connections-only** ([`../phase-2/cross-unit-v1.2-prompt.md`](../phase-2/cross-unit-v1.2-prompt.md)). Status/validation: [`../phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](../phase-2/p2-exp-be2-v3.1-cross-unit-status.md). Next priority is a bounded end-to-end later-phase influence experiment before whole-book scale.
+
 ---
 
 ## Phase 3

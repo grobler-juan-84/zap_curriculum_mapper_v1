@@ -2,7 +2,7 @@
 
 **Do not commit curriculum extraction JSON or source PDFs to GitHub.**
 
-Phase 2 feedback JSON under `data/phase2/**/feedback/` is intentionally tracked (small review / experiment artifacts).
+Phase 2 interpretation and cross-unit experiment JSON under `data/phase2/` is intentionally tracked (small experimental artifacts). Entire `data/phase1/` remains gitignored.
 
 ---
 
@@ -36,24 +36,29 @@ Completed pilots (`big_english_1_sb`, `big_english_2_sb`) live in Supabase Stora
 ## Phase 2 — Interpretation working data
 
 ```text
-data/phase2/{catalog_book_id}/feedback/
-data/phase2/{catalog_book_id}/interpretations/   # add when storing Studio result JSON
+data/phase2/{catalog_book_id}/interpretations/   # unit-level Phase 2 JSON (SoT for unit findings)
+data/phase2/{catalog_book_id}/cross-unit/        # cross-unit consolidation / connections runs
+data/phase2/{catalog_book_id}/feedback/          # optional owner-feedback templates (when used)
 ```
 
-### Current layout
+### Current layout (Big English 2 SB)
 
 ```text
-data/phase2/big_english_2_sb/feedback/
-  p2-feedback-be2-u01-v3.1.json
-  p2-feedback-be2-u06-v3.1.json
-  p2-feedback-be2-u08-v3.1.json
+data/phase2/big_english_2_sb/
+  interpretations/
+    be2-sb-u01-v3.1.json
+    be2-sb-u06-v3.1.json
+    be2-sb-u08-v3.1.json
+  cross-unit/
+    be2-cross-unit-v1.1.json
+    be2-cross-unit-v1.2.json    # preserved historically; see docs note — content matches v1.1, not true V1.2 schema
 ```
 
 - Book folder uses catalog `book_id` (same habit as Phase 1).
-- `feedback/` holds owner review / experiment JSON for a prompt version.
-- Do **not** create empty `interpretations/` until Studio outputs are saved locally; then use sibling folder e.g. `big_english_2_sb_bep2_unit_01_phase2_v3.1.json`.
-- Prompt docs remain under `docs/phase-2/` (e.g. `google-ai-studio-unit-interpretation-prompt-v3.1.md`).
-- Entire `data/phase2/` is **not** blanket-gitignored (unlike `data/phase1/`). If interpretation outputs become large, gitignore `data/phase2/**/interpretations/` and keep `feedback/` tracked.
+- Unit V3.1 JSON files are the source of truth for unit-level findings.
+- Cross-unit outputs must not silently replace or rewrite unit IDs.
+- Prompt docs remain under `docs/phase-2/` (`phase2-v3.1-prompt.md`, `cross-unit-v1.2-prompt.md`).
+- Inventory / validation: `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md`.
 
 ---
 
