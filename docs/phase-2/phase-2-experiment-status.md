@@ -28,7 +28,7 @@
 | BE2 U6 V3.1 | `data/phase2/big_english_2_sb/interpretations/be2-sb-u06-v3.1.json` | Valid unit SoT |
 | BE2 U8 V3.1 | `data/phase2/big_english_2_sb/interpretations/be2-sb-u08-v3.1.json` | Valid unit SoT |
 | Cross-unit V1.1 | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.1.json` | Historical consolidation shape |
-| Cross-unit V1.2 (filename) | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` | **Preserved but mislabeled** — byte-identical to V1.1; not a true connections-only run |
+| Cross-unit V1.2 | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` | True connections-only run (`phase2_cross_unit_connections` `0.1.2-experimental`); 8 multi-unit connections; IDs validated against unit SoT |
 
 **Unit JSON remains SoT.** Cross-unit files must not silently rewrite unit IDs or findings.
 
@@ -52,9 +52,9 @@ Supporting selection/protocol docs: [`be2-candidate-units.md`](./be2-candidate-u
 
 - Verified Phase 1 Big English datasets (local / Storage).
 - V3.1 unit interpretations as current experimental unit SoT for BE2 U1/U6/U8.
-- Cross-Unit V1.2 **prompt** as preferred connections approach for the next genuine cross-unit run.
+- Cross-Unit V1.2 connections JSON as the working BE2 U1/U6/U8 cross-unit example (still experimental).
 - Evidence discipline: do not invent IDs; do not silently accept prior consolidation claims.
-- Unresolved: true V1.2 connections JSON; teacher validation of earlier “one glance” syntheses; end-to-end later-phase influence experiment.
+- Unresolved: teacher validation of earlier “one glance” syntheses; end-to-end later-phase influence experiment; teacher usefulness of V1.2 connections.
 
 ---
 
@@ -62,7 +62,7 @@ Supporting selection/protocol docs: [`be2-candidate-units.md`](./be2-candidate-u
 
 - Phase 2 is **not** product-complete.
 - No Phase 2 JSON schema or pipeline is approved.
-- Cross-unit V1.2 filename on disk is **not** proof that connections-only methodology succeeded.
+- A successful structural V1.2 run does **not** lock methodology or prove teacher usefulness.
 - Whole-book scale-up is deferred until end-to-end usefulness is tested.
 
 ---
@@ -73,3 +73,4 @@ Supporting selection/protocol docs: [`be2-candidate-units.md`](./be2-candidate-u
 |---|---|
 | 2026-10-09 | Created preservation snapshot before pushing `phase-2` and branching `phase-3`. |
 | 2026-10-11 | Expanded to V3.1 + cross-unit lineage; linked validation status; kept early LR experiments as history. |
+| 2026-10-11 | Recorded true Cross-Unit V1.2 connections JSON after owner update (replacing earlier mislabeled duplicate). |

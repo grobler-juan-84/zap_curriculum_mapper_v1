@@ -51,7 +51,7 @@ data/phase2/big_english_2_sb/
     be2-sb-u08-v3.1.json
   cross-unit/
     be2-cross-unit-v1.1.json
-    be2-cross-unit-v1.2.json    # preserved historically; see docs note — content matches v1.1, not true V1.2 schema
+    be2-cross-unit-v1.2.json    # true connections-only V1.2 (`phase2_cross_unit_connections`)
 ```
 
 - Book folder uses catalog `book_id` (same habit as Phase 1).

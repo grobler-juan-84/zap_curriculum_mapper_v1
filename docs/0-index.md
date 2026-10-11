@@ -98,7 +98,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
 | [phase-2/cross-unit-v1.2-prompt.md](./phase-2/cross-unit-v1.2-prompt.md) | Preferred experimental cross-unit prompt V1.2: connections only (≥2 units); shared_skill vs related_knowledge; not a methodology lock. | 1.2 | ACTIVE |
-| [phase-2/p2-exp-be2-v3.1-cross-unit-status.md](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) | Inventory/validation for BE2 U1/U6/U8 V3.1 unit JSON + cross-unit V1.1/V1.2 artifacts; confirmed vs preferences vs unresolved (incl. mislabeled V1.2 file). | 1.0 | ACTIVE |
+| [phase-2/p2-exp-be2-v3.1-cross-unit-status.md](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) | Inventory/validation for BE2 U1/U6/U8 V3.1 unit JSON + cross-unit V1.1/V1.2 artifacts; confirmed vs preferences vs unresolved; V1.2 connections structurally validated. | 1.1 | ACTIVE |
 | [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Earlier experimental Phase 2 unit+page JSON output sketch (0.1-experimental); superseded in practice by v3.1 `phase2_linguistic_anatomy` output shape; retained for history. | 0.1-experimental | PARKED |
 
 ### Phase 4

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 124
+**Last updated:** Step 125
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -20,17 +20,17 @@
 
 - [x] Organize Phase 2 data under `data/phase2/big_english_2_sb/{interpretations,cross-unit}/`.
 
-- [x] Sync docs for V3.1 + cross-unit experiments; record D017 experimental preference; document V1.2 file mismatch.
+- [x] Sync docs for V3.1 + cross-unit experiments; record D017.
+
+- [x] Replace mislabeled Cross-Unit V1.2 file with true connections JSON; re-validate schema and source IDs.
 
 ## Now
 
-- [ ] Define and run a bounded end-to-end experiment: how BE2 U1/U6/U8 V3.1 findings influence a later curriculum phase (before whole-book scale).
+- [ ] Define and run a bounded end-to-end experiment: how BE2 U1/U6/U8 V3.1 + V1.2 findings influence a later curriculum phase (before whole-book scale).
 
 ## Soon
 
-- [ ] If still needed: re-run Cross-Unit V1.2 and save a true `phase2_cross_unit_connections` JSON (new filename; keep historical mislabeled file).
-
-- [ ] If approved: teacher-validation pass on earlier Phase 2 “one glance” syntheses.
+- [ ] If approved: teacher-validation pass on earlier Phase 2 “one glance” syntheses and/or V1.2 connection usefulness.
 
 - [ ] Push `phase-2` / climb to Phase 3 experiments — only after end-to-end usefulness is clearer.
 

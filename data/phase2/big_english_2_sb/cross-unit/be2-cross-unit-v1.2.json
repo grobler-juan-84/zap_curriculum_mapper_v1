@@ -1,7 +1,7 @@
 {
   "schema": {
-    "name": "phase2_cross_unit_consolidation",
-    "version": "0.1-experimental"
+    "name": "phase2_cross_unit_connections",
+    "version": "0.1.2-experimental"
   },
   "source_units": [
     {
@@ -23,335 +23,226 @@
       "printed_pages": [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143]
     }
   ],
-  "consolidated_structures": [
+  "connections": [
     {
-      "id": "CS-01",
-      "name": "Stating Factual Descriptions and Natural Functions in Present Simple (CLIL Science)",
-      "plain_english_explanation": "Use the present simple with third-person subjects to state factual properties, operations, or habitats of things and animals in content-area lessons.",
+      "id": "CON-01",
+      "name": "Wh- Question Formation and Auxiliary Inversion",
+      "connection_type": "related_knowledge",
+      "teacher_explanation": "In both Unit 1 and Unit 6, students form information questions by placing a question word (What, When, Where, Who, How many) followed by an inverted auxiliary or linking verb (is, are, do, does) before the subject. Recognizing this structural inversion pattern helps students formulate accurate questions across different communicative contexts.",
       "occurrences": [
         {
-          "unit_id": "bep2_unit_06",
-          "structure_ids": ["STR-05"],
-          "evidence_refs": [
-            "bep2_act_u6_15",
-            "bep2_act_u6_17",
-            "bep2_text_u6_03",
-            "bep2_act_u6_38"
-          ]
+          "unit_id": "bep2_unit_01",
+          "concept_type": "language_structure",
+          "local_id": "STR-01",
+          "evidence_refs": ["bep2_lang_u1_001", "bep2_act_u1_06"]
         },
         {
-          "unit_id": "bep2_unit_08",
-          "structure_ids": ["STR-04"],
-          "evidence_refs": [
-            "bep2_act_u8_16",
-            "bep2_act_u8_18",
-            "bep2_act_u8_37",
-            "bep2_text_u8_03"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-02",
-      "name": "Asking and Answering About Actions in Progress (Present Continuous)",
-      "plain_english_explanation": "Use 'What's he/she doing?' or 'What are they doing?' to ask about ongoing activities, answering with contracted pronouns and -ing verbs.",
-      "occurrences": [
-        {
           "unit_id": "bep2_unit_01",
-          "structure_ids": ["STR-01", "STR-02"],
-          "evidence_refs": [
-            "bep2_lang_u1_001",
-            "bep2_lang_u1_002",
-            "bep2_act_u1_06",
-            "bep2_act_u1_10",
-            "bep2_lang_u1_003",
-            "bep2_act_u1_09",
-            "bep2_act_u1_34"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-03",
-      "name": "Expressing Classroom Directives and Rules (Imperatives)",
-      "plain_english_explanation": "Give instructions using base verbs directly, or prohibit actions using 'Don't' followed by the base verb.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_01",
-          "structure_ids": ["STR-04"],
-          "evidence_refs": [
-            "bep2_lang_u1_005",
-            "bep2_act_u1_20",
-            "bep2_act_u1_21",
-            "bep2_act_u1_22",
-            "bep2_act_u1_23",
-            "bep2_act_u1_35"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-04",
-      "name": "Asking and Stating Quantities with Existential There is / There are",
-      "plain_english_explanation": "Ask about counts with 'How many [nouns] are there?' and answer with 'There's [one]' or 'There are [number]'.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_01",
-          "structure_ids": ["STR-03"],
-          "evidence_refs": [
-            "bep2_lang_u1_004",
-            "bep2_act_u1_07",
-            "bep2_act_u1_12",
-            "bep2_act_u1_13",
-            "bep2_act_u1_36"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-05",
-      "name": "Asking and Stating Daily Routine Times and Schedules",
-      "plain_english_explanation": "Ask when routines and events happen using 'When do/does...', answering with the action verb and 'at [time]'.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_06",
-          "structure_ids": ["STR-02", "STR-03"],
-          "evidence_refs": [
-            "bep2_lang_u6_002",
-            "bep2_lang_u6_003",
-            "bep2_act_u6_09",
-            "bep2_act_u6_10",
-            "bep2_act_u6_12",
-            "bep2_text_u6_02",
-            "bep2_lang_u6_004",
-            "bep2_act_u6_13"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-06",
-      "name": "Forming Wh- Information Questions with Be and Do",
-      "plain_english_explanation": "Form open questions by pairing a Wh- word (Who, What, Where, When, How, How many) with the appropriate auxiliary or linking verb before the subject.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_06",
-          "structure_ids": ["STR-04"],
-          "evidence_refs": [
-            "bep2_lang_u6_005",
-            "bep2_act_u6_19",
-            "bep2_act_u6_20",
-            "bep2_act_u6_21",
-            "bep2_act_u6_22",
-            "bep2_act_u6_23",
-            "bep2_act_u6_24",
-            "bep2_text_u6_04",
-            "bep2_act_u6_37"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-07",
-      "name": "Asking and Stating Physical Abilities with Modal Can and Can't",
-      "plain_english_explanation": "Ask whether someone or an animal has an ability using 'Can [subject] [base verb]?', answer with short forms ('Yes, it can' / 'No, they can't'), and state abilities directly with can/can't.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_08",
-          "structure_ids": ["STR-01", "STR-03"],
-          "evidence_refs": [
-            "bep2_lang_u8_001",
-            "bep2_lang_u8_002",
-            "bep2_lang_u8_003",
-            "bep2_act_u8_06",
-            "bep2_act_u8_08",
-            "bep2_act_u8_09",
-            "bep2_act_u8_10",
-            "bep2_act_u8_12",
-            "bep2_text_u8_01",
-            "bep2_text_u8_02"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "CS-08",
-      "name": "Prenominal Adjective Ordering Before Nouns",
-      "plain_english_explanation": "Place multiple descriptive words in front of a noun following the order: opinion, size/shape, age, and color.",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_08",
-          "structure_ids": ["STR-02"],
-          "evidence_refs": [
-            "bep2_lang_u8_004",
-            "bep2_act_u8_20",
-            "bep2_act_u8_21",
-            "bep2_act_u8_22",
-            "bep2_act_u8_23",
-            "bep2_act_u8_36"
-          ]
-        }
-      ]
-    }
-  ],
-  "consolidated_foundational_skills": [
-    {
-      "id": "CF-01",
-      "name": "Subject Pronoun + Present 'Be' Contraction Recognition and Formation (He's, She's, It's, They're)",
-      "plain_english_explanation": "Recognize, read, and write contracted forms of third-person subject pronouns with the present tense of 'be' (is -> 's, are -> 're).",
-      "occurrences": [
-        {
-          "unit_id": "bep2_unit_01",
-          "foundational_skill_ids": ["FS-01"],
-          "evidence_refs": [
-            "bep2_p008",
-            "bep2_lang_u1_002",
-            "bep2_lang_u1_003"
-          ]
+          "concept_type": "language_structure",
+          "local_id": "STR-02",
+          "evidence_refs": ["bep2_lang_u1_003", "bep2_act_u1_10"]
         },
         {
           "unit_id": "bep2_unit_06",
-          "foundational_skill_ids": ["FS-07"],
-          "evidence_refs": [
-            "bep2_lang_u6_001",
-            "bep2_act_u6_06",
-            "bep2_act_u6_36"
-          ]
+          "concept_type": "language_structure",
+          "local_id": "STR-04",
+          "evidence_refs": ["bep2_lang_u6_005", "bep2_act_u6_20", "bep2_act_u6_21", "bep2_act_u6_23"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-05",
+          "evidence_refs": ["bep2_lang_u6_005", "bep2_act_u6_20", "bep2_act_u6_21", "bep2_act_u6_22"]
         }
       ]
-    }
-  ],
-  "related_knowledge": [
-    {
-      "description": "Aspectual contrast between actions happening right now and habitual or permanent facts.",
-      "concept_refs": [
-        "bep2_unit_01:STR-01",
-        "bep2_unit_01:STR-02",
-        "bep2_unit_06:STR-02",
-        "bep2_unit_06:STR-05",
-        "bep2_unit_08:STR-04"
-      ],
-      "relationship": "Unit 1 focuses exclusively on temporary actions currently in progress using Present Continuous (-ing), whereas Unit 6 and Unit 8 express recurring daily habits and permanent natural/scientific facts using Present Simple."
     },
     {
-      "description": "Syntactic question formation across different verb categories (Be, Do, Modal Can).",
-      "concept_refs": [
-        "bep2_unit_01:STR-01",
-        "bep2_unit_01:STR-03",
-        "bep2_unit_06:STR-02",
-        "bep2_unit_06:STR-04",
-        "bep2_unit_08:STR-01",
-        "bep2_unit_08:FS-01"
-      ],
-      "relationship": "Inversion and auxiliary placement vary systematically by verb type: inverted 'be' in Unit 1 and Unit 6 ('What is she doing?', 'Who are you?'), auxiliary do-support in Unit 6 ('Where do you work?', 'When does he get up?'), and fronted modal auxiliary in Unit 8 ('Can a kangaroo jump?')."
-    },
-    {
-      "description": "Contraction mechanics: Pronoun + 'Be' affirmative contractions versus Modal negative contraction.",
-      "concept_refs": [
-        "CF-01",
-        "bep2_unit_08:FS-03"
-      ],
-      "relationship": "Unit 1 and Unit 6 reinforce affirmative pronoun-verb contractions (he's, she's, it's, they're), while Unit 8 introduces the negative modal contraction 'can't' (cannot -> can't) with invariable modal syntax."
-    },
-    {
-      "description": "Grammatical number concord across pronouns, existentials, and verbs.",
-      "concept_refs": [
-        "bep2_unit_01:FS-01",
-        "bep2_unit_01:FS-03",
-        "bep2_unit_06:FS-01",
-        "bep2_unit_06:FS-02",
-        "bep2_unit_08:FS-02",
-        "bep2_unit_08:FS-04",
-        "bep2_unit_08:FS-08"
-      ],
-      "relationship": "Singular versus plural distinctions require different mechanical rules across units: pronoun selection (he/she vs. they in Unit 1; it vs. they in Unit 8), existential selection (There's vs. There are in Unit 1), present simple inflection/auxiliary selection (base vs. -s/-es and do vs. does in Unit 6), contrasting with modal invariability (can/can't remains unchanged for singular and plural in Unit 8)."
-    },
-    {
-      "description": "Systematic phonics coverage of distinct consonant and vowel digraphs.",
-      "concept_refs": [
-        "bep2_unit_01:FS-05",
-        "bep2_unit_06:STR-06",
-        "bep2_unit_06:FS-06",
-        "bep2_unit_08:STR-06",
-        "bep2_unit_08:FS-09"
-      ],
-      "relationship": "Each unit includes dedicated phonics instruction targeting different sound-spelling correspondences: dental fricatives /θ/ and /ð/ (th) in Unit 1, affricates and palato-alveolar fricatives (ch, tch, sh) in Unit 6, and vowel digraphs /aʊ/ and /uː/ (ou, ow) in Unit 8."
-    },
-    {
-      "description": "Recurring instructional task commands across textbook units.",
-      "concept_refs": [
-        "bep2_unit_01",
-        "bep2_unit_06",
-        "bep2_unit_08"
-      ],
-      "relationship": "All three units share a consistent core of instructional command verbs directing student activity: 'listen', 'look', 'say', 'find', 'read', 'write', 'ask and answer', 'circle', 'match', and 'play a game'."
-    }
-  ],
-  "unit_specific_findings": [
-    {
-      "unit_id": "bep2_unit_01",
-      "structure_ids": [
-        "STR-05",
-        "STR-06"
-      ],
-      "foundational_skill_ids": [
-        "FS-02",
-        "FS-03",
-        "FS-04",
-        "FS-05",
-        "FS-06"
+      "id": "CON-02",
+      "name": "Present Simple Third-Person Singular Subject-Verb Agreement (-s / -es)",
+      "connection_type": "related_knowledge",
+      "teacher_explanation": "In Unit 6, students learn the rule of adding -s/-es to present simple verbs with third-person singular subjects (he/she/it) when describing personal schedules and mechanisms. In Unit 8, this exact inflectional rule applies when describing animal habitats (e.g., 'A fox lives...' vs. 'Whales live...'). Linking these structures reinforces that third-person singular verb marking is a general grammatical constraint across both daily actions and factual science descriptions.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-01",
+          "evidence_refs": ["bep2_lang_u6_002", "bep2_lang_u6_004", "bep2_act_u6_09", "bep2_act_u6_10", "bep2_act_u6_13"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "language_structure",
+          "local_id": "STR-02",
+          "evidence_refs": ["bep2_lang_u6_002", "bep2_lang_u6_003", "bep2_act_u6_10"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "language_structure",
+          "local_id": "STR-04",
+          "evidence_refs": ["bep2_act_u8_16", "bep2_act_u8_18", "bep2_act_u8_37", "bep2_text_u8_03"]
+        }
       ]
     },
     {
-      "unit_id": "bep2_unit_06",
-      "structure_ids": [
-        "STR-01",
-        "STR-06"
-      ],
-      "foundational_skill_ids": [
-        "FS-01",
-        "FS-02",
-        "FS-03",
-        "FS-04",
-        "FS-05",
-        "FS-06"
+      "id": "CON-03",
+      "name": "Pronoun-Referent Agreement Across Singular and Plural Subjects",
+      "connection_type": "related_knowledge",
+      "teacher_explanation": "Unit 1 requires students to differentiate singular referents (he/she) from plural groups (they) when asking and answering about continuous actions. Unit 8 similarly requires selecting singular 'it' versus plural 'they' when answering ability questions about animals. Teachers can highlight how English systematically tracks number across question frames and short answers using pronoun substitution.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "language_structure",
+          "local_id": "STR-01",
+          "evidence_refs": ["bep2_lang_u1_001", "bep2_lang_u1_002"]
+        },
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "language_structure",
+          "local_id": "STR-02",
+          "evidence_refs": ["bep2_lang_u1_003", "bep2_act_u1_10"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-02",
+          "evidence_refs": ["bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09", "bep2_act_u8_10"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "language_structure",
+          "local_id": "STR-01",
+          "evidence_refs": ["bep2_lang_u8_002", "bep2_lang_u8_003", "bep2_act_u8_09"]
+        }
       ]
     },
     {
-      "unit_id": "bep2_unit_08",
-      "structure_ids": [
-        "STR-02",
-        "STR-05",
-        "STR-06"
-      ],
-      "foundational_skill_ids": [
-        "FS-01",
-        "FS-02",
-        "FS-03",
-        "FS-04",
-        "FS-05",
-        "FS-06",
-        "FS-07",
-        "FS-08",
-        "FS-09"
+      "id": "CON-04",
+      "name": "Pronoun Contractions with Present Tense Copular / Helping Verbs",
+      "connection_type": "related_knowledge",
+      "teacher_explanation": "Unit 1 explicitly practices personal pronoun contractions with 'be' (he's, she's, they're) in continuous statements. Unit 6 focuses on the dummy/impersonal pronoun contraction 'It's' (it is) for telling time and describing clock instruments. Both skills involve recognizing that the apostrophe replaces the missing vowel in spoken and written contracted forms.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-01",
+          "evidence_refs": ["bep2_p008", "bep2_lang_u1_002", "bep2_lang_u1_003"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-07",
+          "evidence_refs": ["bep2_lang_u6_001", "bep2_act_u6_06", "bep2_act_u6_36"]
+        }
+      ]
+    },
+    {
+      "id": "CON-05",
+      "name": "Phonemic Blending of Multi-Letter Digraphs to Read Words",
+      "connection_type": "shared_skill",
+      "teacher_explanation": "Units 1, 6, and 8 provide structured phonics practice requiring learners to blend phonemes containing multi-letter digraphs and trigraphs (unvoiced/voiced 'th' in Unit 1, 'ch', 'tch', and 'sh' in Unit 6, and 'ou' and 'ow' in Unit 8). The underlying mechanical skill—holding onset and rime digraph sounds in working memory and synthesizing them into whole words—is a shared phonological skill across all three units.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-05",
+          "evidence_refs": ["bep2_p017", "bep2_act_u1_30", "bep2_act_u1_32"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-06",
+          "evidence_refs": ["bep2_act_u6_31", "bep2_act_u6_32", "bep2_act_u6_33", "bep2_act_u6_34"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "foundational_skill",
+          "local_id": "FS-09",
+          "evidence_refs": ["bep2_act_u8_31", "bep2_act_u8_32", "bep2_act_u8_33"]
+        }
+      ]
+    },
+    {
+      "id": "CON-06",
+      "name": "Interactive Pairwork Command: 'ask and answer'",
+      "connection_type": "shared_skill",
+      "teacher_explanation": "The instructional routine 'ask and answer' is used identically across Units 1, 6, and 8 to initiate paired oral interaction where one learner prompts with the unit's target question frame and the partner formulates the corresponding target response. Recognizing this prompt allows students to execute collaborative speaking tasks without requiring explicit teacher re-direction.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "ask and answer",
+          "evidence_refs": ["bep2_act_u1_06", "bep2_act_u1_12", "bep2_act_u1_29"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "ask and answer",
+          "evidence_refs": ["bep2_act_u6_06", "bep2_act_u6_12", "bep2_act_u6_17", "bep2_act_u6_24"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "ask and answer",
+          "evidence_refs": ["bep2_act_u8_06", "bep2_act_u8_12", "bep2_act_u8_17", "bep2_act_u8_28", "bep2_act_u8_30"]
+        }
+      ]
+    },
+    {
+      "id": "CON-07",
+      "name": "Phonics Decoding Task Command: 'blend the sounds'",
+      "connection_type": "shared_skill",
+      "teacher_explanation": "The instructional command 'blend the sounds' appears consistently on page 17 of Unit 1, page 103 of Unit 6, and page 141 of Unit 8. It cues learners to perform the specific phonics routine of synthesizing isolated sounds into fluent spoken words. Internalizing this command enables students to engage in independent decoding during phonics lessons.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "blend the sounds",
+          "evidence_refs": ["bep2_act_u1_32"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "blend the sounds",
+          "evidence_refs": ["bep2_act_u6_33"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "blend the sounds",
+          "evidence_refs": ["bep2_act_u8_33"]
+        }
+      ]
+    },
+    {
+      "id": "CON-08",
+      "name": "Chronological and Numerical Ordering Task Command: 'number in order' / 'number'",
+      "connection_type": "shared_skill",
+      "teacher_explanation": "In Units 1, 6, and 8, learners encounter the task directive to number pictures or items in sequence based on an audio narrative. Comprehension of this instruction signals to students that the task requires sequencing chronological events rather than matching or circling items.",
+      "occurrences": [
+        {
+          "unit_id": "bep2_unit_01",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "number in order",
+          "evidence_refs": ["bep2_act_u1_28"]
+        },
+        {
+          "unit_id": "bep2_unit_06",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "number in order",
+          "evidence_refs": ["bep2_act_u6_08", "bep2_act_u6_29"]
+        },
+        {
+          "unit_id": "bep2_unit_08",
+          "concept_type": "instructional_vocabulary",
+          "local_id": "number",
+          "evidence_refs": ["bep2_act_u8_29"]
+        }
       ]
     }
   ],
   "evidence_gaps": [
     {
-      "description": "Units 2, 3, 4, 5, and 7 were not supplied in this experiment. Cross-unit transitions and intermediate reinforcement patterns between Unit 1, Unit 6, and Unit 8 cannot be determined without analyzing those intervening units.",
-      "evidence_refs": []
-    },
-    {
-      "description": "Listening track dependencies noted in unit-level analyses (Unit 1 Tracks 15 and 21; Unit 6 Tracks 122 and 133; Unit 8 Tracks 167 and 177) prevent independent verification of specific audio answer keys across all three units.",
-      "evidence_refs": [
-        "bep2_issue_0001",
-        "bep2_issue_0002",
-        "bep2_issue_0010",
-        "bep2_issue_0011",
-        "bep2_issue_0013",
-        "bep2_issue_0014"
-      ]
+      "description": "Verifying the chronological sequence required by 'number in order' and 'number' activities across Unit 1 (Activity 28), Unit 6 (Activity 29), and Unit 8 (Activity 29) depends on audio tracks that were identified as gaps in the individual unit source analyses.",
+      "evidence_refs": ["bep2_issue_0002", "bep2_issue_0011", "bep2_issue_0014"]
     }
   ]
 }

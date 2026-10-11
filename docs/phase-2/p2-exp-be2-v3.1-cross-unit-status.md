@@ -1,7 +1,7 @@
 # Phase 2 V3.1 + Cross-Unit Experiment Status — BE2-SB
 
 **Status:** ACTIVE  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** 2026-10-11  
 **Decisions:** D015, D016, D017  
 **Purpose:** Inventory and validation record for Big English 2 Student Book Phase 2 V3.1 unit analyses and cross-unit consolidation/connection experiments. Distinguishes confirmed findings, experimental preferences, and unresolved issues. Does **not** lock a production methodology or schema.
@@ -32,14 +32,16 @@
 
 These three files are the **source of truth for unit-level findings**. Cross-unit outputs must preserve exact local IDs and evidence references from these files.
 
-### Cross-unit outputs (historical / experimental)
+### Cross-unit outputs
 
 | Label | Path | Schema on disk | Notes |
 |---|---|---|---|
-| V1.1 | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.1.json` | `phase2_cross_unit_consolidation` `0.1-experimental` | Consolidation-style inventory |
-| V1.2 (filename) | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` | **same as V1.1** | **Byte-identical to V1.1**; not a true V1.2 connections run |
+| V1.1 | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.1.json` | `phase2_cross_unit_consolidation` `0.1-experimental` | Historical consolidation-style inventory |
+| V1.2 | `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` | `phase2_cross_unit_connections` `0.1.2-experimental` | **True connections-only run** (owner-updated 2026-10-11): 8 connections; all ≥2 units; local IDs resolve against unit SoT |
 
 No Cross-Unit V1 prompt or output was found in the repository.
+
+**History note:** An earlier file at the V1.2 path was briefly a byte-identical copy of V1.1. That mislabeled state is superseded by the current connections JSON; V1.1 remains preserved separately.
 
 ### Prompts
 
@@ -52,11 +54,24 @@ No Cross-Unit V1 prompt or output was found in the repository.
 
 ## 3. Confirmed findings
 
-1. All three V3.1 unit JSON files parse as complete, valid JSON with expected top-level keys (`schema`, `source`, `language_structures`, `foundational_skills`, `vocabulary`, `pages`, `evidence_gaps`).
+1. All three V3.1 unit JSON files parse as complete, valid JSON with expected top-level keys.
 2. Unit analyses remain the SoT; Phase 1 canonical datasets were not modified.
-3. `bep2_unit_08:FS-09` **exists** in the U8 V3.1 file (`Digraph Phonic Decoding for 'ou' and 'ow'`), with evidence refs to U8 phonics activities. It is not a phantom ID relative to the current unit SoT.
-4. Cross-Unit V1.2 **prompt** requires: connections involving ≥2 distinct units; exact source IDs; shared_skill vs related_knowledge; schema `phase2_cross_unit_connections` `0.1.2-experimental`; no unit inventories.
+3. `bep2_unit_08:FS-09` exists in the U8 V3.1 file and is cited in V1.2 CON-05 (phonics digraph blending) with a resolvable local ID.
+4. Current Cross-Unit V1.2 JSON matches the preferred prompt shape: `phase2_cross_unit_connections` `0.1.2-experimental`; `shared_skill` / `related_knowledge`; no unit inventories; every connection involves ≥2 units; occurrence `local_id` values resolve against the three unit files.
 5. Neither V3.1 nor Cross-Unit V1.2 is a locked production methodology (D017).
+
+### V1.2 connection summary (experimental)
+
+| ID | Type | Units | Name |
+|---|---|---|---|
+| CON-01 | related_knowledge | U1+U6 | Wh- Question Formation and Auxiliary Inversion |
+| CON-02 | related_knowledge | U6+U8 | Present Simple Third-Person Singular Subject-Verb Agreement |
+| CON-03 | related_knowledge | U1+U8 | Pronoun-Referent Agreement Across Singular and Plural Subjects |
+| CON-04 | related_knowledge | U1+U6 | Pronoun Contractions with Present Tense Copular / Helping Verbs |
+| CON-05 | shared_skill | U1+U6+U8 | Phonemic Blending of Multi-Letter Digraphs to Read Words |
+| CON-06 | shared_skill | U1+U6+U8 | Interactive Pairwork Command: ask and answer |
+| CON-07 | shared_skill | U1+U6+U8 | Phonics Decoding Task Command: blend the sounds |
+| CON-08 | shared_skill | U1+U6+U8 | Chronological/Numerical Ordering Task Command |
 
 ---
 
@@ -65,38 +80,38 @@ No Cross-Unit V1 prompt or output was found in the repository.
 | Preference | Meaning |
 |---|---|
 | Unit analysis | Use Phase 2 **V3.1** for further unit runs in this iteration |
-| Cross-unit | Prefer **V1.2 connections-only** for the next genuine cross-unit Studio run |
+| Cross-unit | Prefer **V1.2 connections-only** (current BE2 U1/U6/U8 file is the working example) |
 | Scale | Do **not** scale to a full book until an end-to-end later-phase influence experiment clarifies usefulness |
-| History | Preserve earlier LR experiment reviews under `p2-exp-*` and the mislabeled V1.2 cross-unit file |
+| History | Preserve V1.1 consolidation and earlier LR experiment reviews under `p2-exp-*` |
 
 ---
 
 ## 5. Unresolved issues
 
-1. **True V1.2 connections output missing.** The file named `be2-cross-unit-v1.2.json` is byte-identical to `be2-cross-unit-v1.1.json` and uses the consolidation schema, not `phase2_cross_unit_connections`. Do **not** treat it as a successful V1.2 run.
-2. **V1.1-style consolidation violates V1.2 rules** when judged against the V1.2 prompt: multiple `CS-*` rows involve only one unit; `unit_specific_findings` reproduces inventories.
-3. **FS-09 caution.** Current U8 SoT contains FS-09. Any prior claim of a bad FS-09 reference must be re-checked against a *true* V1.2 connections output — do not silently accept older consolidation claims.
-4. **No Cross-Unit V1 artifacts** found on disk (prompt or JSON).
-5. **End-to-end later-phase experiment** (how Phase 2 findings influence curriculum mapping / enrichment / packaging) is the next priority and has not started.
+1. **No Cross-Unit V1 artifacts** found on disk (prompt or JSON) — acceptable; not required.
+2. **End-to-end later-phase experiment** (how Phase 2 findings influence curriculum mapping / enrichment / packaging) is the next priority and has not started.
+3. Teacher validation of earlier “one glance” syntheses still pending (soft).
+4. Linguistic usefulness of the eight V1.2 connections is **not teacher-validated**; structural/ID checks pass only.
 
 ---
 
-## 6. Validation checklist executed (2026-10-11)
+## 6. Validation checklist (re-run 2026-10-11 after V1.2 update)
 
 | Check | Result |
 |---|---|
-| JSON syntax (U1, U6, U8, cross v1.1, cross v1.2 filename) | PASS (all parse) |
+| JSON syntax (U1, U6, U8, cross v1.1, cross v1.2) | PASS |
 | Incomplete / truncated unit files | Not observed |
-| U8 `FS-09` present in unit SoT | PASS (exists) |
-| Cross v1.2 filename == true V1.2 schema | **FAIL** (duplicate of v1.1 consolidation) |
-| Cross output ≥2 units per connection (vs V1.2 rules) | **FAIL** for labeled v1.2 file (single-unit CS rows present) |
+| U8 `FS-09` present in unit SoT | PASS |
+| Cross v1.2 == `phase2_cross_unit_connections` `0.1.2-experimental` | PASS |
+| Cross v1.2 distinct from v1.1 | PASS |
+| Every connection ≥2 units | PASS (8/8) |
+| Occurrence local IDs resolve in stated unit SoT | PASS (0 missing) |
 
 ---
 
 ## 7. Next experiment direction
 
-1. Bounded **end-to-end** experiment: feed V3.1 unit findings (and, when available, true V1.2 connections) into a later-phase sketch to test usefulness for Chalkie/context-style prompts — before whole-book scale.
-2. If cross-unit evidence is still needed first: re-run Studio with [`cross-unit-v1.2-prompt.md`](./cross-unit-v1.2-prompt.md) against the three interpretation files and save a new file that actually uses schema `phase2_cross_unit_connections` (do not overwrite the historical mislabeled file without renaming).
+Bounded **end-to-end** experiment: feed V3.1 unit findings + current V1.2 connections into a later-phase sketch to test usefulness for Chalkie/context-style prompts — before whole-book scale.
 
 ---
 
@@ -105,3 +120,4 @@ No Cross-Unit V1 prompt or output was found in the repository.
 | Date | Change |
 |---|---|
 | 2026-10-11 | Created after inventory/validation sync; organized data paths; recorded V1.2 file mismatch. |
+| 2026-10-11 | Owner replaced V1.2 JSON with true connections output; re-validated IDs/schema; cleared mismatch unresolved item. |

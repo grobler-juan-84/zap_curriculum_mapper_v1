@@ -2201,4 +2201,21 @@
 
 ---
 
+### Step 125
+
+**Summary:** Re-validated owner-updated Cross-Unit V1.2 JSON as a true connections-only run (schema `0.1.2-experimental`, 8 multi-unit connections, local IDs resolve including U8 FS-09); cleared the prior mislabeled-duplicate unresolved item and refreshed trackers.
+
+**Files touched:**
+- `data/phase2/big_english_2_sb/cross-unit/be2-cross-unit-v1.2.json` (updated)
+- `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `data/README.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
