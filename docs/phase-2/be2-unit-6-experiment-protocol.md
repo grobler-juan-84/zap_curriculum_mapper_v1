@@ -162,7 +162,7 @@ Estimated effort: one focused analysis pass + owner review. No code delivery req
 
 - Candidate set: [`be2-candidate-units.md`](./be2-candidate-units.md)
 - D015 / D016: [`../4-decisions.md`](../4-decisions.md)
-- Phase 2 purpose in process guide: [`../phase-1/curriculum-mapping-process.md`](../phase-1/curriculum-mapping-process.md) §20–21
+- Phase 2 purpose in project workflow: [`../11-curriculum-mapping-workflow.md`](../11-curriculum-mapping-workflow.md) §5
 
 ---
 

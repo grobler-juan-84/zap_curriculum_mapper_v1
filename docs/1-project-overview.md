@@ -2,7 +2,8 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 2 — Book Intelligence / Progressive Curriculum Intelligence (D015, D017)
+**Current Development Focus:** Phase 2 — Book Intelligence / Progressive Curriculum Intelligence (D015, D017)  
+**Workflow:** [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)
 
 ---
 

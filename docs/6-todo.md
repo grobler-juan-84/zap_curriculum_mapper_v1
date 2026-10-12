@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 128
+**Last updated:** Step 129
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -29,6 +29,8 @@
 - [x] Align legacy Phase 2 planning docs with D017 (`phase-2-overview-v2.md`, `data/README.md`).
 
 - [x] Run BE2-SB Units 1–9 Phase 2 whole-book overview experiment (D017 v1 Markdown).
+
+- [x] Relocate/refactor curriculum mapping process into project-wide workflow + Phase 1 extraction workflow.
 
 ## Now
 

@@ -475,4 +475,5 @@ This is an infrastructure concern. It does not change phase boundaries or curric
 - [2-tech-stack.md](./2-tech-stack.md)
 - [8-database-architecture.md](./8-database-architecture.md)
 - [10-storage-architecture.md](./10-storage-architecture.md)
+- [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md)
 - [4-decisions.md](./4-decisions.md)

@@ -53,7 +53,7 @@
 ## Related
 
 - First-run protocol: [`be2-unit-6-experiment-protocol.md`](./be2-unit-6-experiment-protocol.md)
-- Phase 1 process / Phase 2 purpose: [`../phase-1/curriculum-mapping-process.md`](../phase-1/curriculum-mapping-process.md)
+- Project-wide workflow / Phase 2 purpose: [`../11-curriculum-mapping-workflow.md`](../11-curriculum-mapping-workflow.md)
 - Dataset registry: [`../phase-1/dataset-registry.md`](../phase-1/dataset-registry.md)
 
 ---

@@ -40,6 +40,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch paths (`app/src/assets/books/…`, `data/phase1/…`), asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.5 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
+| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow for Phases 1–4 (purpose, inputs, process, outputs, validation, handoffs) under D017; Phases 5–7 referenced only. | 1.0 | ACTIVE |
 
 ### Project tracking
 
@@ -55,7 +56,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-1/curriculum-mapping-process.md](./phase-1/curriculum-mapping-process.md) | Source-of-truth process guide: phase responsibilities under D017 (Book / Series / Teaching Intelligence); Phase 1 paused at 14/18; next proposed BE2 U1–9 book overview. | — | ACTIVE |
+| [phase-1/phase-1-extraction-workflow.md](./phase-1/phase-1-extraction-workflow.md) | Practical Phase 1 extraction / book-evidence procedures (pipeline, batches, verification, canonical handoff); Phase 1 paused at 14/18 under D015. | 1.0 | ACTIVE |
 | [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). | V2 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Authoritative Phase 1 data specification for extraction boundaries and verified-batch → merge → validation → audit workflow; Phase 1 is paused at 14/18 under D015. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
@@ -128,7 +129,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 61 | Current working docs, including index, operating trackers, D017 Book Intelligence experiment artifact, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 62 | Current working docs, including index, operating trackers, project-wide curriculum mapping workflow, D017 Book Intelligence experiment artifact, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

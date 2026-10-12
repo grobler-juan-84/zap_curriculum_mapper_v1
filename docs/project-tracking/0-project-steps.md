@@ -2268,4 +2268,24 @@
 
 ---
 
+### Step 129
+
+**Summary:** Relocated and refactored `curriculum-mapping-process.md` into a project-wide Phases 1–4 workflow (`11-curriculum-mapping-workflow.md`) and a dedicated Phase 1 extraction workflow; updated links, index, and trackers. D017 preserved; D018 not recorded.
+
+**Files touched:**
+- `docs/11-curriculum-mapping-workflow.md` (created)
+- `docs/phase-1/phase-1-extraction-workflow.md` (created)
+- `docs/phase-1/curriculum-mapping-process.md` (deleted)
+- `docs/phase-2/be2-candidate-units.md` (updated)
+- `docs/phase-2/be2-unit-6-experiment-protocol.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
