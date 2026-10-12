@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.2  
+**Version:** 1.3  
 **Date:** 2026-10-12  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -14,19 +14,21 @@
 | Git branch | `phase-2` |
 | Phase 1 | PAUSED at 14/18 COMPLETE (D015) |
 | Active direction | D017 Progressive Curriculum Intelligence — Book Intelligence first |
-| Next proposed experiment | BE2-SB Units 1–9 concise whole-book overview (awaiting owner execution approval) |
+| Latest Book Intelligence experiment | [`experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v1.md) — **completed; awaiting owner review** |
 | Methodology / schema | **Experimental — NOT LOCKED** |
 | Research inventory (V3.1 + cross-unit) | [`p2-exp-be2-v3.1-cross-unit-status.md`](./p2-exp-be2-v3.1-cross-unit-status.md) |
 
 ---
 
-## 2. Next proposed experiment (not started)
+## 2. D017 Book Intelligence experiment (executed)
 
-**Big English 2 Student Book, Units 1–9:** Generate a concise Phase 2 book overview from existing verified Phase 1 data. Use the publisher curriculum overview as a density benchmark, not a fixed schema. Preserve evidence references; distinguish publisher-stated from AI-inferred outcomes.
+**Big English 2 Student Book, Units 1–9:** Concise Phase 2 whole-book curriculum overview from verified Phase 1 canonical data. Publisher overview used as density benchmark only (not a fixed schema). Evidence references preserved; learning outcomes labeled AI-inferred (exact I Can text not in Phase 1 continuous text).
 
-**Evaluate:** (1) accuracy against textbook evidence; (2) teacher readability and usefulness; (3) sufficiency for an initial BE1 → BE2 → BE3 vertical mapping test.
+**Artifact:** [`experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v1.md)
 
-Do **not** execute until the owner explicitly approves.
+**Self-eval (see artifact §E):** E1/E2/E4/E5/E7/E8/E10 PASS; E3/E6/E9 PARTIAL (no teacher validation; outcomes not publisher-quoted; Phase 3 not tested).
+
+**Owner review required** before format lock, methodology lock, or any BE1→BE2→BE3 vertical sufficiency probe.
 
 ---
 
@@ -69,8 +71,9 @@ Preserved research artifacts; **not** the active production direction under D017
 
 - Verified Phase 1 Big English datasets (local / Storage).
 - D017 progressive method: minimum sufficient output; expand only when downstream tests require it.
+- Whole-book overview experiment artifact as the current Book Intelligence candidate for owner review.
 - Research artifacts above as evidence, not mandatory production depth.
-- Soft open item: teacher validation of earlier “one glance” syntheses / connection usefulness.
+- Soft open item: teacher validation of overview readability / earlier “one glance” syntheses.
 
 ---
 
@@ -79,7 +82,7 @@ Preserved research artifacts; **not** the active production direction under D017
 - Phase 2 is **not** product-complete.
 - No Phase 2 JSON schema or pipeline is approved.
 - Historical V3.1 / V1.2 success does **not** lock methodology or define production output.
-- The BE2 U1–9 book overview is **proposed only** until owner execution approval.
+- The BE2 U1–9 book overview is **experimental** until owner review.
 - Phase 3 / Phase 4 are **not** formally started.
 
 ---
@@ -92,3 +95,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-11 | Expanded to V3.1 + cross-unit lineage; linked validation status; kept early LR experiments as history. |
 | 2026-10-11 | Recorded true Cross-Unit V1.2 connections JSON after owner update (replacing earlier mislabeled duplicate). |
 | 2026-10-12 | Aligned to D017 Progressive Curriculum Intelligence; V3.1/V1.2/e2e/enrich marked research history; next proposed = BE2-SB U1–9 book overview (awaiting approval). |
+| 2026-10-12 | Executed BE2-SB U1–9 D017 v1 book overview experiment; status → completed / awaiting owner review. |

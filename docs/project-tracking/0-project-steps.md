@@ -2253,4 +2253,19 @@
 
 ---
 
+### Step 128
+
+**Summary:** Executed D017 Phase 2 Book Intelligence experiment for Big English 2 SB Units 1–9: concise Markdown whole-book curriculum overview from Phase 1 canonical evidence, with E1–E10 self-evaluation. Updated experiment status and operating trackers; awaiting owner review.
+
+**Files touched:**
+- `docs/phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

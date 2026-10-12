@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 127
+**Last updated:** Step 128
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -26,13 +26,17 @@
 
 - [x] Record D017 Progressive Curriculum Intelligence; align canonical docs and trackers.
 
+- [x] Align legacy Phase 2 planning docs with D017 (`phase-2-overview-v2.md`, `data/README.md`).
+
+- [x] Run BE2-SB Units 1–9 Phase 2 whole-book overview experiment (D017 v1 Markdown).
+
 ## Now
 
-- [ ] Await owner approval, then run BE2-SB Units 1–9 Phase 2 whole-book overview experiment (concise Book Intelligence from Phase 1; publisher table = density benchmark only).
+- [ ] Owner review of [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md) (accept / revise format / next probe).
 
 ## Soon
 
-- [ ] If approved: teacher-validation pass on earlier Phase 2 “one glance” syntheses and/or V1.2 connection usefulness.
+- [ ] If approved: teacher-validation pass on book-overview readability and/or earlier “one glance” syntheses.
 
 - [ ] After book-overview review: initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
 
