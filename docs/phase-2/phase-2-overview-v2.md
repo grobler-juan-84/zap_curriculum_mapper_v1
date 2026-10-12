@@ -1,8 +1,18 @@
 # General Curriculum Mapper — Phase 2 Source of Truth
 
+> **HISTORICAL — SUPERSEDED BY D017**
+>
+> This document is **not** the current Phase 2 authority. Current development direction is **D017 — Progressive Curriculum Intelligence** (LOCKED) in [`docs/4-decisions.md`](../4-decisions.md).
+>
+> **Retained for:** historical research and earlier planning context (exhaustive book/unit/page intelligence sketches, learning-requirements analysis, and proposed JSON pipelines).
+>
+> **Not current production requirements:** proposed schemas, output shapes, methodologies, and implementation recommendations in this file. Do not treat them as mandatory for Phase 2 Book Intelligence.
+>
+> **Current Phase 2 direction (D017):** concise, teacher-readable unit-by-unit book overviews from verified Phase 1 canonical evidence; minimum-sufficient output; expand only when downstream tests justify it; no premature Phase 2 JSON schema, API, database, or UI lock. Next proposed experiment (separate task): Big English 2 SB Units 1–9 Markdown overview. See also [`phase-2-experiment-status.md`](./phase-2-experiment-status.md).
+
 **Suggested filename:** `phase-2-sot.md`  
-**Status:** Planning complete — Ready for implementation preparation  
-**Focus:** Curriculum intelligence through AI interpretation  
+**Status:** HISTORICAL — SUPERSEDED BY D017 (retained for research context; not ready for production implementation)  
+**Focus:** Curriculum intelligence through AI interpretation *(historical planning)*  
 **Guiding principle:** Beauty in simplicity. Working and useful beats theoretically perfect.
 
 ---

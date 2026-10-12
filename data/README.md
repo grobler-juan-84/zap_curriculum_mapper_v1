@@ -2,7 +2,9 @@
 
 **Do not commit curriculum extraction JSON or source PDFs to GitHub.**
 
-Phase 2 interpretation and cross-unit experiment JSON under `data/phase2/` is intentionally tracked (small experimental artifacts). Entire `data/phase1/` remains gitignored.
+**Authority:** Phase 1 canonical datasets (local working copies under `data/phase1/` and/or Supabase Storage `book-datasets`) remain the authoritative source for extracted textbook evidence. Current Phase 2 direction is **D017 — Progressive Curriculum Intelligence** (Book Intelligence / horizontal mapping) in `docs/4-decisions.md` — concise teacher-readable book overviews from verified Phase 1 evidence; no premature Phase 2 schema lock.
+
+Phase 2 interpretation and cross-unit experiment JSON under `data/phase2/` is intentionally tracked as **small experimental research artifacts** (not production source of truth). Entire `data/phase1/` remains gitignored.
 
 ---
 
@@ -33,11 +35,11 @@ Completed pilots (`big_english_1_sb`, `big_english_2_sb`) live in Supabase Stora
 
 ---
 
-## Phase 2 — Interpretation working data
+## Phase 2 — Interpretation working data (experimental research)
 
 ```text
-data/phase2/{catalog_book_id}/interpretations/   # unit-level Phase 2 JSON (SoT for unit findings)
-data/phase2/{catalog_book_id}/cross-unit/        # cross-unit consolidation / connections runs
+data/phase2/{catalog_book_id}/interpretations/   # experimental unit-level Phase 2 JSON (research artifacts)
+data/phase2/{catalog_book_id}/cross-unit/        # experimental cross-unit consolidation / connections runs
 data/phase2/{catalog_book_id}/feedback/          # optional owner-feedback templates (when used)
 ```
 
@@ -55,10 +57,11 @@ data/phase2/big_english_2_sb/
 ```
 
 - Book folder uses catalog `book_id` (same habit as Phase 1).
-- Unit V3.1 JSON files are the source of truth for unit-level findings.
+- Unit V3.1 JSON files and related Phase 2 outputs are **experimental research artifacts** under D017 principle 4 — not production-mandatory unit source of truth. Phase 1 canonical evidence remains authoritative for textbook content.
 - Cross-unit outputs must not silently replace or rewrite unit IDs.
 - Prompt docs remain under `docs/phase-2/` (`phase2-v3.1-prompt.md`, `cross-unit-v1.2-prompt.md`).
 - Inventory / validation: `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md`.
+- Active Phase 2 direction: `docs/4-decisions.md` (D017) and `docs/phase-2/phase-2-experiment-status.md`.
 
 ---
 
