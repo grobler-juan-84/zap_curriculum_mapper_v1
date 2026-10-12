@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 129
+**Last updated:** Step 130
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -32,15 +32,19 @@
 
 - [x] Relocate/refactor curriculum mapping process into project-wide workflow + Phase 1 extraction workflow.
 
+- [x] Record ChatGPT owner review of BE2-SB U1–9 overview (not accepted; publisher comparison proposed).
+
 ## Now
 
-- [ ] Owner review of [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md) (accept / revise format / next probe).
+- [ ] Await owner approval, then compare D017 overview vs official Big English 2 publisher curriculum overview (~90% meaningful coverage as review target only; omissions vs unsupported additions; Phase 1 JSON for discrepancies).
 
 ## Soon
 
-- [ ] If approved: teacher-validation pass on book-overview readability and/or earlier “one glance” syntheses.
+- [ ] Verify flagged potential gaps (U3 old/new; U6 telling-time variants; U8 habitats) during or after publisher comparison.
 
-- [ ] After book-overview review: initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
+- [ ] If comparison supports it: teacher-validation pass on book-overview readability.
+
+- [ ] After overview validation path: initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 

@@ -4,7 +4,7 @@
 **Decision:** D017 — Progressive Curriculum Intelligence (LOCKED)  
 **Source dataset:** `data/phase1/big_english_2_sb/canonical/v1.json` (catalog `big_english_2_sb`, schema 0.1)  
 **Scope:** Big English 2 Student Book, Units 1–9 only  
-**Status:** EXPERIMENTAL — awaiting owner review (not a methodology or schema lock)
+**Status:** EXPERIMENTAL — ChatGPT owner review recorded 2026-10-12; **not formally accepted**; not a methodology or schema lock
 
 ---
 
@@ -115,7 +115,26 @@ Justified by this run only:
 4. **Do not** start Phase 3 vertical mapping until the owner accepts this overview (or a revised format) as the horizontal baseline.
 5. **Optional later evidence improvement (not required to use this overview):** extract or PDF-verify exact I Can lines so outcomes can be marked publisher-stated vs inferred.
 
-**Suggested next owner decision:** review this overview for fidelity and readability; then either revise format or approve an initial BE1→BE2→BE3 *sufficiency probe* (still not a Phase 3 product start).
+**Suggested next owner decision (superseded by §G):** see ChatGPT review findings below.
+
+---
+
+## G. ChatGPT owner review (2026-10-12)
+
+Recorded after execution. **Overview content was not regenerated.**
+
+| Finding | Detail |
+|---|---|
+| Baseline judgment | Promising **minimum-sufficient Phase 2 baseline**; aligns with D017 Book Intelligence |
+| Acceptance | **Not formally accepted**; **not locked** as a production standard |
+| Potential gaps to verify later | U3 old/new objects; U6 different ways of telling time; U8 animal habitats |
+| Next experiment (proposed) | Compare this overview to the official Big English 2 publisher curriculum overview |
+| Comparison dimensions | Vocabulary; grammar/structures; communicative functions; learning outcomes; supporting curriculum |
+| Coverage target | ≥ **~90% meaningful coverage** as a **proposed evaluation target only** (not an approved production threshold) |
+| Discrepancy handling | Record omissions vs unsupported additions separately; investigate against Phase 1 canonical JSON |
+| Workbook | Investigate WB evidence only if validation demonstrates a meaningful need |
+
+Status inventory: [`../phase-2-experiment-status.md`](../phase-2-experiment-status.md).
 
 ---
 
@@ -124,3 +143,4 @@ Justified by this run only:
 | Date | Change |
 |---|---|
 | 2026-10-12 | Created D017 v1 whole-book overview experiment from BE2-SB Phase 1 canonical v1. |
+| 2026-10-12 | Recorded ChatGPT owner review findings (§G); overview not accepted; publisher comparison proposed next. |

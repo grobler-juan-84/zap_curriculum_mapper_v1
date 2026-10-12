@@ -2288,4 +2288,19 @@
 
 ---
 
+### Step 130
+
+**Summary:** Recorded ChatGPT owner review findings for the BE2-SB U1–9 D017 overview: promising minimum-sufficient baseline, not formally accepted; flagged U3/U6/U8 potential gaps; next proposed experiment = publisher overview comparison (~90% coverage as review target only). Updated Phase 2 status and operating trackers. Did not regenerate the overview or lock methodology.
+
+**Files touched:**
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

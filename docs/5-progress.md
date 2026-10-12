@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 129
+**Last updated:** Step 130
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,21 +16,23 @@
 
 - Early Phase 2 research preserved; **D017** locked; BE2-SB U1–9 book overview experiment executed.
 
-- Curriculum mapping process relocated/refactored into project-wide [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md); Phase 1 procedures preserved in [`phase-1/phase-1-extraction-workflow.md`](./phase-1/phase-1-extraction-workflow.md).
+- Curriculum mapping workflow relocated to [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+
+- Initial **ChatGPT owner review** of the BE2-SB U1–9 overview recorded (promising minimum-sufficient baseline; **not formally accepted**).
 
 ## In progress
 
-- Owner review of the BE2-SB U1–9 book overview (fidelity, readability, outcome labeling).
+- Documentation of review findings complete; waiting on owner approval to run the publisher-overview comparison experiment.
 
 ## Next
 
-- After owner review: accept overview, revise format if needed, or approve a bounded BE1 → BE2 → BE3 vertical sufficiency probe (not a Phase 3 start).
+- **Proposed (not started):** Compare the existing D017 overview against the official Big English 2 publisher curriculum overview (vocab / grammar / functions / outcomes / supporting curriculum). Aim for ~90% meaningful coverage as a **review target only**. Record omissions vs unsupported additions; check discrepancies against Phase 1 canonical JSON. Workbook only if needed.
 
-- Soft: teacher-validation pass on overview readability.
+- Soft: teacher-validation pass on overview readability (after publisher comparison or in parallel if owner prefers).
 
 ## Blocked
 
-- Soft: teacher validation still pending; E3/E9 remain PARTIAL until then / until a vertical probe.
+- Soft: overview not accepted; teacher validation still pending; flagged U3/U6/U8 coverage items unverified until publisher comparison / Phase 1 check.
 
 ---
 
@@ -46,4 +48,4 @@
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.
 
-- Direction: [`4-decisions.md`](./4-decisions.md) D017.
+- Direction: [`4-decisions.md`](./4-decisions.md) D017 (LOCKED). D018 remains PROPOSED only.

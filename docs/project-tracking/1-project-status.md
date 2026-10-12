@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 129  
+**Last updated:** Step 130  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED at 14/18 (D015); D017 Book Intelligence direction; BE2 U1–9 overview experiment executed.
-- Curriculum mapping workflow relocated to docs root (`11-curriculum-mapping-workflow.md`); Phase 1 procedures in `phase-1-extraction-workflow.md`.
+- Phase 1 PAUSED at 14/18; D017 locked; BE2 U1–9 overview executed.
+- ChatGPT owner review recorded: promising baseline, **not formally accepted**.
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner review of the BE2-SB book overview.
+On branch `phase-2`. Next proposed step is publisher curriculum overview comparison (not started).
 
 ## Next small step
 
-**Suggestion:** Owner-review [`../phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](../phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md).
+**Suggestion:** Owner-approve and run comparison of the D017 overview against the official Big English 2 publisher overview.
