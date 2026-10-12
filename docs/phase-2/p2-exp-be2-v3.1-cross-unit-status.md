@@ -58,7 +58,7 @@ No Cross-Unit V1 prompt or output was found in the repository.
 2. Unit analyses remain the SoT; Phase 1 canonical datasets were not modified.
 3. `bep2_unit_08:FS-09` exists in the U8 V3.1 file and is cited in V1.2 CON-05 (phonics digraph blending) with a resolvable local ID.
 4. Current Cross-Unit V1.2 JSON matches the preferred prompt shape: `phase2_cross_unit_connections` `0.1.2-experimental`; `shared_skill` / `related_knowledge`; no unit inventories; every connection involves ≥2 units; occurrence `local_id` values resolve against the three unit files.
-5. Neither V3.1 nor Cross-Unit V1.2 is a locked production methodology (D017).
+5. Neither V3.1 nor Cross-Unit V1.2 is a locked production methodology (D017 Progressive Curriculum Intelligence — research artifacts only; Book Intelligence is the active direction).
 
 ### V1.2 connection summary (experimental)
 

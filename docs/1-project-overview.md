@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 2 — Controlled Curriculum Interpretation Experiments (D015)
+**Current Development Focus:** Phase 2 — Book Intelligence / Progressive Curriculum Intelligence (D015, D017)
 
 ---
 
@@ -135,21 +135,21 @@ The project should evolve from evidence produced by actual textbook processing a
 
 The current conceptual architecture remains:
 
-### Phase 1 — Curriculum Extraction & Structure
+### Phase 1 — Extraction
 
-Extract and structure what the curriculum sources actually contain.
+Extract and structure what the curriculum sources actually contain (detailed, verified textbook evidence).
 
-### Phase 2 — AI Curriculum & Linguistic Interpretation
+### Phase 2 — Book Intelligence / Horizontal Mapping
 
-Interpret the pedagogical and linguistic meaning of the extracted curriculum evidence.
+Produce a concise, teacher-readable unit-by-unit overview of what the book teaches and expects students to learn (D017).
 
-### Phase 3 — Curriculum Connections & Vertical Mapping
+### Phase 3 — Series Intelligence / Vertical Mapping
 
-Connect learning across pages, units, books and levels.
+Identify linguistic development across books in a series: introduction, recycling, extension, and increasing complexity (D017).
 
-### Phase 4 — Teacher Enrichment
+### Phase 4 — Teaching Intelligence
 
-Add deliberate teaching intelligence that strengthens learning without replacing or distorting the curriculum.
+Identify scaffolding, recycling, gaps, enrichment, and preparation for later learning from earlier evidence—without equating previously taught with mastered (D017).
 
 ### Phase 5 — Lesson Packaging & Structure
 
@@ -165,28 +165,19 @@ Evaluate outputs, identify where problems originated, and improve the appropriat
 
 ---
 
-## 6. Current Priority — Phase 2
+## 6. Current Priority — Phase 2 (Book Intelligence)
 
 Phase 1 is intentionally **PAUSED at 14 / 18 COMPLETE** (D015). All 12 Big English books, Beehive 1 and Reach Higher 2A have completed extraction, human verification, canonical merge, D008 validation and whole-book audit. Phase 1 is neither completed nor abandoned.
 
 The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and Reach Higher 4A remain deferred.
 
-The active priority is controlled **Phase 2 curriculum interpretation** experimentation using the 12 completed Big English canonical datasets. Beehive and Reach Higher are excluded from the immediate experiments.
+Active direction is **D017 Progressive Curriculum Intelligence**: start with minimum-sufficient Phase 2 book intelligence, then expand only when downstream tests show a real need. Immediate Phase 2 work stays on completed Big English datasets (Beehive and Reach Higher excluded for now).
 
-Current experimental lineage (not production-locked — D017):
+**Next proposed experiment** (awaiting owner execution approval): Big English 2 Student Book Units 1–9 — a concise whole-book curriculum overview from existing Phase 1 evidence, using the publisher overview as a density benchmark (not a fixed schema). Evaluate fidelity, teacher readability, and sufficiency for an initial BE1 → BE2 → BE3 vertical test.
 
-- Unit analysis: Phase 2 **V3.1** linguistic anatomy on BE2-SB Units 1, 6, and 8.
-- Cross-unit: prefer **V1.2 connections-only** (≥2 units); unit V3.1 JSON remains the source of truth for unit findings.
-- Next priority: a bounded **end-to-end** experiment on how Phase 2 findings influence later curriculum phases — before whole-book scale-up.
+**Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and the U6 e2e / enrichment probes remain preserved evidence under D017 principle 4.
 
-This transition is intended to discover what useful linguistic and pedagogical interpretation should contain. It does not yet select or lock:
-
-- a Phase 2 implementation;
-- a Phase 2 JSON schema;
-- a storage model;
-- or a Phase 2 architecture.
-
-Phase 3 curriculum connections and vertical mapping remain later controlled experiments; early cross-unit connection trials under Phase 2 must not be mistaken for a locked Phase 3 product.
+This direction does **not** lock a Phase 2 implementation, JSON schema, storage model, API, or UI. Phase 3 Series Intelligence remains later controlled work after a useful book overview exists.
 
 ---
 

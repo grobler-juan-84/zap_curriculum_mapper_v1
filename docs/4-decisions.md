@@ -51,7 +51,7 @@
 | D014 | Validation PDF viewer navigates by extracted `pdf_page`, labels by printed page | 2026-10-09 | LOCKED |
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
-| D017 | Prefer Phase 2 V3.1 + Cross-Unit V1.2 (experimental; not methodology lock) | 2026-10-11 | LOCKED |
+| D017 | Progressive Curriculum Intelligence | 2026-10-12 | LOCKED |
 
 ---
 
@@ -257,16 +257,33 @@
 
 ---
 
-### D017 — Prefer Phase 2 V3.1 + Cross-Unit V1.2 (experimental; not methodology lock)
+### D017 — Progressive Curriculum Intelligence
 
-**Date:** 2026-10-11  
+**Date:** 2026-10-12  
 **Status:** LOCKED  
-**Decision:** For the current Phase 2 iteration on Big English 2 Student Book: (1) treat completed **V3.1** unit linguistic analyses as the **unit-level source of truth** for Units 1, 6, and 8; (2) prefer **Cross-Unit V1.2** (connections only; each connection involves at least two different units; exact source IDs preserved) for subsequent cross-unit experiments. This records an experimental process preference only. It does **not** lock a Phase 2 or cross-unit production methodology, JSON schema, storage model, or pipeline. Cross-unit outputs must not silently rewrite unit findings. Historical consolidation files (including a mislabeled V1.2 copy of V1.1) are preserved but not treated as successful V1.2 runs.  
-**Reason:** V3.1 produced usable unit JSON for three BE2 units; V1.2’s connections-only rule better matches the goal of reusable cross-unit intelligence without duplicating unit inventories. Whole-book scale remains deferred until an end-to-end later-phase influence experiment clarifies usefulness.  
-**Alternatives rejected:** Treating the on-disk `be2-cross-unit-v1.2.json` consolidation dump as a successful V1.2 run; locking V3.1 or V1.2 as production schema; scaling Phase 2 to a full book before end-to-end usefulness is tested; silently “fixing” historical cross-unit files.  
-**Implications:** Operating trackers and [`phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md) document confirmed findings, preferences, and unresolved issues (including the need for a true V1.2 connections output). Next priority is a bounded end-to-end later-phase experiment, not book-wide extraction.  
-**Supersedes:** —  
-**Does not supersede:** D015, D016
+**Decision:** Build curriculum intelligence progressively, starting with the smallest useful output and expanding only when downstream testing demonstrates a real need.
+
+- **Phase 1 — Extraction:** Preserve detailed, verified textbook evidence.
+- **Phase 2 — Book Intelligence / Horizontal Mapping:** Produce a concise, structured, teacher-readable unit-by-unit overview of what the book teaches and expects students to learn. Use the Big English publisher overview as a reference for output density, not as a mandatory schema. Include meaningful distinctions such as target/supporting vocabulary, grammatical structures, communicative functions, instructional language, skills, components, and observable outcomes where supported. Do not require all possible fields for every publisher.
+- **Phase 3 — Series Intelligence / Vertical Mapping:** Use Phase 2 outputs to identify linguistic development across books: introduction, recycling, extension, increasing complexity, and relevant lexical/topic continuity. Similar topics alone are not proof of progression.
+- **Phase 4 — Teaching Intelligence:** Use Phase 3 connections and earlier evidence to identify assumed prior learning, appropriate scaffolding, purposeful recycling, gaps, enrichment opportunities, and preparation for later lessons/units/levels. Do not equate previously taught with mastered.
+
+**Operating principles:**
+
+1. **Minimum sufficient output:** Each phase produces the smallest useful structured deliverable that can support the next phase.
+2. **Traceability:** Outputs keep references to earlier evidence; summarization must not erase the underlying source.
+3. **Progressive discovery:** Attempt downstream tasks to discover missing requirements before expanding upstream outputs.
+4. **Separate research from production:** Detailed Phase 2 experiments remain research evidence; their full analysis is not automatically mandatory in production.
+5. **Language-led, context-aware mapping:** Grammar and communicative functions are central to linguistic progression; vocabulary and topic continuity are important supports, not sufficient progression evidence by themselves.
+6. **Avoid premature technical commitments:** This decision does not lock a Phase 2 JSON schema, database design, API, prompt, or UI.
+
+**Reason:** The prior experimental approach risked designing an exhaustive Phase 2 analysis before learning which information Phase 3 and Phase 4 actually need. A useful whole-book overview can be tested sooner, with complexity introduced only when justified.  
+**Alternatives rejected:** Requiring exhaustive pedagogical and learner-difficulty analysis for every Phase 2 unit; treating the publisher's table columns as a universal schema; designing every downstream mapping field before running a whole-book and cross-book test; mapping progression by shared topics alone.  
+**Implications:** Next proposed experiment (awaiting owner execution approval): Big English 2 Student Book Units 1–9 — generate a concise Phase 2 book overview from existing verified Phase 1 data, benchmarked against the publisher table for density (not as a fixed schema). Preserve evidence references; distinguish publisher-stated from AI-inferred outcomes. Evaluate (1) book fidelity, (2) teacher readability, (3) sufficiency for an initial BE1 → BE2 → BE3 vertical comparison. If Phase 3 exposes missing information, record the gap and revise Phase 2 selectively. Phase 2 output format remains provisional until whole-book and vertical tests are reviewed. No application code, schema, database, storage, or canonical Phase 1 dataset changes are authorized.  
+**Compatibility:** Preserves D001's extraction/interpretation separation and D015's Phase 2 priority. Builds on, but does not rewrite, D016 and the BE2 U6–U8 / BE1 U1 experimental artifacts.  
+**Historical note:** The 2026-10-11 experimental process preference (treat BE2 U1/U6/U8 V3.1 analyses as unit SoT; prefer Cross-Unit V1.2 connections-only) is **superseded as the active development direction**. Those artifacts remain preserved research evidence under operating principle 4; they are not production-mandatory.  
+**Supersedes:** Prior D017 wording (2026-10-11 V3.1 + Cross-Unit V1.2 process preference)  
+**Does not supersede:** D001, D015, D016
 
 ---
 
@@ -289,3 +306,5 @@
 | 2026-10-09 | Added D015 — Phase 1 intentionally paused at 14/18; bounded Big-English-only Phase 2 experiments become the active priority without locking implementation or schema. |
 | 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |
 | 2026-10-11 | Added D017 — prefer V3.1 unit SoT + Cross-Unit V1.2 connections for BE2 experiments; explicitly not a methodology/schema lock. |
+| 2026-10-12 | Replaced D017 with Progressive Curriculum Intelligence; prior V3.1+V1.2 preference retained as historical research note only; next proposed experiment = BE2-SB U1–9 book overview (awaiting owner execution approval). |
+

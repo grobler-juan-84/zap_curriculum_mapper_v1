@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Phase 2 active lineage is V3.1 unit analysis + Cross-Unit V1.2 connections (experimental; D017); earlier LR experiments remain historical under D015/D016.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Active direction is D017 Progressive Curriculum Intelligence (minimum-sufficient Phase 2 Book Intelligence first). Earlier LR / V3.1 / V1.2 / e2e / enrichment work remains historical research under D015/D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -30,10 +30,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18 and makes bounded Big-English-only Phase 2 experiments the active priority. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18; D017 Progressive Curriculum Intelligence sets Book / Series / Teaching Intelligence labels and next BE2 U1–9 overview experiment. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Phase 2 V3.1 + Cross-Unit V1.2 experimental preference). | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Progressive Curriculum Intelligence). | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; F004 Phase 2 promoted by D015, Phase 3 remains parked, and four unfinished Phase 1 books are deferred as F016. | 1.0 | ACTIVE |
@@ -55,7 +55,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-1/curriculum-mapping-process.md](./phase-1/curriculum-mapping-process.md) | Source-of-truth process guide: phase responsibilities, traceability and evidence-driven evolution; current position is Phase 1 paused at 14/18 and bounded Phase 2 experiments active. | — | ACTIVE |
+| [phase-1/curriculum-mapping-process.md](./phase-1/curriculum-mapping-process.md) | Source-of-truth process guide: phase responsibilities under D017 (Book / Series / Teaching Intelligence); Phase 1 paused at 14/18; next proposed BE2 U1–9 book overview. | — | ACTIVE |
 | [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). | V2 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Authoritative Phase 1 data specification for extraction boundaries and verified-batch → merge → validation → audit workflow; Phase 1 is paused at 14/18 under D015. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
@@ -93,7 +93,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u08-v1-review.md](./phase-2/p2-exp-be2-u08-v1-review.md) | Unit 8 LR interpretation + three-unit method comparison; D016 candidate set LR experiments complete pending owner review. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
-| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status: active V3.1 + cross-unit lineage, historical LR inventory, explicit non-claims (methodology/schema still unlocked). | 1.1 | ACTIVE |
+| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: next proposed BE2 U1–9 book overview; LR/V3.1/V1.2/e2e/enrich as research history; methodology/schema unlocked. | 1.2 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Phase 2 planning SoT v2: purpose, philosophy, book/unit/page outputs, simplified methodology, expansion stages; beauty in simplicity. | — | ACTIVE |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -127,7 +127,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 61 | Current working docs, including index, operating trackers, Phase 2 V3.1 + e2e + cross-unit V1.2 docs, Phase 4 enrichment probe, experiment status, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 61 | Current working docs, including index, operating trackers, D017 Progressive Curriculum Intelligence direction, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 2 | Phase 6 handover spec; earlier Phase 2 unit+page output sketch v0.1 |
 | LOCKED | 0 | None currently frozen |
 

@@ -220,13 +220,13 @@ Derived intelligence should preserve sufficient references to determine which cu
 
 ---
 
-# 7. Phase 2 — AI Curriculum & Linguistic Interpretation
+# 7. Phase 2 — Book Intelligence / Horizontal Mapping
 
-Phase 2 interprets verified curriculum evidence.
+Phase 2 interprets verified curriculum evidence into concise book-level intelligence (D017).
 
 Its primary question is:
 
-> **What does this curriculum evidence mean educationally and linguistically?**
+> **What does this book teach unit by unit, in a form teachers can use—and that later phases can test?**
 
 Possible Phase 2 responsibilities may include interpreting:
 
@@ -257,13 +257,13 @@ Phase 2 outputs should remain identifiable as interpretation.
 
 They should not silently become Phase 1 book truth.
 
-**Current experimental practice (D017 — not a methodology lock):** unit-level V3.1 linguistic analyses are the unit source of truth; preferred cross-unit work uses connections-only V1.2 (≥2 units, exact source IDs). Cross-unit outputs must not rewrite unit findings. See [`phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md).
+**Current direction (D017 Progressive Curriculum Intelligence — not a methodology/schema lock):** Phase 2 aims for minimum-sufficient **Book Intelligence** (concise, teacher-readable horizontal overviews), not exhaustive unit analysis as production default. Earlier V3.1 / Cross-Unit V1.2 artifacts remain research evidence; see [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md).
 
 ---
 
-# 8. Phase 3 — Curriculum Connections & Vertical Mapping
+# 8. Phase 3 — Series Intelligence / Vertical Mapping
 
-Phase 3 examines relationships across curriculum evidence.
+Phase 3 examines linguistic progression across books in a series (D017).
 
 Its primary question is:
 
@@ -299,9 +299,9 @@ Phase 3 should use verified evidence and appropriate Phase 2 interpretation rath
 
 ---
 
-# 9. Phase 4 — Teacher Enrichment
+# 9. Phase 4 — Teaching Intelligence
 
-Phase 4 deliberately adds teacher-focused intelligence beyond the curriculum source.
+Phase 4 deliberately adds teacher-focused intelligence beyond the curriculum source (scaffolding, recycling, enrichment, preparation—D017).
 
 Its primary question is:
 

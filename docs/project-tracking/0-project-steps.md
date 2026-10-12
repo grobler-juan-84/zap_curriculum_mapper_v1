@@ -2232,4 +2232,25 @@
 
 ---
 
+### Step 127
+
+**Summary:** Adopted D017 Progressive Curriculum Intelligence as the locked development direction (replacing the prior V3.1+V1.2 process preference wording). Aligned overview, process, architecture, experiment status, and operating trackers; queued BE2-SB U1–9 book overview as the next proposed experiment (awaiting owner execution approval). Deleted staging D017 file after merge into decisions.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/D017-progressive-curriculum-intelligence.md` (deleted)
+- `docs/1-project-overview.md` (updated)
+- `docs/phase-1/curriculum-mapping-process.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

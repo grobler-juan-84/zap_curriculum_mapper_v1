@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 125
+**Last updated:** Step 127
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,17 +14,17 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- Phase 2 **V3.1** unit SoT for BE2-SB Units **1, 6, 8**.
+- Early Phase 2 research: D016 LR experiments; BE2 U1/U6/U8 V3.1; Cross-Unit V1.2; U6 e2e teacher-brief and enrichment probes (preserved as research evidence).
 
-- Cross-Unit **V1.2** connections JSON validated (8 multi-unit connections; schema + local IDs pass). V1.1 consolidation kept as history. D017.
+- **D017 Progressive Curriculum Intelligence** recorded — minimum-sufficient Book Intelligence first; expand only when downstream tests require it.
 
 ## In progress
 
-- Bounded **end-to-end** experiment: how V3.1 + V1.2 findings influence a later curriculum phase — before whole-book scale.
+- Documentation/direction alignment to D017 complete; waiting on owner approval to run the next experiment.
 
 ## Next
 
-- Define and run that end-to-end later-phase influence experiment using BE2 U1/U6/U8 inputs.
+- **Proposed (awaiting owner execution approval):** Big English 2 SB Units 1–9 — concise Phase 2 whole-book curriculum overview from existing Phase 1 evidence; evaluate fidelity, teacher readability, and sufficiency for an initial BE1 → BE2 → BE3 vertical test.
 
 ## Blocked
 
@@ -36,6 +36,8 @@
 
 - Active Git branch: `phase-2`.
 
-- Status detail: [`phase-2/p2-exp-be2-v3.1-cross-unit-status.md`](./phase-2/p2-exp-be2-v3.1-cross-unit-status.md)
+- Status detail: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md)
 
 - **Phase 1:** PAUSED at 14 / 18 COMPLETE.
+
+- Direction: [`4-decisions.md`](./4-decisions.md) D017.
