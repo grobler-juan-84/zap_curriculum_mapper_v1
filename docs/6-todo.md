@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 130
+**Last updated:** Step 131
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -34,15 +34,17 @@
 
 - [x] Record ChatGPT owner review of BE2-SB U1–9 overview (not accepted; publisher comparison proposed).
 
+- [x] Run D017 v2 second pass: refine BE2-SB U1–9 overview; compare vs publisher Scope and Sequence; assess Learning Outcomes; correct U3/U6/U8 Phase 2 omissions from Phase 1 evidence.
+
 ## Now
 
-- [ ] Await owner approval, then compare D017 overview vs official Big English 2 publisher curriculum overview (~90% meaningful coverage as review target only; omissions vs unsupported additions; Phase 1 JSON for discrepancies).
+- [ ] Owner review of D017 v2 overview candidate (accept as working baseline or request further tweaks — still no schema lock).
 
 ## Soon
 
-- [ ] Verify flagged potential gaps (U3 old/new; U6 telling-time variants; U8 habitats) during or after publisher comparison.
+- [ ] If v2 is endorsed: teacher-validation pass on book-overview readability.
 
-- [ ] If comparison supports it: teacher-validation pass on book-overview readability.
+- [ ] Optional (owner approval required): targeted Phase 1 extraction improvement to capture exact I Can checklist lines on BE2-SB review pages.
 
 - [ ] After overview validation path: initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
 

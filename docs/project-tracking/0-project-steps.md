@@ -2303,4 +2303,21 @@
 
 ---
 
+### Step 131
+
+**Summary:** Executed D017 Phase 2 second pass for BE2-SB Units 1–9: created v2 eight-column overview candidate (v1 preserved), validated against publisher Scope and Sequence (~92% meaningful coverage AI-assessed), corrected U3/U6/U8 omissions from Phase 1 evidence, and recorded Learning Outcomes consistency notes. v2 remains experimental / not accepted; D018 stays PROPOSED.
+
+**Files touched:**
+- `docs/phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md` (created)
+- `docs/phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

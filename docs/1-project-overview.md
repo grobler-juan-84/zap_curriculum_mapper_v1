@@ -174,7 +174,7 @@ The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and R
 
 Active direction is **D017 Progressive Curriculum Intelligence**: start with minimum-sufficient Phase 2 book intelligence, then expand only when downstream tests show a real need. Immediate Phase 2 work stays on completed Big English datasets (Beehive and Reach Higher excluded for now).
 
-**Next proposed experiment** (awaiting owner execution approval): Big English 2 Student Book Units 1–9 — a concise whole-book curriculum overview from existing Phase 1 evidence, using the publisher overview as a density benchmark (not a fixed schema). Evaluate fidelity, teacher readability, and sufficiency for an initial BE1 → BE2 → BE3 vertical test.
+**Latest Book Intelligence experiment:** Big English 2 Student Book Units 1–9 — D017 v1 overview preserved; v2 comparison candidate executed (publisher S&S validated; ~90% meaningful coverage AI-assessed). **Not accepted / not production-ready.** Soft next: owner review of v2, then optional teacher-validation and BE1 → BE2 → BE3 vertical sufficiency probe.
 
 **Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and the U6 e2e / enrichment probes remain preserved evidence under D017 principle 4.
 
