@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 133
+**Last updated:** Step 134
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,27 +14,25 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **D017** locked; BE2-SB v2 owner-approved as provisional Book Intelligence working baseline.
+- **D017** locked; BE2-SB v2 owner-approved provisional Book Intelligence working baseline.
 
-- **BE1-SB and BE3-SB** eight-column D017-pattern overviews generated from verified Phase 1 evidence (experimental; not accepted).
+- BE1/BE3 eight-column overviews + BE1→BE2→BE3 vertical sufficiency probe executed (experimental).
 
-- **BE1→BE2→BE3 vertical sufficiency probe** completed: coarse progression signals visible; minimum-sufficient for bounded Series Intelligence experiments; not enough to lock Phase 3.
-
-- Phase 1 improvement ideas F017 / F018 remain parked. Teacher-readability validation deferred to Chalkie workspace (not an active Phase 2 blocker).
+- **BE3 diagnostic vs publisher S&S** completed: weaker alignment driven mainly by missing Writing presentation + LO under-inference; Phase 1 writing evidence present for all nine units. No methodology change.
 
 ## In progress
 
-- Owner review of BE1/BE3 overviews and the vertical sufficiency recommendation.
+- Experimental sequence: Diagnose BE3 (**done**) → Test BE5 unchanged → Refine once → Validate on unseen book.
 
 ## Next
 
-- Owner accept/tweak BE1 and BE3 overviews (still no schema lock).
+- Owner review of BE3 diagnostic.
 
-- If endorsed: bounded Series Intelligence follow-up using the three overviews (still not Phase 3 productization).
+- If endorsed: run BE5 Book Intelligence overview **unchanged** (same eight-column / BE2-based method) and monitor Writing / LO patterns.
 
 ## Blocked
 
-- Soft: BE1/BE3 overviews awaiting owner review. Exact I Can (BE2/BE3) and checkpoint extraction remain parked (F017 / F018).
+- Soft: awaiting owner review of BE3 diagnostic before BE5 run. F017 / F018 remain parked.
 
 ---
 
@@ -42,10 +40,10 @@
 
 - Active Git branch: `phase-2`.
 
-- BE2 working baseline: [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md)
+- BE2 baseline: [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md)
 
-- New artifacts: [`phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md) · [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md) · [`phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md`](./phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md)
+- BE3 diagnostic: [`phase-2/experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./phase-2/experiments/be3-book-intelligence-diagnostic-d017-v1.md)
 
 - Status detail: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md)
 
-- Direction: [`4-decisions.md`](./4-decisions.md) D017 (LOCKED). D018 remains PROPOSED only.
+- Direction: D017 LOCKED; D018 PROPOSED only.

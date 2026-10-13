@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.7  
+**Version:** 1.8  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,7 +17,8 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner review of BE1/BE3 overviews + vertical recommendation |
+| Next proposed step | Owner review of BE3 diagnostic; then Test BE5 unchanged (if endorsed) |
+| BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | Methodology / schema | **Experimental — NOT LOCKED** |
 | Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
@@ -60,6 +61,12 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 - Combined horizontal + vertical probe: [`experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md`](./experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md)
 
 **Result (AI-assessed):** Eight-column pattern transfers. Vertical probe finds meaningful coarse progression (e.g. animals/can/habitats; food quantity; time/routines; jobs; present continuous). Sufficient for bounded Series Intelligence experiments; **not** sufficient to lock Phase 3 or automate entity-level vertical graphs. BE1/BE3 **not accepted** pending owner review. BE2 v1/v2 unchanged.
+
+### BE3 diagnostic vs publisher S&S (2026-10-13)
+
+**Artifact:** [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md)
+
+**Finding:** Weaker BE3 publisher alignment is driven mainly by **Presentation** (no Writing column vs publisher Writing strand) and **Inference** (LOs underweight writing/metalanguage I Can items). Phase 1 already has writing components for all nine units — not a primary Evidence failure. Core Structures mostly OK. **Do not refine yet** — next is Test BE5 unchanged. No overview/prompt/data changes in this step.
 
 ---
 
@@ -135,3 +142,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-13 | Executed D017 v2 second pass + publisher S&S comparison; U3/U6/U8 gaps corrected; v2 not accepted; awaiting owner review. |
 | 2026-10-13 | Owner approved v2 as provisional Book Intelligence working baseline; format/methodology/schema still not locked; F017/F018 parked. |
 | 2026-10-13 | BE1/BE3 overviews + BE1→BE2→BE3 vertical sufficiency probe executed; awaiting owner review; not a Phase 3 start. |
+| 2026-10-13 | BE3 diagnostic vs publisher S&S: Writing presentation + LO inference gaps confirmed; recommend Test BE5 unchanged before refine. |

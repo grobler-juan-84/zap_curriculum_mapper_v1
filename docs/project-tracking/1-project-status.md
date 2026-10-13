@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 133  
+**Last updated:** Step 134  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED at 14/18; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
-- BE1/BE3 eight-column overviews + BE1→BE2→BE3 vertical sufficiency probe executed (experimental).
+- Phase 1 PAUSED; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
+- BE1/BE3 overviews + vertical probe executed; BE3 S&S diagnostic completed (Writing/LO gaps).
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner review of BE1/BE3 overviews and the vertical sufficiency recommendation.
+On branch `phase-2`. Awaiting owner review of BE3 diagnostic before Test BE5 unchanged.
 
 ## Next small step
 
-**Suggestion:** Owner review BE1/BE3 overviews + probe recommendation; then decide whether to run a bounded Series Intelligence follow-up (still no Phase 3 lock).
+**Suggestion:** Owner review [`../phase-2/experiments/be3-book-intelligence-diagnostic-d017-v1.md`](../phase-2/experiments/be3-book-intelligence-diagnostic-d017-v1.md); if endorsed, run BE5 overview with unchanged methodology.

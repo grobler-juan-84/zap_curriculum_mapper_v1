@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 133
+**Last updated:** Step 134
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -34,19 +34,21 @@
 
 - [x] Record ChatGPT owner review of BE2-SB U1–9 overview (not accepted; publisher comparison proposed).
 
-- [x] Run D017 v2 second pass: refine BE2-SB U1–9 overview; compare vs publisher Scope and Sequence; assess Learning Outcomes; correct U3/U6/U8 Phase 2 omissions from Phase 1 evidence.
+- [x] Run D017 v2 second pass; owner approve v2 provisional baseline; park F017 / F018.
 
-- [x] Owner approve D017 v2 as provisional Phase 2 Book Intelligence working baseline (format/methodology/schema still not locked); park Phase 1 S&S / checkpoint extraction ideas as F017 / F018.
+- [x] Generate BE1-SB and BE3-SB D017-pattern Book Intelligence overviews; run vertical sufficiency probe.
 
-- [x] Generate BE1-SB and BE3-SB D017-pattern Book Intelligence overviews; run horizontal consistency + BE1→BE2→BE3 vertical sufficiency probe.
+- [x] Diagnose BE3 overview vs publisher Scope & Sequence (Writing / LO gaps); no methodology change.
 
 ## Now
 
-- [ ] Owner review of BE1/BE3 overviews + vertical sufficiency recommendation (accept/tweak; still no schema lock).
+- [ ] Owner review of BE3 diagnostic report.
 
 ## Soon
 
-- [ ] If BE1/BE3 endorsed: bounded Series Intelligence follow-up using the three overviews (not Phase 3 productization).
+- [ ] If diagnostic endorsed: Test BE5 Book Intelligence overview **unchanged** (monitor Writing column mismatch + LO writing/metalanguage drift).
+
+- [ ] After BE5: Refine once (only if pattern confirmed), then validate on an unseen book.
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 
@@ -55,6 +57,8 @@
 ## Deferred
 
 - [ ] Teacher-readability validation via Chalkie workspace (deferred; not an active Phase 2 blocker).
+
+- [ ] Owner review/accept of BE1/BE3 overviews as working baselines (separate from diagnostic).
 
 - [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after explicit owner decision (D015).
 

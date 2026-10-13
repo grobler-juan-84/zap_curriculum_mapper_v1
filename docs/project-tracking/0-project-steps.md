@@ -2355,4 +2355,19 @@
 
 ---
 
+### Step 134
+
+**Summary:** Diagnosed BE3 Book Intelligence overview against publisher Scope & Sequence: weaker alignment driven mainly by missing Writing-column presentation and under-inferred writing/metalanguage Learning Outcomes, while Phase 1 writing components exist for all nine units. Recommended Test BE5 unchanged before any refine. No overview/prompt/data changes.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-book-intelligence-diagnostic-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
