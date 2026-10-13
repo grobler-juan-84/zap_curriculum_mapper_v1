@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.8  
+**Version:** 1.9  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,8 +17,9 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner review of BE3 diagnostic; then Test BE5 unchanged (if endorsed) |
+| Next proposed step | Owner review of BE5 baseline; then Refine once (if endorsed) |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
+| BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; **not accepted**; publisher S&S unavailable (diagnostic deferred) |
 | Methodology / schema | **Experimental — NOT LOCKED** |
 | Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
@@ -68,6 +69,18 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 
 **Finding:** Weaker BE3 publisher alignment is driven mainly by **Presentation** (no Writing column vs publisher Writing strand) and **Inference** (LOs underweight writing/metalanguage I Can items). Phase 1 already has writing components for all nine units — not a primary Evidence failure. Core Structures mostly OK. **Do not refine yet** — next is Test BE5 unchanged. No overview/prompt/data changes in this step.
 
+### BE5 baseline stress test — unchanged method (2026-10-13)
+
+**Artifact:** [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md)
+
+**Controls observed:** Generated from Phase 1 canonical only **before** consulting BE5 publisher S&S or applying BE3-informed methodology changes. Same eight columns; no Writing column; LOs AI-inferred; BE1/BE2/BE3 artifacts untouched.
+
+**Result (AI-assessed, Phase 1 only):** Method transferred. Grammar denser (gerunds, *used to*, *going to*, present perfect, past continuous, *will*, *may/might*, zero conditional, passive, relative clauses, *for/since*). Writing components exist in Phase 1 for U1–5 and U7–9 (none for U6) but remain untabled — same **Presentation** pattern as BE3. LO writing/genre titles not promoted — same **Inference** risk. New soft issues: U3 thin language rows; U6 values title uncertain; empty `full_text` on some language rows.
+
+**Publisher diagnostic:** **Deferred** — no BE5 Scope & Sequence PDF found locally (unlike BE1/BE2/BE3). No `be5-book-intelligence-diagnostic-d017-v1.md` created.
+
+**Status:** Overview **not accepted**. Awaiting owner review before Step 3 (Refine once).
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -108,7 +121,7 @@ Preserved research artifacts; **not** the active production direction under D017
 ## 6. What carries forward
 
 - Verified Phase 1 Big English datasets (local / Storage).
-- BE2 D017 **v2** provisional working baseline; BE2 **v1** preserved; BE1/BE3 experimental overviews awaiting owner review.
+- BE2 D017 **v2** provisional working baseline; BE2 **v1** preserved; BE1/BE3/BE5 experimental overviews awaiting owner review.
 - Vertical sufficiency probe: coarse progression signals exist; Series Intelligence may proceed experimentally without Phase 3 lock.
 - Research artifacts above as evidence, not mandatory production depth.
 - Parked Phase 1 extraction ideas: F017 / F018 in [`../7-future.md`](../7-future.md).

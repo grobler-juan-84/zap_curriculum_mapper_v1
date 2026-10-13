@@ -2370,4 +2370,19 @@
 
 ---
 
+### Step 135
+
+**Summary:** Generated BE5-SB Units 1–9 Book Intelligence overview with the unchanged D017 eight-column method from Phase 1 only (no Writing column; no post-BE3 inference changes). Publisher BE5 S&S not available locally, so the separate publisher diagnostic was deferred. BE1/BE2/BE3 artifacts and Phase 1 data untouched; overview not accepted.
+
+**Files touched:**
+- `docs/phase-2/experiments/be5-sb-u01-u09-book-overview-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
