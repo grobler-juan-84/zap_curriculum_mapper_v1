@@ -2402,4 +2402,21 @@
 
 ---
 
+### Step 137
+
+**Summary:** Executed BE3 combined A+B Book Intelligence experiment (writing-aware LOs plus Writing column from Phase 1, with differentiated column roles). Produced three-way A/B/A+B comparison and concise owner-review pack. Preserved A/B/control and BE2 v2 baseline; no overview approved and methodology not locked.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md` (created)
+- `docs/phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

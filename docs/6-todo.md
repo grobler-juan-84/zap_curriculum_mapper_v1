@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 136
+**Last updated:** Step 137
 
 
 
@@ -94,19 +94,19 @@
 
 
 
+- [x] BE3 combined A+B overview + three-way comparison + owner-review pack.
+
+
+
 ## Now
 
 
 
-- [ ] Owner review of BE3 Exp A / Exp B / comparison; decide next step (combined A+B vs other).
+- [ ] Owner review of BE3 Exp A / B / A+B together; choose preferred path (no auto-approval).
 
 
 
 ## Soon
-
-
-
-- [ ] If endorsed: run combined A+B on BE3 only (still experimental; no methodology lock).
 
 
 

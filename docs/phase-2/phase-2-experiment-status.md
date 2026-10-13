@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.10  
+**Version:** 1.11  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,10 +17,11 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner review of BE3 A/B comparison; optional combined A+B if endorsed |
+| Next proposed step | Owner review of A, B, and A+B together — choose preference; no auto-approval |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
-| BE3 Step 3 A/B refine | Exp A + Exp B + comparison completed; **not accepted**; methodology **not locked** |
+| BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
+| BE3 combined A+B | Executed; three-way comparison + owner-review pack; **not accepted**; methodology **not locked** |
 | Methodology / schema | **Experimental — NOT LOCKED** |
 | Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
@@ -91,7 +92,18 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 
 **Controls:** Control v1 preserved. A and B generated from Phase 1 only (publisher targets not used in drafting). Evaluation = **partial publisher-reference validation** against diagnostic S&S transcriptions; original BE3 S&S PDF missing locally.
 
-**Result (AI-assessed):** Both hypotheses partially correct and complementary. A restores writing in Learning Outcomes (9/9); B restores dedicated Writing-column visibility (9/9). Neither alone covers both LO writing goals and strand scanning. Grammar/Functions preserved vs control. Combined A+B justified as next controlled test — **not executed**. No overview approved; methodology not locked; BE2 v2 baseline unchanged.
+**Result (AI-assessed):** Both hypotheses partially correct and complementary. A restores writing in Learning Outcomes (9/9); B restores dedicated Writing-column visibility (9/9). Neither alone covers both LO writing goals and strand scanning. Grammar/Functions preserved vs control. Combined A+B justified as next controlled test. No overview approved; methodology not locked; BE2 v2 baseline unchanged.
+
+### BE3 combined A+B experiment (2026-10-13)
+
+**Artifacts:**
+- Combined overview: [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
+- Three-way comparison (A vs B vs A+B): [`experiments/be3-methodology-a-b-ab-comparison-d017-v1.md`](./experiments/be3-methodology-a-b-ab-comparison-d017-v1.md)
+- Owner-review pack: [`experiments/be3-ab-combined-owner-review-d017-v1.md`](./experiments/be3-ab-combined-owner-review-d017-v1.md)
+
+**Controls:** A/B/control and BE2 v2 baseline untouched. Phase 1 only for generation; LO = demonstrable capabilities, Writing = craft/form/task labels (related but not identical wording).
+
+**Result (AI-assessed):** A+B is the only variant covering both writing-in-LO and Writing-column visibility. Grammar/Functions preserved. Moderate intentional LO↔Writing relatedness (no exact duplicates). Denser/wider than B; not automatically superior for every book. **Not accepted**; methodology **not locked**.
 
 ---
 
@@ -170,3 +182,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-13 | BE3 diagnostic vs publisher S&S: Writing presentation + LO inference gaps confirmed; recommend Test BE5 unchanged before refine. |
 | 2026-10-13 | BE5 unchanged baseline overview generated; publisher S&S unavailable; diagnostic deferred. |
 | 2026-10-13 | BE3 Step 3 A/B refine + partial publisher-reference comparison; both hypotheses complementary; combined A+B suggested; await owner review. |
+| 2026-10-13 | BE3 combined A+B overview + three-way comparison + owner-review pack; dual writing coverage with density trade-off; stop for owner review of A/B/A+B. |

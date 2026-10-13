@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 136
+**Last updated:** Step 137
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,25 +18,23 @@
 
 - BE1/BE3 eight-column overviews + BE1→BE2→BE3 vertical sufficiency probe executed (experimental).
 
-- **BE3 diagnostic vs publisher S&S** completed: weaker alignment driven mainly by missing Writing presentation + LO under-inference; Phase 1 writing evidence present for all nine units.
+- **BE3 diagnostic vs publisher S&S** completed: Writing presentation + LO under-inference gaps; Phase 1 writing evidence present for all nine units.
 
-- **BE5 baseline stress test** completed: unchanged eight-column overview from Phase 1 only; **accepted as stress test only**, not as approved curriculum overview. Publisher BE5 S&S unavailable.
+- **BE5 baseline stress test** completed (stress-test only; not approved overview).
 
-- **BE3 Step 3 A/B refinement** completed: Exp A (inference-only writing LOs) and Exp B (Writing column only), plus partial publisher-reference comparison vs diagnostic S&S transcriptions. Neither overview approved; methodology not locked.
+- **BE3 Step 3 A / B / A+B** completed: inference-only, Writing-column-only, and combined overviews plus three-way comparison and owner-review pack. None approved; methodology not locked.
 
 ## In progress
 
-- Owner review of BE3 A/B comparison; decide whether to authorize combined A+B (or another next step).
+- Owner review of BE3 Experiments **A, B, and A+B together**.
 
 ## Next
 
-- Owner review of [`phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md`](./phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md).
-
-- If endorsed: controlled combined A+B on BE3 only — still no global methodology lock.
+- Owner chooses preferred BE3 refinement path (A, B, A+B, hybrid, or pause) — still no global methodology lock and no BE2 v2 baseline change.
 
 ## Blocked
 
-- Soft: original BE3 S&S PDF still missing locally (evaluation used diagnostic transcriptions only). Soft: BE5 publisher S&S still unavailable. F017 / F018 remain parked.
+- Soft: original BE3 S&S PDF still missing locally; BE5 publisher S&S still unavailable. F017 / F018 remain parked.
 
 ---
 
@@ -44,10 +42,10 @@
 
 - Active Git branch: `phase-2`.
 
-- BE2 baseline: [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md)
+- Owner-review pack: [`phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md)
 
-- BE3 Exp A/B + comparison: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-a.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-a.md), [`…-exp-b.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-b.md), [`be3-methodology-refinement-comparison-d017-v1.md`](./phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md)
+- Combined overview: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
-- Status detail: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md)
+- Three-way comparison: [`phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md`](./phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md)
 
 - Direction: D017 LOCKED; D018 PROPOSED only.

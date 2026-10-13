@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 136  
+**Last updated:** Step 137  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
 - Phase 1 PAUSED; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
-- BE1/BE3 overviews + vertical probe; BE3 S&S diagnostic; BE5 stress-test overview.
-- BE3 Step 3 Exp A / Exp B + partial publisher-reference comparison completed (not approved; methodology not locked).
+- BE3 A / B / A+B methodology experiments + three-way comparison + owner-review pack completed.
+- None of A/B/A+B approved; methodology not locked; BE2 v2 unchanged.
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner review of BE3 A/B refinement comparison.
+On branch `phase-2`. Awaiting owner review of BE3 Experiments A, B, and A+B together.
 
 ## Next small step
 
-**Suggestion:** Review [`../phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md`](../phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md); authorize combined A+B on BE3 only if both LO writing goals and Writing-column visibility remain success criteria.
+**Suggestion:** Start with [`../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md); choose A, B, A+B, hybrid, or pause — without locking methodology.
