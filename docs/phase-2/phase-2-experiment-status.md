@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.5  
+**Version:** 1.6  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -14,33 +14,40 @@
 | Git branch | `phase-2` |
 | Phase 1 | PAUSED at 14/18 COMPLETE (D015) |
 | Active direction | D017 Progressive Curriculum Intelligence — Book Intelligence first |
-| Latest Book Intelligence experiment | D017 **v2** comparison candidate executed; **v1 preserved**; neither formally accepted |
-| Next proposed step | Owner review of v2 (endorse as working baseline or request tweaks) |
-| Methodology / schema | **Experimental — NOT LOCKED** |
+| Book Intelligence working baseline | D017 **v2** — **owner-approved provisional working baseline** (2026-10-13); **v1 preserved unchanged** |
+| Next proposed step | Soft teacher-validation of v2 readability; then BE1→BE2→BE3 vertical sufficiency probe |
+| Methodology / schema | **Experimental — NOT LOCKED** (eight-column structure approved for continued experimentation only) |
 | Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** (not approved / not recorded as LOCKED) |
+| Parked Phase 1 ideas | F017 (publisher curriculum plans / I Can); F018 (review / checkpoint sections) — not approved for implementation |
 | Research inventory (V3.1 + cross-unit) | [`p2-exp-be2-v3.1-cross-unit-status.md`](./p2-exp-be2-v3.1-cross-unit-status.md) |
 
 ---
 
 ## 2. D017 Book Intelligence experiments
 
-### v1 (preserved baseline)
+### v1 (preserved experiment artifact)
 
 **Artifact:** [`experiments/be2-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v1.md)
 
-ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; **not formally accepted**; flagged U3 old/new, U6 telling-time variants, U8 habitats; proposed publisher comparison.
+ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagged U3 old/new, U6 telling-time variants, U8 habitats; proposed publisher comparison. Artifact kept unchanged for comparison history.
 
-### v2 (comparison candidate — 2026-10-13)
+### v2 (provisional working baseline — owner-approved 2026-10-13)
 
-**Artifacts:**
+**Artifacts (unchanged content; status recorded here):**
 - Overview: [`experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v2.md)
 - Review bundle (v1 vs v2 + publisher comparison + LO assessment): [`experiments/be2-sb-u01-u09-overview-v2-review.md`](./experiments/be2-sb-u01-u09-overview-v2-review.md)
 
-**What changed:** eight-column layout (CLIL/Culture, Values, Phonics split); corrected flagged U3/U6/U8 omissions using Phase 1 evidence; Learning Outcomes still AI-inferred but meaning-aligned to publisher I Can where Phase 1 supports.
+**Owner approval (2026-10-13):**
+- Accept v2 as the **provisional Phase 2 Book Intelligence working baseline**.
+- Eight-column structure approved for **continued experimentation**.
+- ~92% AI-assessed publisher coverage is **sufficient for now**.
+- Learning Outcomes remain concise and **AI-inferred**.
+- D017 remains LOCKED; Phase 2 **format / methodology / schema are NOT locked**.
+- Preserve v1 and v2 experiment artifacts unchanged.
 
-**Publisher comparison (AI-assessed):** ~**92%** meaningful coverage vs official Scope and Sequence (review target ~90%; not a locked production threshold). Flagged gaps were Phase 2 interpretation omissions, not Phase 1 extraction gaps. Soft upstream note: exact I Can sentence text still missing from Phase 1.
+**What v2 refined:** eight-column layout; corrected flagged U3/U6/U8 omissions from Phase 1 evidence; outcomes meaning-aligned where Phase 1 supports.
 
-**Non-claims:** v2 is **not** accepted, **not** production-ready, and does **not** lock methodology/schema. D018 remains PROPOSED only.
+**Still not claimed:** production-ready standard; methodology lock; schema lock; D018.
 
 ---
 
@@ -82,10 +89,11 @@ Preserved research artifacts; **not** the active production direction under D017
 ## 6. What carries forward
 
 - Verified Phase 1 Big English datasets (local / Storage).
-- D017 v1 overview as preserved baseline; v2 as refined comparison candidate (**neither accepted**).
+- D017 **v2** as provisional Book Intelligence working baseline; **v1** preserved as experiment history.
 - D017 progressive method: validate before expanding; minimum sufficient output.
 - Research artifacts above as evidence, not mandatory production depth.
 - Soft open item: teacher validation of overview readability still pending.
+- Parked Phase 1 extraction ideas: F017 / F018 in [`../7-future.md`](../7-future.md).
 
 ---
 
@@ -93,11 +101,12 @@ Preserved research artifacts; **not** the active production direction under D017
 
 - Phase 2 is **not** product-complete.
 - No Phase 2 JSON schema or pipeline is approved.
+- Owner approval of v2 as a **working baseline** does **not** lock format, methodology, or schema.
 - Historical V3.1 / V1.2 success does **not** lock methodology or define production output.
-- BE2 U1–9 overviews (v1 and v2) remain **experimental** — **not formally accepted**.
-- ~90% meaningful coverage is a **comparison review target**, not a locked production threshold.
+- ~92% meaningful coverage is **sufficient for now**, not a locked production threshold.
 - Phase 3 / Phase 4 are **not** formally started.
 - D018 (if discussed) remains **PROPOSED only**.
+- F017 / F018 are **PARKED** — not approved for implementation.
 
 ---
 
@@ -112,3 +121,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-12 | Executed BE2-SB U1–9 D017 v1 book overview experiment; status → completed / awaiting owner review. |
 | 2026-10-12 | Recorded ChatGPT owner review findings; overview not accepted; next proposed = publisher overview comparison (~90% coverage target, non-binding). |
 | 2026-10-13 | Executed D017 v2 second pass + publisher S&S comparison; U3/U6/U8 gaps corrected; v2 not accepted; awaiting owner review. |
+| 2026-10-13 | Owner approved v2 as provisional Book Intelligence working baseline; format/methodology/schema still not locked; F017/F018 parked. |

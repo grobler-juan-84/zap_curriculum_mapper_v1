@@ -2320,4 +2320,20 @@
 
 ---
 
+### Step 132
+
+**Summary:** Recorded owner approval of D017 v2 as the provisional Phase 2 Book Intelligence working baseline (eight-column structure for continued experimentation; format/methodology/schema still not locked). Parked Phase 1 publisher curriculum-plan and review/checkpoint extraction ideas as F017/F018. Left v1/v2 experiment artifacts unchanged; D018 remains PROPOSED.
+
+**Files touched:**
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

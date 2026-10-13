@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 119  
+**Last updated:** Step 132  
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 2 iteration.
 
 ---
@@ -24,7 +24,7 @@
 | F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
 | F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
-| F005 | Phase 3 Series Intelligence / vertical mapping products | Parked under D017 until a useful Phase 2 book overview exists and vertical sufficiency is tested | architecture / D017 |
+| F005 | Phase 3 Series Intelligence / vertical mapping products | Parked under D017; BE2-SB overview working baseline now exists — still wait for an explicit vertical sufficiency probe before Phase 3 product work | architecture / D017 |
 | F006 | Phase 4 teacher enrichment productization | Philosophy exists; no enrichment engine work yet | phase-4 doc |
 | F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai handover patterns) | Parked handover spec; not current priority | phase-6 doc |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
@@ -36,6 +36,13 @@
 | F014 | Delete unused Supabase Storage `book-sources` PDF objects | D012 stops using them but leaves objects in place; delete only after sustained R2-only confidence | D012 / 2026-10-08 |
 | ~~F015~~ | ~~Validation PDF viewer printed-page ↔ PDF-index navigation mismatch when source pages are absent~~ | **Resolved 2026-10-09 (D014):** viewer now navigates by extracted `pdf_page` and labels printed pages. Triggered by BE3-SB Units 5–9 (pp. 66–67 missing). | BE1-WB U9 verify 2026-10-08 |
 | F016 | Complete Phase 1 for BH2, RH2B, RH3A and RH4A | Intentionally deferred by D015 while controlled Phase 2 experiments use the completed Big English sequence | D015 |
+| F017 | Optional Phase 1 extraction of publisher curriculum plans (Scope and Sequence), including exact “I Can” / publisher-stated outcomes with page refs; keep publisher evidence distinct from AI inference | Not needed for current D017 v2 working baseline (~92% coverage sufficient); avoid prompt/dataset churn while validating Book Intelligence | owner park 2026-10-13 |
+| F018 | Optional Phase 1 extraction of dedicated review / checkpoint sections outside normal units (e.g. Big English checkpoints after U1–3, U4–6, U7–9; other series may differ); identify what prior content is reviewed, reinforced, or assessed | Out of current Units 1–9 Book Intelligence scope; do not expand extraction until a clear downstream need appears | owner park 2026-10-13 |
+
+### F017 / F018 notes (PARKED — not approved)
+
+- **Do not** modify extraction prompts, canonical JSON, schemas, or existing datasets for these ideas without explicit owner approval.
+- D017 v2 Learning Outcomes remain concise and **AI-inferred** until/unless F017 is deliberately promoted.
 
 ### PDF Delivery Scalability — Future Consideration
 

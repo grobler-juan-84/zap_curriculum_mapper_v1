@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 131
+**Last updated:** Step 132
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -36,17 +36,15 @@
 
 - [x] Run D017 v2 second pass: refine BE2-SB U1–9 overview; compare vs publisher Scope and Sequence; assess Learning Outcomes; correct U3/U6/U8 Phase 2 omissions from Phase 1 evidence.
 
+- [x] Owner approve D017 v2 as provisional Phase 2 Book Intelligence working baseline (format/methodology/schema still not locked); park Phase 1 S&S / checkpoint extraction ideas as F017 / F018.
+
 ## Now
 
-- [ ] Owner review of D017 v2 overview candidate (accept as working baseline or request further tweaks — still no schema lock).
+- [ ] Soft: teacher-validation pass on D017 v2 book-overview readability.
 
 ## Soon
 
-- [ ] If v2 is endorsed: teacher-validation pass on book-overview readability.
-
-- [ ] Optional (owner approval required): targeted Phase 1 extraction improvement to capture exact I Can checklist lines on BE2-SB review pages.
-
-- [ ] After overview validation path: initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
+- [ ] Initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 
@@ -61,6 +59,8 @@
 - [ ] Phase 2 infrastructure (admin workspace, job queues, automation pipelines) — only when a real problem justifies it.
 
 - [ ] Expand Phase 2 beyond Big English (Beehive / Reach Higher) — only after Big English progressive tests justify it.
+
+- [ ] F017 / F018 Phase 1 extraction improvements — parked; do not implement without explicit owner approval.
 
 ---
 
