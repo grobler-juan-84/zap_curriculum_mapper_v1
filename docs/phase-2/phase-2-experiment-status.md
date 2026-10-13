@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.9  
+**Version:** 1.10  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,9 +17,10 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner review of BE5 baseline; then Refine once (if endorsed) |
+| Next proposed step | Owner review of BE3 A/B comparison; optional combined A+B if endorsed |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
-| BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; **not accepted**; publisher S&S unavailable (diagnostic deferred) |
+| BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
+| BE3 Step 3 A/B refine | Exp A + Exp B + comparison completed; **not accepted**; methodology **not locked** |
 | Methodology / schema | **Experimental — NOT LOCKED** |
 | Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
@@ -79,7 +80,18 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 
 **Publisher diagnostic:** **Deferred** — no BE5 Scope & Sequence PDF found locally (unlike BE1/BE2/BE3). No `be5-book-intelligence-diagnostic-d017-v1.md` created.
 
-**Status:** Overview **not accepted**. Awaiting owner review before Step 3 (Refine once).
+**Status:** Overview **not accepted** as curriculum overview; owner accepted as **baseline stress test only**. Writing underrepresentation recurred (supports BE3 diagnosis).
+
+### BE3 Step 3 — controlled A/B methodology refinement (2026-10-13)
+
+**Artifacts:**
+- Exp A (inference only): [`experiments/be3-sb-u01-u09-book-overview-d017-exp-a.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-a.md)
+- Exp B (Writing column only): [`experiments/be3-sb-u01-u09-book-overview-d017-exp-b.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-b.md)
+- Comparison: [`experiments/be3-methodology-refinement-comparison-d017-v1.md`](./experiments/be3-methodology-refinement-comparison-d017-v1.md)
+
+**Controls:** Control v1 preserved. A and B generated from Phase 1 only (publisher targets not used in drafting). Evaluation = **partial publisher-reference validation** against diagnostic S&S transcriptions; original BE3 S&S PDF missing locally.
+
+**Result (AI-assessed):** Both hypotheses partially correct and complementary. A restores writing in Learning Outcomes (9/9); B restores dedicated Writing-column visibility (9/9). Neither alone covers both LO writing goals and strand scanning. Grammar/Functions preserved vs control. Combined A+B justified as next controlled test — **not executed**. No overview approved; methodology not locked; BE2 v2 baseline unchanged.
 
 ---
 
@@ -156,3 +168,5 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-13 | Owner approved v2 as provisional Book Intelligence working baseline; format/methodology/schema still not locked; F017/F018 parked. |
 | 2026-10-13 | BE1/BE3 overviews + BE1→BE2→BE3 vertical sufficiency probe executed; awaiting owner review; not a Phase 3 start. |
 | 2026-10-13 | BE3 diagnostic vs publisher S&S: Writing presentation + LO inference gaps confirmed; recommend Test BE5 unchanged before refine. |
+| 2026-10-13 | BE5 unchanged baseline overview generated; publisher S&S unavailable; diagnostic deferred. |
+| 2026-10-13 | BE3 Step 3 A/B refine + partial publisher-reference comparison; both hypotheses complementary; combined A+B suggested; await owner review. |

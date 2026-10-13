@@ -2385,4 +2385,21 @@
 
 ---
 
+### Step 136
+
+**Summary:** Ran D017 Step 3 controlled BE3 methodology refinement: Experiment A (inference-only writing LOs, eight columns) and Experiment B (Writing column only, control LOs preserved), both from Phase 1 only. Compared control/A/B with partial publisher-reference validation against diagnostic S&S transcriptions (original PDF missing). Both hypotheses complementary; combined A+B recommended next; no overview approved and methodology not locked.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-a.md` (created)
+- `docs/phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-b.md` (created)
+- `docs/phase-2/experiments/be3-methodology-refinement-comparison-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
