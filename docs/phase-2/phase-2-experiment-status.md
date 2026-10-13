@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.6  
+**Version:** 1.7  
 **Date:** 2026-10-13  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -14,11 +14,14 @@
 | Git branch | `phase-2` |
 | Phase 1 | PAUSED at 14/18 COMPLETE (D015) |
 | Active direction | D017 Progressive Curriculum Intelligence — Book Intelligence first |
-| Book Intelligence working baseline | D017 **v2** — **owner-approved provisional working baseline** (2026-10-13); **v1 preserved unchanged** |
-| Next proposed step | Soft teacher-validation of v2 readability; then BE1→BE2→BE3 vertical sufficiency probe |
-| Methodology / schema | **Experimental — NOT LOCKED** (eight-column structure approved for continued experimentation only) |
-| Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** (not approved / not recorded as LOCKED) |
-| Parked Phase 1 ideas | F017 (publisher curriculum plans / I Can); F018 (review / checkpoint sections) — not approved for implementation |
+| Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
+| BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
+| Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
+| Next proposed step | Owner review of BE1/BE3 overviews + vertical recommendation |
+| Methodology / schema | **Experimental — NOT LOCKED** |
+| Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
+| Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
+| Teacher readability | Deferred to Chalkie workspace — **not** an active Phase 2 blocker |
 | Research inventory (V3.1 + cross-unit) | [`p2-exp-be2-v3.1-cross-unit-status.md`](./p2-exp-be2-v3.1-cross-unit-status.md) |
 
 ---
@@ -48,6 +51,15 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 **What v2 refined:** eight-column layout; corrected flagged U3/U6/U8 omissions from Phase 1 evidence; outcomes meaning-aligned where Phase 1 supports.
 
 **Still not claimed:** production-ready standard; methodology lock; schema lock; D018.
+
+### BE1-SB / BE3-SB expansions + vertical probe (2026-10-13)
+
+**Artifacts:**
+- BE1 overview: [`experiments/be1-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be1-sb-u01-u09-book-overview-d017-v1.md)
+- BE3 overview: [`experiments/be3-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be3-sb-u01-u09-book-overview-d017-v1.md)
+- Combined horizontal + vertical probe: [`experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md`](./experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md)
+
+**Result (AI-assessed):** Eight-column pattern transfers. Vertical probe finds meaningful coarse progression (e.g. animals/can/habitats; food quantity; time/routines; jobs; present continuous). Sufficient for bounded Series Intelligence experiments; **not** sufficient to lock Phase 3 or automate entity-level vertical graphs. BE1/BE3 **not accepted** pending owner review. BE2 v1/v2 unchanged.
 
 ---
 
@@ -89,10 +101,9 @@ Preserved research artifacts; **not** the active production direction under D017
 ## 6. What carries forward
 
 - Verified Phase 1 Big English datasets (local / Storage).
-- D017 **v2** as provisional Book Intelligence working baseline; **v1** preserved as experiment history.
-- D017 progressive method: validate before expanding; minimum sufficient output.
+- BE2 D017 **v2** provisional working baseline; BE2 **v1** preserved; BE1/BE3 experimental overviews awaiting owner review.
+- Vertical sufficiency probe: coarse progression signals exist; Series Intelligence may proceed experimentally without Phase 3 lock.
 - Research artifacts above as evidence, not mandatory production depth.
-- Soft open item: teacher validation of overview readability still pending.
 - Parked Phase 1 extraction ideas: F017 / F018 in [`../7-future.md`](../7-future.md).
 
 ---
@@ -101,9 +112,10 @@ Preserved research artifacts; **not** the active production direction under D017
 
 - Phase 2 is **not** product-complete.
 - No Phase 2 JSON schema or pipeline is approved.
-- Owner approval of v2 as a **working baseline** does **not** lock format, methodology, or schema.
+- Owner approval of BE2 v2 as a **working baseline** does **not** lock format, methodology, or schema.
+- BE1/BE3 overviews are **not** accepted until owner review.
+- Vertical sufficiency probe is **not** Phase 3 implementation.
 - Historical V3.1 / V1.2 success does **not** lock methodology or define production output.
-- ~92% meaningful coverage is **sufficient for now**, not a locked production threshold.
 - Phase 3 / Phase 4 are **not** formally started.
 - D018 (if discussed) remains **PROPOSED only**.
 - F017 / F018 are **PARKED** — not approved for implementation.
@@ -122,3 +134,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-12 | Recorded ChatGPT owner review findings; overview not accepted; next proposed = publisher overview comparison (~90% coverage target, non-binding). |
 | 2026-10-13 | Executed D017 v2 second pass + publisher S&S comparison; U3/U6/U8 gaps corrected; v2 not accepted; awaiting owner review. |
 | 2026-10-13 | Owner approved v2 as provisional Book Intelligence working baseline; format/methodology/schema still not locked; F017/F018 parked. |
+| 2026-10-13 | BE1/BE3 overviews + BE1→BE2→BE3 vertical sufficiency probe executed; awaiting owner review; not a Phase 3 start. |

@@ -2,19 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 132  
+**Last updated:** Step 133  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED at 14/18; D017 locked; BE2 U1–9 overview v1 preserved.
-- D017 v2 owner-approved as provisional Phase 2 Book Intelligence working baseline (format/methodology/schema still not locked).
-- Phase 1 S&S / checkpoint extraction ideas parked as F017 / F018.
+- Phase 1 PAUSED at 14/18; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
+- BE1/BE3 eight-column overviews + BE1→BE2→BE3 vertical sufficiency probe executed (experimental).
 
 ## Current status
 
-On branch `phase-2`. Soft next focus: teacher validation of v2 readability, then BE1→BE2→BE3 vertical sufficiency probe.
+On branch `phase-2`. Awaiting owner review of BE1/BE3 overviews and the vertical sufficiency recommendation.
 
 ## Next small step
 
-**Suggestion:** Teacher-validation pass on D017 v2 overview readability (still no schema lock).
+**Suggestion:** Owner review BE1/BE3 overviews + probe recommendation; then decide whether to run a bounded Series Intelligence follow-up (still no Phase 3 lock).

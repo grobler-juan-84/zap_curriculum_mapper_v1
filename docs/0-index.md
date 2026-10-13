@@ -30,7 +30,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18; D017 Progressive Curriculum Intelligence; BE2 U1–9 D017 v2 provisional Book Intelligence working baseline. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18; D017 Book Intelligence with BE2 v2 baseline and BE1/BE3 experimental overviews. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices with date, reason, and rejected alternatives (through D017 Progressive Curriculum Intelligence). | 1.0 | ACTIVE |
@@ -94,10 +94,13 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u08-v1-review.md](./phase-2/p2-exp-be2-u08-v1-review.md) | Unit 8 LR interpretation + three-unit method comparison; D016 candidate set LR experiments complete pending owner review. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
-| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 U1–9 v2 provisional Book Intelligence working baseline (owner-approved); format/methodology/schema still not locked; LR/V3.1/V1.2/e2e/enrich as research history. | 1.6 | ACTIVE |
+| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 v2 working baseline; BE1/BE3 overviews + vertical sufficiency probe executed (not accepted / not Phase 3). | 1.7 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md) | D017 Book Intelligence experiment: BE2-SB Units 1–9 Markdown overview + ChatGPT review findings (§G); preserved unchanged as v1 experiment artifact. | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md) | D017 v2 eight-column BE2-SB U1–9 overview; owner-approved provisional Book Intelligence working baseline (format/methodology/schema not locked). | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md](./phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md) | v1 vs v2 summary, publisher Scope and Sequence comparison (~92% meaningful coverage AI-assessed), and Learning Outcomes consistency assessment. | 1.0 | ACTIVE |
+| [phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md](./phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md) | D017-pattern eight-column BE1-SB Units 1–9 Book Intelligence overview from Phase 1 evidence; experimental / not accepted. | 1.0 | ACTIVE |
+| [phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md) | D017-pattern eight-column BE3-SB Units 1–9 Book Intelligence overview from Phase 1 evidence; experimental / not accepted. | 1.0 | ACTIVE |
+| [phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md](./phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md) | Combined horizontal consistency assessment and BE1→BE2→BE3 vertical sufficiency probe (5 examples); not a Phase 3 start. | 1.0 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Historical Phase 2 planning SoT v2 (exhaustive unit/page/JSON sketches); superseded by D017; retained for research context only. | — | PARKED |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -131,7 +134,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 64 | Current working docs, including index, operating trackers, project-wide curriculum mapping workflow, D017 Book Intelligence v1/v2 experiment artifacts, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 67 | Current working docs, including index, operating trackers, D017 Book Intelligence BE1/BE2/BE3 experiment artifacts, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

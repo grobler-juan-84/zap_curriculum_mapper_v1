@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 132
+**Last updated:** Step 133
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,27 +14,27 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- Early Phase 2 research preserved; **D017** locked.
+- **D017** locked; BE2-SB v2 owner-approved as provisional Book Intelligence working baseline.
 
-- Curriculum mapping workflow relocated to [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+- **BE1-SB and BE3-SB** eight-column D017-pattern overviews generated from verified Phase 1 evidence (experimental; not accepted).
 
-- **D017 v2** owner-approved as the **provisional Phase 2 Book Intelligence working baseline** (eight-column structure for continued experimentation; ~92% AI-assessed publisher coverage sufficient for now; Learning Outcomes remain AI-inferred). Format / methodology / schema still **not** locked. v1 and v2 experiment artifacts preserved unchanged.
+- **BE1→BE2→BE3 vertical sufficiency probe** completed: coarse progression signals visible; minimum-sufficient for bounded Series Intelligence experiments; not enough to lock Phase 3.
 
-- Phase 1 improvement ideas (publisher curriculum plans; review/checkpoint sections) parked as F017 / F018 — not approved for implementation.
+- Phase 1 improvement ideas F017 / F018 remain parked. Teacher-readability validation deferred to Chalkie workspace (not an active Phase 2 blocker).
 
 ## In progress
 
-- Soft: teacher-validation readiness around the approved v2 working baseline (not started).
+- Owner review of BE1/BE3 overviews and the vertical sufficiency recommendation.
 
 ## Next
 
-- Soft: teacher-validation pass on overview readability.
+- Owner accept/tweak BE1 and BE3 overviews (still no schema lock).
 
-- Initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
+- If endorsed: bounded Series Intelligence follow-up using the three overviews (still not Phase 3 productization).
 
 ## Blocked
 
-- Soft: teacher validation still pending. Exact publisher I Can extraction and checkpoint extraction remain parked (F017 / F018) — not blockers for current Phase 2 work.
+- Soft: BE1/BE3 overviews awaiting owner review. Exact I Can (BE2/BE3) and checkpoint extraction remain parked (F017 / F018).
 
 ---
 
@@ -42,12 +42,10 @@
 
 - Active Git branch: `phase-2`.
 
-- Workflow: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)
+- BE2 working baseline: [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md)
 
-- Working baseline: [`phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md) (provisional) · v1 preserved · review: [`phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md`](./phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md)
+- New artifacts: [`phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md) · [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md) · [`phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md`](./phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md)
 
 - Status detail: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md)
-
-- **Phase 1:** PAUSED at 14 / 18 COMPLETE.
 
 - Direction: [`4-decisions.md`](./4-decisions.md) D017 (LOCKED). D018 remains PROPOSED only.

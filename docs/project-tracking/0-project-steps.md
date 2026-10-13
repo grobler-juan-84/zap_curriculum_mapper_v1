@@ -2336,4 +2336,23 @@
 
 ---
 
+### Step 133
+
+**Summary:** Generated BE1-SB and BE3-SB eight-column D017-pattern Book Intelligence overviews from verified Phase 1 evidence; completed combined horizontal consistency assessment and BE1→BE2→BE3 vertical sufficiency probe (coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; not a Phase 3 start). Preserved BE2 v1/v2 unchanged; BE1/BE3 not accepted pending owner review.
+
+**Files touched:**
+- `docs/phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-sb-u01-u09-book-overview-d017-v1.md` (created)
+- `docs/phase-2/experiments/be1-be2-be3-book-intelligence-probe-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

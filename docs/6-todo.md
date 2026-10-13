@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 132
+**Last updated:** Step 133
 
 **Purpose:** Concrete near-term actionable tasks. Not a parking lot for long-term ideas (see [`7-future.md`](./7-future.md)).
 
@@ -38,19 +38,23 @@
 
 - [x] Owner approve D017 v2 as provisional Phase 2 Book Intelligence working baseline (format/methodology/schema still not locked); park Phase 1 S&S / checkpoint extraction ideas as F017 / F018.
 
+- [x] Generate BE1-SB and BE3-SB D017-pattern Book Intelligence overviews; run horizontal consistency + BE1→BE2→BE3 vertical sufficiency probe.
+
 ## Now
 
-- [ ] Soft: teacher-validation pass on D017 v2 book-overview readability.
+- [ ] Owner review of BE1/BE3 overviews + vertical sufficiency recommendation (accept/tweak; still no schema lock).
 
 ## Soon
 
-- [ ] Initial BE1 → BE2 → BE3 vertical sufficiency check (Series Intelligence probe — not a Phase 3 start).
+- [ ] If BE1/BE3 endorsed: bounded Series Intelligence follow-up using the three overviews (not Phase 3 productization).
 
 - [ ] Lightweight naming checks for books under new policy (legacy pilots exempt).
 
 - [ ] Review post-form Storage measurements before cover thumbnails / PDF linearization.
 
 ## Deferred
+
+- [ ] Teacher-readability validation via Chalkie workspace (deferred; not an active Phase 2 blocker).
 
 - [ ] Resume BH2 / RH2B / RH3A / RH4A Phase 1 pipelines only after explicit owner decision (D015).
 

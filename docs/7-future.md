@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 132  
+**Last updated:** Step 133  
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 2 iteration.
 
 ---
@@ -24,7 +24,7 @@
 | F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
 | F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
-| F005 | Phase 3 Series Intelligence / vertical mapping products | Parked under D017; BE2-SB overview working baseline now exists — still wait for an explicit vertical sufficiency probe before Phase 3 product work | architecture / D017 |
+| F005 | Phase 3 Series Intelligence / vertical mapping products | Parked under D017; BE1→BE2→BE3 sufficiency probe (2026-10-13) supports only bounded experimental Series Intelligence — not Phase 3 productization or schema lock | architecture / D017 |
 | F006 | Phase 4 teacher enrichment productization | Philosophy exists; no enrichment engine work yet | phase-4 doc |
 | F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai handover patterns) | Parked handover spec; not current priority | phase-6 doc |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
