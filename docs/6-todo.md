@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 144
+**Last updated:** Step 145
 
 
 
@@ -98,19 +98,23 @@
 
 
 
+- [x] Owner decision recorded: prefer BE3 A+B for BE3-SB only; no methodology/schema lock; BE2 v2 unchanged.
+
+
+
+- [x] BE3 Unit 1 independent A+B regen vs existing A+B — reproducibility PASS (near-exact); no overview edits.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): thin A+B LOs, test A+B on another book, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): sample U2–U9 regen, thin A+B LOs, test A+B on another book, pause, or other D017 next step.
 
 
 
 ## Soon
-
-
-
-- [x] Owner decision recorded: prefer BE3 A+B for BE3-SB only; no methodology/schema lock; BE2 v2 unchanged.
 
 
 
@@ -199,5 +203,3 @@
 
 
 - Keep [`project-tracking/4-mock-data-registry.md`](./project-tracking/4-mock-data-registry.md) current when mock vs live UI data changes.
-
-

@@ -2540,4 +2540,19 @@
 
 ---
 
+### Step 145
+
+**Summary:** Independently regenerated BE3 Unit 1 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 1 row. Reproducibility PASS (exact on non-experimental columns; near-exact on LO/Writing with soft “daily” wording only). Existing A+B overview and methodology/schema/UI left unchanged.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
