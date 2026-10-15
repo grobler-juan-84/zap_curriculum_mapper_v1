@@ -2802,4 +2802,19 @@
 
 ---
 
+### Step 159
+
+**Summary:** Added a Units 1–9 selector to the Book Intelligence preview so one unit shows at a time instead of all nine stacked. Preserved all 8 content fields and AI-inferred LO labels. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

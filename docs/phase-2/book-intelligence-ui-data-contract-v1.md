@@ -301,3 +301,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Uploaded U1–9 BI JSON to `book-datasets` interpretations path; SHA-256 verified; no DB/UI wiring. |
 | 2026-10-15 | Preview switched from local Vite JSON to Storage download + existing loader; loading/error states. |
 | 2026-10-15 | Series Library opens BI overview by `catalogBookId`; Storage registry (BE3-SB). |
+| 2026-10-15 | Preview unit selector (one unit at a time; 8 fields + AI-inferred labels). |

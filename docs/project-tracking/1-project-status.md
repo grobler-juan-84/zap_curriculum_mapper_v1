@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 158  
+**Last updated:** Step 159  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Series Library book cards can open Book Intelligence when a Storage artifact is registered.
-- BE3-SB navigates to `/app/book-intelligence/big_english_3_sb` and loads via existing Storage loader.
+- Book Intelligence preview selects one unit at a time (U1–U9).
+- All 8 content fields and AI-inferred Learning Outcomes labels preserved.
 - No database, schema, or methodology changes.
 
 ## Current status
 
-On branch `phase-2`. Library → BI wired for BE3-SB only; contract still draft / not locked.
+On branch `phase-2`. Unit selector live on Storage-backed BI preview.
 
 ## Next small step
 

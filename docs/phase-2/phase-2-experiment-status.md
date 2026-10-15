@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.29  
+**Version:** 1.30  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -266,6 +266,12 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** BE3-SB Library card exposes **Book Intelligence**; route loads Storage overview. Other books unchanged (no button).
 
+### Book Intelligence unit selector (2026-10-15)
+
+**Controls:** Preview shows one unit at a time via U1–U9 selector (defaults to Unit 1). All 8 content fields + AI-inferred LO badge preserved. No database, schema, or methodology changes.
+
+**Result:** Unit selector replaces stacked multi-unit scroll; Storage load unchanged.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -359,3 +365,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Uploaded BE3 U1–9 BI A+B JSON to `book-datasets` interpretations path; SHA-256 verified; no DB/UI. |
 | 2026-10-15 | BI preview loads Storage JSON via existing loader; loading/error states; local Vite alias removed. |
 | 2026-10-15 | Series Library → Book Intelligence for BE3-SB via `/app/book-intelligence/:catalogBookId`; no DB/schema. |
+| 2026-10-15 | BI preview unit selector (one unit at a time; 8 fields + AI-inferred labels preserved). |

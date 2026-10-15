@@ -26,10 +26,12 @@ export function BookIntelligencePreviewPage() {
   const artifact = getBookIntelligenceStorageArtifact(catalogBookId)
 
   const [state, setState] = useState<LoadState>({ status: 'loading' })
+  const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setState({ status: 'loading' })
+    setSelectedUnitId(null)
 
     const registered = getBookIntelligenceStorageArtifact(catalogBookId)
     if (!registered) {
@@ -49,6 +51,7 @@ export function BookIntelligencePreviewPage() {
         setState({ status: 'error', errors: result.errors })
         return
       }
+      setSelectedUnitId(result.data.units[0]?.unitId ?? null)
       setState({ status: 'ready', data: result.data })
     })()
 
@@ -94,6 +97,10 @@ export function BookIntelligencePreviewPage() {
   }
 
   const { data } = state
+  const selectedUnit =
+    data.units.find((unit) => unit.unitId === selectedUnitId) ??
+    data.units[0] ??
+    null
 
   return (
     <div className="flex h-full flex-col overflow-hidden bg-slate-50">
@@ -108,7 +115,7 @@ export function BookIntelligencePreviewPage() {
             </h1>
             <p className="mt-1 max-w-2xl text-xs text-slate-500">
               Nine-column A+B overview from Supabase Storage via the draft-contract
-              loader. Not Phase 1 evidence. No database or schema changes.
+              loader. Select one unit at a time. Not Phase 1 evidence.
             </p>
           </div>
           <Link
@@ -130,21 +137,41 @@ export function BookIntelligencePreviewPage() {
             Storage · {data.units.length} units
           </span>
         </div>
-        {data.units.length > 1 ? (
-          <nav
-            aria-label="Jump to unit"
-            className="mt-3 flex flex-wrap gap-1.5"
-          >
-            {data.units.map((unit) => (
-              <a
-                key={unit.unitId}
-                href={`#${unit.unitId}`}
-                className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-800"
-              >
-                U{unit.unitNumber}
-              </a>
-            ))}
-          </nav>
+        {data.units.length > 0 ? (
+          <div className="mt-4">
+            <label className="mb-1.5 block text-[11px] font-semibold tracking-wide text-slate-500 uppercase">
+              Unit
+            </label>
+            <div
+              role="tablist"
+              aria-label="Select unit"
+              className="flex flex-wrap gap-1.5"
+            >
+              {data.units.map((unit) => {
+                const isSelected = unit.unitId === selectedUnit?.unitId
+                return (
+                  <button
+                    key={unit.unitId}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    onClick={() => setSelectedUnitId(unit.unitId)}
+                    className={`rounded border px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                      isSelected
+                        ? 'border-indigo-600 bg-indigo-600 text-white'
+                        : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-800'
+                    }`}
+                    title={`Unit ${unit.unitNumber}: ${unit.title}`}
+                  >
+                    U{unit.unitNumber}
+                    <span className="ml-1.5 hidden sm:inline font-normal opacity-90">
+                      {unit.title}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
         ) : null}
       </header>
 
@@ -153,12 +180,8 @@ export function BookIntelligencePreviewPage() {
           {data.title ? (
             <p className="text-xs font-medium text-slate-600">{data.title}</p>
           ) : null}
-          {data.units.length > 0 ? (
-            data.units.map((unit) => (
-              <div key={unit.unitId} id={unit.unitId} className="scroll-mt-4">
-                <BookIntelligenceUnitPreview document={data} unit={unit} />
-              </div>
-            ))
+          {selectedUnit ? (
+            <BookIntelligenceUnitPreview document={data} unit={selectedUnit} />
           ) : (
             <p className="text-sm text-slate-600">No units in document.</p>
           )}

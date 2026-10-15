@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 158
+**Last updated:** Step 159
 
 
 
@@ -143,6 +143,10 @@
 
 
 - [x] Integrate Book Intelligence into Series Library navigation (BE3-SB Storage overview).
+
+
+
+- [x] Add BI page unit selector (U1–9 one at a time; fields/labels preserved).
 
 
 
