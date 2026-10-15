@@ -3025,4 +3025,19 @@
 
 ---
 
+### Step 172
+
+**Summary:** Documented BE2 Book Intelligence integration plan: compared BE2 v2 eight-column overview + Phase 1 data with BE3 nine-column contract/UI; listed compatibility gaps; proposed book-independent column-set UI and phased P0–P5 implementation. Docs only — no code, schema, DB, or methodology changes.
+
+**Files touched:**
+- `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

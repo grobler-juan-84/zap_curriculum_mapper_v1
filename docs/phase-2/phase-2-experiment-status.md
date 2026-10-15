@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.42  
+**Version:** 1.43  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,7 +17,8 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: `book_files` registration, more books in BI registry, harden preview, or pause — contract still **not locked** |
+| Next proposed step | Owner-gated: BE2 BI integration plan ready (docs only); or `book_files` / harden preview / pause — contract still **not locked** |
+| BE2 BI integration plan | Docs-only compatibility + dual column-set plan recorded; **not implemented** |
 | BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
@@ -315,6 +316,14 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Scripted regression **PASS**. No application defects in the full U1–U9 run. Companion scripts (`verify_bi_pdf_navigation.mjs`, `verify_bi_pdf_unit_sync.mjs`, E2E acceptance) also PASS.
 
+### BE2 BI integration compatibility plan (2026-10-15)
+
+**Artifact:** [`experiments/be2-bi-integration-compatibility-plan-d017-v1.md`](./experiments/be2-bi-integration-compatibility-plan-d017-v1.md)
+
+**Controls:** Docs-only. Compared BE2 v2 eight-column Markdown + Phase 1 canonical with BE3 nine-column contract/UI. Proposed dual `column_set` support and book-independent UI descriptors. No code, Storage, DB, or methodology changes.
+
+**Result:** Gaps G1–G9 and phased plan P0–P5 recorded. **Awaiting owner implementation micro-step.**
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -421,3 +430,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Fix Review1→U4 selecting U1: no unit fallback; keep ?unit= on gaps; suppress PDF-driven jumps. |
 | 2026-10-15 | Full U1–U9 PDF nav regression (fwd/back, gaps, deep links, selection); no app defects. |
 | 2026-10-15 | Recorded PDF nav regression acceptance artifact; milestone in progress (impl only). |
+| 2026-10-15 | BE2 BI integration compatibility plan (eight vs nine column); docs only; not implemented. |

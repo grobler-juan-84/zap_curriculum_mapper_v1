@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 171
+**Last updated:** Step 172
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,23 +16,21 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A+B BI path: Storage + Library + unit URL + evidence + PDF split/nav/sync.
+- BE3 A+B BI path validated (D019 MVP + PDF nav regression); methodology not locked.
 
-- **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
-
-- **PDF navigation regression milestone (2026-10-15)** — U1–U9 scripted acceptance **PASS** (forward/back, review gaps, unit selection, deep links). No application defects in this slice. Artifact: [`phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md). Methodology / schema / contract still **not locked**.
+- **BE2 BI integration plan (docs only)** — eight- vs nine-column compatibility gaps + reusable UI approach + phased plan. Not implemented. Artifact: [`phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md`](./phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md).
 
 ## In progress
 
-- None (PDF nav slice accepted; awaiting owner next prompt).
+- None (planning complete; awaiting owner implementation micro-step or other direction).
 
 ## Next
 
-- Owner-gated: `book_files` registration, more BI books, harden preview, or pause.
+- Owner-gated: implement BE2 dual column-set plan (P0–P5), or `book_files` / harden preview / pause.
 
 ## Blocked
 
-- None hard. Soft: F017 parked; BI contract still draft (not locked by D019).
+- None hard. Soft: F017 parked; BI contract still draft; BE2 BI JSON not authored yet.
 
 ---
 
@@ -40,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Acceptance pair: D019 MVP round-trip + PDF nav regression (both implementation-only).
+- BE2 remains eight-column baseline; BE3 remains nine-column A+B (BE3-only) — dual support planned, not built.
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.

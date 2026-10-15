@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 171  
+**Last updated:** Step 172  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Recorded PDF navigation regression milestone (U1–U9 scripted PASS).
-- Acceptance artifact: `phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`.
-- Implementation only; methodology / schema / contract not locked.
+- Documented BE2 BI integration compatibility plan (docs only).
+- Eight-column vs nine-column gaps + reusable UI + P0–P5 plan recorded.
+- No implementation, schema, DB, or methodology changes.
 
 ## Current status
 
-On branch `phase-2`. BI MVP (D019) + PDF nav regression accepted; awaiting owner next step.
+On branch `phase-2`. Plan ready; awaiting owner implementation micro-step.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (`book_files`, more books, harden preview, or pause).
+**Suggestion:** Owner picks P0–P1 (loader dual-set) or P2 (BE2 JSON port), or pauses.

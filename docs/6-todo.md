@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 171
+**Last updated:** Step 172
 
 
 
@@ -198,11 +198,15 @@
 
 
 
+- [x] Document BE2 BI integration compatibility plan (eight vs nine column; no implement).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: `book_files`, more BI books, harden preview, pause, or other D017 next step.
+- [ ] Owner-gated: implement BE2 dual column-set plan (P0–P5), or `book_files` / harden preview / pause.
 
 
 
