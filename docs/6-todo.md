@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 149
+**Last updated:** Step 150
 
 
 
@@ -114,11 +114,15 @@
 
 
 
+- [x] Define nine-column Book Intelligence UI data contract draft (fields, types, identity, JSON); docs only.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): Unit 1 A+B companion JSON draft, new BI UI contract sketch, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): populate Unit 1 A+B JSON from contract, sketch UI against contract, pause, or other D017 next step.
 
 
 

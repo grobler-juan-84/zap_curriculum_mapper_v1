@@ -2615,4 +2615,19 @@
 
 ---
 
+### Step 150
+
+**Summary:** Defined the nine-column Book Intelligence UI data contract draft (A+B): JSON/TS field names, types, book/unit identity, document envelope, and BE3 Unit 1 example structure. Documentation only — not locked; no implementation, database, or UI changes.
+
+**Files touched:**
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 149  
+**Last updated:** Step 150  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BE3 Unit 1 A+B controlled-implementation compatibility assessed (read-only).
-- Catalog identity compatible; no BI UI consumer; do not normalize overview cells into Postgres.
+- Draft nine-column Book Intelligence UI data contract documented (`0.1-draft`; not locked).
+- Fields, types, unit identity, and JSON envelope defined; no implementation.
 
 ## Current status
 
-On branch `phase-2`. Compatibility assessment recorded; awaiting owner next prompt before any implementation.
+On branch `phase-2`. Contract draft ready for a later Unit 1 JSON/UI step; awaiting owner next prompt.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (Unit 1 A+B companion JSON draft, new BI UI contract sketch, or pause) — do not implement until asked.
+**Suggestion:** Owner chooses follow-up (populate BE3 U1 JSON from contract, sketch UI, or pause) — do not implement until asked.
