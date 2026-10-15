@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 161  
+**Last updated:** Step 162  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Unit 1 Book Intelligence overview has read-only **View Source Evidence**.
-- Opens Validation for the catalog book at `?unit=1` (Phase 1 evidence).
+- View Source Evidence extended to Book Intelligence Units 1–9.
+- Each link opens Validation at the matching `?unit=N` (verified unique resolution).
 - No database, schema, or methodology changes.
 
 ## Current status
 
-On branch `phase-2`. Evidence deep-link live for Unit 1 only.
+On branch `phase-2`. Evidence deep-links live for all nine BE3 units.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (U2–9 evidence links, `book_files`, more books, or pause).
+**Suggestion:** Owner chooses follow-up (`book_files`, more books, harden preview, or pause).

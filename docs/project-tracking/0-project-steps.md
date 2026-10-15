@@ -2853,4 +2853,21 @@
 
 ---
 
+### Step 162
+
+**Summary:** Extended View Source Evidence to Units 2–9 using the Unit 1 pattern. Verified each BI unit number maps to a unique Validation `?unit=N` target. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/phase1EvidenceLink.ts` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

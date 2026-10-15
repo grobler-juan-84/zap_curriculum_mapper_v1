@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 161
+**Last updated:** Step 162
 
 
 
@@ -158,11 +158,15 @@
 
 
 
+- [x] Extend View Source Evidence to Units 2–9; verify correct Validation unit.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: evidence links for U2–9, `book_files`, more BI books, harden preview, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: `book_files`, more BI books, harden preview, pause, or other D017 next step.
 
 
 

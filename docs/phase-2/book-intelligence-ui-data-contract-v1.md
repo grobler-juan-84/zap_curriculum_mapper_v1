@@ -304,3 +304,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Preview unit selector (one unit at a time; 8 fields + AI-inferred labels). |
 | 2026-10-15 | Selected unit URL-addressable via `?unit=`; refresh/share stable. |
 | 2026-10-15 | Unit 1 “View Source Evidence” → Phase 1 Validation (`?unit=1`); Units 2–9 deferred. |
+| 2026-10-15 | View Source Evidence extended to Units 2–9 (`?unit=N`). |

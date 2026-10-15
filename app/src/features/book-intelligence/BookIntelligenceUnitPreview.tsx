@@ -69,7 +69,7 @@ export function BookIntelligenceUnitPreview({
 }: {
   document: BookIntelligenceOverviewDocument
   unit: BookIntelligenceUnitOverview
-  /** Read-only jump to Phase 1 Validation for this unit (Unit 1 only for now). */
+  /** Read-only jump to Phase 1 Validation for this unit. */
   onViewSourceEvidence?: (unitNumber: string) => void
 }) {
   const fields = contentFields(unit)
