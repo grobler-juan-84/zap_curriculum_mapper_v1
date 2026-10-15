@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 150
+**Last updated:** Step 151
 
 
 
@@ -102,19 +102,19 @@
 
 
 
-- [x] BE3 Unit 1 / 5 / 9 independent A+B regen reproducibility PASS (start/mid/end).
+- [x] BE3 A+B regen full 9/9 roll-up; all PASS; discrepancies only.
 
 
 
-- [x] BE3 A+B regen full 9/9 roll-up (remaining U2–U4 / U6–U8); all PASS; discrepancies only; no overview edits.
+- [x] BE3 Unit 1 A+B controlled-implementation compatibility assessment (read-only).
 
 
 
-- [x] BE3 Unit 1 A+B controlled-implementation compatibility assessment (read-only vs Postgres + UI contracts).
+- [x] Define nine-column Book Intelligence UI data contract draft.
 
 
 
-- [x] Define nine-column Book Intelligence UI data contract draft (fields, types, identity, JSON); docs only.
+- [x] Create BE3 Unit 1 A+B JSON artifact conforming to draft BI contract (no UI/DB).
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): populate Unit 1 A+B JSON from contract, sketch UI against contract, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): sketch UI against Unit 1 JSON, expand units, pause, or other D017 next step.
 
 
 

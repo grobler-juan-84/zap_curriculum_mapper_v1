@@ -2630,4 +2630,21 @@
 
 ---
 
+### Step 151
+
+**Summary:** Created BE3 Unit 1 A+B Book Intelligence JSON artifact conforming to the draft nine-column UI data contract (`column_set: nine_column_ab`). Content from preferred A+B overview Unit 1 row. No UI, database, or Storage wiring.
+
+**Files touched:**
+- `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json` (created)
+- `data/README.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

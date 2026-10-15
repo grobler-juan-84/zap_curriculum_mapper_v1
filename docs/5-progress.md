@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 150
+**Last updated:** Step 151
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,17 +20,15 @@
 
 - **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**.
 
-- BE3 Unit 1 A+B implementation compatibility assessed (catalog OK; no BI UI consumer yet).
-
-- **Nine-column Book Intelligence UI data contract draft** documented (`0.1-draft`; not locked).
+- Nine-column BI UI data contract draft documented; **BE3 Unit 1 A+B JSON artifact** created under `data/phase2/` (not wired to UI/DB).
 
 ## In progress
 
-- None (contract draft recorded; awaiting owner next prompt).
+- None (Unit 1 JSON artifact recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated options: populate BE3 Unit 1 companion JSON from the contract; sketch UI against the contract; pause; or other D017 follow-ups — **no auto-implementation**.
+- Owner-gated options: sketch UI against the Unit 1 JSON; expand more units; pause; or other D017 follow-ups — **no auto-implementation**.
 
 ## Blocked
 
@@ -42,10 +40,10 @@
 
 - Active Git branch: `phase-2`.
 
-- Decision record: [`4-decisions.md`](./4-decisions.md) D017 working approvals.
+- BI contract: [`phase-2/book-intelligence-ui-data-contract-v1.md`](./phase-2/book-intelligence-ui-data-contract-v1.md)
 
-- BI UI contract: [`phase-2/book-intelligence-ui-data-contract-v1.md`](./phase-2/book-intelligence-ui-data-contract-v1.md)
+- BE3 U1 JSON: `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`
 
-- Preferred BE3 artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
+- Preferred BE3 Markdown: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

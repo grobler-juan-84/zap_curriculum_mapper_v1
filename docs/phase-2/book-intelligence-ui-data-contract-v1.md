@@ -265,8 +265,19 @@ It does **not**:
 
 ---
 
+## 9. Populated example artifact
+
+| Artifact | Path |
+|---|---|
+| BE3-SB Unit 1 A+B slice | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json) |
+
+Content mirrors the preferred A+B Markdown Unit 1 row. Not wired to UI or Postgres.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
 | 2026-10-15 | Created nine-column Book Intelligence UI data contract draft (fields, types, identity, JSON). Documentation only. |
+| 2026-10-15 | Linked populated BE3 Unit 1 A+B JSON example artifact under `data/phase2/…`. |
