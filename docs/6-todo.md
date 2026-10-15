@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 140
+**Last updated:** Step 141
 
 
 
@@ -119,6 +119,10 @@
 
 
 - [x] Upload BE3-SB companion `ss_v1.json` to Storage (`big-english/big_english_3_sb/canonical/ss_v1.json`) without merging into SB `v1.json` or changing `dataset_versions`.
+
+
+
+- [x] BE3 Unit 1 SS Writing + I Can dry check vs Control/A/B/A+B (findings only; no overview changes).
 
 
 

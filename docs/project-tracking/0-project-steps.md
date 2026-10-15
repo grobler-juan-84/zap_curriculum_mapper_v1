@@ -2472,4 +2472,19 @@
 
 ---
 
+### Step 141
+
+**Summary:** Ran BE3 Unit 1 dry check of publisher SS Writing + I Can against Control/A/B/A+B overviews using `ss_v1.json`. Documented findings only: A+B is the only Unit-1 dual Pass; no overview, JSON, or methodology changes.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
