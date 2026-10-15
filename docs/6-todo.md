@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 145
+**Last updated:** Step 146
 
 
 
@@ -106,11 +106,15 @@
 
 
 
+- [x] BE3 Unit 9 independent A+B regen vs existing A+B — reproducibility PASS (book-end check); no overview edits.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): sample U2–U9 regen, thin A+B LOs, test A+B on another book, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): mid-book regen sample, thin A+B LOs, test A+B on another book, pause, or other D017 next step.
 
 
 

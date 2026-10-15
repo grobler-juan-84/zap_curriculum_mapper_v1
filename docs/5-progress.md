@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 145
+**Last updated:** Step 146
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**.
 
-- **BE3 Unit 1 A+B regen reproducibility:** independent regen vs existing A+B — **PASS** (near-exact; soft wording only); existing overview unchanged.
+- **BE3 A+B regen reproducibility (book ends):** U1 and U9 independent regens vs existing A+B — both **PASS** (near-exact); existing overview unchanged.
 
 ## In progress
 
-- None (Unit 1 reproducibility recorded; awaiting owner next prompt).
+- None (U1+U9 reproducibility recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated options: sample U2–U9 regen; thin A+B LO writing fragments; test A+B on another book; pause refine work; or other D017 follow-ups — **no auto-implementation**.
+- Owner-gated options: mid-book regen sample (e.g. U4/U5); thin A+B LO writing fragments; test A+B on another book; pause refine work; or other D017 follow-ups — **no auto-implementation**.
 
 ## Blocked
 
@@ -44,6 +44,6 @@
 
 - Preferred BE3 artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
-- U1 regen check: [`phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md`](./phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md)
+- Regen checks: [`phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md`](./phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md), [`phase-2/experiments/be3-u09-ab-regen-reproducibility-d017-v1.md`](./phase-2/experiments/be3-u09-ab-regen-reproducibility-d017-v1.md)
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

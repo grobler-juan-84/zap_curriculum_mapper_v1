@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.16  
+**Version:** 1.17  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,10 +17,10 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated follow-ups only (e.g. U2–U9 regen sample; thin A+B LOs; apply A+B to another book; pause) — **no implementation locked** |
+| Next proposed step | Owner-gated follow-ups only (e.g. mid-book regen sample; thin A+B LOs; apply A+B to another book; pause) — **no implementation locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
-| BE3 U1 A+B regen | Unit 1 independent regen vs existing A+B — **reproducibility PASS** (near-exact); existing overview unchanged |
+| BE3 A+B regen checks | U1 + U9 independent regens vs existing A+B — both **reproducibility PASS** (near-exact); existing overview unchanged |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -158,6 +158,14 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result (AI-assessed):** Non-experimental columns **exact** match. LO and Writing **near-exact** (soft “daily” wording only). Dual writing coverage reproduced. **No methodology/schema/UI change.** Single-unit limit — does not prove U2–U9.
 
+### BE3 Unit 9 A+B regen reproducibility (2026-10-15)
+
+**Artifact:** [`experiments/be3-u09-ab-regen-reproducibility-d017-v1.md`](./experiments/be3-u09-ab-regen-reproducibility-d017-v1.md)
+
+**Controls:** Fresh A+B Unit 9 overview from Phase 1 only (S&S not consulted); compared to existing A+B Unit 9 row. Existing book-wide A+B artifact **not edited**. Book-end pair with U1.
+
+**Result (AI-assessed):** Non-experimental columns **exact** match. Writing **exact**. LO **near-exact** (soft “school trips” vs “trips”). Dual writing coverage reproduced. **No methodology/schema/UI change.** U1+U9 book-end sampling both PASS; still does not prove U2–U8.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -238,3 +246,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-13 | BE3 combined A+B overview + three-way comparison + owner-review pack; dual writing coverage with density trade-off; stop for owner review of A/B/A+B. |
 | 2026-10-15 | Owner decision: prefer BE3 A+B for BE3-SB only; methodology/schema not locked; BE2 v2 unchanged. |
 | 2026-10-15 | BE3 Unit 1 A+B independent regen vs existing A+B — reproducibility PASS (near-exact); no overview edits. |
+| 2026-10-15 | BE3 Unit 9 A+B independent regen vs existing A+B — reproducibility PASS (Writing exact; LO near-exact); book-end pair with U1. |
