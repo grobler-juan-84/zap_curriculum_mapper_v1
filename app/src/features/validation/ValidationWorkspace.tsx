@@ -118,8 +118,10 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     0,
     batches.findIndex((batch) => batch.id === selectedBatchId),
   )
+  // Do not fall back to batches[0] while selectedBatchId is empty — that raced
+  // URL sync and could overwrite a deep-linked ?unit=N with Unit 1.
   const currentBatch =
-    batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
+    batches.find((batch) => batch.id === selectedBatchId) ?? null
   const currentUnitNumber = unitNumberFromBatch(currentBatch)
 
   const bookIntelligenceHref =
@@ -128,15 +130,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     currentUnitNumber
       ? bookIntelligencePath(book.catalogBookId, currentUnitNumber)
       : null
-
-  // Keep Validation `?unit=` aligned with the selected unit for round-trips to BI.
-  useEffect(() => {
-    if (!currentUnitNumber) return
-    if (searchParams.get('unit') === currentUnitNumber) return
-    const next = new URLSearchParams(searchParams)
-    next.set('unit', currentUnitNumber)
-    setSearchParams(next, { replace: true })
-  }, [currentUnitNumber, searchParams, setSearchParams])
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
 
@@ -164,6 +157,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     return currentBatch
   }, [currentBatch, fromCanonical])
 
+  // Load Validation files when the book changes only (not on every ?unit= tweak).
   useEffect(() => {
     let cancelled = false
     setBatchesLoading(true)
@@ -188,7 +182,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           setCanonicalRaw(raw)
           setFromCanonical(true)
           setBatches(nav)
-          setSelectedBatchId(pickBatchIdForUnit(nav, requestedUnit))
           setBatchesLoading(false)
           setJsonLoading(false)
           return
@@ -198,7 +191,6 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         setFromCanonical(false)
         setCanonicalRaw(null)
         setBatches(unitBatches)
-        setSelectedBatchId(pickBatchIdForUnit(unitBatches, requestedUnit))
         setBatchesLoading(false)
       } catch (err: unknown) {
         if (cancelled) return
@@ -212,7 +204,25 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     return () => {
       cancelled = true
     }
-  }, [book.id, requestedUnit])
+  }, [book.id])
+
+  // Apply `?unit=` (default first unit) without re-downloading Storage files.
+  useEffect(() => {
+    if (batchesLoading || batches.length === 0) return
+    const nextId = pickBatchIdForUnit(batches, requestedUnit)
+    if (!nextId || nextId === selectedBatchId) return
+    setSelectedBatchId(nextId)
+  }, [batches, batchesLoading, requestedUnit, selectedBatchId])
+
+  // Keep Validation `?unit=` aligned with the selected unit for round-trips to BI.
+  // Only sync after an explicit selection to avoid clobbering deep-linked ?unit=.
+  useEffect(() => {
+    if (!selectedBatchId || !currentUnitNumber) return
+    if (searchParams.get('unit') === currentUnitNumber) return
+    const next = new URLSearchParams(searchParams)
+    next.set('unit', currentUnitNumber)
+    setSearchParams(next, { replace: true })
+  }, [selectedBatchId, currentUnitNumber, searchParams, setSearchParams])
 
   useEffect(() => {
     let cancelled = false

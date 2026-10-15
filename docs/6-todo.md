@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 163
+**Last updated:** Step 164
 
 
 
@@ -163,6 +163,10 @@
 
 
 - [x] Validation “Back to Book Intelligence” preserves book + `?unit=N` (U1–U9 verified).
+
+
+
+- [x] E2E UI acceptance Library → BI → Unit → Validation → Back (scripted PASS; Validation ?unit defects fixed).
 
 
 

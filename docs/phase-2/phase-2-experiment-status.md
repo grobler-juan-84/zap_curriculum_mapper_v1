@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.34  
+**Version:** 1.35  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -290,6 +290,15 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Users can move BI ↔ Validation for the same book/unit without losing selection.
 
+### BE3 BI ↔ Validation E2E acceptance (2026-10-15)
+
+**Artifact:** [`experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./experiments/be3-bi-validation-e2e-acceptance-d017-v1.md)  
+**Script:** `scripts/verify_bi_validation_e2e_acceptance.mjs`
+
+**Controls:** Acceptance of Library → BI → Unit → Validation → Back. Scripted Storage + route + unit-pick checks for U1–U9. Code review found two Validation selection bugs; fixed. No DB/schema/methodology changes.
+
+**Result:** Scripted acceptance **PASS**. Defects fixed: (1) reload-on-`?unit=` removed; (2) deep-link `?unit=N` no longer overwritten by Unit 1. Manual browser smoke still recommended.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -388,3 +397,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BI Unit 1 “View Source Evidence” → Validation `?unit=1` (read-only); no DB/schema. |
 | 2026-10-15 | Extended View Source Evidence to Units 2–9; verified unique `?unit=` resolution. |
 | 2026-10-15 | Validation “Back to Book Intelligence” preserves book + `?unit=N`; verified U1–U9. |
+| 2026-10-15 | BI↔Validation E2E acceptance; fixed Validation ?unit reload + deep-link race; scripted PASS. |

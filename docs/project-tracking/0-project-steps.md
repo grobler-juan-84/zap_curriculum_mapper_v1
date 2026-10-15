@@ -2887,4 +2887,21 @@
 
 ---
 
+### Step 164
+
+**Summary:** Ran Library → BI → Unit → Validation → Back E2E acceptance for BE3-SB. Fixed two Validation defects (reload on every `?unit=` change; deep-link unit overwritten by Unit 1). Recorded results; scripted U1–U9 PASS. No DB/schema/methodology changes.
+
+**Files touched:**
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `scripts/verify_bi_validation_e2e_acceptance.mjs` (created)
+- `docs/phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
