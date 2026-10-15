@@ -53,7 +53,7 @@
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
 | D017 | Progressive Curriculum Intelligence | 2026-10-12 | LOCKED |
 | D018 | Five-iteration Chalkie prompt validation | 2026-10-15 | LOCKED |
-| D019 | BE3 Book Intelligence MVP UI path validated | 2026-10-15 | LOCKED |
+| D019 | Book Intelligence MVP UI path validated (BE2 + BE3) | 2026-10-15 | LOCKED |
 
 ---
 
@@ -295,7 +295,7 @@ These are owner experiment outcomes recorded under D017. They do **not** reopen 
 |---|---|---|---|
 | 2026-10-13 | BE2-SB D017 **v2** accepted as provisional Book Intelligence working baseline (eight-column) | BE2-SB continued experimentation | Methodology / schema / format not locked |
 | 2026-10-15 | Prefer BE3 Experiment **A+B** (writing-aware Learning Outcomes **+** Writing column) as the BE3-SB experimental Book Intelligence path | **BE3-SB only** | Does **not** change BE2 v2 baseline; does **not** lock methodology/schema; does **not** auto-apply A+B to other books |
-| 2026-10-15 | BE3-SB Book Intelligence **MVP UI path** validated (Library → BI → Unit → Validation → Back) — see **D019** | **BE3-SB implementation only** | Validates **implementation**, not methodology/schema/contract; does **not** expand to other books |
+| 2026-10-15 | Book Intelligence **MVP UI path** validated for BE3-SB then extended to BE2-SB — see **D019** (amended) | **BE2-SB + BE3-SB implementation** | Validates **implementation** only; BE2 eight-column and BE3 nine-column A+B methodologies remain **provisional**; schema/contract **not locked** |
 
 **BE3 A+B evidence (2026-10-15):** SS Writing + I Can dry checks dual-Pass **9/9** vs companion `ss_v1.json` — [`phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md). Owner pack: [`phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md). Preferred artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md). Control / A / B isolates preserved unchanged.
 
@@ -314,19 +314,34 @@ These are owner experiment outcomes recorded under D017. They do **not** reopen 
 
 ---
 
-### D019 — BE3 Book Intelligence MVP UI path validated
+### D019 — Book Intelligence MVP UI path validated (BE2 + BE3)
 
-**Date:** 2026-10-15  
+**Date:** 2026-10-15 (amended same day for BE2)  
 **Status:** LOCKED  
-**Decision:** The BE3-SB (`big_english_3_sb`) Book Intelligence **MVP UI implementation path is validated**: Series Library → Book Intelligence (Storage nine-column A+B overview) → unit selection (`?unit=N`) → View Source Evidence → Phase 1 Validation → Back to Book Intelligence with preserved catalog book + unit. Scripted E2E acceptance PASS for Units 1–9.
+**Decision:** The Book Intelligence **MVP UI implementation path is validated for two Big English Student Books**:
 
-**Explicit non-locks (mandatory):** This milestone validates **implementation** of the current BE3 preview path only. It does **not** lock Phase 2 methodology, JSON schema, UI data contract, prompts, database / `book_files` / `dataset_versions` registration, Storage path layout as a permanent standard, or expansion to other books. D017 operating principle 6 (avoid premature technical commitments) remains in force. BE2-SB v2 working baseline and the BE3 A+B preference (D017 working approvals) are unchanged.
+| Book | Catalog ID | Column set (provisional) | Path |
+|---|---|---|---|
+| BE3-SB | `big_english_3_sb` | `nine_column_ab` (A+B; Writing required) | Library → BI (Storage) → `?unit=N` → Validation → Back |
+| BE2-SB | `big_english_2_sb` | `eight_column_baseline` (no Writing) | Same shared UI path; dual-set loader/render |
 
-**Reason:** E2E acceptance was recorded with defects in Validation `?unit=` handling fixed; the path is usable for continued D017 experimentation without claiming a production or methodology standard.  
-**Alternatives rejected:** Treating MVP acceptance as a methodology / schema / contract lock; declaring production-ready Book Intelligence for all books; requiring `book_files` registration before recording implementation validation; reopening D017.  
-**Implications:** Progress and experiment status may treat the BE3 BI ↔ Validation MVP as **implementation-validated**. Further books, contract hardening, Storage formalization, and any methodology change remain owner-gated.  
-**Evidence:** [`phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md); script `scripts/verify_bi_validation_e2e_acceptance.mjs`.  
-**Supersedes:** —  
+Scripted E2E + PDF U1–U9 acceptance PASS for both books. Shared shell is catalog-book-parameterized; column-set drives field visibility.
+
+**Explicit non-locks (mandatory):** This milestone validates **implementation** of the shared preview path for **BE2-SB and BE3-SB only**. It does **not** lock Phase 2 methodology, JSON schema, UI data contract, prompts, database / `book_files` / `dataset_versions` registration, or Storage path layout as a permanent standard. In particular:
+
+- BE2 **eight-column** overview methodology remains **provisional** (D017 v2 working baseline).
+- BE3 **nine-column A+B** preference remains **provisional** (D017 working approval; BE3-SB only).
+- Dual column-set support in the draft contract/loader is **not** a methodology unification or schema lock.
+
+D017 operating principle 6 remains in force.
+
+**Reason:** BE3 E2E acceptance established the MVP path; BE2 was added via dual column-set support + Storage/registry without claiming a single methodology for all books.  
+**Alternatives rejected:** Treating two-book acceptance as a methodology / schema / contract lock; forcing BE2 into nine-column Writing; declaring production-ready BI for the whole catalog; requiring `book_files` registration; reopening D017.  
+**Implications:** Progress and experiment status may treat BE2 and BE3 BI ↔ Validation MVP paths as **implementation-validated**. Further books, contract hardening, Storage formalization, and any methodology change remain owner-gated.  
+**Evidence:**  
+- BE3: [`phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md); [`phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md); `scripts/verify_bi_validation_e2e_acceptance.mjs`; `scripts/verify_bi_pdf_u1_u9_regression.mjs`  
+- BE2: [`phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md); `scripts/verify_be2_bi_validation_e2e_acceptance.mjs`; `scripts/verify_be2_bi_pdf_u1_u9_regression.mjs`  
+**Supersedes:** Prior D019 wording limited to BE3-SB only (same-day amendment).  
 **Compatibility:** Complements D017 (and its working approvals) and D018; does not rewrite either.
 
 ---
@@ -354,4 +369,5 @@ These are owner experiment outcomes recorded under D017. They do **not** reopen 
 | 2026-10-15 | Added D018 — five cumulative Chalkie prompt iterations, starting with combined Scope & Sequence + Student Book. |
 | 2026-10-15 | Recorded D017 working approval: prefer BE3 Experiment A+B for BE3-SB only; no methodology/schema lock; BE2 v2 baseline unchanged. |
 | 2026-10-15 | Added D019 — BE3 BI MVP UI path implementation-validated; methodology/schema/contract explicitly not locked. |
+| 2026-10-15 | Amended D019 — two-book implementation validation (BE2 eight-column + BE3 nine-column); both methodologies remain provisional; schema/contract not locked. |
 

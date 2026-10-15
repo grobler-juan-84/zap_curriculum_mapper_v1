@@ -2,17 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 177  
+**Last updated:** Step 178  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BI-first navigation: sidebar targets selected book BI when registered.
-- Series/Curriculum primary open prefers BI; Workspace secondary/fallback.
+- Recorded BE2 BI acceptance milestone in progress.
+- Amended D019 for two-book (BE2 + BE3) MVP UI implementation validation.
+- BE2 eight-column and BE3 nine-column methodologies remain provisional.
 
 ## Current status
 
-On branch `phase-2`. BE2/BE3 BI reachable without manual URL edits when a book is selected/registered.
+On branch `phase-2`. D019 covers BE2 + BE3 implementation only; methodology not locked.
 
 ## Next small step
 

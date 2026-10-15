@@ -1,9 +1,9 @@
 # BE2 Book Intelligence — E2E acceptance (D017)
 
 **Date:** 2026-10-15  
-**Decision:** D017 Progressive Curriculum Intelligence  
+**Decision:** D017 Progressive Curriculum Intelligence; milestone **D019** (amended — two-book MVP UI implementation-validated)  
 **Scope:** `big_english_2_sb` eight-column Book Intelligence ↔ Phase 1 Validation + PDF nav  
-**Status:** ACCEPTANCE — **implementation validated**; methodology / schema / UI contract **not locked**  
+**Status:** ACCEPTANCE — **implementation validated** (D019); BE2 eight-column methodology **provisional**; schema / UI contract **not locked**  
 **Scripts:**
 - [`../../../scripts/verify_be2_bi_validation_e2e_acceptance.mjs`](../../../scripts/verify_be2_bi_validation_e2e_acceptance.mjs)
 - [`../../../scripts/verify_be2_bi_pdf_u1_u9_regression.mjs`](../../../scripts/verify_be2_bi_pdf_u1_u9_regression.mjs)
@@ -58,7 +58,8 @@
 
 - No browser-driver screenshot pass in this session.  
 - No schema, methodology, BI JSON content, or Postgres changes.  
-- Contract remains draft / not locked.
+- Contract remains draft / not locked.  
+- **D019** records **implementation** validation for BE2 + BE3 only — BE2 eight-column and BE3 nine-column A+B methodologies stay **provisional**.
 
 ---
 

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 177
+**Last updated:** Step 178
 
 
 
@@ -219,6 +219,10 @@
 
 
 - [x] BI-first navigation: sidebar + Series/Curriculum prefer BI when registered.
+
+
+
+- [x] Record BE2 acceptance milestone; amend D019 for two-book implementation validation (methodologies provisional).
 
 
 

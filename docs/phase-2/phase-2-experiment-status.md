@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.43  
+**Version:** 1.44  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -19,7 +19,7 @@
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
 | Next proposed step | Owner-gated: `book_files` / harden preview / pause — contract still **not locked** |
 | BE2 BI integration plan | P0–P5 done (E2E + PDF acceptance PASS; Library→BI select fix) |
-| BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
+| BI MVP UI (D019) | **Implementation-validated for BE2 + BE3** — shared Library → BI → Unit → Validation → Back; BE2 eight-column + BE3 nine-column methodologies **provisional**; schema/contract **not locked** |
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
 | BE3 BI PDF↔unit sync | Visible PDF range selects BI unit / clears on inter-unit gaps; loop-safe via `initialPageEnd` overlap skip |
@@ -28,7 +28,7 @@
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
 | BE3 A+B impl. readiness | Units 1–9 JSON in Storage; Series Library → BI overview; still **no** `book_files` / `dataset_versions` |
-| BI UI data contract | Draft nine-column contract (`0.1-draft`) + Storage loader + Library entry for BE3-SB — **not locked** |
+| BI UI data contract | Draft dual-set contract (`0.1-draft`) + Storage loader + Library entries for BE2-SB + BE3-SB — **not locked** |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -437,3 +437,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BE2 v2 Markdown → local eight-column BI JSON; validated; Markdown compare PASS (0 discrepancies). |
 | 2026-10-15 | BE2 BI uploaded to Storage; Library → BI registry enabled for `big_english_2_sb`. |
 | 2026-10-15 | BE2 BI E2E + PDF U1–U9 acceptance PASS; Library→BI workspace select fix; P5 done. |
+| 2026-10-15 | D019 amended: two-book BI MVP UI implementation-validated; methodologies remain provisional. |

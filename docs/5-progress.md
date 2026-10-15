@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 177
+**Last updated:** Step 178
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,13 +14,11 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
+- **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline (eight-column).
 
-- BE3 A+B BI path validated (D019 MVP + PDF nav regression); methodology not locked.
+- **D019 (amended)** — Book Intelligence MVP UI path **implementation-validated for two books**: BE2-SB (`eight_column_baseline`) and BE3-SB (`nine_column_ab`). E2E + PDF U1–U9 acceptance PASS for both. Methodologies remain **provisional**; schema/contract **not locked**.
 
-- **BI dual column-set** + BE2 eight-column JSON in Storage + Library registry + E2E PASS.
-
-- **BI-first navigation** — Sidebar / Series / Curriculum prefer Book Intelligence when registered; Workspace secondary/fallback.
+- Dual column-set contract/loader/UI; BI companions in Storage; BI-first library/sidebar navigation.
 
 ## In progress
 
@@ -40,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- BE2 and BE3 BI companions both load from Storage; dual column-set UI; methodology still **not** locked.
+- BE2 eight-column and BE3 nine-column A+B paths are both **implementation-validated** under D019; neither methodology is locked.
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.

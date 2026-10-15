@@ -3138,4 +3138,22 @@
 
 ---
 
+### Step 178
+
+**Summary:** Recorded BE2 BI acceptance milestone in progress and amended D019 for two-book MVP UI implementation validation (BE2 eight-column + BE3 nine-column). Both methodologies remain provisional; schema/contract not locked.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md` (updated)
+- `docs/phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

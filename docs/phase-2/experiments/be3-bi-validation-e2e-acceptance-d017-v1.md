@@ -63,8 +63,8 @@
 
 - No browser-driver screenshot pass in this session.  
 - No database, schema, or methodology changes beyond the Validation selection/sync bugfixes above.  
-- Only `big_english_3_sb` is registered for Book Intelligence Library entry.  
-- **D019** records **implementation** validation only — not a Phase 2 methodology, schema, or contract lock.
+- BE3 nine-column A+B methodology remains **provisional** (D017 working approval).  
+- **D019** (amended) records **implementation** validation for BE2 + BE3 — not a Phase 2 methodology, schema, or contract lock.
 
 ---
 
