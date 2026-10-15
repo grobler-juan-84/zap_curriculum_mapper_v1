@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 146
+**Last updated:** Step 147
 
 
 
@@ -110,11 +110,15 @@
 
 
 
+- [x] BE3 Unit 5 independent A+B regen vs existing A+B — reproducibility PASS (mid-book check); no overview edits.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): mid-book regen sample, thin A+B LOs, test A+B on another book, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): thin A+B LOs, test A+B on another book, pause, or other D017 next step.
 
 
 
