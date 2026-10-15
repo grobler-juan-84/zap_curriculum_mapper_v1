@@ -71,7 +71,7 @@ export function Sidebar() {
       icon: CheckSquare,
     },
     {
-      to: '/app/book-intelligence',
+      to: '/app/book-intelligence/big_english_3_sb',
       label: 'Book Intelligence',
       icon: Brain,
     },

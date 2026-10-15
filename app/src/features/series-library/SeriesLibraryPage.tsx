@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { bookIntelligencePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { SeriesLibrary } from './SeriesLibrary'
 
@@ -42,6 +43,9 @@ export function SeriesLibraryPage() {
       onValidateBook={(bookUuid) => {
         selectBook(bookUuid)
         navigate('/app/validation')
+      }}
+      onOpenBookIntelligence={(catalogBookId) => {
+        navigate(bookIntelligencePath(catalogBookId))
       }}
       onBackToCurriculum={() => navigate('/app/curriculum')}
     />

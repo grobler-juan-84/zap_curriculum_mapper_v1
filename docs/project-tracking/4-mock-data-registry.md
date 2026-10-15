@@ -42,8 +42,9 @@ Teacher AI
   → useTeacherAiResponses → aiAssistantService → mocks/ai/*
 
 Book Intelligence preview
-  → BookIntelligencePreviewPage
-  → loadBe3BookIntelligenceFromStorage → Supabase Storage download
+  → Series Library card (registered catalogBookId) or Sidebar
+  → /app/book-intelligence/:catalogBookId
+  → loadBookIntelligenceFromStorage → Supabase Storage download
   → loadBookIntelligenceOverviewFromUnknown (draft contract)
 ```
 

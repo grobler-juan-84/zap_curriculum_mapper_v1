@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 157
+**Last updated:** Step 158
 
 
 
@@ -142,11 +142,15 @@
 
 
 
+- [x] Integrate Book Intelligence into Series Library navigation (BE3-SB Storage overview).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: `book_files` registration, harden preview, other books, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: `book_files` registration, more BI books, harden preview, pause, or other D017 next step.
 
 
 

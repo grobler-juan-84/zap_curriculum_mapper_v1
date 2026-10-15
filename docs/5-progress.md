@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 157
+**Last updated:** Step 158
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,23 +16,21 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A/B/A+B refine pack + SS/regen checks **9/9** + BI contract + U1–9 JSON.
+- BE3 A+B BI: contract + U1–9 JSON in Storage + Storage-backed preview.
 
-- BE3 U1–9 BI JSON in Supabase Storage (integrity verified).
-
-- **BI preview loads Storage JSON** via existing draft-contract loader; loading/error states; all 9 units verified.
+- **Series Library → Book Intelligence** for BE3-SB (`/app/book-intelligence/:catalogBookId`) using existing Storage loader.
 
 ## In progress
 
-- None (Storage-backed preview recorded; awaiting owner next prompt).
+- None (Library integration recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated: `book_files` registration, harden preview, other books, or pause.
+- Owner-gated: `book_files` registration, more books in BI registry, harden preview, or pause.
 
 ## Blocked
 
-- None hard. Soft: F017 parked; BI contract still draft / not locked; not in `book_files`.
+- None hard. Soft: F017 parked; BI contract still draft; only BE3-SB registered for Library BI entry.
 
 ---
 
@@ -40,8 +38,8 @@
 
 - Active Git branch: `phase-2`.
 
-- Preview: `/app/book-intelligence` → Storage download → `loadBookIntelligenceOverviewFromUnknown`
+- Open path: Curriculum → Series → Big English 3 SB → **Book Intelligence**
 
-- Storage: `book-datasets/big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`
+- Route: `/app/book-intelligence/big_english_3_sb`
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

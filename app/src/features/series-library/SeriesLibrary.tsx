@@ -3,11 +3,13 @@ import type { CurriculumSeries } from '../../types/curriculum'
 import { Breadcrumbs } from '../../components/shared/Breadcrumbs'
 import { CheckCircle2, ArrowRight, CircleDashed } from 'lucide-react'
 import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
+import { hasBookIntelligenceOverview } from '../book-intelligence/bookIntelligenceStorageRegistry'
 
 interface SeriesLibraryProps {
   series: CurriculumSeries
   onSelectBook: (bookUuid: string) => void
   onValidateBook?: (bookUuid: string) => void
+  onOpenBookIntelligence?: (catalogBookId: string) => void
   onBackToCurriculum: () => void
 }
 
@@ -15,6 +17,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   series,
   onSelectBook,
   onValidateBook,
+  onOpenBookIntelligence,
   onBackToCurriculum,
 }) => {
   const coverUrls = useCoverImageUrls(series.books.map((book) => book.coverPath))
@@ -58,6 +61,10 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
               {series.books.map((book) => {
                 const hasInteractiveSpreads = book.pageSpreads.length > 0
                 const isFeatured = book.catalogBookId === 'beehive_1_sb'
+                const catalogBookId = book.catalogBookId
+                const showBookIntelligence =
+                  Boolean(onOpenBookIntelligence) &&
+                  hasBookIntelligenceOverview(catalogBookId)
                 const coverSrc = book.coverPath
                   ? coverUrls[book.coverPath]
                   : book.coverImage
@@ -112,7 +119,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                           <span>Catalog only (batches in Storage)</span>
                         </span>
                       )}
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
                         {onValidateBook ? (
                           <button
                             type="button"
@@ -123,6 +130,19 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                             className="text-xs font-bold text-emerald-700 hover:text-emerald-900"
                           >
                             Validate
+                          </button>
+                        ) : null}
+                        {showBookIntelligence && catalogBookId ? (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onOpenBookIntelligence?.(catalogBookId)
+                            }}
+                            className="text-xs font-bold text-violet-700 hover:text-violet-900"
+                            title="Open Book Intelligence overview"
+                          >
+                            Book Intelligence
                           </button>
                         ) : null}
                         <button

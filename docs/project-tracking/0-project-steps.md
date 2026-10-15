@@ -2778,4 +2778,28 @@
 
 ---
 
+### Step 158
+
+**Summary:** Integrated Book Intelligence into Series Library navigation. BE3-SB book cards expose a Book Intelligence action that opens `/app/book-intelligence/:catalogBookId` using the existing Storage loader/registry. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (created)
+- `app/src/features/book-intelligence/loadBookIntelligenceFromStorage.ts` (created)
+- `app/src/features/book-intelligence/loadBe3BookIntelligenceFromStorage.ts` (deleted)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

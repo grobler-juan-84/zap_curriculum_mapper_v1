@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.28  
+**Version:** 1.29  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,12 +17,12 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: `book_files` registration, harden preview, other books, or pause — contract still **not locked** |
+| Next proposed step | Owner-gated: `book_files` registration, more books in BI registry, harden preview, or pause — contract still **not locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
-| BE3 A+B impl. readiness | Units 1–9 JSON in Storage; preview loads Storage via draft loader; still **no** `book_files` / `dataset_versions` |
-| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS loader + Storage-backed U1–9 preview — **not locked** |
+| BE3 A+B impl. readiness | Units 1–9 JSON in Storage; Series Library → BI overview; still **no** `book_files` / `dataset_versions` |
+| BI UI data contract | Draft nine-column contract (`0.1-draft`) + Storage loader + Library entry for BE3-SB — **not locked** |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -255,6 +255,17 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Storage download path verified (9 units, Writing + `ai_inferred` LO on all). App typecheck clean. Preview badge shows `Storage · 9 units`.
 
+### Book Intelligence Library navigation entry (2026-10-15)
+
+**Artifacts:**
+- Registry: `bookIntelligenceStorageRegistry.ts` (currently `big_english_3_sb` only)
+- Series Library card action → `/app/book-intelligence/:catalogBookId`
+- Loader: `loadBookIntelligenceFromStorage(catalogBookId)`
+
+**Controls:** Open a book's 9-unit overview from its Series Library entry using the existing Storage loader. No database, schema, or methodology changes. Button shown only for registered catalog books.
+
+**Result:** BE3-SB Library card exposes **Book Intelligence**; route loads Storage overview. Other books unchanged (no button).
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -347,3 +358,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Visual/content QA of BI preview vs A+B overview; fixed U8 LO only; 9/9 PASS. |
 | 2026-10-15 | Uploaded BE3 U1–9 BI A+B JSON to `book-datasets` interpretations path; SHA-256 verified; no DB/UI. |
 | 2026-10-15 | BI preview loads Storage JSON via existing loader; loading/error states; local Vite alias removed. |
+| 2026-10-15 | Series Library → Book Intelligence for BE3-SB via `/app/book-intelligence/:catalogBookId`; no DB/schema. |

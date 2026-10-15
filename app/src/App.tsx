@@ -38,6 +38,10 @@ export default function App() {
           path="book-intelligence"
           element={<BookIntelligencePreviewPage />}
         />
+        <Route
+          path="book-intelligence/:catalogBookId"
+          element={<BookIntelligencePreviewPage />}
+        />
       </Route>
     </Routes>
   )
