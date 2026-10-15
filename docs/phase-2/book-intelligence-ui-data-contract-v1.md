@@ -309,3 +309,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | BI preview split layout: resizable fields left + source PDF right (`ValidationPdfPane`); UI-only. |
 | 2026-10-15 | PDF nav fix: keep pane mounted; jump by Phase 1 `pdf_page_start` on unit change; Prev/Next/Go intact. |
 | 2026-10-15 | PDF→BI unit sync from visible page range; outside-unit message; loop prevention via page-end overlap. |
+| 2026-10-15 | Fix Review1→U4→U1 bug: remove null-`?unit=` Unit 1 fallback; suppress jumps on PDF-driven sync. |

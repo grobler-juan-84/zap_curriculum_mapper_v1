@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 168
+**Last updated:** Step 169
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,15 +16,15 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A+B BI path: Storage + Library + unit URL + evidence links + Back from Validation.
+- BE3 A+B BI path: Storage + Library + unit URL + evidence + PDF split/nav/sync.
 
 - **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
 
-- **BI split layout** + PDF nav + **PDF↔unit sync** (auto-select unit from visible pages; no-BI on inter-unit review gaps; loop-safe).
+- **PDF↔unit sync fix** — Review 1 → U4 no longer falls back to Unit 1.
 
 ## In progress
 
-- None (PDF sync micro-step complete; awaiting owner next prompt).
+- None (sync fix complete; awaiting owner next prompt).
 
 ## Next
 

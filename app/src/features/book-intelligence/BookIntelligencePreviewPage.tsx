@@ -40,16 +40,16 @@ type LoadState =
   | { status: 'error'; errors: string[] }
   | { status: 'ready'; data: BookIntelligenceOverviewDocument }
 
+/**
+ * Resolve BI unit from `?unit=` only. Never fall back to Unit 1 when the param
+ * is missing — that raced review-gap URL clears and yanked the PDF to U1.
+ */
 function resolveUnit(
   units: BookIntelligenceUnitOverview[],
   unitParam: string | null,
 ): BookIntelligenceUnitOverview | null {
-  if (units.length === 0) return null
-  if (unitParam) {
-    const match = units.find((unit) => unit.unitNumber === unitParam)
-    if (match) return match
-  }
-  return units[0] ?? null
+  if (units.length === 0 || !unitParam) return null
+  return units.find((unit) => unit.unitNumber === unitParam) ?? null
 }
 
 /**
@@ -90,6 +90,12 @@ export function BookIntelligencePreviewPage() {
   const [isDraggingColSplitter, setIsDraggingColSplitter] = useState(false)
   /** When PDF is on inter-unit review/checkpoint pages with no BI unit. */
   const [pdfOutsideUnits, setPdfOutsideUnits] = useState(false)
+  /**
+   * When false, PDF-driven unit changes must not apply `initialPage` jumps
+   * (avoids yanking back to a stale/default unit start after a review gap).
+   * Tab clicks and first URL default set this true.
+   */
+  const [allowPdfUnitJump, setAllowPdfUnitJump] = useState(true)
 
   useEffect(() => {
     let cancelled = false
@@ -238,26 +244,20 @@ export function BookIntelligencePreviewPage() {
       ? resolveUnit(state.data.units, unitParam)
       : null
 
-  // Keep `?unit=` in sync when a unit is selected; clear it on review/checkpoint pages.
+  // Default `?unit=` only on first entry (never after a review-gap clear / PDF sync).
   useEffect(() => {
-    if (state.status !== 'ready') return
-    if (pdfOutsideUnits) {
-      if (unitParam == null) return
-      const next = new URLSearchParams(searchParams)
-      next.delete(UNIT_QUERY_KEY)
-      setSearchParams(next, { replace: true })
-      return
-    }
-    if (!selectedUnit) return
-    if (unitParam === selectedUnit.unitNumber) return
+    if (state.status !== 'ready' || pdfOutsideUnits) return
+    if (unitParam || !allowPdfUnitJump) return
+    const first = state.data.units[0]
+    if (!first) return
     const next = new URLSearchParams(searchParams)
-    next.set(UNIT_QUERY_KEY, selectedUnit.unitNumber)
+    next.set(UNIT_QUERY_KEY, first.unitNumber)
     setSearchParams(next, { replace: true })
   }, [
     state,
-    selectedUnit,
     unitParam,
     pdfOutsideUnits,
+    allowPdfUnitJump,
     searchParams,
     setSearchParams,
   ])
@@ -268,24 +268,31 @@ export function BookIntelligencePreviewPage() {
   )
 
   // Keep Document mounted across unit changes (no React key remount) — same as
-  // ValidationWorkspace. Pass unit PDF end so PDF-driven sync does not re-jump.
+  // ValidationWorkspace. Suppress jumps for PDF-driven unit sync after gaps.
   const pdfInitialPage = useMemo(() => {
-    if (pdfOutsideUnits) return null
+    if (pdfOutsideUnits || !allowPdfUnitJump) return null
     return resolvePdfInitialPage(
       selectedUnit?.unitNumber,
       selectedUnit?.printedPageStart,
       phase1Units,
       pageMap,
     )
-  }, [selectedUnit, phase1Units, pageMap, pdfOutsideUnits])
+  }, [
+    selectedUnit,
+    phase1Units,
+    pageMap,
+    pdfOutsideUnits,
+    allowPdfUnitJump,
+  ])
 
   const pdfInitialPageEnd = useMemo(() => {
-    if (pdfOutsideUnits) return null
+    if (pdfOutsideUnits || !allowPdfUnitJump) return null
     return resolvePdfPageEnd(selectedUnit?.unitNumber, phase1Units)
-  }, [selectedUnit, phase1Units, pdfOutsideUnits])
+  }, [selectedUnit, phase1Units, pdfOutsideUnits, allowPdfUnitJump])
 
   function selectUnit(unitNumber: string) {
     setPdfOutsideUnits(false)
+    setAllowPdfUnitJump(true)
     const next = new URLSearchParams(searchParams)
     next.set(UNIT_QUERY_KEY, unitNumber)
     setSearchParams(next, { replace: true })
@@ -296,10 +303,14 @@ export function BookIntelligencePreviewPage() {
       if (phase1Units.length === 0) return
       const matched = resolveUnitForVisiblePdfPages(range, phase1Units)
       if (matched == null) {
+        // Keep prior `?unit=` — clearing it used to fall back to Unit 1 and
+        // jump the PDF to page 4 when leaving Review 1 toward Unit 4.
         setPdfOutsideUnits(true)
         return
       }
       setPdfOutsideUnits(false)
+      // PDF already shows the right pages — do not apply unit-start jumps.
+      setAllowPdfUnitJump(false)
       if (unitParam === matched) return
       const next = new URLSearchParams(searchParams)
       next.set(UNIT_QUERY_KEY, matched)

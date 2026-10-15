@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.39  
+**Version:** 1.40  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -407,3 +407,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BI preview split layout (fields left / PDF right); reuses ValidationPdfPane; no data/schema changes. |
 | 2026-10-15 | Fix BI PDF nav: no remount key; unit→pdf_page_start jumps; toolbar wrap; verify U1/U5/U9. |
 | 2026-10-15 | Sync BI unit from visible PDF pages; no-BI on review gaps; verify U3↔U4, U6↔U7, U9 review. |
+| 2026-10-15 | Fix Review1→U4 selecting U1: no unit fallback; keep ?unit= on gaps; suppress PDF-driven jumps. |

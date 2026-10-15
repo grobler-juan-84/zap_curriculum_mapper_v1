@@ -2977,4 +2977,21 @@
 
 ---
 
+### Step 169
+
+**Summary:** Fixed Review 1 → Unit 4 selecting Unit 1. Root cause: clearing `?unit=` on review gaps plus `resolveUnit` fallback to `units[0]` applied a Unit 1 PDF jump. Stopped the fallback, kept `?unit=` across gaps, and suppressed unit-start jumps for PDF-driven sync. Verified Review1↔U4; nav + E2E PASS.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `scripts/verify_bi_pdf_unit_sync.mjs` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

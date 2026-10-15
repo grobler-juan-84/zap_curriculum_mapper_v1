@@ -164,6 +164,84 @@ if (wouldJump(54, u3.pdfPageStart, u3.pdfPageEnd, numPages)) {
   fail('Selecting U3 on review gap should jump')
 }
 
+// --- Regression: Review 1 gap → U4 must never select Unit 1 ---
+// Old bug: clearing ?unit= on the gap made resolveUnit fall back to units[0],
+// then initialPage jumped the PDF to U1 (page 4).
+function resolveUnitNoFallback(units, unitParam) {
+  if (!unitParam) return null
+  return units.find((u) => u.unitNumber === unitParam) ?? null
+}
+function resolveUnitOldFallback(units, unitParam) {
+  if (unitParam) {
+    return units.find((u) => u.unitNumber === unitParam) ?? units[0] ?? null
+  }
+  return units[0] ?? null
+}
+
+const biUnitNumbers = phase1Units.map((u) => ({ unitNumber: u.unitNumber }))
+const afterGapClear = resolveUnitOldFallback(biUnitNumbers, null)
+if (afterGapClear?.unitNumber === '1') {
+  pass('Confirmed old fallback: null ?unit= → Unit 1 (the bug)')
+} else {
+  fail('Expected old fallback to Unit 1 for documentation check')
+}
+
+const fixedAfterGap = resolveUnitNoFallback(biUnitNumbers, null)
+if (fixedAfterGap == null) {
+  pass('Fixed resolveUnit: null ?unit= does not fall back to Unit 1')
+} else {
+  fail('Fixed resolveUnit must return null when ?unit= is missing')
+}
+
+// Simulate Review 1 → U4 with PDF-driven sync (no unit-start jump)
+const review1ToU4 = []
+for (const range of [
+  { pdfStart: 52, pdfEnd: 53 },
+  { pdfStart: 54, pdfEnd: 55 },
+  { pdfStart: 56, pdfEnd: 57 },
+  { pdfStart: 57, pdfEnd: 58 },
+  { pdfStart: 58, pdfEnd: 59 },
+]) {
+  review1ToU4.push(resolveUnitForVisiblePdfPages(range, phase1Units))
+}
+if (
+  review1ToU4[0] == null &&
+  review1ToU4[1] == null &&
+  review1ToU4[2] == null &&
+  review1ToU4[3] === '4' &&
+  review1ToU4[4] === '4' &&
+  !review1ToU4.includes('1')
+) {
+  pass('Review 1 → U4 sequence: gap/null then unit 4; never unit 1')
+} else {
+  fail(`Review 1 → U4 sequence wrong: ${JSON.stringify(review1ToU4)}`)
+}
+
+// Reverse: U4 → Review 1 gap
+const u4ToReview1 = [
+  resolveUnitForVisiblePdfPages({ pdfStart: 58, pdfEnd: 59 }, phase1Units),
+  resolveUnitForVisiblePdfPages({ pdfStart: 56, pdfEnd: 57 }, phase1Units),
+  resolveUnitForVisiblePdfPages({ pdfStart: 52, pdfEnd: 53 }, phase1Units),
+]
+if (u4ToReview1[0] === '4' && u4ToReview1[1] == null && u4ToReview1[2] == null) {
+  pass('Reverse U4 → Review 1: unit 4 then outside (no Unit 1)')
+} else {
+  fail(`Reverse U4 → Review 1 wrong: ${JSON.stringify(u4ToReview1)}`)
+}
+
+// PDF-driven entry into U4 must not jump away from page 58 when suppress-jump
+if (!wouldJump(58, null, null, numPages)) {
+  pass('PDF-driven U4 entry with suppressed initialPage does not jump')
+} else {
+  fail('Suppressed initialPage should not jump')
+}
+// Stale U1 initialPage while viewing U4 (the failure mode) WOULD jump — guard remains
+if (wouldJump(58, 4, 19, numPages)) {
+  pass('Guard: stale U1 initialPage [4,19] while on pdf 58 would jump (must be suppressed)')
+} else {
+  fail('Expected stale U1 range to be outside current view')
+}
+
 if (failed) {
   console.error(`\nFAILED (${failed})`)
   process.exit(1)

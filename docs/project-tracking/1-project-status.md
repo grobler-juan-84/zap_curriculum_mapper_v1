@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 168  
+**Last updated:** Step 169  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BI unit selection syncs from the visible PDF page pair.
-- Inter-unit review/checkpoint gaps show “No Book Intelligence available for these pages.”
-- Loop-safe via `initialPageEnd` overlap skip; U3↔U4, U6↔U7, U9 review verified.
+- Fixed Review 1 → Unit 4 sync selecting Unit 1.
+- Root cause: clearing `?unit=` on gaps + resolveUnit fallback to units[0] + PDF jump.
+- Verified Review1↔U4; nav + E2E scripts PASS.
 
 ## Current status
 
-On branch `phase-2`. BI preview tracks PDF navigation; methodology not locked.
+On branch `phase-2`. PDF↔BI sync corrected; methodology not locked.
 
 ## Next small step
 

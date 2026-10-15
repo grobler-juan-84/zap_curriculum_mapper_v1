@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 168
+**Last updated:** Step 169
 
 
 
@@ -183,6 +183,10 @@
 
 
 - [x] Sync BI unit with visible PDF pages (gaps → no BI; loop-safe; U3/U6/U9 transitions).
+
+
+
+- [x] Fix Review1→U4 selecting Unit 1 (remove null-`?unit=` fallback; suppress PDF-driven jumps).
 
 
 
