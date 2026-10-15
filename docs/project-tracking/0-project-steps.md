@@ -2440,4 +2440,21 @@
 
 ---
 
+### Step 139
+
+**Summary:** Registered BE3-SB companion Scope & Sequence as a separate local canonical source (`ss_v1.json`) beside preserved SB `v1.json`. Documented paths in the dataset registry, naming conventions, and data README; no JSON/UI/DB/architecture changes and no SB↔SS merge.
+
+**Files touched:**
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/9-naming-conventions.md` (updated)
+- `data/README.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

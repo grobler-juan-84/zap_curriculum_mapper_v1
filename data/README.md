@@ -12,11 +12,14 @@ Phase 2 interpretation and cross-unit experiment JSON under `data/phase2/` is in
 
 ```text
 data/phase1/{catalog_book_id}/{catalog_book_id}_unit_{NN}.json
+data/phase1/{catalog_book_id}/canonical/v1.json
+data/phase1/{catalog_book_id}/canonical/ss_v{N}.json   # optional companion Scope & Sequence (separate JSON shape; never merge into v1.json)
 ```
 
 - Entire `data/phase1/` is gitignored.
 - Filename uses the full catalog `book_id` (D009), e.g. `big_english_1_wb_unit_01.json`.
-- After upload, Storage keys use `{series_slug}/{catalog_book_id}/batches/unit_{NN}.json`.
+- After upload, Storage keys use `{series_slug}/{catalog_book_id}/batches/unit_{NN}.json` and `{series_slug}/{catalog_book_id}/canonical/v1.json`.
+- Optional SS companions use `{series_slug}/{catalog_book_id}/canonical/ss_v{N}.json` (first registered: BE3-SB `ss_v1.json` — local only until uploaded).
 
 ### Remaining Big English scaffolds (local placeholders)
 

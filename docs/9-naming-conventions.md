@@ -1,7 +1,7 @@
 # General Curriculum Mapper — Naming Conventions
 
 **Status:** ACTIVE  
-**Version:** 1.5  
+**Version:** 1.6  
 **Purpose:** Project-wide authority for naming folders, files, code symbols, database/storage identifiers, and curriculum JSON. Applies across all phases.
 
 **Related:** Locked as [D009](./4-decisions.md#d009--project-wide-naming-conventions). Enforced for agents via `.cursor/rules/naming_conventions.mdc`. Catalog identity remains under [D007](./4-decisions.md#d007--catalog-book_id-is-canonical-aliases-normalized-at-merge). Origin brainstorming: [`project-tracking/2-internal-brainstorming.md`](./project-tracking/2-internal-brainstorming.md) (2026-10-07 naming entry).
@@ -75,7 +75,7 @@ Registry IDs are never Storage folder names. Catalog `book_id` is never rewritte
 | Constants / environment variables | `UPPER_SNAKE_CASE` | only public browser values use `VITE_*`; never prefix service-role secrets with `VITE_` |
 | Storage bucket IDs / series slugs | lowercase `kebab-case` | `book-datasets`, `big-english`, `reach-higher` |
 | Cursor rule filenames | `snake_case.mdc` | `naming_conventions.mdc` |
-| Fixed Storage leaf names | stable lowercase names | `source.pdf`, `batches/unit_01.json`, `canonical/v1.json`, `cover.png` |
+| Fixed Storage leaf names | stable lowercase names | `source.pdf`, `batches/unit_01.json`, `canonical/v1.json`, optional companion `canonical/ss_v{N}.json` (Scope & Sequence; not merged into `v1.json`), `cover.png` |
 | Phase 1 whole-book audit reports | `{registry_id}_canonical_v{N}_audit.md` | Ops-facing; registry ID is intentional. Body must still state catalog `book_id` |
 | Local-only source PDFs (app assets) | catalog `book_id` + `.pdf` | Path: `app/src/assets/books/{series_slug}/{catalog_book_id}.pdf` (entire `app/src/assets/` + `*.pdf` are gitignored — never commit) |
 | Public static demo assets | presentation kebab-case allowed | e.g. `beehive-1-cover.svg` — not required to match catalog IDs |
@@ -231,3 +231,4 @@ When creating or renaming project artifacts:
 | 2026-10-07 | v1.1 — Clarified doc casing targets, audit-report filenames, local/public assets, schema filenames, Postgres UUID vs catalog collision, and `stableBookId` → `catalogBookId` preference after repo naming audit. |
 | 2026-10-07 | v1.2 — Applied §7.1 safe cosmetic rename batch (assets, TeacherAiAssistant, docs kebab-case). Mapper `bookId` cleanup still pending. |
 | 2026-10-09 | v1.5 — App TS mapper cleanup: `catalogBookId` / `bookUuid` replace overloaded `bookId` / `stableBookId`. |
+| 2026-10-15 | v1.6 — Optional companion Storage/local leaf `canonical/ss_v{N}.json` for Scope & Sequence (not merged into `v1.json`). |

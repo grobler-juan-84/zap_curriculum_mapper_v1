@@ -537,9 +537,20 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Canonical Dataset:** CREATED (`big-english/big_english_3_sb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
 **Phase 1 Status:** COMPLETE **with documented missing-source exception** (printed pp. 66–67)  
 
+### Associated Scope & Sequence (companion source — not merged)
+
+**Local path:** `data/phase1/big_english_3_sb/canonical/ss_v1.json` (gitignored working copy; parse-validated 2026-10-15)  
+**Intended Storage key (not uploaded yet):** `big-english/big_english_3_sb/canonical/ss_v1.json`  
+**Associated catalog book:** `big_english_3_sb` (BE3-SB) — companion only; does **not** replace or alter SB canonical `v1.json`  
+**Extraction prompt:** [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md)  
+**JSON shape:** SS-specific (`source_metadata`, `original_column_headings`, `units`, `checkpoints`, `extraction_issues`) — **not** Phase 1 schema 0.1  
+**Local parse summary (2026-10-15):** 9 units; 5 checkpoints; 4 `extraction_issues`; publisher columns include Vocabulary, Structures, CLIL/Culture, Writing, Phonics, Values (header absent → `null`), I can…  
+**Status:** LOCAL WORKING COPY REGISTERED — not in `dataset_versions`; not uploaded to `book-datasets`; not a Phase 1 COMPLETE substitute for SB evidence  
+**Constraints:** Do not merge SS into SB `v1.json`. Do not treat SS as unit-batch canonical evidence.
+
 ### Schema / Issues
 
-**Schema Version:** 0.1  
+**Schema Version:** 0.1 *(SB canonical only; SS companion uses a separate non-0.1 shape)*  
 **Open Issues:** 37 (`audio_required` 27 + `missing_source` 2 for printed pp. 66–67 + other review debt). Missing pages accepted as non-blocking completeness debt (D013).  
 **Schema Gaps:** 11  
 
@@ -552,6 +563,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Canonical merge 2026-10-09: 9 units, 144 pages, 489 vocab, 116 language, 372 activities.
 - Mixed Studio entity prefixes preserved where non-colliding (D007); remumbered IDs use catalog prefix.
 - Unit 4 carries open `missing_source` for printed pp. 66–67 (D013).
+- Companion SS `ss_v1.json` registered locally 2026-10-15 (see above); Storage upload / `dataset_versions` wiring deferred.
 
 ---
 
