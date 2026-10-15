@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 148  
+**Last updated:** Step 149  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BE3 A+B regen reproducibility **complete 9/9** — all PASS; soft Near paraphrases only; 0 Drift/Fail.
-- Existing A+B overview unchanged; methodology/schema not locked.
+- BE3 Unit 1 A+B controlled-implementation compatibility assessed (read-only).
+- Catalog identity compatible; no BI UI consumer; do not normalize overview cells into Postgres.
 
 ## Current status
 
-On branch `phase-2`. Full regen roll-up recorded; awaiting owner next prompt.
+On branch `phase-2`. Compatibility assessment recorded; awaiting owner next prompt before any implementation.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (thin A+B LOs, another book, pause, or other) — do not implement until asked.
+**Suggestion:** Owner chooses follow-up (Unit 1 A+B companion JSON draft, new BI UI contract sketch, or pause) — do not implement until asked.

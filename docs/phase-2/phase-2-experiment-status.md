@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.19  
+**Version:** 1.20  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,10 +17,11 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated follow-ups only (e.g. thin A+B LOs; apply A+B to another book; pause) — **no implementation locked** |
+| Next proposed step | Owner-gated: draft Unit 1 A+B companion JSON / new BI UI contract, or pause — **no implementation locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
+| BE3 U1 A+B impl. readiness | Read-only compatibility assessed — catalog identity OK; no BI UI consumer; do not normalize into Postgres |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -182,6 +183,14 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result (AI-assessed):** **9/9 PASS**. Drift/Fail **0**. Soft Near paraphrases on 7/9 units (mostly LO wording). U4 and U8 Exact across compared cells. Writing column Exact on U2–U9 (U1 Writing Near only). **No methodology/schema/UI change.**
 
+### BE3 Unit 1 A+B implementation compatibility (2026-10-15)
+
+**Artifact:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md)
+
+**Controls:** Read-only check of Unit 1 A+B against Postgres catalog tables (`book_series` / `books` / `book_files` / `dataset_versions`) and live/mock UI contracts (`curriculumService`, Validation `BatchJsonSummary`, Beehive `BookContent` mock). No DB/schema/UI changes.
+
+**Result:** Catalog identity **compatible**. Overview cells must **not** be normalized into Postgres (D006). No live Book Intelligence UI consumer; Writing/CLIL/Values/Phonics have no home in existing types. Controlled path = additive interpretation artifact + future new BI contract — not `BookContent` reuse, not Phase 1 merge.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -265,3 +274,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BE3 Unit 9 A+B independent regen vs existing A+B — reproducibility PASS (Writing exact; LO near-exact); book-end pair with U1. |
 | 2026-10-15 | BE3 Unit 5 A+B independent regen vs existing A+B — reproducibility PASS (Writing exact; LO near-exact); mid-book with U1/U9. |
 | 2026-10-15 | BE3 A+B regen full 9/9 roll-up (remaining U2–U4/U6–U8); all PASS; soft Near only; no overview edits. |
+| 2026-10-15 | BE3 Unit 1 A+B controlled-implementation compatibility assessment (read-only); catalog OK; UI consumer gap; no DB/UI changes. |

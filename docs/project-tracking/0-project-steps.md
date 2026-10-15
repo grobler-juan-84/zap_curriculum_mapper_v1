@@ -2600,4 +2600,19 @@
 
 ---
 
+### Step 149
+
+**Summary:** Read-only compatibility assessment for controlled implementation of BE3 Unit 1 A+B against existing Postgres catalog tables and UI data contracts. Catalog identity compatible; overview cells must stay out of relational tables (D006); no live Book Intelligence UI consumer (Writing column gap). No database, schema, or UI changes.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-u01-ab-implementation-compatibility-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

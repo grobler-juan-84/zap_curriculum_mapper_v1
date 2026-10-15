@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 148
+**Last updated:** Step 149
 
 
 
@@ -110,11 +110,15 @@
 
 
 
+- [x] BE3 Unit 1 A+B controlled-implementation compatibility assessment (read-only vs Postgres + UI contracts).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): thin A+B LOs, test A+B on another book, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only (no auto-implementation): Unit 1 A+B companion JSON draft, new BI UI contract sketch, pause, or other D017 next step.
 
 
 

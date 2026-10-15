@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 148
+**Last updated:** Step 149
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,23 +16,23 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A/B/A+B refine pack + SS Writing/I Can dry checks **9/9** (A+B only dual Pass).
+- BE3 A/B/A+B refine pack + SS Writing/I Can dry checks **9/9** + A+B regen reproducibility **9/9**.
 
 - **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**.
 
-- **BE3 A+B regen reproducibility complete 9/9:** all PASS (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged.
+- **BE3 Unit 1 A+B implementation compatibility (read-only):** catalog identity OK; do not normalize into Postgres; no live BI UI consumer yet.
 
 ## In progress
 
-- None (full regen roll-up recorded; awaiting owner next prompt).
+- None (compatibility assessment recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated options: thin A+B LO writing fragments; test A+B on another book; pause refine work; or other D017 follow-ups — **no auto-implementation**.
+- Owner-gated options: draft Unit 1 A+B companion JSON; design a new nine-column BI UI contract; pause; or other D017 follow-ups — **no auto-implementation**.
 
 ## Blocked
 
-- None hard. Soft: F017 pipeline promotion still parked.
+- None hard. Soft: F017 pipeline promotion still parked; BI UI contract does not exist yet.
 
 ---
 
@@ -44,6 +44,6 @@
 
 - Preferred BE3 artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
-- Regen roll-up: [`phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md`](./phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md)
+- Compatibility: [`phase-2/experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./phase-2/experiments/be3-u01-ab-implementation-compatibility-d017-v1.md)
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).
