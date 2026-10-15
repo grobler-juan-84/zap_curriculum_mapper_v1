@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 160
+**Last updated:** Step 161
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,21 +16,21 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A+B BI: Storage JSON + Library entry + unit selector.
+- BE3 A+B BI: Storage + Library entry + URL unit selector.
 
-- **BI unit is URL-addressable** (`?unit=N`); refresh/share opens the correct unit.
+- **BI Unit 1 → Phase 1 evidence** via read-only “View Source Evidence” (Validation `?unit=1`).
 
 ## In progress
 
-- None (URL unit sync recorded; awaiting owner next prompt).
+- None (Unit 1 evidence link recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated: `book_files` registration, more books in BI registry, harden preview, or pause.
+- Owner-gated: evidence links for Units 2–9, `book_files` registration, more BI books, or pause.
 
 ## Blocked
 
-- None hard. Soft: F017 parked; BI contract still draft; only BE3-SB registered for Library BI entry.
+- None hard. Soft: F017 parked; BI contract still draft; evidence link Unit 1 only.
 
 ---
 
@@ -38,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Example: `/app/book-intelligence/big_english_3_sb?unit=5`
+- Path: BI `?unit=1` → **View Source Evidence** → `/app/validation?unit=1`
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

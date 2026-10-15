@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { curriculumService } from '../../services/curriculumService'
 import type {
   BookIntelligenceOverviewDocument,
   BookIntelligenceUnitOverview,
 } from '../../types/bookIntelligence'
+import { useWorkspace } from '../shell/WorkspaceProvider'
 import {
   DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID,
   getBookIntelligenceStorageArtifact,
 } from './bookIntelligenceStorageRegistry'
 import { BookIntelligenceUnitPreview } from './BookIntelligenceUnitPreview'
 import { loadBookIntelligenceFromStorage } from './loadBookIntelligenceFromStorage'
+import { phase1EvidencePath } from './phase1EvidenceLink'
 
 const UNIT_QUERY_KEY = 'unit'
 
@@ -36,6 +39,8 @@ function resolveUnit(
  * Selected unit is URL-addressable via `?unit={unitNumber}` (e.g. `?unit=5`).
  */
 export function BookIntelligencePreviewPage() {
+  const navigate = useNavigate()
+  const { selectSeries, selectBook } = useWorkspace()
   const { catalogBookId: routeCatalogBookId } = useParams<{
     catalogBookId?: string
   }>()
@@ -46,6 +51,7 @@ export function BookIntelligencePreviewPage() {
   const unitParam = searchParams.get(UNIT_QUERY_KEY)
 
   const [state, setState] = useState<LoadState>({ status: 'loading' })
+  const [evidenceError, setEvidenceError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -95,6 +101,20 @@ export function BookIntelligencePreviewPage() {
     const next = new URLSearchParams(searchParams)
     next.set(UNIT_QUERY_KEY, unitNumber)
     setSearchParams(next, { replace: true })
+  }
+
+  function openPhase1Evidence(unitNumber: string) {
+    setEvidenceError(null)
+    const match = curriculumService.getBookByCatalogId(catalogBookId)
+    if (!match) {
+      setEvidenceError(
+        `Could not find catalog book ${catalogBookId} to open Phase 1 evidence.`,
+      )
+      return
+    }
+    selectSeries(match.series.id)
+    selectBook(match.book.id)
+    navigate(phase1EvidencePath(unitNumber))
   }
 
   if (state.status === 'loading') {
@@ -214,8 +234,17 @@ export function BookIntelligencePreviewPage() {
           {data.title ? (
             <p className="text-xs font-medium text-slate-600">{data.title}</p>
           ) : null}
+          {evidenceError ? (
+            <div className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-xs text-rose-900">
+              {evidenceError}
+            </div>
+          ) : null}
           {selectedUnit ? (
-            <BookIntelligenceUnitPreview document={data} unit={selectedUnit} />
+            <BookIntelligenceUnitPreview
+              document={data}
+              unit={selectedUnit}
+              onViewSourceEvidence={openPhase1Evidence}
+            />
           ) : (
             <p className="text-sm text-slate-600">No units in document.</p>
           )}

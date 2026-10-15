@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 160
+**Last updated:** Step 161
 
 
 
@@ -154,11 +154,15 @@
 
 
 
+- [x] BI Unit 1 “View Source Evidence” → Phase 1 Validation (read-only).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: `book_files` registration, more BI books, harden preview, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: evidence links for U2–9, `book_files`, more BI books, harden preview, pause, or other D017 next step.
 
 
 

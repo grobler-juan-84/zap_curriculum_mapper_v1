@@ -3,6 +3,7 @@ import type {
   BookIntelligenceUnitOverview,
   LearningOutcomesProvenance,
 } from '../../types/bookIntelligence'
+import { hasPhase1EvidenceLink } from './phase1EvidenceLink'
 
 type ContentField = {
   key: string
@@ -64,31 +65,48 @@ function pageRange(unit: BookIntelligenceUnitOverview): string | null {
 export function BookIntelligenceUnitPreview({
   document,
   unit,
+  onViewSourceEvidence,
 }: {
   document: BookIntelligenceOverviewDocument
   unit: BookIntelligenceUnitOverview
+  /** Read-only jump to Phase 1 Validation for this unit (Unit 1 only for now). */
+  onViewSourceEvidence?: (unitNumber: string) => void
 }) {
   const fields = contentFields(unit)
   const pages = pageRange(unit)
+  const showEvidenceLink =
+    Boolean(onViewSourceEvidence) && hasPhase1EvidenceLink(unit.unitNumber)
 
   return (
     <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xs">
       <header className="border-b border-slate-200 bg-slate-50 px-5 py-4">
-        <div className="min-w-0">
-          <h2 className="text-lg font-semibold tracking-tight text-slate-900">
-            Unit {unit.unitNumber}: {unit.title}
-          </h2>
-          <p className="mt-1 text-xs text-slate-500">
-            {pages ?? 'Pages not specified'}
-            {' · '}
-            <span className="font-mono text-slate-600">{unit.unitId}</span>
-            {document.layer ? (
-              <>
-                {' · '}
-                <span className="text-slate-500">{document.layer}</span>
-              </>
-            ) : null}
-          </p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <h2 className="text-lg font-semibold tracking-tight text-slate-900">
+              Unit {unit.unitNumber}: {unit.title}
+            </h2>
+            <p className="mt-1 text-xs text-slate-500">
+              {pages ?? 'Pages not specified'}
+              {' · '}
+              <span className="font-mono text-slate-600">{unit.unitId}</span>
+              {document.layer ? (
+                <>
+                  {' · '}
+                  <span className="text-slate-500">{document.layer}</span>
+                </>
+              ) : null}
+            </p>
+          </div>
+          {showEvidenceLink ? (
+            <button
+              type="button"
+              onClick={() => onViewSourceEvidence?.(unit.unitNumber)}
+              className="shrink-0 rounded border border-slate-300 bg-white px-2.5 py-1 text-xs font-semibold text-slate-800 shadow-xs hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-800"
+              title="Open Phase 1 Validation for this unit (read-only evidence view)"
+            >
+              View Source Evidence
+            </button>
+          ) : null}
         </div>
       </header>
 

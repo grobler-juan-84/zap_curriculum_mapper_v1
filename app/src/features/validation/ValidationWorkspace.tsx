@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch, BookFileStatus } from '../../types/validation'
@@ -50,6 +51,17 @@ function buildCanonicalUnitNav(
   })
 }
 
+function pickBatchIdForUnit(
+  batches: BookFileBatch[],
+  unitNumber: string | null,
+): string {
+  if (!unitNumber) return batches[0]?.id ?? ''
+  const match =
+    batches.find((batch) => batch.unitNumber === unitNumber) ??
+    findBatchForUnitNumber(batches, unitNumber)
+  return match?.id ?? batches[0]?.id ?? ''
+}
+
 export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   seriesList,
   series,
@@ -59,6 +71,8 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   onBackToBooks,
 }) => {
   const { profile } = useAuth()
+  const [searchParams] = useSearchParams()
+  const requestedUnit = searchParams.get('unit')
   const canWriteStatus = profile?.role === 'admin'
 
   /** Items shown in the unit picker (virtual units from canonical, or real batches). */
@@ -143,7 +157,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
           setCanonicalRaw(raw)
           setFromCanonical(true)
           setBatches(nav)
-          setSelectedBatchId(nav[0]?.id ?? '')
+          setSelectedBatchId(pickBatchIdForUnit(nav, requestedUnit))
           setBatchesLoading(false)
           setJsonLoading(false)
           return
@@ -153,7 +167,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         setFromCanonical(false)
         setCanonicalRaw(null)
         setBatches(unitBatches)
-        setSelectedBatchId(unitBatches[0]?.id ?? '')
+        setSelectedBatchId(pickBatchIdForUnit(unitBatches, requestedUnit))
         setBatchesLoading(false)
       } catch (err: unknown) {
         if (cancelled) return
@@ -167,7 +181,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     return () => {
       cancelled = true
     }
-  }, [book.id])
+  }, [book.id, requestedUnit])
 
   useEffect(() => {
     let cancelled = false

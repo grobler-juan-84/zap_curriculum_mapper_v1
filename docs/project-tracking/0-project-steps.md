@@ -2834,4 +2834,23 @@
 
 ---
 
+### Step 161
+
+**Summary:** Added a read-only Unit 1 “View Source Evidence” control on the Book Intelligence overview that selects the catalog book and opens Phase 1 Validation at `?unit=1`. Validation honors the unit query when loading. Units 2–9 deferred. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/phase1EvidenceLink.ts` (created)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (updated)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
