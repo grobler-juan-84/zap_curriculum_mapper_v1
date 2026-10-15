@@ -2419,4 +2419,25 @@
 
 ---
 
+### Step 138
+
+**Summary:** Renamed Phase 1 Google AI Studio SB/WB prompt to `google-ai-studio-prompt-sb-wb-v2.md`, added Scope & Sequence prompt `google-ai-studio-prompt-ss-v1.md`, and updated live documentation references (index, workflow, extraction spec, registry, future F017 note). Historical project-steps entries left unchanged.
+
+**Files touched:**
+- `docs/phase-1/google-ai-studio-prompt.md` (renamed → `google-ai-studio-prompt-sb-wb-v2.md`)
+- `docs/phase-1/google-ai-studio-prompt-sb-wb-v2.md` (created/updated)
+- `docs/phase-1/google-ai-studio-prompt-ss-v1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/phase-1/phase-1-extraction-workflow.md` (updated)
+- `docs/phase-1/extraction-data-specification.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-1/cross-series-schema-review-notes.md` (updated)
+- `docs/11-curriculum-mapping-workflow.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -2,14 +2,14 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 137  
+**Last updated:** Step 138  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
 - Phase 1 PAUSED; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
 - BE3 A / B / A+B methodology experiments + three-way comparison + owner-review pack completed.
-- None of A/B/A+B approved; methodology not locked; BE2 v2 unchanged.
+- Phase 1 Studio prompts: SB/WB renamed to `google-ai-studio-prompt-sb-wb-v2.md`; SS prompt added as `google-ai-studio-prompt-ss-v1.md`.
 
 ## Current status
 

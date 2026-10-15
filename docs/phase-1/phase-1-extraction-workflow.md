@@ -7,7 +7,8 @@
 **Project-wide workflow:** [`../11-curriculum-mapping-workflow.md`](../11-curriculum-mapping-workflow.md)  
 **Authoritative data rules:** [`extraction-data-specification.md`](./extraction-data-specification.md)  
 **Working schema:** [`json-schema.md`](./json-schema.md) (0.1)  
-**Extraction prompt:** [`google-ai-studio-prompt.md`](./google-ai-studio-prompt.md)  
+**SB / WB extraction prompt:** [`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md)  
+**Scope & Sequence extraction prompt:** [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md)  
 **Book status:** [`dataset-registry.md`](./dataset-registry.md)
 
 **Priority:** Phase 1 is **PAUSED at 14 / 18 COMPLETE** (D015). These procedures remain authoritative when Phase 1 resumes.
@@ -77,7 +78,9 @@ Split a unit when output is too large, content is omitted, activities confuse, v
 
 > **Use the largest batch that remains reliably accurate and complete.**
 
-Studio usage: supply the textbook PDF; return **one labeled JSON batch per unit**. Whole-book JSON is produced only by later merge. Details: [`google-ai-studio-prompt.md`](./google-ai-studio-prompt.md).
+Studio usage (Student Book / Workbook): supply the textbook PDF; return **one labeled JSON batch per unit**. Whole-book JSON is produced only by later merge. Details: [`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md).
+
+For publisher Scope & Sequence pages (separate source / extraction track), use [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md). Keep SS output distinct from SB/WB canonical book evidence.
 
 Catalog `book_id` normalization at merge: D007 / [`book-id-alias-map.md`](./book-id-alias-map.md).
 

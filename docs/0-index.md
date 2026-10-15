@@ -57,7 +57,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-1/phase-1-extraction-workflow.md](./phase-1/phase-1-extraction-workflow.md) | Practical Phase 1 extraction / book-evidence procedures (pipeline, batches, verification, canonical handoff); Phase 1 paused at 14/18 under D015. | 1.0 | ACTIVE |
-| [phase-1/google-ai-studio-prompt.md](./phase-1/google-ai-studio-prompt.md) | Phase 1 Google AI Studio extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). | V2 | ACTIVE |
+| [phase-1/google-ai-studio-prompt-sb-wb-v2.md](./phase-1/google-ai-studio-prompt-sb-wb-v2.md) | Phase 1 Google AI Studio Student Book / Workbook extraction prompt (V2). Unit-by-unit JSON batches with D009 naming; mid-book new-chat caution (carry counters / slug forms; BE2-WB lesson). Formerly `google-ai-studio-prompt.md`. | V2 | ACTIVE |
+| [phase-1/google-ai-studio-prompt-ss-v1.md](./phase-1/google-ai-studio-prompt-ss-v1.md) | Phase 1 Google AI Studio Scope & Sequence (SS) extraction prompt (V1). Source-faithful transcription of publisher S&S pages into structured JSON; not curriculum interpretation. | V1 | ACTIVE |
 | [phase-1/extraction-data-specification.md](./phase-1/extraction-data-specification.md) | Authoritative Phase 1 data specification for extraction boundaries and verified-batch → merge → validation → audit workflow; Phase 1 is paused at 14/18 under D015. | — | ACTIVE |
 | [phase-1/json-schema.md](./phase-1/json-schema.md) | Working Phase 1 schema 0.1 plus machine-schema/validator responsibilities, D009 identifier guidance for new books, and `continuous_text.text_id` clarification. | 0.1 | ACTIVE |
 | [phase-1/dataset-registry.md](./phase-1/dataset-registry.md) | Operational registry of 18 books: fourteen individually Phase 1 COMPLETE; project-wide Phase 1 paused at 14/18 with BH2 and three Reach Higher books deferred. | — | ACTIVE |
@@ -142,7 +143,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 75 | Current working docs, including index, operating trackers, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 76 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

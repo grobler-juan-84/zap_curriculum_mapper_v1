@@ -196,7 +196,7 @@ Recommendations in §7 are accepted. Still useful to decide later (not blocking 
 - [x] Canonical merge + whole-book audit for BE2-SB on schema 0.1 (Phase 1 COMPLETE).
 - [x] Canonical merge for RH2A on schema 0.1.
 - [x] Whole-book audit for RH2A (PASSED 2026-10-07).
-- [x] After those audits: drafted 0.2 candidate (§11). Verdict: **defer**. [`json-schema.md`](./json-schema.md) and the extraction prompt stay on 0.1 (no fields accepted).
+- [x] After those audits: drafted 0.2 candidate (§11). Verdict: **defer**. [`json-schema.md`](./json-schema.md) and the SB/WB extraction prompt ([`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md)) stay on 0.1 (no fields accepted).
 - [x] Registry §13 “Schema Review” row and §20 log record the deferral (draft record; not a LOCKED decision).
 
 ---
@@ -211,7 +211,7 @@ Cross-series success means shared arrays and IDs where pedagogy aligns, series-c
 
 ## 11. Post-pilot 0.2 candidate (2026-10-07)
 
-**Verdict:** Remain on schema **0.1**. Do not open schema 0.2. Do not patch [`json-schema.md`](./json-schema.md) or the extraction prompt.
+**Verdict:** Remain on schema **0.1**. Do not open schema 0.2. Do not patch [`json-schema.md`](./json-schema.md) or the SB/WB extraction prompt ([`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md)).
 
 This is the candidate required by §7.7. A universal field is promoted only when the evidence bar below is met. No theme meets that bar, so the candidate is an explicit deferral.
 

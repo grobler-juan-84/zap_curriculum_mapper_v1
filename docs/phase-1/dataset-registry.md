@@ -493,7 +493,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Extraction notes (Google AI Studio workflow)
 
-- **Prior books** in this project were typically extracted in **one** Google AI Studio chat using one PDF and [`google-ai-studio-prompt.md`](./google-ai-studio-prompt.md) for all units.
+- **Prior books** in this project were typically extracted in **one** Google AI Studio chat using one PDF and [`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md) (formerly `google-ai-studio-prompt.md`) for all units.
 - **BE2-WB:** Units **1–7** used that continuing-chat approach; Units **8–9** were extracted in **new Studio chats** to free context.
 - **Observed effects:** Units 8–9 restarted entity ID counters (collided with earlier units) and used `_language_` while Units 1–7 used `_lang_`. Fixed at merge (remumber + slug normalize); not a Validation/merge tooling defect.
 - Extraction alias `big_english_plus_2_wb` / entity prefix `big_english_plus_2_wb_*` preserved; catalog remains `big_english_2_wb` (D007).
@@ -890,7 +890,9 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 During active extraction, individual books may require batch-level tracking.
 
-When using **`google-ai-studio-prompt.md`** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
+When using **[`google-ai-studio-prompt-sb-wb-v2.md`](./google-ai-studio-prompt-sb-wb-v2.md)** with a complete textbook PDF, expect one JSON batch file per unit (or equivalent major instructional section), typically named like `<book_id>_unit_01.json`, until approved batches are merged into the canonical book dataset.
+
+Publisher Scope & Sequence extraction (when used) is a **separate** prompt and output track: [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md). Do not treat SS JSON as a substitute for SB/WB unit-batch canonical evidence.
 
 Example:
 

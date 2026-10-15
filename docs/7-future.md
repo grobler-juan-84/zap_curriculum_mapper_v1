@@ -41,7 +41,8 @@
 
 ### F017 / F018 notes (PARKED — not approved)
 
-- **Do not** modify extraction prompts, canonical JSON, schemas, or existing datasets for these ideas without explicit owner approval.
+- A dedicated Scope & Sequence Studio prompt now exists at [`phase-1/google-ai-studio-prompt-ss-v1.md`](./phase-1/google-ai-studio-prompt-ss-v1.md). That file does **not** by itself promote F017 into active Phase 1 pipeline work.
+- **Do not** modify SB/WB extraction prompts, canonical JSON, schemas, or existing datasets for these ideas without explicit owner approval.
 - D017 v2 Learning Outcomes remain concise and **AI-inferred** until/unless F017 is deliberately promoted.
 
 ### PDF Delivery Scalability — Future Consideration

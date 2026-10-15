@@ -74,7 +74,8 @@ Create detailed, verifiable, source-grounded curriculum evidence for one book.
 ### Inputs
 
 - Textbook source PDF (R2 `book-sources`, D012)
-- Extraction prompt / unit-batch process
+- SB / WB extraction prompt / unit-batch process ([`phase-1/google-ai-studio-prompt-sb-wb-v2.md`](./phase-1/google-ai-studio-prompt-sb-wb-v2.md))
+- Optional Scope & Sequence extraction prompt ([`phase-1/google-ai-studio-prompt-ss-v1.md`](./phase-1/google-ai-studio-prompt-ss-v1.md)) — keep SS evidence distinct from SB/WB canonical datasets
 - Catalog identity (`catalog_book_id`, D007 / D009)
 
 ### Process (summary)

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 137
+**Last updated:** Step 138
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,6 +24,8 @@
 
 - **BE3 Step 3 A / B / A+B** completed: inference-only, Writing-column-only, and combined overviews plus three-way comparison and owner-review pack. None approved; methodology not locked.
 
+- Phase 1 Studio prompts renamed/split: SB/WB V2 → `google-ai-studio-prompt-sb-wb-v2.md`; new SS V1 → `google-ai-studio-prompt-ss-v1.md`; docs references updated.
+
 ## In progress
 
 - Owner review of BE3 Experiments **A, B, and A+B together**.
@@ -34,7 +36,7 @@
 
 ## Blocked
 
-- Soft: original BE3 S&S PDF still missing locally; BE5 publisher S&S still unavailable. F017 / F018 remain parked.
+- Soft: original BE3 S&S PDF still missing locally; BE5 publisher S&S still unavailable. F017 / F018 remain parked (SS prompt file exists; pipeline promotion not approved).
 
 ---
 
@@ -44,8 +46,8 @@
 
 - Owner-review pack: [`phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md)
 
-- Combined overview: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
+- SB/WB prompt: [`phase-1/google-ai-studio-prompt-sb-wb-v2.md`](./phase-1/google-ai-studio-prompt-sb-wb-v2.md)
 
-- Three-way comparison: [`phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md`](./phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md)
+- SS prompt: [`phase-1/google-ai-studio-prompt-ss-v1.md`](./phase-1/google-ai-studio-prompt-ss-v1.md)
 
-- Direction: D017 LOCKED; D018 PROPOSED only.
+- Direction: D017 LOCKED; D018 PROPOSED only (unless owner has separately locked it outside this snapshot).

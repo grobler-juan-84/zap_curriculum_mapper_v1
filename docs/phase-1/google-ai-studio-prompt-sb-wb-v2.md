@@ -1,4 +1,9 @@
-# Google AI Studio Prompt V2
+# Google AI Studio Prompt V2 — Student Book / Workbook
+
+**Status:** ACTIVE  
+**Version:** V2  
+**Filename:** `google-ai-studio-prompt-sb-wb-v2.md` (renamed from `google-ai-studio-prompt.md`)  
+**Related:** Scope & Sequence extraction uses [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md) (separate track).
 
 # EXTRACTION SCOPE FOR THIS SOURCE
 
