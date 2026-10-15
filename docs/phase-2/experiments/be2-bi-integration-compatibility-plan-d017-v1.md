@@ -1,8 +1,8 @@
 # BE2 Book Intelligence Integration — Compatibility Gaps & Implementation Plan (D017)
 
 **Date:** 2026-10-15  
-**Status:** ACTIVE PLAN — P0/P1/P2/P4 done; P3/P5 (Storage/registry + smoke) pending; methodology / schema **not locked**  
-**Version:** 1.2  
+**Status:** ACTIVE PLAN — P0–P4 done; P5 smoke optional; methodology / schema **not locked**  
+**Version:** 1.3  
 **Decision context:** D017 Progressive Curriculum Intelligence; D017 working approvals (BE2 v2 eight-column baseline; BE3 A+B nine-column for BE3-SB only); D019 MVP UI path (BE3)  
 **Purpose:** Compare BE2-SB v2 eight-column overview + Phase 1 data with the working BE3 Book Intelligence contract/UI; identify minimum changes to support both column sets; propose a reusable, book-independent UI approach; document gaps and a phased plan.
 
@@ -20,7 +20,7 @@
 | BE3 A+B BI JSON | `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` | Working nine-column Storage companion |
 | BI UI contract (draft) | [`../book-intelligence-ui-data-contract-v1.md`](../book-intelligence-ui-data-contract-v1.md) | Dual `column_set`: `eight_column_baseline` + `nine_column_ab` |
 | App types / loader / UI | `app/src/types/bookIntelligence.ts`, `lib/bookIntelligence/*`, `features/book-intelligence/*` | Dual-set loader/UI fields; BE3 Storage consumer only |
-| Storage registry | `bookIntelligenceStorageRegistry.ts` | Only `big_english_3_sb` registered |
+| Storage registry | `bookIntelligenceStorageRegistry.ts` | `big_english_2_sb` + `big_english_3_sb` registered |
 
 ---
 
@@ -33,7 +33,7 @@
 | Working approval | Eight-column provisional baseline (BE2-SB) | Nine-column A+B preferred (**BE3-SB only**) |
 | Content columns | Vocabulary; Grammar / Structures; Communicative Functions; Learning Outcomes *(AI-inferred)*; CLIL / Culture; Values; Phonics | Same seven **plus Writing** |
 | Proposed `column_set` | `eight_column_baseline` *(in contract + TS/loader)* | `nine_column_ab` *(implemented; BE3 live)* |
-| Machine JSON today | Local U1–9 eight-column JSON (not Storage) | Full U1–9 JSON in repo + Storage |
+| Machine JSON today | Full U1–9 eight-column JSON in repo + Storage | Full U1–9 JSON in repo + Storage |
 | Writing strand | Absent (by design for v2 baseline) | Required string + optional `writing_component_id` |
 
 ### 2.2 Shared identity (compatible)
@@ -66,8 +66,8 @@ Both books can use the same envelope identity model already used by BE3:
 | ~~`column_set === 'nine_column_ab'` only~~ | Types + parser | **Resolved** — both sets accepted |
 | ~~`writing` required non-empty~~ | Parser / CLI | **Resolved** — required only for `nine_column_ab` |
 | ~~Field list always includes Writing~~ | `uiFieldsForColumnSet` | **Resolved** — column-set-driven |
-| Storage registry entry required | Series Library + load path | **Yes** — BE2 not registered |
-| BI JSON exists in Storage | BE3 path only | **Yes** — no BE2 artifact yet |
+| ~~Storage registry entry required~~ | Series Library + load path | **Resolved** — BE2 registered |
+| ~~BI JSON exists in Storage~~ | BE2 + BE3 paths | **Resolved** — BE2 uploaded |
 | Default route book | `big_english_3_sb` | Soft — OK if BE2 linked from Library |
 
 PDF split layout, `?unit=`, Validation evidence link, and PDF↔unit sync are already **catalog-book-parameterized** and can stay shared.
@@ -78,11 +78,11 @@ PDF split layout, `?unit=`, Validation evidence link, and PDF↔unit sync are al
 
 | ID | Gap | Severity | Notes |
 |---|---|---|---|
-| G1 | ~~No BE2 machine-readable BI JSON~~ | **Done (local)** | Ported from Markdown v2; Storage still pending (G5) |
+| G1 | ~~No BE2 machine-readable BI JSON~~ | **Done** | Ported from Markdown v2 + Storage |
 | G2 | ~~`eight_column_baseline` not in TS/loader~~ | **Done** | Allow-list both sets |
 | G3 | ~~`writing` required globally~~ | **Done** | Required only for `nine_column_ab` |
 | G4 | ~~UI hardcodes nine fields incl. Writing~~ | **Done** | `uiFieldsForColumnSet` |
-| G5 | Storage / local registry has BE3 only | **Blocker** | Additive registry row + upload (Storage-only; no DB) |
+| G5 | ~~Storage / local registry has BE3 only~~ | **Done** | BE2 registry + Storage upload |
 | G6 | Legacy `bep2_unit_*` vs full catalog entity prefix | Medium | Use Phase 1 IDs as-is; document grandfathering |
 | G7 | BE2 v2 Markdown is the SoT for wording today | Medium | JSON must stay faithful to v2; no silent A+B rewrite |
 | G8 | No `book_files` registration for BI companions | Accepted | Same as BE3 (D019 non-lock); registry map is enough for preview |
@@ -198,7 +198,7 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 | **P0 — Contract align** | Document `eight_column_baseline` in draft contract; list required keys per set | **Done** (draft/not locked) | Low |
 | **P1 — Loader dual-set** | Parser/CLI accept both sets; Writing required only for nine-column | **Done** (BE3 PASS + dual-set tests) | Low |
 | **P2 — BE2 JSON port** | Markdown v2 → U1–9 JSON; validate with CLI; unit IDs = `bep2_*` | **Done** (CLI PASS; Markdown compare 0 discrepancies) | Medium (manual fidelity) |
-| **P3 — Storage + registry** | Upload BE2 JSON; register `big_english_2_sb` | Library shows BI; route loads Storage | Low (ops) |
+| **P3 — Storage + registry** | Upload BE2 JSON; register `big_english_2_sb` | **Done** (Library → BI; Storage SHA verified) | Low (ops) |
 | **P4 — UI column-set render** | Descriptor-driven fields; hide Writing for eight-column | **Done** (BE3 path unchanged; eight-column config ready) | Low |
 | **P5 — Smoke** | BE2 U1/U5/U9 deep links; gap after U3; evidence round-trip; BE3 regression scripts still PASS | Scripted + short manual smoke | Low |
 
@@ -234,3 +234,4 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 | 2026-10-15 | Created compatibility gaps + reusable UI plan for BE2 eight-column vs BE3 nine-column; docs only. |
 | 2026-10-15 | P0/P1/P4 implemented: dual column-set contract/loader/UI + tests; G2–G4 closed. P2/P3/P5 still pending. |
 | 2026-10-15 | P2 done: BE2 v2 Markdown → local eight-column JSON (`bep2_unit_*`); G1 closed locally. P3/P5 still pending. |
+| 2026-10-15 | P3 done: BE2 BI uploaded + Library registry; G1/G5 closed. P5 smoke optional. |

@@ -89,7 +89,11 @@ function assertBiEnvelope(parsed) {
   if (parsed.layer !== 'phase2_interpretation') {
     errors.push(`layer=${parsed.layer}`)
   }
-  if (parsed.column_set !== 'nine_column_ab') {
+  const allowedColumnSets = new Set([
+    'eight_column_baseline',
+    'nine_column_ab',
+  ])
+  if (!allowedColumnSets.has(parsed.column_set)) {
     errors.push(`column_set=${parsed.column_set}`)
   }
   if (typeof parsed.catalog_book_id !== 'string' || !parsed.catalog_book_id) {
@@ -208,7 +212,7 @@ const checks = [
   ],
   [
     'column_set',
-    remoteParsed.column_set === 'nine_column_ab',
+    remoteParsed.column_set === parsed.column_set,
     remoteParsed.column_set,
   ],
   [

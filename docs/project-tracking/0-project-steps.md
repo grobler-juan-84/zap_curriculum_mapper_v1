@@ -3084,4 +3084,23 @@
 
 ---
 
+### Step 175
+
+**Summary:** Enabled BE2 in Series Library → Book Intelligence: uploaded eight-column BI JSON to Storage (integrity verified) and registered `big_english_2_sb` in the BI Storage registry. Default BI book remains BE3; no Postgres / methodology lock.
+
+**Files touched:**
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
+- `scripts/upload_book_intelligence_json.mjs` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

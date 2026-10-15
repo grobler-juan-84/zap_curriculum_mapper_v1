@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 174
+**Last updated:** Step 175
 
 
 
@@ -210,11 +210,15 @@
 
 
 
+- [x] Enable BE2 Library → Book Intelligence (P3): Storage upload + registry.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated: BE2 Storage/registry (P3) + smoke (P5), or `book_files` / harden preview / pause.
+- [ ] Owner-gated: BE2 smoke (P5), or `book_files` / harden preview / pause.
 
 
 

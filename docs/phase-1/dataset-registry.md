@@ -373,6 +373,17 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Canonical Dataset:** CREATED (`big-english/big_english_2_sb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
 **Phase 1 Status:** COMPLETE  
 
+### Associated Phase 2 Book Intelligence (interpretation companion — not merged)
+
+**Local path:** `data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json`  
+**Storage path:** `book-datasets` → `big-english/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json` (uploaded 2026-10-15; download SHA-256 integrity verified)  
+**Associated catalog book:** `big_english_2_sb` (BE2-SB) — Phase 2 interpretation only; does **not** replace or alter SB canonical `v1.json`  
+**Contract:** [`../phase-2/book-intelligence-ui-data-contract-v1.md`](../phase-2/book-intelligence-ui-data-contract-v1.md) (`column_set: eight_column_baseline`, Units 1–9; `unit_id` = `bep2_unit_0N`)  
+**Upload script:** `scripts/upload_book_intelligence_json.mjs` (Storage only — no Postgres writes)  
+**App registry:** `BOOK_INTELLIGENCE_STORAGE_ARTIFACTS.big_english_2_sb` — Series Library → Book Intelligence  
+**Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; preview `/app/book-intelligence/big_english_2_sb` loads it; **not** registered in `dataset_versions` / `book_files`  
+**Constraints:** Do not merge into Phase 1 `v1.json`. Do not point `dataset_versions` at this object. Format still draft / not locked.
+
 ### Schema / Issues
 
 **Schema Version:** 0.1  
@@ -386,6 +397,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Whole-book audit evidence: [`audits/BE2-SB_canonical_v1_audit.md`](./audits/BE2-SB_canonical_v1_audit.md) — **PASSED** (owner reply 2026-10-07).
 - 2026-10-07 structural triage: added appendix sticker pages `bep2_p189`–`bep2_p191` (`unit_id` null, `section_type: appendix_stickers`) so Activity 11 `paired_with` relationships resolve. Canonical now has 147 pages; automated validation **PASSED WITH WARNINGS**.
 - Third book to reach Phase 1 COMPLETE (after BE1-SB and BH1).
+- Phase 2 BI v2 eight-column Units 1–9 JSON uploaded to Storage 2026-10-15; Library → BI registry wired same day (see above); `dataset_versions` / `book_files` still deferred.
 
 ---
 

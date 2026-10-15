@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 174  
+**Last updated:** Step 175  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Ported BE2 v2 eight-column Markdown overview to local BI JSON.
-- `column_set: eight_column_baseline`; Phase 1 `bep2_unit_*` IDs preserved.
-- Validated against dual-set loader; Markdown unit compare: 0 discrepancies.
+- Uploaded BE2 eight-column BI JSON to Storage (SHA verified).
+- Registered `big_english_2_sb` in Book Intelligence Storage registry.
+- Series Library → Book Intelligence now available for BE2 (and BE3).
 
 ## Current status
 
-On branch `phase-2`. BE2 JSON local-only; Storage/UI still pending.
+On branch `phase-2`. Dual-book BI navigation live; no Postgres BI registration.
 
 ## Next small step
 
-**Suggestion:** Owner picks P3 (Storage + registry) or pauses; no methodology lock.
+**Suggestion:** Optional P5 smoke (BE2 deep links / gaps / evidence), or pause.

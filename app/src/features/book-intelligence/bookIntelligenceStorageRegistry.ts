@@ -21,6 +21,15 @@ export const BOOK_INTELLIGENCE_STORAGE_ARTIFACTS: Record<
   string,
   BookIntelligenceStorageArtifact
 > = {
+  big_english_2_sb: {
+    catalogBookId: 'big_english_2_sb',
+    seriesSlug: 'big-english',
+    bucket: BOOK_INTELLIGENCE_STORAGE_BUCKET,
+    storagePath:
+      'big-english/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json',
+    expectedUnitCount: 9,
+    label: 'BE2-SB Units 1–9 v2 eight-column',
+  },
   big_english_3_sb: {
     catalogBookId: 'big_english_3_sb',
     seriesSlug: 'big-english',
