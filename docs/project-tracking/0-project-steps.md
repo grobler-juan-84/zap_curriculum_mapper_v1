@@ -2692,4 +2692,31 @@
 
 ---
 
+### Step 154
+
+**Summary:** Extended the local Book Intelligence preview to all nine BE3 units from the preferred A+B overview. Replaced the Unit 1-only JSON with a Units 1–9 artifact; CLI PASS `units=9`; preview lists all unit cards with jump links. No Supabase, database, or schema changes.
+
+**Files touched:**
+- `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (created)
+- `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json` (deleted)
+- `app/src/features/book-intelligence/loadLocalBe3BookIntelligence.ts` (created)
+- `app/src/features/book-intelligence/loadLocalBe3Unit1BookIntelligence.ts` (deleted)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (updated)
+- `app/vite.config.ts` (updated)
+- `app/tsconfig.app.json` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `scripts/validate_book_intelligence_json.mjs` (updated)
+- `data/README.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

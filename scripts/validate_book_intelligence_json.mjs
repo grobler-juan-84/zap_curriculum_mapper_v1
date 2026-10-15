@@ -19,7 +19,7 @@ const root = resolve(__dirname, '..')
 
 const DEFAULT_FILE = resolve(
   root,
-  'data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json',
+  'data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json',
 )
 
 const SCHEMA_NAME = 'book_intelligence_unit_overview'

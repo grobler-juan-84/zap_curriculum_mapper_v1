@@ -1,12 +1,12 @@
 import { BookIntelligenceUnitPreview } from './BookIntelligenceUnitPreview'
-import { loadLocalBe3Unit1BookIntelligence } from './loadLocalBe3Unit1BookIntelligence'
+import { loadLocalBe3BookIntelligence } from './loadLocalBe3BookIntelligence'
 
 /**
- * Read-only BE3 Unit 1 Book Intelligence preview.
+ * Read-only BE3 Units 1–9 Book Intelligence preview.
  * Local Phase 2 JSON + validated TS loader only — no Supabase.
  */
 export function BookIntelligencePreviewPage() {
-  const result = loadLocalBe3Unit1BookIntelligence()
+  const result = loadLocalBe3BookIntelligence()
 
   if (!result.ok) {
     return (
@@ -31,7 +31,6 @@ export function BookIntelligencePreviewPage() {
   }
 
   const { data } = result
-  const unit = data.units[0]
 
   return (
     <div className="flex h-full flex-col overflow-hidden bg-slate-50">
@@ -43,9 +42,37 @@ export function BookIntelligencePreviewPage() {
           Book Intelligence Preview
         </h1>
         <p className="mt-1 max-w-2xl text-xs text-slate-500">
-          BE3 Unit 1 nine-column A+B overview from local JSON via the draft-contract
-          loader. Not Phase 1 evidence. No Supabase or Storage.
+          BE3 Units 1–9 nine-column A+B overview from local JSON via the
+          draft-contract loader. Not Phase 1 evidence. No Supabase or Storage.
         </p>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-indigo-700">
+            {data.columnSet}
+          </span>
+          <span className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+            {data.catalogBookId}
+            {data.registryId ? ` · ${data.registryId}` : ''}
+          </span>
+          <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-800">
+            Read-only · {data.units.length} units
+          </span>
+        </div>
+        {data.units.length > 1 ? (
+          <nav
+            aria-label="Jump to unit"
+            className="mt-3 flex flex-wrap gap-1.5"
+          >
+            {data.units.map((unit) => (
+              <a
+                key={unit.unitId}
+                href={`#${unit.unitId}`}
+                className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-800"
+              >
+                U{unit.unitNumber}
+              </a>
+            ))}
+          </nav>
+        ) : null}
       </header>
 
       <div className="min-h-0 flex-1 overflow-auto px-6 py-6">
@@ -53,8 +80,12 @@ export function BookIntelligencePreviewPage() {
           {data.title ? (
             <p className="text-xs font-medium text-slate-600">{data.title}</p>
           ) : null}
-          {unit ? (
-            <BookIntelligenceUnitPreview document={data} unit={unit} />
+          {data.units.length > 0 ? (
+            data.units.map((unit) => (
+              <div key={unit.unitId} id={unit.unitId} className="scroll-mt-4">
+                <BookIntelligenceUnitPreview document={data} unit={unit} />
+              </div>
+            ))
           ) : (
             <p className="text-sm text-slate-600">No units in document.</p>
           )}

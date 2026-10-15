@@ -60,12 +60,12 @@ data/phase2/big_english_2_sb/
 
 data/phase2/big_english_3_sb/
   interpretations/
-    be3-sb-u01-book-intelligence-ab-v0.1-draft.json  # nine-column A+B Unit 1 slice (draft BI UI contract)
+    be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json  # nine-column A+B Units 1–9 (draft BI UI contract)
 ```
 
 - Book folder uses catalog `book_id` (same habit as Phase 1).
 - Unit V3.1 JSON files and related Phase 2 outputs are **experimental research artifacts** under D017 principle 4 — not production-mandatory unit source of truth. Phase 1 canonical evidence remains authoritative for textbook content.
-- BE3 Unit 1 Book Intelligence JSON follows [`docs/phase-2/book-intelligence-ui-data-contract-v1.md`](../docs/phase-2/book-intelligence-ui-data-contract-v1.md) (`schema_name: book_intelligence_unit_overview`, `column_set: nine_column_ab`). Draft only — not locked; not wired to UI/DB.
+- BE3 Units 1–9 Book Intelligence JSON follows [`docs/phase-2/book-intelligence-ui-data-contract-v1.md`](../docs/phase-2/book-intelligence-ui-data-contract-v1.md) (`schema_name: book_intelligence_unit_overview`, `column_set: nine_column_ab`). Draft only — not locked; local read-only preview only (no DB/Storage).
 - Cross-unit outputs must not silently replace or rewrite unit IDs.
 - Prompt docs remain under `docs/phase-2/` (`phase2-v3.1-prompt.md`, `cross-unit-v1.2-prompt.md`).
 - Inventory / validation: `docs/phase-2/p2-exp-be2-v3.1-cross-unit-status.md`.

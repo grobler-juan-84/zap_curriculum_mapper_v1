@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 153
+**Last updated:** Step 154
 
 
 
@@ -126,11 +126,15 @@
 
 
 
+- [x] Extend BI preview + JSON to BE3 Units 1–9 A+B (local only; no DB/Storage).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: expand more units into JSON/UI, harden preview, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: harden preview, other books, pause, or other D017 next step.
 
 
 

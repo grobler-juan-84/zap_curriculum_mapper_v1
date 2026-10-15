@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module '@bi-be3-u01-json' {
+declare module '@bi-be3-ab-json' {
   const value: unknown
   export default value
 }

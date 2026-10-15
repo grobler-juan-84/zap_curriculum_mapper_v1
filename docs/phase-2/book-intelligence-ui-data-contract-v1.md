@@ -205,7 +205,7 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 | Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
 | Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
 | CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
-| Local BE3 U1 preview | `/app/book-intelligence` · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
+| Local BE3 U1–9 preview | `/app/book-intelligence` · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
@@ -282,9 +282,9 @@ It does **not**:
 
 | Artifact | Path |
 |---|---|
-| BE3-SB Unit 1 A+B slice | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json) |
+| BE3-SB Units 1–9 A+B | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json) |
 
-Content mirrors the preferred A+B Markdown Unit 1 row. Validated by TS loader + CLI; shown in the local read-only preview; not in Postgres/Storage.
+Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; shown in the local read-only preview; not in Postgres/Storage.
 
 ---
 
@@ -296,3 +296,4 @@ Content mirrors the preferred A+B Markdown Unit 1 row. Validated by TS loader + 
 | 2026-10-15 | Linked populated BE3 Unit 1 A+B JSON example artifact under `data/phase2/…`. |
 | 2026-10-15 | Added read-only TS parse/validate/map loader + CLI verifier; BE3 U1 PASS; no UI/DB. |
 | 2026-10-15 | Added read-only BE3 Unit 1 BI UI preview (`/app/book-intelligence`); local JSON only; no DB/Storage. |
+| 2026-10-15 | Extended BI JSON + preview to BE3 Units 1–9; superseded Unit 1-only slice. |
