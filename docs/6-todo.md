@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 139
+**Last updated:** Step 140
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-- [ ] Optional: upload BE3-SB companion `ss_v1.json` to Storage (`big-english/big_english_3_sb/canonical/ss_v1.json`) without merging into SB `v1.json` or changing `dataset_versions`.
+- [x] Upload BE3-SB companion `ss_v1.json` to Storage (`big-english/big_english_3_sb/canonical/ss_v1.json`) without merging into SB `v1.json` or changing `dataset_versions`.
 
 
 

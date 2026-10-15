@@ -2457,4 +2457,19 @@
 
 ---
 
+### Step 140
+
+**Summary:** Uploaded BE3-SB companion Scope & Sequence JSON to Supabase Storage at `book-datasets/big-english/big_english_3_sb/canonical/ss_v1.json` (download-verified beside existing SB `v1.json`). No merge, no `dataset_versions`/`book_files` changes, no JSON content edits.
+
+**Files touched:**
+- `docs/phase-1/dataset-registry.md` (updated)
+- `data/README.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
