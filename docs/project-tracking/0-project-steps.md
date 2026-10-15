@@ -2754,4 +2754,28 @@
 
 ---
 
+### Step 157
+
+**Summary:** Switched the Book Intelligence preview from local Vite JSON to the verified Supabase Storage artifact. Kept the draft-contract loader; added loading/error states; verified all 9 units (Writing + AI-inferred LOs). Removed the local `@bi-be3-ab-json` alias. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/loadBe3BookIntelligenceFromStorage.ts` (created)
+- `app/src/features/book-intelligence/loadLocalBe3BookIntelligence.ts` (deleted)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/vite.config.ts` (updated)
+- `app/tsconfig.app.json` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `data/README.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.27  
+**Version:** 1.28  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,12 +17,12 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: wire UI to Storage, `book_files` registration, harden preview, other books, or pause — contract still **not locked** |
+| Next proposed step | Owner-gated: `book_files` registration, harden preview, other books, or pause — contract still **not locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
-| BE3 A+B impl. readiness | Units 1–9 JSON in Storage + local preview + CLI PASS; still **no** `book_files` / `dataset_versions` / UI↔Storage wiring |
-| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS loader + local U1–9 preview — **not locked**; Storage companion present |
+| BE3 A+B impl. readiness | Units 1–9 JSON in Storage; preview loads Storage via draft loader; still **no** `book_files` / `dataset_versions` |
+| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS loader + Storage-backed U1–9 preview — **not locked** |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -224,11 +224,11 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 **Artifacts:**
 - Preview page: [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/)
 - Route: `/app/book-intelligence` (protected AppShell)
-- Local JSON via Vite alias `@bi-be3-ab-json`
+- Storage: `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`
 
-**Controls:** Read-only UI sketch. Loads BE3 U1–9 draft JSON through `loadBookIntelligenceOverviewFromUnknown`. Displays all 8 content fields per unit (incl. Writing + LO provenance). No Supabase, database, or schema changes.
+**Controls:** Read-only UI sketch. Downloads Storage JSON, then `loadBookIntelligenceOverviewFromUnknown`. Loading/error states. Displays all 8 content fields per unit (incl. Writing + LO provenance). No `book_files` / schema / methodology changes.
 
-**Result:** Preview renders all nine A+B unit cards locally. Contract/UI still **not locked**.
+**Result:** Preview renders all nine A+B unit cards from Storage. Contract still **not locked**.
 
 ### BE3 U1–9 BI preview visual/content QA vs A+B overview (2026-10-15)
 
@@ -244,6 +244,16 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 **Controls:** Upload Phase 2 interpretation companion to Supabase Storage only. Download + SHA-256 verify against local file. Explicitly **no** `book_files` / `dataset_versions` writes, no schema migration, no UI wiring (preview still uses Vite local alias).
 
 **Result:** UPLOAD OK; integrity **PASS** (10574 bytes; `units=9`; `sha256=097a145c085287cd53ac009a45602edff15b9ff3cbe160e573824430ef1d5b71`). Format still draft / not locked.
+
+### BE3 U1–9 BI preview wired to Storage (2026-10-15)
+
+**Artifacts:**
+- `loadBe3BookIntelligenceFromStorage.ts` + updated `BookIntelligencePreviewPage.tsx`
+- Removed local Vite `@bi-be3-ab-json` alias
+
+**Controls:** Switch preview data source from bundled local JSON to verified Storage object. Keep draft-contract loader. Add loading/error UI. No database, schema, or methodology changes.
+
+**Result:** Storage download path verified (9 units, Writing + `ai_inferred` LO on all). App typecheck clean. Preview badge shows `Storage · 9 units`.
 
 ---
 
@@ -336,3 +346,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Extended BI JSON + preview to BE3 Units 1–9 A+B; CLI PASS units=9; no DB/Storage. |
 | 2026-10-15 | Visual/content QA of BI preview vs A+B overview; fixed U8 LO only; 9/9 PASS. |
 | 2026-10-15 | Uploaded BE3 U1–9 BI A+B JSON to `book-datasets` interpretations path; SHA-256 verified; no DB/UI. |
+| 2026-10-15 | BI preview loads Storage JSON via existing loader; loading/error states; local Vite alias removed. |

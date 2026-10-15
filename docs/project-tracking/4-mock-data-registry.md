@@ -23,7 +23,7 @@
 |---|---|---|---|---|---|
 | Beehive 1 interactive page spreads | `app/src/mocks/curriculum/curriculumSeries.ts` (spreads only; attached in `catalogMapper` for `beehive_1_sb`) | Book Workspace / book viewer / lesson intelligence | Hand-built interactive page chrome for a few Beehive 1 spreads | Storage-backed curriculum JSON / derived page model | **MOCK** |
 | Teacher AI Responses | `app/src/mocks/ai/aiResponses.ts` | Teacher AI Assistant (`aiAssistantService`) | Deterministic mock quick-action and chat responses | Real model/API later (Gemini preferred) | **MOCK** |
-| BE3 Units 1–9 Book Intelligence overview | Local: `data/phase2/…/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (Vite `@bi-be3-ab-json`). Storage twin: `book-datasets/big-english/big_english_3_sb/interpretations/…` (not wired) | `/app/book-intelligence` via `features/book-intelligence` + `lib/bookIntelligence` (local only) | Nine-column A+B Phase 2 interpretation (draft contract) | App load from Storage later if approved; not Postgres cells; not `book_files` yet | **LOCAL PROTOTYPE** (+ Storage object present) |
+| BE3 Units 1–9 Book Intelligence overview | Storage: `book-datasets/big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (local twin under `data/phase2/…` for ops/re-upload) | `/app/book-intelligence` via Storage download + `lib/bookIntelligence` loader | Nine-column A+B Phase 2 interpretation (draft contract) | Optional `book_files` registration later; not Postgres cells | **STORAGE-BACKED PREVIEW** (not in `book_files`) |
 
 Unused leftover mock series/book content may still exist inside `curriculumSeries.ts`; the app catalog does **not** load series/books from that file.
 
@@ -43,7 +43,7 @@ Teacher AI
 
 Book Intelligence preview
   → BookIntelligencePreviewPage
-  → loadLocalBe3BookIntelligence → @bi-be3-ab-json
+  → loadBe3BookIntelligenceFromStorage → Supabase Storage download
   → loadBookIntelligenceOverviewFromUnknown (draft contract)
 ```
 

@@ -7,7 +7,7 @@
 **Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)  
 **Purpose:** Define the UI-facing data contract for a **nine-column** Book Intelligence unit overview (A+B-style), including field names, types, unit identity, and JSON structure.
 
-**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. Read-only TS loader/validator + local BE3 U1–9 UI preview exist; Storage object present as a separate companion (UI still local). Contract remains draft.
+**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. Read-only TS loader/validator + BE3 U1–9 UI preview (loads Storage companion). Contract remains draft.
 
 ---
 
@@ -205,7 +205,7 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 | Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
 | Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
 | CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
-| Local BE3 U1–9 preview | `/app/book-intelligence` · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
+| BE3 U1–9 preview (Storage) | `/app/book-intelligence` · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
@@ -285,7 +285,7 @@ It does **not**:
 | BE3-SB Units 1–9 A+B (local) | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json) |
 | BE3-SB Units 1–9 A+B (Storage) | `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` |
 
-Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; local read-only preview; Storage companion uploaded and integrity-verified (no Postgres registration; UI not wired to Storage).
+Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; Storage companion integrity-verified; preview loads from Storage via draft-contract loader (no Postgres registration).
 
 ---
 
@@ -299,3 +299,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Added read-only BE3 Unit 1 BI UI preview (`/app/book-intelligence`); local JSON only; no DB/Storage. |
 | 2026-10-15 | Extended BI JSON + preview to BE3 Units 1–9; superseded Unit 1-only slice. |
 | 2026-10-15 | Uploaded U1–9 BI JSON to `book-datasets` interpretations path; SHA-256 verified; no DB/UI wiring. |
+| 2026-10-15 | Preview switched from local Vite JSON to Storage download + existing loader; loading/error states. |

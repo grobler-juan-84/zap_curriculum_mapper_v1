@@ -8,11 +8,6 @@
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "paths": {
-      "@bi-be3-ab-json": [
-        "../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json"
-      ]
-    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

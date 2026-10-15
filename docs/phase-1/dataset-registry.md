@@ -555,7 +555,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Associated catalog book:** `big_english_3_sb` (BE3-SB) — Phase 2 interpretation only; does **not** replace or alter SB canonical `v1.json` or SS `ss_v1.json`  
 **Contract:** [`../phase-2/book-intelligence-ui-data-contract-v1.md`](../phase-2/book-intelligence-ui-data-contract-v1.md) (`column_set: nine_column_ab`, Units 1–9)  
 **Upload script:** `scripts/upload_book_intelligence_json.mjs` (Storage only — no Postgres writes)  
-**Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; **not** registered in `dataset_versions` / `book_files`; UI still loads local Vite copy  
+**Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; preview `/app/book-intelligence` loads it; **not** registered in `dataset_versions` / `book_files`  
 **Constraints:** Do not merge into Phase 1 `v1.json`. Do not point `dataset_versions` at this object. Format still draft / not locked.
 
 ### Schema / Issues
@@ -574,7 +574,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Mixed Studio entity prefixes preserved where non-colliding (D007); remumbered IDs use catalog prefix.
 - Unit 4 carries open `missing_source` for printed pp. 66–67 (D013).
 - Companion SS `ss_v1.json` registered locally 2026-10-15 and uploaded to Storage the same day (see above); `dataset_versions` / `book_files` wiring still deferred.
-- Phase 2 BI A+B Units 1–9 JSON uploaded to Storage 2026-10-15 (see above); `dataset_versions` / `book_files` / UI Storage wiring still deferred.
+- Phase 2 BI A+B Units 1–9 JSON uploaded to Storage 2026-10-15; preview wired to Storage same day (see above); `dataset_versions` / `book_files` still deferred.
 
 ---
 

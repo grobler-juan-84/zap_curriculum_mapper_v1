@@ -1,14 +1,63 @@
+import { useEffect, useState } from 'react'
+import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
 import { BookIntelligenceUnitPreview } from './BookIntelligenceUnitPreview'
-import { loadLocalBe3BookIntelligence } from './loadLocalBe3BookIntelligence'
+import {
+  BE3_BI_STORAGE_BUCKET,
+  BE3_BI_STORAGE_PATH,
+  loadBe3BookIntelligenceFromStorage,
+} from './loadBe3BookIntelligenceFromStorage'
+
+type LoadState =
+  | { status: 'loading' }
+  | { status: 'error'; errors: string[] }
+  | { status: 'ready'; data: BookIntelligenceOverviewDocument }
 
 /**
  * Read-only BE3 Units 1–9 Book Intelligence preview.
- * Local Phase 2 JSON + validated TS loader only — no Supabase.
+ * Loads verified Phase 2 JSON from Supabase Storage via the draft-contract loader.
  */
 export function BookIntelligencePreviewPage() {
-  const result = loadLocalBe3BookIntelligence()
+  const [state, setState] = useState<LoadState>({ status: 'loading' })
 
-  if (!result.ok) {
+  useEffect(() => {
+    let cancelled = false
+
+    void (async () => {
+      const result = await loadBe3BookIntelligenceFromStorage()
+      if (cancelled) return
+      if (!result.ok) {
+        setState({ status: 'error', errors: result.errors })
+        return
+      }
+      setState({ status: 'ready', data: result.data })
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  if (state.status === 'loading') {
+    return (
+      <div className="flex h-full flex-col overflow-auto bg-slate-50">
+        <div className="border-b border-slate-200 bg-white px-6 py-4">
+          <h1 className="text-sm font-semibold text-slate-900">
+            Book Intelligence Preview
+          </h1>
+        </div>
+        <div className="mx-auto w-full max-w-3xl px-6 py-8">
+          <p className="text-sm text-slate-600">
+            Loading Book Intelligence from Supabase Storage…
+          </p>
+          <p className="mt-2 font-mono text-[11px] text-slate-400">
+            {BE3_BI_STORAGE_BUCKET}/{BE3_BI_STORAGE_PATH}
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (state.status === 'error') {
     return (
       <div className="flex h-full flex-col overflow-auto bg-slate-50">
         <div className="border-b border-slate-200 bg-white px-6 py-4">
@@ -18,9 +67,9 @@ export function BookIntelligencePreviewPage() {
         </div>
         <div className="mx-auto w-full max-w-3xl px-6 py-8">
           <div className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900">
-            <p className="font-semibold">Failed to load local BI JSON</p>
+            <p className="font-semibold">Failed to load Book Intelligence JSON</p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-xs">
-              {result.errors.map((error) => (
+              {state.errors.map((error) => (
                 <li key={error}>{error}</li>
               ))}
             </ul>
@@ -30,7 +79,7 @@ export function BookIntelligencePreviewPage() {
     )
   }
 
-  const { data } = result
+  const { data } = state
 
   return (
     <div className="flex h-full flex-col overflow-hidden bg-slate-50">
@@ -42,8 +91,9 @@ export function BookIntelligencePreviewPage() {
           Book Intelligence Preview
         </h1>
         <p className="mt-1 max-w-2xl text-xs text-slate-500">
-          BE3 Units 1–9 nine-column A+B overview from local JSON via the
-          draft-contract loader. Not Phase 1 evidence. No Supabase or Storage.
+          BE3 Units 1–9 nine-column A+B overview from Supabase Storage via the
+          draft-contract loader. Not Phase 1 evidence. No database or schema
+          changes.
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-indigo-700">
@@ -53,8 +103,8 @@ export function BookIntelligencePreviewPage() {
             {data.catalogBookId}
             {data.registryId ? ` · ${data.registryId}` : ''}
           </span>
-          <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-800">
-            Read-only · {data.units.length} units
+          <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+            Storage · {data.units.length} units
           </span>
         </div>
         {data.units.length > 1 ? (

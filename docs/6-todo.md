@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 156
+**Last updated:** Step 157
 
 
 
@@ -138,11 +138,15 @@
 
 
 
+- [x] Switch BI preview to Storage JSON via existing loader (loading/error states; 9 units).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: wire UI to Storage, `book_files` registration, harden preview, other books, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: `book_files` registration, harden preview, other books, pause, or other D017 next step.
 
 
 
