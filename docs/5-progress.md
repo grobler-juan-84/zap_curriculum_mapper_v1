@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 172
+**Last updated:** Step 173
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,15 +18,15 @@
 
 - BE3 A+B BI path validated (D019 MVP + PDF nav regression); methodology not locked.
 
-- **BE2 BI integration plan (docs only)** — eight- vs nine-column compatibility gaps + reusable UI approach + phased plan. Not implemented. Artifact: [`phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md`](./phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md).
+- **BI contract generalized** — `eight_column_baseline` + `nine_column_ab` in types/loader/CLI/UI field config; Writing required only for nine-column; dual-set tests PASS; BE3 regressions PASS. No BE2 JSON/Storage/DB.
 
 ## In progress
 
-- None (planning complete; awaiting owner implementation micro-step or other direction).
+- None (awaiting owner micro-step for BE2 JSON port / Storage, or other direction).
 
 ## Next
 
-- Owner-gated: implement BE2 dual column-set plan (P0–P5), or `book_files` / harden preview / pause.
+- Owner-gated: BE2 JSON port (P2) + Storage/registry (P3) + smoke (P5), or `book_files` / harden preview / pause.
 
 ## Blocked
 
@@ -38,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- BE2 remains eight-column baseline; BE3 remains nine-column A+B (BE3-only) — dual support planned, not built.
+- Dual column-set support is in the draft contract and app loader; BE3 remains the only Storage-registered BI book.
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.

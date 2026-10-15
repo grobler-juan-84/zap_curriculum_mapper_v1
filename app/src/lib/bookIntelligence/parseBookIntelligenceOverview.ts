@@ -1,15 +1,16 @@
 import type {
+  BookIntelligenceColumnSet,
   BookIntelligenceOverviewDocument,
   BookIntelligenceParseResult,
   BookIntelligenceUnitOverview,
   LearningOutcomesProvenance,
 } from '../../types/bookIntelligence'
 import {
-  BOOK_INTELLIGENCE_COLUMN_SET,
   BOOK_INTELLIGENCE_LAYER,
   BOOK_INTELLIGENCE_SCHEMA_NAME,
   LEARNING_OUTCOMES_PROVENANCE_VALUES,
-  REQUIRED_UNIT_JSON_KEYS,
+  isBookIntelligenceColumnSet,
+  requiredUnitJsonKeysForColumnSet,
 } from './fieldMap'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -100,9 +101,7 @@ function readProvenance(
   errors: string[],
 ): LearningOutcomesProvenance {
   if (
-    !(
-      'learning_outcomes_provenance' in record
-    ) ||
+    !('learning_outcomes_provenance' in record) ||
     record.learning_outcomes_provenance === undefined
   ) {
     return 'ai_inferred'
@@ -123,6 +122,7 @@ function readProvenance(
 function mapUnit(
   raw: unknown,
   index: number,
+  columnSet: BookIntelligenceColumnSet,
   errors: string[],
 ): BookIntelligenceUnitOverview | null {
   const path = `units[${index}]`
@@ -131,7 +131,8 @@ function mapUnit(
     return null
   }
 
-  for (const key of REQUIRED_UNIT_JSON_KEYS) {
+  const requiredKeys = requiredUnitJsonKeysForColumnSet(columnSet)
+  for (const key of requiredKeys) {
     if (key === 'unit_number') continue
     if (!(key in raw)) {
       errors.push(`${path}.${key}: required`)
@@ -163,7 +164,14 @@ function mapUnit(
   const clilCulture = readNonEmptyString(raw, 'clil_culture', path, errors)
   const values = readNonEmptyString(raw, 'values', path, errors)
   const phonics = readNonEmptyString(raw, 'phonics', path, errors)
-  const writing = readNonEmptyString(raw, 'writing', path, errors)
+
+  let writing: string | undefined
+  if (columnSet === 'nine_column_ab') {
+    writing = readNonEmptyString(raw, 'writing', path, errors) ?? undefined
+  } else if ('writing' in raw && raw.writing !== undefined) {
+    // Optional on eight_column_baseline; when present must be a non-empty string.
+    writing = readNonEmptyString(raw, 'writing', path, errors) ?? undefined
+  }
 
   const printedPageStart = readOptionalNumberOrNull(
     raw,
@@ -191,21 +199,20 @@ function mapUnit(
     errors,
   )
 
-  if (
-    !unitId ||
-    !unitNumber ||
-    !title ||
-    !vocabulary ||
-    !grammarStructures ||
-    !communicativeFunctions ||
-    !learningOutcomes ||
-    !clilCulture ||
-    !values ||
-    !phonics ||
-    !writing
-  ) {
-    return null
-  }
+  const baseOk =
+    unitId &&
+    unitNumber &&
+    title &&
+    vocabulary &&
+    grammarStructures &&
+    communicativeFunctions &&
+    learningOutcomes &&
+    clilCulture &&
+    values &&
+    phonics
+
+  if (!baseOk) return null
+  if (columnSet === 'nine_column_ab' && !writing) return null
 
   const unit: BookIntelligenceUnitOverview = {
     unitId,
@@ -219,9 +226,9 @@ function mapUnit(
     clilCulture,
     values,
     phonics,
-    writing,
   }
 
+  if (writing !== undefined) unit.writing = writing
   if (printedPageStart !== undefined) unit.printedPageStart = printedPageStart
   if (printedPageEnd !== undefined) unit.printedPageEnd = printedPageEnd
   if (writingComponentId !== undefined) {
@@ -236,7 +243,7 @@ function mapUnit(
 
 /**
  * Validate draft-contract JSON (`snake_case`) and map to TypeScript (`camelCase`).
- * Read-only; no I/O.
+ * Supports `eight_column_baseline` and `nine_column_ab`. Read-only; no I/O.
  */
 export function parseBookIntelligenceOverview(
   raw: unknown,
@@ -261,11 +268,16 @@ export function parseBookIntelligenceOverview(
     errors.push(`root.layer: expected \"${BOOK_INTELLIGENCE_LAYER}\"`)
   }
 
-  const columnSet = readNonEmptyString(raw, 'column_set', 'root', errors)
-  if (columnSet && columnSet !== BOOK_INTELLIGENCE_COLUMN_SET) {
-    errors.push(
-      `root.column_set: expected \"${BOOK_INTELLIGENCE_COLUMN_SET}\" (eight-column baseline is out of scope)`,
-    )
+  const columnSetRaw = readNonEmptyString(raw, 'column_set', 'root', errors)
+  let columnSet: BookIntelligenceColumnSet | null = null
+  if (columnSetRaw) {
+    if (isBookIntelligenceColumnSet(columnSetRaw)) {
+      columnSet = columnSetRaw
+    } else {
+      errors.push(
+        `root.column_set: expected one of eight_column_baseline, nine_column_ab`,
+      )
+    }
   }
 
   const catalogBookId = readNonEmptyString(
@@ -288,9 +300,9 @@ export function parseBookIntelligenceOverview(
   const notes = readOptionalString(raw, 'notes', 'root', errors)
 
   const units: BookIntelligenceUnitOverview[] = []
-  if (Array.isArray(raw.units)) {
+  if (Array.isArray(raw.units) && columnSet) {
     for (let i = 0; i < raw.units.length; i += 1) {
-      const unit = mapUnit(raw.units[i], i, errors)
+      const unit = mapUnit(raw.units[i], i, columnSet, errors)
       if (unit) units.push(unit)
     }
   }
@@ -314,7 +326,7 @@ export function parseBookIntelligenceOverview(
     schemaName: BOOK_INTELLIGENCE_SCHEMA_NAME,
     schemaVersion,
     layer: BOOK_INTELLIGENCE_LAYER,
-    columnSet: BOOK_INTELLIGENCE_COLUMN_SET,
+    columnSet,
     catalogBookId,
     units,
   }

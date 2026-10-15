@@ -3040,4 +3040,28 @@
 
 ---
 
+### Step 173
+
+**Summary:** Generalized the Book Intelligence draft contract for `eight_column_baseline` and `nine_column_ab`: Writing required only for nine-column; column-set-driven UI fields; shared CLI validator + dual-set automated tests. BE3 path preserved (typecheck + E2E/PDF regressions PASS). No BE2 JSON, Storage, DB, or methodology lock.
+
+**Files touched:**
+- `app/src/types/bookIntelligence.ts` (updated)
+- `app/src/lib/bookIntelligence/fieldMap.ts` (updated)
+- `app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts` (updated)
+- `app/src/lib/bookIntelligence/index.ts` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (updated)
+- `scripts/lib/book_intelligence_contract.mjs` (created)
+- `scripts/validate_book_intelligence_json.mjs` (updated)
+- `scripts/tests/book_intelligence_column_sets.test.mjs` (created)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

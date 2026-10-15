@@ -1,16 +1,24 @@
 /**
  * Explicit JSON (snake_case) ↔ TypeScript (camelCase) field map for the
- * draft nine-column Book Intelligence contract.
+ * draft Book Intelligence contract (eight- and nine-column).
  * Keep aligned with docs/phase-2/book-intelligence-ui-data-contract-v1.md
  * and scripts/validate_book_intelligence_json.mjs
  */
+
+import type { BookIntelligenceColumnSet } from '../../types/bookIntelligence'
 
 export const BOOK_INTELLIGENCE_SCHEMA_NAME =
   'book_intelligence_unit_overview' as const
 
 export const BOOK_INTELLIGENCE_LAYER = 'phase2_interpretation' as const
 
+/** @deprecated Prefer BOOK_INTELLIGENCE_COLUMN_SETS / nine_column specifically. */
 export const BOOK_INTELLIGENCE_COLUMN_SET = 'nine_column_ab' as const
+
+export const BOOK_INTELLIGENCE_COLUMN_SETS = [
+  'eight_column_baseline',
+  'nine_column_ab',
+] as const satisfies readonly BookIntelligenceColumnSet[]
 
 export const LEARNING_OUTCOMES_PROVENANCE_VALUES = [
   'ai_inferred',
@@ -18,7 +26,7 @@ export const LEARNING_OUTCOMES_PROVENANCE_VALUES = [
   'mixed',
 ] as const
 
-/** Required envelope JSON keys for nine_column_ab. */
+/** Required envelope JSON keys (all column sets). */
 export const REQUIRED_ENVELOPE_JSON_KEYS = [
   'schema_name',
   'schema_version',
@@ -28,8 +36,8 @@ export const REQUIRED_ENVELOPE_JSON_KEYS = [
   'units',
 ] as const
 
-/** Required unit JSON keys (identity + nine content columns). */
-export const REQUIRED_UNIT_JSON_KEYS = [
+/** Shared unit identity + seven content columns (both column sets). */
+export const REQUIRED_UNIT_JSON_KEYS_BASE = [
   'unit_id',
   'unit_number',
   'title',
@@ -40,8 +48,28 @@ export const REQUIRED_UNIT_JSON_KEYS = [
   'clil_culture',
   'values',
   'phonics',
+] as const
+
+/** @deprecated Use requiredUnitJsonKeysForColumnSet — Writing is nine-column only. */
+export const REQUIRED_UNIT_JSON_KEYS = [
+  ...REQUIRED_UNIT_JSON_KEYS_BASE,
   'writing',
 ] as const
+
+export function isBookIntelligenceColumnSet(
+  value: string,
+): value is BookIntelligenceColumnSet {
+  return (BOOK_INTELLIGENCE_COLUMN_SETS as readonly string[]).includes(value)
+}
+
+export function requiredUnitJsonKeysForColumnSet(
+  columnSet: BookIntelligenceColumnSet,
+): readonly string[] {
+  if (columnSet === 'nine_column_ab') {
+    return REQUIRED_UNIT_JSON_KEYS
+  }
+  return REQUIRED_UNIT_JSON_KEYS_BASE
+}
 
 export type BookIntelligenceFieldMapEntry = {
   jsonKey: string
@@ -157,7 +185,12 @@ export const BOOK_INTELLIGENCE_FIELD_MAP: readonly BookIntelligenceFieldMapEntry
     },
     { jsonKey: 'values', tsKey: 'values', level: 'unit', required: true },
     { jsonKey: 'phonics', tsKey: 'phonics', level: 'unit', required: true },
-    { jsonKey: 'writing', tsKey: 'writing', level: 'unit', required: true },
+    {
+      jsonKey: 'writing',
+      tsKey: 'writing',
+      level: 'unit',
+      required: false,
+    },
     {
       jsonKey: 'writing_component_id',
       tsKey: 'writingComponentId',
@@ -171,3 +204,58 @@ export const BOOK_INTELLIGENCE_FIELD_MAP: readonly BookIntelligenceFieldMapEntry
       required: false,
     },
   ] as const
+
+/** UI content-field keys (camelCase on the unit object). */
+export type BookIntelligenceUiFieldKey =
+  | 'vocabulary'
+  | 'grammarStructures'
+  | 'communicativeFunctions'
+  | 'learningOutcomes'
+  | 'clilCulture'
+  | 'values'
+  | 'phonics'
+  | 'writing'
+
+export type BookIntelligenceUiFieldDescriptor = {
+  key: BookIntelligenceUiFieldKey
+  label: string
+  /** When true, show learning-outcomes provenance badge. */
+  showProvenanceBadge?: boolean
+  /** Optional visual emphasis (e.g. Writing strand). */
+  emphasize?: boolean
+}
+
+const SHARED_UI_FIELDS: readonly BookIntelligenceUiFieldDescriptor[] = [
+  { key: 'vocabulary', label: 'Vocabulary' },
+  { key: 'grammarStructures', label: 'Grammar / Structures' },
+  { key: 'communicativeFunctions', label: 'Communicative Functions' },
+  {
+    key: 'learningOutcomes',
+    label: 'Learning Outcomes',
+    showProvenanceBadge: true,
+  },
+  { key: 'clilCulture', label: 'CLIL / Culture' },
+  { key: 'values', label: 'Values' },
+  { key: 'phonics', label: 'Phonics' },
+]
+
+const WRITING_UI_FIELD: BookIntelligenceUiFieldDescriptor = {
+  key: 'writing',
+  label: 'Writing',
+  emphasize: true,
+}
+
+/** Column-set-driven UI field configuration (book-independent). */
+export const BOOK_INTELLIGENCE_UI_FIELDS_BY_COLUMN_SET: Record<
+  BookIntelligenceColumnSet,
+  readonly BookIntelligenceUiFieldDescriptor[]
+> = {
+  eight_column_baseline: SHARED_UI_FIELDS,
+  nine_column_ab: [...SHARED_UI_FIELDS, WRITING_UI_FIELD],
+}
+
+export function uiFieldsForColumnSet(
+  columnSet: BookIntelligenceColumnSet,
+): readonly BookIntelligenceUiFieldDescriptor[] {
+  return BOOK_INTELLIGENCE_UI_FIELDS_BY_COLUMN_SET[columnSet]
+}

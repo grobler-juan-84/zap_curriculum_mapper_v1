@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 172  
+**Last updated:** Step 173  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Documented BE2 BI integration compatibility plan (docs only).
-- Eight-column vs nine-column gaps + reusable UI + P0–P5 plan recorded.
-- No implementation, schema, DB, or methodology changes.
+- Generalized Book Intelligence draft contract for dual column sets.
+- Loader/CLI/UI field config support `eight_column_baseline` and `nine_column_ab`.
+- BE3 nine-column path preserved; dual-set tests + BE3 regressions PASS.
 
 ## Current status
 
-On branch `phase-2`. Plan ready; awaiting owner implementation micro-step.
+On branch `phase-2`. Contract/loader dual-set ready; BE2 JSON/Storage still pending.
 
 ## Next small step
 
-**Suggestion:** Owner picks P0–P1 (loader dual-set) or P2 (BE2 JSON port), or pauses.
+**Suggestion:** Owner picks P2 (BE2 JSON port) or pauses; no methodology lock.

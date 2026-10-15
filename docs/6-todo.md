@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 172
+**Last updated:** Step 173
 
 
 
@@ -202,11 +202,15 @@
 
 
 
+- [x] Generalize BI contract/loader/UI for `eight_column_baseline` + `nine_column_ab` (P0/P1/P4); dual-set tests; BE3 preserved.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated: implement BE2 dual column-set plan (P0–P5), or `book_files` / harden preview / pause.
+- [ ] Owner-gated: BE2 JSON port (P2) + Storage/registry (P3) + smoke (P5), or `book_files` / harden preview / pause.
 
 
 

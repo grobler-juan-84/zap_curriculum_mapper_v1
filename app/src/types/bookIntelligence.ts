@@ -1,10 +1,12 @@
 /**
- * Draft nine-column Book Intelligence UI contract types (0.1-draft).
+ * Draft Book Intelligence UI contract types (0.1-draft).
  * Authority: docs/phase-2/book-intelligence-ui-data-contract-v1.md
- * Not a methodology/schema lock.
+ * Supports eight_column_baseline and nine_column_ab. Not a methodology/schema lock.
  */
 
-export type BookIntelligenceColumnSet = 'nine_column_ab'
+export type BookIntelligenceColumnSet =
+  | 'eight_column_baseline'
+  | 'nine_column_ab'
 
 export type LearningOutcomesProvenance =
   | 'ai_inferred'
@@ -25,7 +27,8 @@ export interface BookIntelligenceUnitOverview {
   clilCulture: string
   values: string
   phonics: string
-  writing: string
+  /** Required for nine_column_ab; omitted for eight_column_baseline. */
+  writing?: string
   writingComponentId?: string | null
   sourcePhase1SchemaVersion?: string | null
 }

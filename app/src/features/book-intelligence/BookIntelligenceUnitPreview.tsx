@@ -3,6 +3,10 @@ import type {
   BookIntelligenceUnitOverview,
   LearningOutcomesProvenance,
 } from '../../types/bookIntelligence'
+import {
+  uiFieldsForColumnSet,
+  type BookIntelligenceUiFieldKey,
+} from '../../lib/bookIntelligence/fieldMap'
 import { hasPhase1EvidenceLink } from './phase1EvidenceLink'
 
 type ContentField = {
@@ -10,6 +14,7 @@ type ContentField = {
   label: string
   value: string
   badge?: string
+  emphasize?: boolean
 }
 
 function provenanceLabel(
@@ -26,30 +31,46 @@ function provenanceLabel(
   }
 }
 
-function contentFields(unit: BookIntelligenceUnitOverview): ContentField[] {
-  return [
-    { key: 'vocabulary', label: 'Vocabulary', value: unit.vocabulary },
-    {
-      key: 'grammarStructures',
-      label: 'Grammar / Structures',
-      value: unit.grammarStructures,
-    },
-    {
-      key: 'communicativeFunctions',
-      label: 'Communicative Functions',
-      value: unit.communicativeFunctions,
-    },
-    {
-      key: 'learningOutcomes',
-      label: 'Learning Outcomes',
-      value: unit.learningOutcomes,
-      badge: provenanceLabel(unit.learningOutcomesProvenance),
-    },
-    { key: 'clilCulture', label: 'CLIL / Culture', value: unit.clilCulture },
-    { key: 'values', label: 'Values', value: unit.values },
-    { key: 'phonics', label: 'Phonics', value: unit.phonics },
-    { key: 'writing', label: 'Writing', value: unit.writing },
-  ]
+function unitFieldValue(
+  unit: BookIntelligenceUnitOverview,
+  key: BookIntelligenceUiFieldKey,
+): string {
+  switch (key) {
+    case 'vocabulary':
+      return unit.vocabulary
+    case 'grammarStructures':
+      return unit.grammarStructures
+    case 'communicativeFunctions':
+      return unit.communicativeFunctions
+    case 'learningOutcomes':
+      return unit.learningOutcomes
+    case 'clilCulture':
+      return unit.clilCulture
+    case 'values':
+      return unit.values
+    case 'phonics':
+      return unit.phonics
+    case 'writing':
+      return unit.writing ?? ''
+  }
+}
+
+function contentFields(
+  document: BookIntelligenceOverviewDocument,
+  unit: BookIntelligenceUnitOverview,
+): ContentField[] {
+  return uiFieldsForColumnSet(document.columnSet).map((descriptor) => {
+    const field: ContentField = {
+      key: descriptor.key,
+      label: descriptor.label,
+      value: unitFieldValue(unit, descriptor.key),
+      emphasize: descriptor.emphasize,
+    }
+    if (descriptor.showProvenanceBadge) {
+      field.badge = provenanceLabel(unit.learningOutcomesProvenance)
+    }
+    return field
+  })
 }
 
 function pageRange(unit: BookIntelligenceUnitOverview): string | null {
@@ -72,7 +93,7 @@ export function BookIntelligenceUnitPreview({
   /** Read-only jump to Phase 1 Validation for this unit. */
   onViewSourceEvidence?: (unitNumber: string) => void
 }) {
-  const fields = contentFields(unit)
+  const fields = contentFields(document, unit)
   const pages = pageRange(unit)
   const showEvidenceLink =
     Boolean(onViewSourceEvidence) && hasPhase1EvidenceLink(unit.unitNumber)
@@ -115,7 +136,7 @@ export function BookIntelligenceUnitPreview({
           <div
             key={field.key}
             className={`grid gap-1.5 px-4 py-3 sm:grid-cols-[9.5rem_1fr] sm:gap-3 ${
-              field.key === 'writing' ? 'bg-emerald-50/40' : ''
+              field.emphasize ? 'bg-emerald-50/40' : ''
             }`}
           >
             <dt className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-700">

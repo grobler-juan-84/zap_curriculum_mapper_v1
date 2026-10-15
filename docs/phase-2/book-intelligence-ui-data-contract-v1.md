@@ -1,13 +1,13 @@
-# Book Intelligence UI Data Contract — Nine-Column (v1 draft)
+# Book Intelligence UI Data Contract (v1 draft)
 
 **Date:** 2026-10-15  
 **Status:** DRAFT / EXPERIMENTAL — **not locked**; documentation only  
 **Version:** 0.1-draft  
 **Decision context:** D017 Progressive Curriculum Intelligence; D006 hybrid storage; D009 naming  
 **Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)  
-**Purpose:** Define the UI-facing data contract for a **nine-column** Book Intelligence unit overview (A+B-style), including field names, types, unit identity, and JSON structure.
+**Purpose:** Define the UI-facing data contract for Book Intelligence unit overviews, supporting **`eight_column_baseline`** and **`nine_column_ab`**, including field names, types, unit identity, and JSON structure.
 
-**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. Read-only TS loader/validator + BE3 U1–9 UI preview (loads Storage companion). Contract remains draft.
+**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock, no BE2 JSON conversion / Storage upload in this slice. Read-only TS loader/validator + BE3 U1–9 UI preview (loads Storage companion). Contract remains draft.
 
 ---
 
@@ -15,18 +15,26 @@
 
 | In scope | Out of scope |
 |---|---|
-| One book → many units → nine overview cells per unit | Phase 1 entity normalization into Postgres |
-| Identity keys for catalog / unit join | Replacing BE2 v2 eight-column baseline |
+| One book → many units → column-set-driven overview cells | Phase 1 entity normalization into Postgres |
+| Identity keys for catalog / unit join | BE2 JSON port / Storage upload / registry row |
 | JSON envelope + TypeScript name mapping | Teacher enrichment / lesson-generation payloads |
 | Inference labeling for Learning Outcomes | Page-spread mock (`BookContent`) reuse |
+| Dual `column_set` allow-list in loader + UI field config | Methodology / schema lock |
 
 Layer: **Phase 2 interpretation** — not Phase 1 book-truth (D001).
 
 ---
 
-## 2. Column set
+## 2. Column sets
 
-`column_set`: `"nine_column_ab"`
+`column_set` must be one of:
+
+| Value | Content columns | Writing cell |
+|---|---|---|
+| `eight_column_baseline` | 7 shared content fields (no Writing strand) | **omit** (not required) |
+| `nine_column_ab` | 7 shared + Writing | **required** |
+
+### 2.1 Shared content columns (both sets)
 
 | # | Display label | JSON key (`snake_case`) | TS property (`camelCase`) | Role |
 |---|---|---|---|---|
@@ -37,8 +45,13 @@ Layer: **Phase 2 interpretation** — not Phase 1 book-truth (D001).
 | 5 | CLIL / Culture | `clil_culture` | `clilCulture` | Content/culture connections |
 | 6 | Values | `values` | `values` | Explicit values strand |
 | 7 | Phonics | `phonics` | `phonics` | Phonics focus |
-| 8 | Writing | `writing` | `writing` | Writing skill / form / task (strand label) |
 | — | *(unit identity — not a content column)* | see §3 | see §3 | Join / display header |
+
+### 2.2 Nine-column Writing strand (`nine_column_ab` only)
+
+| # | Display label | JSON key | TS property | Role |
+|---|---|---|---|---|
+| 8 | Writing | `writing` | `writing` | Writing skill / form / task (strand label) |
 
 **A+B role split (BE3 preferred path):**
 
@@ -46,7 +59,7 @@ Layer: **Phase 2 interpretation** — not Phase 1 book-truth (D001).
 - `writing` = explicit writing skill/form/task
 - Related meaning across the two is allowed; identical wording should be avoided
 
-**Eight-column note:** BE2 v2 omits `writing`. That is a different `column_set` (`eight_column_baseline`) and is **not** defined here. Do not force `writing: null` into BE2 baseline consumers without an explicit later decision.
+**Eight-column note:** Do not force `writing: null` into `eight_column_baseline` consumers. Omit the key. UI field config is driven by `column_set` (`BOOK_INTELLIGENCE_UI_FIELDS_BY_COLUMN_SET` / `uiFieldsForColumnSet`).
 
 ---
 
@@ -81,16 +94,16 @@ Never use bare `book_id` / `bookId` in the UI contract when meaning could collid
 
 All nine content cells are **teacher-facing summary strings** for the first UI contract (same grain as the experimental Markdown overviews).
 
-| JSON key | Type | Required (nine-column) | Empty allowed? | Inference |
+| JSON key | Type | Required | Empty allowed? | Inference |
 |---|---|---|---|---|
-| `vocabulary` | `string` | yes | empty string discouraged | Usually evidence-grounded paraphrase |
-| `grammar_structures` | `string` | yes | discouraged | Evidence-grounded |
-| `communicative_functions` | `string` | yes | discouraged | Often interpreted from Phase 1 `language.function` |
-| `learning_outcomes` | `string` | yes | discouraged | **AI-inferred** unless marked otherwise |
-| `clil_culture` | `string` | yes | discouraged | Evidence-grounded |
-| `values` | `string` | yes | discouraged | Evidence-grounded |
-| `phonics` | `string` | yes | discouraged | Evidence-grounded |
-| `writing` | `string` | **yes** for `nine_column_ab` | discouraged | Evidence-grounded form/task label |
+| `vocabulary` | `string` | yes (both sets) | empty string discouraged | Usually evidence-grounded paraphrase |
+| `grammar_structures` | `string` | yes (both sets) | discouraged | Evidence-grounded |
+| `communicative_functions` | `string` | yes (both sets) | discouraged | Often interpreted from Phase 1 `language.function` |
+| `learning_outcomes` | `string` | yes (both sets) | discouraged | **AI-inferred** unless marked otherwise |
+| `clil_culture` | `string` | yes (both sets) | discouraged | Evidence-grounded |
+| `values` | `string` | yes (both sets) | discouraged | Evidence-grounded |
+| `phonics` | `string` | yes (both sets) | discouraged | Evidence-grounded |
+| `writing` | `string` | **yes only** for `nine_column_ab`; omit for `eight_column_baseline` | discouraged when present | Evidence-grounded form/task label |
 
 ### 4.1 Inference metadata (unit-level)
 
@@ -155,7 +168,7 @@ Not required for first render; useful for controlled implementation traceability
 | `schema_name` | `schemaName` | `string` | yes | Constant: `book_intelligence_unit_overview` |
 | `schema_version` | `schemaVersion` | `string` | yes | Draft: `0.1-draft` |
 | `layer` | `layer` | `string` | yes | Constant: `phase2_interpretation` |
-| `column_set` | `columnSet` | `string` | yes | `nine_column_ab` for this contract |
+| `column_set` | `columnSet` | `string` | yes | `eight_column_baseline` \| `nine_column_ab` |
 | `title` | `title` | `string` | no | Human document title |
 | `notes` | `notes` | `string` | no | Caveats for UI/ops |
 | `units` | `units` | `array` | yes | Ordered list of unit objects (§3 + §4) |
@@ -209,10 +222,13 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
+node --test scripts/tests/book_intelligence_column_sets.test.mjs
 ```
 
 ```ts
-type BookIntelligenceColumnSet = 'nine_column_ab'
+type BookIntelligenceColumnSet =
+  | 'eight_column_baseline'
+  | 'nine_column_ab'
 
 type LearningOutcomesProvenance = 'ai_inferred' | 'evidence_quoted' | 'mixed'
 
@@ -230,7 +246,8 @@ interface BookIntelligenceUnitOverview {
   clilCulture: string
   values: string
   phonics: string
-  writing: string
+  /** Required for nine_column_ab; omit for eight_column_baseline. */
+  writing?: string
   writingComponentId?: string | null
   sourcePhase1SchemaVersion?: string | null
 }
@@ -250,6 +267,8 @@ interface BookIntelligenceOverviewDocument {
 }
 ```
 
+UI render fields come from `uiFieldsForColumnSet(document.columnSet)` — Writing appears only for `nine_column_ab`.
+
 ---
 
 ## 7. Compatibility rules (contract constraints)
@@ -260,8 +279,8 @@ interface BookIntelligenceOverviewDocument {
 | Postgres | Must not be modeled as relational overview columns (D006) |
 | Existing UI mocks | Must not reuse `BookContent` / `PageSpread` as this contract |
 | Validation `BatchJsonSummary` | Evidence-only; not a substitute for this overview |
-| BE2 v2 baseline | Remains eight-column; out of scope for this `column_set` |
-| Required Writing cell | For `nine_column_ab`, `writing` is required |
+| BE2 v2 baseline | Uses `eight_column_baseline` (contract support only; no BE2 JSON/Storage in this slice) |
+| Required Writing cell | For `nine_column_ab`, `writing` is required; for `eight_column_baseline`, omit |
 
 ---
 
@@ -310,3 +329,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | PDF nav fix: keep pane mounted; jump by Phase 1 `pdf_page_start` on unit change; Prev/Next/Go intact. |
 | 2026-10-15 | PDF→BI unit sync from visible page range; outside-unit message; loop prevention via page-end overlap. |
 | 2026-10-15 | Fix Review1→U4→U1 bug: remove null-`?unit=` Unit 1 fallback; suppress jumps on PDF-driven sync. |
+| 2026-10-15 | Generalized contract/loader for `eight_column_baseline` + `nine_column_ab`; Writing required only for nine-column; column-set-driven UI fields; dual-set automated tests. No BE2 JSON/Storage/DB. |
