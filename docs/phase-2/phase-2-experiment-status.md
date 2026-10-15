@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.23  
+**Version:** 1.24  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,12 +17,12 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: sketch UI against BE3 U1 JSON + loader, expand more units, or pause — **no UI locked** |
+| Next proposed step | Owner-gated: expand more units into JSON/UI, harden preview, or pause — contract/UI still **not locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
-| BE3 U1 A+B impl. readiness | JSON artifact + read-only TS loader/validator + CLI PASS; still no UI/DB/Storage wiring |
-| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS parse/map + CLI verifier — **not locked**; no UI |
+| BE3 U1 A+B impl. readiness | JSON + TS loader/CLI PASS + read-only `/app/book-intelligence` preview; still no DB/Storage |
+| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS loader + local U1 preview — **not locked**; no DB/Storage |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -219,6 +219,17 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** BE3 U1 **PASS**; `npm run typecheck` clean. Contract remains draft / not locked.
 
+### BE3 Unit 1 Book Intelligence UI preview (2026-10-15)
+
+**Artifacts:**
+- Preview page: [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/)
+- Route: `/app/book-intelligence` (protected AppShell)
+- Local JSON via Vite alias `@bi-be3-u01-json`
+
+**Controls:** Read-only UI sketch. Loads BE3 U1 draft JSON through `loadBookIntelligenceOverviewFromUnknown`. Displays all 8 content fields (incl. Writing + LO provenance). No Supabase, database, or schema changes.
+
+**Result:** Preview renders Unit 1 A+B cells locally. Contract/UI still **not locked**.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -306,3 +317,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Draft nine-column Book Intelligence UI data contract (fields/types/identity/JSON); docs only; not locked. |
 | 2026-10-15 | Created BE3 Unit 1 A+B Book Intelligence JSON artifact conforming to draft contract; no UI/DB changes. |
 | 2026-10-15 | Added read-only TS Book Intelligence loader/validator + CLI; BE3 U1 PASS; no UI/DB. |
+| 2026-10-15 | Added read-only BE3 Unit 1 BI UI preview (`/app/book-intelligence`); local JSON + loader; no DB/Storage. |

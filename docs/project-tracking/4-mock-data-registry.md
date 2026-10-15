@@ -23,6 +23,7 @@
 |---|---|---|---|---|---|
 | Beehive 1 interactive page spreads | `app/src/mocks/curriculum/curriculumSeries.ts` (spreads only; attached in `catalogMapper` for `beehive_1_sb`) | Book Workspace / book viewer / lesson intelligence | Hand-built interactive page chrome for a few Beehive 1 spreads | Storage-backed curriculum JSON / derived page model | **MOCK** |
 | Teacher AI Responses | `app/src/mocks/ai/aiResponses.ts` | Teacher AI Assistant (`aiAssistantService`) | Deterministic mock quick-action and chat responses | Real model/API later (Gemini preferred) | **MOCK** |
+| BE3 Unit 1 Book Intelligence overview | `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json` (Vite alias `@bi-be3-u01-json`) | `/app/book-intelligence` via `features/book-intelligence` + `lib/bookIntelligence` | Nine-column A+B Phase 2 interpretation (draft contract) | Owner-approved BI artifact path later (not Postgres cells) | **LOCAL PROTOTYPE** |
 
 Unused leftover mock series/book content may still exist inside `curriculumSeries.ts`; the app catalog does **not** load series/books from that file.
 
@@ -39,6 +40,11 @@ Validation UI
 
 Teacher AI
   → useTeacherAiResponses → aiAssistantService → mocks/ai/*
+
+Book Intelligence preview
+  → BookIntelligencePreviewPage
+  → loadLocalBe3Unit1BookIntelligence → @bi-be3-u01-json
+  → loadBookIntelligenceOverviewFromUnknown (draft contract)
 ```
 
 ## Cover assets (static fallbacks)

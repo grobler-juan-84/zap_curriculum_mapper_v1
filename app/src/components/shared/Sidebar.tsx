@@ -1,6 +1,7 @@
 import {
   Bookmark,
   BookOpen,
+  Brain,
   CheckSquare,
   ChevronLeft,
   ChevronRight,
@@ -68,6 +69,11 @@ export function Sidebar() {
       to: '/app/validation',
       label: 'Validation',
       icon: CheckSquare,
+    },
+    {
+      to: '/app/book-intelligence',
+      label: 'Book Intelligence',
+      icon: Brain,
     },
   ]
 

@@ -2668,4 +2668,28 @@
 
 ---
 
+### Step 153
+
+**Summary:** Built a read-only BE3 Unit 1 Book Intelligence UI preview at `/app/book-intelligence` using the validated TS loader and local Phase 2 JSON (Vite alias). Displays all 8 content fields including Writing and inferred Learning Outcomes provenance. No Supabase, database, or schema changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (created)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (created)
+- `app/src/features/book-intelligence/loadLocalBe3Unit1BookIntelligence.ts` (created)
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `app/vite.config.ts` (updated)
+- `app/tsconfig.app.json` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

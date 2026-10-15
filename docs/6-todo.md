@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 152
+**Last updated:** Step 153
 
 
 
@@ -122,11 +122,15 @@
 
 
 
+- [x] Read-only BE3 Unit 1 Book Intelligence UI preview (local JSON + loader; no DB/Storage).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: sketch UI against Unit 1 JSON + loader, expand units, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: expand more units into JSON/UI, harden preview, pause, or other D017 next step.
 
 
 

@@ -9,6 +9,7 @@ import { CurriculumLibraryPage } from './features/curriculum-library/CurriculumL
 import { LandingPage } from './features/landing/LandingPage'
 import { SeriesLibraryPage } from './features/series-library/SeriesLibraryPage'
 import { AppShell } from './features/shell/AppShell'
+import { BookIntelligencePreviewPage } from './features/book-intelligence/BookIntelligencePreviewPage'
 import { ValidationPage } from './features/validation/ValidationPage'
 
 export default function App() {
@@ -33,6 +34,10 @@ export default function App() {
         <Route path="series" element={<SeriesLibraryPage />} />
         <Route path="workspace" element={<BookWorkspacePage />} />
         <Route path="validation" element={<ValidationPage />} />
+        <Route
+          path="book-intelligence"
+          element={<BookIntelligencePreviewPage />}
+        />
       </Route>
     </Routes>
   )

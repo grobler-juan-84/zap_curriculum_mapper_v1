@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 152
+**Last updated:** Step 153
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,19 +20,21 @@
 
 - Nine-column BI UI data contract draft + BE3 Unit 1 JSON artifact.
 
-- **Read-only TS loader/validator** for draft BI contract; CLI verifies BE3 U1 **PASS**; no UI/DB/Storage wiring.
+- Read-only TS loader/validator + CLI (**PASS** on BE3 U1).
+
+- **Read-only BE3 Unit 1 BI UI preview** at `/app/book-intelligence` (local JSON + loader; all 8 content fields incl. Writing + inferred LOs).
 
 ## In progress
 
-- None (loader recorded; awaiting owner next prompt).
+- None (U1 preview recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated options: sketch UI against Unit 1 JSON + loader; expand more units; pause — **no auto-UI**.
+- Owner-gated: expand more units into JSON/UI, harden preview, or pause — **no DB/Storage** until asked.
 
 ## Blocked
 
-- None hard. Soft: F017 parked; BI UI still unimplemented.
+- None hard. Soft: F017 parked; BI contract/UI still draft / not locked.
 
 ---
 
@@ -42,7 +44,7 @@
 
 - BI contract: [`phase-2/book-intelligence-ui-data-contract-v1.md`](./phase-2/book-intelligence-ui-data-contract-v1.md)
 
-- Loader: `app/src/lib/bookIntelligence/` · CLI: `scripts/validate_book_intelligence_json.mjs`
+- Loader: `app/src/lib/bookIntelligence/` · Preview: `app/src/features/book-intelligence/` · CLI: `scripts/validate_book_intelligence_json.mjs`
 
 - BE3 U1 JSON: `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`
 

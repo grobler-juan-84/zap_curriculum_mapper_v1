@@ -7,6 +7,12 @@
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@bi-be3-u01-json": [
+        "../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json"
+      ]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
