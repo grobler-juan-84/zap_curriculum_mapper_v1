@@ -86,9 +86,9 @@ Non-writing I Can items on these units are noted only if they clearly fail; they
 | 3 | Yes |
 | 5 | Yes |
 | 9 | Yes |
-| 4, 6, 7, 8 | **Not checked in this expansion** |
+| 4, 6, 7, 8 | Later completed — see [`be3-u04-u06-u07-u08-ss-writing-ican-dry-check-d017-v1.md`](./be3-u04-u06-u07-u08-ss-writing-ican-dry-check-d017-v1.md) |
 
-**Implication:** On every unit sampled so far (5/9), A+B alone satisfies both Writing visibility and LO writing metalanguage vs `ss_v1.json`. That strengthens A+B as an experimental candidate but is **not** a book-wide approval (remaining units unchecked; teacher usability / density trade-offs still owner decisions; BE2 v2 baseline untouched).
+**Implication (at expansion time):** Sampled units already showed A+B-only dual Pass. Full 9/9 roll-up: [`be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md).
 
 ---
 
@@ -96,8 +96,7 @@ Non-writing I Can items on these units are noted only if they clearly fail; they
 
 - No overview edits.
 - No methodology lock.
-- No book-wide decision.
-- Optional next check (owner-gated): finish remaining Units **4, 6, 7, 8** with the same Writing + I Can dry-check rule, **or** proceed to owner path choice with current sample evidence.
+- Remaining Units 4/6/7/8 completed in a later micro-step; owner decision via full roll-up.
 
 ---
 
@@ -106,3 +105,4 @@ Non-writing I Can items on these units are noted only if they clearly fail; they
 | Date | Change |
 |---|---|
 | 2026-10-15 | Expansion dry check for Units 3, 5, 9 after U1+U2 A+B dual Pass; findings only. |
+| 2026-10-15 | Linked completed Units 4/6/7/8 + full roll-up. |

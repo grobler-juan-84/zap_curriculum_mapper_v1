@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 142
+**Last updated:** Step 143
 
 
 
@@ -102,7 +102,7 @@
 
 
 
-- [ ] Owner review of BE3 Exp A / B / A+B together; choose preferred path (no auto-approval).
+- [ ] **Owner decision:** BE3 path A / B / A+B / hybrid / pause (dry checks 9/9 complete; no auto-approval; no methodology change yet).
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-- [ ] Optional: finish BE3 SS Writing + I Can dry checks for remaining Units 4 / 6 / 7 / 8.
+- [x] Finish BE3 SS Writing + I Can dry checks for Units 4 / 6 / 7 / 8; full 9/9 roll-up (A+B only dual Pass).
 
 
 

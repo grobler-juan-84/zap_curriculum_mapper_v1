@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.13  
+**Version:** 1.14  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,8 +17,8 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner review of A, B, and A+B together — choose preference; no auto-approval |
-| BE3 SS dry checks | U1 + U2 + expansion U3/U5/U9 — A+B dual Pass on all sampled units; Units 4/6/7/8 unchecked; **no book-wide decision** |
+| Next proposed step | **Owner decision** on A / B / A+B / hybrid / pause — dry checks complete; no auto-approval |
+| BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; roll-up ready; **no methodology lock** |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -123,6 +123,15 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 **Controls:** Same Writing + I Can rule vs `ss_v1.json`; no overview edits. Expansion triggered because A+B dual-Passed U1 and U2.
 
 **Result (AI-assessed):** Unit 2 repeats the U1 pattern (A+B only dual Pass). Expansion Units 3, 5, 9 (titles → detail sentences → SVO) also show **A+B only dual Pass**. Sampled 5/9 units; **4/6/7/8 unchecked**. **No book-wide decision.**
+
+### BE3 remaining units + full roll-up (2026-10-15)
+
+**Artifacts:**
+- Units 4/6/7/8: [`experiments/be3-u04-u06-u07-u08-ss-writing-ican-dry-check-d017-v1.md`](./experiments/be3-u04-u06-u07-u08-ss-writing-ican-dry-check-d017-v1.md)
+- Full roll-up: [`experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md)
+- Owner pack addendum: [`experiments/be3-ab-combined-owner-review-d017-v1.md`](./experiments/be3-ab-combined-owner-review-d017-v1.md) §8
+
+**Result (AI-assessed):** A+B dual-Passes **9/9** units on Writing + writing-I-Can vs `ss_v1.json`. Control/A/B never dual-Pass. **Proceed to owner decision** — no auto-approval, no methodology change, no BE2 v2 change.
 
 ---
 

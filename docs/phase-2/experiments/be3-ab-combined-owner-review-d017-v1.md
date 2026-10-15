@@ -84,10 +84,23 @@ Class: evidence-based interpretation, not classroom-validated.
 
 ---
 
-## 8. Stop line
+## 8. SS Writing + I Can dry-check addendum (2026-10-15)
 
-**STOP FOR OWNER REVIEW.**  
-No overview approved. No working baseline changed. No methodology locked. No Phase 3 started.
+Full-unit dry checks against companion `ss_v1.json` are **complete**. Roll-up: [`be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md).
+
+| Finding | Result |
+|---|---|
+| Dual Pass (Writing column + LO writing metalanguage) | **A+B only — 9/9 units** |
+| Control / A / B | No dual Pass on any unit |
+| Auto-approve A+B? | **No** — evidence for owner path choice only |
+| Methodology / BE2 v2 changed? | **No** |
+
+---
+
+## 9. Stop line
+
+**STOP FOR OWNER DECISION.**  
+Dry-check series complete. No overview approved. No working baseline changed. No methodology locked. No Phase 3 started.
 
 ---
 
@@ -96,3 +109,4 @@ No overview approved. No working baseline changed. No methodology locked. No Pha
 | Date | Change |
 |---|---|
 | 2026-10-13 | Created owner-review pack after BE3 combined A+B experiment. |
+| 2026-10-15 | Added §8 SS Writing + I Can dry-check addendum after 9/9 roll-up; stop for owner decision. |

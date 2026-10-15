@@ -2504,4 +2504,22 @@
 
 ---
 
+### Step 143
+
+**Summary:** Completed BE3 SS Writing + I Can dry checks for remaining Units 4/6/7/8 and produced a full 9/9 roll-up: A+B is the only dual Pass on every unit. Updated owner-review pack addendum; proceeded to owner decision with no overview edits and no methodology changes.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-u04-u06-u07-u08-ss-writing-ican-dry-check-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md` (updated)
+- `docs/phase-2/experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
