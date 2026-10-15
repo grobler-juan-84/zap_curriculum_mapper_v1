@@ -2585,4 +2585,19 @@
 
 ---
 
+### Step 148
+
+**Summary:** Completed read-only A+B reproducibility check for remaining BE3 Units 2–4 and 6–8 and produced a full 9/9 roll-up with prior U1/U5/U9. All units PASS; discrepancies are soft Near LO paraphrases only (0 Drift/Fail). Existing A+B overview and methodology/schema/UI left unchanged.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.18  
+**Version:** 1.19  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -20,7 +20,7 @@
 | Next proposed step | Owner-gated follow-ups only (e.g. thin A+B LOs; apply A+B to another book; pause) — **no implementation locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
-| BE3 A+B regen checks | U1 + U5 + U9 independent regens vs existing A+B — all **reproducibility PASS** (near-exact); existing overview unchanged |
+| BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -174,6 +174,14 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result (AI-assessed):** Non-experimental columns **exact** match. Writing **exact**. LO **near-exact** (soft “about seasons” only). Dual writing coverage reproduced. **No methodology/schema/UI change.** U1+U5+U9 start/mid/end sampling all PASS; still does not prove remaining units.
 
+### BE3 A+B regen reproducibility — full 9/9 roll-up (2026-10-15)
+
+**Artifact:** [`experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md`](./experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md)
+
+**Controls:** Independent A+B regens for remaining U2–U4 / U6–U8 from Phase 1 only; rolled up with prior U1/U5/U9. Discrepancies-only documentation. Existing book-wide A+B artifact **not edited**.
+
+**Result (AI-assessed):** **9/9 PASS**. Drift/Fail **0**. Soft Near paraphrases on 7/9 units (mostly LO wording). U4 and U8 Exact across compared cells. Writing column Exact on U2–U9 (U1 Writing Near only). **No methodology/schema/UI change.**
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -256,3 +264,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BE3 Unit 1 A+B independent regen vs existing A+B — reproducibility PASS (near-exact); no overview edits. |
 | 2026-10-15 | BE3 Unit 9 A+B independent regen vs existing A+B — reproducibility PASS (Writing exact; LO near-exact); book-end pair with U1. |
 | 2026-10-15 | BE3 Unit 5 A+B independent regen vs existing A+B — reproducibility PASS (Writing exact; LO near-exact); mid-book with U1/U9. |
+| 2026-10-15 | BE3 A+B regen full 9/9 roll-up (remaining U2–U4/U6–U8); all PASS; soft Near only; no overview edits. |

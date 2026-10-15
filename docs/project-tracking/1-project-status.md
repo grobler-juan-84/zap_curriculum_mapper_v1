@@ -2,17 +2,17 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 147  
+**Last updated:** Step 148  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BE3 Unit 5 independent A+B regen vs existing A+B overview: **reproducibility PASS** (Writing exact; LO near-exact).
-- Start / mid / end sample (U1, U5, U9) all PASS; existing A+B artifact unchanged; methodology/schema not locked.
+- BE3 A+B regen reproducibility **complete 9/9** — all PASS; soft Near paraphrases only; 0 Drift/Fail.
+- Existing A+B overview unchanged; methodology/schema not locked.
 
 ## Current status
 
-On branch `phase-2`. U1/U5/U9 A+B reproducibility recorded; awaiting owner next prompt.
+On branch `phase-2`. Full regen roll-up recorded; awaiting owner next prompt.
 
 ## Next small step
 

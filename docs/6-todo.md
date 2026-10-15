@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 147
+**Last updated:** Step 148
 
 
 
@@ -102,15 +102,11 @@
 
 
 
-- [x] BE3 Unit 1 independent A+B regen vs existing A+B — reproducibility PASS (near-exact); no overview edits.
+- [x] BE3 Unit 1 / 5 / 9 independent A+B regen reproducibility PASS (start/mid/end).
 
 
 
-- [x] BE3 Unit 9 independent A+B regen vs existing A+B — reproducibility PASS (book-end check); no overview edits.
-
-
-
-- [x] BE3 Unit 5 independent A+B regen vs existing A+B — reproducibility PASS (mid-book check); no overview edits.
+- [x] BE3 A+B regen full 9/9 roll-up (remaining U2–U4 / U6–U8); all PASS; discrepancies only; no overview edits.
 
 
 

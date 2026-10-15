@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 147
+**Last updated:** Step 148
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,11 +20,11 @@
 
 - **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**.
 
-- **BE3 A+B regen reproducibility (start / mid / end):** U1, U5, and U9 independent regens vs existing A+B — all **PASS** (near-exact); existing overview unchanged.
+- **BE3 A+B regen reproducibility complete 9/9:** all PASS (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged.
 
 ## In progress
 
-- None (U1/U5/U9 reproducibility recorded; awaiting owner next prompt).
+- None (full regen roll-up recorded; awaiting owner next prompt).
 
 ## Next
 
@@ -44,6 +44,6 @@
 
 - Preferred BE3 artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
-- Regen checks: U1 / U5 / U9 under `docs/phase-2/experiments/be3-u0{1,5,9}-ab-regen-reproducibility-d017-v1.md`
+- Regen roll-up: [`phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md`](./phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md)
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).
