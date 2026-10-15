@@ -1,12 +1,23 @@
 import { useNavigate } from 'react-router-dom'
+import {
+  bookIntelligencePath,
+  hasBookIntelligenceOverview,
+} from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../shell/WorkspaceProvider'
+import { curriculumService } from '../../services/curriculumService'
 import { CurriculumLibrary } from './CurriculumLibrary'
 import { useCurriculumCatalog } from './hooks/useCurriculumCatalog'
 
 export function CurriculumLibraryPage() {
   const navigate = useNavigate()
   const { seriesList, loading, error, reload } = useCurriculumCatalog()
-  const { selectSeries, selectBook, catalogLoading, catalogError, reloadCatalog } = useWorkspace()
+  const {
+    selectSeries,
+    selectBook,
+    catalogLoading,
+    catalogError,
+    reloadCatalog,
+  } = useWorkspace()
 
   const isLoading = loading || catalogLoading
   const displayError = error ?? catalogError
@@ -46,6 +57,16 @@ export function CurriculumLibraryPage() {
         navigate('/app/series')
       }}
       onDirectOpenBook={(bookUuid) => {
+        const match = curriculumService.getBookByUuid(bookUuid)
+        const catalogBookId = match?.book.catalogBookId
+        if (catalogBookId && hasBookIntelligenceOverview(catalogBookId)) {
+          if (match) {
+            selectSeries(match.series.id)
+            selectBook(match.book.id)
+          }
+          navigate(bookIntelligencePath(catalogBookId))
+          return
+        }
         selectBook(bookUuid)
         navigate('/app/workspace')
       }}

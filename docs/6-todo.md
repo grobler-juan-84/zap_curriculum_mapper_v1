@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 176
+**Last updated:** Step 177
 
 
 
@@ -215,6 +215,10 @@
 
 
 - [x] BE2 BI E2E + PDF acceptance (P5); Library→BI workspace select fix.
+
+
+
+- [x] BI-first navigation: sidebar + Series/Curriculum prefer BI when registered.
 
 
 

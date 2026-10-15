@@ -25,6 +25,11 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
     { label: 'Curriculum Library', onClick: onBackToCurriculum },
     { label: series.name, active: true },
   ]
+  const anyBookHasBi = series.books.some(
+    (book) =>
+      Boolean(onOpenBookIntelligence) &&
+      hasBookIntelligenceOverview(book.catalogBookId),
+  )
 
   return (
     <div className="flex h-full select-none flex-col overflow-y-auto bg-slate-50">
@@ -44,7 +49,9 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                 Available Teaching Books
               </h2>
               <p className="text-xs text-slate-500">
-                Books loaded from Supabase for this series. Choose one to open its workspace.
+                {anyBookHasBi
+                  ? 'Books loaded from Supabase for this series. Open Book Intelligence when available; Workspace remains secondary.'
+                  : 'Books loaded from Supabase for this series. Choose one to open its workspace.'}
               </p>
             </div>
             <span className="font-mono text-xs text-slate-500">
@@ -68,10 +75,19 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                 const coverSrc = book.coverPath
                   ? coverUrls[book.coverPath]
                   : book.coverImage
+
+                function openPrimary() {
+                  if (showBookIntelligence && catalogBookId) {
+                    onOpenBookIntelligence?.(catalogBookId)
+                    return
+                  }
+                  onSelectBook(book.id)
+                }
+
                 return (
                   <div
                     key={book.id}
-                    onClick={() => onSelectBook(book.id)}
+                    onClick={openPrimary}
                     className={`group flex cursor-pointer flex-col overflow-hidden rounded-lg border bg-white shadow-xs transition-all hover:shadow-md ${
                       isFeatured
                         ? 'border-indigo-300 ring-1 ring-indigo-200'
@@ -133,25 +149,40 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                           </button>
                         ) : null}
                         {showBookIntelligence && catalogBookId ? (
+                          <>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                onOpenBookIntelligence?.(catalogBookId)
+                              }}
+                              className="flex items-center gap-1 text-xs font-bold text-violet-700 hover:text-violet-900"
+                              title="Open Book Intelligence overview"
+                            >
+                              <span>Open Book Intelligence</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                onSelectBook(book.id)
+                              }}
+                              className="text-xs font-medium text-slate-500 hover:text-slate-800"
+                              title="Open mock Book Workspace"
+                            >
+                              Workspace
+                            </button>
+                          </>
+                        ) : (
                           <button
                             type="button"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onOpenBookIntelligence?.(catalogBookId)
-                            }}
-                            className="text-xs font-bold text-violet-700 hover:text-violet-900"
-                            title="Open Book Intelligence overview"
+                            className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
                           >
-                            Book Intelligence
+                            <span>Open Workspace</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
                           </button>
-                        ) : null}
-                        <button
-                          type="button"
-                          className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
-                        >
-                          <span>Open Workspace</span>
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </button>
+                        )}
                       </div>
                     </div>
                   </div>

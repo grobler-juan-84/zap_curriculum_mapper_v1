@@ -12,6 +12,10 @@ import {
 } from 'lucide-react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/AuthProvider'
+import {
+  bookIntelligencePath,
+  hasBookIntelligenceOverview,
+} from '../../features/book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../../features/shell/WorkspaceProvider'
 import { curriculumService } from '../../services/curriculumService'
 
@@ -36,6 +40,7 @@ export function Sidebar() {
     toggleSidebar,
     openDefaultBeehiveSpread,
     selectSeries,
+    currentBook,
   } = useWorkspace()
 
   const displayName =
@@ -49,6 +54,23 @@ export function Sidebar() {
     user?.email,
   )
 
+  const catalogBookId = currentBook?.catalogBookId
+  const bookHasBi =
+    Boolean(catalogBookId) && hasBookIntelligenceOverview(catalogBookId)
+  const bookNavItem = bookHasBi && catalogBookId
+    ? {
+        to: bookIntelligencePath(catalogBookId),
+        label: 'Book Intelligence',
+        icon: Brain,
+        title: `Book Intelligence · ${currentBook?.title ?? catalogBookId}`,
+      }
+    : {
+        to: '/app/workspace',
+        label: 'Book Workspace',
+        icon: BookOpen,
+        title: 'Book Workspace (no BI overview for selected book)',
+      }
+
   const navItems = [
     {
       to: '/app/curriculum',
@@ -60,20 +82,11 @@ export function Sidebar() {
       label: 'Beehive Series',
       icon: Layers,
     },
-    {
-      to: '/app/workspace',
-      label: 'Book Workspace',
-      icon: BookOpen,
-    },
+    bookNavItem,
     {
       to: '/app/validation',
       label: 'Validation',
       icon: CheckSquare,
-    },
-    {
-      to: '/app/book-intelligence/big_english_3_sb',
-      label: 'Book Intelligence',
-      icon: Brain,
     },
   ]
 
@@ -124,11 +137,17 @@ export function Sidebar() {
         </div>
         {navItems.map((item) => {
           const Icon = item.icon
+          const linkTitle =
+            'title' in item && item.title
+              ? item.title
+              : collapsed
+                ? item.label
+                : undefined
           return (
             <NavLink
-              key={item.to}
+              key={`${item.label}:${item.to}`}
               to={item.to}
-              title={collapsed ? item.label : undefined}
+              title={linkTitle}
               className={({ isActive }) =>
                 `flex w-full items-center gap-2.5 rounded-md px-2 py-1.5 text-left text-xs font-medium transition-colors ${
                   isActive

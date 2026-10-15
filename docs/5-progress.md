@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 176
+**Last updated:** Step 177
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,9 +18,9 @@
 
 - BE3 A+B BI path validated (D019 MVP + PDF nav regression); methodology not locked.
 
-- **BI dual column-set** + BE2 eight-column JSON in Storage + Library registry.
+- **BI dual column-set** + BE2 eight-column JSON in Storage + Library registry + E2E PASS.
 
-- **BE2 BI E2E acceptance PASS** — Library→BI→Validation→Back; eight-column (no Writing); PDF U1–U9 + gaps; BE3 regressions still green. Workspace select fix for Library→BI / deep links.
+- **BI-first navigation** — Sidebar / Series / Curriculum prefer Book Intelligence when registered; Workspace secondary/fallback.
 
 ## In progress
 

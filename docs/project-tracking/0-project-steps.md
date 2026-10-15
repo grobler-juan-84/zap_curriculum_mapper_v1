@@ -3123,4 +3123,19 @@
 
 ---
 
+### Step 177
+
+**Summary:** BI-first navigation UX: sidebar Book Intelligence targets the selected registered book (Workspace fallback); Series/Curriculum primary open prefers BI with Workspace secondary. No schema/data/methodology changes.
+
+**Files touched:**
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/curriculum-library/CurriculumLibraryPage.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
