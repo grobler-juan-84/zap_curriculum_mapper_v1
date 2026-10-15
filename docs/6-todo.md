@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 173
+**Last updated:** Step 174
 
 
 
@@ -206,11 +206,15 @@
 
 
 
+- [x] Port BE2 v2 Markdown → local eight-column BI JSON (P2); validate + Markdown compare.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated: BE2 JSON port (P2) + Storage/registry (P3) + smoke (P5), or `book_files` / harden preview / pause.
+- [ ] Owner-gated: BE2 Storage/registry (P3) + smoke (P5), or `book_files` / harden preview / pause.
 
 
 

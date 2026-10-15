@@ -17,8 +17,8 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: BE2 JSON port (P2) + Storage/registry (P3), or `book_files` / pause — contract still **not locked** |
-| BE2 BI integration plan | P0/P1/P4 done (dual column-set contract/loader/UI); P2/P3/P5 pending |
+| Next proposed step | Owner-gated: BE2 Storage/registry (P3) + smoke (P5), or `book_files` / pause — contract still **not locked** |
+| BE2 BI integration plan | P0/P1/P2/P4 done (dual-set + local BE2 eight-column JSON); P3/P5 pending |
 | BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
@@ -320,7 +320,7 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Artifact:** [`experiments/be2-bi-integration-compatibility-plan-d017-v1.md`](./experiments/be2-bi-integration-compatibility-plan-d017-v1.md)
 
-**Progress (same day):** P0/P1/P4 implemented — dual `column_set` in contract/TS loader/CLI/UI field config; Writing required only for `nine_column_ab`; automated dual-set tests + BE3 regressions PASS. No BE2 JSON/Storage/DB.
+**Progress:** P0/P1/P2/P4 done — dual `column_set` contract/loader/UI; local BE2 eight-column JSON from v2 Markdown (`bep2_unit_*`; Markdown compare 0 discrepancies). No Storage/UI/DB for BE2 yet.
 
 **Controls:** Docs-only. Compared BE2 v2 eight-column Markdown + Phase 1 canonical with BE3 nine-column contract/UI. Proposed dual `column_set` support and book-independent UI descriptors. No code, Storage, DB, or methodology changes.
 
@@ -434,3 +434,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Recorded PDF nav regression acceptance artifact; milestone in progress (impl only). |
 | 2026-10-15 | BE2 BI integration compatibility plan (eight vs nine column); docs only; not implemented. |
 | 2026-10-15 | Generalized BI contract/loader/UI for eight- + nine-column; dual-set tests; BE3 preserved. |
+| 2026-10-15 | BE2 v2 Markdown → local eight-column BI JSON; validated; Markdown compare PASS (0 discrepancies). |

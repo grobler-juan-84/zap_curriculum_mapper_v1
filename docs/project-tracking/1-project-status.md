@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 173  
+**Last updated:** Step 174  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Generalized Book Intelligence draft contract for dual column sets.
-- Loader/CLI/UI field config support `eight_column_baseline` and `nine_column_ab`.
-- BE3 nine-column path preserved; dual-set tests + BE3 regressions PASS.
+- Ported BE2 v2 eight-column Markdown overview to local BI JSON.
+- `column_set: eight_column_baseline`; Phase 1 `bep2_unit_*` IDs preserved.
+- Validated against dual-set loader; Markdown unit compare: 0 discrepancies.
 
 ## Current status
 
-On branch `phase-2`. Contract/loader dual-set ready; BE2 JSON/Storage still pending.
+On branch `phase-2`. BE2 JSON local-only; Storage/UI still pending.
 
 ## Next small step
 
-**Suggestion:** Owner picks P2 (BE2 JSON port) or pauses; no methodology lock.
+**Suggestion:** Owner picks P3 (Storage + registry) or pauses; no methodology lock.

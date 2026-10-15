@@ -1,8 +1,8 @@
 # BE2 Book Intelligence Integration — Compatibility Gaps & Implementation Plan (D017)
 
 **Date:** 2026-10-15  
-**Status:** ACTIVE PLAN — P0/P1/P4 contract+loader+UI done; P2/P3/P5 (BE2 JSON/Storage/smoke) pending; methodology / schema **not locked**  
-**Version:** 1.1  
+**Status:** ACTIVE PLAN — P0/P1/P2/P4 done; P3/P5 (Storage/registry + smoke) pending; methodology / schema **not locked**  
+**Version:** 1.2  
 **Decision context:** D017 Progressive Curriculum Intelligence; D017 working approvals (BE2 v2 eight-column baseline; BE3 A+B nine-column for BE3-SB only); D019 MVP UI path (BE3)  
 **Purpose:** Compare BE2-SB v2 eight-column overview + Phase 1 data with the working BE3 Book Intelligence contract/UI; identify minimum changes to support both column sets; propose a reusable, book-independent UI approach; document gaps and a phased plan.
 
@@ -33,7 +33,7 @@
 | Working approval | Eight-column provisional baseline (BE2-SB) | Nine-column A+B preferred (**BE3-SB only**) |
 | Content columns | Vocabulary; Grammar / Structures; Communicative Functions; Learning Outcomes *(AI-inferred)*; CLIL / Culture; Values; Phonics | Same seven **plus Writing** |
 | Proposed `column_set` | `eight_column_baseline` *(in contract + TS/loader)* | `nine_column_ab` *(implemented; BE3 live)* |
-| Machine JSON today | **None** (Markdown table only) | Full U1–9 JSON in repo + Storage |
+| Machine JSON today | Local U1–9 eight-column JSON (not Storage) | Full U1–9 JSON in repo + Storage |
 | Writing strand | Absent (by design for v2 baseline) | Required string + optional `writing_component_id` |
 
 ### 2.2 Shared identity (compatible)
@@ -78,7 +78,7 @@ PDF split layout, `?unit=`, Validation evidence link, and PDF↔unit sync are al
 
 | ID | Gap | Severity | Notes |
 |---|---|---|---|
-| G1 | No BE2 machine-readable BI JSON | **Blocker** | Must derive from Markdown v2 (content port, not methodology change) |
+| G1 | ~~No BE2 machine-readable BI JSON~~ | **Done (local)** | Ported from Markdown v2; Storage still pending (G5) |
 | G2 | ~~`eight_column_baseline` not in TS/loader~~ | **Done** | Allow-list both sets |
 | G3 | ~~`writing` required globally~~ | **Done** | Required only for `nine_column_ab` |
 | G4 | ~~UI hardcodes nine fields incl. Writing~~ | **Done** | `uiFieldsForColumnSet` |
@@ -197,7 +197,7 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 |---|---|---|---|
 | **P0 — Contract align** | Document `eight_column_baseline` in draft contract; list required keys per set | **Done** (draft/not locked) | Low |
 | **P1 — Loader dual-set** | Parser/CLI accept both sets; Writing required only for nine-column | **Done** (BE3 PASS + dual-set tests) | Low |
-| **P2 — BE2 JSON port** | Markdown v2 → U1–9 JSON; validate with CLI; unit IDs = `bep2_*` | CLI PASS; wording spot-check vs v2 | Medium (manual fidelity) |
+| **P2 — BE2 JSON port** | Markdown v2 → U1–9 JSON; validate with CLI; unit IDs = `bep2_*` | **Done** (CLI PASS; Markdown compare 0 discrepancies) | Medium (manual fidelity) |
 | **P3 — Storage + registry** | Upload BE2 JSON; register `big_english_2_sb` | Library shows BI; route loads Storage | Low (ops) |
 | **P4 — UI column-set render** | Descriptor-driven fields; hide Writing for eight-column | **Done** (BE3 path unchanged; eight-column config ready) | Low |
 | **P5 — Smoke** | BE2 U1/U5/U9 deep links; gap after U3; evidence round-trip; BE3 regression scripts still PASS | Scripted + short manual smoke | Low |
@@ -233,3 +233,4 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 |---|---|
 | 2026-10-15 | Created compatibility gaps + reusable UI plan for BE2 eight-column vs BE3 nine-column; docs only. |
 | 2026-10-15 | P0/P1/P4 implemented: dual column-set contract/loader/UI + tests; G2–G4 closed. P2/P3/P5 still pending. |
+| 2026-10-15 | P2 done: BE2 v2 Markdown → local eight-column JSON (`bep2_unit_*`); G1 closed locally. P3/P5 still pending. |

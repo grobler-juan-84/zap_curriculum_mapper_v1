@@ -7,7 +7,7 @@
 **Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)  
 **Purpose:** Define the UI-facing data contract for Book Intelligence unit overviews, supporting **`eight_column_baseline`** and **`nine_column_ab`**, including field names, types, unit identity, and JSON structure.
 
-**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock, no BE2 JSON conversion / Storage upload in this slice. Read-only TS loader/validator + BE3 U1–9 UI preview (loads Storage companion). Contract remains draft.
+**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. BE2 eight-column JSON exists locally only (no Storage/UI wiring yet). Read-only TS loader/validator + BE3 U1–9 UI preview (loads Storage companion). Contract remains draft.
 
 ---
 
@@ -297,14 +297,17 @@ It does **not**:
 
 ---
 
-## 9. Populated example artifact
+## 9. Populated example artifacts
 
 | Artifact | Path |
 |---|---|
 | BE3-SB Units 1–9 A+B (local) | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json) |
 | BE3-SB Units 1–9 A+B (Storage) | `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` |
+| BE2-SB Units 1–9 v2 eight-column (local) | [`../../data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json`](../../data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json) |
 
-Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; Storage companion integrity-verified; preview loads from Storage via draft-contract loader (no Postgres registration).
+BE3 content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; Storage companion integrity-verified; preview loads from Storage via draft-contract loader (no Postgres registration).
+
+BE2 content is a faithful cell-level port of [`experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v2.md) (`column_set: eight_column_baseline`; `unit_id` = Phase 1 `bep2_unit_0N`; no Writing; local only — not uploaded to Storage in this slice).
 
 ---
 
@@ -330,3 +333,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | PDF→BI unit sync from visible page range; outside-unit message; loop prevention via page-end overlap. |
 | 2026-10-15 | Fix Review1→U4→U1 bug: remove null-`?unit=` Unit 1 fallback; suppress jumps on PDF-driven sync. |
 | 2026-10-15 | Generalized contract/loader for `eight_column_baseline` + `nine_column_ab`; Writing required only for nine-column; column-set-driven UI fields; dual-set automated tests. No BE2 JSON/Storage/DB. |
+| 2026-10-15 | Linked BE2-SB U1–9 v2 eight-column local JSON artifact (`bep2_unit_*`); no Storage/UI/DB. |

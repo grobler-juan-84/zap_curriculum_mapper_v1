@@ -3064,4 +3064,24 @@
 
 ---
 
+### Step 174
+
+**Summary:** Ported approved BE2 v2 eight-column Markdown overview to a local Book Intelligence JSON artifact (`eight_column_baseline`, Phase 1 `bep2_unit_*` IDs). Validated against dual-set loader; all nine units matched Markdown (0 discrepancies). No Writing column, Storage, DB, or UI changes.
+
+**Files touched:**
+- `data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json` (created)
+- `scripts/build_be2_book_intelligence_json.mjs` (created)
+- `scripts/compare_be2_bi_json_to_markdown.mjs` (created)
+- `scripts/tests/book_intelligence_column_sets.test.mjs` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

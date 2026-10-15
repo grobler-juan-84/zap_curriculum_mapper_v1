@@ -23,6 +23,10 @@ const BE3_FILE = resolve(
   root,
   'data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json',
 )
+const BE2_FILE = resolve(
+  root,
+  'data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json',
+)
 
 function sharedUnitFields() {
   return {
@@ -128,5 +132,18 @@ test('BE3 U1–9 nine_column_ab artifact still validates', () => {
   assert.equal(mapped.units.length, 9)
   for (const unit of mapped.units) {
     assert.ok(unit.writing && unit.writing.trim().length > 0)
+  }
+})
+
+test('BE2 U1–9 eight_column_baseline artifact validates without writing', () => {
+  const raw = JSON.parse(readFileSync(BE2_FILE, 'utf8'))
+  const { errors, mapped } = validateBookIntelligence(raw)
+  assert.deepEqual(errors, [])
+  assert.equal(mapped.columnSet, 'eight_column_baseline')
+  assert.equal(mapped.catalogBookId, 'big_english_2_sb')
+  assert.equal(mapped.units.length, 9)
+  for (const unit of mapped.units) {
+    assert.equal(unit.writing, undefined)
+    assert.match(unit.unitId, /^bep2_unit_0[1-9]$/)
   }
 })
