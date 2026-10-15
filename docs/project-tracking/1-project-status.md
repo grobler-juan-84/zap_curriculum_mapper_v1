@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 169  
+**Last updated:** Step 170  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Fixed Review 1 → Unit 4 sync selecting Unit 1.
-- Root cause: clearing `?unit=` on gaps + resolveUnit fallback to units[0] + PDF jump.
-- Verified Review1↔U4; nav + E2E scripts PASS.
+- Ran full U1–U9 PDF navigation regression (forward/back, gaps, selection, deep links).
+- No application defects found; test-only gap-straddle assertion corrected.
+- Script: `scripts/verify_bi_pdf_u1_u9_regression.mjs`.
 
 ## Current status
 
-On branch `phase-2`. PDF↔BI sync corrected; methodology not locked.
+On branch `phase-2`. BI PDF nav regression PASS; methodology not locked.
 
 ## Next small step
 

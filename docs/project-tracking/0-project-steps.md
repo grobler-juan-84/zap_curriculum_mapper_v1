@@ -2994,4 +2994,19 @@
 
 ---
 
+### Step 170
+
+**Summary:** Ran complete U1–U9 PDF navigation regression (forward/backward walks, review gaps, unit selection targets, deep links, Storage). No application defects; corrected test-only gap-straddle assertion. Companion nav/E2E scripts and typecheck PASS.
+
+**Files touched:**
+- `scripts/verify_bi_pdf_u1_u9_regression.mjs` (created)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

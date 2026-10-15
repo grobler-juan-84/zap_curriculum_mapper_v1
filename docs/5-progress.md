@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 169
+**Last updated:** Step 170
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,11 +20,11 @@
 
 - **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
 
-- **PDF↔unit sync fix** — Review 1 → U4 no longer falls back to Unit 1.
+- **U1–U9 PDF nav regression PASS** (forward/back, review gaps, selection, deep links); no app defects.
 
 ## In progress
 
-- None (sync fix complete; awaiting owner next prompt).
+- None (regression complete; awaiting owner next prompt).
 
 ## Next
 

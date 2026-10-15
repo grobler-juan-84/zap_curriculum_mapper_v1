@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 169
+**Last updated:** Step 170
 
 
 
@@ -187,6 +187,10 @@
 
 
 - [x] Fix Review1→U4 selecting Unit 1 (remove null-`?unit=` fallback; suppress PDF-driven jumps).
+
+
+
+- [x] Complete U1–U9 PDF nav regression (fwd/back, gaps, selection, deep links); no app defects.
 
 
 
