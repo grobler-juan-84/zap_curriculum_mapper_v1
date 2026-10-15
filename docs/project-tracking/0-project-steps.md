@@ -2719,4 +2719,19 @@
 
 ---
 
+### Step 155
+
+**Summary:** Ran visual/content QA of all nine BE3 BI preview units against the preferred A+B overview (completeness, accuracy, formatting, AI-inferred LO labels). Fixed one discrepancy — Unit 8 Learning Outcomes restored to overview wording. Re-check 9/9 PASS; CLI PASS. No DB/Storage/schema changes.
+
+**Files touched:**
+- `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

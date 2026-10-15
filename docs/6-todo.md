@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 154
+**Last updated:** Step 155
 
 
 
@@ -127,6 +127,10 @@
 
 
 - [x] Extend BI preview + JSON to BE3 Units 1–9 A+B (local only; no DB/Storage).
+
+
+
+- [x] Visual/content QA of BE3 U1–9 BI preview vs A+B overview (fix U8 LO only; 9/9 PASS).
 
 
 

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 154
+**Last updated:** Step 155
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,19 +18,17 @@
 
 - BE3 A/B/A+B refine pack + SS dry checks **9/9** + A+B regen reproducibility **9/9**.
 
-- Nine-column BI UI data contract draft + BE3 Units 1–9 JSON artifact.
+- Nine-column BI UI data contract draft + BE3 Units 1–9 JSON + local preview.
 
-- Read-only TS loader/validator + CLI (**PASS**, `units=9`).
-
-- **Read-only BE3 Units 1–9 BI UI preview** at `/app/book-intelligence` (local JSON + loader; all 8 content fields per unit).
+- BI preview **content QA vs A+B overview: 9/9 PASS** (U8 LO restored; CLI PASS).
 
 ## In progress
 
-- None (U1–9 preview recorded; awaiting owner next prompt).
+- None (QA recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated: harden preview, other books, or pause — **no DB/Storage** until asked.
+- Owner-gated: harden preview UX, other books, or pause — **no DB/Storage** until asked.
 
 ## Blocked
 
@@ -44,8 +42,8 @@
 
 - BI contract: [`phase-2/book-intelligence-ui-data-contract-v1.md`](./phase-2/book-intelligence-ui-data-contract-v1.md)
 
-- Loader: `app/src/lib/bookIntelligence/` · Preview: `app/src/features/book-intelligence/` · CLI: `scripts/validate_book_intelligence_json.mjs`
-
 - BE3 U1–9 JSON: `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`
+
+- Preview: `/app/book-intelligence`
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

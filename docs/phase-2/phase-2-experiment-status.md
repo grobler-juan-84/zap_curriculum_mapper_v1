@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.25  
+**Version:** 1.26  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -230,6 +230,12 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Preview renders all nine A+B unit cards locally. Contract/UI still **not locked**.
 
+### BE3 U1–9 BI preview visual/content QA vs A+B overview (2026-10-15)
+
+**Controls:** Cell-by-cell compare of local JSON (`be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`) against preferred A+B Markdown overview table (markdown italics/bold normalized). Checked completeness (9 units × 8 content fields), titles/pages, Writing present, and `learning_outcomes_provenance: ai_inferred` (UI badge). No overview edits; no DB/Storage.
+
+**Result:** One discrepancy found and fixed — Unit 8 Learning Outcomes had been paraphrased (`and / but / or`); restored to overview wording. Re-check **9/9 PASS**. CLI contract validate PASS (`units=9`).
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -319,3 +325,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Added read-only TS Book Intelligence loader/validator + CLI; BE3 U1 PASS; no UI/DB. |
 | 2026-10-15 | Added read-only BE3 Unit 1 BI UI preview (`/app/book-intelligence`); local JSON + loader; no DB/Storage. |
 | 2026-10-15 | Extended BI JSON + preview to BE3 Units 1–9 A+B; CLI PASS units=9; no DB/Storage. |
+| 2026-10-15 | Visual/content QA of BI preview vs A+B overview; fixed U8 LO only; 9/9 PASS. |
