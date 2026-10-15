@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 155
+**Last updated:** Step 156
 
 
 
@@ -134,11 +134,15 @@
 
 
 
+- [x] Upload BE3 U1–9 BI A+B JSON to Supabase Storage; verify integrity (no DB/UI wiring).
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated follow-up only: harden preview, other books, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: wire UI to Storage, `book_files` registration, harden preview, other books, pause, or other D017 next step.
 
 
 

@@ -548,6 +548,16 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; **not** registered in `dataset_versions` / `book_files`; not a Phase 1 COMPLETE substitute for SB evidence  
 **Constraints:** Do not merge SS into SB `v1.json`. Do not treat SS as unit-batch canonical evidence.
 
+### Associated Phase 2 Book Intelligence (interpretation companion — not merged)
+
+**Local path:** `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`  
+**Storage path:** `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (uploaded 2026-10-15; download SHA-256 integrity verified)  
+**Associated catalog book:** `big_english_3_sb` (BE3-SB) — Phase 2 interpretation only; does **not** replace or alter SB canonical `v1.json` or SS `ss_v1.json`  
+**Contract:** [`../phase-2/book-intelligence-ui-data-contract-v1.md`](../phase-2/book-intelligence-ui-data-contract-v1.md) (`column_set: nine_column_ab`, Units 1–9)  
+**Upload script:** `scripts/upload_book_intelligence_json.mjs` (Storage only — no Postgres writes)  
+**Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; **not** registered in `dataset_versions` / `book_files`; UI still loads local Vite copy  
+**Constraints:** Do not merge into Phase 1 `v1.json`. Do not point `dataset_versions` at this object. Format still draft / not locked.
+
 ### Schema / Issues
 
 **Schema Version:** 0.1 *(SB canonical only; SS companion uses a separate non-0.1 shape)*  
@@ -564,6 +574,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - Mixed Studio entity prefixes preserved where non-colliding (D007); remumbered IDs use catalog prefix.
 - Unit 4 carries open `missing_source` for printed pp. 66–67 (D013).
 - Companion SS `ss_v1.json` registered locally 2026-10-15 and uploaded to Storage the same day (see above); `dataset_versions` / `book_files` wiring still deferred.
+- Phase 2 BI A+B Units 1–9 JSON uploaded to Storage 2026-10-15 (see above); `dataset_versions` / `book_files` / UI Storage wiring still deferred.
 
 ---
 

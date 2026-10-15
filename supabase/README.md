@@ -100,6 +100,16 @@ $env:UPLOAD_ONLY='beehive_1_sb_unit_09,beehive_1_sb_unit_10'; node scripts/uploa
 
 This upserts local `data/phase1/**/*.json` unit batches (gitignored working copies) into the private `book-datasets` bucket and upserts matching `book_files` rows. Missing local files are skipped unless `UPLOAD_ONLY` is set. After upload, Storage is the source of truth.
 
+### Upload Phase 2 Book Intelligence JSON (Storage only)
+
+From repo root (requires `VITE_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`):
+
+```bash
+node scripts/upload_book_intelligence_json.mjs
+```
+
+Default: uploads `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` to `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`, then downloads and verifies SHA-256 integrity. **Does not** write `book_files` / `dataset_versions` or change UI wiring.
+
 ### Upload source PDFs to Cloudflare R2 (D012)
 
 **Local layout (gitignored — never commit PDFs to GitHub):**

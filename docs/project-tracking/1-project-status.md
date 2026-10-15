@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 155  
+**Last updated:** Step 156  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- QA’d BE3 Units 1–9 BI JSON/preview against preferred A+B overview (italics-normalized).
-- Fixed Unit 8 Learning Outcomes only; re-check 9/9 PASS; CLI PASS.
-- No Supabase, database, or schema changes.
+- Uploaded BE3 Units 1–9 A+B Book Intelligence JSON to Supabase Storage as a Phase 2 interpretation companion.
+- Download SHA-256 integrity verified against local artifact.
+- No `book_files` / `dataset_versions`, schema, or UI wiring changes (preview still local).
 
 ## Current status
 
-On branch `phase-2`. Local BI preview content matches A+B overview; still draft / not locked.
+On branch `phase-2`. Storage object present; contract/UI still draft / not locked.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (harden preview UX, other books, or pause) — do not add DB/Storage until asked.
+**Suggestion:** Owner chooses follow-up (UI↔Storage, `book_files`, harden preview, other books, or pause).

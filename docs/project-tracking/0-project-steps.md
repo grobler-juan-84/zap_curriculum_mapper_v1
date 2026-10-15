@@ -2734,4 +2734,24 @@
 
 ---
 
+### Step 156
+
+**Summary:** Uploaded the validated BE3 Units 1–9 A+B Book Intelligence JSON to Supabase Storage (`book-datasets` interpretations path) as a separate Phase 2 companion. Download SHA-256 integrity verified. Added Storage-only upload script. No `book_files` / `dataset_versions`, schema, or UI wiring changes.
+
+**Files touched:**
+- `scripts/upload_book_intelligence_json.mjs` (created)
+- `supabase/README.md` (updated)
+- `data/README.md` (updated)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/4-mock-data-registry.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
