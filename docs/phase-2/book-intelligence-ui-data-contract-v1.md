@@ -7,7 +7,7 @@
 **Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)  
 **Purpose:** Define the UI-facing data contract for a **nine-column** Book Intelligence unit overview (A+B-style), including field names, types, unit identity, and JSON structure.
 
-**Explicit non-actions for this document:** No TypeScript implementation, no database migration, no Storage upload, no UI component work, no methodology lock.
+**Explicit non-actions (still):** No database migration, no Storage upload, no UI component work, no methodology lock. Read-only TS loader/validator is present for the draft contract.
 
 ---
 
@@ -194,9 +194,21 @@ A controlled implementation may ship **one** unit inside `units` without requiri
 
 ---
 
-## 6. TypeScript shape (documentation mapping only)
+## 6. TypeScript shape
 
-Not implemented in the app yet. Names follow D009.
+Implemented as read-only loader/validator (no UI wiring yet). Names follow D009.
+
+| Module | Path |
+|---|---|
+| Types | [`../../app/src/types/bookIntelligence.ts`](../../app/src/types/bookIntelligence.ts) |
+| Field map | [`../../app/src/lib/bookIntelligence/fieldMap.ts`](../../app/src/lib/bookIntelligence/fieldMap.ts) |
+| Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
+| Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
+| CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
+
+```bash
+node scripts/validate_book_intelligence_json.mjs
+```
 
 ```ts
 type BookIntelligenceColumnSet = 'nine_column_ab'
@@ -271,7 +283,7 @@ It does **not**:
 |---|---|
 | BE3-SB Unit 1 A+B slice | [`../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`](../../data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json) |
 
-Content mirrors the preferred A+B Markdown Unit 1 row. Not wired to UI or Postgres.
+Content mirrors the preferred A+B Markdown Unit 1 row. Validated by TS loader + CLI; not wired to UI or Postgres.
 
 ---
 
@@ -281,3 +293,4 @@ Content mirrors the preferred A+B Markdown Unit 1 row. Not wired to UI or Postgr
 |---|---|
 | 2026-10-15 | Created nine-column Book Intelligence UI data contract draft (fields, types, identity, JSON). Documentation only. |
 | 2026-10-15 | Linked populated BE3 Unit 1 A+B JSON example artifact under `data/phase2/…`. |
+| 2026-10-15 | Added read-only TS parse/validate/map loader + CLI verifier; BE3 U1 PASS; no UI/DB. |

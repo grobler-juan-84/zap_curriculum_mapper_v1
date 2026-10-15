@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 151
+**Last updated:** Step 152
 
 
 
@@ -114,7 +114,11 @@
 
 
 
-- [x] Create BE3 Unit 1 A+B JSON artifact conforming to draft BI contract (no UI/DB).
+- [x] Create BE3 Unit 1 A+B JSON artifact conforming to draft BI contract.
+
+
+
+- [x] Read-only TypeScript loader/validator + CLI for BE3 Unit 1 BI JSON (no UI/DB).
 
 
 
@@ -122,7 +126,7 @@
 
 
 
-- [ ] Owner-gated follow-up only (no auto-implementation): sketch UI against Unit 1 JSON, expand units, pause, or other D017 next step.
+- [ ] Owner-gated follow-up only: sketch UI against Unit 1 JSON + loader, expand units, pause, or other D017 next step.
 
 
 

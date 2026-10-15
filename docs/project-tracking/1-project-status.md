@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 151  
+**Last updated:** Step 152  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Created BE3 Unit 1 A+B Book Intelligence JSON conforming to the draft nine-column UI contract.
-- Artifact under `data/phase2/big_english_3_sb/interpretations/`; no UI or database wiring.
+- Read-only TypeScript Book Intelligence loader/validator + CLI for draft nine-column contract.
+- BE3 Unit 1 JSON validates PASS; field mapping verified; no UI/DB/Storage wiring.
 
 ## Current status
 
-On branch `phase-2`. Unit 1 JSON artifact ready for a later UI sketch; awaiting owner next prompt.
+On branch `phase-2`. Loader ready for a later UI sketch; awaiting owner next prompt.
 
 ## Next small step
 
-**Suggestion:** Owner chooses follow-up (UI sketch against Unit 1 JSON, expand units, or pause) — do not implement until asked.
+**Suggestion:** Owner chooses follow-up (UI sketch against Unit 1 JSON + loader, expand units, or pause) — do not implement UI until asked.

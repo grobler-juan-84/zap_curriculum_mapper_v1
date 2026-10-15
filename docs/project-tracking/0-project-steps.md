@@ -2647,4 +2647,25 @@
 
 ---
 
+### Step 152
+
+**Summary:** Added read-only TypeScript Book Intelligence loader/validator (types, field map, parse/map, load-from-JSON-text) and a CLI verifier for the draft nine-column contract. BE3 Unit 1 JSON PASS with field-mapping checks; app typecheck clean. No UI, database, or Storage changes.
+
+**Files touched:**
+- `app/src/types/bookIntelligence.ts` (created)
+- `app/src/lib/bookIntelligence/fieldMap.ts` (created)
+- `app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts` (created)
+- `app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts` (created)
+- `app/src/lib/bookIntelligence/index.ts` (created)
+- `scripts/validate_book_intelligence_json.mjs` (created)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

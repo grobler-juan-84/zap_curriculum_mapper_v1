@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.22  
+**Version:** 1.23  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,12 +17,12 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: sketch UI against BE3 U1 JSON, expand more units, or pause — **no implementation locked** |
+| Next proposed step | Owner-gated: sketch UI against BE3 U1 JSON + loader, expand more units, or pause — **no UI locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
-| BE3 U1 A+B impl. readiness | Compatibility assessed; Unit 1 JSON artifact created under `data/phase2/…`; still no UI/DB wiring |
-| BI UI data contract | Draft nine-column contract (`0.1-draft`) + BE3 U1 populated JSON — **not locked**; no TS/UI/DB implementation |
+| BE3 U1 A+B impl. readiness | JSON artifact + read-only TS loader/validator + CLI PASS; still no UI/DB/Storage wiring |
+| BI UI data contract | Draft nine-column contract (`0.1-draft`) + TS parse/map + CLI verifier — **not locked**; no UI |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -208,6 +208,17 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Local experimental interpretation artifact ready for a later UI sketch. Format still **not locked**.
 
+### Book Intelligence TS loader / validator (2026-10-15)
+
+**Artifacts:**
+- Types: [`../../app/src/types/bookIntelligence.ts`](../../app/src/types/bookIntelligence.ts)
+- Lib: [`../../app/src/lib/bookIntelligence/`](../../app/src/lib/bookIntelligence/)
+- CLI: [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs)
+
+**Controls:** Read-only parse/validate/map (`snake_case` → `camelCase`) for `nine_column_ab`. CLI verifies BE3 U1 JSON + field mapping. No UI/DB/Storage.
+
+**Result:** BE3 U1 **PASS**; `npm run typecheck` clean. Contract remains draft / not locked.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -294,3 +305,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BE3 Unit 1 A+B controlled-implementation compatibility assessment (read-only); catalog OK; UI consumer gap; no DB/UI changes. |
 | 2026-10-15 | Draft nine-column Book Intelligence UI data contract (fields/types/identity/JSON); docs only; not locked. |
 | 2026-10-15 | Created BE3 Unit 1 A+B Book Intelligence JSON artifact conforming to draft contract; no UI/DB changes. |
+| 2026-10-15 | Added read-only TS Book Intelligence loader/validator + CLI; BE3 U1 PASS; no UI/DB. |

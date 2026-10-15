@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 151
+**Last updated:** Step 152
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,17 +18,17 @@
 
 - BE3 A/B/A+B refine pack + SS dry checks **9/9** + A+B regen reproducibility **9/9**.
 
-- **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**.
+- Nine-column BI UI data contract draft + BE3 Unit 1 JSON artifact.
 
-- Nine-column BI UI data contract draft documented; **BE3 Unit 1 A+B JSON artifact** created under `data/phase2/` (not wired to UI/DB).
+- **Read-only TS loader/validator** for draft BI contract; CLI verifies BE3 U1 **PASS**; no UI/DB/Storage wiring.
 
 ## In progress
 
-- None (Unit 1 JSON artifact recorded; awaiting owner next prompt).
+- None (loader recorded; awaiting owner next prompt).
 
 ## Next
 
-- Owner-gated options: sketch UI against the Unit 1 JSON; expand more units; pause; or other D017 follow-ups — **no auto-implementation**.
+- Owner-gated options: sketch UI against Unit 1 JSON + loader; expand more units; pause — **no auto-UI**.
 
 ## Blocked
 
@@ -42,8 +42,8 @@
 
 - BI contract: [`phase-2/book-intelligence-ui-data-contract-v1.md`](./phase-2/book-intelligence-ui-data-contract-v1.md)
 
-- BE3 U1 JSON: `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`
+- Loader: `app/src/lib/bookIntelligence/` · CLI: `scripts/validate_book_intelligence_json.mjs`
 
-- Preferred BE3 Markdown: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
+- BE3 U1 JSON: `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-book-intelligence-ab-v0.1-draft.json`
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).
