@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.12  
+**Version:** 1.13  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -18,7 +18,7 @@
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
 | Next proposed step | Owner review of A, B, and A+B together — choose preference; no auto-approval |
-| BE3 U1 SS dry check | [`experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md`](./experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md) — Writing + I Can only vs Control/A/B/A+B using `ss_v1.json`; A+B only dual Pass on U1; no overview changes |
+| BE3 SS dry checks | U1 + U2 + expansion U3/U5/U9 — A+B dual Pass on all sampled units; Units 4/6/7/8 unchecked; **no book-wide decision** |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -113,6 +113,16 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 **Controls:** Compared existing Control/A/B/A+B Unit 1 cells to companion SS `ss_v1.json` **Writing** + **I can…** only. No overview/prompt/data edits.
 
 **Result (AI-assessed, U1 only):** Control confirms Presentation + Inference gaps. A fixes LO writing metalanguage but not Writing-column visibility. B fixes Writing visibility but not LO metalanguage. **A+B** is the only dual Pass for Unit 1 Writing + I Can. Exact SS wording not preserved (expected under AI-inferred LOs). Does **not** approve A+B book-wide.
+
+### BE3 Unit 2 SS dry check + expansion sample (2026-10-15)
+
+**Artifacts:**
+- Unit 2: [`experiments/be3-u02-ss-writing-ican-dry-check-d017-v1.md`](./experiments/be3-u02-ss-writing-ican-dry-check-d017-v1.md)
+- Expansion U3/U5/U9: [`experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md`](./experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md)
+
+**Controls:** Same Writing + I Can rule vs `ss_v1.json`; no overview edits. Expansion triggered because A+B dual-Passed U1 and U2.
+
+**Result (AI-assessed):** Unit 2 repeats the U1 pattern (A+B only dual Pass). Expansion Units 3, 5, 9 (titles → detail sentences → SVO) also show **A+B only dual Pass**. Sampled 5/9 units; **4/6/7/8 unchecked**. **No book-wide decision.**
 
 ---
 

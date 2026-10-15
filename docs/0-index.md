@@ -95,7 +95,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u08-v1-review.md](./phase-2/p2-exp-be2-u08-v1-review.md) | Unit 8 LR interpretation + three-unit method comparison; D016 candidate set LR experiments complete pending owner review. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
-| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 v2 baseline; BE1/BE3/BE5 overviews; BE3 A/B/A+B refine pack; BE3 U1 SS Writing+I Can dry check; awaiting owner path choice. | 1.12 | ACTIVE |
+| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 v2 baseline; BE3 A/B/A+B pack; SS Writing/I Can dry checks U1–U2 + U3/U5/U9 sample; awaiting owner path choice. | 1.13 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md) | D017 Book Intelligence experiment: BE2-SB Units 1–9 Markdown overview + ChatGPT review findings (§G); preserved unchanged as v1 experiment artifact. | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md) | D017 v2 eight-column BE2-SB U1–9 overview; owner-approved provisional Book Intelligence working baseline (format/methodology/schema not locked). | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md](./phase-2/experiments/be2-sb-u01-u09-overview-v2-review.md) | v1 vs v2 summary, publisher Scope and Sequence comparison (~92% meaningful coverage AI-assessed), and Learning Outcomes consistency assessment. | 1.0 | ACTIVE |
@@ -111,6 +111,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md](./phase-2/experiments/be3-methodology-a-b-ab-comparison-d017-v1.md) | Three-way BE3 comparison of Experiments A, B, and A+B on evidence fidelity, visibility, duplication, and readability. | 1.0 | ACTIVE |
 | [phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md) | Concise owner-review pack for BE3 A/B/A+B: strengths/weaknesses, usability, unresolved decisions; stop for review. | 1.0 | ACTIVE |
 | [phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md](./phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md) | BE3 Unit 1 micro dry check: SS Writing + I Can vs Control/A/B/A+B; findings only; no overview changes. | 1.0 | ACTIVE |
+| [phase-2/experiments/be3-u02-ss-writing-ican-dry-check-d017-v1.md](./phase-2/experiments/be3-u02-ss-writing-ican-dry-check-d017-v1.md) | BE3 Unit 2 dry check: SS Writing + I Can vs Control/A/B/A+B; A+B dual Pass again; triggers expansion (not book-wide). | 1.0 | ACTIVE |
+| [phase-2/experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md](./phase-2/experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md) | BE3 expansion sample Units 3/5/9 Writing + I Can dry check after U1+U2 A+B Pass; no book-wide decision. | 1.0 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Historical Phase 2 planning SoT v2 (exhaustive unit/page/JSON sketches); superseded by D017; retained for research context only. | — | PARKED |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -144,7 +146,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 77 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack + U1 SS dry check, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 79 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack + SS Writing/I Can dry checks, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

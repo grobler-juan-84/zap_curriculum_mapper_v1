@@ -2,19 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 141  
+**Last updated:** Step 142  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Phase 1 PAUSED; D017 locked; BE2 v2 provisional Book Intelligence baseline approved.
-- BE3 A / B / A+B experiments + Unit 1 SS Writing/I Can dry check completed (findings only).
-- BE3-SB companion `ss_v1.json` in Storage beside SB canonical.
+- BE3 A/B/A+B experiments awaiting owner path choice.
+- SS Writing + I Can dry checks: U1, U2, and expansion U3/U5/U9 — A+B dual Pass on sampled units; no book-wide decision.
 
 ## Current status
 
-On branch `phase-2`. Awaiting owner review of BE3 Experiments A, B, and A+B together.
+On branch `phase-2`. Awaiting owner review of BE3 A/B/A+B (optional: finish Units 4/6/7/8 dry checks first).
 
 ## Next small step
 
-**Suggestion:** Review [`../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md) with optional U1 evidence from [`../phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md`](../phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md); choose A, B, A+B, hybrid, or pause.
+**Suggestion:** Owner path choice, or complete remaining Writing+I Can dry checks for Units 4, 6, 7, 8.

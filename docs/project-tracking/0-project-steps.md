@@ -2487,4 +2487,21 @@
 
 ---
 
+### Step 142
+
+**Summary:** Repeated BE3 Unit 2 SS Writing + I Can dry check (A+B dual Pass again). Expanded testing to Units 3/5/9 sample before any book-wide decision; A+B dual Pass on all five sampled units. No overview/JSON/methodology changes; Units 4/6/7/8 still unchecked.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-u02-ss-writing-ican-dry-check-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-u01-ss-writing-ican-dry-check-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

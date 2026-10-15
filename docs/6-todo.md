@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 141
+**Last updated:** Step 142
 
 
 
@@ -123,6 +123,14 @@
 
 
 - [x] BE3 Unit 1 SS Writing + I Can dry check vs Control/A/B/A+B (findings only; no overview changes).
+
+
+
+- [x] BE3 Unit 2 SS Writing + I Can dry check; A+B dual Pass again → expanded to U3/U5/U9 sample (no book-wide decision).
+
+
+
+- [ ] Optional: finish BE3 SS Writing + I Can dry checks for remaining Units 4 / 6 / 7 / 8.
 
 
 

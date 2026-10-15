@@ -12,6 +12,8 @@
 
 **Explicit non-actions:** No edits to overviews, Phase 1 JSON, prompts, schema, DB, UI, or BE2 baseline.
 
+**Follow-ons:** Unit 2 [`be3-u02-ss-writing-ican-dry-check-d017-v1.md`](./be3-u02-ss-writing-ican-dry-check-d017-v1.md); expansion sample U3/U5/U9 [`be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md`](./be3-u03-u05-u09-ss-writing-ican-dry-check-d017-v1.md).
+
 ---
 
 ## 1. Publisher SS Unit 1 targets (Writing + I can only)
@@ -146,3 +148,4 @@ Owner path choice (A / B / A+B / hybrid / pause) remains open; this dry check is
 | Date | Change |
 |---|---|
 | 2026-10-15 | Created Unit 1 Writing + I Can dry check vs Control/A/B/A+B using BE3 `ss_v1.json`; no overview/data changes. |
+| 2026-10-15 | Linked Unit 2 + U3/U5/U9 expansion dry checks after A+B dual Pass repeated. |
