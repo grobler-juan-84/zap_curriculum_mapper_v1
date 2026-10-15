@@ -2904,4 +2904,21 @@
 
 ---
 
+### Step 165
+
+**Summary:** Recorded D019 — BE3 Book Intelligence MVP UI path implementation-validated (Library → BI → Unit → Validation → Back). Explicitly not a methodology/schema/contract lock. Synced progress, experiment status, and related docs.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

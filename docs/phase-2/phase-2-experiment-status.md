@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.35  
+**Version:** 1.36  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -18,6 +18,7 @@
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
 | Next proposed step | Owner-gated: `book_files` registration, more books in BI registry, harden preview, or pause — contract still **not locked** |
+| BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
@@ -28,7 +29,7 @@
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
 | BE3 combined A+B | Executed; three-way comparison + owner-review pack; **not accepted**; methodology **not locked** |
 | Methodology / schema | **Experimental — NOT LOCKED** |
-| Decision note | D017 LOCKED; any **D018** remains **PROPOSED only** |
+| Decision note | D017 / D018 / D019 LOCKED; Phase 2 methodology / schema / BI contract still **NOT locked** |
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
 | Teacher readability | Deferred to Chalkie workspace — **not** an active Phase 2 blocker |
 | Research inventory (V3.1 + cross-unit) | [`p2-exp-be2-v3.1-cross-unit-status.md`](./p2-exp-be2-v3.1-cross-unit-status.md) |
@@ -293,11 +294,12 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 ### BE3 BI ↔ Validation E2E acceptance (2026-10-15)
 
 **Artifact:** [`experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./experiments/be3-bi-validation-e2e-acceptance-d017-v1.md)  
-**Script:** `scripts/verify_bi_validation_e2e_acceptance.mjs`
+**Script:** `scripts/verify_bi_validation_e2e_acceptance.mjs`  
+**Milestone:** **D019** — MVP UI path **implementation-validated**; methodology / schema / contract **not locked**.
 
 **Controls:** Acceptance of Library → BI → Unit → Validation → Back. Scripted Storage + route + unit-pick checks for U1–U9. Code review found two Validation selection bugs; fixed. No DB/schema/methodology changes.
 
-**Result:** Scripted acceptance **PASS**. Defects fixed: (1) reload-on-`?unit=` removed; (2) deep-link `?unit=N` no longer overwritten by Unit 1. Manual browser smoke still recommended.
+**Result:** Scripted acceptance **PASS**. Defects fixed: (1) reload-on-`?unit=` removed; (2) deep-link `?unit=N` no longer overwritten by Unit 1. Manual browser smoke still recommended. Recorded as D019 MVP milestone (implementation only).
 
 ---
 
@@ -398,3 +400,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Extended View Source Evidence to Units 2–9; verified unique `?unit=` resolution. |
 | 2026-10-15 | Validation “Back to Book Intelligence” preserves book + `?unit=N`; verified U1–U9. |
 | 2026-10-15 | BI↔Validation E2E acceptance; fixed Validation ?unit reload + deep-link race; scripted PASS. |
+| 2026-10-15 | D019: BE3 BI MVP UI path implementation-validated; methodology/schema/contract not locked. |

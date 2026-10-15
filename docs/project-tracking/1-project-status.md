@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 164  
+**Last updated:** Step 165  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BI ↔ Validation E2E acceptance recorded (scripted PASS for U1–U9).
-- Fixed Validation reload-on-`?unit=` and deep-link Unit overwrite race.
-- Acceptance note: `phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`.
+- **D019** recorded: BE3 BI MVP UI path **implementation-validated**.
+- Methodology / schema / UI contract remain **not locked**.
+- Evidence: E2E acceptance artifact + scripted U1–U9 PASS.
 
 ## Current status
 
-On branch `phase-2`. Library → BI → Unit → Validation → Back path accepted for BE3-SB (scripted; manual smoke optional).
+On branch `phase-2`. MVP milestone locked in decisions; Phase 2 methodology still experimental.
 
 ## Next small step
 

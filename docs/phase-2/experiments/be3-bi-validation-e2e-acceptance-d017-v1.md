@@ -1,9 +1,9 @@
 # BE3 Book Intelligence ↔ Validation — E2E UI acceptance (D017)
 
 **Date:** 2026-10-15  
-**Decision:** D017 Progressive Curriculum Intelligence  
+**Decision:** D017 Progressive Curriculum Intelligence; milestone **D019** (MVP UI path implementation-validated)  
 **Scope:** `big_english_3_sb` Book Intelligence preview ↔ Phase 1 Validation round-trip  
-**Status:** ACCEPTANCE RECORDED — defects found were fixed in-app; scripted path PASS  
+**Status:** MVP ACCEPTANCE — **implementation validated** (D019); methodology / schema / UI contract **not locked**; scripted path PASS  
 **Script:** [`../../../scripts/verify_bi_validation_e2e_acceptance.mjs`](../../../scripts/verify_bi_validation_e2e_acceptance.mjs)
 
 ---
@@ -62,7 +62,8 @@
 
 - No browser-driver screenshot pass in this session.  
 - No database, schema, or methodology changes beyond the Validation selection/sync bugfixes above.  
-- Only `big_english_3_sb` is registered for Book Intelligence Library entry.
+- Only `big_english_3_sb` is registered for Book Intelligence Library entry.  
+- **D019** records **implementation** validation only — not a Phase 2 methodology, schema, or contract lock.
 
 ---
 
@@ -81,3 +82,4 @@ Manual smoke (signed-in app): Curriculum → Big English series → Big English 
 | Date | Change |
 |---|---|
 | 2026-10-15 | Acceptance recorded; D1/D2 fixed; scripted U1–U9 PASS. |
+| 2026-10-15 | Milestone linked to D019 (implementation validated; methodology not locked). |

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 164
+**Last updated:** Step 165
 
 
 
@@ -167,6 +167,10 @@
 
 
 - [x] E2E UI acceptance Library → BI → Unit → Validation → Back (scripted PASS; Validation ?unit defects fixed).
+
+
+
+- [x] Record D019 MVP acceptance milestone (implementation validated; methodology not locked).
 
 
 

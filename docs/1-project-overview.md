@@ -174,7 +174,7 @@ The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and R
 
 Active direction is **D017 Progressive Curriculum Intelligence**: start with minimum-sufficient Phase 2 book intelligence, then expand only when downstream tests show a real need. Immediate Phase 2 work stays on completed Big English datasets (Beehive and Reach Higher excluded for now).
 
-**Book Intelligence working baseline:** Big English 2 Student Book Units 1–9 — D017 **v2** owner-approved provisional working baseline. BE1-SB and BE3-SB eight-column overviews generated (experimental; not accepted). BE1→BE2→BE3 vertical sufficiency probe finds coarse progression signals sufficient for bounded Series Intelligence experiments — **not** a Phase 3 start. Format / methodology / schema remain **not locked**. Parked Phase 1 ideas: F017 / F018.
+**Book Intelligence working baseline:** Big English 2 Student Book Units 1–9 — D017 **v2** owner-approved provisional working baseline. BE1-SB and BE3-SB eight-column overviews generated (experimental; not accepted). BE1→BE2→BE3 vertical sufficiency probe finds coarse progression signals sufficient for bounded Series Intelligence experiments — **not** a Phase 3 start. BE3-SB Book Intelligence MVP UI path is **implementation-validated** (D019: Library → BI → Unit → Validation → Back); format / methodology / schema / UI contract remain **not locked**. Parked Phase 1 ideas: F017 / F018.
 
 **Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and the U6 e2e / enrichment probes remain preserved evidence under D017 principle 4.
 
