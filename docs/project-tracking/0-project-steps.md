@@ -3009,4 +3009,20 @@
 
 ---
 
+### Step 171
+
+**Summary:** Recorded the completed BE3 BI PDF navigation regression milestone in progress and Phase 2 acceptance docs (new acceptance artifact; cross-links from D019 E2E acceptance and experiment status). No implementation changes; methodology not locked.
+
+**Files touched:**
+- `docs/phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md` (created)
+- `docs/phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

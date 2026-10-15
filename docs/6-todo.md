@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 170
+**Last updated:** Step 171
 
 
 
@@ -191,6 +191,10 @@
 
 
 - [x] Complete U1–U9 PDF nav regression (fwd/back, gaps, selection, deep links); no app defects.
+
+
+
+- [x] Record PDF navigation regression milestone in progress + Phase 2 acceptance docs.
 
 
 

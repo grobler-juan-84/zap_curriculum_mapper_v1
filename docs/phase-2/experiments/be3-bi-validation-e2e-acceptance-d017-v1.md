@@ -4,7 +4,8 @@
 **Decision:** D017 Progressive Curriculum Intelligence; milestone **D019** (MVP UI path implementation-validated)  
 **Scope:** `big_english_3_sb` Book Intelligence preview ↔ Phase 1 Validation round-trip  
 **Status:** MVP ACCEPTANCE — **implementation validated** (D019); methodology / schema / UI contract **not locked**; scripted path PASS  
-**Script:** [`../../../scripts/verify_bi_validation_e2e_acceptance.mjs`](../../../scripts/verify_bi_validation_e2e_acceptance.mjs)
+**Script:** [`../../../scripts/verify_bi_validation_e2e_acceptance.mjs`](../../../scripts/verify_bi_validation_e2e_acceptance.mjs)  
+**Follow-on:** PDF navigation regression acceptance — [`be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./be3-bi-pdf-navigation-regression-acceptance-d017-v1.md) (U1–U9 PASS; implementation only)
 
 ---
 
@@ -83,3 +84,4 @@ Manual smoke (signed-in app): Curriculum → Big English series → Big English 
 |---|---|
 | 2026-10-15 | Acceptance recorded; D1/D2 fixed; scripted U1–U9 PASS. |
 | 2026-10-15 | Milestone linked to D019 (implementation validated; methodology not locked). |
+| 2026-10-15 | Cross-linked PDF navigation regression acceptance (U1–U9 PASS). |

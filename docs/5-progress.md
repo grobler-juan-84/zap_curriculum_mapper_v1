@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 170
+**Last updated:** Step 171
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,11 +20,11 @@
 
 - **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
 
-- **U1–U9 PDF nav regression PASS** (forward/back, review gaps, selection, deep links); no app defects.
+- **PDF navigation regression milestone (2026-10-15)** — U1–U9 scripted acceptance **PASS** (forward/back, review gaps, unit selection, deep links). No application defects in this slice. Artifact: [`phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md). Methodology / schema / contract still **not locked**.
 
 ## In progress
 
-- None (regression complete; awaiting owner next prompt).
+- None (PDF nav slice accepted; awaiting owner next prompt).
 
 ## Next
 
@@ -39,5 +39,7 @@
 ## Snapshot notes
 
 - Active Git branch: `phase-2`.
+
+- Acceptance pair: D019 MVP round-trip + PDF nav regression (both implementation-only).
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.

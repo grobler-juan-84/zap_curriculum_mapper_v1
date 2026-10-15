@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.41  
+**Version:** 1.42  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -22,6 +22,7 @@
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
 | BE3 BI PDF↔unit sync | Visible PDF range selects BI unit / clears on inter-unit gaps; loop-safe via `initialPageEnd` overlap skip |
+| BE3 BI PDF nav regression | **Acceptance recorded** — U1–U9 fwd/back, gaps, selection, deep links PASS; methodology **not locked** |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
@@ -304,6 +305,16 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** Scripted acceptance **PASS**. Defects fixed: (1) reload-on-`?unit=` removed; (2) deep-link `?unit=N` no longer overwritten by Unit 1. Manual browser smoke still recommended. Recorded as D019 MVP milestone (implementation only).
 
+### BE3 BI PDF navigation regression acceptance (2026-10-15)
+
+**Artifact:** [`experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md)  
+**Script:** `scripts/verify_bi_pdf_u1_u9_regression.mjs`  
+**Milestone:** Builds on **D019** — PDF nav/sync slice **regression-accepted** (implementation only); methodology / schema / contract **not locked**.
+
+**Controls:** Scripted U1–U9 forward/backward walks, inter-unit review gaps, unit selection / deep-link targets, no Unit 1 fallback after gaps, Storage BI integrity. No DB/schema/methodology changes.
+
+**Result:** Scripted regression **PASS**. No application defects in the full U1–U9 run. Companion scripts (`verify_bi_pdf_navigation.mjs`, `verify_bi_pdf_unit_sync.mjs`, E2E acceptance) also PASS.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -409,3 +420,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Sync BI unit from visible PDF pages; no-BI on review gaps; verify U3↔U4, U6↔U7, U9 review. |
 | 2026-10-15 | Fix Review1→U4 selecting U1: no unit fallback; keep ?unit= on gaps; suppress PDF-driven jumps. |
 | 2026-10-15 | Full U1–U9 PDF nav regression (fwd/back, gaps, deep links, selection); no app defects. |
+| 2026-10-15 | Recorded PDF nav regression acceptance artifact; milestone in progress (impl only). |
