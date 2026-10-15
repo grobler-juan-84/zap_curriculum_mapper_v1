@@ -2817,4 +2817,21 @@
 
 ---
 
+### Step 160
+
+**Summary:** Made the Book Intelligence selected unit URL-addressable via `?unit={unitNumber}` (e.g. `?unit=5`). Refreshing or sharing the URL opens the correct unit; invalid/missing params fall back to Unit 1 and normalize the query. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

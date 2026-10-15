@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 159
+**Last updated:** Step 160
 
 
 
@@ -147,6 +147,10 @@
 
 
 - [x] Add BI page unit selector (U1–9 one at a time; fields/labels preserved).
+
+
+
+- [x] Make BI selected unit URL-addressable (`?unit=`); refresh/share stable.
 
 
 

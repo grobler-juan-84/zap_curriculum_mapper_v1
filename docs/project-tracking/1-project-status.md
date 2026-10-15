@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 159  
+**Last updated:** Step 160  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Book Intelligence preview selects one unit at a time (U1–U9).
-- All 8 content fields and AI-inferred Learning Outcomes labels preserved.
+- Book Intelligence selected unit synced to `?unit={unitNumber}`.
+- Refreshing or sharing the URL opens the same unit (invalid/missing → Unit 1).
 - No database, schema, or methodology changes.
 
 ## Current status
 
-On branch `phase-2`. Unit selector live on Storage-backed BI preview.
+On branch `phase-2`. Unit selection is shareable/reload-stable.
 
 ## Next small step
 

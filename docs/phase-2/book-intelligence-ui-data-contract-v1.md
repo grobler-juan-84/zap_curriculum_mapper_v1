@@ -205,7 +205,7 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 | Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
 | Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
 | CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
-| BE3 U1–9 preview (Storage) | `/app/book-intelligence/big_english_3_sb` · Series Library card action · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
+| BE3 U1–9 preview (Storage) | `/app/book-intelligence/big_english_3_sb?unit=N` · Series Library card action · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
@@ -302,3 +302,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Preview switched from local Vite JSON to Storage download + existing loader; loading/error states. |
 | 2026-10-15 | Series Library opens BI overview by `catalogBookId`; Storage registry (BE3-SB). |
 | 2026-10-15 | Preview unit selector (one unit at a time; 8 fields + AI-inferred labels). |
+| 2026-10-15 | Selected unit URL-addressable via `?unit=`; refresh/share stable. |

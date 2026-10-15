@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 159
+**Last updated:** Step 160
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,13 +16,13 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A+B BI: contract + Storage JSON + Library entry + Storage-backed preview.
+- BE3 A+B BI: Storage JSON + Library entry + unit selector.
 
-- **BI unit selector** — Units 1–9 one at a time; all 8 fields + AI-inferred LO labels preserved.
+- **BI unit is URL-addressable** (`?unit=N`); refresh/share opens the correct unit.
 
 ## In progress
 
-- None (unit selector recorded; awaiting owner next prompt).
+- None (URL unit sync recorded; awaiting owner next prompt).
 
 ## Next
 
@@ -38,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Preview: `/app/book-intelligence/big_english_3_sb` with unit tabs U1–U9.
+- Example: `/app/book-intelligence/big_english_3_sb?unit=5`
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

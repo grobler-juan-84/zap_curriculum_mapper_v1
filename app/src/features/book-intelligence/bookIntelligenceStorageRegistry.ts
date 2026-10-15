@@ -45,6 +45,13 @@ export function hasBookIntelligenceOverview(
   return getBookIntelligenceStorageArtifact(catalogBookId) !== null
 }
 
-export function bookIntelligencePath(catalogBookId: string): string {
-  return `/app/book-intelligence/${catalogBookId}`
+export function bookIntelligencePath(
+  catalogBookId: string,
+  unitNumber?: string | number,
+): string {
+  const base = `/app/book-intelligence/${catalogBookId}`
+  if (unitNumber === undefined || unitNumber === null || unitNumber === '') {
+    return base
+  }
+  return `${base}?unit=${encodeURIComponent(String(unitNumber))}`
 }

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
+import type {
+  BookIntelligenceOverviewDocument,
+  BookIntelligenceUnitOverview,
+} from '../../types/bookIntelligence'
 import {
   DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID,
   getBookIntelligenceStorageArtifact,
@@ -8,30 +11,45 @@ import {
 import { BookIntelligenceUnitPreview } from './BookIntelligenceUnitPreview'
 import { loadBookIntelligenceFromStorage } from './loadBookIntelligenceFromStorage'
 
+const UNIT_QUERY_KEY = 'unit'
+
 type LoadState =
   | { status: 'loading' }
   | { status: 'error'; errors: string[] }
   | { status: 'ready'; data: BookIntelligenceOverviewDocument }
 
+function resolveUnit(
+  units: BookIntelligenceUnitOverview[],
+  unitParam: string | null,
+): BookIntelligenceUnitOverview | null {
+  if (units.length === 0) return null
+  if (unitParam) {
+    const match = units.find((unit) => unit.unitNumber === unitParam)
+    if (match) return match
+  }
+  return units[0] ?? null
+}
+
 /**
  * Read-only Book Intelligence preview for a catalog book.
  * Loads verified Phase 2 JSON from Supabase Storage via the draft-contract loader.
+ * Selected unit is URL-addressable via `?unit={unitNumber}` (e.g. `?unit=5`).
  */
 export function BookIntelligencePreviewPage() {
   const { catalogBookId: routeCatalogBookId } = useParams<{
     catalogBookId?: string
   }>()
+  const [searchParams, setSearchParams] = useSearchParams()
   const catalogBookId =
     routeCatalogBookId?.trim() || DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID
   const artifact = getBookIntelligenceStorageArtifact(catalogBookId)
+  const unitParam = searchParams.get(UNIT_QUERY_KEY)
 
   const [state, setState] = useState<LoadState>({ status: 'loading' })
-  const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setState({ status: 'loading' })
-    setSelectedUnitId(null)
 
     const registered = getBookIntelligenceStorageArtifact(catalogBookId)
     if (!registered) {
@@ -51,7 +69,6 @@ export function BookIntelligencePreviewPage() {
         setState({ status: 'error', errors: result.errors })
         return
       }
-      setSelectedUnitId(result.data.units[0]?.unitId ?? null)
       setState({ status: 'ready', data: result.data })
     })()
 
@@ -59,6 +76,26 @@ export function BookIntelligencePreviewPage() {
       cancelled = true
     }
   }, [catalogBookId])
+
+  const selectedUnit =
+    state.status === 'ready'
+      ? resolveUnit(state.data.units, unitParam)
+      : null
+
+  // Keep `?unit=` in sync so refresh/share always address a valid unit.
+  useEffect(() => {
+    if (state.status !== 'ready' || !selectedUnit) return
+    if (unitParam === selectedUnit.unitNumber) return
+    const next = new URLSearchParams(searchParams)
+    next.set(UNIT_QUERY_KEY, selectedUnit.unitNumber)
+    setSearchParams(next, { replace: true })
+  }, [state, selectedUnit, unitParam, searchParams, setSearchParams])
+
+  function selectUnit(unitNumber: string) {
+    const next = new URLSearchParams(searchParams)
+    next.set(UNIT_QUERY_KEY, unitNumber)
+    setSearchParams(next, { replace: true })
+  }
 
   if (state.status === 'loading') {
     return (
@@ -97,10 +134,6 @@ export function BookIntelligencePreviewPage() {
   }
 
   const { data } = state
-  const selectedUnit =
-    data.units.find((unit) => unit.unitId === selectedUnitId) ??
-    data.units[0] ??
-    null
 
   return (
     <div className="flex h-full flex-col overflow-hidden bg-slate-50">
@@ -115,7 +148,8 @@ export function BookIntelligencePreviewPage() {
             </h1>
             <p className="mt-1 max-w-2xl text-xs text-slate-500">
               Nine-column A+B overview from Supabase Storage via the draft-contract
-              loader. Select one unit at a time. Not Phase 1 evidence.
+              loader. Selected unit is URL-addressable (`?unit=`). Not Phase 1
+              evidence.
             </p>
           </div>
           <Link
@@ -155,7 +189,7 @@ export function BookIntelligencePreviewPage() {
                     type="button"
                     role="tab"
                     aria-selected={isSelected}
-                    onClick={() => setSelectedUnitId(unit.unitId)}
+                    onClick={() => selectUnit(unit.unitNumber)}
                     className={`rounded border px-2.5 py-1 text-[11px] font-medium transition-colors ${
                       isSelected
                         ? 'border-indigo-600 bg-indigo-600 text-white'
