@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 167
+**Last updated:** Step 168
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,11 +20,11 @@
 
 - **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
 
-- **BI split layout** + **PDF navigation fix** — mounted `ValidationPdfPane`; unit jumps (U1/U5/U9 verified); Prev/Next/Go preserved.
+- **BI split layout** + PDF nav + **PDF↔unit sync** (auto-select unit from visible pages; no-BI on inter-unit review gaps; loop-safe).
 
 ## In progress
 
-- None (PDF nav fix complete; awaiting owner next prompt).
+- None (PDF sync micro-step complete; awaiting owner next prompt).
 
 ## Next
 

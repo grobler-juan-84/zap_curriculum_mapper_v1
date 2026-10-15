@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { curriculumService } from '../../services/curriculumService'
 import {
@@ -11,7 +11,10 @@ import type {
   BookIntelligenceUnitOverview,
 } from '../../types/bookIntelligence'
 import { useWorkspace } from '../shell/WorkspaceProvider'
-import { ValidationPdfPane } from '../validation/ValidationPdfPane'
+import {
+  ValidationPdfPane,
+  type PdfVisibleRange,
+} from '../validation/ValidationPdfPane'
 import { buildPageMap } from '../validation/pdfPageMap'
 import {
   DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID,
@@ -24,6 +27,10 @@ import {
   resolvePdfInitialPage,
   type Phase1UnitPages,
 } from './resolvePdfInitialPage'
+import {
+  resolvePdfPageEnd,
+  resolveUnitForVisiblePdfPages,
+} from './syncUnitFromPdfPages'
 
 const UNIT_QUERY_KEY = 'unit'
 const DEFAULT_LEFT_PANE_PERCENT = 38
@@ -81,6 +88,8 @@ export function BookIntelligencePreviewPage() {
     DEFAULT_LEFT_PANE_PERCENT,
   )
   const [isDraggingColSplitter, setIsDraggingColSplitter] = useState(false)
+  /** When PDF is on inter-unit review/checkpoint pages with no BI unit. */
+  const [pdfOutsideUnits, setPdfOutsideUnits] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -151,7 +160,9 @@ export function BookIntelligencePreviewPage() {
               listUnitsFromJson(raw).map((unit) => ({
                 unitNumber: unit.unitNumber,
                 printedPageStart: unit.printedPageStart,
+                printedPageEnd: unit.printedPageEnd,
                 pdfPageStart: unit.pdfPageStart,
+                pdfPageEnd: unit.pdfPageEnd,
               })),
             )
             const summary = summarizeBatchJson(raw)
@@ -223,18 +234,33 @@ export function BookIntelligencePreviewPage() {
   }, [isDraggingColSplitter])
 
   const selectedUnit =
-    state.status === 'ready'
+    state.status === 'ready' && !pdfOutsideUnits
       ? resolveUnit(state.data.units, unitParam)
       : null
 
-  // Keep `?unit=` in sync so refresh/share always address a valid unit.
+  // Keep `?unit=` in sync when a unit is selected; clear it on review/checkpoint pages.
   useEffect(() => {
-    if (state.status !== 'ready' || !selectedUnit) return
+    if (state.status !== 'ready') return
+    if (pdfOutsideUnits) {
+      if (unitParam == null) return
+      const next = new URLSearchParams(searchParams)
+      next.delete(UNIT_QUERY_KEY)
+      setSearchParams(next, { replace: true })
+      return
+    }
+    if (!selectedUnit) return
     if (unitParam === selectedUnit.unitNumber) return
     const next = new URLSearchParams(searchParams)
     next.set(UNIT_QUERY_KEY, selectedUnit.unitNumber)
     setSearchParams(next, { replace: true })
-  }, [state, selectedUnit, unitParam, searchParams, setSearchParams])
+  }, [
+    state,
+    selectedUnit,
+    unitParam,
+    pdfOutsideUnits,
+    searchParams,
+    setSearchParams,
+  ])
 
   const pageMap = useMemo(
     () => buildPageMap(pageMapEntries),
@@ -242,23 +268,45 @@ export function BookIntelligencePreviewPage() {
   )
 
   // Keep Document mounted across unit changes (no React key remount) — same as
-  // ValidationWorkspace. Unit switches only update `initialPage`.
-  const pdfInitialPage = useMemo(
-    () =>
-      resolvePdfInitialPage(
-        selectedUnit?.unitNumber,
-        selectedUnit?.printedPageStart,
-        phase1Units,
-        pageMap,
-      ),
-    [selectedUnit, phase1Units, pageMap],
-  )
+  // ValidationWorkspace. Pass unit PDF end so PDF-driven sync does not re-jump.
+  const pdfInitialPage = useMemo(() => {
+    if (pdfOutsideUnits) return null
+    return resolvePdfInitialPage(
+      selectedUnit?.unitNumber,
+      selectedUnit?.printedPageStart,
+      phase1Units,
+      pageMap,
+    )
+  }, [selectedUnit, phase1Units, pageMap, pdfOutsideUnits])
+
+  const pdfInitialPageEnd = useMemo(() => {
+    if (pdfOutsideUnits) return null
+    return resolvePdfPageEnd(selectedUnit?.unitNumber, phase1Units)
+  }, [selectedUnit, phase1Units, pdfOutsideUnits])
 
   function selectUnit(unitNumber: string) {
+    setPdfOutsideUnits(false)
     const next = new URLSearchParams(searchParams)
     next.set(UNIT_QUERY_KEY, unitNumber)
     setSearchParams(next, { replace: true })
   }
+
+  const handleVisiblePdfRange = useCallback(
+    (range: PdfVisibleRange) => {
+      if (phase1Units.length === 0) return
+      const matched = resolveUnitForVisiblePdfPages(range, phase1Units)
+      if (matched == null) {
+        setPdfOutsideUnits(true)
+        return
+      }
+      setPdfOutsideUnits(false)
+      if (unitParam === matched) return
+      const next = new URLSearchParams(searchParams)
+      next.set(UNIT_QUERY_KEY, matched)
+      setSearchParams(next, { replace: true })
+    },
+    [phase1Units, unitParam, searchParams, setSearchParams],
+  )
 
   function openPhase1Evidence(unitNumber: string) {
     setEvidenceError(null)
@@ -325,8 +373,8 @@ export function BookIntelligencePreviewPage() {
               Book Intelligence Preview
             </h1>
             <p className="mt-1 max-w-2xl text-xs text-slate-500">
-              Nine-column A+B overview from Supabase Storage. Left: unit fields.
-              Right: source PDF for the selected unit. URL-addressable via{' '}
+              Nine-column A+B overview from Supabase Storage. Left: unit fields
+              (synced to the visible PDF pages). Right: source PDF. URL via{' '}
               <code className="text-[10px]">?unit=</code>. Not Phase 1 evidence.
             </p>
           </div>
@@ -360,7 +408,8 @@ export function BookIntelligencePreviewPage() {
               className="flex flex-wrap gap-1.5"
             >
               {data.units.map((unit) => {
-                const isSelected = unit.unitId === selectedUnit?.unitId
+                const isSelected =
+                  !pdfOutsideUnits && unit.unitId === selectedUnit?.unitId
                 return (
                   <button
                     key={unit.unitId}
@@ -383,6 +432,11 @@ export function BookIntelligencePreviewPage() {
                 )
               })}
             </div>
+            {pdfOutsideUnits ? (
+              <p className="mt-2 text-[11px] font-medium text-amber-800">
+                Viewing pages outside extracted units (review / checkpoint).
+              </p>
+            ) : null}
           </div>
         ) : null}
       </header>
@@ -405,7 +459,18 @@ export function BookIntelligencePreviewPage() {
                 {data.title}
               </p>
             ) : null}
-            {selectedUnit ? (
+            {pdfOutsideUnits ? (
+              <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-6 text-center">
+                <p className="text-sm font-semibold text-amber-950">
+                  No Book Intelligence available for these pages.
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-amber-900/80">
+                  These PDF pages fall outside extracted unit ranges (for example
+                  inter-unit reviews or checkpoints). Continue browsing the PDF,
+                  or select a unit above.
+                </p>
+              </div>
+            ) : selectedUnit ? (
               <BookIntelligenceUnitPreview
                 document={data}
                 unit={selectedUnit}
@@ -414,7 +479,7 @@ export function BookIntelligencePreviewPage() {
             ) : (
               <p className="text-sm text-slate-600">No units in document.</p>
             )}
-            {data.notes ? (
+            {data.notes && !pdfOutsideUnits ? (
               <p className="mt-3 rounded-md border border-slate-200 bg-white px-3 py-2 text-[11px] leading-relaxed text-slate-500">
                 {data.notes}
               </p>
@@ -443,7 +508,9 @@ export function BookIntelligencePreviewPage() {
             bookTitle={bookTitle}
             pdfProvider={pdfProvider}
             initialPage={pdfInitialPage}
+            initialPageEnd={pdfInitialPageEnd}
             pageMap={pageMap}
+            onVisibleRangeChange={handleVisiblePdfRange}
           />
         </section>
       </div>

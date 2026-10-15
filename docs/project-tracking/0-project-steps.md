@@ -2957,4 +2957,24 @@
 
 ---
 
+### Step 168
+
+**Summary:** Synchronized Book Intelligence with PDF navigation: visible page range selects the matching unit and `?unit=N`; inter-unit review/checkpoint gaps show no-BI message; continuous PDF browsing preserved; loop prevention via `initialPageEnd` overlap skip. Verified U3→review→U4, U6→review→U7, U9→review. No schema/data changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/book-intelligence/syncUnitFromPdfPages.ts` (created)
+- `app/src/features/book-intelligence/resolvePdfInitialPage.ts` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `scripts/verify_bi_pdf_unit_sync.mjs` (created)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -10,6 +10,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString()
 
+export type PdfVisibleRange = {
+  /** 1-based PDF index of the left page in the pair. */
+  pdfStart: number
+  /** 1-based PDF index of the right page (same as start when only one page). */
+  pdfEnd: number
+}
+
 interface ValidationPdfPaneProps {
   pdfUrl: string | null
   loading: boolean
@@ -18,8 +25,16 @@ interface ValidationPdfPaneProps {
   pdfProvider?: 'r2' | 'supabase' | null
   /** 1-based PDF index placed on the left; the following page (if any) is on the right. */
   initialPage?: number | null
+  /**
+   * Inclusive PDF end of the host's selected unit. When set, applying
+   * `initialPage` is skipped if the current view already overlaps
+   * `[initialPage, initialPageEnd]` — prevents PDF↔unit sync loops.
+   */
+  initialPageEnd?: number | null
   /** Printed ↔ PDF index map for the current unit; empty means printed = PDF index. */
   pageMap?: PageMap
+  /** Fired whenever the visible PDF pair changes (load, Prev/Next, Go, or jump). */
+  onVisibleRangeChange?: (range: PdfVisibleRange) => void
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
@@ -35,12 +50,16 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   bookTitle,
   pdfProvider = null,
   initialPage = null,
+  initialPageEnd = null,
   pageMap = EMPTY_PAGE_MAP,
+  onVisibleRangeChange,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
   const [jumpValue, setJumpValue] = useState('1')
   const [docError, setDocError] = useState<string | null>(null)
+  /** Avoid reporting page 1 before the host's initial unit jump has applied. */
+  const [rangeReportReady, setRangeReportReady] = useState(false)
 
   const printedLabel = (pdfIndex: number): number => printedForPdf(pageMap, pdfIndex) ?? pdfIndex
 
@@ -49,21 +68,49 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setPairStart(1)
     setJumpValue('1')
     setDocError(null)
+    setRangeReportReady(false)
   }, [pdfUrl])
 
   // Jump when the host changes unit (or page map arrives). Keep the Document
   // mounted across unit changes — remounting via React `key` breaks Prev/Next.
+  // When `initialPageEnd` is set, skip jumping if the view already overlaps the
+  // unit range (PDF-driven unit sync must not yank the reader back to page 1).
   useEffect(() => {
-    if (!numPages || initialPage == null || !Number.isFinite(initialPage)) return
+    if (!numPages) return
+    if (initialPage == null || !Number.isFinite(initialPage)) {
+      setRangeReportReady(true)
+      return
+    }
     const start = clampPage(initialPage, numPages)
+    if (initialPageEnd != null && Number.isFinite(initialPageEnd)) {
+      const end = clampPage(initialPageEnd, numPages)
+      setPairStart((current) => {
+        const viewEnd = current + 1 <= numPages ? current + 1 : current
+        const overlaps = current <= end && viewEnd >= start
+        if (overlaps) return current
+        setJumpValue(String(printedForPdf(pageMap, start) ?? start))
+        return start
+      })
+      setRangeReportReady(true)
+      return
+    }
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
-  }, [initialPage, numPages, pageMap])
+    setRangeReportReady(true)
+  }, [initialPage, initialPageEnd, numPages, pageMap])
 
   const leftPage = pairStart
   const rightPage = pairStart + 1 <= numPages ? pairStart + 1 : null
   const canPrev = pairStart > 1
   const canNext = pairStart < numPages
+
+  useEffect(() => {
+    if (!numPages || !onVisibleRangeChange || !rangeReportReady) return
+    onVisibleRangeChange({
+      pdfStart: leftPage,
+      pdfEnd: rightPage ?? leftPage,
+    })
+  }, [leftPage, rightPage, numPages, onVisibleRangeChange, rangeReportReady])
 
   const leftPrinted = printedForPdf(pageMap, leftPage)
   const rightPrinted = rightPage ? printedForPdf(pageMap, rightPage) : null

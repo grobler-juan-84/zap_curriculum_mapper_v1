@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 167
+**Last updated:** Step 168
 
 
 
@@ -179,6 +179,10 @@
 
 
 - [x] Fix BI PDF navigation (unit jumps U1/U5/U9; Prev/Next/Go; no pane remount).
+
+
+
+- [x] Sync BI unit with visible PDF pages (gaps → no BI; loop-safe; U3/U6/U9 transitions).
 
 
 

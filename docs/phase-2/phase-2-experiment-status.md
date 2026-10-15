@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.38  
+**Version:** 1.39  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -21,6 +21,7 @@
 | BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
+| BE3 BI PDF↔unit sync | Visible PDF range selects BI unit / clears on inter-unit gaps; loop-safe via `initialPageEnd` overlap skip |
 | BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
 | BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 A+B regen checks | **Complete 9/9** — all **reproducibility PASS** (soft Near paraphrases only; 0 Drift/Fail); existing overview unchanged |
@@ -405,3 +406,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | D019: BE3 BI MVP UI path implementation-validated; methodology/schema/contract not locked. |
 | 2026-10-15 | BI preview split layout (fields left / PDF right); reuses ValidationPdfPane; no data/schema changes. |
 | 2026-10-15 | Fix BI PDF nav: no remount key; unit→pdf_page_start jumps; toolbar wrap; verify U1/U5/U9. |
+| 2026-10-15 | Sync BI unit from visible PDF pages; no-BI on review gaps; verify U3↔U4, U6↔U7, U9 review. |

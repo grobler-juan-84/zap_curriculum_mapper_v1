@@ -3,7 +3,9 @@ import { type PageMap, pdfForPrinted } from '../validation/pdfPageMap'
 export type Phase1UnitPages = {
   unitNumber: string
   printedPageStart: number | null
+  printedPageEnd?: number | null
   pdfPageStart: number | null
+  pdfPageEnd?: number | null
 }
 
 /**
