@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.33  
+**Version:** 1.34  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -284,6 +284,12 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** BI Units 1–9 connect to the matching Phase 1 Validation unit.
 
+### Validation → Book Intelligence return link (2026-10-15)
+
+**Controls:** Validation header shows **Back to Book Intelligence** when the current catalog book has a registered BI overview. Target is `/app/book-intelligence/{catalogBookId}?unit=N` for the selected Validation unit. Validation `?unit=` stays synced as the unit picker changes. Verified U1–U9 round-trip paths. No database, schema, or methodology changes.
+
+**Result:** Users can move BI ↔ Validation for the same book/unit without losing selection.
+
 ---
 
 ## 3. Historical research — V3.1 + cross-unit (BE2-SB)
@@ -381,3 +387,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BI selected unit URL-addressable via `?unit=`; refresh/share opens correct unit. |
 | 2026-10-15 | BI Unit 1 “View Source Evidence” → Validation `?unit=1` (read-only); no DB/schema. |
 | 2026-10-15 | Extended View Source Evidence to Units 2–9; verified unique `?unit=` resolution. |
+| 2026-10-15 | Validation “Back to Book Intelligence” preserves book + `?unit=N`; verified U1–U9. |

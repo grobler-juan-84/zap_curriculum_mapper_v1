@@ -2870,4 +2870,21 @@
 
 ---
 
+### Step 163
+
+**Summary:** Added Validation “Back to Book Intelligence” that returns to the same catalog book and selected unit (`?unit=N`). Syncs Validation’s unit query as the picker changes. Verified U1–U9 round-trip paths. No database, schema, or methodology changes.
+
+**Files touched:**
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

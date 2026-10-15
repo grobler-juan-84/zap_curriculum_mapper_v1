@@ -1,5 +1,6 @@
 import React from 'react'
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowLeft, Brain, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BookFileBatch } from '../../types/validation'
 
@@ -12,6 +13,8 @@ interface ValidationHeaderProps {
   currentIndex: number
   /** True when picker units are sliced from one canonical_json file. */
   fromCanonical?: boolean
+  /** When set, show return link to Book Intelligence for this book/unit. */
+  bookIntelligenceHref?: string | null
   onPrev: () => void
   onNext: () => void
   onSelectBatch: (batchId: string) => void
@@ -32,6 +35,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   currentBatch,
   currentIndex,
   fromCanonical = false,
+  bookIntelligenceHref = null,
   onPrev,
   onNext,
   onSelectBatch,
@@ -54,6 +58,18 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           <ArrowLeft className="h-3.5 w-3.5" />
           <span className="hidden sm:inline">Series</span>
         </button>
+
+        {bookIntelligenceHref ? (
+          <Link
+            to={bookIntelligenceHref}
+            className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-violet-700 transition-colors hover:bg-violet-50 hover:text-violet-900"
+            title="Back to Book Intelligence for this book and unit"
+          >
+            <Brain className="h-3.5 w-3.5" />
+            <span className="hidden lg:inline">Back to Book Intelligence</span>
+            <span className="hidden sm:inline lg:hidden">Book Intelligence</span>
+          </Link>
+        ) : null}
 
         <div className="hidden h-4 w-px bg-slate-300 sm:block" />
 

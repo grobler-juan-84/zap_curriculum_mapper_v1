@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 162
+**Last updated:** Step 163
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,13 +16,13 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A+B BI: Storage + Library entry + URL unit selector.
+- BE3 A+B BI: Storage + Library + unit URL + U1–9 evidence links.
 
-- **BI Units 1–9 → Phase 1 evidence** via read-only “View Source Evidence” (Validation `?unit=N`; verified unique).
+- **BI ↔ Validation round-trip** with preserved book + `?unit=N` (verified U1–U9).
 
 ## In progress
 
-- None (U1–9 evidence links recorded; awaiting owner next prompt).
+- None (return link recorded; awaiting owner next prompt).
 
 ## Next
 
@@ -38,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Path: BI `?unit=N` → **View Source Evidence** → `/app/validation?unit=N`
+- Round-trip: BI `?unit=N` ↔ Validation `?unit=N` (Back to Book Intelligence)
 
 - Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

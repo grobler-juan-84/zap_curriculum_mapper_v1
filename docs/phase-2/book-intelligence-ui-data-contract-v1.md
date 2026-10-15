@@ -305,3 +305,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Selected unit URL-addressable via `?unit=`; refresh/share stable. |
 | 2026-10-15 | Unit 1 “View Source Evidence” → Phase 1 Validation (`?unit=1`); Units 2–9 deferred. |
 | 2026-10-15 | View Source Evidence extended to Units 2–9 (`?unit=N`). |
+| 2026-10-15 | Validation “Back to Book Intelligence” preserves book + unit (`?unit=N`). |

@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 162  
+**Last updated:** Step 163  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- View Source Evidence extended to Book Intelligence Units 1–9.
-- Each link opens Validation at the matching `?unit=N` (verified unique resolution).
+- Validation header has **Back to Book Intelligence** for registered BI books.
+- Return URL preserves catalog book + selected unit (`?unit=N`); U1–U9 verified.
 - No database, schema, or methodology changes.
 
 ## Current status
 
-On branch `phase-2`. Evidence deep-links live for all nine BE3 units.
+On branch `phase-2`. BI ↔ Validation unit round-trip works for BE3-SB.
 
 ## Next small step
 

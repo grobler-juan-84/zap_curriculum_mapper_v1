@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 162
+**Last updated:** Step 163
 
 
 
@@ -159,6 +159,10 @@
 
 
 - [x] Extend View Source Evidence to Units 2–9; verify correct Validation unit.
+
+
+
+- [x] Validation “Back to Book Intelligence” preserves book + `?unit=N` (U1–U9 verified).
 
 
 

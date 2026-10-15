@@ -10,6 +10,10 @@ import {
   summarizeBatchJson,
   validationService,
 } from '../../services/validationService'
+import {
+  bookIntelligencePath,
+  hasBookIntelligenceOverview,
+} from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { ValidationHeader } from './ValidationHeader'
 import { ValidationLeftPanel } from './ValidationLeftPanel'
 import { ValidationPdfPane } from './ValidationPdfPane'
@@ -62,6 +66,16 @@ function pickBatchIdForUnit(
   return match?.id ?? batches[0]?.id ?? ''
 }
 
+function unitNumberFromBatch(batch: BookFileBatch | null): string | null {
+  if (!batch) return null
+  if (batch.unitNumber) return batch.unitNumber
+  const fromLabel = batch.label?.match(/Unit\s+(\d+)/i)?.[1]
+  if (fromLabel) return fromLabel
+  const fromPath = batch.storagePath.match(/unit[_-]?(\d+)/i)?.[1]
+  if (fromPath) return String(Number(fromPath))
+  return null
+}
+
 export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   seriesList,
   series,
@@ -71,7 +85,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   onBackToBooks,
 }) => {
   const { profile } = useAuth()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const requestedUnit = searchParams.get('unit')
   const canWriteStatus = profile?.role === 'admin'
 
@@ -106,6 +120,23 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   )
   const currentBatch =
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
+  const currentUnitNumber = unitNumberFromBatch(currentBatch)
+
+  const bookIntelligenceHref =
+    hasBookIntelligenceOverview(book.catalogBookId) &&
+    book.catalogBookId &&
+    currentUnitNumber
+      ? bookIntelligencePath(book.catalogBookId, currentUnitNumber)
+      : null
+
+  // Keep Validation `?unit=` aligned with the selected unit for round-trips to BI.
+  useEffect(() => {
+    if (!currentUnitNumber) return
+    if (searchParams.get('unit') === currentUnitNumber) return
+    const next = new URLSearchParams(searchParams)
+    next.set('unit', currentUnitNumber)
+    setSearchParams(next, { replace: true })
+  }, [currentUnitNumber, searchParams, setSearchParams])
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
 
@@ -400,6 +431,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         currentBatch={currentBatch}
         currentIndex={currentIndex}
         fromCanonical={fromCanonical}
+        bookIntelligenceHref={bookIntelligenceHref}
         onPrev={handlePrev}
         onNext={handleNext}
         onSelectBatch={(id) => {
