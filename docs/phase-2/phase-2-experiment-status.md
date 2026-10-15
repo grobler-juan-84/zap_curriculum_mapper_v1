@@ -241,7 +241,7 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 **Artifact:** `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`  
 **Script:** [`../../scripts/upload_book_intelligence_json.mjs`](../../scripts/upload_book_intelligence_json.mjs)
 
-**Controls:** Upload Phase 2 interpretation companion to Supabase Storage only. Download + SHA-256 verify against local file. Explicitly **no** `book_files` / `dataset_versions` writes, no schema migration, no UI wiring (preview still uses Vite local alias).
+**Controls:** Upload Phase 2 interpretation companion to Supabase Storage only. Download + SHA-256 verify against local file. Explicitly **no** `book_files` / `dataset_versions` writes, no schema migration (preview wired to Storage in a later micro-step).
 
 **Result:** UPLOAD OK; integrity **PASS** (10574 bytes; `units=9`; `sha256=097a145c085287cd53ac009a45602edff15b9ff3cbe160e573824430ef1d5b71`). Format still draft / not locked.
 
