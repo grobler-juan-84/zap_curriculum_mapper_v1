@@ -51,8 +51,10 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setDocError(null)
   }, [pdfUrl])
 
+  // Jump when the host changes unit (or page map arrives). Keep the Document
+  // mounted across unit changes — remounting via React `key` breaks Prev/Next.
   useEffect(() => {
-    if (!numPages || !initialPage) return
+    if (!numPages || initialPage == null || !Number.isFinite(initialPage)) return
     const start = clampPage(initialPage, numPages)
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
@@ -112,10 +114,10 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-md border border-slate-300 bg-white shadow-xs">
-      <div className="flex h-9 shrink-0 items-center justify-between gap-2 border-b border-slate-200 bg-slate-50 px-3">
-        <div className="flex min-w-0 items-center gap-2 text-xs font-bold text-slate-800">
+      <div className="flex min-h-9 shrink-0 flex-wrap items-center justify-between gap-x-2 gap-y-1 border-b border-slate-200 bg-slate-50 px-3 py-1.5">
+        <div className="flex min-w-0 flex-1 items-center gap-2 text-xs font-bold text-slate-800">
           <FileText className="h-3.5 w-3.5 shrink-0 text-slate-500" />
-          Source PDF
+          <span className="shrink-0">Source PDF</span>
           <span className="truncate font-mono text-[10px] font-normal text-slate-500">
             {bookTitle}
           </span>
@@ -135,7 +137,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
         </div>
 
         {pdfUrl && numPages > 0 ? (
-          <div className="flex shrink-0 items-center gap-1.5">
+          <div className="flex shrink-0 flex-wrap items-center gap-1.5">
             <button
               type="button"
               onClick={goPrev}

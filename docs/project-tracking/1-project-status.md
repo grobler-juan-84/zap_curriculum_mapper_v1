@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 166  
+**Last updated:** Step 167  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Book Intelligence preview uses Validation-style split layout (fields left / PDF right).
-- Reuses `ValidationPdfPane` + existing PDF/page targeting; Storage and `?unit=` unchanged.
-- Typecheck clean; Unit 1 fields + AI-inferred LO verified; E2E script still PASS.
+- Fixed BI PDF navigation: keep `ValidationPdfPane` mounted (no remount key).
+- Unit changes jump via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142).
+- Prev/Next and printed-page Go controls preserved; typecheck + verify PASS.
 
 ## Current status
 
-On branch `phase-2`. BI MVP (D019) remains implementation-validated; methodology not locked.
+On branch `phase-2`. BI split layout + PDF nav usable; methodology not locked.
 
 ## Next small step
 

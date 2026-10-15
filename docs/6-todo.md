@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 166
+**Last updated:** Step 167
 
 
 
@@ -175,6 +175,10 @@
 
 
 - [x] BI preview split layout (fields left / source PDF right); preserve Storage + `?unit=` (UI-only).
+
+
+
+- [x] Fix BI PDF navigation (unit jumps U1/U5/U9; Prev/Next/Go; no pane remount).
 
 
 

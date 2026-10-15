@@ -2938,4 +2938,23 @@
 
 ---
 
+### Step 167
+
+**Summary:** Fixed Book Intelligence PDF navigation: removed remount `key` so `ValidationPdfPane` stays mounted like Validation; unit changes jump via Phase 1 `pdf_page_start`; toolbar wraps so Prev/Next/Go stay usable. Verified U1=4, U5=72, U9=142. No DB/schema/methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/book-intelligence/resolvePdfInitialPage.ts` (created)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `scripts/verify_bi_pdf_navigation.mjs` (created)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

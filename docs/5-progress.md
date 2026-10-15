@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 166
+**Last updated:** Step 167
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,16 +20,15 @@
 
 - **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
 
-- **BI split layout** — left resizable fields + right source PDF (Validation pane reuse); Storage/`?unit=` preserved.
+- **BI split layout** + **PDF navigation fix** — mounted `ValidationPdfPane`; unit jumps (U1/U5/U9 verified); Prev/Next/Go preserved.
 
 ## In progress
 
-- None (layout micro-step complete; awaiting owner next prompt).
+- None (PDF nav fix complete; awaiting owner next prompt).
 
 ## Next
 
 - Owner-gated: `book_files` registration, more BI books, harden preview, or pause.
-- Optional: manual browser smoke of split layout on Unit 1.
 
 ## Blocked
 

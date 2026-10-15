@@ -12,7 +12,7 @@ import type {
 } from '../../types/bookIntelligence'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
-import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
+import { buildPageMap } from '../validation/pdfPageMap'
 import {
   DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID,
   getBookIntelligenceStorageArtifact,
@@ -20,6 +20,10 @@ import {
 import { BookIntelligenceUnitPreview } from './BookIntelligenceUnitPreview'
 import { loadBookIntelligenceFromStorage } from './loadBookIntelligenceFromStorage'
 import { phase1EvidencePath } from './phase1EvidenceLink'
+import {
+  resolvePdfInitialPage,
+  type Phase1UnitPages,
+} from './resolvePdfInitialPage'
 
 const UNIT_QUERY_KEY = 'unit'
 const DEFAULT_LEFT_PANE_PERCENT = 38
@@ -28,12 +32,6 @@ type LoadState =
   | { status: 'loading' }
   | { status: 'error'; errors: string[] }
   | { status: 'ready'; data: BookIntelligenceOverviewDocument }
-
-type Phase1UnitPages = {
-  unitNumber: string
-  printedPageStart: number | null
-  pdfPageStart: number | null
-}
 
 function resolveUnit(
   units: BookIntelligenceUnitOverview[],
@@ -55,7 +53,7 @@ function resolveUnit(
  */
 export function BookIntelligencePreviewPage() {
   const navigate = useNavigate()
-  const { selectSeries, selectBook } = useWorkspace()
+  const { selectSeries, selectBook, catalogLoading } = useWorkspace()
   const { catalogBookId: routeCatalogBookId } = useParams<{
     catalogBookId?: string
   }>()
@@ -64,6 +62,7 @@ export function BookIntelligencePreviewPage() {
     routeCatalogBookId?.trim() || DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID
   const artifact = getBookIntelligenceStorageArtifact(catalogBookId)
   const unitParam = searchParams.get(UNIT_QUERY_KEY)
+  // Re-read after catalog load (WorkspaceProvider re-render when catalogLoading flips).
   const catalogMatch = curriculumService.getBookByCatalogId(catalogBookId)
   const book = catalogMatch?.book ?? null
 
@@ -114,6 +113,7 @@ export function BookIntelligencePreviewPage() {
   }, [catalogBookId])
 
   // Source PDF + Phase 1 page targeting (same services as Validation; read-only).
+  // Load page meta before exposing pdfUrl so the first paint can jump to the unit.
   useEffect(() => {
     let cancelled = false
     let objectUrlToRevoke: string | null = null
@@ -121,6 +121,11 @@ export function BookIntelligencePreviewPage() {
     setPdfProvider(null)
     setPhase1Units([])
     setPageMapEntries([])
+
+    if (catalogLoading) {
+      setPdfLoading(true)
+      return
+    }
 
     if (!book?.id) {
       setPdfLoading(false)
@@ -194,7 +199,7 @@ export function BookIntelligencePreviewPage() {
       cancelled = true
       if (objectUrlToRevoke) URL.revokeObjectURL(objectUrlToRevoke)
     }
-  }, [book?.id])
+  }, [book?.id, catalogLoading])
 
   useEffect(() => {
     if (!isDraggingColSplitter) return
@@ -236,19 +241,18 @@ export function BookIntelligencePreviewPage() {
     [pageMapEntries],
   )
 
-  const pdfInitialPage = useMemo(() => {
-    if (!selectedUnit) return null
-    const phase1 = phase1Units.find(
-      (unit) => unit.unitNumber === selectedUnit.unitNumber,
-    )
-    if (typeof phase1?.pdfPageStart === 'number') return phase1.pdfPageStart
-    const printed =
-      phase1?.printedPageStart ?? selectedUnit.printedPageStart ?? null
-    if (typeof printed === 'number') {
-      return pageMap.length > 0 ? pdfForPrinted(pageMap, printed) : printed
-    }
-    return null
-  }, [selectedUnit, phase1Units, pageMap])
+  // Keep Document mounted across unit changes (no React key remount) — same as
+  // ValidationWorkspace. Unit switches only update `initialPage`.
+  const pdfInitialPage = useMemo(
+    () =>
+      resolvePdfInitialPage(
+        selectedUnit?.unitNumber,
+        selectedUnit?.printedPageStart,
+        phase1Units,
+        pageMap,
+      ),
+    [selectedUnit, phase1Units, pageMap],
+  )
 
   function selectUnit(unitNumber: string) {
     const next = new URLSearchParams(searchParams)
@@ -434,9 +438,8 @@ export function BookIntelligencePreviewPage() {
           className="relative flex h-full min-w-0 flex-1 flex-col overflow-hidden bg-slate-200/60 p-2"
         >
           <ValidationPdfPane
-            key={selectedUnit?.unitId ?? 'none'}
             pdfUrl={pdfUrl}
-            loading={pdfLoading}
+            loading={pdfLoading || catalogLoading}
             bookTitle={bookTitle}
             pdfProvider={pdfProvider}
             initialPage={pdfInitialPage}

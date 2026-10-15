@@ -307,3 +307,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | View Source Evidence extended to Units 2–9 (`?unit=N`). |
 | 2026-10-15 | Validation “Back to Book Intelligence” preserves book + unit (`?unit=N`). |
 | 2026-10-15 | BI preview split layout: resizable fields left + source PDF right (`ValidationPdfPane`); UI-only. |
+| 2026-10-15 | PDF nav fix: keep pane mounted; jump by Phase 1 `pdf_page_start` on unit change; Prev/Next/Go intact. |
