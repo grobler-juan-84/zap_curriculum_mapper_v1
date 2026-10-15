@@ -205,7 +205,7 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 | Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
 | Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
 | CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
-| BE3 U1–9 preview (Storage) | `/app/book-intelligence/big_english_3_sb?unit=N` · Series Library card action · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
+| BE3 U1–9 preview (Storage) | `/app/book-intelligence/big_english_3_sb?unit=N` · split layout (fields left / source PDF right, Validation pane reuse) · Series Library card action · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
@@ -306,3 +306,4 @@ Content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loa
 | 2026-10-15 | Unit 1 “View Source Evidence” → Phase 1 Validation (`?unit=1`); Units 2–9 deferred. |
 | 2026-10-15 | View Source Evidence extended to Units 2–9 (`?unit=N`). |
 | 2026-10-15 | Validation “Back to Book Intelligence” preserves book + unit (`?unit=N`). |
+| 2026-10-15 | BI preview split layout: resizable fields left + source PDF right (`ValidationPdfPane`); UI-only. |

@@ -79,10 +79,10 @@ export function BookIntelligenceUnitPreview({
 
   return (
     <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xs">
-      <header className="border-b border-slate-200 bg-slate-50 px-5 py-4">
+      <header className="border-b border-slate-200 bg-slate-50 px-4 py-3">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
-            <h2 className="text-lg font-semibold tracking-tight text-slate-900">
+            <h2 className="text-base font-semibold tracking-tight text-slate-900">
               Unit {unit.unitNumber}: {unit.title}
             </h2>
             <p className="mt-1 text-xs text-slate-500">
@@ -114,7 +114,7 @@ export function BookIntelligenceUnitPreview({
         {fields.map((field) => (
           <div
             key={field.key}
-            className={`grid gap-2 px-5 py-4 sm:grid-cols-[11rem_1fr] sm:gap-4 ${
+            className={`grid gap-1.5 px-4 py-3 sm:grid-cols-[9.5rem_1fr] sm:gap-3 ${
               field.key === 'writing' ? 'bg-emerald-50/40' : ''
             }`}
           >

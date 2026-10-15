@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 165
+**Last updated:** Step 166
 
 
 
@@ -171,6 +171,10 @@
 
 
 - [x] Record D019 MVP acceptance milestone (implementation validated; methodology not locked).
+
+
+
+- [x] BI preview split layout (fields left / source PDF right); preserve Storage + `?unit=` (UI-only).
 
 
 

@@ -2921,4 +2921,21 @@
 
 ---
 
+### Step 166
+
+**Summary:** Refactored Book Intelligence preview to Validation-style split layout: resizable left panel for eight BI fields (AI-inferred LO label preserved), right panel source PDF via existing `ValidationPdfPane`. Kept Storage load, `?unit=` navigation, and evidence links. Typecheck + Unit 1 verify + E2E script PASS. No DB/schema/methodology changes.
+
+**Files touched:**
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

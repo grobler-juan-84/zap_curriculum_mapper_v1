@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 165
+**Last updated:** Step 166
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,16 +18,18 @@
 
 - BE3 A+B BI path: Storage + Library + unit URL + evidence links + Back from Validation.
 
-- **D019** — BE3 Book Intelligence **MVP UI path implementation-validated** (Library → BI → Unit → Validation → Back; scripted U1–U9 PASS). Methodology / schema / contract **not locked**.
+- **D019** — BE3 BI MVP UI path implementation-validated (methodology not locked).
+
+- **BI split layout** — left resizable fields + right source PDF (Validation pane reuse); Storage/`?unit=` preserved.
 
 ## In progress
 
-- None (MVP milestone recorded; awaiting owner next prompt).
+- None (layout micro-step complete; awaiting owner next prompt).
 
 ## Next
 
 - Owner-gated: `book_files` registration, more BI books, harden preview, or pause.
-- Optional: manual browser smoke of the validated MVP path.
+- Optional: manual browser smoke of split layout on Unit 1.
 
 ## Blocked
 
@@ -38,7 +40,5 @@
 ## Snapshot notes
 
 - Active Git branch: `phase-2`.
-
-- Milestone: D019 + [`phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md)
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.
