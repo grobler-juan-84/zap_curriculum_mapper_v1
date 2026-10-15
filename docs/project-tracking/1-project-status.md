@@ -2,19 +2,19 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 175  
+**Last updated:** Step 176  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- Uploaded BE2 eight-column BI JSON to Storage (SHA verified).
-- Registered `big_english_2_sb` in Book Intelligence Storage registry.
-- Series Library → Book Intelligence now available for BE2 (and BE3).
+- Fixed Library→BI / deep-link workspace selection for BE2-SB.
+- Added BE2 E2E + PDF U1–U9 regression scripts; both PASS.
+- BE3 acceptance scripts still PASS.
 
 ## Current status
 
-On branch `phase-2`. Dual-book BI navigation live; no Postgres BI registration.
+On branch `phase-2`. BE2 BI path implementation-validated (P0–P5); contract not locked.
 
 ## Next small step
 
-**Suggestion:** Optional P5 smoke (BE2 deep links / gaps / evidence), or pause.
+**Suggestion:** Owner picks `book_files` / harden preview, or pauses.

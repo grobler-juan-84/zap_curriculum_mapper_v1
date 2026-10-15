@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 175
+**Last updated:** Step 176
 
 
 
@@ -214,11 +214,15 @@
 
 
 
+- [x] BE2 BI E2E + PDF acceptance (P5); Library→BI workspace select fix.
+
+
+
 ## Now
 
 
 
-- [ ] Owner-gated: BE2 smoke (P5), or `book_files` / harden preview / pause.
+- [ ] Owner-gated: `book_files` / harden preview / pause.
 
 
 

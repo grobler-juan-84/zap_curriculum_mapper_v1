@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 175
+**Last updated:** Step 176
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,17 +18,17 @@
 
 - BE3 A+B BI path validated (D019 MVP + PDF nav regression); methodology not locked.
 
-- **BI dual column-set** contract/loader/UI; BE2 eight-column JSON ported and validated.
+- **BI dual column-set** + BE2 eight-column JSON in Storage + Library registry.
 
-- **BE2 Library → BI** — Storage upload + registry entry for `big_english_2_sb`; Series Library shows Book Intelligence (default deep link remains BE3).
+- **BE2 BI E2E acceptance PASS** — Library→BI→Validation→Back; eight-column (no Writing); PDF U1–U9 + gaps; BE3 regressions still green. Workspace select fix for Library→BI / deep links.
 
 ## In progress
 
-- None (optional P5 smoke or other owner direction).
+- None (awaiting owner direction).
 
 ## Next
 
-- Owner-gated: BE2 smoke (P5), or `book_files` / harden preview / pause.
+- Owner-gated: `book_files` / harden preview / pause.
 
 ## Blocked
 
@@ -40,6 +40,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Both BE2 and BE3 BI companions load from Storage via the local registry; methodology still **not** locked.
+- BE2 and BE3 BI companions both load from Storage; dual column-set UI; methodology still **not** locked.
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.

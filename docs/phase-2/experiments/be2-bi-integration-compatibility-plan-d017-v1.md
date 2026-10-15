@@ -1,8 +1,8 @@
 # BE2 Book Intelligence Integration — Compatibility Gaps & Implementation Plan (D017)
 
 **Date:** 2026-10-15  
-**Status:** ACTIVE PLAN — P0–P4 done; P5 smoke optional; methodology / schema **not locked**  
-**Version:** 1.3  
+**Status:** ACTIVE PLAN — P0–P5 done (E2E acceptance PASS); methodology / schema **not locked**  
+**Version:** 1.4  
 **Decision context:** D017 Progressive Curriculum Intelligence; D017 working approvals (BE2 v2 eight-column baseline; BE3 A+B nine-column for BE3-SB only); D019 MVP UI path (BE3)  
 **Purpose:** Compare BE2-SB v2 eight-column overview + Phase 1 data with the working BE3 Book Intelligence contract/UI; identify minimum changes to support both column sets; propose a reusable, book-independent UI approach; document gaps and a phased plan.
 
@@ -200,7 +200,7 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 | **P2 — BE2 JSON port** | Markdown v2 → U1–9 JSON; validate with CLI; unit IDs = `bep2_*` | **Done** (CLI PASS; Markdown compare 0 discrepancies) | Medium (manual fidelity) |
 | **P3 — Storage + registry** | Upload BE2 JSON; register `big_english_2_sb` | **Done** (Library → BI; Storage SHA verified) | Low (ops) |
 | **P4 — UI column-set render** | Descriptor-driven fields; hide Writing for eight-column | **Done** (BE3 path unchanged; eight-column config ready) | Low |
-| **P5 — Smoke** | BE2 U1/U5/U9 deep links; gap after U3; evidence round-trip; BE3 regression scripts still PASS | Scripted + short manual smoke | Low |
+| **P5 — Smoke** | BE2 U1/U5/U9 deep links; gap after U3; evidence round-trip; BE3 regression scripts still PASS | **Done** (E2E + PDF U1–U9 PASS; BE3 still green) | Low |
 
 **Suggested first implementation micro-step after approval:** P0+P1 together (types/loader only, with a tiny eight-column fixture — no BE2 product wiring yet), **or** P2 content port in parallel if owner prefers artifact-first.
 
@@ -235,3 +235,4 @@ Do **not** start until an explicit owner micro-step asks for implementation.
 | 2026-10-15 | P0/P1/P4 implemented: dual column-set contract/loader/UI + tests; G2–G4 closed. P2/P3/P5 still pending. |
 | 2026-10-15 | P2 done: BE2 v2 Markdown → local eight-column JSON (`bep2_unit_*`); G1 closed locally. P3/P5 still pending. |
 | 2026-10-15 | P3 done: BE2 BI uploaded + Library registry; G1/G5 closed. P5 smoke optional. |
+| 2026-10-15 | P5 done: BE2 E2E + PDF regression PASS; Library→BI workspace select fix; BE3 regressions still green. |

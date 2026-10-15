@@ -3103,4 +3103,24 @@
 
 ---
 
+### Step 176
+
+**Summary:** Ran BE2 BI E2E acceptance: fixed Library→BI / deep-link workspace selection; added BE2 E2E + PDF U1–U9 regression scripts (eight-column, gaps, deep links); all PASS; BE3 regressions still green. No schema/data/methodology changes.
+
+**Files touched:**
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
+- `scripts/verify_be2_bi_validation_e2e_acceptance.mjs` (created)
+- `scripts/verify_be2_bi_pdf_u1_u9_regression.mjs` (created)
+- `docs/phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md` (created)
+- `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

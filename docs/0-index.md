@@ -123,7 +123,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/experiments/be3-u01-ab-implementation-compatibility-d017-v1.md](./phase-2/experiments/be3-u01-ab-implementation-compatibility-d017-v1.md) | Read-only BE3 Unit 1 A+B controlled-implementation compatibility vs Postgres catalog and UI contracts; identity OK; no BI consumer yet; no DB/UI changes. | 1.0 | ACTIVE |
 | [phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md) | BE3 BI↔Validation E2E acceptance (D019 MVP): Library→BI→Unit→Validation→Back; implementation validated; methodology not locked. | 1.0 | ACTIVE |
 | [phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md) | BE3 BI PDF navigation regression acceptance: U1–U9 fwd/back, review gaps, selection, deep links; scripted PASS; methodology not locked. | 1.0 | ACTIVE |
-| [phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md](./phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md) | BE2 BI integration plan: eight- vs nine-column gaps; P0–P4 done (Storage + Library registry); P5 smoke optional. | 1.3 | ACTIVE |
+| [phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md](./phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md) | BE2 BI E2E acceptance: Library→BI→Validation→Back; eight-column (no Writing); PDF U1–U9 + gaps; scripted PASS; methodology not locked. | 1.0 | ACTIVE |
+| [phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md](./phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md) | BE2 BI integration plan: eight- vs nine-column; P0–P5 done (E2E acceptance PASS); contract not locked. | 1.4 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Historical Phase 2 planning SoT v2 (exhaustive unit/page/JSON sketches); superseded by D017; retained for research context only. | — | PARKED |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -157,7 +158,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 90 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack + full SS/regen roll-ups + U1 A+B compatibility + nine-column BI UI data contract draft + BI↔Validation E2E + PDF nav regression acceptance + BE2 BI integration plan, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 91 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack + full SS/regen roll-ups + U1 A+B compatibility + BI UI data contract draft + BE2/BE3 BI E2E + PDF nav acceptance + BE2 BI integration plan, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

@@ -17,8 +17,8 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | Owner-gated: BE2 smoke (P5), or `book_files` / pause — contract still **not locked** |
-| BE2 BI integration plan | P0–P4 done (dual-set + BE2 JSON in Storage + Library → BI); P5 smoke optional |
+| Next proposed step | Owner-gated: `book_files` / harden preview / pause — contract still **not locked** |
+| BE2 BI integration plan | P0–P5 done (E2E + PDF acceptance PASS; Library→BI select fix) |
 | BE3 BI MVP UI | **Implementation-validated (D019)** — Library → BI → Unit → Validation → Back; methodology/schema/contract **not locked** |
 | BE3 BI split layout | Resizable left fields + right source PDF (reuses Validation PDF pane); Storage/`?unit=` preserved; UI-only |
 | BE3 BI PDF nav | Unit jumps via Phase 1 `pdf_page_start` (U1=4, U5=72, U9=142); pane stays mounted; Prev/Next/Go preserved |
@@ -320,7 +320,7 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Artifact:** [`experiments/be2-bi-integration-compatibility-plan-d017-v1.md`](./experiments/be2-bi-integration-compatibility-plan-d017-v1.md)
 
-**Progress:** P0–P4 done — dual `column_set` contract/loader/UI; BE2 eight-column JSON in Storage; Series Library → Book Intelligence for `big_english_2_sb`. No Postgres / methodology lock.
+**Progress:** P0–P5 done — dual column-set; BE2 Storage + Library; E2E/PDF acceptance PASS ([`experiments/be2-bi-e2e-acceptance-d017-v1.md`](./experiments/be2-bi-e2e-acceptance-d017-v1.md)). Workspace select fix for Library→BI. No Postgres / methodology lock.
 
 **Controls:** Docs-only. Compared BE2 v2 eight-column Markdown + Phase 1 canonical with BE3 nine-column contract/UI. Proposed dual `column_set` support and book-independent UI descriptors. No code, Storage, DB, or methodology changes.
 
@@ -436,3 +436,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | Generalized BI contract/loader/UI for eight- + nine-column; dual-set tests; BE3 preserved. |
 | 2026-10-15 | BE2 v2 Markdown → local eight-column BI JSON; validated; Markdown compare PASS (0 discrepancies). |
 | 2026-10-15 | BE2 BI uploaded to Storage; Library → BI registry enabled for `big_english_2_sb`. |
+| 2026-10-15 | BE2 BI E2E + PDF U1–U9 acceptance PASS; Library→BI workspace select fix; P5 done. |

@@ -127,6 +127,15 @@ export function BookIntelligencePreviewPage() {
     }
   }, [catalogBookId])
 
+  // Keep workspace selection aligned with the BI route (Library + deep links).
+  useEffect(() => {
+    if (catalogLoading) return
+    const match = curriculumService.getBookByCatalogId(catalogBookId)
+    if (!match) return
+    selectSeries(match.series.id)
+    selectBook(match.book.id)
+  }, [catalogLoading, catalogBookId, selectSeries, selectBook])
+
   // Source PDF + Phase 1 page targeting (same services as Validation; read-only).
   // Load page meta before exposing pdfUrl so the first paint can jump to the unit.
   useEffect(() => {

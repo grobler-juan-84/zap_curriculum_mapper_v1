@@ -1,11 +1,18 @@
 import { useNavigate } from 'react-router-dom'
 import { bookIntelligencePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import { curriculumService } from '../../services/curriculumService'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { SeriesLibrary } from './SeriesLibrary'
 
 export function SeriesLibraryPage() {
   const navigate = useNavigate()
-  const { currentSeries, selectBook, catalogLoading, catalogError } = useWorkspace()
+  const {
+    currentSeries,
+    selectSeries,
+    selectBook,
+    catalogLoading,
+    catalogError,
+  } = useWorkspace()
 
   if (catalogLoading) {
     return (
@@ -45,6 +52,11 @@ export function SeriesLibraryPage() {
         navigate('/app/validation')
       }}
       onOpenBookIntelligence={(catalogBookId) => {
+        const match = curriculumService.getBookByCatalogId(catalogBookId)
+        if (match) {
+          selectSeries(match.series.id)
+          selectBook(match.book.id)
+        }
         navigate(bookIntelligencePath(catalogBookId))
       }}
       onBackToCurriculum={() => navigate('/app/curriculum')}
