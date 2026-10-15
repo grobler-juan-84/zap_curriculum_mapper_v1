@@ -2522,4 +2522,22 @@
 
 ---
 
+### Step 144
+
+**Summary:** Recorded owner decision under D017 working approvals: prefer BE3 Experiment A+B for BE3-SB only; BE2 v2 baseline unchanged; methodology/schema not locked; no implementation. Updated owner-review pack, roll-up, experiment status, and trackers. Also committed existing D018 Chalkie prompt-iteration decision already present in the decision log.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md` (updated)
+- `docs/phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md` (updated)
+- `docs/phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

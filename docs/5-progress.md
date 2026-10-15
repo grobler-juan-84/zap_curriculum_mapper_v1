@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 143
+**Last updated:** Step 144
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,21 +16,21 @@
 
 - **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline.
 
-- BE3 A/B/A+B refine pack + companion `ss_v1.json` uploaded.
+- BE3 A/B/A+B refine pack + SS Writing/I Can dry checks **9/9** (A+B only dual Pass).
 
-- **BE3 SS Writing + I Can dry checks complete (9/9):** A+B only dual Pass on every unit; overviews unchanged; methodology not locked.
+- **Owner decision recorded (2026-10-15):** prefer **A+B** for **BE3-SB only**; BE2 v2 unchanged; methodology/schema **not locked**; no implementation in this step.
 
 ## In progress
 
-- **Owner decision** on BE3 path (A / B / A+B / hybrid / pause).
+- None (decision recorded; awaiting owner next experiment/follow-up prompt).
 
 ## Next
 
-- Owner records preferred path — no auto-approval of A+B despite 9/9 dual Pass.
+- Owner-gated options: thin A+B LO writing fragments; test A+B on another book; pause refine work; or other D017 follow-ups — **no auto-implementation**.
 
 ## Blocked
 
-- Soft: awaiting owner decision. F017 pipeline promotion still parked.
+- None hard. Soft: F017 pipeline promotion still parked.
 
 ---
 
@@ -38,8 +38,8 @@
 
 - Active Git branch: `phase-2`.
 
-- Full roll-up: [`phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md)
+- Decision record: [`4-decisions.md`](./4-decisions.md) D017 working approvals.
 
-- Owner decision pack: [`phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md)
+- Preferred BE3 artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)
 
-- Direction: D017 LOCKED.
+- Direction: D017 LOCKED; D018 LOCKED (Chalkie prompt iterations).

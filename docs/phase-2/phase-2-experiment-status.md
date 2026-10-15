@@ -1,7 +1,7 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.14  
+**Version:** 1.15  
 **Date:** 2026-10-15  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
@@ -17,8 +17,9 @@
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
-| Next proposed step | **Owner decision** on A / B / A+B / hybrid / pause — dry checks complete; no auto-approval |
-| BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; roll-up ready; **no methodology lock** |
+| Next proposed step | Owner-gated follow-ups only (e.g. thin A+B LOs; apply A+B to another book; pause) — **no implementation locked** |
+| BE3 preferred path | Owner prefers **A+B** for **BE3-SB only** (2026-10-15); BE2 v2 baseline unchanged; methodology/schema **not locked** |
+| BE3 SS dry checks | **Complete 9/9** — A+B only dual Pass vs `ss_v1.json`; decision recorded under D017 working approvals |
 | BE3 diagnostic | [`experiments/be3-book-intelligence-diagnostic-d017-v1.md`](./experiments/be3-book-intelligence-diagnostic-d017-v1.md) — Writing presentation + LO inference gaps; Phase 1 writing evidence present |
 | BE5 baseline stress test | [`experiments/be5-sb-u01-u09-book-overview-d017-v1.md`](./experiments/be5-sb-u01-u09-book-overview-d017-v1.md) — unchanged method; stress-test only (**not** approved overview); publisher S&S unavailable |
 | BE3 Step 3 A/B refine | Exp A + Exp B + isolation comparison completed; **not accepted**; methodology **not locked** |
@@ -132,6 +133,21 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 - Owner pack addendum: [`experiments/be3-ab-combined-owner-review-d017-v1.md`](./experiments/be3-ab-combined-owner-review-d017-v1.md) §8
 
 **Result (AI-assessed):** A+B dual-Passes **9/9** units on Writing + writing-I-Can vs `ss_v1.json`. Control/A/B never dual-Pass. **Proceed to owner decision** — no auto-approval, no methodology change, no BE2 v2 change.
+
+### Owner decision — prefer BE3 A+B (2026-10-15)
+
+**Record:** [`../4-decisions.md`](../4-decisions.md) D017 working approvals; [`experiments/be3-ab-combined-owner-review-d017-v1.md`](./experiments/be3-ab-combined-owner-review-d017-v1.md) §9.
+
+| Item | Decision |
+|---|---|
+| Preferred path | **A+B** |
+| Scope | **BE3-SB only** |
+| Preferred artifact | [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md) |
+| BE2-SB v2 baseline | Unchanged |
+| Methodology / schema | **Not locked** |
+| Implementation | None in the decision-recording step |
+
+Control / A / B experiment artifacts remain preserved for comparison history.
 
 ---
 

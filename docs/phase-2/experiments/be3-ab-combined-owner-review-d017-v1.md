@@ -1,9 +1,10 @@
 # BE3 A / B / A+B — Owner Review Report (D017)
 
 **Date:** 2026-10-13  
-**Status:** EXPERIMENTAL owner-review pack — **no version approved**; **methodology not locked**  
+**Status:** OWNER DECISION RECORDED (2026-10-15) — prefer **A+B** for **BE3-SB only**; **methodology / schema not locked**  
 **Branch:** `phase-2`  
-**Detailed comparison:** [`be3-methodology-a-b-ab-comparison-d017-v1.md`](./be3-methodology-a-b-ab-comparison-d017-v1.md)
+**Detailed comparison:** [`be3-methodology-a-b-ab-comparison-d017-v1.md`](./be3-methodology-a-b-ab-comparison-d017-v1.md)  
+**Decision log:** [`../../4-decisions.md`](../../4-decisions.md) (D017 working approvals)
 
 ---
 
@@ -97,10 +98,24 @@ Full-unit dry checks against companion `ss_v1.json` are **complete**. Roll-up: [
 
 ---
 
-## 9. Stop line
+## 9. Owner decision (2026-10-15)
 
-**STOP FOR OWNER DECISION.**  
-Dry-check series complete. No overview approved. No working baseline changed. No methodology locked. No Phase 3 started.
+| Item | Decision |
+|---|---|
+| Preferred BE3 path | **A+B** (writing-aware LOs + Writing column) |
+| Scope | **BE3-SB only** |
+| BE2-SB v2 baseline | **Unchanged** (eight-column provisional working baseline) |
+| Methodology / schema | **Not locked** |
+| Implementation | **None in this step** — documentation record only |
+| Control / A / B artifacts | **Preserved** unchanged |
+
+Recorded under D017 working approvals in [`../../4-decisions.md`](../../4-decisions.md). Preferred overview artifact: [`be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./be3-sb-u01-u09-book-overview-d017-exp-ab.md).
+
+---
+
+## 10. Stop line
+
+**Owner decision recorded.** No methodology lock. No schema lock. No BE2 baseline change. No implementation in this step. No Phase 3 started.
 
 ---
 
@@ -110,3 +125,4 @@ Dry-check series complete. No overview approved. No working baseline changed. No
 |---|---|
 | 2026-10-13 | Created owner-review pack after BE3 combined A+B experiment. |
 | 2026-10-15 | Added §8 SS Writing + I Can dry-check addendum after 9/9 roll-up; stop for owner decision. |
+| 2026-10-15 | Recorded owner decision: prefer A+B for BE3-SB only; no methodology/schema lock. |

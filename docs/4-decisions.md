@@ -52,6 +52,7 @@
 | D015 | Pause Phase 1 at 14/18; prioritize bounded Phase 2 experiments | 2026-10-09 | LOCKED |
 | D016 | First Phase 2 candidates: BE2-SB U6 / U7 / U8; U6 first | 2026-10-09 | LOCKED |
 | D017 | Progressive Curriculum Intelligence | 2026-10-12 | LOCKED |
+| D018 | Five-iteration Chalkie prompt validation | 2026-10-15 | LOCKED |
 
 ---
 
@@ -285,6 +286,30 @@
 **Supersedes:** Prior D017 wording (2026-10-11 V3.1 + Cross-Unit V1.2 process preference)  
 **Does not supersede:** D001, D015, D016
 
+#### Working approvals under D017 (not methodology / schema locks)
+
+These are owner experiment outcomes recorded under D017. They do **not** reopen or rewrite the LOCKED decision above, and they do **not** lock Phase 2 format, schema, prompts, database, API, or UI.
+
+| Date | Approval | Scope | Explicit non-locks |
+|---|---|---|---|
+| 2026-10-13 | BE2-SB D017 **v2** accepted as provisional Book Intelligence working baseline (eight-column) | BE2-SB continued experimentation | Methodology / schema / format not locked |
+| 2026-10-15 | Prefer BE3 Experiment **A+B** (writing-aware Learning Outcomes **+** Writing column) as the BE3-SB experimental Book Intelligence path | **BE3-SB only** | Does **not** change BE2 v2 baseline; does **not** lock methodology/schema; does **not** auto-apply A+B to other books |
+
+**BE3 A+B evidence (2026-10-15):** SS Writing + I Can dry checks dual-Pass **9/9** vs companion `ss_v1.json` — [`phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](./phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md). Owner pack: [`phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](./phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md). Preferred artifact: [`phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./phase-2/experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md). Control / A / B isolates preserved unchanged.
+
+---
+
+### D018 — Five-iteration Chalkie prompt validation
+
+**Date:** 2026-10-15  
+**Status:** LOCKED  
+**Decision:** Develop and evaluate Chalkie lesson-generation prompts through five cumulative iterations: (V1) Scope & Sequence + Student Book page-specific evidence, (V2) + Workbook, (V3) + AI Curriculum Intelligence, (V4) + Teacher Intelligence, (V5) + School-Specific Intelligence. Start V1 with the two Student Book pages already displayed in the UI. Each iteration must yield a usable Chalkie prompt and be evaluated against its generated lesson to establish meaningful improvement, not merely increased prompt length.  
+**Reason:** Scope & Sequence alone lacks the page-specific teaching content needed for a useful lesson; combining it with the Student Book creates a meaningful, testable baseline while preserving progressive simplicity.  
+**Alternatives rejected:** Scope & Sequence-only V1; Student Book-only V1; six iterations separating Scope & Sequence and Student Book.  
+**Implications:** Preserve source-evidence vs AI-inference boundaries. Gemini remains primarily the extraction tool and OpenAI API the proposed interpretation/prompt-generation tool. Keep lesson scope and evaluation criteria consistent for comparisons. No JSON schema, API implementation, UI redesign, or deployment is locked by this decision.  
+**Supersedes:** —  
+**Compatibility:** Complements D017; does not replace the existing horizontal/vertical mapping phase distinctions.
+
 ---
 
 ## Change log
@@ -307,4 +332,6 @@
 | 2026-10-09 | Added D016 — first Phase 2 candidates BE2-SB U6/U7/U8 with Unit 6 first; protocol defined without schema lock. |
 | 2026-10-11 | Added D017 — prefer V3.1 unit SoT + Cross-Unit V1.2 connections for BE2 experiments; explicitly not a methodology/schema lock. |
 | 2026-10-12 | Replaced D017 with Progressive Curriculum Intelligence; prior V3.1+V1.2 preference retained as historical research note only; next proposed experiment = BE2-SB U1–9 book overview (awaiting owner execution approval). |
+| 2026-10-15 | Added D018 — five cumulative Chalkie prompt iterations, starting with combined Scope & Sequence + Student Book. |
+| 2026-10-15 | Recorded D017 working approval: prefer BE3 Experiment A+B for BE3-SB only; no methodology/schema lock; BE2 v2 baseline unchanged. |
 

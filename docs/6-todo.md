@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 143
+**Last updated:** Step 144
 
 
 
@@ -102,11 +102,15 @@
 
 
 
-- [ ] **Owner decision:** BE3 path A / B / A+B / hybrid / pause (dry checks 9/9 complete; no auto-approval; no methodology change yet).
+- [ ] Owner-gated follow-up only (no auto-implementation): thin A+B LOs, test A+B on another book, pause, or other D017 next step.
 
 
 
 ## Soon
+
+
+
+- [x] Owner decision recorded: prefer BE3 A+B for BE3-SB only; no methodology/schema lock; BE2 v2 unchanged.
 
 
 

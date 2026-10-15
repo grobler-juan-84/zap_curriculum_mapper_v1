@@ -1,7 +1,7 @@
 # BE3 Full Roll-Up — SS Writing + I Can Dry Checks (D017)
 
 **Date:** 2026-10-15  
-**Status:** READY FOR OWNER DECISION — **no overview approved**; **no methodology locked**; **no BE2 baseline change**  
+**Status:** OWNER DECISION RECORDED (2026-10-15) — prefer **A+B** for **BE3-SB only**; **no methodology/schema lock**; **no BE2 baseline change**  
 **Criterion:** Dual Pass = publisher Writing strand visible in overview **and** writing metalanguage present in Learning Outcomes, checked against `ss_v1.json`  
 **Compared variants:** Control / A / B / A+B (all unchanged)
 
@@ -64,14 +64,17 @@
 
 ---
 
-## 4. Proceed to owner decision
+## 4. Owner decision (recorded)
 
-Dry-check series is **complete**. Next action is owner path choice using:
+| Item | Decision |
+|---|---|
+| Preferred path | **A+B** |
+| Scope | **BE3-SB only** |
+| Methodology / schema | **Not locked** |
+| BE2 v2 baseline | **Unchanged** |
+| Implementation this step | **None** |
 
-1. This roll-up (Writing + I Can evidence, 9/9)  
-2. [`be3-ab-combined-owner-review-d017-v1.md`](./be3-ab-combined-owner-review-d017-v1.md) (usability / density / unresolved decisions)
-
-**STOP FOR OWNER DECISION.**
+Canonical record: [`../../4-decisions.md`](../../4-decisions.md) D017 working approvals. Owner pack: [`be3-ab-combined-owner-review-d017-v1.md`](./be3-ab-combined-owner-review-d017-v1.md) §9.
 
 ---
 
@@ -80,3 +83,4 @@ Dry-check series is **complete**. Next action is owner path choice using:
 | Date | Change |
 |---|---|
 | 2026-10-15 | Full 9/9 roll-up after Units 4/6/7/8 completed; A+B only dual Pass; proceed to owner decision. |
+| 2026-10-15 | Owner decision recorded: prefer A+B for BE3-SB only; no methodology/schema lock. |

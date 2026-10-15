@@ -9,7 +9,7 @@
 **Source dataset:** `data/phase1/big_english_3_sb/canonical/v1.json` (catalog `big_english_3_sb`, schema 0.1)  
 **Publisher S&S:** **not used to generate this overview**  
 **Scope:** Big English 3 Student Book, Units 1–9 only  
-**Status:** EXPERIMENTAL — **not accepted**; not a methodology or schema lock
+**Status:** EXPERIMENTAL — owner-preferred **BE3-SB** Book Intelligence path (2026-10-15); **not** a methodology/schema lock; does **not** replace BE2-SB v2 baseline
 
 ---
 

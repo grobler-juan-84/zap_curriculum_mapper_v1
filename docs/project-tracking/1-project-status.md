@@ -2,18 +2,18 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 143  
+**Last updated:** Step 144  
 **Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
 
 ## What has been done
 
-- BE3 A/B/A+B experiments complete; SS Writing + I Can dry checks **9/9** (A+B only dual Pass).
-- Ready for owner decision; no methodology lock; no auto-approval.
+- Owner prefers BE3 Experiment **A+B** for **BE3-SB only** (recorded under D017 working approvals).
+- BE2 v2 baseline unchanged; methodology/schema not locked; no implementation this step.
 
 ## Current status
 
-On branch `phase-2`. **STOP FOR OWNER DECISION.**
+On branch `phase-2`. BE3 path decision recorded; awaiting owner next prompt.
 
 ## Next small step
 
-**Suggestion:** Choose A, B, A+B, hybrid, or pause using [`../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md`](../phase-2/experiments/be3-ab-combined-owner-review-d017-v1.md) and [`../phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md`](../phase-2/experiments/be3-ss-writing-ican-dry-check-full-roll-up-d017-v1.md).
+**Suggestion:** Owner chooses a follow-up (thin A+B LOs, apply A+B to another book, pause, or other) — do not implement until asked.
