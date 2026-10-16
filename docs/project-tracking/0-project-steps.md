@@ -3156,4 +3156,21 @@
 
 ---
 
+### Step 179
+
+**Summary:** Reconciled documentation to teacher-first development priorities with D018 as immediate Chalkie prompt-validation experiment. Clarified Vertical Mapping parked (not a D018 prerequisite); promoted F007 partially; preserved D017/D018/D019 and seven-phase architecture without methodology locks or code changes.
+
+**Files touched:**
+- `docs/1-project-overview.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/11-curriculum-mapping-workflow.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

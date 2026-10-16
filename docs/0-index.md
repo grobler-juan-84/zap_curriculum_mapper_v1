@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Active direction is D017 Progressive Curriculum Intelligence (minimum-sufficient Phase 2 Book Intelligence first). Earlier LR / V3.1 / V1.2 / e2e / enrichment work remains historical research under D015/D016.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Active development follows a **teacher-first** priority order; **immediate experiment is D018** (five-iteration Chalkie prompt validation). Book Intelligence remains provisional under D017/D019; Vertical Mapping is parked. Earlier LR / V3.1 / V1.2 / e2e / enrichment work remains historical research under D015/D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -30,17 +30,17 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | High-level project purpose, principles and seven-phase architecture; D015 pauses Phase 1 at 14/18; D017 Book Intelligence with BE2 v2 baseline; D019 two-book BI MVP UI validated (implementation only; methodologies provisional). | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; D018 immediate Chalkie prompt experiment; D017/D019 Book Intelligence provisional; Vertical Mapping parked. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
-| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries, data flow from source evidence through interpretation, enrichment, packaging, generation, plus cross-cutting storage. | — | ACTIVE |
+| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; notes that development priority may run D018 packaging/generation experiments while Phase 3 Vertical Mapping stays parked. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work and ideas not now; includes F017 publisher curriculum-plan extraction and F018 review/checkpoint extraction (both PARKED). | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Vertical Mapping parked; F007 partially promoted (D018 experiments active; full Chalkie productization still later); F017/F018 PARKED. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
-| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow for Phases 1–4 (purpose, inputs, process, outputs, validation, handoffs) under D017; Phases 5–7 referenced only. | 1.0 | ACTIVE |
+| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow; phase map vs teacher-first priorities; D018 Chalkie experiments; Vertical Mapping parked. | 1.0 | ACTIVE |
 
 ### Project tracking
 
@@ -150,7 +150,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 handover spec from Chalkie.ai experiments; retained while D015 Phase 2 interpretation experiments are the active priority. | V1 | PARKED |
+| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 five-iteration prompt validation is the active experiment (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
 

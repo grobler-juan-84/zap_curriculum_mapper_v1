@@ -30,18 +30,22 @@ This document is intentionally **not locked**. Change it when evidence from real
 
 ---
 
-## 2. Phase map (current focus)
+## 2. Phase map (architecture vs development priority)
 
-| Phase | Name | Primary question | Status under D017 / D015 |
+Conceptual phases stay numbered as in [`3-architecture.md`](./3-architecture.md) and D017. **Development priority does not have to follow phase numbers.**
+
+| Phase | Name | Primary question | Development status |
 |---|---|---|---|
-| **1** | Extraction / Book Evidence | What does the source contain? | PAUSED at 14/18 COMPLETE; resume only by owner decision |
-| **2** | Book Intelligence / Horizontal Mapping | What does this book teach unit by unit? | Active priority — minimum-sufficient overviews |
-| **3** | Series Intelligence / Vertical Mapping | How does learning develop across books? | Later — after useful Phase 2 book overviews |
-| **4** | Teaching Intelligence | What scaffolding, recycling, gaps, enrichment are justified? | Later — uses Phase 3 + earlier evidence |
+| **1** | Extraction / Book Evidence | What does the source contain? | PAUSED at 14/18 COMPLETE (D015); resume only by owner decision |
+| **2** | Book Intelligence / Horizontal Mapping | What does this book teach unit by unit? | Provisional baselines + BI UI implementation-validated for BE2/BE3 (D017/D019); methodology **not locked** |
+| **3** | Series Intelligence / Vertical Mapping | How does learning develop across books? | **PARKED** — not a prerequisite for current Chalkie experiments (F005) |
+| **4** | Teaching Intelligence | What scaffolding, recycling, gaps, enrichment are justified? | Experimental priority in the teacher-first workflow (not a production engine) |
+| **5–6** | Lesson packaging / generation | Package intelligence → Chalkie prompt → evaluate generated lesson | **Immediate experiment: D018** (five cumulative iterations; LOCKED decision) |
+| **7** | Evaluation & refinement | Where did problems originate? | Continuous alongside experiments |
 
-**Later phases (5–7)** — Lesson packaging, generation, and evaluation remain in the architecture ([`3-architecture.md`](./3-architecture.md)) but are **out of scope** for this workflow document. No redesign is authorized here.
+**Teacher-first priority order (operational):** Teacher Workspace → Curriculum Requirements → Teaching Intelligence → Lesson Packaging (Chalkie prompt) → Vertical Mapping (**parked**).
 
-**Proposed decisions:** Any draft labeled **D018** (or similar) is **proposed only** until recorded LOCKED in [`4-decisions.md`](./4-decisions.md). Do not treat proposed text as authority.
+**Authority:** Locked decisions live in [`4-decisions.md`](./4-decisions.md) (**D017**, **D018**, **D019**). Do not treat proposed drafts as authority.
 
 ---
 

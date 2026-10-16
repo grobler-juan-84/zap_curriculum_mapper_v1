@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 178
+**Last updated:** Step 179
 
 
 
@@ -230,11 +230,19 @@
 
 
 
-- [ ] Owner-gated: `book_files` / harden preview / pause.
+- [ ] **D018** Chalkie prompt validation — run V1 (Scope & Sequence + Student Book page-specific evidence); evaluate the prompt against its generated lesson.
 
 
 
 ## Soon
+
+
+
+- [ ] Continue D018 cumulative iterations V2–V5 only after V1 evaluation (do not skip evaluation).
+
+
+
+- [ ] Owner-gated BI ops: `book_files` / harden preview / pause (not blocking D018).
 
 
 
@@ -274,7 +282,7 @@
 
 
 
-- [ ] Teacher-readability validation via Chalkie workspace (deferred; not an active Phase 2 blocker).
+- [ ] Full Phase 5–6 Chalkie packaging/generation **productization** / locked handover (F007 remainder; D018 experiments come first).
 
 
 

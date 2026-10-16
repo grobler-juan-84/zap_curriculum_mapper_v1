@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Phase 2 — Book Intelligence / Progressive Curriculum Intelligence (D015, D017)  
+**Current Development Focus:** Teacher-first workflow — immediate experiment **D018** (five-iteration Chalkie prompt validation); Book Intelligence remains provisional under D017/D019  
 **Workflow:** [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)
 
 ---
@@ -166,19 +166,29 @@ Evaluate outputs, identify where problems originated, and improve the appropriat
 
 ---
 
-## 6. Current Priority — Phase 2 (Book Intelligence)
+## 6. Current Priority — Teacher-first workflow (D018 immediate experiment)
 
-Phase 1 is intentionally **PAUSED at 14 / 18 COMPLETE** (D015). All 12 Big English books, Beehive 1 and Reach Higher 2A have completed extraction, human verification, canonical merge, D008 validation and whole-book audit. Phase 1 is neither completed nor abandoned.
+Development priority follows a **teacher-first** sequence. Conceptual phase numbers remain the architecture (§5); **priority order does not have to follow phase numbers**.
 
-The full Phase 1 pipelines for Beehive 2, Reach Higher 2B, Reach Higher 3A and Reach Higher 4A remain deferred.
+| Priority | Component | Purpose | Status |
+|---|---|---|---|
+| 1 | Teacher Workspace | Select a book, unit, and lesson | In use (Library / BI / Validation paths under D019) |
+| 2 | Curriculum Requirements | Identify exactly what needs to be taught | Book Intelligence provisional (D017/D019) |
+| 3 | Teaching Intelligence | Suggest scaffolding, recycling, and appropriate enrichment | Experimental priority (aligns with Phase 4 intent; not a production engine) |
+| 4 | Lesson Packaging | Produce a high-quality Chalkie.ai prompt | **Immediate experiment: D018** (five cumulative iterations; each prompt evaluated against its generated lesson) |
+| 5 | Vertical Mapping | Improve recommendations using previous and future learning | **PARKED** — not a prerequisite for current Chalkie experiments (F005 / D017) |
 
-Active direction is **D017 Progressive Curriculum Intelligence**: start with minimum-sufficient Phase 2 book intelligence, then expand only when downstream tests show a real need. Immediate Phase 2 work stays on completed Big English datasets (Beehive and Reach Higher excluded for now).
+**Immediate experimental priority:** [`4-decisions.md`](./4-decisions.md) **D018** — Five-iteration Chalkie prompt validation. Teaching Intelligence and Chalkie packaging are priorities for **experimentation**, not completed production capabilities. Curriculum evidence, AI interpretation, and optional enrichment must remain distinguishable.
 
-**Book Intelligence working baseline:** Big English 2 Student Book Units 1–9 — D017 **v2** owner-approved **provisional** eight-column working baseline. BE3-SB prefers **provisional** nine-column A+B (D017 working approval; BE3-SB only). BE1-SB and BE3-SB early eight-column overviews remain experimental/not accepted where superseded. BE1→BE2→BE3 vertical sufficiency probe finds coarse progression signals sufficient for bounded Series Intelligence experiments — **not** a Phase 3 start. Book Intelligence MVP UI path is **implementation-validated for BE2-SB and BE3-SB** (D019: Library → BI → Unit → Validation → Back); format / methodology / schema / UI contract remain **not locked**. Parked Phase 1 ideas: F017 / F018.
+**Preserved foundations (not undone by this priority shift):**
 
-**Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and the U6 e2e / enrichment probes remain preserved evidence under D017 principle 4.
+- Phase 1 remains **PAUSED at 14 / 18 COMPLETE** (D015). Deferred: BH2, RH2B, RH3A, RH4A.
+- **D017** Progressive Curriculum Intelligence remains LOCKED. BE2-SB D017 **v2** eight-column and BE3-SB nine-column **A+B** preferences remain **provisional**. Format / methodology / schema are **not locked**.
+- **D019** Book Intelligence MVP UI path is **implementation-validated** for BE2-SB and BE3-SB only; methodologies remain provisional; contract/schema not locked.
+- Vertical Mapping / Phase 3 productization stays parked; bounded Series Intelligence research evidence may exist without unlocking Phase 3.
+- Parked Phase 1 ideas: F017 / F018.
 
-This direction does **not** lock a Phase 2 implementation, JSON schema, storage model, API, or UI. Phase 3 Series Intelligence remains later controlled work after a useful book overview exists.
+**Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and U6 e2e / enrichment probes remain preserved under D017 principle 4.
 
 ---
 
@@ -341,15 +351,15 @@ The mapper should therefore support progression from recognition toward accurate
 
 ---
 
-## 14. Lesson Generation
+## 14. Lesson Generation (experimental priority under D018)
 
-AI lesson generation remains part of the long-term architecture, but it is **not the current development priority**.
+AI-assisted lesson generation remains part of the seven-phase architecture (Phases 5–6).
 
-Previous Chalkie testing has already demonstrated that structured curriculum intelligence can produce useful AI-generated lesson skeletons.
+**Immediate experimental work** follows **D018**: five cumulative Chalkie prompt iterations (V1 Scope & Sequence + Student Book page evidence → … → V5 School-Specific Intelligence). Each iteration must produce a usable Chalkie prompt and be evaluated against the lesson it generates. This is **prompt-validation experimentation**, not a locked packaging schema or production generation pipeline.
 
-Current development should therefore focus on strengthening the upstream curriculum dataset and mapping system.
+Previous Chalkie testing already showed that structured curriculum intelligence can produce useful AI-generated lesson skeletons. Upstream Book Intelligence (D017/D019) stays provisional evidence for those experiments. Vertical Mapping is **not** required before running D018 iterations.
 
-Chalkie or other lesson-generation systems can be revisited once the curriculum intelligence pipeline is sufficiently reliable.
+Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007).
 
 ---
 
@@ -375,21 +385,20 @@ The interface should therefore evolve alongside the curriculum model.
 
 ## 16. Current Success Definition
 
-The current project milestone is:
+Near-term success is:
 
-> **Use the completed Big English evidence base to learn what reliable, traceable curriculum and linguistic interpretation should contain before committing to a Phase 2 schema or implementation.**
+> **Run D018 Chalkie prompt iterations with clear evaluation against generated lessons, while keeping Book Intelligence methodologies provisional and Vertical Mapping parked.**
 
 Success at this stage does **not** require:
 
 - complete automation,
 - completion of the four deferred Phase 1 books,
-- a finalized Phase 2 schema or architecture,
-- perfect extraction,
-- perfect enrichment,
-- perfect lesson generation,
+- a finalized Phase 2 / packaging / generation schema,
+- perfect extraction, enrichment, or lesson generation,
+- unlocking Phase 3 Vertical Mapping,
 - or a finished production application.
 
-It requires a sufficiently accurate and useful curriculum model that can continue evolving as additional books and curriculum sources become available.
+It requires useful, evaluable Chalkie prompts grounded in distinguishable curriculum evidence and AI interpretation, without premature locks.
 
 ---
 

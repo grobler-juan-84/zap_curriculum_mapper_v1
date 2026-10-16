@@ -38,6 +38,8 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Current teacher-first work may experiment with Teaching Intelligence and lesson packaging / Chalkie prompts (**D018**) before unlocking Series Intelligence / Vertical Mapping (Phase 3), which remains **parked**. That does not collapse phase boundaries or treat experimental prompts as production generation.
+
 ---
 
 # 2. Core Architecture Principle
@@ -391,6 +393,8 @@ The exact lesson-package structure is not yet permanently locked.
 # 11. Phase 6 — Lesson Generation
 
 Phase 6 turns the lesson package into usable teaching material.
+
+**Current experiments:** Locked decision **D018** authorizes five-iteration Chalkie **prompt validation** (evaluate each prompt against its generated lesson). That is experimental packaging/generation practice, not a locked Phase 6 product or schema.
 
 Possible outputs may eventually include:
 

@@ -2,8 +2,8 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 133  
-**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active Phase 2 iteration.
+**Last updated:** Step 179  
+**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active teacher-first / D018 Chalkie prompt experiments.
 
 ---
 
@@ -24,9 +24,9 @@
 | F002 | Relational / JSONB curriculum projections beyond ops metadata | Premature before canonical book JSON lifecycle is proven | brainstorming |
 | F003 | Google Sheets explorer over Phase 1 JSON | Superseded for pilot verification by `/app/validation`; Sheets remains optional later if useful | brainstorming |
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
-| F005 | Phase 3 Series Intelligence / vertical mapping products | Parked under D017; BE1→BE2→BE3 sufficiency probe (2026-10-13) supports only bounded experimental Series Intelligence — not Phase 3 productization or schema lock | architecture / D017 |
-| F006 | Phase 4 teacher enrichment productization | Philosophy exists; no enrichment engine work yet | phase-4 doc |
-| F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai handover patterns) | Parked handover spec; not current priority | phase-6 doc |
+| F005 | Phase 3 Series Intelligence / vertical mapping products | **PARKED** under D017; **not a prerequisite** for current D018 Chalkie prompt experiments. BE1→BE2→BE3 sufficiency probe supports only bounded experimental Series Intelligence — not Phase 3 productization or schema lock | architecture / D017 |
+| F006 | Phase 4 teacher enrichment **productization** (engine / production pipeline) | Bounded Teaching Intelligence experimentation may accompany D018; a full enrichment product remains later | phase-4 doc |
+| ~~F007~~ | ~~Phase 5–6 lesson packaging / generation (incl. Chalkie.ai)~~ | **Partially promoted 2026-10-16:** **D018** five-iteration Chalkie **prompt validation** is the immediate experimental priority. Full packaging/generation productization and locked Chalkie handover standards remain parked ([`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). | phase-6 / D018 |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
 | F009 | Wire Book Workspace to Storage-backed page models (replace Beehive mock spreads) | Valuable UX bridge; not required to finish Phase 1 evidence quality | app audit 2026-10-07 |
 | F010 | Persist Validation session notes | Useful ops polish; status writes already land in Postgres | Validation UI |
@@ -58,4 +58,4 @@
 
 ## Reminder
 
-If an idea starts steering today’s Phase 2 experiments toward an unproven schema, implementation or downstream product without an explicit user decision, park it here.
+If an idea starts steering today’s D018 Chalkie / Teaching Intelligence experiments toward an unproven schema, implementation, Vertical Mapping unlock, or downstream product without an explicit user decision, park it here.

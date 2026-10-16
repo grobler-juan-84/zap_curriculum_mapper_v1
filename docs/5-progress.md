@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 178
+**Last updated:** Step 179
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,23 +14,23 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **D017** locked; BE2-SB v2 provisional Book Intelligence working baseline (eight-column).
+- **D017** locked; BE2-SB v2 and BE3-SB A+B Book Intelligence preferences remain **provisional**.
 
-- **D019 (amended)** — Book Intelligence MVP UI path **implementation-validated for two books**: BE2-SB (`eight_column_baseline`) and BE3-SB (`nine_column_ab`). E2E + PDF U1–U9 acceptance PASS for both. Methodologies remain **provisional**; schema/contract **not locked**.
+- **D019** Book Intelligence MVP UI path **implementation-validated** for BE2-SB and BE3-SB (methodologies provisional; schema/contract not locked).
 
-- Dual column-set contract/loader/UI; BI companions in Storage; BI-first library/sidebar navigation.
+- Docs aligned to **teacher-first** priority order; Vertical Mapping stays parked; **D018** named as immediate experimental priority.
 
 ## In progress
 
-- None (awaiting owner direction).
+- **D018** — Five-iteration Chalkie prompt validation (immediate experimental priority).
 
 ## Next
 
-- Owner-gated: `book_files` / harden preview / pause.
+- Owner-gated: start / continue D018 V1 (Scope & Sequence + Student Book page evidence) with prompt-vs-lesson evaluation.
 
 ## Blocked
 
-- None hard. Soft: F017 parked; BI contract still draft; no Postgres BI registration.
+- None hard. Soft: Vertical Mapping (F005) parked by design; F017/F018 parked; BI methodologies still provisional.
 
 ---
 
@@ -38,6 +38,6 @@
 
 - Active Git branch: `phase-2`.
 
-- BE2 eight-column and BE3 nine-column A+B paths are both **implementation-validated** under D019; neither methodology is locked.
+- Teacher-first order: Workspace → Curriculum Requirements → Teaching Intelligence → Lesson Packaging (Chalkie) → Vertical Mapping (**parked**).
 
-- Direction: D017 / D018 / D019 LOCKED; Phase 2 methodology still **not** locked.
+- Direction: D017 / D018 / D019 LOCKED; Phase 2/4/5–6 methodologies **not** locked.
