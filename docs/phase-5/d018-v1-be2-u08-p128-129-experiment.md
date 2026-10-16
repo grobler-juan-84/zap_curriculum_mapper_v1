@@ -1,7 +1,7 @@
 # D018 V1 Experiment — BE2 SB Unit 8 pp. 128–129
 
-**Status:** ACTIVE / READY TO RUN  
-**Version:** 1.0  
+**Status:** ACTIVE / EVALUATION RECORDED (generation + rubric complete; formal Pass not met)  
+**Version:** 1.1  
 **Date:** 2026-10-16  
 **Decision:** D018 (LOCKED) — iteration **V1** only  
 **Pilot:** Big English 2 Student Book · Unit 8 *Wild Animals* · **printed pages 128–129**
@@ -113,27 +113,71 @@ Score each **Yes / Partial / No**. V1 passes only if the lesson is usable and pa
 
 | # | Criterion | Score | Notes |
 |---|---|---|---|
-| 1 | Scope stays on pp. 128–129 (no habitats/phonics/culture takeover) | | |
-| 2 | Uses the 12 [SB] animal names (or clearly the page set) | | |
-| 3 | Includes / prepares the [SB] like + can frame | | |
-| 4 | Supports book activity types (listen/say, game, song, T/F, ask/answer) without inventing missing audio scripts | | |
-| 5 | [SS] vs [SB] not silently fused into unmarked “facts” | | |
-| 6 | Short enough to paste/use in Chalkie (not a unit dump) | | |
-| 7 | Teacher could run the book pages after this lesson | | |
+| 1 | Scope stays on pp. 128–129 (no habitats/phonics/culture takeover) | **Yes** | No takeover by later unit topics |
+| 2 | Uses the 12 [SB] animal names (or clearly the page set) | **Yes** | All appear across vocabulary slides |
+| 3 | Includes / prepares the [SB] like + can frame | **Yes** | Explicit model and guided examples |
+| 4 | Supports book activity types (listen/say, game, song, T/F, ask/answer) without inventing missing audio scripts | **Partial** | Good coverage, but generated audio needs clearer separation from textbook audio |
+| 5 | [SS] vs [SB] not silently fused into unmarked “facts” | **Partial** | Some source labels retained; generated examples not consistently identified |
+| 6 | Short enough to paste/use in Chalkie (not a unit dump) | **Partial** | Several wordy slides and redundant checks |
+| 7 | Teacher could run the book pages after this lesson | **Yes** | Clear references to textbook activities |
+
+**Totals:** 4× Yes · 3× Partial · 0× No  
 
 **Pass rule (working):** At least **5× Yes**, zero hard scope failures on #1, and no invented listening scripts presented as book text.
 
+**Formal rubric outcome:** **BELOW PASS THRESHOLD** (4 Yes < 5 required). Criterion #1 passed (no hard scope failure).
+
 ---
 
-## Findings (fill after Chalkie run)
+## Findings (recorded after Chalkie run)
 
-**Run date:**  
-**Chalkie output:** (link / export / short description)  
-**Checklist scores:**  
-**What worked:**  
-**What failed or drifted:**  
-**Keep for V2?** (Workbook still out of scope until V1 Pass)  
-**Owner decision:** Pass / Iterate V1 / Pause  
+**Run date:** 2026-10-16 (generation preceded Chalkie ops-guide integration in docs)  
+**Prompt submitted:** Exact V1 paste block in this document — **unchanged**.  
+**Creation mode:** Prefer Single Lesson for V1 baseline — **owner-confirmed run**; other Refine settings **unverified** unless listed below.  
+**Verified settings:**
+- Slide count selected: **25**
+- Audio activities: **enabled**
+- Exported file: `Wild Animals(1).pdf` (**29** PDF pages)
+- Do **not** assume 29 PDF pages = 29 platform slides; answer-reveal states contributed to the page count difference.
+- Other settings (framework, theme, image style, vocabulary entry details, grade dropdowns, etc.): **unverified** — not recorded for this run.
+
+**Chalkie output:** Exported presentation `Wild Animals(1).pdf` (local owner export; not committed to the repository). Included a supplementary audio exercise titled *Visiting Wild Animals*. Generated audio must **not** be presented as official publisher audio.
+
+**Checklist scores:** See table above (4 Yes / 3 Partial / 0 No).
+
+**What worked (strengths):**
+- Correct curriculum scope (pp. 128–129).
+- Complete target animal vocabulary.
+- Correct target language frame (like + can).
+- Useful textbook references.
+- Usable first-generation teaching material.
+
+**What failed or drifted (weaknesses):**
+- Excessive student-facing text.
+- Some repetitive checking activities.
+- Generated content not always clearly distinguished from textbook content.
+- Supplementary generated audio could be mistaken for publisher audio.
+
+**Potential improvements to investigate later** (hypotheses only — not locked requirements):
+- One teaching purpose per slide.
+- Large images before explanations.
+- Minimal student-facing text.
+- Approximately 15–20 words per ordinary teaching slide, excluding essential target sentences.
+- Clear identification of supplementary generated activities.
+
+**Experiment status (accurate):**
+| Field | Record |
+|---|---|
+| Generation + evaluation | **Completed** |
+| Formal rubric outcome | **BELOW PASS THRESHOLD** |
+| Practical outcome | **CONDITIONALLY ACCEPTED AS A COMPARATIVE BASELINE** |
+| V1 rerun | **Not performed** |
+| Chalkie workflow guide | Integrated in docs **after** this experiment; **no retest** against that guide |
+| V2 | **Not started** |
+| Owner authorization to bypass formal V1 Pass gate | **NOT YET RECORDED** |
+
+**Keep for V2?** Workbook (V2) remains out of scope until a formal V1 Pass **or** explicit owner authorization to bypass the Pass gate (neither is recorded yet).  
+**Owner decision:** Formal Pass **not** met. Practical stance: **conditionally accept as comparative baseline**. Options still open: Iterate V1 / Pause / authorize bypass for V2 (owner only).
 
 ---
 
@@ -155,3 +199,4 @@ Score each **Yes / Partial / No**. V1 passes only if the lesson is usable and pa
 | Date | Note |
 |---|---|
 | 2026-10-16 | Created smallest D018 V1 BE2 pack: SS companion verified/uploaded + ready paste prompt + evaluation checklist. No app/schema changes. |
+| 2026-10-16 | Recorded completed Chalkie run + seven-criterion evaluation: 4 Yes / 3 Partial; formal Pass not met; conditionally accepted as comparative baseline; V2 not started; bypass authorization not recorded. |

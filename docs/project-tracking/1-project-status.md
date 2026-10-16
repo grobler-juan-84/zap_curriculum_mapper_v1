@@ -1,18 +1,18 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 181
+**Last synced:** Step 182
 
 ## One-line state
 
-- Chalkie interface & generation workflow V1 integrated as an Active/Evolving ops reference.
-- D018 V1 pilot pack ready: BE2 U8 pp. 128–129 (manual Chalkie paste + evaluation); findings still open.
+- D018 V1 generation + evaluation recorded (BELOW PASS THRESHOLD; comparative baseline only).
+- V2 not started; owner Pass-gate bypass not recorded.
 - Vertical Mapping and Floor/Enrichment/Extension modularization remain parked.
 
 ## Branch
 
-On branch `phase-2`. Active experimental focus: **D018 V1** Chalkie prompt validation (BE2).
+On branch `phase-2`. Active focus: owner decision after D018 V1 (Iterate / Pause / authorize V2 bypass).
 
 ## Suggested next prompt
 
-**Suggestion:** Run the V1 Chalkie paste from `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md`, record settings per the Phase 6 ops guide, score the lesson, and record Pass / Iterate.
+**Suggestion:** Decide whether to Iterate V1, Pause, or explicitly authorize bypass of the formal V1 Pass gate before any V2 Workbook experiment.

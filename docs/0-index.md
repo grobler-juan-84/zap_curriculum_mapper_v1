@@ -150,7 +150,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | Smallest D018 V1 Chalkie prompt experiment: BE2 SB Unit 8 pp. 128–129 using SS companion + Phase 1 page evidence; ready paste block + evaluation checklist (manual; no new infra). | 1.0 | ACTIVE |
+| [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): generation + seven-criterion evaluation recorded — 4 Yes / 3 Partial; formal Pass not met; conditionally accepted as comparative baseline; V2 not started. | 1.1 | ACTIVE |
 
 ### Phase 6
 

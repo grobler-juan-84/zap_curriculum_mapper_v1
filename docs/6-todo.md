@@ -238,7 +238,7 @@
 
 
 
-- [ ] **D018 V1** — paste prompt into Chalkie; evaluate generated lesson; record findings in [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md).
+- [x] **D018 V1** — paste prompt into Chalkie; evaluate generated lesson; record findings in [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) (4 Yes / 3 Partial; formal Pass **not** met; comparative baseline only).
 
 
 
@@ -246,7 +246,11 @@
 
 
 
-- [ ] Continue D018 cumulative iterations V2–V5 only after V1 evaluation (do not skip evaluation).
+- [ ] Owner decision: Iterate V1 / Pause / authorize bypass of formal V1 Pass gate (required before any V2 Workbook work).
+
+
+
+- [ ] Continue D018 cumulative iterations V2–V5 only after formal V1 Pass **or** recorded owner bypass (do not auto-start V2).
 
 
 

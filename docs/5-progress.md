@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 181
+**Last updated:** Step 182
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,21 +22,21 @@
 
 - BE2 companion SS `ss_v1.json` verified locally + uploaded to Storage (beside SB `v1.json`; not in `dataset_versions`).
 
-- D018 V1 experiment pack prepared: BE2 U8 pp. 128–129 (SS + SB page evidence; ready paste + checklist).
+- D018 V1 experiment pack prepared; Chalkie ops guide integrated (Step 181).
 
-- **2026-10-16:** Integrated Chalkie interface & generation workflow V1 into docs as an **operational tool reference** (Active/Evolving; not a product lock). D018 decision substance unchanged; V2–V5 **not** completed.
+- **D018 V1** generation + evaluation **recorded** (BE2 U8 pp. 128–129): 4 Yes / 3 Partial / 0 No — **formal Pass not met**; **conditionally accepted as comparative baseline**. V2 not started; Pass-gate bypass **not** authorized.
 
 ## In progress
 
-- **D018 V1** — owner paste into Chalkie and evaluate generated lesson (findings still open). Use the workflow reference for settings recording and export/review practice.
+- Owner decision on next D018 move after V1 (Iterate V1 / Pause / authorize bypass to start V2).
 
 ## Next
 
-- Owner: run Chalkie with the V1 paste block; record settings; fill findings / Pass–Iterate decision before V2.
+- Owner: choose Iterate V1, Pause, or explicitly authorize bypass of the formal V1 Pass gate before any V2 Workbook work.
 
 ## Blocked
 
-- None hard. Soft: Vertical Mapping (F005) parked by design; F017/F018 parked; Floor/Enrichment/Extension multi-presentation strategy parked (F019); BI methodologies still provisional.
+- Soft: **V2 blocked** until formal V1 Pass **or** recorded owner bypass authorization. Vertical Mapping (F005) parked; F017/F018/F019 parked; BI methodologies provisional.
 
 ---
 
@@ -46,8 +46,8 @@
 
 - Teacher-first order: Workspace → Curriculum Requirements → Teaching Intelligence → Lesson Packaging (Chalkie) → Vertical Mapping (**parked**).
 
-- Pilot pack: [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md).
+- V1 findings: [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) — export `Wild Animals(1).pdf` (25 slides selected → 29 PDF pages; audio enabled; *Visiting Wild Animals* supplementary audio ≠ publisher audio).
 
-- Chalkie ops guide: [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md).
+- Chalkie ops guide exists but was integrated **after** this V1 run; no retest against that guide.
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2/4/5–6 methodologies **not** locked.

@@ -3212,4 +3212,18 @@
 
 ---
 
+### Step 182
+
+**Summary:** Recorded completed D018 V1 Chalkie generation and seven-criterion evaluation for BE2 U8 pp. 128–129. Formal rubric BELOW PASS THRESHOLD (4 Yes / 3 Partial); conditionally accepted as comparative baseline; V2 not started; Pass-gate bypass not authorized. No app/schema changes; D018 design unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
