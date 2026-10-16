@@ -150,7 +150,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): generation + seven-criterion evaluation recorded — 4 Yes / 3 Partial; formal Pass not met; conditionally accepted as comparative baseline; V2 not started. | 1.1 | ACTIVE |
+| [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): closed as comparative baseline (4 Yes / 3 Partial; formal Pass not met); one-time owner override authorizes V2 (+ Workbook); V2 prompt not generated. | 1.2 | ACTIVE |
 
 ### Phase 6
 

@@ -314,6 +314,8 @@ These are owner experiment outcomes recorded under D017. They do **not** reopen 
 
 **Operational note (2026-10-16):** For comparable D018 runs, record Chalkie creation mode and settings (framework, slide count, theme, vocabulary entry, audio activities, etc.) and review generated output against the prompt. Practical UI/export guidance lives in [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md). That reference does **not** change D018’s iteration scope, lock settings as standards, or unlock Phase 5–6 productization.
 
+**Owner override (2026-10-16) — one-time experimental authorization to proceed to V2:** D018 V1 (BE2 SB Unit 8 pp. 128–129) scored **4 Yes / 3 Partial / 0 No** and remains **BELOW PASS THRESHOLD** (working rule: ≥5 Yes). V1 is accepted as a **usable comparative baseline** only; it is **not** a formal Pass. The owner explicitly authorizes proceeding to **V2** (+ Workbook evidence for the same pilot pages) as a **one-time experimental override**. This override: does **not** change the seven-criterion rubric or Pass threshold; does **not** create a general rule that below-Pass runs may advance; does **not** authorize Phase 5–6 productization; does **not** start V3–V5; does **not** require a V1 rerun at this stage. Evidence: [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md).
+
 ---
 
 ### D019 — Book Intelligence MVP UI path validated (BE2 + BE3)
@@ -373,4 +375,5 @@ D017 operating principle 6 remains in force.
 | 2026-10-15 | Added D019 — BE3 BI MVP UI path implementation-validated; methodology/schema/contract explicitly not locked. |
 | 2026-10-15 | Amended D019 — two-book implementation validation (BE2 eight-column + BE3 nine-column); both methodologies remain provisional; schema/contract not locked. |
 | 2026-10-16 | D018 operational note — cross-reference Chalkie interface/generation workflow V1 for settings recording; decision substance unchanged. |
+| 2026-10-16 | D018 owner override — one-time experimental authorization to proceed to V2 despite V1 below formal Pass; rubric and decision design unchanged. |
 

@@ -3226,4 +3226,19 @@
 
 ---
 
+### Step 183
+
+**Summary:** Recorded owner one-time experimental override under D018 authorizing V2 (+ Workbook) despite V1 remaining BELOW PASS THRESHOLD. V1 closed as usable comparative baseline without formal Pass or rerun; rubric/productization/V3–V5 unchanged; V2 prompt not generated.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated — D018 owner override note only)
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

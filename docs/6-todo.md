@@ -242,15 +242,23 @@
 
 
 
+- [x] Record owner **one-time experimental override** under D018 authorizing V2 despite V1 below formal Pass (rubric unchanged; no new decision ID).
+
+
+
+- [ ] Prepare smallest **D018 V2** experiment pack (SS + SB pp. 128–129 + Workbook evidence) — documentation only; do not generate Chalkie prompt until pack is ready.
+
+
+
 ## Soon
 
 
 
-- [ ] Owner decision: Iterate V1 / Pause / authorize bypass of formal V1 Pass gate (required before any V2 Workbook work).
+- [ ] Run D018 V2 in Chalkie only after the V2 pack exists; evaluate with the same seven-criterion principles vs V1 baseline.
 
 
 
-- [ ] Continue D018 cumulative iterations V2–V5 only after formal V1 Pass **or** recorded owner bypass (do not auto-start V2).
+- [ ] Continue D018 V3–V5 only after separate owner authorization (this override does **not** unlock V3–V5).
 
 
 

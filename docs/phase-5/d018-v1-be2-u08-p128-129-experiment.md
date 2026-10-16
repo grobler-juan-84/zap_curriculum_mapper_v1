@@ -1,9 +1,9 @@
 # D018 V1 Experiment — BE2 SB Unit 8 pp. 128–129
 
-**Status:** ACTIVE / EVALUATION RECORDED (generation + rubric complete; formal Pass not met)  
-**Version:** 1.1  
+**Status:** CLOSED AS COMPARATIVE BASELINE (formal Pass not met; V2 authorized by one-time owner override)  
+**Version:** 1.2  
 **Date:** 2026-10-16  
-**Decision:** D018 (LOCKED) — iteration **V1** only  
+**Decision:** D018 (LOCKED) — iteration **V1** closed; **V2** authorized (override)  
 **Pilot:** Big English 2 Student Book · Unit 8 *Wild Animals* · **printed pages 128–129**
 
 ---
@@ -169,15 +169,16 @@ Score each **Yes / Partial / No**. V1 passes only if the lesson is usable and pa
 | Field | Record |
 |---|---|
 | Generation + evaluation | **Completed** |
-| Formal rubric outcome | **BELOW PASS THRESHOLD** |
-| Practical outcome | **CONDITIONALLY ACCEPTED AS A COMPARATIVE BASELINE** |
-| V1 rerun | **Not performed** |
+| Formal rubric outcome | **BELOW PASS THRESHOLD** (unchanged; not a formal Pass) |
+| Practical outcome | **ACCEPTED AS A USABLE COMPARATIVE BASELINE** |
+| V1 rerun | **Not performed** (and not required at this stage) |
 | Chalkie workflow guide | Integrated in docs **after** this experiment; **no retest** against that guide |
-| V2 | **Not started** |
-| Owner authorization to bypass formal V1 Pass gate | **NOT YET RECORDED** |
+| V2 | **Authorized to prepare** (one-time owner override); **prompt not generated yet** |
+| Owner authorization to bypass formal V1 Pass gate | **RECORDED 2026-10-16** — one-time experimental override under D018 (see [`../4-decisions.md`](../4-decisions.md)); does **not** change the rubric or create a general advancement rule |
 
-**Keep for V2?** Workbook (V2) remains out of scope until a formal V1 Pass **or** explicit owner authorization to bypass the Pass gate (neither is recorded yet).  
-**Owner decision:** Formal Pass **not** met. Practical stance: **conditionally accept as comparative baseline**. Options still open: Iterate V1 / Pause / authorize bypass for V2 (owner only).
+**V2 scope (authorized, not started):** Add **Workbook** evidence to existing Scope & Sequence + Student Book evidence for the **same** pilot (BE2 Unit 8, SB pp. 128–129). Preserve D018 cumulative design and the existing seven-criterion evaluation principles. Do **not** start V3–V5 or Phase 5–6 productization from this override.
+
+**Owner decision (2026-10-16):** Formal Pass **not** met. V1 closed as comparative baseline. **Proceed to V2** under a **one-time experimental override** only.
 
 ---
 
@@ -200,3 +201,4 @@ Score each **Yes / Partial / No**. V1 passes only if the lesson is usable and pa
 |---|---|
 | 2026-10-16 | Created smallest D018 V1 BE2 pack: SS companion verified/uploaded + ready paste prompt + evaluation checklist. No app/schema changes. |
 | 2026-10-16 | Recorded completed Chalkie run + seven-criterion evaluation: 4 Yes / 3 Partial; formal Pass not met; conditionally accepted as comparative baseline; V2 not started; bypass authorization not recorded. |
+| 2026-10-16 | V1 closed as usable comparative baseline; owner one-time override authorizes V2 (+ Workbook) without formal Pass, V1 rerun, rubric change, or productization unlock. V2 prompt not generated. |
