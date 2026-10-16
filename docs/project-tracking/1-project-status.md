@@ -1,13 +1,13 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 188
+**Last synced:** Step 189
 
 ## One-line state
 
-- D018 V2 formally evaluated: BELOW PASS THRESHOLD (4 Yes / 3 Partial; `[SB]`-labeled invented listening).
-- Workbook evidence improved dual-book practice vs V1; did not unlock formal Pass or V3.
-- Awaiting owner Iterate V2 / Pause / next authorization.
+- D018 V2 formal result unchanged: BELOW PASS THRESHOLD.
+- V2b audio-OFF controlled rerun authorized; not yet generated.
+- V3 still unauthorized.
 
 ## Branch
 
@@ -15,4 +15,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Decide whether to Iterate V2 (e.g. audio OFF / fix provenance labels), Pause, or authorize a further D018 step — V3 remains unauthorized.
+**Suggestion:** Generate V2b in Chalkie with Audio activities OFF (same V2 prompt and other settings), then supply the PDF for seven-criterion evaluation vs V2.

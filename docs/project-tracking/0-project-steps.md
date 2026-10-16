@@ -3298,4 +3298,18 @@
 
 ---
 
+### Step 189
+
+**Summary:** Recorded owner authorization for D018 V2b — controlled audio-OFF rerun of the exact V2 prompt (Single Lesson; same framework/theme/grades/slide count). Not V3; original V2 formal verdict preserved; generation not started.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

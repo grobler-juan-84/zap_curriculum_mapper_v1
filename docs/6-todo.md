@@ -262,15 +262,23 @@
 
 
 
+- [x] **Step 189 — Authorize V2b** audio-OFF controlled rerun (same V2 prompt; not V3; AUTHORIZED / NOT YET GENERATED).
+
+
+
 ## Soon
 
 
 
-- [ ] Owner decision after V2: Iterate V2 / Pause / authorize any further D018 step (do **not** auto-start V3).
+- [ ] **V2b** — owner generates in Chalkie (Audio OFF); supply PDF.
 
 
 
-- [ ] Continue D018 V3–V5 only after separate owner authorization (V1 override + V2 evaluation do **not** unlock V3–V5).
+- [ ] Evaluate V2b on the same seven criteria; compare V2 vs V2b (listening mislabel gone? concision? readiness held?).
+
+
+
+- [ ] Continue D018 V3–V5 only after separate owner authorization (V2b is **not** V3).
 
 
 
