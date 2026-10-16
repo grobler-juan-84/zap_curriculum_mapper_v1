@@ -258,15 +258,19 @@
 
 
 
+- [x] **Step 188 — D018 V2 formal evaluation:** 4 Yes / 3 Partial; **BELOW PASS THRESHOLD**; WB helped practice alignment vs V1 but not formal Pass; V3 not authorized.
+
+
+
 ## Soon
 
 
 
-- [ ] **Step 188 — D018 V2 formal evaluation:** score seven criteria; investigate audio provenance (“Zoo Friends”); compare with V1; record Pass/Iterate/Pause. Do not regenerate Chalkie or redesign the prompt.
+- [ ] Owner decision after V2: Iterate V2 / Pause / authorize any further D018 step (do **not** auto-start V3).
 
 
 
-- [ ] Continue D018 V3–V5 only after separate owner authorization (this override does **not** unlock V3–V5).
+- [ ] Continue D018 V3–V5 only after separate owner authorization (V1 override + V2 evaluation do **not** unlock V3–V5).
 
 
 
