@@ -357,9 +357,11 @@ AI-assisted lesson generation remains part of the seven-phase architecture (Phas
 
 **Immediate experimental work** follows **D018**: five cumulative Chalkie prompt iterations (V1 Scope & Sequence + Student Book page evidence → … → V5 School-Specific Intelligence). Each iteration must produce a usable Chalkie prompt and be evaluated against the lesson it generates. This is **prompt-validation experimentation**, not a locked packaging schema or production generation pipeline.
 
+For **how to operate Chalkie** during those experiments (Single Lesson vs Lesson Series, settings, outline review, themes, export, quality control), use the operational reference [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md). That document is a **tool/UI reference**, not a production implementation or locked handover contract.
+
 Previous Chalkie testing already showed that structured curriculum intelligence can produce useful AI-generated lesson skeletons. Upstream Book Intelligence (D017/D019) stays provisional evidence for those experiments. Vertical Mapping is **not** required before running D018 iterations.
 
-Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007).
+Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007; parked productization notes in [`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)).
 
 ---
 

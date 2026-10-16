@@ -6,7 +6,9 @@
 **Project:** General Curriculum Mapper  
 **Relevant Phases:** Phase 5 — Lesson Packaging & Structure / Phase 6 — Lesson Generation  
 **Original Development Context:** Chalkie.ai lesson-slide generation experiments  
-**Current Development Priority:** None — Phase 2 controlled interpretation experiments currently take priority (D015)
+**Current Development Priority:** None for **this productization / handover contract** — active Chalkie **experiments** follow D018; day-to-day Chalkie UI/ops use the separate operating guide below.
+
+**Related active reference (not a production contract):** [`chalkie-interface-and-generation-workflow.md`](./chalkie-interface-and-generation-workflow.md) — observed Chalkie interface & generation workflow V1.0 (settings, Single Lesson / Lesson Series, outline review, themes, export, quality control). That guide supports D018 runs; it does **not** unlock or replace this PARKED handover specification.
 
 ---
 
@@ -35,11 +37,9 @@ These findings remain useful.
 
 However:
 
-> **Chalkie is not the current development priority.**
+> **This Chalkie handover / productization specification is not the current development priority.**
 
-The General Curriculum Mapper is currently focused primarily on:
-
-> **Phase 2 — Controlled Curriculum Interpretation Experiments**
+Active work may include **D018 Chalkie prompt-validation experiments** using the separate ops guide [`chalkie-interface-and-generation-workflow.md`](./chalkie-interface-and-generation-workflow.md). That does **not** promote this PARKED handover into a locked production contract.
 
 Therefore this document should remain available as downstream development evidence but should not drive current architecture decisions prematurely.
 

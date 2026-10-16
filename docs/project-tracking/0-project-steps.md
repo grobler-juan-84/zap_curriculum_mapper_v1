@@ -3192,4 +3192,24 @@
 
 ---
 
+### Step 181
+
+**Summary:** Integrated Chalkie interface & generation workflow V1 into the documentation system as an Active/Evolving operational reference. Cross-linked from overview, architecture, D018 operational note, curriculum workflow handoff, parked handover spec, and future lot (F019). Renamed uploaded file to the canonical path declared in the doc; D018 substance and seven-phase architecture unchanged; no app/schema changes.
+
+**Files touched:**
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (added; renamed from `…-v1.md` to match declared path)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/4-decisions.md` (updated — D018 operational note only)
+- `docs/5-progress.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/11-curriculum-mapping-workflow.md` (updated)
+- `docs/phase-6/chalkie-ai-handover-specifications.md` (updated)
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

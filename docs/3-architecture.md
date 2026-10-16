@@ -396,6 +396,8 @@ Phase 6 turns the lesson package into usable teaching material.
 
 **Current experiments:** Locked decision **D018** authorizes five-iteration Chalkie **prompt validation** (evaluate each prompt against its generated lesson). That is experimental packaging/generation practice, not a locked Phase 6 product or schema.
 
+**Operational reference (external tool):** [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) documents observed Chalkie UI settings and generation/export behavior for experiments. Keep layers distinct: **curriculum evidence** → **lesson packaging (prompt)** → **external generation (Chalkie)** → **output evaluation**. Do not treat Chalkie settings or generated slides as curriculum SoT, and do not invent a new data model from the UI guide.
+
 Possible outputs may eventually include:
 
 - lesson slides;

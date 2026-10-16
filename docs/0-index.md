@@ -36,7 +36,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Vertical Mapping parked; F007 partially promoted (D018 experiments active; full Chalkie productization still later); F017/F018 PARKED. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Vertical Mapping parked; F007 partially promoted (D018 experiments active; full Chalkie productization still later); F019 Floor/Enrichment/Extension modularization parked; F017/F018 PARKED. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
@@ -156,6 +156,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.0): Single Lesson vs Lesson Series modes, slide-count/settings, outline review, themes, vocabulary/audio handling, export behavior, and quality control. Observed UI guide for D018 experiments — not a product or schema lock. | V1.0 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 five-iteration prompt validation is the active experiment (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
@@ -164,7 +165,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 92 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence artifacts, D018 V1 BE2 U8 pp. 128–129 experiment pack, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 96 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence artifacts, D018 V1 BE2 U8 pp. 128–129 experiment pack, Phase 6 Chalkie interface/generation workflow V1, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

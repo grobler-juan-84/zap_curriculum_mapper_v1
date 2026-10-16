@@ -38,10 +38,12 @@ This is a **manual packaging experiment**. No new app, API, schema, or Storage w
 
 ## How to run (owner)
 
-1. Copy the **Chalkie paste block** below into Chalkie.ai.
-2. Generate one lesson (keep default / usual settings; do not expand scope).
-3. Score with the **Evaluation checklist**.
-4. Fill **Findings** at the bottom (or reply in chat for the agent to record).
+1. Prefer **Single lesson** mode for this V1 baseline (see [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)).
+2. Copy the **Chalkie paste block** below into Chalkie’s instructions field.
+3. Record settings used (framework, slide count, theme, vocabulary, audio on/off, etc.).
+4. Generate one lesson (do not expand scope; do not default to Floor / Enrichment / Extension splits).
+5. Score with the **Evaluation checklist**.
+6. Fill **Findings** at the bottom (or reply in chat for the agent to record).
 
 ---
 

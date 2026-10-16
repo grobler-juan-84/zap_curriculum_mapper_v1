@@ -1,13 +1,13 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 180
+**Last synced:** Step 181
 
 ## One-line state
 
-- BE2 companion SS `ss_v1.json` verified and on Storage.
-- D018 V1 pilot pack ready: BE2 U8 pp. 128–129 (manual Chalkie paste + evaluation).
-- Vertical Mapping remains parked (not a D018 prerequisite).
+- Chalkie interface & generation workflow V1 integrated as an Active/Evolving ops reference.
+- D018 V1 pilot pack ready: BE2 U8 pp. 128–129 (manual Chalkie paste + evaluation); findings still open.
+- Vertical Mapping and Floor/Enrichment/Extension modularization remain parked.
 
 ## Branch
 
@@ -15,4 +15,4 @@ On branch `phase-2`. Active experimental focus: **D018 V1** Chalkie prompt valid
 
 ## Suggested next prompt
 
-**Suggestion:** Paste the V1 Chalkie block from `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md`, score the lesson, and record Pass / Iterate.
+**Suggestion:** Run the V1 Chalkie paste from `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md`, record settings per the Phase 6 ops guide, score the lesson, and record Pass / Iterate.

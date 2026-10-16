@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 180
+**Last updated:** Step 181
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,17 +24,19 @@
 
 - D018 V1 experiment pack prepared: BE2 U8 pp. 128–129 (SS + SB page evidence; ready paste + checklist).
 
+- **2026-10-16:** Integrated Chalkie interface & generation workflow V1 into docs as an **operational tool reference** (Active/Evolving; not a product lock). D018 decision substance unchanged; V2–V5 **not** completed.
+
 ## In progress
 
-- **D018 V1** — owner paste into Chalkie and evaluate generated lesson (findings still open).
+- **D018 V1** — owner paste into Chalkie and evaluate generated lesson (findings still open). Use the workflow reference for settings recording and export/review practice.
 
 ## Next
 
-- Owner: run Chalkie with the V1 paste block; fill findings / Pass–Iterate decision before V2.
+- Owner: run Chalkie with the V1 paste block; record settings; fill findings / Pass–Iterate decision before V2.
 
 ## Blocked
 
-- None hard. Soft: Vertical Mapping (F005) parked by design; F017/F018 parked; BI methodologies still provisional.
+- None hard. Soft: Vertical Mapping (F005) parked by design; F017/F018 parked; Floor/Enrichment/Extension multi-presentation strategy parked (F019); BI methodologies still provisional.
 
 ---
 
@@ -45,5 +47,7 @@
 - Teacher-first order: Workspace → Curriculum Requirements → Teaching Intelligence → Lesson Packaging (Chalkie) → Vertical Mapping (**parked**).
 
 - Pilot pack: [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md).
+
+- Chalkie ops guide: [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md).
 
 - Direction: D017 / D018 / D019 LOCKED; Phase 2/4/5–6 methodologies **not** locked.

@@ -312,6 +312,8 @@ These are owner experiment outcomes recorded under D017. They do **not** reopen 
 **Supersedes:** —  
 **Compatibility:** Complements D017; does not replace the existing horizontal/vertical mapping phase distinctions.
 
+**Operational note (2026-10-16):** For comparable D018 runs, record Chalkie creation mode and settings (framework, slide count, theme, vocabulary entry, audio activities, etc.) and review generated output against the prompt. Practical UI/export guidance lives in [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md). That reference does **not** change D018’s iteration scope, lock settings as standards, or unlock Phase 5–6 productization.
+
 ---
 
 ### D019 — Book Intelligence MVP UI path validated (BE2 + BE3)
@@ -370,4 +372,5 @@ D017 operating principle 6 remains in force.
 | 2026-10-15 | Recorded D017 working approval: prefer BE3 Experiment A+B for BE3-SB only; no methodology/schema lock; BE2 v2 baseline unchanged. |
 | 2026-10-15 | Added D019 — BE3 BI MVP UI path implementation-validated; methodology/schema/contract explicitly not locked. |
 | 2026-10-15 | Amended D019 — two-book implementation validation (BE2 eight-column + BE3 nine-column); both methodologies remain provisional; schema/contract not locked. |
+| 2026-10-16 | D018 operational note — cross-reference Chalkie interface/generation workflow V1 for settings recording; decision substance unchanged. |
 

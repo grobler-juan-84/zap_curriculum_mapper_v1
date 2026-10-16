@@ -225,9 +225,17 @@ Derive practical teaching insights from curriculum evidence and connections: sca
 
 ### Handoff to later phases
 
-Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligence later. They are not specified here.
+Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligence later. Formal Phase 4–7 product specs are not locked here.
 
-**Status:** Formal Phase 4 product work waits on stronger upstream intelligence. Bounded enrichment probes remain research only.
+**Practical handoff for current D018 experiments** (curriculum evidence / lesson package → Chalkie → review):
+
+1. Assemble a scoped lesson package / prompt from distinguishable evidence layers (do not invent content).
+2. Generate in Chalkie using the operating guide [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) — choose Single Lesson vs Lesson Series deliberately; do not duplicate that guide’s full instructions here.
+3. **Record** Chalkie settings used for the run (mode, framework, slide count, theme, vocabulary, audio activities, etc.) so experiments stay comparable.
+4. **Review** the generated output against the prompt and curriculum evidence (classroom usefulness, fidelity, concise slides). Treat generated material as a proposal, not curriculum truth.
+5. Optional Floor / Enrichment / Extension multi-presentation splitting is **not** a default requirement (parked; see [`7-future.md`](./7-future.md)).
+
+**Status:** Formal Phase 4 product work waits on stronger upstream intelligence. Bounded enrichment probes remain research only. D018 generation experiments use the Chalkie ops guide above without unlocking Phase 5–6 productization.
 
 ---
 
@@ -247,9 +255,10 @@ Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligen
 
 | Doc | Role |
 |---|---|
-| [`4-decisions.md`](./4-decisions.md) | Locked decisions (D001, D015–D017, …) |
+| [`4-decisions.md`](./4-decisions.md) | Locked decisions (D001, D015–D019, …) |
 | [`3-architecture.md`](./3-architecture.md) | System boundaries including Phases 5–7 |
 | [`5-progress.md`](./5-progress.md) / [`6-todo.md`](./6-todo.md) | Current state and near-term tasks |
+| [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) | Chalkie UI/ops reference for D018 generation runs |
 | [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md) | Book completion status |
 | [`8-database-architecture.md`](./8-database-architecture.md) / [`10-storage-architecture.md`](./10-storage-architecture.md) | Catalog vs JSON vs object storage |
 
@@ -260,3 +269,4 @@ Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligen
 | Date | Change |
 |---|---|
 | 2026-10-12 | Created as project-wide workflow (relocated/refactored from `phase-1/curriculum-mapping-process.md`). Phase 1 procedures preserved in `phase-1/phase-1-extraction-workflow.md`. |
+| 2026-10-16 | Added practical D018 → Chalkie handoff (record settings; review output); linked Chalkie interface/generation workflow V1. |
