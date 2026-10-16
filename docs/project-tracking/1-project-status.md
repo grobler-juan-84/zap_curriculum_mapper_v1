@@ -1,18 +1,18 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 183
+**Last synced:** Step 185
 
 ## One-line state
 
-- D018 V1 closed as usable comparative baseline (formal Pass not met).
-- Owner one-time override under D018 authorizes V2 (+ Workbook); V2 prompt not generated yet.
-- V3–V5 and Phase 5–6 productization remain unauthorized / parked.
+- D018 V2 experiment pack prepared (SS + SB 128–129 + WB 104–105).
+- V2 Chalkie prompt not drafted yet; V3–V5 still unauthorized.
+- V1 remains comparative baseline (formal Pass not met).
 
 ## Branch
 
-On branch `phase-2`. Next focus: prepare smallest D018 V2 experiment pack (docs only).
+On branch `phase-2`. Next focus: draft smallest V2 Chalkie paste prompt from the pack.
 
 ## Suggested next prompt
 
-**Suggestion:** Prepare the smallest D018 V2 pack for BE2 U8 / SB pp. 128–129 adding Workbook evidence — do not run Chalkie yet.
+**Suggestion:** Draft the smallest D018 V2 Chalkie paste block into the V2 pack — do not run Chalkie until the owner is ready.

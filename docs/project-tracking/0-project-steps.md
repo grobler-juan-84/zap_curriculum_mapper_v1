@@ -3241,4 +3241,19 @@
 
 ---
 
+### Step 185
+
+**Summary:** Prepared smallest D018 V2 experiment pack adding BE2 Workbook pp. 104–105 to V1 SS + SB pp. 128–129 evidence. Recorded provenance, WB additions, comparison question, and unchanged seven-criterion rubric; deferred Chalkie prompt; excluded WB 106–117; V1 findings unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (created)
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated — changelog cross-ref only)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

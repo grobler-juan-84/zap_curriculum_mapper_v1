@@ -202,3 +202,4 @@ Score each **Yes / Partial / No**. V1 passes only if the lesson is usable and pa
 | 2026-10-16 | Created smallest D018 V1 BE2 pack: SS companion verified/uploaded + ready paste prompt + evaluation checklist. No app/schema changes. |
 | 2026-10-16 | Recorded completed Chalkie run + seven-criterion evaluation: 4 Yes / 3 Partial; formal Pass not met; conditionally accepted as comparative baseline; V2 not started; bypass authorization not recorded. |
 | 2026-10-16 | V1 closed as usable comparative baseline; owner one-time override authorizes V2 (+ Workbook) without formal Pass, V1 rerun, rubric change, or productization unlock. V2 prompt not generated. |
+| 2026-10-16 | Cross-ref only: V2 pack prepared at [`d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) (WB 104–105). V1 findings/formal result unchanged. |

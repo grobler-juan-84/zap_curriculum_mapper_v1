@@ -246,7 +246,11 @@
 
 
 
-- [ ] Prepare smallest **D018 V2** experiment pack (SS + SB pp. 128–129 + Workbook evidence) — documentation only; do not generate Chalkie prompt until pack is ready.
+- [x] Prepare smallest **D018 V2** experiment pack (SS + SB pp. 128–129 + WB pp. 104–105) — [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md); prompt deferred.
+
+
+
+- [ ] Draft smallest **D018 V2** Chalkie paste prompt from the V2 pack (docs only; do not run Chalkie until owner is ready).
 
 
 
@@ -254,7 +258,7 @@
 
 
 
-- [ ] Run D018 V2 in Chalkie only after the V2 pack exists; evaluate with the same seven-criterion principles vs V1 baseline.
+- [ ] Run D018 V2 in Chalkie; evaluate with the same seven-criterion principles vs V1 baseline; answer the V2 comparison question.
 
 
 
