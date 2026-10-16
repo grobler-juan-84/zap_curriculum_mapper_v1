@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 189
+**Last updated:** Step 190
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **D018 V2** — formally evaluated: 4 Yes / 3 Partial; **BELOW PASS THRESHOLD** (unchanged).
 
-- **D018 V2b** — owner authorized **audio-OFF** controlled rerun (same V2 prompt; not V3). Status: **AUTHORIZED / NOT YET GENERATED**.
+- **D018 V2b** — generated (`WILD ANIMALS(2).pdf`, 30 PDF pages, Audio OFF) + ChatGPT initial review complete. Formal evaluation pending.
 
 ## In progress
 
-- **V2b** — awaiting owner Chalkie generation with Audio activities OFF.
+- **V2b** — GENERATED / INITIAL REVIEW COMPLETE; formal seven-criterion evaluation pending (Step 191).
 
 ## Next
 
-- Owner: generate V2b in Chalkie (controls above); supply PDF. Then evaluate V2b on the same seven criteria and compare V2 vs V2b.
+- **Step 191** — formally evaluate V2b against the existing seven criteria and compare V2 vs V2b.
 
 ## Blocked
 
@@ -42,6 +42,6 @@
 
 - V2/V2b pack: [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md).
 
-- Sole intentional V2b change: **Audio activities OFF**.
+- V2b initial: Zoo Friends absent; remaining concerns = unverified WB answers + invented song sentence; preliminary “improved, not formal PASS.”
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.

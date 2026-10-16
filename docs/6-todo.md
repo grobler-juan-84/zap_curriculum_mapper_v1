@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 179
+**Last updated:** Step 190
 
 
 
@@ -266,15 +266,15 @@
 
 
 
+- [x] **Step 190 — D018 V2b generation + initial review:** `WILD ANIMALS(2).pdf` (30 pages, Audio OFF); Zoo Friends absent; remaining WB answer + song-sentence provenance concerns; formal scores deferred.
+
+
+
 ## Soon
 
 
 
-- [ ] **V2b** — owner generates in Chalkie (Audio OFF); supply PDF.
-
-
-
-- [ ] Evaluate V2b on the same seven criteria; compare V2 vs V2b (listening mislabel gone? concision? readiness held?).
+- [ ] **Step 191 — Formally evaluate V2b** on the same seven criteria; compare V2 vs V2b (listening mislabel gone? remaining provenance? concision? readiness held?).
 
 
 

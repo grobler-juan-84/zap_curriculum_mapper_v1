@@ -3312,4 +3312,18 @@
 
 ---
 
+### Step 190
+
+**Summary:** Recorded D018 V2b Chalkie generation (same V2 prompt; Audio OFF) and ChatGPT initial review of `WILD ANIMALS(2).pdf` (30 pages with reveals). Zoo Friends absent; remaining concerns are unverified WB answers and invented song sentence. Formal seven-criterion scores deferred to Step 191; V1/V2 evaluations and D018 unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
