@@ -254,11 +254,15 @@
 
 
 
+- [x] **D018 V2** Chalkie generation + initial PDF review recorded (GENERATED / INITIAL REVIEW ONLY; rubric blank).
+
+
+
 ## Soon
 
 
 
-- [ ] **D018 V2** — paste prompt into Chalkie; evaluate vs V1 with the same seven-criterion principles; answer the V2 comparison question; record findings.
+- [ ] **Step 188 — D018 V2 formal evaluation:** score seven criteria; investigate audio provenance (“Zoo Friends”); compare with V1; record Pass/Iterate/Pause. Do not regenerate Chalkie or redesign the prompt.
 
 
 

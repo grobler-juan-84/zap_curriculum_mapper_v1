@@ -3270,4 +3270,18 @@
 
 ---
 
+### Step 187
+
+**Summary:** Recorded D018 V2 Chalkie generation settings and initial PDF review findings (GENERATED / INITIAL REVIEW ONLY). Captured artifact `Wild Animals (2).pdf` (30 pages with reveals), textbook-alignment positives, audio provenance concern (“Zoo Friends” mislabeled `[SB]`), WB contribution notes, and efficiency/scope observations. Formal seven-criterion scores and Pass/Fail deferred to Step 188; prompt not rewritten; D018 unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
