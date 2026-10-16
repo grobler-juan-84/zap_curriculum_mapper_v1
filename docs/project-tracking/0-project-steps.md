@@ -3256,4 +3256,18 @@
 
 ---
 
+### Step 186
+
+**Summary:** Drafted copy-ready D018 V2 Chalkie paste prompt (SS + SB 128–129 + WB 104–105) into the V2 experiment pack. Status DRAFTED / NOT RUN; evaluation findings left blank; no Chalkie run; locked decisions and datasets unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -250,7 +250,7 @@
 
 
 
-- [ ] Draft smallest **D018 V2** Chalkie paste prompt from the V2 pack (docs only; do not run Chalkie until owner is ready).
+- [x] Draft smallest **D018 V2** Chalkie paste prompt from the V2 pack (DRAFTED / NOT RUN).
 
 
 
@@ -258,7 +258,7 @@
 
 
 
-- [ ] Run D018 V2 in Chalkie; evaluate with the same seven-criterion principles vs V1 baseline; answer the V2 comparison question.
+- [ ] **D018 V2** — paste prompt into Chalkie; evaluate vs V1 with the same seven-criterion principles; answer the V2 comparison question; record findings.
 
 
 
