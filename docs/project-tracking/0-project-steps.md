@@ -3173,4 +3173,23 @@
 
 ---
 
+### Step 180
+
+**Summary:** Verified BE2 companion Scope & Sequence `ss_v1.json` (local parse + Storage upload/hash match), registered it beside BE2 SB canonical without `dataset_versions` wiring, and prepared the smallest D018 V1 experiment pack for BE2 Unit 8 pp. 128–129 (ready Chalkie paste + evaluation checklist; no app/schema changes).
+
+**Files touched:**
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (created)
+- `docs/phase-1/dataset-registry.md` (updated)
+- `data/README.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `tmp/verify_be2_ss_v1.mjs` (created; local ops helper)
+
+---
+
 

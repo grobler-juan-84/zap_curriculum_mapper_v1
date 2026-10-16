@@ -65,7 +65,7 @@ ChatGPT owner review (2026-10-12): promising minimum-sufficient baseline; flagge
 
 **What v2 refined:** eight-column layout; corrected flagged U3/U6/U8 omissions from Phase 1 evidence; outcomes meaning-aligned where Phase 1 supports.
 
-**Still not claimed:** production-ready standard; methodology lock; schema lock; D018.
+**Still not claimed:** production-ready standard; methodology lock; schema lock. D018 is LOCKED separately (Chalkie prompt experiments; not a Phase 2 methodology claim).
 
 ### BE1-SB / BE3-SB expansions + vertical probe (2026-10-13)
 
@@ -382,7 +382,7 @@ Preserved research artifacts; **not** the active production direction under D017
 - Vertical sufficiency probe is **not** Phase 3 implementation.
 - Historical V3.1 / V1.2 success does **not** lock methodology or define production output.
 - Phase 3 / Phase 4 are **not** formally started.
-- D018 (if discussed) remains **PROPOSED only**.
+- D018 is **LOCKED** (five-iteration Chalkie prompt validation); V1 pilot pack is BE2 U8 pp. 128–129 — see [`../phase-5/d018-v1-be2-u08-p128-129-experiment.md`](../phase-5/d018-v1-be2-u08-p128-129-experiment.md). That does **not** lock Phase 2 methodology.
 - F017 / F018 are **PARKED** — not approved for implementation.
 
 ---

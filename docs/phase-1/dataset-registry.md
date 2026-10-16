@@ -373,11 +373,22 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 **Canonical Dataset:** CREATED (`big-english/big_english_2_sb/canonical/v1.json`; `dataset_versions` v1 `is_current`, status `verified`)  
 **Phase 1 Status:** COMPLETE  
 
+### Associated Scope & Sequence (companion source — not merged)
+
+**Local path:** `data/phase1/big_english_2_sb/canonical/ss_v1.json` (gitignored working copy; parse-validated 2026-10-16)  
+**Storage path:** `book-datasets` → `big-english/big_english_2_sb/canonical/ss_v1.json` (uploaded 2026-10-16; download-verified; SHA-256 `e701e1d784beffea84ebbf0dd7a24ab0265bdfe3c575d073b699ae0d19c7a918`; sits beside SB `v1.json`)  
+**Associated catalog book:** `big_english_2_sb` (BE2-SB) — companion only; does **not** replace or alter SB canonical `v1.json`  
+**Extraction prompt:** [`google-ai-studio-prompt-ss-v1.md`](./google-ai-studio-prompt-ss-v1.md)  
+**JSON shape:** SS-specific (`source_metadata`, `original_column_headings`, `units`, `checkpoints`, `extraction_issues`) — **not** Phase 1 schema 0.1  
+**Local parse summary (2026-10-16):** 9 units; publisher columns Unit / Vocabulary / Structures / CLIL/Culture / Values / Phonics / I can…; Unit 8 *Wild Animals* present  
+**Status:** STORAGE OBJECT PRESENT — companion object in `book-datasets`; **not** registered in `dataset_versions` / `book_files`; not a Phase 1 COMPLETE substitute for SB evidence  
+**Constraints:** Do not merge SS into SB `v1.json`. Do not treat SS as unit-batch canonical evidence.
+
 ### Associated Phase 2 Book Intelligence (interpretation companion — not merged)
 
 **Local path:** `data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json`  
 **Storage path:** `book-datasets` → `big-english/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json` (uploaded 2026-10-15; download SHA-256 integrity verified)  
-**Associated catalog book:** `big_english_2_sb` (BE2-SB) — Phase 2 interpretation only; does **not** replace or alter SB canonical `v1.json`  
+**Associated catalog book:** `big_english_2_sb` (BE2-SB) — Phase 2 interpretation only; does **not** replace or alter SB canonical `v1.json` or SS `ss_v1.json`  
 **Contract:** [`../phase-2/book-intelligence-ui-data-contract-v1.md`](../phase-2/book-intelligence-ui-data-contract-v1.md) (`column_set: eight_column_baseline`, Units 1–9; `unit_id` = `bep2_unit_0N`)  
 **Upload script:** `scripts/upload_book_intelligence_json.mjs` (Storage only — no Postgres writes)  
 **App registry:** `BOOK_INTELLIGENCE_STORAGE_ARTIFACTS.big_english_2_sb` — Series Library → Book Intelligence  
@@ -386,7 +397,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 
 ### Schema / Issues
 
-**Schema Version:** 0.1  
+**Schema Version:** 0.1 *(SB canonical only; SS companion uses a separate non-0.1 shape)*  
 **Open Issues:** 16 (mostly audio/visual verification — documented in canonical; left open)  
 **Schema Gaps:** 0  
 
@@ -398,6 +409,7 @@ Do not duplicate detailed curriculum evidence from the canonical dataset.
 - 2026-10-07 structural triage: added appendix sticker pages `bep2_p189`–`bep2_p191` (`unit_id` null, `section_type: appendix_stickers`) so Activity 11 `paired_with` relationships resolve. Canonical now has 147 pages; automated validation **PASSED WITH WARNINGS**.
 - Third book to reach Phase 1 COMPLETE (after BE1-SB and BH1).
 - Phase 2 BI v2 eight-column Units 1–9 JSON uploaded to Storage 2026-10-15; Library → BI registry wired same day (see above); `dataset_versions` / `book_files` still deferred.
+- Companion SS `ss_v1.json` present locally 2026-10-16; Storage object uploaded/verified same day (see above); `dataset_versions` / `book_files` wiring still deferred. Used as D018 V1 input for BE2 U8 pp. 128–129.
 
 ---
 

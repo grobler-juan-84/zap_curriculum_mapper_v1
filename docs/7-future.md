@@ -42,7 +42,7 @@
 ### F017 / F018 notes (PARKED — not approved)
 
 - A dedicated Scope & Sequence Studio prompt now exists at [`phase-1/google-ai-studio-prompt-ss-v1.md`](./phase-1/google-ai-studio-prompt-ss-v1.md). That file does **not** by itself promote F017 into active Phase 1 pipeline work.
-- BE3-SB has a companion SS dataset at `data/phase1/big_english_3_sb/canonical/ss_v1.json` and Storage `book-datasets/big-english/big_english_3_sb/canonical/ss_v1.json`, registered in [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md) §8G. Object presence ≠ pipeline promotion: no `dataset_versions`/`book_files` wiring, no SB↔SS merge, no Book Intelligence methodology change.
+- BE2-SB and BE3-SB have companion SS datasets at `…/canonical/ss_v1.json` (local + Storage), registered in [`phase-1/dataset-registry.md`](./phase-1/dataset-registry.md). Object presence ≠ pipeline promotion: no `dataset_versions`/`book_files` wiring, no SB↔SS merge, no Book Intelligence methodology change. BE2 SS is an input to the D018 V1 manual experiment only.
 - **Do not** modify SB/WB extraction prompts, canonical SB/WB JSON, schemas, or existing datasets for these ideas without explicit owner approval.
 - D017 v2 Learning Outcomes remain concise and **AI-inferred** until/unless F017 is deliberately promoted.
 

@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. `phase-5` remains an intentional placeholder. Active development follows a **teacher-first** priority order; **immediate experiment is D018** (five-iteration Chalkie prompt validation). Book Intelligence remains provisional under D017/D019; Vertical Mapping is parked. Earlier LR / V3.1 / V1.2 / e2e / enrichment work remains historical research under D015/D016.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order; **immediate experiment is D018** (five-iteration Chalkie prompt validation). First V1 pilot pack: BE2 U8 pp. 128–129. Book Intelligence remains provisional under D017/D019; Vertical Mapping is parked. Earlier LR / V3.1 / V1.2 / e2e / enrichment work remains historical research under D015/D016.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -146,6 +146,12 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md) | Enrichment Proposal B for BE2 U6 focus: Phase 1 + V3.1 + CON-01/CON-02; same format as A; CON-01 declined as enrichment driver. | 1.0 | ACTIVE |
 | [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-evaluation.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-evaluation.md) | Comparative evaluation of enrichment Proposals A vs B; criterion scores plus decision-change analysis (same three interventions). | 1.0 | ACTIVE |
 
+### Phase 5
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
+| [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | Smallest D018 V1 Chalkie prompt experiment: BE2 SB Unit 8 pp. 128–129 using SS companion + Phase 1 page evidence; ready paste block + evaluation checklist (manual; no new infra). | 1.0 | ACTIVE |
+
 ### Phase 6
 
 | Doc | Summary | Version | Lifecycle |
@@ -158,7 +164,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 91 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence BE1/BE2/BE3/BE5 artifacts + BE3 A/B/A+B refine pack + full SS/regen roll-ups + U1 A+B compatibility + BI UI data contract draft + BE2/BE3 BI E2E + PDF nav acceptance + BE2 BI integration plan, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 92 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence artifacts, D018 V1 BE2 U8 pp. 128–129 experiment pack, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 3 | Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

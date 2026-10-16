@@ -19,7 +19,7 @@ data/phase1/{catalog_book_id}/canonical/ss_v{N}.json   # optional companion Scop
 - Entire `data/phase1/` is gitignored.
 - Filename uses the full catalog `book_id` (D009), e.g. `big_english_1_wb_unit_01.json`.
 - After upload, Storage keys use `{series_slug}/{catalog_book_id}/batches/unit_{NN}.json` and `{series_slug}/{catalog_book_id}/canonical/v1.json`.
-- Optional SS companions use `{series_slug}/{catalog_book_id}/canonical/ss_v{N}.json` (first: BE3-SB `ss_v1.json` — local + Storage object present; not in `dataset_versions`).
+- Optional SS companions use `{series_slug}/{catalog_book_id}/canonical/ss_v{N}.json` (BE2-SB + BE3-SB `ss_v1.json` — local + Storage objects present; not in `dataset_versions`).
 
 ### Remaining Big English scaffolds (local placeholders)
 

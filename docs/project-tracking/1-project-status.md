@@ -1,20 +1,18 @@
-# Project Status
+# Project Status (legacy pointer)
 
-**Status:** ACTIVE  
-**Version:** 1.0  
-**Last updated:** Step 179  
-**Purpose:** Short current snapshot. Detailed narrative lives in [`../5-progress.md`](../5-progress.md).
+**Live snapshot:** [`../5-progress.md`](../5-progress.md)  
+**Last synced:** Step 180
 
-## What has been done
+## One-line state
 
-- Docs reconciled to teacher-first priorities; **D018** is the immediate Chalkie prompt-validation experiment.
-- BE2/BE3 BI UI paths remain implementation-validated (D019); methodologies provisional.
+- BE2 companion SS `ss_v1.json` verified and on Storage.
+- D018 V1 pilot pack ready: BE2 U8 pp. 128–129 (manual Chalkie paste + evaluation).
 - Vertical Mapping remains parked (not a D018 prerequisite).
 
-## Current status
+## Branch
 
-On branch `phase-2`. Active experimental focus: **D018** five-iteration Chalkie prompt validation.
+On branch `phase-2`. Active experimental focus: **D018 V1** Chalkie prompt validation (BE2).
 
-## Next small step
+## Suggested next prompt
 
-**Suggestion:** Start D018 V1 (SS + Student Book page evidence) and evaluate the generated lesson before advancing iterations.
+**Suggestion:** Paste the V1 Chalkie block from `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md`, score the lesson, and record Pass / Iterate.

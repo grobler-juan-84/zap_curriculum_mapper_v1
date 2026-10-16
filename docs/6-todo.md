@@ -230,7 +230,15 @@
 
 
 
-- [ ] **D018** Chalkie prompt validation — run V1 (Scope & Sequence + Student Book page-specific evidence); evaluate the prompt against its generated lesson.
+- [x] Verify / register BE2 companion SS `ss_v1.json` (local + Storage; no `dataset_versions`).
+
+
+
+- [x] Prepare smallest D018 V1 pack — BE2 U8 pp. 128–129 (SS + SB page evidence; paste + checklist).
+
+
+
+- [ ] **D018 V1** — paste prompt into Chalkie; evaluate generated lesson; record findings in [`phase-5/d018-v1-be2-u08-p128-129-experiment.md`](./phase-5/d018-v1-be2-u08-p128-129-experiment.md).
 
 
 
