@@ -296,11 +296,19 @@
 
 
 
-- [ ] **Step 198 — Design V3 Book Intelligence experiment only** (retain V2b as control; define BI input, changed/held variables, comparison criteria, success threshold, owner approval gate). Do **not** authorize or generate V3 yet.
+- [x] **Step 198 — Design V3 Book Intelligence experiment only:** V2b control; BE2 D017 v2 eight-column Unit 8 `[BI]` append treatment; include/exclude fields + V3 value criteria + owner approval gate recorded. Generation **not** authorized.
 
 
 
-- [ ] D018 V3 generation / V4–V5 only if a **new** separate owner authorization is given after design.
+## Soon
+
+
+
+- [ ] Owner review and **explicitly approve** the V3 design + copy-ready `[BI]` addition before any Chalkie generation.
+
+
+
+- [ ] After approval only: authorize a single D018 V3 generation vs V2b control (still not auto-start V4–V5).
 
 
 

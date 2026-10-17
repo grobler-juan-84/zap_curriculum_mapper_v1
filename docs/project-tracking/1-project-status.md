@@ -1,13 +1,13 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 197
+**Last synced:** Step 198
 
 ## One-line state
 
-- D018 V2-family **CLOSED**. Preferred Pass baseline/control = **V2b**.
-- V2c Pass retained historically; not preferred. No V2d.
-- Next: Step 198 — V3 Book Intelligence **design only** (no generation).
+- D018 V2-family CLOSED; preferred control = **V2b**.
+- D018 V3 Book Intelligence experiment **designed**; generation **not** authorized.
+- Next gate: owner approval of V3 design + copy-ready `[BI]` addition.
 
 ## Branch
 
@@ -15,4 +15,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Step 198 — design the V3 Book Intelligence experiment only (V2b as control; define inputs, variables, criteria, success threshold, owner approval gate). Do not authorize generation.
+**Suggestion:** Review and explicitly approve (or revise) the V3 design in `docs/phase-5/d018-v3-be2-u08-book-intelligence-experiment.md` before authorizing generation.

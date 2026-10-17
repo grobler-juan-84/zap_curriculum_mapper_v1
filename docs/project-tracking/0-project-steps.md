@@ -3429,4 +3429,20 @@
 
 ---
 
+### Step 198
+
+**Summary:** Designed D018 V3 Book Intelligence experiment (planning only). Control = V2b; treatment = append-only `[BI]` from BE2 D017 v2 eight-column Unit 8 (`bep2_unit_08`); habitats/values/phonics/adjective-order excluded. Predeclared V3 value criteria and better/equivalent/worse rules; owner approval gate before generation. No Chalkie run; V2b Pass preserved; `4-decisions.md` unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v3-be2-u08-book-intelligence-experiment.md` (created)
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 197
+**Last updated:** Step 198
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,27 +16,21 @@
 
 - **D017** / **D018** / **D019** LOCKED (BI methodologies provisional).
 
-- **D018 V1** — BELOW PASS THRESHOLD (4 Yes / 3 Partial).
+- **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (Audio OFF).
 
-- **D018 V2** — BELOW PASS THRESHOLD (4 Yes / 3 Partial).
-
-- **D018 V2b** — **PASS** (5 Yes / 2 Partial; Audio OFF); **preferred baseline and future control**.
-
-- **D018 V2c** — **PASS** (5 Yes / 2 Partial); formally equivalent; **not** preferred. No meaningful overall improvement over V2b.
-
-- **D018 V2-family** — **CLOSED** (Step 197). No V2d.
+- **D018 V3 design** — planning complete (Step 198): append-only `[BI]` treatment from BE2 D017 v2 eight-column Unit 8; generation **not** authorized.
 
 ## In progress
 
-- None on V2-family (closed).
+- Owner review / explicit approval of the V3 design and copy-ready `[BI]` prompt before any generation.
 
 ## Next
 
-- **Step 198** — design the V3 Book Intelligence experiment only (retain V2b as control; define inputs, variables, criteria, success threshold, owner approval gate). Do **not** authorize or generate V3 yet.
+- Owner approve (or revise) the V3 design. Only after explicit approval: authorize a single V3 generation against the V2b control.
 
 ## Blocked
 
-- Soft: V3 generation requires a later separate owner authorization after design. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
+- Soft: V3 generation blocked until owner approval gate. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
 
 ---
 
@@ -44,8 +38,8 @@
 
 - Active Git branch: `phase-2`.
 
-- Closed pack: [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md).
+- V3 design: [`phase-5/d018-v3-be2-u08-book-intelligence-experiment.md`](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md).
 
-- Cross-version limits preserved: unreliable provenance labels; supplements under publisher labels; concision Partial (30-page PDFs); V2c “A elephant”; unverified “chase”→SB p.129.
+- BI source: BE2 D017 v2 eight-column (`be2-sb-u01-u09-book-overview-d017-v2.md` + eight-column JSON companion); Unit 8 only; habitats/values/phonics/adjective-order excluded.
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.
