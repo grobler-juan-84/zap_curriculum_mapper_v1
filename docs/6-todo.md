@@ -292,10 +292,6 @@
 
 
 
-## Soon
-
-
-
 - [x] **Step 198 — Design V3 Book Intelligence experiment only:** V2b control; BE2 D017 v2 eight-column Unit 8 `[BI]` append treatment; include/exclude fields + V3 value criteria + owner approval gate recorded. Generation **not** authorized.
 
 
