@@ -278,7 +278,13 @@
 
 
 
-- [x] **Step 193 — Retain V2b** as final stopping point for the D018 V2-family; V3 **not** authorized; track closed.
+- [x] **Step 193 — Retain V2b** as final stopping point for the D018 V2-family; V3 **not** authorized; track closed at that time.
+
+- [x] **Step 194 — Reopen for one focused V2c attempt:** preserve the accepted V2b artifact and Audio OFF; refine the prompt only for provenance labels, slide economy, and invented textbook details. V3 remains unauthorized.
+
+- [x] **Step 195 — D018 V2c generation + initial review:** `Wild Animals(3).pdf` (30 pages, Audio OFF, Single Lesson); no fabricated listening; WB picture-answer sequence removed; remaining grammar/attribution/label/length concerns; formal scores deferred; V2b PASS preserved; V3 not authorized.
+
+- [ ] **Step 196 — Evaluate D018 V2c:** apply the unchanged seven-criterion rubric; compare with V2b; document limitations and decide whether V3 / Book Intelligence offers more value. Do not authorize further V2 iterations automatically.
 
 
 
@@ -286,7 +292,7 @@
 
 
 
-- [ ] D018 V3–V5 only if a **new** separate owner authorization is given later (currently declined; V2b is the stop).
+- [ ] D018 V3–V5 only if a **new** separate owner authorization is given after Step 196.
 
 
 

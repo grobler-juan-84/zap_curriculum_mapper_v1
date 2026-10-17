@@ -3369,4 +3369,34 @@
 
 ---
 
+### Step 194
+
+**Summary:** Owner authorized one bounded D018 V2c prompt-refinement attempt before considering V3 / Book Intelligence. V2b remains an accepted Pass artifact; the V2c prompt preserves Audio OFF and the same evidence scope while targeting source-label accuracy, unnecessary slides, and invented textbook details. V3 remains unauthorized and no further V2 iteration is implied.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 195
+
+**Summary:** Recorded D018 V2c Chalkie generation (`Wild Animals(3).pdf`, 30 pages, Audio OFF, Single Lesson) and initial PDF review. Positives include 12 animals, like+can frame, SB/WB practice, no fabricated listening, and removal of the V2b WB picture-answer sequence. Concerns: grammar (“A elephant”), “chase” attribution to SB p.129, supplementary labeled `[SB]`/`[SS]`, length still 30 pages. Formal scores deferred to Step 196; V2b PASS preserved; V3 not authorized; D018/rubric unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

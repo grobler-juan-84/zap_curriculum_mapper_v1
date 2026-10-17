@@ -1,13 +1,13 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 193
+**Last synced:** Step 195
 
 ## One-line state
 
-- D018 V2-family track **CLOSED** at owner-retained V2b final stopping point (Pass; Audio OFF).
-- V3 **not** authorized.
-- V2 formal result unchanged: BELOW PASS THRESHOLD.
+- D018 V2b accepted Pass preserved (`495c917`).
+- D018 V2c generated + initial review complete (`Wild Animals(3).pdf`, Audio OFF); formal evaluation pending.
+- V3 / Book Intelligence remains **not** authorized.
 
 ## Branch
 
@@ -15,4 +15,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Choose next work outside the closed D018 V2-family track (e.g. owner-gated BI ops), or later give a **new** separate authorization if V3 is desired.
+**Suggestion:** Step 196 — formally evaluate V2c against the seven criteria and compare with V2b.
