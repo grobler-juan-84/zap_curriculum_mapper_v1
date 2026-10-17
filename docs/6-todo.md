@@ -288,15 +288,19 @@
 
 
 
+- [x] **Step 197 — Close D018 V2-family:** V2b preferred baseline/future control; V2c Pass not preferred; no V2d; cross-version limitations preserved; V3 generation not authorized.
+
+
+
 ## Soon
 
 
 
-- [ ] Owner keep V2b as working Pass artifact, or separately authorize V3 / Book Intelligence (V2c does not auto-prefer or auto-start V3).
+- [ ] **Step 198 — Design V3 Book Intelligence experiment only** (retain V2b as control; define BI input, changed/held variables, comparison criteria, success threshold, owner approval gate). Do **not** authorize or generate V3 yet.
 
 
 
-- [ ] D018 V3–V5 only if a **new** separate owner authorization is given.
+- [ ] D018 V3 generation / V4–V5 only if a **new** separate owner authorization is given after design.
 
 
 

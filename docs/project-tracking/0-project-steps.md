@@ -3414,4 +3414,19 @@
 
 ---
 
+### Step 197
+
+**Summary:** Closed the D018 V2-family after V1/V2/V2b/V2c. Retained V2b as preferred Pass baseline and future control; V2c Pass not preferred; no V2d (diminishing expected value). Preserved cross-version limitations. Recorded Step 198 as next proposed action: V3 Book Intelligence design only (no generation). D018/rubric/`4-decisions.md` unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 
