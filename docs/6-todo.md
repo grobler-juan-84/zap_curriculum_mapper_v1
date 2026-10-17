@@ -270,11 +270,15 @@
 
 
 
+- [x] **Step 191 — D018 V2b formal evaluation:** 5 Yes / 2 Partial; **PASS**; Audio OFF cleared invented-listening gate vs V2; concision not improved; residual `[WB]` provenance; V2 verdict preserved; V3 not authorized.
+
+
+
 ## Soon
 
 
 
-- [ ] **Step 191 — Formally evaluate V2b** on the same seven criteria; compare V2 vs V2b (listening mislabel gone? remaining provenance? concision? readiness held?).
+- [ ] Owner accept V2b as D018 V2-family Pass artifact (optional residual provenance cleanup notes only — no silent prompt rewrite).
 
 
 

@@ -3326,4 +3326,18 @@
 
 ---
 
+### Step 191
+
+**Summary:** Formally evaluated D018 V2b (Audio OFF) against the seven-criterion rubric using Step 190 PDF review evidence. Result 5 Yes / 2 Partial — PASS (Yes-count, no hard scope fail, invented-listening gate cleared). Audio OFF improved formal result vs V2; concision not improved; residual `[WB]` provenance Partials recorded. Prompt unchanged; V2 verdict preserved; V3 not authorized; D018 unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

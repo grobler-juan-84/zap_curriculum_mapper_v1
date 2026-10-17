@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 190
+**Last synced:** Step 191
 
 ## One-line state
 
 - D018 V2 formal result unchanged: BELOW PASS THRESHOLD.
-- V2b generated + initial review complete (Audio OFF); formal evaluation pending.
+- D018 V2b formal evaluation complete: **PASS** (5 Yes / 2 Partial; Audio OFF).
 - V3 still unauthorized.
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Step 191 — formally evaluate V2b against the existing seven criteria and compare V2 vs V2b.
+**Suggestion:** Owner accept V2b as the D018 V2-family Pass artifact, or separately authorize V3 (V2b ≠ V3).

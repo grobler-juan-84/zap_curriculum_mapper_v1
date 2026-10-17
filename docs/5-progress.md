@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 190
+**Last updated:** Step 191
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **D018 V2** — formally evaluated: 4 Yes / 3 Partial; **BELOW PASS THRESHOLD** (unchanged).
 
-- **D018 V2b** — generated (`WILD ANIMALS(2).pdf`, 30 PDF pages, Audio OFF) + ChatGPT initial review complete. Formal evaluation pending.
+- **D018 V2b** — formal evaluation complete: **5 Yes / 2 Partial**; **PASS** (Audio OFF; invented-listening gate cleared).
 
 ## In progress
 
-- **V2b** — GENERATED / INITIAL REVIEW COMPLETE; formal seven-criterion evaluation pending (Step 191).
+- None on the D018 V2-family Pass path; next move is owner-gated.
 
 ## Next
 
-- **Step 191** — formally evaluate V2b against the existing seven criteria and compare V2 vs V2b.
+- Owner decides whether to accept V2b as the D018 V2-family Pass artifact and/or authorize V3 (separate; V2b ≠ V3).
 
 ## Blocked
 
@@ -42,6 +42,6 @@
 
 - V2/V2b pack: [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md).
 
-- V2b initial: Zoo Friends absent; remaining concerns = unverified WB answers + invented song sentence; preliminary “improved, not formal PASS.”
+- V2b: Audio OFF improved formal Pass vs V2; concision not improved; residual `[WB]` provenance (unverified p.13 answers + invented song sentence pp.19–20).
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.
