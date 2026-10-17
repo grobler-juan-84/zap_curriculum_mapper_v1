@@ -2,8 +2,8 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 181  
-**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating the active teacher-first / D018 Chalkie prompt experiments.
+**Last updated:** Step 193  
+**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. D018 V2-family is closed at V2b; V3–V5 remain deferred pending a new owner authorization.
 
 ---
 
@@ -26,7 +26,7 @@
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
 | F005 | Phase 3 Series Intelligence / vertical mapping products | **PARKED** under D017; **not a prerequisite** for current D018 Chalkie prompt experiments. BE1→BE2→BE3 sufficiency probe supports only bounded experimental Series Intelligence — not Phase 3 productization or schema lock | architecture / D017 |
 | F006 | Phase 4 teacher enrichment **productization** (engine / production pipeline) | Bounded Teaching Intelligence experimentation may accompany D018; a full enrichment product remains later | phase-4 doc |
-| ~~F007~~ | ~~Phase 5–6 lesson packaging / generation (incl. Chalkie.ai)~~ | **Partially promoted 2026-10-16:** **D018** five-iteration Chalkie **prompt validation** is the immediate experimental priority. Full packaging/generation productization and locked Chalkie handover standards remain parked ([`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). Day-to-day Chalkie UI/ops for experiments: [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) (Active/Evolving tool reference — not productization). | phase-6 / D018 |
+| ~~F007~~ | ~~Phase 5–6 lesson packaging / generation (incl. Chalkie.ai)~~ | **Partially promoted 2026-10-16; V2-family closed 2026-10-17:** D018 V1→V2b prompt validation reached an owner-retained **V2b final stopping point** (V3 **not** authorized). Full packaging/generation productization and locked Chalkie handover standards remain parked ([`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). Day-to-day Chalkie UI/ops: [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) (tool reference — not productization). | phase-6 / D018 |
 | F019 | Optional multi-presentation Floor / Enrichment / Extension lesson-series modularization | **PARKED** — not a default D018 requirement. Lesson Series mode may create multiple lessons, but do not automatically split every lesson into Floor / Enrichment / Extension. See ops guide + Sandbox #4A notes in the parked handover spec. | phase-6 / D018 |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
 | F009 | Wire Book Workspace to Storage-backed page models (replace Beehive mock spreads) | Valuable UX bridge; not required to finish Phase 1 evidence quality | app audit 2026-10-07 |
