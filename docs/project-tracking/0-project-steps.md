@@ -3340,4 +3340,18 @@
 
 ---
 
+### Step 192
+
+**Summary:** Recorded owner acceptance of D018 V2b (`WILD ANIMALS(2).pdf`, Audio OFF) as the V2-family Pass artifact. Audio OFF enabled the Pass by clearing the listening mislabel; residual p.13 / pp.19–20 / length notes are optional cleanup only (verdict not reopened; no rerun). V2 verdict unchanged; V3 not authorized; `4-decisions.md` not updated.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

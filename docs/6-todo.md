@@ -274,11 +274,15 @@
 
 
 
+- [x] **Step 192 — Owner accept V2b** as D018 V2-family Pass artifact (`WILD ANIMALS(2).pdf`, Audio OFF); residual p.13 / pp.19–20 / length notes optional only; verdict not reopened; V3 not authorized.
+
+
+
 ## Soon
 
 
 
-- [ ] Owner accept V2b as D018 V2-family Pass artifact (optional residual provenance cleanup notes only — no silent prompt rewrite).
+- [ ] Separate owner decision: authorize D018 V3, or keep V2b as the accepted stopping point (V2b is **not** V3).
 
 
 

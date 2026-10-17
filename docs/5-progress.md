@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 191
+**Last updated:** Step 192
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **D018 V2** — formally evaluated: 4 Yes / 3 Partial; **BELOW PASS THRESHOLD** (unchanged).
 
-- **D018 V2b** — formal evaluation complete: **5 Yes / 2 Partial**; **PASS** (Audio OFF; invented-listening gate cleared).
+- **D018 V2b** — **owner-accepted V2-family Pass artifact** (5 Yes / 2 Partial; Audio OFF; `WILD ANIMALS(2).pdf`).
 
 ## In progress
 
-- None on the D018 V2-family Pass path; next move is owner-gated.
+- None on the D018 V2-family path; V2b acceptance closed that track.
 
 ## Next
 
-- Owner decides whether to accept V2b as the D018 V2-family Pass artifact and/or authorize V3 (separate; V2b ≠ V3).
+- Separate owner decision: authorize V3, or keep V2b as the accepted stopping point (V2b ≠ V3).
 
 ## Blocked
 
@@ -42,6 +42,6 @@
 
 - V2/V2b pack: [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md).
 
-- V2b: Audio OFF improved formal Pass vs V2; concision not improved; residual `[WB]` provenance (unverified p.13 answers + invented song sentence pp.19–20).
+- Audio OFF enabled the formal Pass by clearing the listening-mislabel failure. Residual non-blocking notes: unverified WB p.13 answers; invented `[WB]` song (pp.19–20); 30-page length — optional cleanup only; verdict not reopened.
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.
