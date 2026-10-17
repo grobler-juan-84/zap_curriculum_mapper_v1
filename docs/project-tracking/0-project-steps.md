@@ -3399,4 +3399,19 @@
 
 ---
 
+### Step 196
+
+**Summary:** Formally evaluated D018 V2c against the seven-criterion rubric using Step 195 PDF review evidence (PDF not local). Result 5 Yes / 2 Partial — PASS (equivalent formal totals to V2b). Mixed qualitative trade-off; V2c not preferred by default; V2b remains accepted Pass artifact. V3 not authorized; further V2 iterations not auto-authorized; D018/rubric/`4-decisions.md` unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

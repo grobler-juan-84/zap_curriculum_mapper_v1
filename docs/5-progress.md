@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 195
+**Last updated:** Step 196
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,15 +22,15 @@
 
 - **D018 V2b** — owner-accepted V2-family Pass artifact (5 Yes / 2 Partial; Audio OFF; `WILD ANIMALS(2).pdf`; evaluation `495c917`). Pass verdict **preserved**.
 
-- **D018 V2c** — generated (`Wild Animals(3).pdf`, 30 PDF pages, Audio OFF, Single Lesson) + initial review complete. Formal evaluation pending.
+- **D018 V2c** — formal evaluation complete: **5 Yes / 2 Partial**; **PASS** (equivalent totals to V2b; mixed residuals; **not** preferred by default).
 
 ## In progress
 
-- **V2c** — GENERATED / INITIAL REVIEW COMPLETE; formal seven-criterion evaluation pending (Step 196).
+- None on the bounded V2c probe; next move is owner-gated.
 
 ## Next
 
-- **Step 196** — formally evaluate V2c against the unchanged seven criteria; compare with V2b; decide whether V3 / Book Intelligence has more value. Do not auto-authorize further V2 iterations or V3.
+- Owner decides: keep **V2b** as the working Pass artifact, or separately authorize V3 / Book Intelligence. Further V2 iterations are **not** auto-authorized.
 
 ## Blocked
 
@@ -44,6 +44,6 @@
 
 - V2/V2b/V2c pack: [`phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md).
 
-- V2c initial: no fabricated listening; WB picture-answer sequence gone; remaining concerns = “A elephant” (p.18), “chase” attribution (p.20), supplementary labeled `[SB]`/`[SS]`, still 30 pages.
+- V2c vs V2b: same formal Pass; V2c removed p.13 WB answer sequence but kept 30-page length and different provenance/grammar issues.
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.

@@ -284,7 +284,7 @@
 
 - [x] **Step 195 — D018 V2c generation + initial review:** `Wild Animals(3).pdf` (30 pages, Audio OFF, Single Lesson); no fabricated listening; WB picture-answer sequence removed; remaining grammar/attribution/label/length concerns; formal scores deferred; V2b PASS preserved; V3 not authorized.
 
-- [ ] **Step 196 — Evaluate D018 V2c:** apply the unchanged seven-criterion rubric; compare with V2b; document limitations and decide whether V3 / Book Intelligence offers more value. Do not authorize further V2 iterations automatically.
+- [x] **Step 196 — D018 V2c formal evaluation:** 5 Yes / 2 Partial; **PASS**; equivalent formal totals to V2b; mixed residuals (p.18 grammar; p.20 chase attribution; `[SB]`/`[SS]` supplements; still 30 pages); V2b remains preferred Pass artifact; V3 not authorized; further V2 iterations not auto-authorized.
 
 
 
@@ -292,7 +292,11 @@
 
 
 
-- [ ] D018 V3–V5 only if a **new** separate owner authorization is given after Step 196.
+- [ ] Owner keep V2b as working Pass artifact, or separately authorize V3 / Book Intelligence (V2c does not auto-prefer or auto-start V3).
+
+
+
+- [ ] D018 V3–V5 only if a **new** separate owner authorization is given.
 
 
 
