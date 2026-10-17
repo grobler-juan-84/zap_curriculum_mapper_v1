@@ -278,15 +278,15 @@
 
 
 
+- [x] **Step 193 — Retain V2b** as final stopping point for the D018 V2-family; V3 **not** authorized; track closed.
+
+
+
 ## Soon
 
 
 
-- [ ] Separate owner decision: authorize D018 V3, or keep V2b as the accepted stopping point (V2b is **not** V3).
-
-
-
-- [ ] Continue D018 V3–V5 only after separate owner authorization (V2b is **not** V3).
+- [ ] D018 V3–V5 only if a **new** separate owner authorization is given later (currently declined; V2b is the stop).
 
 
 

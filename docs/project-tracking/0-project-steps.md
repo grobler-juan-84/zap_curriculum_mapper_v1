@@ -3354,4 +3354,18 @@
 
 ---
 
+### Step 193
+
+**Summary:** Recorded owner decision to retain D018 V2b as the final stopping point for the V2-family. V3 not authorized; track closed; no rerun or prompt refine; `4-decisions.md` not updated.
+
+**Files touched:**
+- `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

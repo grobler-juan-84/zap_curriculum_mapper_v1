@@ -151,7 +151,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): closed as comparative baseline (4 Yes / 3 Partial; formal Pass not met); one-time owner override authorizes V2 (+ Workbook). | 1.2 | ACTIVE |
-| [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2 (below Pass) plus owner-accepted V2b V2-family Pass artifact (5 Yes / 2 Partial; Audio OFF); residual cleanup notes only; V3 not authorized. | 1.7 | ACTIVE |
+| [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2 (below Pass) plus V2b owner-accepted Pass artifact retained as **final stopping point** (Audio OFF); V2-family track closed; V3 not authorized. | 1.8 | PARKED |
 
 ### Phase 6
 
