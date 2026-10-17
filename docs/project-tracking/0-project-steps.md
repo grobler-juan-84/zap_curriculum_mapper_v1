@@ -3445,4 +3445,19 @@
 
 ---
 
+### Step 199
+
+**Summary:** Applied V3 `[BI]` wording revision (reinforce abilities through existing like+can frame; optional yes/no must not become a separate grammar lesson) and recorded owner approval for **one** controlled V3 generation. Not generated or formally scored in this step. V2b remains control; V4/V5/reruns not authorized; `4-decisions.md` unchanged.
+
+**Files touched:**
+- `docs/phase-5/d018-v3-be2-u08-book-intelligence-experiment.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

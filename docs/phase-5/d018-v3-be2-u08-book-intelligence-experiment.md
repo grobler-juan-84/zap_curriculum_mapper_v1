@@ -1,9 +1,9 @@
-# D018 V3 Experiment Design — BE2 Unit 8 + Book Intelligence (planning only)
+# D018 V3 Experiment Design — BE2 Unit 8 + Book Intelligence
 
-**Status:** ACTIVE / DESIGN ONLY — **NOT AUTHORIZED TO GENERATE**  
-**Version:** 1.0  
+**Status:** ACTIVE / **APPROVED FOR ONE CONTROLLED GENERATION** (Step 199; not yet generated)  
+**Version:** 1.1  
 **Date:** 2026-10-17  
-**Decision:** D018 (LOCKED) — iteration **V3** (+ AI Curriculum / Book Intelligence); generation **not** authorized  
+**Decision:** D018 (LOCKED) — iteration **V3** (+ AI Curriculum / Book Intelligence); **one** controlled generation authorized after wording revision  
 **Pilot:** Big English 2 · Unit 8 *Wild Animals* · **SB pp. 128–129** + **WB pp. 104–105** (unchanged page scope)  
 **Control:** **V2b** — preferred V2-family Pass baseline (`WILD ANIMALS(2).pdf`; Audio OFF; evaluation `495c917`)  
 **V2-family pack (CLOSED):** [`d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./d018-v2-be2-u08-sb128-129-wb104-105-experiment.md)  
@@ -13,9 +13,9 @@
 
 ## Purpose
 
-Design a **controlled** D018 V3 experiment that tests whether adding **bounded Unit 8 Book Intelligence** to the **unchanged V2b control prompt** produces a **meaningfully better** lesson than V2b alone.
+Design and (after owner approval) run a **controlled** D018 V3 experiment that tests whether adding **bounded Unit 8 Book Intelligence** to the **unchanged V2b control prompt** produces a **meaningfully better** lesson than V2b alone.
 
-This step is **planning and prompt design only**. No Chalkie run. No V3 generation authorization. No change to V2b’s accepted Pass verdict, D018, the seven-criterion rubric, architecture, schemas, datasets, application code, or [`../4-decisions.md`](../4-decisions.md).
+Step 198 was design-only. Step 199 applies one wording refinement and records owner approval for **one** controlled generation. This step does **not** generate or formally evaluate V3. No change to V2b’s accepted Pass verdict, D018, the seven-criterion rubric, architecture, schemas, datasets, application code, or [`../4-decisions.md`](../4-decisions.md).
 
 ---
 
@@ -80,7 +80,7 @@ V3 = **V2b control prompt + `[BI]` addition only**.
 | Field | Provenance | Why it could help **this** lesson (SB 128–129 + WB 104–105) |
 |---|---|---|
 | `title` / unit number | Factual catalog/unit identity | Orients teacher: Unit 8 *Wild Animals* |
-| Soft communicative focus drawn from `communicative_functions` (ability Q&A only) | Unit-level **interpretation** synthesized from Phase 1 language evidence | Clarifies that the SB like+can frame supports **ability talk**, not a free expansion into later grammar |
+| Soft communicative focus drawn from `communicative_functions` (ability via existing like+can frame) | Unit-level **interpretation** synthesized from Phase 1 language evidence | Reinforces animal abilities **through** the SB like+can frame; optional brief yes/no ability practice must not become a separate grammar lesson |
 | Soft page-faithful aim drawn from first LO clause (“Describe animals”) | **`learning_outcomes_provenance`: `ai_inferred`** | Reduces teacher inference about “what success looks like” on opener pages **without** forcing habitats/values aims |
 | Explicit exclusion list (habitats / adjective order / values / phonics) | Derived from BI unit columns that are **out of page scope** | Uses BI to **constrain** scope, not expand it — targets known V2-family residual risk of unit drift |
 
@@ -110,7 +110,7 @@ V3 = **V2b control prompt + `[BI]` addition only**.
 
 ## Copy-ready V3 addition (append to unchanged V2b / V2 paste block)
 
-**Status:** **DRAFTED / NOT RUN** — requires owner approval before generation.
+**Status:** **APPROVED** (Step 199 wording revision) / **NOT YET GENERATED**
 
 ```text
 ---
@@ -124,7 +124,7 @@ D. BOOK INTELLIGENCE — BOUNDED UNIT 8 CONTEXT [BI] (append-only; do not rewrit
 
 [BI · interpretation] Soft communicative focus that fits THESE pages only:
 - Name zoo/wild animals already listed in [SB]/[WB].
-- Support ability talk that fits the required [SB] frame (like + can) — light yes/no ability practice only.
+- Reinforce animal abilities through the existing [SB] like + can speaking frame. Optional yes/no ability questions may be used briefly as supplementary practice, but must not become a separate grammar lesson.
 - Do NOT start adjective-order description drills or “They’re so + adj” lessons.
 
 [BI · AI-inferred] Soft success aim for THIS lesson only:
@@ -184,20 +184,36 @@ V3 shows **meaningful improvement** over V2b only if **all** of the following ho
 
 ## Explicit non-locks / boundaries
 
-- Does **not** authorize Chalkie generation or V3 execution.
-- Does **not** change V2b’s accepted Pass verdict or reopen V2 / V2c.
+- Authorization covers **one** controlled V3 generation only — **not** V4, V5, prompt redesign, or automatic reruns.
+- Does **not** change V2b’s accepted Pass verdict or reopen V1–V2c.
 - Does **not** authorize V2d or further V2 variants.
 - Does **not** lock BI methodology, schema, UI contract, or Phase 2 format.
 - Does **not** modify Phase 1 datasets, BI JSON content, or application code.
 - Does **not** update [`../4-decisions.md`](../4-decisions.md).
+- Does **not** broaden Unit 8 page scope beyond SB 128–129 + WB 104–105.
 
 ---
 
-## Next gate (required before generation)
+## Owner approval (Step 199)
 
-**Owner review and explicit approval of this V3 design and the copy-ready `[BI]` addition before any Chalkie generation.**
+| Field | Record |
+|---|---|
+| Date | 2026-10-17 |
+| Wording revision | Applied (ability practice via existing like+can frame; optional yes/no must not become a separate grammar lesson) |
+| Decision | **APPROVED FOR ONE CONTROLLED GENERATION** |
+| Base prompt | Unchanged **V2b / V2 paste block** |
+| Treatment | Approved append-only `[BI]` block (sole change) |
+| Settings | Single Lesson · Audio **OFF** · Chalkie Default · Simple · Grade 3 · English ability Grade 2 · 25 slides |
+| Scope | SB pp. 128–129 + WB pp. 104–105 only |
+| Rubric / Pass gates | Existing seven-criterion D018 rubric — **unchanged** |
+| V3 value criteria | Predeclared Step 198 criteria — **unchanged** |
+| Generation in this step | **Not performed** |
+| Formal evaluation in this step | **Not performed** |
+| Does not authorize | V4 · V5 · prompt redesign · automatic reruns |
 
-Until that approval is recorded, V3 status remains: **DESIGN ONLY / NOT AUTHORIZED TO GENERATE**.
+### Next step (after this approval)
+
+**Generate one controlled V3 lesson** using the unchanged V2b prompt plus the approved `[BI]` block, then capture settings, artifact details, and an **initial factual review without formal scoring**.
 
 ---
 
@@ -206,3 +222,4 @@ Until that approval is recorded, V3 status remains: **DESIGN ONLY / NOT AUTHORIZ
 | Date | Note |
 |---|---|
 | 2026-10-17 | Step 198: created V3 Book Intelligence experiment design (planning only). Selected BE2 D017 v2 eight-column Unit 8 BI; defined include/exclude fields, append-only `[BI]` treatment, V3 value criteria, and owner approval gate. No generation. |
+| 2026-10-17 | Step 199: revised `[BI]` ability-practice wording; owner approved design for **one** controlled generation. Not generated in this step. |

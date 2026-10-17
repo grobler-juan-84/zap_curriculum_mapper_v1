@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 198
+**Last updated:** Step 199
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,19 +18,19 @@
 
 - **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (Audio OFF).
 
-- **D018 V3 design** — planning complete (Step 198): append-only `[BI]` treatment from BE2 D017 v2 eight-column Unit 8; generation **not** authorized.
+- **D018 V3 design** — wording revised and **APPROVED FOR ONE CONTROLLED GENERATION** (Step 199). Not yet generated.
 
 ## In progress
 
-- Owner review / explicit approval of the V3 design and copy-ready `[BI]` prompt before any generation.
+- Ready for one controlled V3 Chalkie generation (owner-run).
 
 ## Next
 
-- Owner approve (or revise) the V3 design. Only after explicit approval: authorize a single V3 generation against the V2b control.
+- Generate one V3 lesson (unchanged V2b prompt + approved `[BI]` block); record settings, artifact, and initial factual review only — no formal scoring yet.
 
 ## Blocked
 
-- Soft: V3 generation blocked until owner approval gate. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
+- Soft: V4/V5 / further V3 reruns not authorized. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
 
 ---
 
@@ -40,6 +40,6 @@
 
 - V3 design: [`phase-5/d018-v3-be2-u08-book-intelligence-experiment.md`](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md).
 
-- BI source: BE2 D017 v2 eight-column (`be2-sb-u01-u09-book-overview-d017-v2.md` + eight-column JSON companion); Unit 8 only; habitats/values/phonics/adjective-order excluded.
+- Approval is one generation only; V2b Pass preserved; BI artifact data unchanged.
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.

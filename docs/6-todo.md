@@ -296,15 +296,15 @@
 
 
 
+- [x] **Step 199 — Approve V3 design** after wording revision (ability via existing like+can frame); **APPROVED FOR ONE CONTROLLED GENERATION**; not generated in this step.
+
+
+
 ## Soon
 
 
 
-- [ ] Owner review and **explicitly approve** the V3 design + copy-ready `[BI]` addition before any Chalkie generation.
-
-
-
-- [ ] After approval only: authorize a single D018 V3 generation vs V2b control (still not auto-start V4–V5).
+- [ ] **Generate one controlled V3 lesson** (unchanged V2b prompt + approved `[BI]`); capture settings, artifact, and initial factual review — no formal scoring yet.
 
 
 
