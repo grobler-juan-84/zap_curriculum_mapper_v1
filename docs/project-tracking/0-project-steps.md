@@ -3520,3 +3520,19 @@
 ---
 
 
+
+### Step 204
+
+**Summary:** Completed sections 5 and 8 of the BE2 U8 HM lesson-input pack from owner/teacher answers. Recorded final selected input `PL-01`, `PL-03`, `PL-19` plus teacher-added `What is it?` / `What are they?` (not PL-22); deselected PL-08 as a school-specific override. Cleared the gate for bounded Arm B2 design; generation remains unauthorized.
+
+**Files touched:**
+- `docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md` (updated)
+- `docs/phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
