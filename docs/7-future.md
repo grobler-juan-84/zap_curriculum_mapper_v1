@@ -2,8 +2,8 @@
 
 **Status:** ACTIVE  
 **Version:** 1.0  
-**Last updated:** Step 200
-**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. D018 V2-family is **CLOSED** (V2b preferred control). V3 is generated but not formally evaluated. A two-lesson Lesson Series direction is active in design only; generation is not authorized.
+**Last updated:** 2026-10-18 (horizontal-mapping docs alignment)  
+**Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. **Immediate priority** is teacher-directed horizontal mapping (see [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md) and [`5-progress.md`](./5-progress.md)). D018 / Lesson Series remain **parked downstream experimentation** — retained, not cancelled.
 
 ---
 
@@ -26,7 +26,7 @@
 | ~~F004~~ | ~~Phase 2 interpretation pipeline~~ | **Promoted 2026-10-09 (D015):** bounded Big-English-only interpretation experiments are now active. No implementation or schema is locked. | architecture / D015 |
 | F005 | Phase 3 Series Intelligence / vertical mapping products | **PARKED** under D017; **not a prerequisite** for current D018 Chalkie prompt experiments. BE1→BE2→BE3 sufficiency probe supports only bounded experimental Series Intelligence — not Phase 3 productization or schema lock | architecture / D017 |
 | F006 | Phase 4 teacher enrichment **productization** (engine / production pipeline) | Bounded Teaching Intelligence experimentation may accompany D018; a full enrichment product remains later | phase-4 doc |
-| ~~F007~~ | ~~Phase 5–6 lesson packaging / generation (incl. Chalkie.ai)~~ | **Partially promoted:** V2-family closed with V2b preferred; V3 Single Lesson generated and formal evaluation pending. Step 200 opens a design-only two-lesson Lesson Series comparison to test instructional space and scaffolding; generation remains gated. Full productization and locked handover standards remain parked ([`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). | phase-6 / D018 |
+| F007 | Phase 5–6 lesson packaging / generation (incl. Chalkie.ai) — **parked downstream** | **Not the active immediate priority.** D018 evidence retained: V2-family closed with V2b preferred; V3 Single Lesson generated, formal evaluation pending; Lesson Series Experiment 1 prompt approved but generation **not authorized**. A future comparison *may* use teacher-selected horizontal mappings with the approved lesson-generation configuration — **not authorized now**. Full productization and locked handover standards remain parked ([`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). | phase-6 / D018 |
 | F019 | Lesson Series alternatives beyond approved Experiment 1 | **PARKED:** three shorter lessons are a future comparison only (slide count TBD; not designed or authorized). Floor / Enrichment / Extension is not the default split. | phase-6 / D018 |
 | F020 | ChatGPT + Canva alternative-platform benchmark | **FUTURE OPTION ONLY — NOT AUTHORIZED:** compare comparable curriculum scope/objectives against Chalkie Lesson Series to investigate platform-related limits; do not assume superiority or initiate generation/integration. | phase-5 / phase-6 / D018 |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
@@ -60,4 +60,4 @@
 
 ## Reminder
 
-If an idea starts steering today’s D018 Chalkie / Teaching Intelligence experiments toward an unproven schema, implementation, Vertical Mapping unlock, or downstream product without an explicit user decision, park it here.
+If an idea starts steering today’s horizontal-mapping research (or later Chalkie / Teaching Intelligence work) toward an unproven schema, implementation, Vertical Mapping unlock, Phase 2 closure, or downstream product without an explicit user decision, park it here.

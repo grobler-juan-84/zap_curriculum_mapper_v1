@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 203
+**Last updated:** 2026-10-18 (horizontal-mapping docs alignment)
 
 
 
@@ -306,17 +306,33 @@
 
 - [x] **Step 203 — Owner approve Lesson Series prompt:** removed redundant SS/BI context + later-unit exclusion wording; revised prompt accepted; not run; generation remains separately gated.
 
+- [x] **BE2 U8 horizontal-mapping investigation** — SS-first prior-language bank (22 patterns / 7 vocab categories); docs only.
+
+- [x] **BE2 U8 teacher choice card** — four AI recommendations retained; teacher selected nine available patterns; feedback Q4–5 (dual polarity + matched agreement).
+
+- [x] **BE2 U8 cumulative-language script pack** — Scripts A–D; documentation / teacher-judgment only (not classroom validation).
+
+- [x] **Docs alignment** — prioritize teacher-directed horizontal mapping in overview / workflow / architecture / trackers (no D018 cancellation; no Phase 2 closure).
+
+
+
+## Now
+
+
+
+- [ ] Produce one **polarity-safe opener cue card** from Scripts A–C (both like / don’t-like paths; polarity-matched `Me, too!` / `Me neither!`), then make a teacher-usefulness judgment before considering any bounded Chalkie / Lesson Series trial.
+
 
 
 ## Soon
 
 
 
-- [ ] Obtain explicit owner authorization to begin the Chalkie Lesson Series workflow with the approved prompt; review the generated outline before final generation where supported.
-
-- [ ] Keep the additional instructional-quality dimensions observational; do not invent numerical thresholds.
+- [ ] Keep instructional-quality dimensions observational; do not invent numerical thresholds.
 
 - [ ] Document detailed V3 initial-review findings and formally evaluate V3 when the owner chooses; do not infer scores from the direction change.
+
+- [ ] Lesson Series generation remains **parked / not currently authorized** (approved prompt preserved). Do not treat authorization as the next active step.
 
 
 
@@ -360,7 +376,9 @@
 
 
 
-- [ ] Full Phase 5–6 Chalkie packaging/generation **productization** / locked handover (F007 remainder; D018 experiments come first).
+- [ ] Full Phase 5–6 Chalkie packaging/generation **productization** / locked handover (F007 remainder; horizontal mapping comes first; D018 evidence preserved).
+
+- [ ] No UI / schema / D018 result-or-rubric changes / V4 / V5 / Phase 2 closure without explicit owner authorization.
 
 
 

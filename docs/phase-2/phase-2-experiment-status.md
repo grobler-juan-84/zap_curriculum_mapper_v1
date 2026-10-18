@@ -1,9 +1,9 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.44  
-**Date:** 2026-10-15  
-**Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
+**Version:** 1.45  
+**Date:** 2026-10-18  
+**Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence, plus bounded **teacher-directed horizontal mapping** for cumulative learning. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
 ---
 
@@ -13,7 +13,8 @@
 |---|---|
 | Git branch | `phase-2` |
 | Phase 1 | PAUSED at 14/18 COMPLETE (D015) |
-| Active direction | D017 Progressive Curriculum Intelligence — Book Intelligence first |
+| Active direction | D017 Progressive Curriculum Intelligence — Book Intelligence + **bounded horizontal mapping** (teacher-directed cumulative learning) |
+| Horizontal mapping (BE2 U8) | Investigation + teacher choice card + script pack recorded (docs only; see §1a) |
 | Book Intelligence working baseline | BE2-SB D017 **v2** — owner-approved provisional working baseline; BE2 v1 preserved |
 | BE1 / BE3 overviews | Executed (experimental; **not accepted**) |
 | Vertical sufficiency probe | Executed — coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; **not** Phase 3 start |
@@ -38,6 +39,26 @@
 | Parked Phase 1 ideas | F017 / F018 — not approved for implementation |
 | Teacher readability | Deferred to Chalkie workspace — **not** an active Phase 2 blocker |
 | Research inventory (V3.1 + cross-unit) | [`p2-exp-be2-v3.1-cross-unit-status.md`](./p2-exp-be2-v3.1-cross-unit-status.md) |
+
+### 1a. BE2 Unit 8 horizontal-mapping artifacts (2026-10-18)
+
+Bounded research only — **not** classroom validation, UI, schema work, Phase 2 closure, or Chalkie proof. Main workflow explanation: [`../11-curriculum-mapping-workflow.md`](../11-curriculum-mapping-workflow.md).
+
+| Artifact | Path | Role |
+|---|---|---|
+| Prior-language investigation | [`experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md`](./experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md) | SS-first, selectively SB-verified inventory |
+| Teacher choice card | [`experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md`](./experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md) | Owner selection + feedback Q4–5 |
+| Cumulative script pack | [`experiments/be2-u08-cumulative-language-script-pack-v0.1.md`](./experiments/be2-u08-cumulative-language-script-pack-v0.1.md) | Manual scripts + qualitative comparison (document/teacher-judgment evidence) |
+
+**Recorded accurately:**
+
+- SS-first investigation produced **22** deduplicated reusable prior-language patterns and **seven** compact vocabulary categories, with documented gaps (e.g. incomplete colour bank).
+- AI made **four** initial relevant recommendations (soft 0–5 default — **not** a teacher-selection cap). The teacher ultimately selected **nine** available patterns: `PL-01, PL-02, PL-03, PL-08, PL-13, PL-16, PL-18, PL-19, PL-20`.
+- Script pack is documentation / teacher-judgment evidence only.
+- Teacher feedback supports fuller **positive and negative** preference paths and polarity-matched `Me, too!` / `Me neither!`.
+- **Smallest next step:** one polarity-safe opener cue card based on Scripts A–C, then a teacher-usefulness judgment — before considering any bounded Chalkie / Lesson Series trial.
+
+**Boundaries unchanged:** no D018 result/prompt/rubric changes; no V4/V5; no Phase 2 closure; vertical mapping remains parked.
 
 ---
 
@@ -438,3 +459,4 @@ Preserved research artifacts; **not** the active production direction under D017
 | 2026-10-15 | BE2 BI uploaded to Storage; Library → BI registry enabled for `big_english_2_sb`. |
 | 2026-10-15 | BE2 BI E2E + PDF U1–U9 acceptance PASS; Library→BI workspace select fix; P5 done. |
 | 2026-10-15 | D019 amended: two-book BI MVP UI implementation-validated; methodologies remain provisional. |
+| 2026-10-18 | BE2 U8 horizontal-mapping investigation + teacher choice card + script pack recorded; teacher selected nine available patterns; polarity feedback captured; Phase 2 not closed. |

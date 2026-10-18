@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Teacher-first workflow — immediate experiment **D018** (five-iteration Chalkie prompt validation); Book Intelligence remains provisional under D017/D019  
+**Current Development Focus:** Teacher-first workflow — immediate emphasis on **bounded horizontal mapping** for evidence-backed, teacher-controlled cumulative learning (within one book); Book Intelligence remains provisional under D017/D019; Chalkie / D018 is downstream  
 **Workflow:** [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)
 
 ---
@@ -166,19 +166,21 @@ Evaluate outputs, identify where problems originated, and improve the appropriat
 
 ---
 
-## 6. Current Priority — Teacher-first workflow (D018 immediate experiment)
+## 6. Current Priority — Teacher-first workflow (horizontal mapping immediate)
 
 Development priority follows a **teacher-first** sequence. Conceptual phase numbers remain the architecture (§5); **priority order does not have to follow phase numbers**.
 
 | Priority | Component | Purpose | Status |
 |---|---|---|---|
 | 1 | Teacher Workspace | Select a book, unit, and lesson | In use (Library / BI / Validation paths under D019) |
-| 2 | Curriculum Requirements | Identify exactly what needs to be taught | Book Intelligence provisional (D017/D019) |
-| 3 | Teaching Intelligence | Suggest scaffolding, recycling, and appropriate enrichment | Experimental priority (aligns with Phase 4 intent; not a production engine) |
-| 4 | Lesson Packaging | Produce a high-quality Chalkie.ai prompt | **Immediate experiment: D018** (five cumulative iterations; each prompt evaluated against its generated lesson) |
-| 5 | Vertical Mapping | Improve recommendations using previous and future learning | **PARKED** — not a prerequisite for current Chalkie experiments (F005 / D017) |
+| 2 | Curriculum Requirements + horizontal prior-language inventory | Identify what is new **and** what prior language in the same book can be reused | **Immediate emphasis:** bounded horizontal mapping (teacher-controlled; see [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)) |
+| 3 | Teaching Intelligence | Suggest scaffolding, recycling, and appropriate enrichment | Supporting philosophy; not a production engine |
+| 4 | Lesson Packaging / Chalkie | Produce and evaluate AI lesson prompts | **Downstream / parked for now** — D018 evidence preserved; not the current priority |
+| 5 | Vertical Mapping | Improve recommendations using previous and future learning across books | **PARKED** (F005 / D017) |
 
-**Immediate experimental priority:** [`4-decisions.md`](./4-decisions.md) **D018** — Five-iteration Chalkie prompt validation. Teaching Intelligence and Chalkie packaging are priorities for **experimentation**, not completed production capabilities. Curriculum evidence, AI interpretation, and optional enrichment must remain distinguishable.
+**Immediate experimental priority:** bounded **horizontal mapping** for cumulative learning — eligible prior units in the same book → traceable prior-language inventory → AI recommends 0–5 patterns → teacher accepts / deselects / replaces / adds / selects none → mapper-generated cumulative applications. Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). Curriculum evidence, AI interpretation, and mapper-generated applications must remain distinguishable. AI does **not** control what teachers may select.
+
+**Preserved D018 / Chalkie history (not cancelled):** V2-family closed with **V2b** preferred Pass baseline; **V3** generated, formal evaluation still pending; Lesson Series Experiment 1 prompt owner-approved but **not authorized** to run. A future comparison *may* test that approved lesson-generation configuration with teacher-selected horizontal mappings — **that comparison is not authorized now**. Chalkie remains **downstream of curriculum intelligence**.
 
 **Preserved foundations (not undone by this priority shift):**
 
@@ -351,17 +353,17 @@ The mapper should therefore support progression from recognition toward accurate
 
 ---
 
-## 14. Lesson Generation (experimental priority under D018)
+## 14. Lesson Generation (downstream of curriculum intelligence)
 
 AI-assisted lesson generation remains part of the seven-phase architecture (Phases 5–6).
 
-**Immediate experimental work** follows **D018**: five cumulative Chalkie prompt iterations (V1 Scope & Sequence + Student Book page evidence → … → V5 School-Specific Intelligence). Each iteration must produce a usable Chalkie prompt and be evaluated against the lesson it generates. This is **prompt-validation experimentation**, not a locked packaging schema or production generation pipeline.
+**D018** (LOCKED) authorized five-iteration Chalkie prompt validation. That work produced durable evidence — notably the **V2b** preferred Pass baseline, a generated **V3** awaiting formal evaluation, and an approved-but-not-authorized Lesson Series prompt — and is **not** treated as cancelled or invalid. It is **not** the current immediate priority.
 
-For **how to operate Chalkie** during those experiments (Single Lesson vs Lesson Series, settings, outline review, themes, export, quality control), use the operational reference [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md). That document is a **tool/UI reference**, not a production implementation or locked handover contract.
+Chalkie is **downstream of curriculum intelligence**. Immediate emphasis is teacher-directed horizontal mapping (§6). A future comparison may combine the existing approved lesson-generation configuration with teacher-selected horizontal mappings; that comparison is **not authorized now**.
 
-Previous Chalkie testing already showed that structured curriculum intelligence can produce useful AI-generated lesson skeletons. Upstream Book Intelligence (D017/D019) stays provisional evidence for those experiments. Vertical Mapping is **not** required before running D018 iterations.
+For **how to operate Chalkie** when generation is later authorized, use [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) (tool/UI reference only).
 
-Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007; parked productization notes in [`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)).
+Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007; parked productization notes in [`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). Vertical Mapping remains parked.
 
 ---
 
@@ -389,18 +391,20 @@ The interface should therefore evolve alongside the curriculum model.
 
 Near-term success is:
 
-> **Run D018 Chalkie prompt iterations with clear evaluation against generated lessons, while keeping Book Intelligence methodologies provisional and Vertical Mapping parked.**
+> **Demonstrate teacher-directed horizontal mapping that yields a traceable prior-language inventory and purposeful cumulative applications for a current unit — without pretending prior exposure is mastery, without forcing pattern coverage, and without unlocking Chalkie regeneration or Phase 3.**
 
 Success at this stage does **not** require:
 
 - complete automation,
 - completion of the four deferred Phase 1 books,
 - a finalized Phase 2 / packaging / generation schema,
-- perfect extraction, enrichment, or lesson generation,
+- classroom validation of every script,
+- proving that horizontal mapping improves Chalkie lessons,
 - unlocking Phase 3 Vertical Mapping,
+- authorizing V4/V5 or Lesson Series generation,
 - or a finished production application.
 
-It requires useful, evaluable Chalkie prompts grounded in distinguishable curriculum evidence and AI interpretation, without premature locks.
+It requires distinguishable evidence layers, teacher control over selection, and useful cumulative-language applications grounded in the same book’s prior units.
 
 ---
 

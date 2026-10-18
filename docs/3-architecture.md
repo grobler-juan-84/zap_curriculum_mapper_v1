@@ -38,7 +38,7 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
-**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Current teacher-first work may experiment with Teaching Intelligence and lesson packaging / Chalkie prompts (**D018**) before unlocking Series Intelligence / Vertical Mapping (Phase 3), which remains **parked**. That does not collapse phase boundaries or treat experimental prompts as production generation.
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Active bounded research focus is **horizontal mapping** within Phase 2 evidence/interpretation — teacher-directed cumulative applications from prior units in the same book — with Chalkie / **D018** packaging treated as **downstream** (preserved evidence; not the current priority). Series Intelligence / Vertical Mapping (Phase 3) remains **parked**; Phase 4 productization remains later. That does not collapse phase boundaries, lock horizontal-mapping ownership, or treat experimental prompts as production generation. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
 
 ---
 
@@ -394,7 +394,7 @@ The exact lesson-package structure is not yet permanently locked.
 
 Phase 6 turns the lesson package into usable teaching material.
 
-**Current experiments:** Locked decision **D018** authorizes five-iteration Chalkie **prompt validation** (evaluate each prompt against its generated lesson). That is experimental packaging/generation practice, not a locked Phase 6 product or schema.
+**Current research emphasis (upstream of this phase):** teacher-directed horizontal mapping for cumulative learning (Phase 2 evidence/interpretation). **D018** remains LOCKED historical/downstream prompt-validation evidence (V2b preferred; V3 pending formal evaluation; Lesson Series approved but not authorized). Phase 6 work here stays experimental packaging/generation practice when later authorized — not a locked product or schema.
 
 **Operational reference (external tool):** [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) documents observed Chalkie UI settings and generation/export behavior for experiments. Keep layers distinct: **curriculum evidence** → **lesson packaging (prompt)** → **external generation (Chalkie)** → **output evaluation**. Do not treat Chalkie settings or generated slides as curriculum SoT, and do not invent a new data model from the UI guide.
 

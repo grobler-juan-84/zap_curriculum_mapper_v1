@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order. **D018 V2-family is CLOSED** (V2b preferred control). **D018 V3** is generated but not formally evaluated. Lesson Series Experiment 1 configuration is approved (two 40-minute lessons; 30 requested slides each); generation is not authorized. Book Intelligence remains provisional under D017/D019; Teaching and School / Teacher-Specific Intelligence remain future stages.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order with **immediate emphasis on bounded horizontal mapping** for cumulative learning (within one book; teacher-controlled). Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). **D018** evidence is preserved but **downstream / parked** for now (V2b preferred control; V3 generated, formal evaluation pending; Lesson Series prompt approved but not authorized). Book Intelligence remains provisional under D017/D019; Vertical Mapping remains parked.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -30,17 +30,17 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; D018 immediate Chalkie prompt experiment; D017/D019 Book Intelligence provisional; Vertical Mapping parked. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; **immediate emphasis: horizontal mapping** for cumulative learning; D018/Chalkie downstream; D017/D019 provisional; Vertical Mapping parked. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
-| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; notes that development priority may run D018 packaging/generation experiments while Phase 3 Vertical Mapping stays parked. | — | ACTIVE |
+| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
-| [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Primary file for understanding where the project is today. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; not a long-term idea dump. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work; V3 formal evaluation pending; three-lesson series and ChatGPT + Canva benchmark remain future options; full Chalkie productization later. | 1.0 | ACTIVE |
+| [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: polarity-safe opener cue card / teacher-usefulness check. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
-| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow; phase map vs teacher-first priorities; D018 Chalkie experiments; Vertical Mapping parked. | 1.0 | ACTIVE |
+| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow; **main explanation** of immediate horizontal-mapping flow; D018/Chalkie downstream; Vertical Mapping parked. | 1.1 | ACTIVE |
 
 ### Project tracking
 
@@ -95,7 +95,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u08-v1-review.md](./phase-2/p2-exp-be2-u08-v1-review.md) | Unit 8 LR interpretation + three-unit method comparison; D016 candidate set LR experiments complete pending owner review. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-protocol.md](./phase-2/p2-exp-be1-u01-v1-protocol.md) | BE1 Unit 1 transfer-test protocol: apply BE2 U6–U8 LR method as-is to *Good Morning, Class!*; evaluation criteria BE1-E1–E9 + T1–T7; no methodology/schema lock. | 1.0 | ACTIVE |
 | [phase-2/p2-exp-be1-u01-v1-review.md](./phase-2/p2-exp-be1-u01-v1-review.md) | BE1 Unit 1 LR transfer-test review: 12 LRs, evaluation vs BE2 U6–U8, recommendations; methodology transfers; awaiting owner review before further units. | 1.0 | ACTIVE |
-| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 v2 baseline; BE3 A+B preferred for BE3-SB only; D019 two-book BI MVP UI validated (implementation only); methodologies provisional. | 1.44 | ACTIVE |
+| [phase-2/phase-2-experiment-status.md](./phase-2/phase-2-experiment-status.md) | Phase 2 experiment status under D017: BE2 v2 baseline; BE3 A+B preferred for BE3-SB only; BE2 U8 horizontal-mapping artifacts recorded; D019 BI MVP UI validated (implementation only); methodologies provisional. | 1.45 | ACTIVE |
 | [phase-2/book-intelligence-ui-data-contract-v1.md](./phase-2/book-intelligence-ui-data-contract-v1.md) | Draft Book Intelligence UI data contract: `eight_column_baseline` + `nine_column_ab`; Writing required only for nine-column; TS loader + CLI + dual-set tests; Storage-backed BE3 U1–9 split preview; not locked. | 0.1-draft | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md) | D017 Book Intelligence experiment: BE2-SB Units 1–9 Markdown overview + ChatGPT review findings (§G); preserved unchanged as v1 experiment artifact. | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md](./phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md) | D017 v2 eight-column BE2-SB U1–9 overview; owner-approved provisional Book Intelligence working baseline (format/methodology/schema not locked). | 1.0 | ACTIVE |
@@ -125,6 +125,9 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md) | BE3 BI PDF navigation regression acceptance: U1–U9 fwd/back, review gaps, selection, deep links; scripted PASS; methodology not locked. | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md](./phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md) | BE2 BI E2E acceptance (D019): Library→BI→Validation→Back; eight-column provisional; PDF U1–U9 + gaps; scripted PASS; methodology not locked. | 1.0 | ACTIVE |
 | [phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md](./phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md) | BE2 BI integration plan: eight- vs nine-column; P0–P5 done (E2E acceptance PASS); contract not locked. | 1.4 | ACTIVE |
+| [phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md](./phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md) | BE2 U1–7 → U8 horizontal-mapping investigation: SS-first prior-language bank (22 patterns / 7 vocab categories); docs experiment only. | 0.1 | ACTIVE |
+| [phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md](./phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md) | BE2 U8 teacher choice card: nine available prior patterns; dual-polarity feedback; not UI. | 0.1 | ACTIVE |
+| [phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md](./phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md) | BE2 U8 cumulative-language script pack: Scripts A–D; documentation/teacher-judgment only (not classroom validation). | 0.1 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Historical Phase 2 planning SoT v2 (exhaustive unit/page/JSON sketches); superseded by D017; retained for research context only. | — | PARKED |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -160,7 +163,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.0): Single Lesson vs Lesson Series modes, slide-count/settings, outline review, themes, vocabulary/audio handling, export behavior, and quality control. Observed UI guide for D018 experiments — not a product or schema lock. | V1.0 | ACTIVE |
-| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 five-iteration prompt validation is the active experiment (does not unlock this handover as production standard). | V1 | PARKED |
+| [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
 
@@ -168,7 +171,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 98 | Current working docs, including index, operating trackers, Phase 1 SB/WB + Scope & Sequence Studio prompts, D017 Book Intelligence artifacts, D018 V1 pack + V3 record + Lesson Series design, Phase 6 Chalkie interface/generation workflow V1, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 101 | Current working docs, including index, operating trackers, horizontal-mapping emphasis in workflow/overview, three BE2 U8 horizontal-mapping experiment artifacts, D017 Book Intelligence artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 4 | D018 V2/V2b/V2c experiment pack (V2-family closed; V2b preferred); Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

@@ -1,8 +1,8 @@
 # General Curriculum Mapper — Curriculum Mapping Workflow
 
 **Status:** ACTIVE / EVOLVING  
-**Version:** 1.0  
-**Purpose:** Project-wide working workflow for curriculum intelligence across Phases 1–4. Practical handoffs only — not a schema, API, or product lock.
+**Version:** 1.1  
+**Purpose:** Project-wide working workflow for curriculum intelligence across Phases 1–4. Practical handoffs only — not a schema, API, or product lock. Main explanation for the immediate horizontal-mapping emphasis.
 
 **Authority:** Locked phase intent and progressive method live in [`4-decisions.md`](./4-decisions.md) **D017**. Architecture boundaries: [`3-architecture.md`](./3-architecture.md). Overview: [`1-project-overview.md`](./1-project-overview.md).
 
@@ -19,6 +19,8 @@ This document is intentionally **not locked**. Change it when evidence from real
 ## 1. Guiding principles
 
 > **Beauty in simplicity — but still thorough.**
+
+> **The textbook tells us what is new. The curriculum map identifies what can be reused. The teacher decides what matters. The lesson uses both to create meaningful learning.**
 
 1. **Preserve book truth** — Phase 1 evidence is not silently rewritten by later phases (D001, D017).
 2. **Minimum sufficient output** — produce the smallest useful deliverable that can support the next phase (D017).
@@ -37,15 +39,15 @@ Conceptual phases stay numbered as in [`3-architecture.md`](./3-architecture.md)
 | Phase | Name | Primary question | Development status |
 |---|---|---|---|
 | **1** | Extraction / Book Evidence | What does the source contain? | PAUSED at 14/18 COMPLETE (D015); resume only by owner decision |
-| **2** | Book Intelligence / Horizontal Mapping | What does this book teach unit by unit? | Provisional baselines + BI UI implementation-validated for BE2/BE3 (D017/D019); methodology **not locked** |
-| **3** | Series Intelligence / Vertical Mapping | How does learning develop across books? | **PARKED** — not a prerequisite for current Chalkie experiments (F005) |
-| **4** | Teaching Intelligence | What scaffolding, recycling, gaps, enrichment are justified? | Experimental priority in the teacher-first workflow (not a production engine) |
-| **5–6** | Lesson packaging / generation | Package intelligence → Chalkie prompt → evaluate generated lesson | **Immediate experiment: D018** (five cumulative iterations; LOCKED decision) |
+| **2** | Book Intelligence / Horizontal Mapping | What does this book teach unit by unit — and what prior language can be reused? | Provisional BI baselines + BI UI (D017/D019); **immediate bounded research:** teacher-directed horizontal mapping for cumulative learning (methodology **not locked**) |
+| **3** | Series Intelligence / Vertical Mapping | How does learning develop across books? | **PARKED** (F005) |
+| **4** | Teaching Intelligence | What scaffolding, recycling, gaps, enrichment are justified? | Supporting philosophy exists; productization later — not the current packaging engine |
+| **5–6** | Lesson packaging / generation | Package intelligence → Chalkie prompt → evaluate generated lesson | **Downstream / parked for now** — D018 evidence preserved (V2b preferred; V3 pending formal eval; Lesson Series approved but **not authorized**). Chalkie is downstream of curriculum intelligence |
 | **7** | Evaluation & refinement | Where did problems originate? | Continuous alongside experiments |
 
-**Teacher-first priority order (operational):** Teacher Workspace → Curriculum Requirements → Teaching Intelligence → Lesson Packaging (Chalkie prompt) → Vertical Mapping (**parked**).
+**Teacher-first priority order (operational):** Teacher Workspace → Curriculum Requirements (including horizontal prior-language inventory) → teacher-controlled cumulative applications → (later) Lesson Packaging / Chalkie → Vertical Mapping (**parked**).
 
-**Authority:** Locked decisions live in [`4-decisions.md`](./4-decisions.md) (**D017**, **D018**, **D019**). Do not treat proposed drafts as authority.
+**Authority:** Locked decisions live in [`4-decisions.md`](./4-decisions.md) (**D017**, **D018**, **D019**). Do not treat proposed drafts as authority. Horizontal-mapping ownership is **not** newly locked here — bounded Phase 2 / teacher-directed research pending owner approval.
 
 ---
 
@@ -144,11 +146,48 @@ Current experiment artifact: [`phase-2/experiments/be2-sb-u01-u09-book-overview-
 - Teacher readability (owner / teacher review — not assumed from AI self-eval)
 - Sufficiency check: “enough to attempt an initial vertical comparison later?”
 
+### Immediate horizontal-mapping workflow (bounded research)
+
+**Main explanation for current emphasis.** Detail and evidence live in Phase 2 experiment artifacts; this subsection is the operational summary.
+
+**Flow:**
+
+```text
+Eligible prior units in the same book
+        ↓
+Complete, traceable prior-language inventory
+        ↓
+AI recommendation of 0–5 contextually relevant patterns
+        ↓
+Teacher may accept, deselect, replace, add, or select none
+        ↓
+Mapper-generated, editable cumulative applications
+using current-unit content
+```
+
+**Working rules:**
+
+| Rule | Meaning |
+|---|---|
+| Textbook as anchor, not ceiling | The textbook remains the curriculum anchor, but not the ceiling of useful practice |
+| Scope | Horizontal mapping is currently **within one book only**; vertical mapping remains parked |
+| Exposure ≠ mastery | Prior exposure is **not** mastery |
+| Available ≠ mandatory | Selected patterns are **available**, not required in every activity or script |
+| Evidence layers stay distinct | Exact publisher wording, SS-inferred reusable patterns, selectively SB-verified forms, and mapper-generated applications must remain distinguishable |
+| Purpose | Purposeful retrieval and reuse — not maximum script length or pattern coverage |
+| Teacher control | AI may recommend; the teacher decides what is selected and used |
+| Phase ownership | Bounded Phase 2 / teacher-directed research pending owner approval — **no** permanent phase-ownership lock in this doc |
+
+**Current evidence (BE2 Unit 8 opener):**  
+[`phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md`](./phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md) → [`phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md`](./phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md) → [`phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md`](./phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md). Status: [`phase-2/phase-2-experiment-status.md`](./phase-2/phase-2-experiment-status.md).
+
+Supporting philosophy (recycle before adding): [`phase-4/teacher-enrichment-philosophy.md`](./phase-4/teacher-enrichment-philosophy.md) — do not duplicate that document here.
+
 ### Handoff to Phase 3
 
-Phase 3 should start from accepted Phase 2 book overviews (plus Phase 1 when needed). Do not invent progression from raw PDFs alone.
+Phase 3 should start from accepted Phase 2 book overviews (plus Phase 1 when needed). Do not invent progression from raw PDFs alone. Vertical mapping remains **parked** and is not required for the immediate horizontal-mapping research.
 
-**Not authorized here:** Phase 2 JSON schema, API, database model, or UI lock.
+**Not authorized here:** Phase 2 JSON schema, API, database model, UI lock, Phase 2 closure, or Chalkie regeneration.
 
 ---
 
@@ -227,15 +266,15 @@ Derive practical teaching insights from curriculum evidence and connections: sca
 
 Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligence later. Formal Phase 4–7 product specs are not locked here.
 
-**Practical handoff for current D018 experiments** (curriculum evidence / lesson package → Chalkie → review):
+**Practical handoff for later Chalkie / D018-style experiments** (downstream of curriculum intelligence; **not** the current immediate priority):
 
-1. Assemble a scoped lesson package / prompt from distinguishable evidence layers (do not invent content).
+1. Assemble a scoped lesson package / prompt from distinguishable evidence layers (do not invent content). Teacher-selected horizontal mappings may later feed this step — **not authorized now**.
 2. Generate in Chalkie using the operating guide [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) — choose Single Lesson vs Lesson Series deliberately; do not duplicate that guide’s full instructions here.
 3. **Record** Chalkie settings used for the run (mode, framework, slide count, theme, vocabulary, audio activities, etc.) so experiments stay comparable.
 4. **Review** the generated output against the prompt and curriculum evidence (classroom usefulness, fidelity, concise slides). Treat generated material as a proposal, not curriculum truth.
 5. Optional Floor / Enrichment / Extension multi-presentation splitting is **not** a default requirement (parked; see [`7-future.md`](./7-future.md)).
 
-**Status:** Formal Phase 4 product work waits on stronger upstream intelligence. Bounded enrichment probes remain research only. D018 generation experiments use the Chalkie ops guide above without unlocking Phase 5–6 productization.
+**Status:** Formal Phase 4 product work waits on stronger upstream intelligence. Immediate emphasis is teacher-directed horizontal mapping (§5). D018 / Lesson Series remain preserved downstream evidence (V2b preferred; V3 pending formal eval; Lesson Series prompt approved but not authorized to run).
 
 ---
 
@@ -270,3 +309,4 @@ Phases 5–7 (packaging, generation, evaluation) may consume Teaching Intelligen
 |---|---|
 | 2026-10-12 | Created as project-wide workflow (relocated/refactored from `phase-1/curriculum-mapping-process.md`). Phase 1 procedures preserved in `phase-1/phase-1-extraction-workflow.md`. |
 | 2026-10-16 | Added practical D018 → Chalkie handoff (record settings; review output); linked Chalkie interface/generation workflow V1. |
+| 2026-10-18 | Added immediate horizontal-mapping workflow subsection; reframed D018/Chalkie as downstream; cumulative-learning guiding principle recorded once. |
