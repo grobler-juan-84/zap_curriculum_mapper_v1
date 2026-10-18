@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** 2026-10-18 (V2b vs HM comparison design)
+**Last updated:** 2026-10-18 (comparison design → Lesson Series)
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,15 +24,15 @@
 
 - **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → script pack → polarity-safe cue card (owner-reviewed).
 
-- **V2b vs horizontal-map comparison design** — design-only brief with copy-ready Arm A/B prompts; **generation not authorized**.
+- **V2b vs horizontal-map comparison design** — revised to shared **Lesson Series** (2 lessons × 25 slides; SB→WB; ~40 min; Audio OFF); Arm B adds `[HM]` only; **generation not authorized**.
 
 ## In progress
 
-- Owner review of the V2b vs polarity-cue comparison design ([`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md)).
+- Owner review of the revised Lesson Series comparison design ([`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md)).
 
 ## Next
 
-- Complete design checklist §8; separately authorize generation only if the owner opens that step.
+- Complete design checklist §8; separately authorize generation of **both** arms only if the owner opens that step.
 
 ## Blocked
 
@@ -44,6 +44,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Comparison design preserves V2b as real control; tests mapped `[HM]` cue card as the single added variable; mode fixed to **Single Lesson**.
+- Comparison uses identical Lesson Series config for both arms; tests incremental `[HM]` effect only (do not credit gains to Lesson Series mode). Historical Single-Lesson V2b remains D018 Pass baseline, not Arm A.
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; Chalkie remains downstream.

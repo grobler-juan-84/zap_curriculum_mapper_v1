@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (V2b vs HM comparison design)
+**Last updated:** 2026-10-18 (comparison design → Lesson Series)
 
 
 
@@ -318,7 +318,7 @@
 
 - [x] **Owner/teacher usability review of cue card** — clear enough; supports +/− responses; enough for a future bounded Chalkie/Lesson Series comparison (generation still not authorized).
 
-- [x] **Design-only V2b vs polarity-cue comparison brief** — Arm A = V2b control; Arm B = same + `[HM]` cue card; Single Lesson fixed; copy-ready prompts; generation not authorized.
+- [x] **Design-only V2b vs polarity-cue comparison brief** — revised: both arms Lesson Series (2×25 slides; SB→WB; ~40 min; Audio OFF); Arm B adds `[HM]` only; copy-ready prompts; generation not authorized.
 
 
 
