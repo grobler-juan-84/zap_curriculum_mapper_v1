@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (horizontal-mapping docs alignment)
+**Last updated:** 2026-10-18 (polarity-safe opener cue card)
 
 
 
@@ -314,13 +314,15 @@
 
 - [x] **Docs alignment** — prioritize teacher-directed horizontal mapping in overview / workflow / architecture / trackers (no D018 cancellation; no Phase 2 closure).
 
+- [x] **BE2 U8 polarity-safe opener cue card** — Scripts A–C preference pair + optional quantity/action; docs/teacher-usability check only.
+
 
 
 ## Now
 
 
 
-- [ ] Produce one **polarity-safe opener cue card** from Scripts A–C (both like / don’t-like paths; polarity-matched `Me, too!` / `Me neither!`), then make a teacher-usefulness judgment before considering any bounded Chalkie / Lesson Series trial.
+- [ ] Owner/teacher **usability review** of [`phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md`](./phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md) (three review questions); decide whether to refine horizontal-mapping output or later consider a bounded Chalkie / Lesson Series comparison.
 
 
 
