@@ -442,11 +442,11 @@ The next bounded investigation is the lesson-input pack:
 
 [`../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md)
 
-Owner/teacher selection and review are **recorded** there. Bounded Arm B2 **design** is drafted in:
+Owner/teacher selection and review are **recorded** there. Bounded Arm B2 **design** is approved; **one** Arm B2 generation run is authorized in:
 
 [`d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](./d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md)
 
-Arm B2 **generation** remains unauthorized until that design is owner-approved and generation is separately authorized.
+Do **not** regenerate this document’s Arm A or Arm B / Arm A&B for that run.
 
 **Preserve unchanged:** all recorded A/B rubric scores (§12), qualitative findings (§13), formal conclusion (§14), and historical V2b preferred-control status.
 

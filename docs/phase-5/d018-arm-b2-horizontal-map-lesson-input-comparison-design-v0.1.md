@@ -1,14 +1,14 @@
 # D018 Comparison Design — Arm B2: Teacher-Selected Lesson-Input Pack (v0.1)
 
-**Status:** DESIGN DRAFTED · **owner design approval pending** · **generation not authorized**  
+**Status:** DESIGN **APPROVED** · Arm B2 **generation AUTHORIZED** (Arm B2 only) · **not yet generated**  
 **Date:** 2026-10-18  
 **Branch:** `phase-2`  
 **Purpose:** Bounded follow-on to the polarity-cue A/B comparison. Tests the incremental effect of the **recorded teacher-selected** `[HM]` lesson-input pack when configuration and V2b-scope textbook inputs stay identical to Arm A.
 
-**Curriculum-input source (shared with Arm A):** [`d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) (V2-family CLOSED; **V2b** preferred Pass baseline — historical only)  
-**Control arm (reuse, do not regenerate):** Arm A from [`d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md)  
-**Mapped input (Arm B2 only):** [`../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md)  
-**Historical narrow `[HM]` reference (do not regenerate):** Arm B / Arm A&B from the polarity-cue comparison (scores preserved)
+**Curriculum-input source (shared with Arm A):** `[d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./d018-v2-be2-u08-sb128-129-wb104-105-experiment.md)` (V2-family CLOSED; **V2b** preferred Pass baseline — historical only)  
+**Control arm (reuse, do not regenerate):** Arm A from `[d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md](./d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md)`  
+**Mapped input (Arm B2 only):** `[../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md](../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md)`  
+**Historical narrow** `[HM]` **reference (do not regenerate):** Arm B / Arm A&B from the polarity-cue comparison (scores preserved)
 
 ---
 
@@ -37,11 +37,13 @@ complete bank → AI recommend 0–5 → teacher select/override → progressive
 
 Owner/teacher review of the lesson-input pack recorded a real override:
 
-| Decision | Detail |
-| --- | --- |
-| Keep | `PL-19`, `PL-01`, `PL-03` |
+
+| Decision | Detail                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------- |
+| Keep     | `PL-19`, `PL-01`, `PL-03`                                                                          |
 | Deselect | `PL-08` (`Me, too!` / `Me neither!`) — school-specific; fuller echo preferred for sentence forming |
-| Add | `What is it?` / `What are they?` — practical ID; **not** a BE2 PL ID; **not** PL-22 |
+| Add      | `What is it?` / `What are they?` — practical ID; **not** a BE2 PL ID; **not** PL-22                |
+
 
 Arm B2 tests whether the generator can respect that **selected set** as available input — including a deselected AI recommendation and a teacher-added unverified/vertical ID frame — without dumping the full bank or claiming publisher evidence for the added ID lines.
 
@@ -52,24 +54,24 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 ## 3. What stays fixed (Arm A reuse + Arm B2)
 
 
-| Fixed element | Value |
-| --- | --- |
-| Chalkie mode | **Lesson Series** |
-| Lessons | **2** |
-| Requested slides | **25 per lesson** |
-| Duration | Approximately **40 minutes per lesson**, including textbook work |
-| Lesson 1 pages | Student Book **pp. 128–129** — introduce; guided speaking; support book activities |
-| Lesson 2 pages | Workbook **pp. 104–105** — retrieve; deepen practice; support workbook activities |
-| Out of scope | Later Unit 8 SB; WB **106–117**; habitats; phonics; culture; values; BI/V3/V4/V5 layers |
-| Framework | Chalkie Default |
-| Theme | Simple |
-| Grade | Grade 3 |
-| English ability | Grade 2 |
-| Audio activities | **OFF** |
-| Curriculum inputs | Same V2b-scope **[SS] / [SB] / [WB]** evidence (no Book Intelligence append) |
-| Evaluation criteria | Same **seven-criterion** D018 rubric + same Pass rule as V2b |
-| Floor / Enrichment / Extension split | Not used |
-| Prompt difference | **Only** Arm B2’s `[HM]` appendix (§7B2) |
+| Fixed element                        | Value                                                                                   |
+| ------------------------------------ | --------------------------------------------------------------------------------------- |
+| Chalkie mode                         | **Lesson Series**                                                                       |
+| Lessons                              | **2**                                                                                   |
+| Requested slides                     | **25 per lesson**                                                                       |
+| Duration                             | Approximately **40 minutes per lesson**, including textbook work                        |
+| Lesson 1 pages                       | Student Book **pp. 128–129** — introduce; guided speaking; support book activities      |
+| Lesson 2 pages                       | Workbook **pp. 104–105** — retrieve; deepen practice; support workbook activities       |
+| Out of scope                         | Later Unit 8 SB; WB **106–117**; habitats; phonics; culture; values; BI/V3/V4/V5 layers |
+| Framework                            | Chalkie Default                                                                         |
+| Theme                                | Simple                                                                                  |
+| Grade                                | Grade 3                                                                                 |
+| English ability                      | Grade 2                                                                                 |
+| Audio activities                     | **OFF**                                                                                 |
+| Curriculum inputs                    | Same V2b-scope **[SS] / [SB] / [WB]** evidence (no Book Intelligence append)            |
+| Evaluation criteria                  | Same **seven-criterion** D018 rubric + same Pass rule as V2b                            |
+| Floor / Enrichment / Extension split | Not used                                                                                |
+| Prompt difference                    | **Only** Arm B2’s `[HM]` appendix (§7B2)                                                |
 
 
 **Pass rule (unchanged):** ≥ **5× Yes**, zero hard scope failures on criterion #1, and no invented listening scripts presented as book text.
@@ -105,19 +107,21 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 - **Identity:** Identical inputs and configuration to Arm A, **plus** the recorded teacher-selected lesson-input pack only.
 - **Prompt:** §7A in full + §7B2 appendix.
 - **Settings:** identical to Arm A.
-- **Generation:** **Not authorized** until owner approves this design and separately authorizes a run.
+- **Generation:** **Authorized** 2026-10-18 — generate **Arm B2 only** (reuse Arm A; do not regenerate historical Arm B / Arm A&B). Not yet run.
 
-**Allowed `[HM]` for Arm B2 (final selected set only):**
+**Allowed** `[HM]` **for Arm B2 (final selected set only):**
 
-| Item | Status | Notes |
-| --- | --- | --- |
-| `PL-19` | Selected | Preference +/−; both paths required as available options |
-| `PL-01` | Selected | Continuous action; animal-subject wording = mapper-generated adaptation |
-| `PL-03` | Selected | Quantity; only when a clear count picture exists |
-| `What is it?` / `What are they?` | Teacher-added | Unverified / vertical possibility; label `[HM]` / `[SUPPLEMENTARY]`; **not** PL-22; do not claim BE2 publisher evidence |
-| Current Unit 8 ability | Always available as current-unit | `Can …?` / `Yes, they can.` — **not** prior retrieval |
 
-**Not allowed in Arm B2 `[HM]`:**
+| Item                             | Status                           | Notes                                                                                                                   |
+| -------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `PL-19`                          | Selected                         | Preference +/−; both paths required as available options                                                                |
+| `PL-01`                          | Selected                         | Continuous action; animal-subject wording = mapper-generated adaptation                                                 |
+| `PL-03`                          | Selected                         | Quantity; only when a clear count picture exists                                                                        |
+| `What is it?` / `What are they?` | Teacher-added                    | Unverified / vertical possibility; label `[HM]` / `[SUPPLEMENTARY]`; **not** PL-22; do not claim BE2 publisher evidence |
+| Current Unit 8 ability           | Always available as current-unit | `Can …?` / `Yes, they can.` — **not** prior retrieval                                                                   |
+
+
+**Not allowed in Arm B2** `[HM]`**:**
 
 - `PL-08` (`Me, too!` / `Me neither!`) — **deselected** for this pack
 - Full nine-pattern bank dump / PL-02, PL-13, PL-16, PL-18, PL-20 unless later re-selected
@@ -139,15 +143,15 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 ### 5.1 Same seven criteria (Arm A reuse vs Arm B2)
 
 
-| # | Criterion |
-| --- | --- |
-| 1 | Scope stays on SB 128–129 + WB 104–105 only (Lesson 1 SB / Lesson 2 WB allocation respected) |
-| 2 | Uses the 12 [SB] animal names (or clearly the page set) |
-| 3 | Includes / prepares the [SB] like + can frame |
-| 4 | Supports book activity types without inventing missing audio scripts; [WB] clearly labeled in Lesson 2 |
-| 5 | [SS] / [SB] / [WB] / **[HM]** / **[SUPPLEMENTARY]** not silently fused into unmarked “facts” |
-| 6 | Short enough / usable for ~40 minutes including book work (25 slides/lesson is a request, not a mandate to teach every slide) |
-| 7 | Teacher could run the relevant SB (L1) and WB (L2) book pages after each lesson |
+| #   | Criterion                                                                                                                     |
+| --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Scope stays on SB 128–129 + WB 104–105 only (Lesson 1 SB / Lesson 2 WB allocation respected)                                  |
+| 2   | Uses the 12 [SB] animal names (or clearly the page set)                                                                       |
+| 3   | Includes / prepares the [SB] like + can frame                                                                                 |
+| 4   | Supports book activity types without inventing missing audio scripts; [WB] clearly labeled in Lesson 2                        |
+| 5   | [SS] / [SB] / [WB] / **[HM]** / **[SUPPLEMENTARY]** not silently fused into unmarked “facts”                                  |
+| 6   | Short enough / usable for ~40 minutes including book work (25 slides/lesson is a request, not a mandate to teach every slide) |
+| 7   | Teacher could run the relevant SB (L1) and WB (L2) book pages after each lesson                                               |
 
 
 
@@ -155,15 +159,15 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 ### 5.2 Qualitative overlay (incremental pack effect)
 
 
-| Lens | Ask |
-| --- | --- |
-| Teacher-selection fidelity | Does Arm B2 use **only** the recorded selected set (no PL-08 revival; ID frames present where natural)? |
-| Progressive conversation | Are short progressive exchanges available (ID → prefer → ability → action / count) without forcing the full chain every time? |
-| Both preference polarities | Are yes/like and no/don’t-like both supported without requiring `Me, too!` / `Me neither!`? |
-| Provenance | Are teacher-added ID and mapper adaptations labeled and not presented as publisher text? |
-| Overload | Does Arm B2 add slides/text without improving communication vs Arm A under the **same** space? |
-| Textbook focus | Does Arm B2 still prepare students for SB 128–129 then WB 104–105? |
-| vs historical Arm B (optional) | Relative to the narrow cue: more progressive / ID usefulness vs less polarity-agreement scaffolding? |
+| Lens                           | Ask                                                                                                                           |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Teacher-selection fidelity     | Does Arm B2 use **only** the recorded selected set (no PL-08 revival; ID frames present where natural)?                       |
+| Progressive conversation       | Are short progressive exchanges available (ID → prefer → ability → action / count) without forcing the full chain every time? |
+| Both preference polarities     | Are yes/like and no/don’t-like both supported without requiring `Me, too!` / `Me neither!`?                                   |
+| Provenance                     | Are teacher-added ID and mapper adaptations labeled and not presented as publisher text?                                      |
+| Overload                       | Does Arm B2 add slides/text without improving communication vs Arm A under the **same** space?                                |
+| Textbook focus                 | Does Arm B2 still prepare students for SB 128–129 then WB 104–105?                                                            |
+| vs historical Arm B (optional) | Relative to the narrow cue: more progressive / ID usefulness vs less polarity-agreement scaffolding?                          |
 
 
 **Success signal (qualitative):** Arm B2 improves natural/purposeful progressive student language **vs Arm A** while honoring the teacher selection record, without worsening provenance, overload, or textbook focus.
@@ -177,13 +181,13 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 ## 6. Provenance labels
 
 
-| Label | Meaning |
-| --- | --- |
-| `[SS]` | Unit-level Scope & Sequence |
-| `[SB]` | Student Book pp. 128–129 (Lesson 1) |
-| `[WB]` | Workbook pp. 104–105 (Lesson 2) |
-| `[HM]` | Teacher-selected prior / available frames from the lesson-input pack — **not** publisher script (Arm B2 only) |
-| `[SUPPLEMENTARY]` | Chalkie-/mapper-generated examples, adaptations, and teacher-added ID applications |
+| Label             | Meaning                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| `[SS]`            | Unit-level Scope & Sequence                                                                                   |
+| `[SB]`            | Student Book pp. 128–129 (Lesson 1)                                                                           |
+| `[WB]`            | Workbook pp. 104–105 (Lesson 2)                                                                               |
+| `[HM]`            | Teacher-selected prior / available frames from the lesson-input pack — **not** publisher script (Arm B2 only) |
+| `[SUPPLEMENTARY]` | Chalkie-/mapper-generated examples, adaptations, and teacher-added ID applications                            |
 
 
 Unit 8 ability (`Cheetahs can run.` / `Can …?`) remains **current-unit** language.
@@ -359,19 +363,19 @@ Do not isolate [HM] only in explanation/quiz slides.
 ## 8. Owner review checklist (design approval)
 
 
-| # | Confirm | Owner |
-| --- | --- | --- |
-| 1 | Mode = Lesson Series; **2 lessons**; **25 requested slides per lesson** | [ ] Yes · [ ] Change |
-| 2 | Lesson 1 = SB 128–129 introduce; Lesson 2 = WB 104–105 practise | [ ] Yes · [ ] Change |
-| 3 | Approximately **40 minutes per lesson including book work** | [ ] Yes · [ ] Change |
-| 4 | Arm A **reused** (not regenerated); prompts differ **only** by §7B2 | [ ] Yes · [ ] Change |
-| 5 | Final `[HM]` set = `PL-19` + `PL-01` + `PL-03` + teacher-added ID; **no PL-08** | [ ] Yes · [ ] Change |
-| 6 | Audio OFF; framework/theme/grade settings preserved | [ ] Yes · [ ] Change |
-| 7 | Approve this **design**? | [ ] Design approved · [ ] Revise first |
-| 8 | Authorize **generation** now? | [ ] No (default) · [ ] Yes, generate Arm B2 only |
+| #   | Confirm                                                                         | Owner                                              |
+| --- | ------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 1   | Mode = Lesson Series; **2 lessons**; **25 requested slides per lesson**         | [x] Yes · [ ] Change                               |
+| 2   | Lesson 1 = SB 128–129 introduce; Lesson 2 = WB 104–105 practise                 | [x] Yes · [ ] Change                               |
+| 3   | Approximately **40 minutes per lesson including book work**                     | [x] Yes · [ ] Change                               |
+| 4   | Arm A **reused** (not regenerated); prompts differ **only** by §7B2             | [x] Yes · [ ] Change                               |
+| 5   | Final `[HM]` set = `PL-19` + `PL-01` + `PL-03` + teacher-added ID; **no PL-08** | [x] Yes · [ ] Change                               |
+| 6   | Audio OFF; framework/theme/grade settings preserved                             | [x] Yes · [ ] Change                               |
+| 7   | Approve this **design**?                                                        | [x] Design approved · [ ] Revise first             |
+| 8   | Authorize **generation** now?                                                   | [ ] No · [x] **Yes, generate Arm B2 only**         |
 
 
-**Note:** Design approval and generation authorization are separate gates. Completing this document does **not** authorize a Chalkie run.
+**Recorded:** 2026-10-18 — design approved; **Arm B2 generation authorized**. Do **not** regenerate Arm A or historical Arm B / Arm A&B. Further regeneration after this run remains separately gated.
 
 ---
 
@@ -384,7 +388,7 @@ Do not isolate [HM] only in explanation/quiz slides.
 - Does **not** authorize V3, V4, or V5.
 - Does **not** close Phase 2 or lock horizontal-mapping methodology.
 - Does **not** claim classroom validation or product readiness.
-- Does **not** authorize generation by drafting this design.
+- Authorizes **one** Arm B2 Chalkie Lesson Series run only (prompt §7A + §7B2). Does **not** authorize Arm A / historical Arm B regeneration, V3/V4/V5, or open-ended reruns.
 - Chalkie remains downstream of curriculum intelligence.
 
 ---
@@ -393,22 +397,24 @@ Do not isolate [HM] only in explanation/quiz slides.
 
 ## 10. Smallest next step
 
-> Owner completes §8 checklist. If design is approved, authorize **Arm B2 generation only** in a separate prompt. Do not regenerate Arm A or historical Arm B.
+> Run Chalkie with **§7A + §7B2** only (Lesson Series · 2 lessons · 25 slides/lesson · Audio OFF). Reuse Arm A exports for comparison. After export, record filenames/page counts in §11 and evaluate vs Arm A (§5). Do not regenerate Arm A or historical Arm B.
 
 ---
 
 
 
-## 11. Generation record (pending)
+## 11. Generation record
 
-| Item | Arm A (control) | Arm B2 (mapped) |
-| --- | --- | --- |
-| Mode | Lesson Series · 2 lessons | Same |
-| Requested slides | 25 per lesson | Same |
-| Audio | OFF | OFF |
-| Prompt | §7A | §7A + §7B2 |
-| Status | **REUSE** existing exports | **NOT GENERATED** |
-| Exports | `Wild Animals - Arm A - Lesson 1/2.pdf` | — |
+
+| Item             | Arm A (control)                         | Arm B2 (mapped)                                      |
+| ---------------- | --------------------------------------- | ---------------------------------------------------- |
+| Mode             | Lesson Series · 2 lessons               | Same                                                 |
+| Requested slides | 25 per lesson                           | Same                                                 |
+| Audio            | OFF                                     | OFF                                                  |
+| Prompt           | §7A                                     | §7A + §7B2                                           |
+| Status           | **REUSE** existing exports              | **AUTHORIZED — not yet generated**                   |
+| Exports          | `Wild Animals - Arm A - Lesson 1/2.pdf` | — (record after run)                                 |
+
 
 ---
 
@@ -420,6 +426,6 @@ From the polarity-cue evaluation’s proposed refinements (documentation only th
 
 1. Integrate progressive / +/− pathways into **core pair-speaking**, not only side quizzes.
 2. Reduce explanation, repetition, and answer/reveal bulk where possible.
-3. Label mapper/AI-created material **`[SUPPLEMENTARY]`**.
+3. Label mapper/AI-created material `[SUPPLEMENTARY]`.
 
 These are prompt instructions for Arm B2 — not a rewrite of historical Arm B scores.

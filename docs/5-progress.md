@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 205
+**Last updated:** Step 206
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,19 +22,19 @@
 
 - **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → lesson-input pack **recorded**.
 
-- **Arm B2 design drafted** — reuse Arm A; `[HM]` = recorded pack (`PL-01`/`PL-03`/`PL-19` + teacher-added ID; no PL-08); copy-ready §7B2.
+- **Arm B2 design approved** — §8 checklist complete; **one** Arm B2 generation run authorized (reuse Arm A; §7A + §7B2).
 
 ## In progress
 
-- Owner review / design approval of [`phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md).
+- Run authorized Arm B2 Chalkie Lesson Series generation and record exports in the Arm B2 design §11.
 
 ## Next
 
-- Complete §8 checklist on the Arm B2 design. If approved, authorize **Arm B2 generation only** in a separate prompt (do not regenerate Arm A or historical Arm B).
+- Generate Arm B2 only (do not regenerate Arm A or historical Arm B). Then evaluate vs Arm A; optional qualitative lens vs historical Arm B.
 
 ## Blocked
 
-- Soft: Arm B2 generation, further A/B regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
+- Soft: further regeneration after this Arm B2 run, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
 
 ---
 

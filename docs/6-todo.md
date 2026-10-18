@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 205
+**Last updated:** Step 206
 
 
 
@@ -334,9 +334,11 @@
 
 - [x] **Design bounded Arm B2** (prompt / handover only) from the recorded lesson-input pack — drafted in [`phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md).
 
-- [ ] Owner **approve Arm B2 design** (§8 checklist). Do not generate until approved.
+- [x] Owner **approve Arm B2 design** (§8 checklist) and authorize **Arm B2 generation only**.
 
-- [ ] If design approved: authorize **Arm B2 generation only** (reuse Arm A; do not regenerate historical Arm B).
+- [ ] **Generate Arm B2** (Chalkie Lesson Series · §7A + §7B2 · Audio OFF). Reuse Arm A; do not regenerate historical Arm B. Record exports in design §11.
+
+- [ ] Evaluate Arm B2 vs Arm A (seven-criterion rubric + qualitative pack-fidelity lenses).
 
 
 

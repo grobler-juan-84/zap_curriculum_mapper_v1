@@ -3553,3 +3553,20 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 206
+
+**Summary:** Recorded Arm B2 design approval (section 8 checklist) and authorized one Arm B2 generation run only. Reuse Arm A; do not regenerate historical Arm B. Generation not yet executed.
+
+**Files touched:**
+- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (updated)
+- docs/phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md (updated)
+- docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/0-index.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

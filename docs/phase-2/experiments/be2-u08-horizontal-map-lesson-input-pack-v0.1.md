@@ -1,11 +1,11 @@
 # BE2 Unit 8 — Horizontal-Map Lesson-Input Pack (v0.1)
 
-**Status:** Owner/teacher selection and review recorded — used as `[HM]` input for drafted Arm B2 **design**  
+**Status:** Owner/teacher selection and review recorded — `[HM]` input for approved Arm B2 design  
 **Date:** 2026-10-18  
 **Branch:** `phase-2`  
 **Scope:** Horizontal mapping within Big English 2 Units **1–7** → Unit 8 opener only  
 **Final selected lesson input:** `PL-01`, `PL-03`, `PL-19` + teacher-added `What is it?` / `What are they?` (not a BE2 PL ID; not PL-22)  
-**Arm B2 design:** [`../../phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](../../phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md) (generation not authorized)
+**Arm B2 design:** [`../../phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](../../phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md) (design approved; Arm B2 generation authorized — not yet run)
 
 **Sources:**  
 `[be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md](./be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md)` ·  
@@ -26,14 +26,14 @@
 | Recorded lesson-input pack after owner/teacher review                | Vertical mapping                             |
 | Horizontal mapping within BE2 Units 1–7 only                         | Classroom validation                         |
 | Handover between bank → AI recommend → teacher select → lesson input | A schema, UI, or grammar engine              |
-| Approved `[HM]` input for the drafted bounded Arm B2 **design**      | Arm B2 generation authorization              |
+| Approved `[HM]` input for the owner-approved Arm B2 **design**       | Open-ended regeneration / Arm A–B reruns     |
 
 
 **Working rules:**
 
 - Previously encountered does **not** mean mastered.
 - Selected means **available**, not mandatory in every conversation or activity.
-- Arm B2 **design** is drafted; **generation** remains unauthorized until the design is owner-approved and generation is separately authorized.
+- Arm B2 **design** is approved; **one** Arm B2 generation run is authorized (not yet run).
 
 ---
 
@@ -183,7 +183,7 @@ Do **not** follow `Yes, I do. I like…` with `Me neither!`.
 
 ## 7. Lesson-generator handover rules
 
-The drafted Arm B2 prompt (design pending owner approval; **generation** not yet authorized) should:
+The approved Arm B2 prompt (one generation run authorized; not yet run) should:
 
 1. Receive **only** teacher-approved selected frames **plus** current-unit obligations.
 2. Use selections **where natural**.
@@ -213,4 +213,4 @@ The drafted Arm B2 prompt (design pending owner approval; **generation** not yet
 | 5   | Is this pack suitable as the future `[HM]` input for a bounded Arm B2 design? | **Yes.** |
 
 
-**Gate:** Review and final selected IDs are **recorded**. Bounded Arm B2 **design** is drafted from this pack. Arm B2 **generation** remains unauthorized until that design is owner-approved and generation is separately authorized.
+**Gate:** Review and final selected IDs are **recorded**. Arm B2 **design** is approved and **one** Arm B2 generation run is authorized. Record exports after the Chalkie run; further regeneration remains separately gated.
