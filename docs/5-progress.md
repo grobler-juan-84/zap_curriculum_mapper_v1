@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 199
+**Last updated:** Step 200
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,19 +18,21 @@
 
 - **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (Audio OFF).
 
-- **D018 V3 design** — wording revised and **APPROVED FOR ONE CONTROLLED GENERATION** (Step 199). Not yet generated.
+- **D018 V3** — controlled Single Lesson generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages; Audio OFF). Informally reviewed; detailed findings and formal evaluation remain pending. No score or verdict assigned.
+
+- **D018 Lesson Series direction** — two-lesson SB-introduction / WB-practice design direction approved; generation not authorized. Proposed 30 slides per lesson awaits owner confirmation.
 
 ## In progress
 
-- Ready for one controlled V3 Chalkie generation (owner-run).
+- Lesson Series Experiment 1 design refinement and owner review only.
 
 ## Next
 
-- Generate one V3 lesson (unchanged V2b prompt + approved `[BI]` block); record settings, artifact, and initial factual review only — no formal scoring yet.
+- Owner confirms or revises the proposed **30 slides per lesson** for the two-lesson experiment. Then finalize its prompt and evaluation thresholds before any generation authorization.
 
 ## Blocked
 
-- Soft: V4/V5 / further V3 reruns not authorized. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
+- Soft: Lesson Series generation, scoring thresholds, V4/V5, and further V3 reruns are not authorized. V3 formal evaluation remains pending. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
 
 ---
 
@@ -40,6 +42,8 @@
 
 - V3 design: [`phase-5/d018-v3-be2-u08-book-intelligence-experiment.md`](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md).
 
-- Approval is one generation only; V2b Pass preserved; BI artifact data unchanged.
+- V3's one approved generation is complete; V2b Pass preserved; BI artifact data unchanged; V3 formal result remains open.
+
+- Lesson Series design: [`phase-5/d018-lesson-series-be2-u08-experiment-design.md`](./phase-5/d018-lesson-series-be2-u08-experiment-design.md).
 
 - Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked.

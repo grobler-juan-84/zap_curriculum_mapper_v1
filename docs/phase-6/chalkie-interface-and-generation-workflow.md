@@ -153,7 +153,7 @@ PROMPT VERSION / ITERATION: ...
 
 ## 6. Export and slide-count interpretation
 
-**User-confirmed:** Chalkie slide-count settings are chosen before generation for **both** Single Lesson and Lesson Series. During export to Google Slides or PDF, animated answer reveals can be represented as additional pages/slides (often a separate answer state). Thus a **25-slide selection may yield a 29-page PDF** without Chalkie having planned 29 original lesson slides.
+**User-confirmed:** Chalkie slide-count settings are chosen before generation for **both** Single Lesson and Lesson Series. In Lesson Series, the requested slide count is set **per lesson** together with the number of lessons. Do not assume different slide counts can be assigned to individual lessons within one series unless separately verified. During export to Google Slides or PDF, animated answer reveals can be represented as additional pages/slides (often a separate answer state). Thus a **25-slide selection may yield a 29-page PDF** without Chalkie having planned 29 original lesson slides.
 
 **Evaluation rule:** record both `(a) slide-count selection in Chalkie` and `(b) exported page/slide count`. Inspect duplicated reveal states before calling the lesson too long. Still evaluate classroom pacing and genuine repetition independently.
 
@@ -192,7 +192,7 @@ PROMPT VERSION / ITERATION: ...
 
 - What exactly do the first and second grade/level dropdowns mean?
 - What slide-count choices are available; is there any hard limit?
-- For Lesson Series, is slide count per lesson or per series?
+- For Lesson Series, can different slide counts be assigned to individual lessons within one series?
 - What precisely happens when `Create outline` is used in Single Lesson?
 - What image source/style alternatives exist beyond Auto?
 - How does `Custom MAX` theme customization work?

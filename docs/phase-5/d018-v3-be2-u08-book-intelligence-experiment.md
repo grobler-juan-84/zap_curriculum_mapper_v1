@@ -1,9 +1,9 @@
 # D018 V3 Experiment Design — BE2 Unit 8 + Book Intelligence
 
-**Status:** ACTIVE / **APPROVED FOR ONE CONTROLLED GENERATION** (Step 199; not yet generated)  
-**Version:** 1.1  
-**Date:** 2026-10-17  
-**Decision:** D018 (LOCKED) — iteration **V3** (+ AI Curriculum / Book Intelligence); **one** controlled generation authorized after wording revision  
+**Status:** ACTIVE / **GENERATED — FORMAL EVALUATION PENDING**
+**Version:** 1.2
+**Date:** 2026-10-18
+**Decision:** D018 (LOCKED) — iteration **V3** (+ AI Curriculum / Book Intelligence); controlled generation completed
 **Pilot:** Big English 2 · Unit 8 *Wild Animals* · **SB pp. 128–129** + **WB pp. 104–105** (unchanged page scope)  
 **Control:** **V2b** — preferred V2-family Pass baseline (`WILD ANIMALS(2).pdf`; Audio OFF; evaluation `495c917`)  
 **V2-family pack (CLOSED):** [`d018-v2-be2-u08-sb128-129-wb104-105-experiment.md`](./d018-v2-be2-u08-sb128-129-wb104-105-experiment.md)  
@@ -15,7 +15,7 @@
 
 Design and (after owner approval) run a **controlled** D018 V3 experiment that tests whether adding **bounded Unit 8 Book Intelligence** to the **unchanged V2b control prompt** produces a **meaningfully better** lesson than V2b alone.
 
-Step 198 was design-only. Step 199 applies one wording refinement and records owner approval for **one** controlled generation. This step does **not** generate or formally evaluate V3. No change to V2b’s accepted Pass verdict, D018, the seven-criterion rubric, architecture, schemas, datasets, application code, or [`../4-decisions.md`](../4-decisions.md).
+Step 198 was design-only. Step 199 applied one wording refinement and authorized one controlled generation. The authorized V3 generation is now complete. The owner and ChatGPT reviewed it informally, but detailed initial findings and formal scores have **not** been recorded. No Pass/Fail claim is made. V2b’s accepted Pass verdict, D018, the seven-criterion rubric, architecture, schemas, datasets, application code, and [`../4-decisions.md`](../4-decisions.md) remain unchanged.
 
 ---
 
@@ -110,7 +110,7 @@ V3 = **V2b control prompt + `[BI]` addition only**.
 
 ## Copy-ready V3 addition (append to unchanged V2b / V2 paste block)
 
-**Status:** **APPROVED** (Step 199 wording revision) / **NOT YET GENERATED**
+**Status:** **APPROVED AND USED FOR THE COMPLETED V3 GENERATION**
 
 ```text
 ---
@@ -211,9 +211,22 @@ V3 shows **meaningful improvement** over V2b only if **all** of the following ho
 | Formal evaluation in this step | **Not performed** |
 | Does not authorize | V4 · V5 · prompt redesign · automatic reruns |
 
-### Next step (after this approval)
+## V3 generation record
 
-**Generate one controlled V3 lesson** using the unchanged V2b prompt plus the approved `[BI]` block, then capture settings, artifact details, and an **initial factual review without formal scoring**.
+| Field | Record |
+|---|---|
+| Artifact | `WILD ANIMALS (1)(1).pdf` |
+| Exported PDF pages | **31** (includes possible answer/reveal states; not assumed to equal 31 planned slides) |
+| Mode | Single Lesson |
+| Requested slides | 25 |
+| Framework / theme | Chalkie Default / Simple |
+| Grade / English ability | Grade 3 / Grade 2 |
+| Audio activities | OFF |
+| Prompt | Approved unchanged V2b prompt + append-only V3 `[BI]` block |
+| Review state | Owner + ChatGPT informal review occurred; detailed initial findings not yet documented |
+| Formal evaluation | **NOT COMPLETED** — no V3 scores or Pass/Fail verdict |
+
+The newer Lesson Series direction is documented separately in [`d018-lesson-series-be2-u08-experiment-design.md`](./d018-lesson-series-be2-u08-experiment-design.md). It does not invalidate V3 or supply its missing formal evaluation.
 
 ---
 
@@ -223,3 +236,4 @@ V3 shows **meaningful improvement** over V2b only if **all** of the following ho
 |---|---|
 | 2026-10-17 | Step 198: created V3 Book Intelligence experiment design (planning only). Selected BE2 D017 v2 eight-column Unit 8 BI; defined include/exclude fields, append-only `[BI]` treatment, V3 value criteria, and owner approval gate. No generation. |
 | 2026-10-17 | Step 199: revised `[BI]` ability-practice wording; owner approved design for **one** controlled generation. Not generated in this step. |
+| 2026-10-18 | Step 200: recorded completed V3 generation (`WILD ANIMALS (1)(1).pdf`, 31 PDF pages, Single Lesson, Audio OFF). Informal review occurred; detailed findings and formal evaluation remain pending. No scores assigned. |

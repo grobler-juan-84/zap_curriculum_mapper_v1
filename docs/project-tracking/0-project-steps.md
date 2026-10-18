@@ -3460,4 +3460,21 @@
 
 ---
 
+### Step 200
+
+**Summary:** Recorded the completed D018 V3 Single Lesson generation (`WILD ANIMALS (1)(1).pdf`, 31 exported PDF pages, Audio OFF) without inventing initial-review findings or formal scores. Documented an owner-directed experimental pivot: Chalkie Single Lesson slide allocation may constrain scaffolding; approved a design-only two-lesson Lesson Series direction (SB introduce → WB practise), proposed 30 slides per lesson pending owner confirmation, added instructional-quality evaluation dimensions, and parked a three-lesson comparison plus ChatGPT + Canva benchmark. No lesson-series generation, new scores, application changes, or `4-decisions.md` update.
+
+**Files touched:**
+- `docs/phase-5/d018-v3-be2-u08-book-intelligence-experiment.md` (updated)
+- `docs/phase-5/d018-lesson-series-be2-u08-experiment-design.md` (created)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

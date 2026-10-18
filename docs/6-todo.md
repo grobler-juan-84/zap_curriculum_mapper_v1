@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 190
+**Last updated:** Step 200
 
 
 
@@ -298,13 +298,19 @@
 
 - [x] **Step 199 — Approve V3 design** after wording revision (ability via existing like+can frame); **APPROVED FOR ONE CONTROLLED GENERATION**; not generated in this step.
 
+- [x] **Step 200 — Record V3 generation + Lesson Series direction update:** V3 artifact `WILD ANIMALS (1)(1).pdf` (31 PDF pages, Single Lesson, Audio OFF) recorded without scores; V3 formal evaluation remains pending. Two-lesson Lesson Series direction recorded (SB introduce → WB practise); proposed 30 slides per lesson awaits owner confirmation; generation not authorized.
+
 
 
 ## Soon
 
 
 
-- [ ] **Generate one controlled V3 lesson** (unchanged V2b prompt + approved `[BI]`); capture settings, artifact, and initial factual review — no formal scoring yet.
+- [ ] **Owner review:** confirm or revise the proposed **30 slides per lesson** for Lesson Series Experiment 1.
+
+- [ ] Finalize the exact two-lesson prompt/allocation and approve the added instructional-quality scoring thresholds before any generation authorization.
+
+- [ ] Document detailed V3 initial-review findings and formally evaluate V3 when the owner chooses; do not infer scores from the direction change.
 
 
 
