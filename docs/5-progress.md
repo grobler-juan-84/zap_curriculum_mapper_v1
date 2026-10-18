@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** 2026-10-18 (cue-card usability review)
+**Last updated:** 2026-10-18 (V2b vs HM comparison design)
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,23 +18,25 @@
 
 - **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (Audio OFF).
 
-- **D018 V3** — controlled Single Lesson generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages; Audio OFF). Informally reviewed; detailed findings and formal evaluation remain pending. No score or verdict assigned.
+- **D018 V3** — generated; formal evaluation pending.
 
-- **D018 Lesson Series Experiment 1** — configuration and prompt owner-approved; generation **deliberately not authorized** (parked downstream of curriculum intelligence).
+- **D018 Lesson Series Experiment 1** — prompt approved; generation not authorized (parked).
 
-- **BE2 U8 horizontal mapping (docs)** — prior-language bank → teacher choice card → script pack → **polarity-safe opener cue card**. Owner/teacher review: clear enough; supports positive/negative responses; **enough for a future bounded Chalkie/Lesson Series comparison** (not a generation authorization; Phase 2 not closed).
+- **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → script pack → polarity-safe cue card (owner-reviewed).
+
+- **V2b vs horizontal-map comparison design** — design-only brief with copy-ready Arm A/B prompts; **generation not authorized**.
 
 ## In progress
 
-- Teacher-directed **horizontal mapping** remains the immediate curriculum-intelligence emphasis. Workflow: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+- Owner review of the V2b vs polarity-cue comparison design ([`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md)).
 
 ## Next
 
-- Owner-gated only: design a bounded Chalkie / Lesson Series comparison that uses teacher-selected horizontal mappings + the polarity-safe cue card — when explicitly authorized.
+- Complete design checklist §8; separately authorize generation only if the owner opens that step.
 
 ## Blocked
 
-- Soft: Lesson Series / Chalkie comparison generation, new numerical scoring thresholds, V4/V5, further V3 reruns, classroom-validation claims, and claims that horizontal mapping improves Chalkie lessons are **not** authorized until the owner opens that step. V3 formal evaluation remains pending. Vertical mapping (Phase 3) and Phase 4 productization remain parked/later.
+- Soft: Arm B (and optional fresh Arm A) generation unauthorized. No V3/V4/V5, Lesson Series run, rubric rewrite, or Phase 2 closure. V3 formal evaluation still pending.
 
 ---
 
@@ -42,10 +44,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Cue card (reviewed): [`phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md`](./phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md).
+- Comparison design preserves V2b as real control; tests mapped `[HM]` cue card as the single added variable; mode fixed to **Single Lesson**.
 
-- Horizontal-mapping artifacts: [`phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md`](./phase-2/experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md), [`phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md`](./phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md), [`phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md`](./phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md), cue card above.
-
-- D018 preserved (not cancelled): V2b control; V3 formal result open; Lesson Series parked/not currently authorized.
-
-- Direction: D017 / D018 / D019 LOCKED; methodologies **not** locked; Phase 2 **not** closed.
+- Direction: methodologies **not** locked; Phase 2 **not** closed; Chalkie remains downstream.

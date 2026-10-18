@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (cue-card usability review)
+**Last updated:** 2026-10-18 (V2b vs HM comparison design)
 
 
 
@@ -318,13 +318,15 @@
 
 - [x] **Owner/teacher usability review of cue card** — clear enough; supports +/− responses; enough for a future bounded Chalkie/Lesson Series comparison (generation still not authorized).
 
+- [x] **Design-only V2b vs polarity-cue comparison brief** — Arm A = V2b control; Arm B = same + `[HM]` cue card; Single Lesson fixed; copy-ready prompts; generation not authorized.
+
 
 
 ## Now
 
 
 
-- [ ] When owner authorizes: design one **bounded** Chalkie / Lesson Series comparison that uses teacher-selected horizontal mappings + the polarity-safe cue card — without changing D018 results/rubrics or treating Phase 2 as closed.
+- [ ] Owner review of [`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) (§8 checklist). Generation remains unauthorized until a separate explicit authorization.
 
 
 
