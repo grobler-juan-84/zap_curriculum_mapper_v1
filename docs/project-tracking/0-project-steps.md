@@ -3477,4 +3477,18 @@
 
 ---
 
+### Step 201
+
+**Summary:** Finalized the D018 Lesson Series Experiment 1 configuration: Chalkie Lesson Series with two approximately 40-minute lessons (duration includes textbook work), 30 requested slides per lesson, Lesson 1 SB introduce, Lesson 2 WB practise, unchanged V3 inputs / `[BI]`, Audio OFF, Chalkie Default, Simple, Grade 3 / English ability Grade 2. Documented expected basic scaffolding, purposeful repetition versus filler, and Curriculum/Book vs future Teaching vs future School/Teacher-Specific Intelligence boundaries. Additional instructional-quality dimensions remain observational; no thresholds or generation authorized.
+
+**Files touched:**
+- `docs/phase-5/d018-lesson-series-be2-u08-experiment-design.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

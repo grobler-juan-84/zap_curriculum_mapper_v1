@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order. **D018 V2-family is CLOSED** (V2b preferred control). **D018 V3** is generated but not formally evaluated. A two-lesson Lesson Series direction is approved for design only; generation is not authorized. Book Intelligence remains provisional under D017/D019; Vertical Mapping is parked.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order. **D018 V2-family is CLOSED** (V2b preferred control). **D018 V3** is generated but not formally evaluated. Lesson Series Experiment 1 configuration is approved (two 40-minute lessons; 30 requested slides each); generation is not authorized. Book Intelligence remains provisional under D017/D019; Teaching and School / Teacher-Specific Intelligence remain future stages.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -153,7 +153,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): closed as comparative baseline (4 Yes / 3 Partial; formal Pass not met); one-time owner override authorizes V2 (+ Workbook). | 1.2 | ACTIVE |
 | [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2-family **CLOSED**: V1/V2 below Pass; V2b preferred Pass baseline/control; V2c Pass equivalent but not preferred; no V2d. | 2.2 | PARKED |
 | [phase-5/d018-v3-be2-u08-book-intelligence-experiment.md](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md) | D018 V3 Book Intelligence experiment: V2b control + append-only `[BI]`; generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages); formal evaluation pending. | 1.2 | ACTIVE |
-| [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series direction: two substantial lessons (SB introduce → WB practise), proposed 30 slides per lesson, added instructional-quality evaluation dimensions; design approved, generation not authorized. | 0.1 | ACTIVE |
+| [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series Experiment 1: approved two-lesson configuration (30 requested slides and ~40 minutes each; SB introduce → WB practise), basic-scaffolding expectations and observational evaluation; generation not authorized. | 0.2 | ACTIVE |
 
 ### Phase 6
 

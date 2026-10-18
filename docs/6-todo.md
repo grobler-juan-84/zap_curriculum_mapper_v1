@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 200
+**Last updated:** Step 201
 
 
 
@@ -300,15 +300,17 @@
 
 - [x] **Step 200 — Record V3 generation + Lesson Series direction update:** V3 artifact `WILD ANIMALS (1)(1).pdf` (31 PDF pages, Single Lesson, Audio OFF) recorded without scores; V3 formal evaluation remains pending. Two-lesson Lesson Series direction recorded (SB introduce → WB practise); proposed 30 slides per lesson awaits owner confirmation; generation not authorized.
 
+- [x] **Step 201 — Finalize Lesson Series Experiment 1 configuration:** two approximately 40-minute lessons including textbook work; 30 requested slides per lesson; SB introduce → WB practise; existing V3 inputs; Audio OFF; basic scaffolding and purposeful-repetition expectations recorded; no new intelligence or scoring thresholds; generation not authorized.
+
 
 
 ## Soon
 
 
 
-- [ ] **Owner review:** confirm or revise the proposed **30 slides per lesson** for Lesson Series Experiment 1.
+- [ ] Draft the exact copy-ready two-lesson Lesson Series prompt from the approved Step 201 configuration; owner review required before generation.
 
-- [ ] Finalize the exact two-lesson prompt/allocation and approve the added instructional-quality scoring thresholds before any generation authorization.
+- [ ] Keep the additional instructional-quality dimensions observational; do not invent numerical thresholds.
 
 - [ ] Document detailed V3 initial-review findings and formally evaluate V3 when the owner chooses; do not infer scores from the direction change.
 

@@ -1,7 +1,7 @@
 # D018 Lesson Series Direction — BE2 Unit 8
 
-**Status:** ACTIVE / **DESIGN DIRECTION APPROVED — GENERATION NOT AUTHORIZED**
-**Version:** 0.1
+**Status:** ACTIVE / **CONFIGURATION APPROVED — GENERATION NOT AUTHORIZED**
+**Version:** 0.2
 **Date:** 2026-10-18
 **Decision context:** Owner-directed D018 experimental-roadmap update; documentation and design only
 **Pilot:** Big English 2 · Unit 8 *Wild Animals* · SB pp. 128–129 + WB pp. 104–105
@@ -54,15 +54,25 @@ The hypothesis remains unproven. Evaluation must inspect actual slide purpose an
 
 ## Experiment 1 — two substantial lessons
 
-**Status:** **DESIGN DIRECTION APPROVED — GENERATION NOT AUTHORIZED**
+**Status:** **CONFIGURATION APPROVED — GENERATION NOT AUTHORIZED**
 
-| Setting | Proposed value | Status |
+| Setting | Approved value | Status |
 |---|---|---|
 | Platform | Chalkie | Confirmed |
-| Generation type | Lesson Series | Direction approved |
-| Number of lessons | 2 | Direction approved |
-| Requested slides | **30 per lesson** (60 requested total) | **Proposal awaiting owner confirmation** |
+| Generation type | Lesson Series | Approved |
+| Number of lessons | 2 | Approved |
+| Requested slides | **30 per lesson** (60 requested total) | Approved controlled setting |
+| Lesson duration | Approximately **40 minutes each**, including textbook activities | Approved planning constraint |
+| Lesson 1 | Student Book — Introduce | Approved allocation |
+| Lesson 2 | Workbook — Practise | Approved allocation |
+| Textbook scope | BE2 Unit 8 · SB pp. 128–129 + WB pp. 104–105 | Unchanged |
+| Curriculum inputs | Existing V3 inputs, including the approved `[BI]` block | Unchanged; no added intelligence |
+| Audio | OFF | Approved |
+| Framework / theme | Chalkie Default / Simple | Approved |
+| Level | Grade 3 / English ability Grade 2 | Approved |
 | Per-lesson slide behavior | Same requested count applied per lesson | User-confirmed capability; do not assume different counts can be assigned within one series |
+
+Thirty requested slides per lesson is a **controlled generation setting**, not a requirement to display or teach every generated slide. The approximately 40-minute duration includes students completing the relevant textbook activities.
 
 ### Lesson 1 — Student Book: Introduce
 
@@ -83,6 +93,36 @@ The hypothesis remains unproven. Evaluation must inspect actual slide purpose an
 - Avoid unnecessary repetition of Lesson 1 introduction slides.
 
 The owner confirms that this **SB introduction → WB practice** structure matches the school's current teaching approach. Slides support the textbooks; they do not replace or reproduce them unnecessarily.
+
+---
+
+## Basic scaffolding expectation
+
+This experiment tests whether Chalkie's default generation can provide acceptable **basic scaffolding** when given more instructional space. Basic scaffolding is an expected platform capability and does not require a new intelligence layer.
+
+Expected evidence:
+
+- clear, visual introduction of language;
+- simple, comprehensible examples;
+- gradual movement from recognition and repetition to guided and more independent practice;
+- opportunities for students to practise and produce the target language;
+- sufficient reinforcement to support the learning objective.
+
+Repetition is not automatically a weakness. Reusing the same speaking structure with multiple animals can provide purposeful language reinforcement even when slides are structurally similar. Evaluation must distinguish **purposeful repetition** from unnecessary duplication or filler.
+
+Do not impose fixed counts for examples, repetitions, or slides within each scaffolding stage.
+
+---
+
+## Intelligence-layer boundaries
+
+| Layer | Role | Experiment 1 status |
+|---|---|---|
+| Curriculum / Book Intelligence | What the textbook teaches; relevant language, scope, and progression | Existing approved V3 inputs retained unchanged |
+| Teaching Intelligence | How to scaffold language; teaching strategies and instructional sequencing | Future stage — not added or developed here |
+| School / Teacher-Specific Intelligence | Student needs, differentiation, repetition intensity, preferred classroom approaches, school-specific expectations | Future stage — not added or developed here |
+
+Do not append Teaching Intelligence or School / Teacher-Specific Intelligence blocks. Do not change the approved V3 `[BI]` content.
 
 ---
 
@@ -118,6 +158,18 @@ Historical V2b and V3 outputs remain comparison points.
 
 ## Evaluation design proposal
 
+### Experimental question
+
+**Primary question:** Can Chalkie's Lesson Series format, with two 30-slide lessons, provide better instructional scaffolding and textbook support than the restrictive Single Lesson format?
+
+**Secondary questions:**
+
+- Does Chalkie use the additional slide capacity for meaningful instruction or filler?
+- Does Lesson 2 reinforce and build on Lesson 1?
+- Are students given sufficient opportunities to practise and produce language?
+- Is the generated material practical for two approximately 40-minute periods, including textbook work?
+- Can the output distinguish purposeful language repetition from unnecessary duplication?
+
 Preserve the original seven D018 criteria and historical scores. Add a separate instructional-quality section for Lesson Series experiments:
 
 1. **Scaffolding quality** — progression from introduction/modeling through guided practice to independent production.
@@ -128,7 +180,7 @@ Preserve the original seven D018 criteria and historical scores. Add a separate 
 6. **Teacher usability** — practical real-classroom delivery.
 7. **Platform limitations** — weaknesses classified as prompt-related, intelligence-related, format-related, or unresolved.
 
-**Thresholds are not finalized.** Owner approval is required before scoring rules are locked for the experiment.
+These additional dimensions remain **observational criteria**. No new numerical thresholds are finalized or authorized.
 
 For every run, record both the requested Chalkie slide count and exported PDF page count. Identify answer/reveal states before judging length or instructional allocation.
 
@@ -157,12 +209,21 @@ This option tests whether observed limits are mainly platform-related or persist
 
 ---
 
-## Open owner decisions and next gate
+## Next gate
 
 Before any generation:
 
-1. Confirm or revise the proposed **30 slides per lesson**.
-2. Approve the exact two-lesson prompt and allocation.
-3. Approve the additional instructional-quality scoring thresholds.
+1. Draft and review the exact two-lesson Lesson Series prompt using the approved configuration.
+2. Confirm that the prompt preserves the approved V3 inputs without adding Teaching or School / Teacher-Specific Intelligence.
+3. Obtain separate owner authorization for generation.
 
-**Smallest next step:** owner confirmation of the proposed **30 slides per lesson** for Experiment 1. No generation is authorized by this document.
+**Smallest next step:** draft the copy-ready two-lesson prompt for owner review. No generation is authorized by this document.
+
+---
+
+## Change log
+
+| Date | Note |
+|---|---|
+| 2026-10-18 | Step 200: created the Lesson Series design direction; 30 slides per lesson remained proposed. |
+| 2026-10-18 | Step 201: owner approved two lessons, 30 requested slides per lesson, approximately 40 minutes each including textbook work, and the SB-introduce / WB-practise allocation. Documented basic scaffolding, purposeful repetition, intelligence-layer boundaries, and observational evaluation questions. Generation remains unauthorized. |

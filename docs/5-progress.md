@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 200
+**Last updated:** Step 201
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,19 +20,19 @@
 
 - **D018 V3** — controlled Single Lesson generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages; Audio OFF). Informally reviewed; detailed findings and formal evaluation remain pending. No score or verdict assigned.
 
-- **D018 Lesson Series direction** — two-lesson SB-introduction / WB-practice design direction approved; generation not authorized. Proposed 30 slides per lesson awaits owner confirmation.
+- **D018 Lesson Series Experiment 1** — configuration approved: two approximately 40-minute lessons (including textbook work), 30 requested slides per lesson, SB introduce → WB practise, existing V3 inputs, Audio OFF. Generation not authorized.
 
 ## In progress
 
-- Lesson Series Experiment 1 design refinement and owner review only.
+- Lesson Series Experiment 1 prompt design and owner review only.
 
 ## Next
 
-- Owner confirms or revises the proposed **30 slides per lesson** for the two-lesson experiment. Then finalize its prompt and evaluation thresholds before any generation authorization.
+- Draft the exact copy-ready two-lesson prompt using the approved configuration. Keep the added instructional-quality dimensions observational; obtain separate owner approval before generation.
 
 ## Blocked
 
-- Soft: Lesson Series generation, scoring thresholds, V4/V5, and further V3 reruns are not authorized. V3 formal evaluation remains pending. Vertical Mapping / F017–F019 / Phase 5–6 productization remain parked.
+- Soft: Lesson Series generation, new numerical scoring thresholds, V4/V5, and further V3 reruns are not authorized. V3 formal evaluation remains pending. Teaching Intelligence and School / Teacher-Specific Intelligence remain future stages.
 
 ---
 
