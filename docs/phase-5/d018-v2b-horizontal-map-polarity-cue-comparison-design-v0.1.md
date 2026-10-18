@@ -430,3 +430,19 @@ Documentation proposal only — **not** a generation authorization:
 
 > Owner reviews §§12–15. If a refinement run is desired, authorize it **separately**. Do not treat this evaluation as permission to regenerate.
 
+---
+
+## 17. Follow-on finding — fuller `[HM]` handover (scores unchanged)
+
+The first Arm A&B experiment **validated a narrow polarity/agreement intervention**. It did **not** test the fuller workflow:
+
+`complete prior-language bank → AI recommends 0–5 → teacher selection → progressive cumulative conversation as lesson input`.
+
+The next bounded investigation is the lesson-input pack:
+
+[`../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](../phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md)
+
+Complete owner/teacher selection there **before** designing Arm B2. Arm B2 design and generation remain unauthorized.
+
+**Preserve unchanged:** all recorded A/B rubric scores (§12), qualitative findings (§13), formal conclusion (§14), and historical V2b preferred-control status.
+

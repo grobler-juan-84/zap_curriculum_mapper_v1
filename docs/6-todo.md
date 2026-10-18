@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (HM Lesson Series A/B evaluation)
+**Last updated:** 2026-10-18 (HM lesson-input pack)
 
 
 
@@ -322,13 +322,15 @@
 
 - [x] **Generate + evaluate Lesson Series A/B comparison** — Arm A&B preferred for polarity/agreement; provenance Partial; neither classroom-ready; V2b historical verdict unchanged; further regeneration not authorized by evaluation.
 
+- [x] **Define teacher-controlled horizontal-map lesson-input pack** — bank → AI 0–5 recommend → teacher select → progressive conversation handover; Arm B2 not authorized.
+
 
 
 ## Now
 
 
 
-- [ ] Owner review of the recorded evaluation and proposed bounded refinement in [`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) (§§12–15). Regeneration remains separately gated.
+- [ ] Owner/teacher **review and final selection** in [`phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](./phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md) (§§5 and 8). Do not design Arm B2 until selection is recorded.
 
 
 
