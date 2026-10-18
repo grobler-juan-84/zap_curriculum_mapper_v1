@@ -45,7 +45,7 @@ This pack tests whether **teacher-selected prior language** can enrich Big Engli
 | PL-01 | `What's he/she doing? He/She's + -ing.` | 1 | SS exact + SB verified | Describe one animal’s action | `What's it doing?` / `What's the cheetah doing?` |
 | PL-02 | `What are they doing? They're + -ing.` | 1 | SB verified | Describe plural animals’ action | `What are the cheetahs doing?` |
 | PL-03 | `How many + plural are there? There's / There are…` | 1, 6 | SS exact + SB verified | Count animals in a picture | Number depends on visual |
-| PL-08 | `Me, too!` / `Me neither!` | 2 | SS exact + SB verified | Agree after like / don’t like | After animal preference |
+| PL-08 | `Me, too!` / `Me neither!` | 2 | SS exact + SB verified | Agree after like / don’t like | Must match polarity (`Me, too!` ≠ after don’t-like) |
 | PL-13 | `Is there a + noun…? Yes/No…` | 4 | SS exact + SB verified | Spot an animal in a scene | `Is there a zebra?` — scene-dependent |
 | PL-16 | `… because …` | 5 | SS exact + SB verified | Give a reason for preference | Often pairs with current-unit ability |
 | PL-18 | Wh- stems: Who / What / Where / How / How many | 6 | SS exact stems + SB verified | Family/reference only | Do **not** force every stem; `Why…?` not evidenced |
@@ -75,12 +75,13 @@ This pack tests whether **teacher-selected prior language** can enrich Big Engli
 |---|---|
 | **Purpose** | Move from naming one animal to preference + agreement |
 | **Visual** | One clear animal picture (e.g. a cheetah) |
-| **Teacher model** | A: What is it? → B: It is a cheetah. → A: Do you like cheetahs? → B: Yes, I do. I like cheetahs. → A: Me, too! |
-| **Guided exchange** | Teacher asks `What is it?` and `Do you like…?`; student answers with full sentences; peer adds `Me, too!` / `Me neither!` |
-| **Slightly independent** | Pair with a different animal card; same pattern chain |
-| **Patterns used** | Mapper-generated ID · **PL-19** · **PL-08** |
+| **Teacher model (affirmative)** | A: What is it? → B: It is a cheetah. → A: Do you like cheetahs? → B: Yes, I do. I like cheetahs. → A: Me, too! |
+| **Teacher model (negative)** | A: What is it? → B: It is a snake. → A: Do you like snakes? → B: No, I don't. I don't like snakes. → A: Me neither! |
+| **Guided exchange** | Teacher asks `What is it?` and `Do you like…?`; students answer with the polarity that matches their opinion; peers use **matching** agreement (`Me, too!` after yes/like; `Me neither!` after no/don’t like) |
+| **Slightly independent** | Pair with a different animal card; same pattern chain with both polarities available |
+| **Patterns used** | Mapper-generated ID · **PL-19** (yes **and** no paths) · **PL-08** (polarity-matched) |
 | **Provenance** | `What is it?` / `It is a…` = mapper-generated (not PL-22 exact). Preference = PL-19. Agreement = PL-08. |
-| **Optional simplification** | Drop agreement; stop after `Yes, I do. I like cheetahs.` |
+| **Optional simplification** | Drop agreement; keep both `Yes, I do. I like…` and `No, I don't. I don't like…` |
 
 ---
 
@@ -179,40 +180,42 @@ The cumulative pack **supplements** this baseline; it does not replace Unit 8 ob
 | Teacher flexibility | Limited path | High — choose Script A–D / omit D / simplify lines |
 | Classroom usability | Immediate | Usable as card-sized sequences with picture support |
 
-**Verdict:** For opener practice with pictures, the cumulative pack offers **more meaningful communicative practice** than the isolated frame alone, provided teachers treat the nine IDs as an **available bank** and run only the sequences the visual supports.
+**Verdict:** For opener practice with pictures, the cumulative pack offers **more meaningful communicative practice** than the isolated frame alone, provided teachers treat the nine IDs as an **available bank**, run only the sequences the visual supports, and keep **both preference polarities** (like / don’t like) with polarity-matched agreement.
+
+**Owner feedback (teacher-choice card §7, Q4–5):** Confirms that isolated page frames feel too restrictive when some students like an animal and others do not. Extra available frames improve freedom of movement. Main unnatural risk is practising only the positive path, or mismatching `Me, too!` / `Me neither!` to polarity.
 
 ---
 
 ## 8. Findings
 
 1. **Do cumulative scripts offer more meaningful communication?**  
-   **Yes**, at document-review level — especially Scripts A–C. They extend preference into agreement, counting, action description, and reasoned likes while keeping Unit 8 ability correctly labeled.
+   **Yes** — at document-review level and per owner feedback. Scripts A–C extend preference into agreement, counting, action, and reasoned likes while keeping Unit 8 ability correctly labeled. Owner emphasis: both **yes** and **no** preference paths are needed for natural classroom talk.
 
 2. **Which prior patterns add the most value?**  
-   **PL-19** (core), then **PL-08** and **PL-03**. **PL-01** (adapted) pairs cleanly with current-unit ability in Script C. **PL-16** adds value as an optional extension, not a default every turn.
+   **PL-19** (core, including negative answers), then **PL-08** when polarity-matched, and **PL-03**. **PL-01** (adapted) pairs cleanly with current-unit ability in Script C. **PL-16** remains optional enrichment.
 
 3. **Which patterns are optional, weak, or scene-dependent?**  
-   **PL-13** and **PL-20** are scene-dependent (Script D). **PL-02** is optional when singular action suffices. **PL-18** is a family/reference layer, not a forced script driver. **PL-16** is optional enrichment.
+   **PL-13** and **PL-20** are scene-dependent (Script D). **PL-02** is optional when singular action suffices. **PL-18** is a family/reference layer, not a forced script driver. **PL-08** is valuable but **misfires** if used with the wrong polarity.
 
 4. **Does treating nine patterns as mandatory create overload?**  
    **Yes.** Nine-as-mandatory would crowd a short opener lesson.
 
 5. **Does “available vs used” solve that?**  
-   **Yes.** This pack uses seven as primary/optional script drivers and leaves PL-02 and PL-18 unused without loss of quality.
+   **Yes.** This pack uses seven as primary/optional script drivers and leaves PL-02 and PL-18 unused without loss of quality. Owner feedback further supports availability: more frames for choice, not one forced path.
 
 6. **Are the scripts simple enough to continue horizontal mapping?**  
-   **Yes.** Scripts A–C are short enough to justify continuing the direction; Script D remains optional.
+   **Yes.** Scripts A–C (with dual-polarity preference) justify continuing; Script D remains optional.
 
 ---
 
 ## 9. Limitations
 
-- Document review only — **not** classroom validation  
+- Still primarily document / teacher-judgment review — **not** full classroom validation with recorded student outcomes  
 - No student mastery data  
 - Generated examples still need teacher judgment  
 - Visuals decide whether quantity / existence / action scripts are appropriate  
 - Exact instructional sequencing belongs to later Teaching Intelligence  
-- Feedback items 4–5 on the teacher-choice card remain open and are **not** answered here
+- Teacher-choice card feedback **Q4–5 are now completed** (see card §7); this pack reflects that review
 
 ---
 
@@ -220,6 +223,6 @@ The cumulative pack **supplements** this baseline; it does not replace Unit 8 ob
 
 **One smallest follow-up:**
 
-> Owner-walk Scripts A–C (and D only if a suitable scene exists) against a real Unit 8 opener picture set, then answer teacher-choice-card feedback questions 4–5: whether the selected patterns produced more meaningful student language, and whether any pattern felt unnatural, unnecessary, or too difficult.
+> Produce one short “polarity-safe” opener cue card from Scripts A–C that always shows both `Yes, I do. I like…` / `No, I don't. I don't like…` and matched `Me, too!` / `Me neither!` pairs, then decide whether that card is enough to reopen a bounded Chalkie/Lesson Series trial later — without changing D018 results yet.
 
-Do **not** yet build UI, lock schemas, generate Chalkie lessons, alter D018, or close Phase 2.
+Do **not** yet build UI, lock schemas, alter D018 results/rubrics, authorize V4/V5, or close Phase 2.

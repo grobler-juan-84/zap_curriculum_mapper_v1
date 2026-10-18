@@ -4,7 +4,7 @@
 **Question:** Which previously taught language patterns should I recycle with Unit 8 animal vocabulary?  
 **Source:** [`be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md`](./be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md)  
 **Status:** Manual packaging dry-run — not UI, not mastery proof, not reteach by default  
-**Owner review:** Teacher selections and sample scripts recorded below (2026-10-18)
+**Owner review:** Teacher selections, sample scripts, and feedback Q4–5 recorded (2026-10-18)
 
 Edit checkboxes as needed. Selecting a pattern only means you choose to practise it with Unit 8 animals.
 
@@ -40,7 +40,7 @@ Investigation defaults (retained by teacher). Soft AI default was 0–5; the tea
 | Source | Unit 7 |
 | Evidence | SS exact + SB verified |
 | Why it fits | Closest prior match to the Unit 8 preference half |
-| Mapper-generated example | `Do you like monkeys? Yes, I do. I like monkeys.` |
+| Mapper-generated example | `Do you like monkeys? Yes, I do. I like monkeys.` / `No, I don't. I don't like monkeys.` |
 
 ### [x] PL-08 — `Me, too! / Me neither!`
 
@@ -50,7 +50,8 @@ Investigation defaults (retained by teacher). Soft AI default was 0–5; the tea
 | Source | Unit 2 |
 | Evidence | SS exact + SB verified |
 | Why it fits | Extends like / don’t-like answers into short exchanges |
-| Mapper-generated example | A: `I like elephants.` → B: `Me, too!` |
+| Mapper-generated example | After like: `Me, too!` · After don’t like: `Me neither!` |
+| Caution | Match polarity — `Me neither!` does not follow `Yes, I do. I like…` |
 
 ### [x] PL-03 — `How many + plural noun are there?`
 
@@ -173,13 +174,19 @@ Use: **final selected prior patterns** + **required Unit 8 language** + **Unit 8
 Not every selected pattern must appear in every exchange.  
 Do not claim these scripts appear in the publisher materials.
 
-### Model (mapper-generated · PL-19 + PL-08)
+### Model (mapper-generated · PL-19 + PL-08) — affirmative
 
 A: Do you like cheetahs?  
 B: Yes, I do. I like cheetahs.  
 A: Me, too!
 
-*(Optional current-unit add-on, not prior: `Cheetahs can run.`)*
+### Model (mapper-generated · PL-19 + PL-08) — negative
+
+A: Do you like snakes?  
+B: No, I don't. I don't like snakes.  
+A: Me neither!
+
+*(Optional current-unit add-on, not prior: `Cheetahs can run.` / ability talk for the animal in focus.)*
 
 ### Exchange 2 (teacher draft · preference + reason)
 
@@ -229,7 +236,10 @@ B: Yes, I do. I like cheetahs.
    → `PL-01, PL-02, PL-13 (candidate), PL-16, PL-18`
 
 4. Did the selected patterns produce more meaningful student language?  
-   → _______________________________________________
+   → **Yes.** Lessons that stay on an isolated page frame feel too restrictive. Example: *Do you like snakes?* — some students do, some do not. A single positive path is not enough. Having both polarity options makes classroom language freer and more natural:  
+   - `Do you like snakes? Yes, I do. I like snakes.`  
+   - `Do you like snakes? No, I don't. I don't like snakes.`  
+   Extra available frames give freedom of movement; they make page language less locked to one answer.
 
 5. Did any pattern feel unnatural, unnecessary, or too difficult?  
-   → _______________________________________________
+   → Related to #4. The unnatural case is when students **do not** like the animal, but the practised frame only accommodates the positive path (e.g. pairing a like-statement with `Me, too!`, or having no clear negative route). `Me neither!` does **not** fit after `Yes, I do. I like…`. Agreement tokens must match polarity: `Me, too!` after affirmative likes; `Me neither!` after negative likes / don’t-like statements.
