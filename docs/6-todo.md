@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 204
+**Last updated:** Step 205
 
 
 
@@ -332,7 +332,11 @@
 
 - [x] Owner/teacher **review and final selection** in [`phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](./phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md) (§§5 and 8) — recorded: `PL-01`, `PL-03`, `PL-19` + teacher-added ID frames; PL-08 deselected.
 
-- [ ] **Design bounded Arm B2** (prompt / handover only) from the recorded lesson-input pack. Do not generate until the design is approved.
+- [x] **Design bounded Arm B2** (prompt / handover only) from the recorded lesson-input pack — drafted in [`phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md).
+
+- [ ] Owner **approve Arm B2 design** (§8 checklist). Do not generate until approved.
+
+- [ ] If design approved: authorize **Arm B2 generation only** (reuse Arm A; do not regenerate historical Arm B).
 
 
 

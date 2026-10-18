@@ -35,7 +35,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: bounded Arm B2 design from the recorded HM lesson-input pack. | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner approve Arm B2 design (generation separately gated). | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -129,7 +129,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md](./phase-2/experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md) | BE2 U8 teacher choice card: nine available prior patterns; dual-polarity feedback; not UI. | 0.1 | ACTIVE |
 | [phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md](./phase-2/experiments/be2-u08-cumulative-language-script-pack-v0.1.md) | BE2 U8 cumulative-language script pack: Scripts A–D; documentation/teacher-judgment only (not classroom validation). | 0.1 | ACTIVE |
 | [phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md](./phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md) | BE2 U8 polarity-safe opener cue card: dual like/don’t-like + matched agreement; owner review: clear, supports +/−, enough for a future bounded Chalkie comparison (not authorized). | 0.1 | ACTIVE |
-| [phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md](./phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md) | BE2 U8 HM lesson-input pack: selection/review recorded (`PL-01`/`PL-03`/`PL-19` + teacher-added ID); ready for Arm B2 design; generation unauthorized. | 0.1 | ACTIVE |
+| [phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md](./phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md) | BE2 U8 HM lesson-input pack: selection/review recorded (`PL-01`/`PL-03`/`PL-19` + teacher-added ID); feeds drafted Arm B2 design; generation unauthorized. | 0.1 | ACTIVE |
 | [phase-2/phase-2-overview-v2.md](./phase-2/phase-2-overview-v2.md) | Historical Phase 2 planning SoT v2 (exhaustive unit/page/JSON sketches); superseded by D017; retained for research context only. | — | PARKED |
 | [phase-2/p2-inspect-be2-inputs.md](./phase-2/p2-inspect-be2-inputs.md) | Inspection memo: BE2 Phase 1 JSON shape/U8 slice counts + lessons from prior U6–U8 / BE1 U1 experiments before Studio prompt design. | 1.0 | ACTIVE |
 | [phase-2/phase2-v3.1-prompt.md](./phase-2/phase2-v3.1-prompt.md) | Paste-ready experimental Google AI Studio prompt V3.1: unit-neutral linguistic anatomy from Phase 1 canonical JSON. | 3.1 | ACTIVE |
@@ -159,7 +159,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2-family **CLOSED**: V1/V2 below Pass; V2b preferred Pass baseline/control; V2c Pass equivalent but not preferred; no V2d. | 2.2 | PARKED |
 | [phase-5/d018-v3-be2-u08-book-intelligence-experiment.md](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md) | D018 V3 Book Intelligence experiment: V2b control + append-only `[BI]`; generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages); formal evaluation pending. | 1.2 | ACTIVE |
 | [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series Experiment 1: approved configuration and owner-approved two-lesson prompt with outline-review gate; not run; generation not authorized. | 0.4 | ACTIVE |
-| [phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) | Lesson Series A/B comparison (V2b inputs ± `[HM]`): generated and evaluated; Arm A&B preferred for polarity/agreement; refinement proposed, not authorized. | 0.1 | ACTIVE |
+| [phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) | Lesson Series A/B comparison (V2b inputs ± `[HM]`): generated and evaluated; Arm A&B preferred for polarity/agreement; points to drafted Arm B2 follow-on. | 0.1 | ACTIVE |
+| [phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md) | Arm B2 design: reuse Arm A; append teacher-selected HM pack (`PL-19`/`PL-01`/`PL-03` + ID; no PL-08); copy-ready §7B2; generation not authorized. | 0.1 | ACTIVE |
 
 ### Phase 6
 
@@ -174,7 +175,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 104 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` Lesson Series comparison, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 105 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus drafted Arm B2 follow-on, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 4 | D018 V2/V2b/V2c experiment pack (V2-family closed; V2b preferred); Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

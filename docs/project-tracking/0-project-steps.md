@@ -3536,3 +3536,20 @@
 
 ---
 
+
+
+### Step 205
+
+**Summary:** Drafted bounded Arm B2 comparison design: reuse Arm A; append teacher-selected HM lesson-input pack (PL-01/PL-03/PL-19 + What is it?/What are they?; no PL-08); copy-ready section 7B2; owner design approval and generation remain separate gates.
+
+**Files touched:**
+- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (created)
+- docs/phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md (updated)
+- docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/0-index.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

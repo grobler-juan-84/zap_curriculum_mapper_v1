@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 204
+**Last updated:** Step 205
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,17 @@
 
 - **V2b-scope Lesson Series A/B comparison** — evaluated; Arm A&B preferred for narrow polarity/agreement; scores preserved.
 
-- **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → **lesson-input pack** with owner/teacher selection and review **recorded**.
+- **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → lesson-input pack **recorded**.
+
+- **Arm B2 design drafted** — reuse Arm A; `[HM]` = recorded pack (`PL-01`/`PL-03`/`PL-19` + teacher-added ID; no PL-08); copy-ready §7B2.
 
 ## In progress
 
-- Bounded Arm B2 **design** using the recorded `[HM]` lesson-input pack (generation not yet authorized).
+- Owner review / design approval of [`phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md`](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md).
 
 ## Next
 
-- Design bounded Arm B2 (Chalkie / lesson-generation prompt) from [`phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md`](./phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md). Do **not** generate until that design is approved.
+- Complete §8 checklist on the Arm B2 design. If approved, authorize **Arm B2 generation only** in a separate prompt (do not regenerate Arm A or historical Arm B).
 
 ## Blocked
 
@@ -40,6 +42,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Final selected `[HM]` input: `PL-01`, `PL-03`, `PL-19` + teacher-added `What is it?` / `What are they?` (not a BE2 PL ID; not PL-22). PL-08 deselected for this pack (school-specific override; still accepted as valid AI option for other teachers).
+- Final selected `[HM]` input: `PL-01`, `PL-03`, `PL-19` + teacher-added `What is it?` / `What are they?` (not PL-22). PL-08 deselected.
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.
