@@ -35,7 +35,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner review of V2b vs horizontal-map comparison design (generation still unauthorized). | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner review of HM Lesson Series A/B evaluation and proposed refinement. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -158,7 +158,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2-family **CLOSED**: V1/V2 below Pass; V2b preferred Pass baseline/control; V2c Pass equivalent but not preferred; no V2d. | 2.2 | PARKED |
 | [phase-5/d018-v3-be2-u08-book-intelligence-experiment.md](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md) | D018 V3 Book Intelligence experiment: V2b control + append-only `[BI]`; generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages); formal evaluation pending. | 1.2 | ACTIVE |
 | [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series Experiment 1: approved configuration and owner-approved two-lesson prompt with outline-review gate; not run; generation not authorized. | 0.4 | ACTIVE |
-| [phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) | Design-only A/B brief: shared Lesson Series (2×25 slides; SB→WB); Arm B adds polarity-safe `[HM]` only; copy-ready prompts; generation not authorized. | 0.1 | ACTIVE |
+| [phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) | Lesson Series A/B comparison (V2b inputs ± `[HM]`): generated and evaluated; Arm A&B preferred for polarity/agreement; refinement proposed, not authorized. | 0.1 | ACTIVE |
 
 ### Phase 6
 

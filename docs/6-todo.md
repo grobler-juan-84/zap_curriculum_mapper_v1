@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (comparison design → Lesson Series)
+**Last updated:** 2026-10-18 (HM Lesson Series A/B evaluation)
 
 
 
@@ -318,7 +318,9 @@
 
 - [x] **Owner/teacher usability review of cue card** — clear enough; supports +/− responses; enough for a future bounded Chalkie/Lesson Series comparison (generation still not authorized).
 
-- [x] **Design-only V2b vs polarity-cue comparison brief** — revised: both arms Lesson Series (2×25 slides; SB→WB; ~40 min; Audio OFF); Arm B adds `[HM]` only; copy-ready prompts; generation not authorized.
+- [x] **Design-only V2b vs polarity-cue comparison brief** — revised: both arms Lesson Series (2×25 slides; SB→WB; ~40 min; Audio OFF); Arm B adds `[HM]` only; copy-ready prompts.
+
+- [x] **Generate + evaluate Lesson Series A/B comparison** — Arm A&B preferred for polarity/agreement; provenance Partial; neither classroom-ready; V2b historical verdict unchanged; further regeneration not authorized by evaluation.
 
 
 
@@ -326,7 +328,7 @@
 
 
 
-- [ ] Owner review of [`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) (§8 checklist). Generation remains unauthorized until a separate explicit authorization.
+- [ ] Owner review of the recorded evaluation and proposed bounded refinement in [`phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./phase-5/d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) (§§12–15). Regeneration remains separately gated.
 
 
 
