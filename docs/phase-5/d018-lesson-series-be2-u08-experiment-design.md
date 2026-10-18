@@ -1,7 +1,7 @@
 # D018 Lesson Series Direction — BE2 Unit 8
 
-**Status:** ACTIVE / **PROMPT DRAFTED FOR OWNER REVIEW — GENERATION NOT AUTHORIZED**
-**Version:** 0.3
+**Status:** ACTIVE / **PROMPT OWNER-APPROVED — GENERATION NOT AUTHORIZED**
+**Version:** 0.4
 **Date:** 2026-10-18
 **Decision context:** Owner-directed D018 experimental-roadmap update; documentation and design only
 **Pilot:** Big English 2 · Unit 8 *Wild Animals* · SB pp. 128–129 + WB pp. 104–105
@@ -213,17 +213,17 @@ This option tests whether observed limits are mainly platform-related or persist
 
 Before any generation:
 
-1. Owner reviews and revises or accepts the copy-ready prompt below.
-2. Confirm the Chalkie-generated two-lesson outline matches the approved allocation before generation, if the platform exposes outline review at this stage.
-3. Obtain separate owner authorization for generation.
+1. Obtain separate owner authorization to enter the approved prompt into Chalkie and create/review the two-lesson outline.
+2. Confirm the Chalkie-generated outline matches the approved allocation before final generation.
+3. Obtain explicit owner approval for final generation after outline review if Chalkie separates outline creation from generation.
 
-**Smallest next step:** owner review of the drafted prompt. No generation is authorized by this document.
+**Smallest next step:** explicit owner authorization to begin the Chalkie Lesson Series workflow with the approved prompt. No generation is authorized by this document.
 
 ---
 
 ## Copy-ready Lesson Series prompt — draft for owner review
 
-**Status:** **DRAFTED / NOT APPROVED / NOT RUN**
+**Status:** **OWNER-APPROVED / NOT RUN / GENERATION NOT AUTHORIZED**
 
 Use Chalkie **Lesson Series** with **2 lessons**, **30 requested slides per lesson**, Chalkie Default framework, Simple theme, Grade 3, English ability Grade 2, and Audio activities OFF. Each lesson should be practical for approximately **40 minutes including the textbook activities**. Thirty requested slides is a generation setting, not a requirement to display or teach every slide.
 
@@ -233,9 +233,6 @@ Create a TWO-LESSON SERIES to SUPPORT Big English 2 Unit 8: Wild Animals.
 TEXTBOOK SCOPE — ONLY:
 - Student Book pp. 128–129.
 - Workbook pp. 104–105.
-- Use the supplied Scope & Sequence and bounded Book Intelligence only as labeled context.
-
-Do NOT teach later Student Book Unit 8 pages or Workbook pp. 106–117. Exclude later story, habitats/CLIL, adjective-order grammar, “They’re so + adjective,” values, culture, phonics, review, and full-unit aims that do not belong to these pages.
 
 The two lessons are approximately 40 minutes each, INCLUDING time for students to complete the relevant textbook activities. Slides must support the books, not replace or reproduce them unnecessarily.
 
@@ -346,3 +343,4 @@ Outline review does not itself authorize generation. Material prompt or outline 
 | 2026-10-18 | Step 200: created the Lesson Series design direction; 30 slides per lesson remained proposed. |
 | 2026-10-18 | Step 201: owner approved two lessons, 30 requested slides per lesson, approximately 40 minutes each including textbook work, and the SB-introduce / WB-practise allocation. Documented basic scaffolding, purposeful repetition, intelligence-layer boundaries, and observational evaluation questions. Generation remains unauthorized. |
 | 2026-10-18 | Step 202: drafted the copy-ready two-lesson Lesson Series prompt and outline-review gate for owner review. Preserved V3 inputs and intelligence boundaries; generation remains unauthorized. |
+| 2026-10-18 | Step 203: owner accepted the prompt after removing redundant Scope & Sequence / Book Intelligence context and later-unit exclusion wording that Chalkie did not need. Prompt approved; not run; generation remains separately gated. |

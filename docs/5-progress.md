@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 202
+**Last updated:** Step 203
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,11 +24,11 @@
 
 ## In progress
 
-- Lesson Series Experiment 1 prompt drafted; awaiting owner review only.
+- Lesson Series Experiment 1 prompt owner-approved after removing redundant context/exclusion wording; not run.
 
 ## Next
 
-- Owner reviews the copy-ready two-lesson prompt and outline-review gate. Generation requires a separate explicit authorization afterward.
+- Obtain explicit owner authorization to begin the Chalkie Lesson Series workflow with the approved prompt. Generation remains separately gated.
 
 ## Blocked
 

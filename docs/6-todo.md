@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 202
+**Last updated:** Step 203
 
 
 
@@ -304,13 +304,15 @@
 
 - [x] **Step 202 — Draft Lesson Series prompt:** copy-ready two-lesson prompt + outline-review gate recorded from the approved configuration; V3 inputs and intelligence boundaries preserved; not approved or run; generation not authorized.
 
+- [x] **Step 203 — Owner approve Lesson Series prompt:** removed redundant SS/BI context + later-unit exclusion wording; revised prompt accepted; not run; generation remains separately gated.
+
 
 
 ## Soon
 
 
 
-- [ ] Owner review and revise/accept the Step 202 copy-ready prompt; record any material changes before separate generation authorization.
+- [ ] Obtain explicit owner authorization to begin the Chalkie Lesson Series workflow with the approved prompt; review the generated outline before final generation where supported.
 
 - [ ] Keep the additional instructional-quality dimensions observational; do not invent numerical thresholds.
 

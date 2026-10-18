@@ -3505,4 +3505,18 @@
 
 ---
 
+### Step 203
+
+**Summary:** Recorded owner approval of the D018 Lesson Series Experiment 1 prompt after removing the redundant instruction to use SS/BI only as labeled context and the detailed later-Unit-8 exclusion paragraph. Existing evidence, `[BI]`, provenance, scope, scaffolding, lesson allocation, and outline-review safeguards remain. Prompt not run; Lesson Series generation remains separately gated; no `4-decisions.md` change.
+
+**Files touched:**
+- `docs/phase-5/d018-lesson-series-be2-u08-experiment-design.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

@@ -153,7 +153,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): closed as comparative baseline (4 Yes / 3 Partial; formal Pass not met); one-time owner override authorizes V2 (+ Workbook). | 1.2 | ACTIVE |
 | [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2-family **CLOSED**: V1/V2 below Pass; V2b preferred Pass baseline/control; V2c Pass equivalent but not preferred; no V2d. | 2.2 | PARKED |
 | [phase-5/d018-v3-be2-u08-book-intelligence-experiment.md](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md) | D018 V3 Book Intelligence experiment: V2b control + append-only `[BI]`; generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages); formal evaluation pending. | 1.2 | ACTIVE |
-| [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series Experiment 1: approved configuration plus copy-ready two-lesson prompt and outline-review gate drafted for owner review; generation not authorized. | 0.3 | ACTIVE |
+| [phase-5/d018-lesson-series-be2-u08-experiment-design.md](./phase-5/d018-lesson-series-be2-u08-experiment-design.md) | D018 Lesson Series Experiment 1: approved configuration and owner-approved two-lesson prompt with outline-review gate; not run; generation not authorized. | 0.4 | ACTIVE |
 
 ### Phase 6
 
