@@ -1,7 +1,7 @@
 # D018 Lesson Series Direction — BE2 Unit 8
 
-**Status:** ACTIVE / **CONFIGURATION APPROVED — GENERATION NOT AUTHORIZED**
-**Version:** 0.2
+**Status:** ACTIVE / **PROMPT DRAFTED FOR OWNER REVIEW — GENERATION NOT AUTHORIZED**
+**Version:** 0.3
 **Date:** 2026-10-18
 **Decision context:** Owner-directed D018 experimental-roadmap update; documentation and design only
 **Pilot:** Big English 2 · Unit 8 *Wild Animals* · SB pp. 128–129 + WB pp. 104–105
@@ -213,11 +213,129 @@ This option tests whether observed limits are mainly platform-related or persist
 
 Before any generation:
 
-1. Draft and review the exact two-lesson Lesson Series prompt using the approved configuration.
-2. Confirm that the prompt preserves the approved V3 inputs without adding Teaching or School / Teacher-Specific Intelligence.
+1. Owner reviews and revises or accepts the copy-ready prompt below.
+2. Confirm the Chalkie-generated two-lesson outline matches the approved allocation before generation, if the platform exposes outline review at this stage.
 3. Obtain separate owner authorization for generation.
 
-**Smallest next step:** draft the copy-ready two-lesson prompt for owner review. No generation is authorized by this document.
+**Smallest next step:** owner review of the drafted prompt. No generation is authorized by this document.
+
+---
+
+## Copy-ready Lesson Series prompt — draft for owner review
+
+**Status:** **DRAFTED / NOT APPROVED / NOT RUN**
+
+Use Chalkie **Lesson Series** with **2 lessons**, **30 requested slides per lesson**, Chalkie Default framework, Simple theme, Grade 3, English ability Grade 2, and Audio activities OFF. Each lesson should be practical for approximately **40 minutes including the textbook activities**. Thirty requested slides is a generation setting, not a requirement to display or teach every slide.
+
+```text
+Create a TWO-LESSON SERIES to SUPPORT Big English 2 Unit 8: Wild Animals.
+
+TEXTBOOK SCOPE — ONLY:
+- Student Book pp. 128–129.
+- Workbook pp. 104–105.
+- Use the supplied Scope & Sequence and bounded Book Intelligence only as labeled context.
+
+Do NOT teach later Student Book Unit 8 pages or Workbook pp. 106–117. Exclude later story, habitats/CLIL, adjective-order grammar, “They’re so + adjective,” values, culture, phonics, review, and full-unit aims that do not belong to these pages.
+
+The two lessons are approximately 40 minutes each, INCLUDING time for students to complete the relevant textbook activities. Slides must support the books, not replace or reproduce them unnecessarily.
+
+SOURCE LABELS — keep these distinct in teacher notes:
+- [SS] = publisher Scope & Sequence, unit-level context.
+- [SB] = Student Book evidence from pp. 128–129 only.
+- [WB] = Workbook evidence from pp. 104–105 only.
+- [BI] = provisional Book Intelligence interpretation, never publisher page text.
+- [SUPPLEMENTARY] = generated examples or practice not taken directly from the books.
+
+VERIFIED PAGE CONTENT:
+
+[SB p.128] Wild Animals vocabulary:
+giraffe, hippo, kangaroo, cheetah, polar bear, zebra, parrot, monkey, peacock, elephant, crocodile, snake
+
+[SB p.128] Activities:
+Listen, look, and say. / Listen, find, and say. / Play a game.
+
+[SB p.129] Song / vocabulary:
+“To the Zoo!”; chase
+
+[SB p.129] REQUIRED speaking model:
+Do you like cheetahs? Yes, I do! Cheetahs can run.
+
+[SB p.129] Activities:
+Listen and sing. Then look at 1 and find. / Listen and say true or false. / Look at 1. Ask and answer.
+
+[WB p.104] Naming and matching:
+Look and write. / Look and match.
+
+[WB p.105] Song support and short writing:
+elephant, chase; Listen and sing. Write the words. / What animals do you like seeing at the zoo?
+
+[BI · interpretation] Bounded focus for these pages:
+- Name and discuss the target animals already listed in [SB]/[WB].
+- Reinforce animal abilities through the existing [SB] like + can speaking frame.
+- Optional yes/no ability questions may be used briefly as [SUPPLEMENTARY] practice, but must not become a separate grammar lesson.
+
+[BI · AI-inferred] Soft success aim:
+Students can describe or talk about the target animals using the page language and the required like + can frame.
+
+LESSON 1 — STUDENT BOOK: INTRODUCE
+
+Purpose: establish the animal vocabulary and required speaking frame, then prepare students to use SB pp. 128–129.
+
+- Introduce all 12 animals visually and comprehensibly.
+- Move from recognition and listening/repetition toward recall.
+- Use simple examples and checks for understanding.
+- Model the exact like + can frame clearly.
+- Give guided speaking practice with multiple animals.
+- Support the relevant SB p.128 activities and SB p.129 song/speaking activities.
+- Tell the teacher to use the official book/audio; do not invent lyrics, listening scripts, true/false statements, or publisher audio content.
+- End with a brief check showing readiness for the Student Book pages.
+
+LESSON 2 — WORKBOOK: PRACTISE
+
+Purpose: retrieve Lesson 1 language, deepen practice, and prepare students to complete WB pp. 104–105 with increasing independence.
+
+- Begin with efficient retrieval of the 12 animals and the same like + can frame.
+- Do not repeat Lesson 1’s full introductory sequence.
+- Support WB p.104 naming and matching without inventing or displaying an unverified answer key.
+- Recycle the speaking frame through guided pair practice and more independent student production.
+- Support WB p.105 song/listen-and-write by directing the teacher to the official book/audio; do not invent lyrics or missing items.
+- Prepare the short response: “What animals do you like seeing at the zoo?”
+- Include meaningful checking and consolidation.
+- End with evidence that students can name animals and use the target speaking frame with less support.
+
+BASIC SCAFFOLDING EXPECTATION:
+
+- Use clear visuals and short, comprehensible student-facing text.
+- Progress from recognition and repetition to guided and more independent practice.
+- Provide genuine opportunities for students to speak and produce the target language.
+- Use enough reinforcement to support learning.
+- Purposeful repetition is allowed: practising the same speaking structure with different animals can be valuable.
+- Avoid filler, duplicated instructions, unnecessary transitions, and repetition that has no new practice purpose.
+- Do not force a fixed number of examples or slides for each stage.
+
+HARD RULES:
+
+- Stay within SB pp. 128–129 and WB pp. 104–105.
+- Keep [SS], [SB], [WB], [BI], and [SUPPLEMENTARY] provenance distinct.
+- Never present generated examples as publisher content.
+- Do not invent official audio, lyrics, Workbook answers, textbook questions, characters, or activity text.
+- Do not add Teaching Intelligence or School / Teacher-Specific Intelligence.
+- Do not change or expand the approved [BI] content.
+- Keep each lesson practical for approximately 40 minutes including textbook work.
+```
+
+### Outline-review gate
+
+Before generation, verify that Chalkie's editable outline:
+
+- contains exactly two lessons with the approved SB-introduce / WB-practise purposes;
+- keeps later Unit 8 content excluded;
+- uses Lesson 2 to build on Lesson 1 rather than restart it;
+- separates publisher evidence from supplementary practice;
+- reserves realistic time for textbook activity completion;
+- uses purposeful repetition rather than filler.
+
+Outline review does not itself authorize generation. Material prompt or outline changes must be recorded before owner approval.
 
 ---
 
@@ -227,3 +345,4 @@ Before any generation:
 |---|---|
 | 2026-10-18 | Step 200: created the Lesson Series design direction; 30 slides per lesson remained proposed. |
 | 2026-10-18 | Step 201: owner approved two lessons, 30 requested slides per lesson, approximately 40 minutes each including textbook work, and the SB-introduce / WB-practise allocation. Documented basic scaffolding, purposeful repetition, intelligence-layer boundaries, and observational evaluation questions. Generation remains unauthorized. |
+| 2026-10-18 | Step 202: drafted the copy-ready two-lesson Lesson Series prompt and outline-review gate for owner review. Preserved V3 inputs and intelligence boundaries; generation remains unauthorized. |

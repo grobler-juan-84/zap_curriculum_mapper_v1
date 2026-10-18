@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 201
+**Last updated:** Step 202
 
 
 
@@ -302,13 +302,15 @@
 
 - [x] **Step 201 — Finalize Lesson Series Experiment 1 configuration:** two approximately 40-minute lessons including textbook work; 30 requested slides per lesson; SB introduce → WB practise; existing V3 inputs; Audio OFF; basic scaffolding and purposeful-repetition expectations recorded; no new intelligence or scoring thresholds; generation not authorized.
 
+- [x] **Step 202 — Draft Lesson Series prompt:** copy-ready two-lesson prompt + outline-review gate recorded from the approved configuration; V3 inputs and intelligence boundaries preserved; not approved or run; generation not authorized.
+
 
 
 ## Soon
 
 
 
-- [ ] Draft the exact copy-ready two-lesson Lesson Series prompt from the approved Step 201 configuration; owner review required before generation.
+- [ ] Owner review and revise/accept the Step 202 copy-ready prompt; record any material changes before separate generation authorization.
 
 - [ ] Keep the additional instructional-quality dimensions observational; do not invent numerical thresholds.
 

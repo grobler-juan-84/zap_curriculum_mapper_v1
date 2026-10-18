@@ -3491,4 +3491,18 @@
 
 ---
 
+### Step 202
+
+**Summary:** Drafted the copy-ready D018 Lesson Series Experiment 1 prompt from the approved Step 201 configuration. The prompt defines two approximately 40-minute lessons (SB introduce → WB practise), 30 requested slides per lesson as a platform setting, verified SS/SB/WB evidence, unchanged V3 `[BI]`, basic scaffolding, purposeful repetition versus filler, provenance rules, and an outline-review gate. No Teaching or School/Teacher-Specific Intelligence, new thresholds, generation, or `4-decisions.md` change.
+
+**Files touched:**
+- `docs/phase-5/d018-lesson-series-be2-u08-experiment-design.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
 

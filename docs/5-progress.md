@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 201
+**Last updated:** Step 202
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,11 +24,11 @@
 
 ## In progress
 
-- Lesson Series Experiment 1 prompt design and owner review only.
+- Lesson Series Experiment 1 prompt drafted; awaiting owner review only.
 
 ## Next
 
-- Draft the exact copy-ready two-lesson prompt using the approved configuration. Keep the added instructional-quality dimensions observational; obtain separate owner approval before generation.
+- Owner reviews the copy-ready two-lesson prompt and outline-review gate. Generation requires a separate explicit authorization afterward.
 
 ## Blocked
 
