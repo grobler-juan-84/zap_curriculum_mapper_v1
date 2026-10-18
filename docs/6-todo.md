@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** 2026-10-18 (polarity-safe opener cue card)
+**Last updated:** 2026-10-18 (cue-card usability review)
 
 
 
@@ -316,13 +316,15 @@
 
 - [x] **BE2 U8 polarity-safe opener cue card** — Scripts A–C preference pair + optional quantity/action; docs/teacher-usability check only.
 
+- [x] **Owner/teacher usability review of cue card** — clear enough; supports +/− responses; enough for a future bounded Chalkie/Lesson Series comparison (generation still not authorized).
+
 
 
 ## Now
 
 
 
-- [ ] Owner/teacher **usability review** of [`phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md`](./phase-2/experiments/be2-u08-polarity-safe-opener-cue-card-v0.1.md) (three review questions); decide whether to refine horizontal-mapping output or later consider a bounded Chalkie / Lesson Series comparison.
+- [ ] When owner authorizes: design one **bounded** Chalkie / Lesson Series comparison that uses teacher-selected horizontal mappings + the polarity-safe cue card — without changing D018 results/rubrics or treating Phase 2 as closed.
 
 
 
