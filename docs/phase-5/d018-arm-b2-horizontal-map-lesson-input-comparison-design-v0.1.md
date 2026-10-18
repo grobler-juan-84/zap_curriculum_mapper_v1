@@ -1,6 +1,6 @@
 # D018 Comparison Design — Arm B2: Teacher-Selected Lesson-Input Pack (v0.1)
 
-**Status:** DESIGN **APPROVED** · Arm B2 **generation AUTHORIZED** (Arm B2 only) · **not yet generated**  
+**Status:** DESIGN **APPROVED** · Arm B2 **GENERATED** · **FORMAL EVALUATION RECORDED** · further regeneration **not authorized**  
 **Date:** 2026-10-18  
 **Branch:** `phase-2`  
 **Purpose:** Bounded follow-on to the polarity-cue A/B comparison. Tests the incremental effect of the **recorded teacher-selected** `[HM]` lesson-input pack when configuration and V2b-scope textbook inputs stay identical to Arm A.
@@ -107,7 +107,8 @@ Arm B2 tests whether the generator can respect that **selected set** as availabl
 - **Identity:** Identical inputs and configuration to Arm A, **plus** the recorded teacher-selected lesson-input pack only.
 - **Prompt:** §7A in full + §7B2 appendix.
 - **Settings:** identical to Arm A.
-- **Generation:** **Authorized** 2026-10-18 — generate **Arm B2 only** (reuse Arm A; do not regenerate historical Arm B / Arm A&B). Not yet run.
+- **Generation:** **Completed** 2026-10-18 — one Arm B2 run only (reuse Arm A; do not regenerate historical Arm B / Arm A&B).  
+- **Evaluation:** **Recorded** 2026-10-18 (§§12–14).
 
 **Allowed** `[HM]` **for Arm B2 (final selected set only):**
 
@@ -397,7 +398,7 @@ Do not isolate [HM] only in explanation/quiz slides.
 
 ## 10. Smallest next step
 
-> Run Chalkie with **§7A + §7B2** only (Lesson Series · 2 lessons · 25 slides/lesson · Audio OFF). Reuse Arm A exports for comparison. After export, record filenames/page counts in §11 and evaluate vs Arm A (§5). Do not regenerate Arm A or historical Arm B.
+> Owner reviews §§12–14. Further regeneration remains **separately gated**. Do not treat this evaluation as permission to regenerate.
 
 ---
 
@@ -406,26 +407,95 @@ Do not isolate [HM] only in explanation/quiz slides.
 ## 11. Generation record
 
 
-| Item             | Arm A (control)                         | Arm B2 (mapped)                                      |
-| ---------------- | --------------------------------------- | ---------------------------------------------------- |
-| Mode             | Lesson Series · 2 lessons               | Same                                                 |
-| Requested slides | 25 per lesson                           | Same                                                 |
-| Audio            | OFF                                     | OFF                                                  |
-| Prompt           | §7A                                     | §7A + §7B2                                           |
-| Status           | **REUSE** existing exports              | **AUTHORIZED — not yet generated**                   |
-| Exports          | `Wild Animals - Arm A - Lesson 1/2.pdf` | — (record after run)                                 |
+| Item             | Arm A (control)                         | Arm B2 (mapped) |
+| ---------------- | --------------------------------------- | --- |
+| Mode             | Lesson Series · 2 lessons               | Same |
+| Requested slides | 25 per lesson                           | Same |
+| Audio            | OFF                                     | OFF |
+| Prompt           | §7A                                     | §7A + §7B2 |
+| Status           | **REUSE** existing exports (scores from polarity-cue comparison §12) | **GENERATED · EVALUATED** |
+| Exports          | `Wild Animals - Arm A - Lesson 1/2.pdf` (historical; L1 **30** / L2 **31** PDF pages incl. reveals) | `Wild Animals - Arm 7A&7B2v2 - lesson 1.pdf` (**30** PDF pages); `Wild Animals - Arm 7A&7B2v2 - lesson 2.pdf` (**32** PDF pages) |
+| Location         | Owner Downloads (not committed)         | Owner Downloads (not committed) |
 
+
+**Page-count caution:** Exported PDF pages include answer/reveal pages. Do **not** equate 30/32 PDF pages with unique Chalkie slides or with 25 requested slides.
 
 ---
 
 
 
-## 12. Relation to prior comparison refinements
+## 12. Formal evaluation (§5.1 seven-criterion rubric)
 
-From the polarity-cue evaluation’s proposed refinements (documentation only there; adopted here as Arm B2 prompt guidance where safe):
+**Evidence basis:** Arm B2 owner exports inspected via text extraction (2026-10-18). Arm A scores **reused** from the recorded polarity-cue comparison ([`d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md`](./d018-v2b-horizontal-map-polarity-cue-comparison-design-v0.1.md) §12) — Arm A PDFs were not re-exported for this step. Rubric and Pass rule unchanged from D018 V2b.
 
-1. Integrate progressive / +/− pathways into **core pair-speaking**, not only side quizzes.
-2. Reduce explanation, repetition, and answer/reveal bulk where possible.
-3. Label mapper/AI-created material `[SUPPLEMENTARY]`.
+| # | Criterion | Arm A (reuse) | Arm B2 |
+|---|---|---|---|
+| 1 | Scope stays on SB 128–129 + WB 104–105 | **Yes** | **Yes** |
+| 2 | Uses the 12-animal page set | **Yes** | **Yes** |
+| 3 | Includes / prepares the like + can frame | **Yes** | **Yes** |
+| 4 | Supports book activities without invented or misleading publisher content | **Partial** | **Partial** |
+| 5 | Provenance remains distinct | **No** | **Partial** |
+| 6 | Practical for two ≈40-minute lessons including book work | **Partial** | **Partial** |
+| 7 | Teacher could run the relevant book pages afterward | **Yes** | **Yes** |
 
-These are prompt instructions for Arm B2 — not a rewrite of historical Arm B scores.
+**Totals:** Arm A — 4 Yes / 2 Partial / 1 No · Arm B2 — 4 Yes / 3 Partial / 0 No  
+
+**Pass rule (unchanged):** ≥ **5× Yes**, zero hard scope failures on criterion #1, and no invented listening scripts presented as book text.
+
+**Pass-rule application (working):** Neither series meets ≥5× Yes. Criterion #1 is Yes for both. Arm B2 directs teachers to official song/true-false audio rather than inventing publisher scripts; remaining Partial scores concern generated facts/quizzes and label reliability.
+
+### Scoring notes (concise)
+
+- Both preserve SB → WB allocation and the required like + can frame.
+- Arm B2 L1/L2 exports are **30 / 32** PDF pages including reveals (vs Arm A historical **30 / 31**); both exceed comfortable full linear delivery in two ≈40-minute periods with textbook work → #6 Partial.
+- Arm B2 clearly supports SB 128–129 book activities (listen/look/say; find; song; true/false) and WB 104–105 (match/write; song write; zoo writing) → #7 Yes.
+- Criterion **#5:** Arm A left much generated content unclassified (**No**). Arm B2 improves with frequent `[HM]` / `[SUPPLEMENTARY]` on ID, preference, and progressive beats, but many animal-fact / quiz slides remain unlabeled, and occasional label fusion appears (e.g. identification answer tagged `[HM]` and `[SB p.128]` together) → **Partial**.
+- Criterion **#4:** Both still generate definition/clue/quiz material that is not publisher text; Arm B2’s audio handling is appropriately “use official track” → **Partial** (same band as Arm A).
+
+---
+
+
+
+## 13. Qualitative comparison (§5.2 pack-fidelity overlay)
+
+
+| Lens | Finding |
+|---|---|
+| **Teacher-selection fidelity** | **Strong.** No `Me, too!` / `Me neither!` (PL-08 not revived). Teacher-added `What is it?` / `What are they?` appear in both lessons. Agreement uses fuller echo (`I like cheetahs, too!` / `I like cheetahs. I like cheetahs, too!`). **PL-03** (`How many…?`) was not observed — allowed skip when no clear count scene. |
+| **Progressive conversation** | **Improved vs Arm A.** Lesson 1 “Step by step talk” and Lesson 2 “Connect 3 questions” integrate ID → preference → ability (and action) into core pair-speaking, not only side quizzes. |
+| **Both preference polarities** | **Yes.** Affirmative and negative preference paths are modeled without requiring PL-08. |
+| **Provenance** | Better visibility than Arm A where `[HM]` / `[SUPPLEMENTARY]` appear; still unreliable on unmarked fact/quiz slides and occasional mixed labels. |
+| **Overload** | Still too many slides/pages to teach in full; similar overload band to Arm A / historical Arm B. |
+| **Textbook focus** | Retained — book-page support slides are present in both lessons. |
+| **vs historical Arm B (optional, unscored)** | Arm B2 trades narrow polarity-agreement scaffolding (`Me, too!` / `Me neither!`) for ID + progressive chain + teacher-override fidelity. Not a formal three-way scored rerun. |
+
+
+**Success-signal check:** Arm B2 improves natural/purposeful progressive student language and pack fidelity **vs Arm A**, without hard scope failure. Provenance and length remain weak enough that the series is not classroom-ready without teacher curation.
+
+---
+
+
+
+## 14. Formal conclusion
+
+1. **Arm B2 is the preferred experimental output** of this Arm A vs Arm B2 comparison.
+2. The **teacher-selected lesson-input pack** produced a real improvement in progressive / ID language and selection fidelity (including successful PL-08 deselection).
+3. The result **supports continuing horizontal mapping** and the bank → recommend → teacher-select → lesson-input workflow.
+4. **Neither series is classroom-ready** without teacher curation.
+5. **Do not claim** classroom validation, product readiness, Phase 2 completion, or that horizontal mapping has been comprehensively proven.
+6. **Do not alter** the historical V2b verdict, preferred-control status, or recorded Arm A vs Arm B / Arm A&B scores.
+7. **Further regeneration is not authorized** by this evaluation.
+
+---
+
+
+
+## 15. Relation to prior comparison refinements
+
+From the polarity-cue evaluation’s proposed refinements (adopted as Arm B2 prompt guidance):
+
+1. Integrate progressive / +/− pathways into **core pair-speaking** — **partially achieved** in Arm B2 (step/connect sequences present).
+2. Reduce explanation, repetition, and answer/reveal bulk — **not achieved** (30/32 export pages).
+3. Label mapper/AI-created material `[SUPPLEMENTARY]` — **partially achieved** (present on key `[HM]` beats; missing on many fact/quiz slides).
+
+These observations do **not** authorize a refinement regeneration.

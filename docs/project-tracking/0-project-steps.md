@@ -3570,3 +3570,31 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 207
+
+**Summary:** Backfilled the project-steps gap and synced stale references after Arm B2 generation was recorded (L1 30 / L2 32 PDF pages; filenames Wild Animals - Arm 7A&7B2v2). No evaluation in this step entry alone — evaluation follows in Step 208.
+
+**Files touched:**
+- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (updated — section 10 pointer during sync)
+- docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
+
+### Step 208
+
+**Summary:** Formally evaluated Arm B2 vs Arm A using the seven-criterion rubric and pack-fidelity lenses. Arm B2 preferred (selection fidelity, progressive ID, polarities without PL-08); scores Arm A 4Y/2P/1N vs Arm B2 4Y/3P/0N; neither Pass; further regeneration not authorized. Arm A scores reused from prior comparison; V2b and historical Arm A/B scores unchanged.
+
+**Files touched:**
+- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (updated)
+- docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/0-index.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

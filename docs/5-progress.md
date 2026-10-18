@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 206
+**Last updated:** Step 208
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,19 +22,19 @@
 
 - **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → lesson-input pack **recorded**.
 
-- **Arm B2 design approved** — §8 checklist complete; **one** Arm B2 generation run authorized (reuse Arm A; §7A + §7B2).
+- **Arm B2 generated + evaluated** — preferred vs Arm A for pack fidelity / progressive ID language; neither Pass (≥5 Yes); further regeneration not authorized.
 
 ## In progress
 
-- Run authorized Arm B2 Chalkie Lesson Series generation and record exports in the Arm B2 design §11.
+- Owner review of Arm B2 evaluation conclusions (§§12–14).
 
 ## Next
 
-- Generate Arm B2 only (do not regenerate Arm A or historical Arm B). Then evaluate vs Arm A; optional qualitative lens vs historical Arm B.
+- Decide whether any separately gated follow-on is wanted (not authorized by this evaluation). Do not regenerate by default.
 
 ## Blocked
 
-- Soft: further regeneration after this Arm B2 run, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
+- Soft: further Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
 
 ---
 
@@ -42,6 +42,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Final selected `[HM]` input: `PL-01`, `PL-03`, `PL-19` + teacher-added `What is it?` / `What are they?` (not PL-22). PL-08 deselected.
+- Arm B2 exports: `Wild Animals - Arm 7A&7B2v2 - lesson 1.pdf` (30) / `lesson 2.pdf` (32). Scores: Arm A 4Y/2P/1N · Arm B2 4Y/3P/0N.
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

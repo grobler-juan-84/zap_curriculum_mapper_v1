@@ -1,13 +1,13 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 206
+**Last synced:** Step 208
 
 ## One-line state
 
 - D018 V2-family CLOSED; preferred control = **V2b**.
-- Arm B2 design **approved**; **one** Arm B2 generation run **authorized** (reuse Arm A; §7A + §7B2); not yet generated.
-- Does not authorize regenerating historical Arm A/B, V4/V5, or open-ended reruns.
+- Arm B2 generated and evaluated vs Arm A: Arm B2 preferred for pack fidelity / progressive ID; neither meets Pass (≥5 Yes); further regeneration not authorized.
+- Historical Arm A vs Arm B / Arm A&B scores and V2b status unchanged.
 
 ## Branch
 
@@ -15,4 +15,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Run Chalkie Arm B2 with §7A + §7B2; then record export filenames/page counts and evaluate vs Arm A.
+**Suggestion:** Review Arm B2 evaluation conclusions; authorize any follow-on only explicitly (default: no regeneration).

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 206
+**Last updated:** Step 208
 
 
 
@@ -336,9 +336,11 @@
 
 - [x] Owner **approve Arm B2 design** (§8 checklist) and authorize **Arm B2 generation only**.
 
-- [ ] **Generate Arm B2** (Chalkie Lesson Series · §7A + §7B2 · Audio OFF). Reuse Arm A; do not regenerate historical Arm B. Record exports in design §11.
+- [x] **Generate Arm B2** (Chalkie Lesson Series · §7A + §7B2 · Audio OFF). Reused Arm A; did not regenerate historical Arm B. Recorded `Wild Animals - Arm 7A&7B2v2 - lesson 1.pdf` (30 PDF pages) and `Wild Animals - Arm 7A&7B2v2 - lesson 2.pdf` (32 PDF pages) in design §11.
 
-- [ ] Evaluate Arm B2 vs Arm A (seven-criterion rubric + qualitative pack-fidelity lenses).
+- [x] Evaluate Arm B2 vs Arm A (seven-criterion rubric + qualitative pack-fidelity lenses) — Arm B2 preferred; neither Pass; regeneration not authorized.
+
+- [ ] Owner reviews Arm B2 evaluation (§§12–14). Any follow-on regeneration remains separately gated.
 
 
 
