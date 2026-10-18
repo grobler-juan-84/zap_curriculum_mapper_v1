@@ -75,7 +75,7 @@ Historical V2b (`WILD ANIMALS(2).pdf`, Single Lesson, Audio OFF) remains the pre
 - **Identity:** Existing V2b curriculum inputs and this shared Lesson Series configuration, **without** `[HM]`.
 - **Prompt:** §7A only.
 - **Settings:** §3.
-- **Generation:** Not authorized until separately opened. Must be newly generated under Lesson Series (historical Single-Lesson V2b PDF is reference only, not Arm A).
+- **Generation:** Completed under Lesson Series (see §11). Historical Single-Lesson V2b PDF remains D018 Pass baseline only — not Arm A.
 
 
 
@@ -84,7 +84,7 @@ Historical V2b (`WILD ANIMALS(2).pdf`, Single Lesson, Audio OFF) remains the pre
 - **Identity:** Identical inputs and configuration to Arm A, **plus** the approved `[HM]` polarity-safe cue card only.
 - **Prompt:** §7A in full + §7B appendix.
 - **Settings:** identical to Arm A.
-- **Generation:** Not authorized until separately opened.
+- **Generation:** Completed (owner exports labeled Arm A&B; see §11).
 
 **Allowed** `[HM]`**:** preference +/− paths, polarity-matched agreement, optional quantity / action lines from the cue card.  
 **Not allowed:** full nine-pattern bank dump; BI columns; school intelligence; invented publisher wording; treating `can` as prior learning; changing lesson count/slides/audio for Arm B only.
@@ -93,7 +93,7 @@ Historical V2b (`WILD ANIMALS(2).pdf`, Single Lesson, Audio OFF) remains the pre
 
 
 
-## 5. Evaluation plan (when generation is later authorized)
+## 5. Evaluation plan (applied in §§12–13)
 
 
 
