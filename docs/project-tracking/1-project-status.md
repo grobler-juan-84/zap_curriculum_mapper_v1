@@ -1,13 +1,14 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 208
+**Last synced:** Step 209
 
 ## One-line state
 
 - D018 V2-family CLOSED; preferred control = **V2b**.
-- Arm B2 generated and evaluated vs Arm A: Arm B2 preferred for pack fidelity / progressive ID; neither meets Pass (≥5 Yes); further regeneration not authorized.
-- Historical Arm A vs Arm B / Arm A&B scores and V2b status unchanged.
+- Arm B2 evaluated vs Arm A (preferred; neither Pass); regeneration not authorized.
+- Chalkie Experiments 1–6 recorded; provisional handoff pattern not locked.
+- U5 LiA pp. 78–79 transfer-test **design drafted**; generation **not authorized**.
 
 ## Branch
 
@@ -15,4 +16,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Review Arm B2 evaluation conclusions; authorize any follow-on only explicitly (default: no regeneration).
+**Suggestion:** Review and approve (or revise) the BE2 U5 LiA transfer-test design; authorize generation only explicitly.

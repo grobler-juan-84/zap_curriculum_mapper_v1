@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 208
+**Last updated:** Step 209
 
 
 
@@ -340,7 +340,25 @@
 
 - [x] Evaluate Arm B2 vs Arm A (seven-criterion rubric + qualitative pack-fidelity lenses) — Arm B2 preferred; neither Pass; regeneration not authorized.
 
+- [x] Record Chalkie outline/context diagnostic **Experiment 1** — space Topic + Wild Animals outline-body replacement produced mostly space exports; manual animal vocabulary materially appeared in output. See [`phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md`](./phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md).
+
 - [ ] Owner reviews Arm B2 evaluation (§§12–14). Any follow-on regeneration remains separately gated.
+
+- [x] Owner-run outline/context diagnostic **Experiment 2** — Wild Animals title + conflicting space initial instructions + detailed Wild Animals outlines still produced predominantly space exports; manual animal vocabulary appeared in both outputs. See [`phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md`](./phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md).
+
+- [x] Owner-run outline/context diagnostic **Experiment 3** — aligned short Wild Animals prompt + detailed Wild Animals outlines produced on-topic exports; manual vocabulary set used. Recorded in [`phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md`](./phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md).
+
+- [x] Owner-run outline/context diagnostic **Experiment 4** — full §7A + §7B2 input + accepted Chalkie auto-outline produced on-topic exports. Experiment 3 vs 4 comparison recorded; no follow-on generation authorized.
+
+- [x] Owner-run outline/context diagnostic **Experiment 5** — full detailed handoff plus concise teacher-controlled outlines produced on-topic, sequence-aligned exports (29 / 29 PDF pages). Recorded as the current experimental preference, not a locked workflow.
+
+- [x] Owner-run outline/context diagnostic **Experiment 6** — exact Experiment 5 replication produced on-topic, sequence-aligned exports (29 / 29 PDF pages). The provisional handoff candidate now has one successful replication.
+
+- [x] Owner review of the Experiment 1–6 diagnostic findings — transfer-test design drafted (generation still gated).
+
+- [x] **Draft Chalkie transfer-test design** — BE2 U5 LiA pp. 78–79 in [`phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md). Status: DESIGN DRAFT / **not authorized to generate**.
+
+- [ ] Owner **approve or revise** the U5 LiA transfer-test design. Do not generate until explicitly authorized.
 
 
 

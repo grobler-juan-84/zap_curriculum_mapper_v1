@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 208
+**Last updated:** Step 209
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,17 +24,21 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A for pack fidelity / progressive ID language; neither Pass (≥5 Yes); further regeneration not authorized.
 
+- **Chalkie outline/context diagnostic — Experiments 1–6 recorded:** provisional candidate = detailed handoff + concise teacher-controlled outline + explicit vocabulary (not locked).
+
+- **Chalkie transfer-test design drafted** — BE2 U5 Language in Action pp. 78–79; DESIGN DRAFT / **not authorized to generate**.
+
 ## In progress
 
-- Owner review of Arm B2 evaluation conclusions (§§12–14).
+- Owner review of the U5 LiA transfer-test design before any generation authorization.
 
 ## Next
 
-- Decide whether any separately gated follow-on is wanted (not authorized by this evaluation). Do not regenerate by default.
+- Owner approve or revise [`phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md). Do **not** generate until explicitly authorized.
 
 ## Blocked
 
-- Soft: further Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
+- Soft: Chalkie transfer generation, further Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
 
 ---
 
@@ -42,6 +46,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Arm B2 exports: `Wild Animals - Arm 7A&7B2v2 - lesson 1.pdf` (30) / `lesson 2.pdf` (32). Scores: Arm A 4Y/2P/1N · Arm B2 4Y/3P/0N.
+- Transfer target verified from Phase 1 canonical `bep2_p078`/`bep2_p079` + SS Unit 5 *My Dream Job*; source PDF present (image pages; identity via human-verified JSON).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

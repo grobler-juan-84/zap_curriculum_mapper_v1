@@ -3598,3 +3598,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 209
+
+**Summary:** Drafted the owner-gated Chalkie transfer-test design for Big English 2 Unit 5 Language in Action pp. 78-79 from verified Phase 1 canonical SB evidence plus restored SS Unit 5 companion. Preserves the Experiment 5/6 handoff pattern (detailed prompt + concise outlines + explicit vocabulary). Status DESIGN DRAFT / not authorized to generate. No Chalkie run; D018 scores unchanged.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md (created)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
