@@ -2,9 +2,10 @@
 
 **Status:** DRAFT / EXPERIMENTAL / **NOT A METHODOLOGY LOCK** / **DOES NOT AUTHORIZE GENERATION**  
 **Date:** 2026-10-19  
-**Evidence base:** Chalkie diagnostic Experiments **5**–**9** (U8 Wild Animals + U5 LiA + BE3 U3 LiA transfer + vocab-split control)  
+**Evidence base:** Chalkie diagnostic Experiments **5**–**9** + operational Pilot Experiment **10** (BE3 U8 Grammar)  
 **Usability check:** [`chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md)  
 **Vocab-allocation:** Exp 8 confound + Exp 9 control — [`chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) §9.3 · [`chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md)  
+**Source-fidelity gate:** Exp 10 CONDITIONAL FAIL — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6  
 **Evidence synthesis:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
@@ -50,9 +51,11 @@ SAFEGUARDS:
 - Direct the teacher to the official book/audio/stickers when item text is unknown.
 - Never convert frequency adverbs (or similar vague quantifiers) into fixed percentages or weekly counts unless the source explicitly does so.
 - Do not place generated definitions, examples, answer challenges, charts, or illustrations under an [SB]/[SS]/[WB] label — use [SUPPLEMENTARY].
+- A book activity’s verified vocabulary does not make generated sentences [SB].
 - Generated representations of textbook activities must look supplementary and must not resemble publisher evidence.
+- Unsupported answer reveals are prohibited even when the surrounding activity is correctly cited.
 
-PROTECTED TEXTBOOK WORK: reserve real Student Book / Workbook working time; slides support, not replace. Prefer moving book work earlier when generated preliminaries risk consuming the lesson.
+PROTECTED TEXTBOOK WORK: reserve real Student Book / Workbook working time; slides support, not replace. Prefer moving book work earlier when generated preliminaries risk consuming the lesson. “Open the book early” is insufficient if the substantial book activity is still delayed by excessive generated practice.
 ```
 
 ---
@@ -131,9 +134,10 @@ Exported PDF pages may include reveal states and are **not** equivalent to plann
 - [ ] Provenance labels not fused into unmarked “facts”
 - [ ] Generated definitions / examples / charts / challenges labelled `[SUPPLEMENTARY]` (not `[SB]`/`[SS]` unless verbatim verified)
 - [ ] No invented official audio, lyrics, sticker keys, unknown answers, or invented frequency→days/percentage scales
-- [ ] Protected textbook work not displaced by generated filler; book work early enough
+- [ ] Protected textbook work not displaced by generated filler; substantial book activities not delayed behind long preliminaries
 - [ ] Definitions / matching / quizzes / answer reveals = **optional support only**
 - [ ] Run record completed (§5); PDF page count interpreted with reveal caution
+- [ ] **Hard source-fidelity gate (Exp 10):** Every slide that answers, interprets, or visually reconstructs a textbook or official-audio activity has been checked against verified source evidence. If the verified answer was **not** deliberately supplied to the generator, the slide directs teacher/students to the official book/audio and does **not** provide an answer reveal. Generated visuals do not masquerade as textbook evidence.
 
 ---
 

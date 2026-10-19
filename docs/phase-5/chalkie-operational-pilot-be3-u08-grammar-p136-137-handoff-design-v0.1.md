@@ -1,11 +1,13 @@
 # Operational Pilot Handoff Design — BE3 Unit 8 Grammar SB pp. 136–137 (v0.1)
 
-**Status:** OPERATIONAL PILOT HANDOFF DESIGN / **DRAFT** / **NOT AUTHORIZED TO GENERATE**  
+**Status:** OPERATIONAL PILOT · **GENERATED** (Experiment 10) · **REVIEWED** — **CONDITIONAL FAIL — source-fidelity gate failed; not classroom-ready as exported** · further regeneration **not authorized**  
 **Date:** 2026-10-19  
-**Pilot type:** First **operational** application of the provisional Chalkie workflow from Experiments 1–9 — **not** another transfer experiment  
+**Pilot type:** First **operational** application of the provisional Chalkie workflow from Experiments 1–9 — **not** another transfer experiment · **not** a D018 scored run  
 **Branch:** `phase-2`
 
-**Boundaries:** No methodology lock · no classroom-validation or product-readiness claim · no D018 / Arm B2 / V2b changes · `4-decisions.md` not modified · generation not authorized by this draft
+**Boundaries:** No methodology lock · no classroom-validation or product-readiness claim · no D018 / Arm B2 / V2b changes · `4-decisions.md` not modified · regeneration not authorized by this review
+
+**Document structure note:** §§1–5 preserve the **pre-run handoff design**. §6 records the **post-run** Experiment 10 review. Do not rewrite §§1–5 to erase that history.
 
 **Evidence base:**  
 [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) ·  
@@ -224,36 +226,86 @@ go, went, come, came, have, had, sleep, slept, fall, fell, write, wrote, fly, fl
 
 ---
 
-## 6. Operational-pilot review plan
+## 6. Operational-pilot review (Experiment 10 — recorded)
 
-Fill after an **owner-authorized** generation only.
+### 6.0 Verdict
+
+> **CONDITIONAL FAIL — source-fidelity gate failed; not classroom-ready as exported.**
+
+Page counts **32 / 31** are acceptable (reveal inflation). Page count is **not** the failure reason. Strengths below do **not** override the failed source-fidelity gate. Not a D018 score.
 
 ### 6.1 Export record
 
 | Item | Lesson 1 | Lesson 2 |
 | --- | --- | --- |
-| Export filename | … | … |
+| Export | `Past Actions and Regular Spelling Patterns - experiment 10 - lesson 1.pdf` | `Irregular Past Forms and Sharing Yesterday - experiment 10 - lesson 2.pdf` |
 | Requested slides | 25 | 25 |
-| Exported PDF pages | … | … |
+| Exported PDF pages | **32** | **31** |
+| Location | Owner Downloads (not committed) | Owner Downloads (not committed) |
 
-Reveal animations may inflate PDF totals above 25 — **not** an automatic failure.
+### 6.2 Critical source-fidelity failure (Activity 19)
 
-### 6.2 Effort and usability lenses
-
-| Lens | Record |
+| Item | Content |
 | --- | --- |
-| Preparation effort | … |
-| Generation effort | … |
-| Teacher-curation effort | … |
-| Source fidelity | … |
-| Book-work placement (early enough?) | … |
-| Classroom usability | Observational only unless separately classroom-evaluated |
-| Material to cut / relabel / correct | … |
+| Book question | How did Donna’s dad come home? |
+| Verified canonical answer | *He came home on his bicycle / by bike.* |
+| Generated answer (L1 PDF ~p.7) | *He walked home. / He came home on foot.* |
 
-### 6.3 Success criteria (operational — not D018)
+**Contradiction:** generated reveal **directly contradicts** verified source evidence.
 
-Judge whether the run is a **usable operational candidate**: source-faithful scope/sequence, early protected SB work, correct Track 159 handling, distinct provenance, acceptable prep/curation effort.  
-Do **not** claim classroom validation from generation alone.
+**Also:** accompanying generated scene may visually imply an answer while appearing inside an `[SB]` activity sequence — record as (1) factual source error and (2) provenance / visual-reconstruction risk.
+
+The handoff required official Track **159** and forbade invented publisher answers. Chalkie referenced official audio but still produced an **incorrect answer reveal**.
+
+### 6.3 What worked (retained)
+
+- Correct BE3 U8 *Healthy Living* Grammar pp. 136–137 scope.
+- Coherent L1 regular-past → L2 irregular/mixed-past progression.
+- Track 159 referenced as official teacher-played audio; no invented Track 159 dialogue script.
+- Separate per-lesson model lists worked.
+- L1 opens the SB early for Activity 19.
+- L2 moves from regular consolidation → irregular pairs → mixed past speaking; Act 23 supports partner communication.
+- Visual design attractive, consistent, generally readable.
+
+### 6.4 Lesson 1 curation
+
+- Act 19 answer reveal incorrect — remove or correct from verified source only.
+- Generated Act 19 visual must not be treated as publisher-scene reconstruction or used to infer the answer.
+- Act 20 begins only ~PDF p.23 — book opened early for Act 19, but main spelling work delayed by explanations/reveals.
+- “Checking your chart” shows only three spelling groups; omits double-consonant group.
+- Generated consonant-doubling explanation overly broad if treated as a universal rule.
+- Generated explanations/examples need `[SUPPLEMENTARY]` unless directly verified.
+
+### 6.5 Lesson 2 curation
+
+- Generated example sentences labelled `[SB p.137]` merely because they use verified irregular pairs — pairs may be `[SB]`; sentences must be `[SUPPLEMENTARY]`.
+- Examples such as *I had a good breakfast*, *The ball fell down*, *She wrote a note*, *The kite flew high* are **not** verified publisher sentences.
+- Act 21 support introduces *watched* — not verified in preflight as an Act 21 word.
+- Prefer *I slept for nine hours* over *I slept 9 hours*.
+- Invented “Ben’s healthy day” ordering task → `[SUPPLEMENTARY]`.
+- Protected p.137 book work ~PDF p.14 — better than several earlier runs, still later than handoff intended.
+
+### 6.6 Operational metrics
+
+| Lens | Result |
+| --- | --- |
+| Source fidelity | **Failed** — one critical verified contradiction |
+| Sequence | **Strong** |
+| Scope | **Strong** |
+| Book integration | Present but uneven; Act 20 and p.137 work later than intended |
+| Provenance | Needs material correction |
+| Teacher-curation effort | **Material** — not merely cosmetic |
+| Classroom usability | **Not validated** and **not acceptable as exported** |
+| Preparation / generation time | **Unknown** (no measured run record) |
+
+**Operational conclusion:**
+
+> The provisional workflow can produce coherent, attractive and instructionally plausible lessons, but Chalkie still cannot be trusted to preserve publisher facts or provenance without page-level teacher verification.
+
+### 6.7 Non-claims
+
+- No D018 / Arm B2 / V2b score change; no methodology lock; no classroom validation; no product readiness.
+- Further regeneration **not authorized** by this review.
 
 ---
 
@@ -262,14 +314,17 @@ Do **not** claim classroom validation from generation alone.
 | # | Gate | Status |
 | --- | --- | --- |
 | 1 | Source preflight completed | **Done** |
-| 2 | Handoff design drafted | **Done** (this doc) |
-| 3 | Owner review | **Pending** |
-| 4 | One Chalkie generation | **Not authorized** |
-| 5 | Export / operational review | **Not started** |
-| 6 | Further regeneration | **Not authorized** |
+| 2 | Handoff design drafted | **Done** |
+| 3 | Owner authorized generation | **Done** — Experiment 10 |
+| 4 | Export / operational review | **Done** — CONDITIONAL FAIL (source fidelity) |
+| 5 | Further regeneration | **Not authorized** |
+| 6 | Owner choice: curate vs targeted regen design | **Pending** (see below) |
 
 ---
 
-## Smallest next action
+## Pending owner choice (do not auto-select)
 
-**Owner reviews and approves or revises this handoff design** before any Chalkie run.
+1. **Manually curate/correct** the current Experiment 10 exports; or  
+2. **Design one targeted regeneration** addressing the demonstrated Activity 19 / answer-reveal failure.
+
+Neither option is selected by this record.

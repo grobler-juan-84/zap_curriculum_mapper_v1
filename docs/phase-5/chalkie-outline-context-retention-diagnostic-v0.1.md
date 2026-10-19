@@ -1,10 +1,10 @@
 # Chalkie Outline / Context Retention Diagnostic
 
 **Version:** 0.1  
-**Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 7–8 LiA transfers **PASS**; Exp 9 vocab-split control **PASS**; pattern remains provisional / not locked; further generation not authorized by this record  
+**Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 10 operational pilot **CONDITIONAL FAIL** (source fidelity); pattern remains provisional / not locked; further generation not authorized by this record  
 **Date:** 2026-10-19  
-**Scope:** Narrow Chalkie workflow diagnostic. This is not a D018 iteration, a lesson-quality verdict, a methodology lock, or a product decision.  
-**Consolidation:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)
+**Scope:** Narrow Chalkie workflow diagnostic plus operational-pilot follow-on. This is not a D018 iteration, a methodology lock, or a product decision.  
+**Consolidation:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md) · Exp 10: [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6
 
 ---
 
@@ -341,4 +341,29 @@ Exp 8 established the confound; Exp 9 shows that **distinct per-lesson vocab lis
 
 The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, **per-lesson** output field alongside the short general brief and the per-lesson instructional sequence. Experiments 7–9 strengthen that hypothesis. Still a design hypothesis only — not a packaging format lock, methodology lock, or claim that Chalkie is (or is not) suitable as a production backend.
 
-**Next checkpoint:** Experiments 1–9 are consolidated in [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md). Further prompt experiments are paused unless a specific unresolved question justifies one; recommended next phase is an operational pilot under the provisional workflow (lesson not selected here).
+**Next checkpoint:** Experiments 1–9 are consolidated in [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md). Experiment 10 operational pilot (BE3 U8 Grammar) recorded as **CONDITIONAL FAIL** on source fidelity — see §13.
+
+## 13. Experiment 10 — first operational pilot (BE3 U8 Grammar)
+
+### 13.1 Setup
+
+- **Target:** Big English 3 Unit 8 *Healthy Living* Grammar SB **pp. 136–137** (Acts 19–23).
+- **Design / review:** [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md)
+- **Type:** Operational pilot (provisional workflow) — **not** a transfer experiment; **not** D018.
+
+### 13.2 Outputs
+
+- `Past Actions and Regular Spelling Patterns - experiment 10 - lesson 1.pdf` — **32** PDF pages.
+- `Irregular Past Forms and Sharing Yesterday - experiment 10 - lesson 2.pdf` — **31** PDF pages.
+
+### 13.3 Verdict — CONDITIONAL FAIL
+
+**Source-fidelity gate failed; not classroom-ready as exported.**
+
+Critical failure: Lesson 1 Activity 19 generated answer *He walked home / He came home on foot* contradicts verified canonical *He came home on his bicycle / by bike* — factual error plus provenance/visual-reconstruction risk despite official Track 159 direction and “no invented answers” handoff rule.
+
+**Also strong:** correct scope/sequence; per-lesson chips; Track 159 referenced without invented script; early open for Act 19; L2 irregular/mixed past path; attractive visuals.
+
+**Operational conclusion:** coherent/attractive lessons are possible, but publisher facts and provenance still require **page-level teacher verification** before classroom use.
+
+Further regeneration **not authorized**; owner choice pending (manual curate vs targeted regen design).

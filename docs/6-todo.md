@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 221
+**Last updated:** Step 222
 
 
 
@@ -384,9 +384,11 @@
 
 - [x] **Source preflight** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md). Identity verified (*Healthy Living* Grammar); **CONDITIONALLY SUITABLE**.
 
-- [x] **Draft operational-pilot handoff design** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md). DRAFT / **not authorized to generate**.
+- [x] **Draft operational-pilot handoff design** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md).
 
-- [ ] Owner review/approve or revise the handoff design; authorize one Chalkie generation only explicitly. Do not lock methodology.
+- [x] **Experiment 10 generated + reviewed** — **CONDITIONAL FAIL** (source-fidelity gate; Act 19 generated *on foot* vs verified *by bike*). Template source-fidelity / answer-reveal gate strengthened. Regeneration **not authorized**.
+
+- [ ] Owner choose: (1) manually curate/correct Exp 10 exports, **or** (2) design one targeted regeneration for the demonstrated failure. Do not auto-select; do not lock methodology.
 
 
 

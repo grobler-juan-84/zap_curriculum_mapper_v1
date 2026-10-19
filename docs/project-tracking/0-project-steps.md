@@ -3798,3 +3798,20 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 222
+
+**Summary:** Recorded Experiment 10 operational-pilot review as CONDITIONAL FAIL (source-fidelity gate; Act 19 answer contradicted verified *by bike*). Preserved pre-run handoff; strengthened provisional template hard answer-reveal / visual-reconstruction gate. Owner choice pending (curate vs targeted regen design); regeneration not authorized. No D018/decisions change.
+
+**Files touched:**
+- docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md (updated)
+- docs/phase-5/chalkie-provisional-handoff-template-v0.1.md (updated)
+- docs/phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md (updated)
+- docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

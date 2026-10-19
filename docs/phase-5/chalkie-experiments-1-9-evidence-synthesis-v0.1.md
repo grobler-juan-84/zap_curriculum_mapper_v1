@@ -133,4 +133,6 @@ Next phase: apply the provisional workflow to a **real new lesson as an operatio
 - source fidelity,
 - classroom usability.
 
-**Selected operational-pilot candidate (owner-supplied; source-preflighted):** Big English 3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) (**CONDITIONALLY SUITABLE**). Handoff design drafted: [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) (DRAFT / **not authorized to generate**; owner review pending).
+**Selected operational-pilot candidate:** Big English 3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md).
+
+**Experiment 10 result:** [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6 — **CONDITIONAL FAIL** (source-fidelity gate; Act 19 answer contradicted verified *by bike* answer). Not classroom-ready as exported. Provisional template strengthened with hard post-generation source-fidelity gate. Owner choice pending: manual curate **or** targeted regen design — neither selected here; regeneration not authorized by this synthesis.
