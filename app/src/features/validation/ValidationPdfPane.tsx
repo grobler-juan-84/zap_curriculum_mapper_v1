@@ -37,6 +37,11 @@ interface ValidationPdfPaneProps {
   onVisibleRangeChange?: (range: PdfVisibleRange) => void
   /** Called when the visible spread’s printed page numbers change (Chalkie Workspace). */
   onVisiblePrintedPagesChange?: (printedPages: number[]) => void
+  /**
+   * Explicit one-shot navigation request (1-based PDF index).
+   * Increments `requestId` to force a jump even when the target page is unchanged.
+   */
+  jumpRequest?: { pdfPage: number; requestId: number } | null
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
@@ -56,6 +61,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   pageMap = EMPTY_PAGE_MAP,
   onVisibleRangeChange,
   onVisiblePrintedPagesChange,
+  jumpRequest = null,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
@@ -101,6 +107,15 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
     setRangeReportReady(true)
   }, [initialPage, initialPageEnd, numPages, pageMap])
+
+  // Host-driven jump (e.g. "Go to unit opening pages") — always applies.
+  useEffect(() => {
+    if (!numPages || !jumpRequest) return
+    if (!Number.isFinite(jumpRequest.pdfPage)) return
+    const start = clampPage(jumpRequest.pdfPage, numPages)
+    setPairStart(start)
+    setJumpValue(String(printedForPdf(pageMap, start) ?? start))
+  }, [jumpRequest, numPages, pageMap])
 
   const leftPage = pairStart
   const rightPage = pairStart + 1 <= numPages ? pairStart + 1 : null

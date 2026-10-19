@@ -4039,3 +4039,23 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 237
+
+**Summary:** Replaced hard-coded Chalkie lesson context with a resolved, data-backed context from selected book/unit and open PDF pages. Added page-scope guard (block out-of-unit / missing page evidence), kept BE2 U8 fixture + two-lesson series only for exact pp. 128–129, and wired the same context through Step 1/4, local prompt preview, and OpenAI request metadata. Dynamic source-context binding and page-scope guard added; horizontal suggestions remain fixture-only for BE2 U8 pp. 128–129.
+
+**Files touched:**
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (created)
+- `app/src/features/chalkie/teacherChoicePrototypeContent.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

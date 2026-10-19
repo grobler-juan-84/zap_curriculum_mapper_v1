@@ -8,13 +8,12 @@ import {
   lessonTitleForPackage,
   type LessonPackageShape,
 } from './buildChalkiePromptPreview'
-import type { TeacherChoiceLessonContext } from './teacherChoicePrototypeContent'
-import { BE2_U08_AI_SUGGESTIONS } from './teacherChoiceSuggestions'
+import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
   onClose: () => void
-  lesson: TeacherChoiceLessonContext
+  lesson: ChalkieLessonContext | null
 }
 
 type TeacherAddedLanguage = {
@@ -94,6 +93,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       return
     }
 
+    setLessonShape('single')
+
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     const focusTimer = window.setTimeout(() => {
@@ -133,20 +134,25 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     }
   }, [open, onClose])
 
+  const priorLearningSuggestions = lesson?.priorLearningSuggestions ?? []
+
   const selectedSuggestions = useMemo(
-    () => BE2_U08_AI_SUGGESTIONS.filter((item) => selectedIds.includes(item.id)),
-    [selectedIds],
+    () => priorLearningSuggestions.filter((item) => selectedIds.includes(item.id)),
+    [priorLearningSuggestions, selectedIds],
   )
 
-  if (!open) return null
+  if (!open || !lesson) return null
 
   const stepName = stepNameFor(step)
   const selectedCount = selectedIds.length
   const teacherAddedCount = teacherAdditions.length
   const canAddFrame = newFrame.trim().length > 0
   const useTwoColumnSelected = selectedSuggestions.length >= 2
-  const activeLessonTitle = lessonTitleForPackage(lessonShape)
-  const isSeriesPreview = showPromptPreview && lessonShape === 'series'
+  const effectiveLessonShape: LessonPackageShape =
+    lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
+  const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
+  const isSeriesPreview = showPromptPreview && effectiveLessonShape === 'series'
+  const hasPriorLearningSuggestions = priorLearningSuggestions.length > 0
 
   const handleContinue = () => {
     if (step < 4) {
@@ -167,6 +173,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handlePackageShapeChange = (next: LessonPackageShape) => {
+    if (next === 'series' && !lesson.supportsTwoLessonSeries) return
     setLessonShape(next)
     setTitleCopyStatus('idle')
     clearGeneratedDraft()
@@ -179,7 +186,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   const handleGeneratePromptPreview = () => {
     const assembled = buildChalkiePromptPreview({
-      packageShape: lessonShape,
+      lesson,
+      packageShape: effectiveLessonShape,
       selectedSuggestions,
       teacherAdditions,
     })
@@ -198,7 +206,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     try {
       const result = await chalkieLessonDraftService.generate({
         assembledPrompt: promptPreview,
-        packageType: lessonShape,
+        packageType: effectiveLessonShape,
         displayTitle: activeLessonTitle,
       })
       setDraftMarkdown(result.draftMarkdown)
@@ -326,8 +334,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 <div className="space-y-1 text-sm leading-relaxed text-slate-600">
                   <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                   <p>{lesson.unitLine}</p>
+                  <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
                   <p>Current focus: {lesson.currentFocus}</p>
                 </div>
+                {lesson.unitContextNote ? (
+                  <p className="text-sm leading-relaxed text-slate-500">{lesson.unitContextNote}</p>
+                ) : null}
               </div>
 
               <section className="space-y-2.5" aria-label="Current vocabulary">
@@ -345,7 +357,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </ul>
                 ) : (
                   <p className="text-sm text-slate-500">
-                    No vocabulary preview is available for this unit yet.
+                    No vocabulary evidence is available for these pages yet.
                   </p>
                 )}
               </section>
@@ -369,7 +381,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </ul>
                 ) : (
                   <p className="text-sm text-slate-500">
-                    No language examples are available for this unit yet.
+                    No language evidence is available for these pages yet.
                   </p>
                 )}
                 {lesson.clarification ? (
@@ -391,83 +403,93 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   What might be useful to reuse?
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
-                  AI found four useful language patterns from earlier units in this book. Choose only
-                  what helps this lesson.
+                  {hasPriorLearningSuggestions
+                    ? 'Verified prior-learning suggestions from earlier units in this book. Choose only what helps this lesson.'
+                    : 'Prior-learning suggestions are only available when verified for the current lesson source.'}
                 </p>
               </div>
 
-              <ul
-                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
-                aria-label="AI prior-learning suggestions"
-              >
-                {BE2_U08_AI_SUGGESTIONS.map((suggestion) => {
-                  const checked = selectedIds.includes(suggestion.id)
-                  const evidenceOpen = openEvidenceIds.includes(suggestion.id)
-                  const checkboxId = `teacher-choice-${suggestion.id}`
-                  return (
-                    <li
-                      key={suggestion.id}
-                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
-                        checked
-                          ? 'border-indigo-200 bg-indigo-50/50'
-                          : 'border-slate-200/80 bg-slate-50/40'
-                      }`}
-                    >
-                      <div className="flex h-full gap-3">
-                        <input
-                          id={checkboxId}
-                          type="checkbox"
-                          checked={checked}
-                          onChange={() => toggleSuggestion(suggestion.id)}
-                          className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                          aria-describedby={`${checkboxId}-details`}
-                        />
-                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                          <div className="space-y-0.5">
-                            <label
-                              htmlFor={checkboxId}
-                              className="block text-sm font-medium text-slate-900"
-                            >
-                              {suggestion.label}
-                            </label>
-                            <p className="text-xs text-slate-500">{suggestion.source}</p>
-                          </div>
-                          <p className="text-[0.95rem] leading-relaxed text-slate-900">
-                            {suggestion.frame}
-                          </p>
-                          <p className="text-sm leading-relaxed text-slate-600">
-                            <span className="font-medium text-slate-700">Why it may help:</span>{' '}
-                            {suggestion.whyItMayHelp}
-                          </p>
-                          <p className="text-sm leading-relaxed text-slate-500">
-                            <span className="font-medium text-slate-600">Caution:</span>{' '}
-                            {suggestion.caution}
-                          </p>
-                          <div>
-                            <button
-                              type="button"
-                              onClick={() => toggleEvidence(suggestion.id)}
-                              className="text-sm text-slate-500 underline-offset-2 transition-colors hover:text-slate-700 hover:underline"
-                              aria-expanded={evidenceOpen}
-                            >
-                              Why this suggestion?
-                            </button>
-                            {evidenceOpen ? (
-                              <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
-                                {suggestion.evidenceNote}
-                              </p>
-                            ) : null}
+              {hasPriorLearningSuggestions ? (
+                <ul
+                  className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                  aria-label="AI prior-learning suggestions"
+                >
+                  {priorLearningSuggestions.map((suggestion) => {
+                    const checked = selectedIds.includes(suggestion.id)
+                    const evidenceOpen = openEvidenceIds.includes(suggestion.id)
+                    const checkboxId = `teacher-choice-${suggestion.id}`
+                    return (
+                      <li
+                        key={suggestion.id}
+                        className={`rounded-xl border p-4 transition-colors sm:p-5 ${
+                          checked
+                            ? 'border-indigo-200 bg-indigo-50/50'
+                            : 'border-slate-200/80 bg-slate-50/40'
+                        }`}
+                      >
+                        <div className="flex h-full gap-3">
+                          <input
+                            id={checkboxId}
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => toggleSuggestion(suggestion.id)}
+                            className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                            aria-describedby={`${checkboxId}-details`}
+                          />
+                          <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
+                            <div className="space-y-0.5">
+                              <label
+                                htmlFor={checkboxId}
+                                className="block text-sm font-medium text-slate-900"
+                              >
+                                {suggestion.label}
+                              </label>
+                              <p className="text-xs text-slate-500">{suggestion.source}</p>
+                            </div>
+                            <p className="text-[0.95rem] leading-relaxed text-slate-900">
+                              {suggestion.frame}
+                            </p>
+                            <p className="text-sm leading-relaxed text-slate-600">
+                              <span className="font-medium text-slate-700">Why it may help:</span>{' '}
+                              {suggestion.whyItMayHelp}
+                            </p>
+                            <p className="text-sm leading-relaxed text-slate-500">
+                              <span className="font-medium text-slate-600">Caution:</span>{' '}
+                              {suggestion.caution}
+                            </p>
+                            <div>
+                              <button
+                                type="button"
+                                onClick={() => toggleEvidence(suggestion.id)}
+                                className="text-sm text-slate-500 underline-offset-2 transition-colors hover:text-slate-700 hover:underline"
+                                aria-expanded={evidenceOpen}
+                              >
+                                Why this suggestion?
+                              </button>
+                              {evidenceOpen ? (
+                                <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
+                                  {suggestion.evidenceNote}
+                                </p>
+                              ) : null}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </li>
-                  )
-                })}
-              </ul>
+                      </li>
+                    )
+                  })}
+                </ul>
+              ) : (
+                <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
+                  No verified prior-learning suggestions are available for this lesson yet. You can
+                  continue without selecting prior learning.
+                </p>
+              )}
 
-              <p className="text-sm text-slate-500">
-                You can continue without selecting any prior learning.
-              </p>
+              {hasPriorLearningSuggestions ? (
+                <p className="text-sm text-slate-500">
+                  You can continue without selecting any prior learning.
+                </p>
+              ) : null}
             </div>
           ) : null}
 
@@ -689,52 +711,61 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       type="radio"
                       name="lesson-shape"
                       value="single"
-                      checked={lessonShape === 'single'}
+                      checked={effectiveLessonShape === 'single'}
                       onChange={() => handlePackageShapeChange('single')}
                       className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <span className="min-w-0 space-y-0.5">
                       <span className="block text-sm font-medium text-slate-900">Single lesson</span>
                       <span className="block text-sm leading-relaxed text-slate-600">
-                        One short lesson supporting Student Book pages 128–129.
+                        One short lesson supporting Student Book {lesson.visiblePageRangeLabel}.
                       </span>
                     </span>
                   </label>
 
-                  <label className="flex cursor-pointer gap-3">
-                    <input
-                      type="radio"
-                      name="lesson-shape"
-                      value="series"
-                      checked={lessonShape === 'series'}
-                      onChange={() => handlePackageShapeChange('series')}
-                      className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                      aria-describedby={
-                        lessonShape === 'series' ? 'lesson-shape-series-note' : undefined
-                      }
-                    />
-                    <span className="min-w-0 space-y-1">
-                      <span className="block text-sm font-medium text-slate-900">
-                        Two-lesson series
-                      </span>
-                      <span className="block text-sm leading-relaxed text-slate-600">
-                        Separate introduction and practice across Student Book and Workbook pages.
-                      </span>
-                      {lessonShape === 'series' ? (
-                        <span
-                          id="lesson-shape-series-note"
-                          className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
-                        >
-                          <span className="block">Lesson 1 — Student Book pp. 128–129</span>
-                          <span className="block">Lesson 2 — Workbook pp. 104–105</span>
-                          <span className="block pt-1">
-                            Workbook pages are verified source evidence for this packaging choice;
-                            they may not be the PDF currently open in the workspace.
-                          </span>
+                  {lesson.supportsTwoLessonSeries ? (
+                    <label className="flex cursor-pointer gap-3">
+                      <input
+                        type="radio"
+                        name="lesson-shape"
+                        value="series"
+                        checked={effectiveLessonShape === 'series'}
+                        onChange={() => handlePackageShapeChange('series')}
+                        className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                        aria-describedby={
+                          effectiveLessonShape === 'series'
+                            ? 'lesson-shape-series-note'
+                            : undefined
+                        }
+                      />
+                      <span className="min-w-0 space-y-1">
+                        <span className="block text-sm font-medium text-slate-900">
+                          Two-lesson series
                         </span>
-                      ) : null}
-                    </span>
-                  </label>
+                        <span className="block text-sm leading-relaxed text-slate-600">
+                          Separate introduction and practice across Student Book and Workbook pages.
+                        </span>
+                        {effectiveLessonShape === 'series' ? (
+                          <span
+                            id="lesson-shape-series-note"
+                            className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
+                          >
+                            <span className="block">Lesson 1 — Student Book pp. 128–129</span>
+                            <span className="block">Lesson 2 — Workbook pp. 104–105</span>
+                            <span className="block pt-1">
+                              Workbook pages are verified source evidence for this packaging choice;
+                              they may not be the PDF currently open in the workspace.
+                            </span>
+                          </span>
+                        ) : null}
+                      </span>
+                    </label>
+                  ) : (
+                    <p className="text-sm leading-relaxed text-slate-500">
+                      A two-lesson Student Book → Workbook series is not available for this source
+                      route yet.
+                    </p>
+                  )}
                 </div>
               </section>
 
@@ -744,6 +775,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   <div className="space-y-1 text-sm leading-relaxed text-slate-600">
                     <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                     <p>{lesson.unitLine}</p>
+                    <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
                     <p>Current focus: {lesson.currentFocus}</p>
                   </div>
 
@@ -1058,7 +1090,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         Generated Chalkie lesson draft — review before use
                       </h4>
                       <p className="text-sm text-slate-500">
-                        {(draftMeta?.packageType ?? lessonShape) === 'series'
+                        {(draftMeta?.packageType ?? effectiveLessonShape) === 'series'
                           ? 'Two-lesson series'
                           : 'Single lesson'}
                         {' · '}

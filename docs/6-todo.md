@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 225
+**Last updated:** Step 237
 
 
 
@@ -408,7 +408,9 @@
 
 - [x] **Server-side OpenAI generation test path** — `POST /api/chalkie/generate`; teacher-triggered only; no persistence; key from root `.env.local`.
 
-- [ ] Owner live-test Generate Chalkie lesson draft (Single + Series); decide keep/harden/park. Do not lock methodology.
+- [x] **Dynamic source-context binding + page-scope guard** — resolved context from book/unit/open pages; block out-of-unit and missing page evidence; BE2 U8 fixture + series only for pp. 128–129.
+
+- [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 
 
 

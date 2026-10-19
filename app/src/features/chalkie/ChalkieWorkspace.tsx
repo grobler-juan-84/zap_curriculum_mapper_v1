@@ -11,11 +11,13 @@ import {
 import { ValidationHeader } from '../validation/ValidationHeader'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
 import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
-import { buildUnitSummaryView } from './chalkieEvidence'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
 import { ChalkieOutputPanel } from './ChalkieOutputPanel'
 import { TeacherChoiceFlowOverlay } from './TeacherChoiceFlowOverlay'
-import { buildTeacherChoiceLessonContext } from './teacherChoicePrototypeContent'
+import {
+  resolveChalkieLessonContext,
+  type ChalkieLessonContext,
+} from './resolveChalkieLessonContext'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -79,6 +81,12 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const [visiblePrintedPages, setVisiblePrintedPages] = useState<number[]>([])
 
   const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
+  const [activeLesson, setActiveLesson] = useState<ChalkieLessonContext | null>(null)
+  const [scopeGuard, setScopeGuard] = useState<ChalkieLessonContext | null>(null)
+  const [pdfJumpRequest, setPdfJumpRequest] = useState<{
+    pdfPage: number
+    requestId: number
+  } | null>(null)
 
   const [leftPaneWidthPercent, setLeftPaneWidthPercent] = useState(33)
   const [isDraggingColSplitter, setIsDraggingColSplitter] = useState(false)
@@ -106,31 +114,52 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setVisiblePrintedPages(pages)
   }, [])
 
-  const unitView = useMemo(
-    () => (summary ? buildUnitSummaryView(summary) : null),
-    [summary],
+  const liveLessonContext = useMemo(
+    () =>
+      resolveChalkieLessonContext({
+        book,
+        summary,
+        visiblePrintedPages,
+        unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+      }),
+    [book, summary, visiblePrintedPages, currentBatch?.unitNumber],
   )
 
-  const teacherChoiceLesson = useMemo(() => {
-    const unit = summary?.units[0]
-    return buildTeacherChoiceLessonContext({
-      bookTitle: book.title,
-      catalogBookId: book.catalogBookId,
-      summaryCatalogBookId: summary?.catalogBookId,
-      unitNumber: currentBatch?.unitNumber ?? unit?.unitNumber ?? null,
-      unitTitle: unit?.title ?? null,
-      unitTheme: unit?.theme ?? unitView?.theme ?? null,
-      vocabularyPreview: unitView?.vocabularyPreview,
-      languagePreview: unitView?.languagePreview,
+  const handlePreparePrompt = useCallback(() => {
+    const resolved = resolveChalkieLessonContext({
+      book,
+      summary,
+      visiblePrintedPages,
+      unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
     })
-  }, [
-    book.title,
-    book.catalogBookId,
-    summary?.catalogBookId,
-    summary?.units,
-    currentBatch?.unitNumber,
-    unitView,
-  ])
+
+    if (resolved.status !== 'ready') {
+      setScopeGuard(resolved)
+      setTeacherChoiceOpen(false)
+      setActiveLesson(null)
+      return
+    }
+
+    setScopeGuard(null)
+    setActiveLesson(resolved)
+    setTeacherChoiceOpen(true)
+  }, [book, summary, visiblePrintedPages, currentBatch?.unitNumber])
+
+  const handleCloseTeacherChoice = useCallback(() => {
+    setTeacherChoiceOpen(false)
+    setActiveLesson(null)
+  }, [])
+
+  const handleJumpToUnitOpening = useCallback(() => {
+    const printed = scopeGuard?.unitOpeningPrintedPage ?? liveLessonContext.unitOpeningPrintedPage
+    if (printed == null) return
+    const pdfPage = pdfForPrinted(pageMap, printed)
+    setPdfJumpRequest((prev) => ({
+      pdfPage,
+      requestId: (prev?.requestId ?? 0) + 1,
+    }))
+    setScopeGuard(null)
+  }, [scopeGuard, liveLessonContext.unitOpeningPrintedPage, pageMap])
 
   useEffect(() => {
     let cancelled = false
@@ -143,6 +172,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setBatches([])
     setVisiblePrintedPages([])
     setTeacherChoiceOpen(false)
+    setActiveLesson(null)
+    setScopeGuard(null)
+    setPdfJumpRequest(null)
 
     ;(async () => {
       try {
@@ -292,7 +324,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (teacherChoiceOpen) return
+      if (teacherChoiceOpen || scopeGuard) return
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement ||
@@ -310,7 +342,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [handlePrev, handleNext, teacherChoiceOpen])
+  }, [handlePrev, handleNext, teacherChoiceOpen, scopeGuard])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -335,6 +367,11 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       window.removeEventListener('mouseup', handleMouseUp)
     }
   }, [isDraggingColSplitter])
+
+  const scopeUnitJumpLabel =
+    scopeGuard?.unitNumber != null
+      ? `Go to Unit ${scopeGuard.unitNumber} opening pages`
+      : 'Go to unit opening pages'
 
   return (
     <div className="flex h-full select-none flex-col overflow-hidden bg-slate-100">
@@ -408,17 +445,64 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
               initialPage={pdfInitialPage}
               pageMap={pageMap}
               onVisiblePrintedPagesChange={handleVisiblePrintedPagesChange}
+              jumpRequest={pdfJumpRequest}
             />
           </div>
 
-          <ChalkieOutputPanel onPreparePrompt={() => setTeacherChoiceOpen(true)} />
+          <ChalkieOutputPanel onPreparePrompt={handlePreparePrompt} />
         </section>
       </div>
 
+      {scopeGuard ? (
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/45 p-3 sm:items-center sm:p-5">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="chalkie-scope-guard-title"
+            className="w-full max-w-lg rounded-xl border border-slate-200 bg-white p-5 shadow-xl sm:p-6"
+          >
+            <h2
+              id="chalkie-scope-guard-title"
+              className="text-lg font-semibold tracking-tight text-slate-900"
+            >
+              Source pages need to match this unit
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              {scopeGuard.status === 'no_page_evidence'
+                ? scopeGuard.evidenceUnavailableMessage
+                : scopeGuard.scopeMessage}
+            </p>
+            {scopeGuard.status === 'out_of_unit' && !scopeGuard.canJumpToUnitOpening ? (
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                Use the PDF page controls to open a spread from this unit, then try again.
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap items-center justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setScopeGuard(null)}
+                className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              >
+                Close
+              </button>
+              {scopeGuard.status === 'out_of_unit' && scopeGuard.canJumpToUnitOpening ? (
+                <button
+                  type="button"
+                  onClick={handleJumpToUnitOpening}
+                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                >
+                  {scopeUnitJumpLabel}
+                </button>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <TeacherChoiceFlowOverlay
-        open={teacherChoiceOpen}
-        onClose={() => setTeacherChoiceOpen(false)}
-        lesson={teacherChoiceLesson}
+        open={teacherChoiceOpen && activeLesson != null}
+        onClose={handleCloseTeacherChoice}
+        lesson={activeLesson}
       />
     </div>
   )

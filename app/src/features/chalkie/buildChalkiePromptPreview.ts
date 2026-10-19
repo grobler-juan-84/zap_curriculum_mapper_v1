@@ -1,4 +1,9 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
+import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
+import {
+  BE2_U08_SERIES_LESSON_TITLE,
+  BE2_U08_SINGLE_LESSON_TITLE,
+} from './teacherChoicePrototypeContent'
 
 export type TeacherAddedLanguageInput = {
   frame: string
@@ -7,11 +12,7 @@ export type TeacherAddedLanguageInput = {
 
 export type LessonPackageShape = 'single' | 'series'
 
-export const BE2_U08_SINGLE_LESSON_TITLE =
-  'Big English 2 Student Book · Unit 8 · pp. 128–129 · Wild Animals'
-
-export const BE2_U08_SERIES_LESSON_TITLE =
-  'Big English 2 · Unit 8 · SB pp. 128–129 + WB pp. 104–105 · Wild Animals'
+export { BE2_U08_SINGLE_LESSON_TITLE, BE2_U08_SERIES_LESSON_TITLE }
 
 /** Prototype planning allocation — not a publisher lesson division. */
 export const BE2_U08_SERIES_LESSON1_VOCAB =
@@ -50,7 +51,7 @@ function buildPriorLearningBlock(input: {
   return priorLines
 }
 
-function buildSingleLessonPrompt(input: {
+function buildBe2U08SingleLessonPrompt(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
 }): string {
@@ -108,7 +109,7 @@ function buildSingleLessonPrompt(input: {
   ].join('\n')
 }
 
-function buildSeriesLessonPrompt(input: {
+function buildBe2U08SeriesLessonPrompt(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
 }): string {
@@ -182,24 +183,125 @@ function buildSeriesLessonPrompt(input: {
   ].join('\n')
 }
 
+function buildDynamicSingleLessonPrompt(input: {
+  lesson: ChalkieLessonContext
+  selectedSuggestions: TeacherChoiceSuggestion[]
+  teacherAdditions: TeacherAddedLanguageInput[]
+}): string {
+  const { lesson } = input
+  const priorLines = buildPriorLearningBlock(input)
+  const pageList = lesson.visiblePrintedPages.join(', ')
+  const vocabLine =
+    lesson.vocabulary.length > 0
+      ? `Target vocabulary (visible pages): ${lesson.vocabulary.join(', ')}.`
+      : 'Target vocabulary: none verified for these visible pages.'
+  const languageLines =
+    lesson.languageExamples.length > 0
+      ? lesson.languageExamples.map((item) =>
+          item.label ? `- ${item.label}: ${item.example}` : `- ${item.example}`,
+        )
+      : ['- No verified language examples for these visible pages.']
+  const activityLines =
+    lesson.activityLines.length > 0
+      ? lesson.activityLines.map((line) => `- ${line}`)
+      : ['- No verified activities for these visible pages.']
+  const pageLabelLines =
+    lesson.pageLabels.length > 0
+      ? lesson.pageLabels.map((line) => `- ${line}`)
+      : [`- ${lesson.visiblePageRangeLabel}`]
+  const unitContext =
+    lesson.unitContextNote != null
+      ? ['', 'Unit context (do not treat as visible-page evidence):', lesson.unitContextNote]
+      : []
+
+  return [
+    `Create a short, picture-led slide lesson to SUPPORT ${lesson.bookLabel} ${lesson.unitLine}, printed pages ${pageList} ONLY.`,
+    '',
+    'Do not teach other unit pages beyond the listed printed pages.',
+    'Do not replace the textbook.',
+    'Do not invent publisher audio scripts or missing exercise text.',
+    'Use the book/audio where needed.',
+    '',
+    'SOURCE LABELS:',
+    `- [SB] = Student Book evidence from printed pages ${pageList} only`,
+    '- [HM] = teacher-selected prior learning from earlier units in the same book',
+    '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
+    '',
+    'A. CURRENT PAGE EVIDENCE',
+    '',
+    'Visible page labels:',
+    ...pageLabelLines,
+    '',
+    vocabLine,
+    '',
+    'Language evidence:',
+    ...languageLines,
+    '',
+    'Activity evidence:',
+    ...activityLines,
+    ...unitContext,
+    '',
+    'Communicative aim:',
+    lesson.currentFocus ||
+      'Students can work with the verified language and vocabulary on the listed pages.',
+    '',
+    'B. TEACHER-SELECTED PRIOR LEARNING',
+    '',
+    ...priorLines,
+    '',
+    'C. TEACHING GUIDANCE',
+    '',
+    '- Stay on the listed printed pages only.',
+    '- Use selected [HM] language only where it fits naturally.',
+    '- Treat selected language as available support, not as a requirement to force into every activity.',
+    '- Do not present [HM] combinations or teacher-added language as publisher wording.',
+    '- Keep generated examples supplementary and clearly distinguishable from textbook content.',
+    '- Keep the lesson concise and classroom-usable.',
+    `- Success means students are prepared to work with the book pages ${pageList}.`,
+    '',
+    'D. HARD BOUNDARIES',
+    '',
+    `- Stay on printed pages ${pageList} only.`,
+    '- Do not invent publisher audio scripts or unknown exercise items.',
+    '- Do not claim teacher-added language is publisher evidence.',
+    '- Do not present unit-level context as if it were evidence from the visible pages.',
+  ].join('\n')
+}
+
 /**
- * Deterministic local Chalkie prompt for the BE2 U8 packaging prototype.
+ * Deterministic local Chalkie prompt from the resolved lesson context.
  *
  * packageShape:
- * - single = SB pp. 128–129 only (existing route)
- * - series = Lesson 1 SB 128–129 + Lesson 2 WB 104–105 (explicit packaging choice)
+ * - single = visible SB pages only
+ * - series = BE2 U8 Lesson 1 SB 128–129 + Lesson 2 WB 104–105 (exact prototype route only)
  */
 export function buildChalkiePromptPreview(input: {
+  lesson: ChalkieLessonContext
   packageShape?: LessonPackageShape
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
 }): string {
   if (input.packageShape === 'series') {
-    return buildSeriesLessonPrompt(input)
+    if (!input.lesson.supportsTwoLessonSeries || !input.lesson.isBe2U08PrototypeRoute) {
+      // Refuse silent BE2 fallback — degrade to dynamic single if series unsupported.
+      return buildDynamicSingleLessonPrompt(input)
+    }
+    return buildBe2U08SeriesLessonPrompt(input)
   }
-  return buildSingleLessonPrompt(input)
+
+  if (input.lesson.isBe2U08PrototypeRoute) {
+    return buildBe2U08SingleLessonPrompt(input)
+  }
+
+  return buildDynamicSingleLessonPrompt(input)
 }
 
-export function lessonTitleForPackage(packageShape: LessonPackageShape): string {
-  return packageShape === 'series' ? BE2_U08_SERIES_LESSON_TITLE : BE2_U08_SINGLE_LESSON_TITLE
+export function lessonTitleForPackage(
+  lesson: ChalkieLessonContext,
+  packageShape: LessonPackageShape,
+): string {
+  if (packageShape === 'series' && lesson.seriesLessonTitle) {
+    return lesson.seriesLessonTitle
+  }
+  return lesson.singleLessonTitle
 }
