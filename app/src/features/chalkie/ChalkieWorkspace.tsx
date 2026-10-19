@@ -115,14 +115,22 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     const unit = summary?.units[0]
     return buildTeacherChoiceLessonContext({
       bookTitle: book.title,
-      catalogBookId: book.catalogBookId ?? summary?.catalogBookId,
+      catalogBookId: book.catalogBookId,
+      summaryCatalogBookId: summary?.catalogBookId,
       unitNumber: currentBatch?.unitNumber ?? unit?.unitNumber ?? null,
       unitTitle: unit?.title ?? null,
       unitTheme: unit?.theme ?? unitView?.theme ?? null,
       vocabularyPreview: unitView?.vocabularyPreview,
       languagePreview: unitView?.languagePreview,
     })
-  }, [book.title, book.catalogBookId, summary, currentBatch?.unitNumber, unitView])
+  }, [
+    book.title,
+    book.catalogBookId,
+    summary?.catalogBookId,
+    summary?.units,
+    currentBatch?.unitNumber,
+    unitView,
+  ])
 
   useEffect(() => {
     let cancelled = false

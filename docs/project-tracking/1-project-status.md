@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 227
+**Last synced:** Step 228
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Chalkie Workspace teacher-choice Step 1 refined (page-specific focus + labelled language).
+- Chalkie teacher-choice BE2 U8 prototype matching fixed (string unitNumber).
 - Phase 3 remains parked (D020); OpenAI Generate deferred from this launch path.
 
 ## Branch

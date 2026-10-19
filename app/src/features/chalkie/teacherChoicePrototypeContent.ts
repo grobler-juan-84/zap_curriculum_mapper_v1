@@ -15,6 +15,9 @@ export type TeacherChoiceLessonContext = {
   isPrototypeCase: boolean
 }
 
+const BE2_U08_CATALOG_ID = 'big_english_2_sb'
+const BE2_U08_BOOK_TITLE = 'big english 2 student book'
+
 const BE2_U08_VOCABULARY = [
   'cheetah',
   'crocodile',
@@ -39,24 +42,54 @@ const BE2_U08_LANGUAGE: TeacherChoiceLanguageExample[] = [
 const BE2_U08_CLARIFICATION =
   'can / can’t is current Unit 8 learning, not prior learning to reuse.'
 
+function normalizeCatalogId(value: string | null | undefined): string | null {
+  if (typeof value !== 'string') return null
+  const normalized = value.trim().toLowerCase()
+  return normalized || null
+}
+
+function isUnitEight(unitNumber: number | string | null | undefined): boolean {
+  if (unitNumber == null || unitNumber === '') return false
+  return Number(unitNumber) === 8
+}
+
+function isBe2StudentBook(input: {
+  catalogBookId?: string | null
+  summaryCatalogBookId?: string | null
+  bookTitle: string
+}): boolean {
+  const candidateCatalogIds = [input.catalogBookId, input.summaryCatalogBookId]
+    .map(normalizeCatalogId)
+    .filter((value): value is string => Boolean(value))
+
+  if (candidateCatalogIds.includes(BE2_U08_CATALOG_ID)) return true
+
+  // Narrow title fallback only when catalog IDs are absent or inconsistent.
+  return input.bookTitle.trim().toLowerCase() === BE2_U08_BOOK_TITLE
+}
+
 export function buildTeacherChoiceLessonContext(input: {
   bookTitle: string
   catalogBookId?: string | null
-  unitNumber?: number | null
+  summaryCatalogBookId?: string | null
+  unitNumber?: number | string | null
   unitTitle?: string | null
   unitTheme?: string | null
   vocabularyPreview?: string[]
   languagePreview?: string[]
 }): TeacherChoiceLessonContext {
   const unitNumber = input.unitNumber ?? null
-  const isBe2U08 =
-    input.catalogBookId === 'big_english_2_sb' && unitNumber === 8
+  const isBe2U08 = isBe2StudentBook(input) && isUnitEight(unitNumber)
 
   if (isBe2U08) {
-    const theme = input.unitTheme?.trim() || input.unitTitle?.trim() || 'Wild Animals'
+    const title = input.unitTitle?.trim()
+    const unitLine =
+      title && !title.includes('·') && title.length <= 40
+        ? `Unit 8 · ${title}`
+        : 'Unit 8 · Wild Animals'
     return {
       bookLabel: 'Big English 2',
-      unitLine: `Unit 8 · ${theme}`,
+      unitLine,
       currentFocus: 'Speak about wild animals using preference and ability language.',
       vocabulary: [...BE2_U08_VOCABULARY],
       languageExamples: BE2_U08_LANGUAGE,
@@ -66,7 +99,7 @@ export function buildTeacherChoiceLessonContext(input: {
   }
 
   const unitLabel =
-    unitNumber != null
+    unitNumber != null && unitNumber !== ''
       ? input.unitTitle?.trim()
         ? `Unit ${unitNumber} · ${input.unitTitle.trim()}`
         : `Unit ${unitNumber}`

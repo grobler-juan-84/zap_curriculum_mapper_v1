@@ -3896,3 +3896,16 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 228
+
+**Summary:** Fixed BE2 U8 teacher-choice prototype matching: runtime `unitNumber` is a string (`"8"`), so strict `=== 8` never matched and the overlay fell back to generic unit theme/language. Detection now normalizes catalog IDs, coerces unit numbers, accepts summary `catalogBookId` as a candidate, and uses the exact book title only as a narrow fallback.
+
+**Files touched:**
+- app/src/features/chalkie/teacherChoicePrototypeContent.ts (updated)
+- app/src/features/chalkie/ChalkieWorkspace.tsx (updated)
+- docs/5-progress.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
