@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 214
+**Last updated:** Step 215
 
 
 
@@ -364,9 +364,13 @@
 
 - [x] **Retrospective dry run** of the handoff template against Experiment 7 — [`phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md); bounded template revision applied.
 
-- [x] **Source-only preflight** for BE3 U3 LiA SB pp. 40–41 — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md). Verified unit is *Working Hard!* (not *In My House*); conditionally suitable; **not** a handoff prompt; generation **not** authorized.
+- [x] **Source-only preflight** for BE3 U3 LiA SB pp. 40–41 — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md). Verified unit is *Working Hard!*; generation **not** authorized by preflight alone.
 
-- [ ] Owner confirm next transfer target identity (BE3 U3 *Working Hard!* LiA 40–41 vs requested *In My House*); then review revised handoff template. Do not lock methodology or authorize generation by default.
+- [x] Owner confirmed target = BE3 U3 *Working Hard!* LiA SB pp. 40–41.
+
+- [x] **Draft BE3 U3 LiA transfer-test design** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md). DESIGN DRAFT / **not authorized to generate**.
+
+- [ ] Owner approve the BE3 U3 LiA design; authorize one Chalkie generation only explicitly. Do not lock methodology.
 
 
 

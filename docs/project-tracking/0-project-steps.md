@@ -3688,3 +3688,17 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 215
+
+**Summary:** Drafted the owner-gated BE3 Unit 3 *Working Hard!* LiA pp. 40–41 Chalkie transfer-test design from verified preflight evidence (detailed handoff, two concise outlines, scoped vocab, evaluation lenses). Status DESIGN DRAFT / not authorized to generate. No decisions change.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md (created)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
