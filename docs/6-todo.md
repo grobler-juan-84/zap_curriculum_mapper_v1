@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 211
+**Last updated:** Step 212
 
 
 
@@ -360,7 +360,9 @@
 
 - [x] Owner **accepted and authorized** the U5 LiA transfer-test design; **Experiment 7 generated** and qualitatively reviewed — **strong transfer success** (30/30 PDF pages). Further generation **not authorized**.
 
-- [ ] Owner review of Experiment 7 implications only; do not lock methodology or authorize another generation by default.
+- [x] **Draft provisional Chalkie handoff template** — [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md) (Experiments 5–7). DRAFT / experimental / not a methodology lock; does not authorize generation.
+
+- [ ] Owner review of the provisional handoff template; do not lock methodology or authorize another generation by default.
 
 
 

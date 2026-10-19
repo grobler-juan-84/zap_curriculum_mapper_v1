@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 211
+**Last updated:** Step 212
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,17 +24,17 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie diagnostic Experiments 1–6** — provisional handoff pattern identified (not locked).
+- **Chalkie diagnostic Experiments 1–7** — provisional handoff pattern identified and transfer-tested (U5 LiA); not locked.
 
-- **Experiment 7 transfer test succeeded** — BE2 U5 LiA SB pp. 78–79; strong qualitative transfer of detailed handoff + concise outline + explicit six-job vocabulary; further generation not authorized.
+- **Provisional Chalkie handoff template drafted** — reusable one-page fill-in from Experiments 5–7; experimental; does **not** authorize generation.
 
 ## In progress
 
-- Owner review of Experiment 7 implications (pattern remains provisional).
+- Owner review of the provisional handoff template (keep provisional; no methodology lock).
 
 ## Next
 
-- Decide any separately gated follow-on only explicitly. Do **not** regenerate by default. Do not lock methodology from Experiment 7 alone.
+- Review/revise the template if needed. Any new Chalkie run remains separately owner-gated.
 
 ## Blocked
 
@@ -46,6 +46,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Experiment 7 exports: `Asking About Dream Jobs - experiment 7 - lesson 1.pdf` (30) · `QUESTIONS WITH DO AND DOES - expeririment 7 - lesson 2.pdf` (30).
+- Template: [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

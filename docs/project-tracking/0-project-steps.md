@@ -3643,3 +3643,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 212
+
+**Summary:** Drafted a concise reusable Chalkie provisional handoff template from Experiments 5-7 (detailed handoff + concise outlines + explicit vocabulary). Status DRAFT / experimental / not a methodology lock; does not authorize generation. No D018 or decisions changes.
+
+**Files touched:**
+- docs/phase-5/chalkie-provisional-handoff-template-v0.1.md (created)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
