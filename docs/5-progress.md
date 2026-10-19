@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 218
+**Last updated:** Step 219
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,19 +24,17 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie diagnostic Experiments 1–9** — provisional handoff pattern transfer-tested; not locked.
+- **Chalkie Experiments 1–9** — diagnostic + LiA transfers + vocab-split control recorded; provisional handoff pattern not locked.
 
-- **Experiment 8 (BE3 U3 LiA)** — PASS / strong transfer success; vocabulary-allocation confound recorded.
-
-- **Experiment 9 (vocab-split control)** — **PASS**; L1 chores / L2 frequency chips produced intended lesson separation; template strengthenings recorded; further generation not authorized.
+- **Experiments 1–9 evidence synthesis** — consolidation checkpoint written; further Chalkie prompt experiments paused unless a specific question remains.
 
 ## In progress
 
-- None active on Chalkie transfer experiments.
+- None on Chalkie prompt experiments; operational pilot not yet selected.
 
 ## Next
 
-- Use the revised provisional handoff template (per-lesson vocab + provenance/frequency/book-work rules) only under explicit owner authorization. Do not lock methodology.
+- Apply the provisional workflow to a real new lesson as an operational pilot (lesson TBD by owner). Do not lock methodology; do not generate without authorization.
 
 ## Blocked
 
@@ -48,6 +46,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Exp 9: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md).
+- Synthesis: [`phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

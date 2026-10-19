@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 218
+**Last updated:** Step 219
 
 
 
@@ -378,7 +378,9 @@
 
 - [x] **Experiment 9 generated + reviewed** — PASS / vocabulary-split control succeeded (31/31). Per-lesson vocab chips kept in provisional pattern; template provenance/frequency/book-work rules strengthened. Further generation **not authorized**.
 
-- [ ] Further Chalkie runs only under explicit owner authorization. Do not lock methodology.
+- [x] **Evidence synthesis Experiments 1–9** — [`phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md). Consolidation checkpoint; pause further Chalkie prompt experiments unless a specific unresolved question remains.
+
+- [ ] Owner select a real new lesson for an operational pilot under the provisional workflow (prep / generation / curation / fidelity / usability). Do not lock methodology; do not generate without authorization.
 
 
 

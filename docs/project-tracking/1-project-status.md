@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 218
+**Last synced:** Step 219
 
 ## One-line state
 
 - D018 V2-family CLOSED; preferred control = **V2b**.
-- Experiments 8–9 BE3 U3 LiA: PASS; vocab-split control succeeded; further generation not authorized.
+- Chalkie Experiments 1–9 synthesized; prompt experiments paused; operational pilot next (lesson TBD).
 
 ## Branch
 
@@ -14,4 +14,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Leave Chalkie gated unless authorizing a new explicit experiment; template now includes Exp 9 strengthenings.
+**Suggestion:** Select a real new lesson for an operational pilot under the provisional handoff workflow; do not authorize generation until ready.

@@ -3,7 +3,8 @@
 **Version:** 0.1  
 **Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 7–8 LiA transfers **PASS**; Exp 9 vocab-split control **PASS**; pattern remains provisional / not locked; further generation not authorized by this record  
 **Date:** 2026-10-19  
-**Scope:** Narrow Chalkie workflow diagnostic. This is not a D018 iteration, a lesson-quality verdict, a methodology lock, or a product decision.
+**Scope:** Narrow Chalkie workflow diagnostic. This is not a D018 iteration, a lesson-quality verdict, a methodology lock, or a product decision.  
+**Consolidation:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)
 
 ---
 
@@ -339,3 +340,5 @@ Exp 8 established the confound; Exp 9 shows that **distinct per-lesson vocab lis
 ## 12. Provisional implication
 
 The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, **per-lesson** output field alongside the short general brief and the per-lesson instructional sequence. Experiments 7–9 strengthen that hypothesis. Still a design hypothesis only — not a packaging format lock, methodology lock, or claim that Chalkie is (or is not) suitable as a production backend.
+
+**Next checkpoint:** Experiments 1–9 are consolidated in [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md). Further prompt experiments are paused unless a specific unresolved question justifies one; recommended next phase is an operational pilot under the provisional workflow (lesson not selected here).

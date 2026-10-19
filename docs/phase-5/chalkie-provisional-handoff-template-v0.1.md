@@ -5,6 +5,7 @@
 **Evidence base:** Chalkie diagnostic Experiments **5**–**9** (U8 Wild Animals + U5 LiA + BE3 U3 LiA transfer + vocab-split control)  
 **Usability check:** [`chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md)  
 **Vocab-allocation:** Exp 8 confound + Exp 9 control — [`chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) §9.3 · [`chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md)  
+**Evidence synthesis:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
 ---
