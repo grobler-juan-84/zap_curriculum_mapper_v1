@@ -396,7 +396,9 @@
 
 - [x] **UI micro-step: teacher-choice Step 2 (AI suggestions)** — four unchecked prior-learning rows with local selection; Continue with zero allowed; Step 3 still placeholder.
 
-- [ ] Owner try Prepare → Step 1 → Step 2 in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 3 choices screen. Do not lock methodology.
+- [x] **UI micro-step: teacher-choice Step 3 (Your choices)** — review/adjust Step 2 selections, local teacher-added language, use-no-prior-learning; Step 4 still placeholder.
+
+- [ ] Owner try Prepare → Steps 1–3 in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 4 summary. Do not lock methodology.
 
 
 

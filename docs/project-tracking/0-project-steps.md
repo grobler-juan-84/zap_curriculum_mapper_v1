@@ -3937,3 +3937,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 231
+
+**Summary:** Implemented teacher-choice overlay Step 3 (Your choices): carries forward Step 2 selections with functional uncheck, local teacher-added unverified language, use-no-prior-learning clear action, quiet footer summary, and Continue to Step 4 placeholder. No persistence or prompt generation.
+
+**Files touched:**
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
