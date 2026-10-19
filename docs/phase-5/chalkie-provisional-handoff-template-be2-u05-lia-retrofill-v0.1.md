@@ -120,7 +120,7 @@ Not treated as gaps: missing WB content for this lesson; communicative-aim one-l
 2. Rename floor bullet to `Scoped words / models used on these pages`.  
 3. Change outline step 1 to `Short activation or retrieve`.  
 4. One line: outline beats are required; **order may adjust** so protected textbook time is not delayed by optional speaking.  
-5. State vocabulary is entered per lesson; **use the same scoped list unless page scope differs**.  
+5. State vocabulary is entered per lesson; **use the same scoped list unless page scope differs**. *(Applied at the time; **superseded after Experiment 8** — template now requires distinct per-lesson allocation; see BE3 U3 design §9.3.)*  
 6. Add a tiny **Run record** under §5 or §6: export filenames · requested slides · exported PDF pages.
 
 ---
@@ -130,3 +130,5 @@ Not treated as gaps: missing WB content for this lesson; communicative-aim one-l
 **Yes — usable as a provisional starting point for the next lesson**, after the bounded revisions above.
 
 The template successfully captured Experiment 7’s essential handoff without needing the full experiment narrative. Remaining issues are small wording/structure ambiguities, not a failed pattern. Status stays experimental; this retrospective does **not** authorize generation or lock methodology.
+
+**Later note (Experiment 8):** the “same scoped list both lessons” guidance from item 5 above contributed to a vocabulary-allocation confound on BE3 U3 LiA. Historical dry-run text kept; live template guidance updated separately.

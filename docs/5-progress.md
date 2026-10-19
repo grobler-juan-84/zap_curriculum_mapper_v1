@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 215
+**Last updated:** Step 216
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,23 +24,23 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie diagnostic Experiments 1–7** — provisional handoff pattern identified and transfer-tested (U5 LiA); not locked.
+- **Chalkie diagnostic Experiments 1–8** — provisional handoff pattern transfer-tested (U5 LiA + BE3 U3 LiA); not locked.
 
-- **Provisional Chalkie handoff template** — drafted, dry-run filled against Experiment 7, and revised for demonstrated ambiguities only; still experimental; does **not** authorize generation.
+- **Experiment 8 (BE3 U3 LiA pp. 40–41)** — **PASS / strong qualitative transfer success** (31/31 PDF pages); vocabulary-allocation confound recorded; further generation not authorized.
 
-- **BE3 U3 LiA pp. 40–41** — source preflight complete; target confirmed as *Working Hard!*; **transfer-test design drafted** (not authorized to generate).
+- **Provisional Chalkie handoff template** — revised to require **per-lesson vocabulary allocation** (Exp 8 learning); still experimental; does **not** authorize generation.
 
 ## In progress
 
-- Owner review/approval of the BE3 U3 LiA transfer-test design draft.
+- None active on Chalkie transfer; owner may later authorize a repeat with split vocab lists only.
 
 ## Next
 
-- Owner approve the design, then (only if explicitly authorized) run one Chalkie Lesson Series generation. Do not lock methodology.
+- Any future Chalkie handoff for this target should use separate L1 chores / L2 frequency vocabulary lists. Do not lock methodology; do not regenerate without explicit authorization.
 
 ## Blocked
 
-- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step. BE3 U3 generation is gated on explicit owner authorization.
+- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
 
 ---
 
@@ -48,6 +48,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Design: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) · Preflight: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md).
+- Exp 8: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

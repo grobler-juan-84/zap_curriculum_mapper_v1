@@ -1,9 +1,9 @@
 # Chalkie Transfer Test — BE3 Unit 3 Language in Action pp. 40–41 (v0.1)
 
-**Status:** DESIGN DRAFT / **NOT AUTHORIZED TO GENERATE**  
+**Status:** DESIGN **APPROVED** · **GENERATED** (Experiment 8) · **QUALITATIVELY REVIEWED** — **PASS — strong qualitative transfer success** · further generation **not authorized**  
 **Date:** 2026-10-19  
 **Branch:** `phase-2`  
-**Purpose:** Owner-gated transfer test of the provisional Chalkie handoff pattern on Big English 3 Unit 3 *Working Hard!* Language in Action (SB pp. 40–41). Design only — no generation, no methodology lock, no D018 score change.
+**Purpose:** Owner-gated transfer test of the provisional Chalkie handoff pattern on Big English 3 Unit 3 *Working Hard!* Language in Action (SB pp. 40–41). Generation and qualitative review recorded; not a D018 scored iteration; not a methodology lock.
 
 **Target identity (owner-confirmed):** Big English **3** · Unit **3** · ***Working Hard!*** · Student Book Language in Action **pp. 40–41** (not BE2 *In My House*).
 
@@ -18,6 +18,8 @@
 [`chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md) ·  
 [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md)
 
+**Document structure note:** §§1–8 preserve the **pre-run design** (including the vocabulary entry actually used). §9 records **post-run** findings, including the vocabulary-allocation confound. Do not rewrite §§1–8 to erase that history.
+
 ---
 
 ## 1. Experiment question
@@ -29,9 +31,9 @@
 | Chalkie **Lesson Series** · **2 lessons** · **25 requested slides per lesson** | New book/unit/pages: BE3-SB Unit 3 LiA **pp. 40–41** only |
 | ≈ **40 minutes per lesson**, including real textbook work | New detailed initial handoff (§6) from verified preflight evidence |
 | Framework **Chalkie Default** · Theme **Simple** | New concise teacher-controlled outlines (§7) with explicit L1/L2 grammar split |
-| Grade **3** · English ability **Grade 2** · Audio **OFF** | New explicit manual vocabulary list (§8) — eight chores + four frequency adverbs |
+| Grade **3** · English ability **Grade 2** · Audio **OFF** | Explicit manual vocabulary (§8) — **pre-run:** identical 12-item list both lessons (see §9.3 confound) |
 | No BI / no `[HM]` / no Workbook / no invented publisher audio | Transfer fidelity vs Experiment 7 LiA success under a harder two-focus spread (§9) |
-| Generation gated until explicit owner authorization | This draft does **not** authorize a run |
+| One authorized generation run (Experiment 8 — completed) | Further regeneration not authorized |
 
 **Not a D018 iteration.** Do not revise D018 scores, V2b status, Arm B2 scores, or lock methodology.
 
@@ -232,7 +234,7 @@ C. HARD RULES
 
 ## 7. Concise teacher-controlled outlines
 
-Replace Chalkie auto-outline bodies with these (sequence + textbook integration — **not** slide-by-slide scripts). Manually set vocabulary chips per §8 (same set both lessons).
+Replace Chalkie auto-outline bodies with these (sequence + textbook integration — **not** slide-by-slide scripts). Manually set vocabulary chips per §8 (**pre-run:** identical list both lessons — see §9.3).
 
 Beat order may place protected textbook time before communicative use when that better protects book work (per provisional template).
 
@@ -260,46 +262,92 @@ Beat order may place protected textbook time before communicative use when that 
 
 ---
 
-## 8. Explicit vocabulary list (manual Chalkie entry)
+## 8. Explicit vocabulary list (manual Chalkie entry) — pre-run design
 
-Enter **comma-separated** in each lesson’s vocabulary UI (same set for both lessons).
+**Historical (as designed and as entered for Experiment 8):** enter the **same** comma-separated list in **both** lessons’ vocabulary UI.
 
 ```text
 make my bed, walk the dog, practice the piano, take out the trash, do the dishes, clean my room, study for a test, feed the fish, always, usually, sometimes, never
 ```
 
-| Justification | Evidence |
+| Justification (pre-run) | Evidence |
 | --- | --- |
 | Chores | Preflight smallest justified set from p.36 / LiA page use (`vocab_0001`–`0008`) |
 | Frequency | Extracted on p.41 (`vocab_0010`–`0013`); required for Acts 12–13 |
 | Why not more | Preflight excludes CLIL/culture/phonics dumps and activity-only *homework* / *practice the guitar* unless a later owner decision adds them |
 | Spelling | SB AmE forms locked (not SS *practise* / *rubbish*) |
+| Same list both lessons | Matched then-current provisional template guidance (“same scoped list unless page scope differs”). **Post-run:** this choice is a confound — see §9.3. |
+
+### 8.1 Recommended allocation for a future repeat (post-run guidance)
+
+Do **not** rewrite Experiment 8’s actual inputs. For any future handoff iteration:
+
+| Lesson | Manual vocabulary (recommended) |
+| --- | --- |
+| **1** (p.40 / *have to–has to*) | `make my bed, walk the dog, practice the piano, take out the trash, do the dishes, clean my room, study for a test, feed the fish` |
+| **2** (p.41 / frequency) | `always, usually, sometimes, never` |
+
+Lesson 2 may **retrieve** a small number of already-taught chores orally or via the Student Book; it should **not** receive the entire chore list again unless the teacher deliberately wants reteaching.
 
 ---
 
-## 9. Evaluation plan (after a future authorized generation)
+## 9. Qualitative review (Experiment 8 — recorded)
 
-**Method:** Owner qualitative review of Lesson Series exports against the lenses below and the Experiment 5/6/7 working pattern. **Not** a D018 seven-criterion scored Pass/Fail.
+**Verdict:** **PASS — strong qualitative transfer success.**
 
-| Lens | What to check |
-| --- | --- |
-| **Scope** | Stays on Unit 3 *Working Hard!* LiA SB **40–41**; no CLIL / *like-ing* / WB / BE2 / Unit 8 / `[HM]` drift |
-| **Sequence** | L1 supports p.40 *have to / has to*; L2 supports p.41 frequency (+ light *have to* recycle); no reversed or fused lesson focus |
-| **Textbook integration** | Protected book time for named pages; Track **51** (L1) and Track **53** (L2) directed as official audio only |
-| **Provenance** | `[SS]` / `[SB]` / `[SUPPLEMENTARY]` remain distinguishable; no unmarked publisher “facts” |
-| **Added material** | Definitions / matching / quizzes / answer reveals treated as optional support; must not displace book work or invent Track 53 keys |
-| **Slide economy** | Requested 25/lesson; exported PDF page count interpreted with reveal caution (not automatic failure) |
-| **Teacher curation** | Note what a teacher would still need to cut, relabel, or redirect — without claiming classroom validation |
+The provisional pattern transferred to a **new level, unit, grammar focus, and two-page LiA spread** (BE3 U3 *Working Hard!* SB pp. 40–41).
 
-**Run record (fill only after authorized generation):**
+**Method:** Owner review of the generated Lesson Series slides/exports against the §9 lenses and the Experiment 5/6/7 working pattern. **Not** a D018 seven-criterion scored Pass/Fail.
+
+### 9.1 Generation record
 
 | Item | Lesson 1 | Lesson 2 |
 | --- | --- | --- |
-| Export filename | … | … |
-| Requested slides | 25 | 25 |
-| Exported PDF pages | … | … |
+| Export | `CHORES AND OBLIGATIONS - experiment 8 - lesson 1.pdf` | `Adverbs of Frequency for Daily Routines - experiment 8 - lesson 2.pdf` |
+| Exported PDF pages | **31** | **31** |
+| Location | Owner Downloads (not committed) | Owner Downloads (not committed) |
+| Prompt / outlines / vocab | §6 + §7 + §8 (identical 12-item list both lessons) | Same pattern |
 
-**Non-claims after any review:** no classroom validation; no product readiness; no Phase 2 closure; no methodology lock; no D018/Arm B2/V2b score change.
+**Page-count note:** 31/31 exported PDF pages are **acceptable**. Do **not** treat them as a slide-count failure — reveal/animation states can add PDF pages beyond the 25 requested slides.
+
+### 9.2 Lens findings
+
+| Lens | Finding |
+| --- | --- |
+| **Scope** | **Strong.** Correct BE3 U3 LiA SB pp. 40–41. No CLIL / *like-ing* / WB / BE2 / Unit 8 / `[HM]` drift. |
+| **Sequence** | **Strong on page focus** (L1 supports p.40 obligations; L2 supports p.41 frequency). See §9.3 for vocabulary-allocation confound on early frequency / L2 chore reteach appearance. |
+| **Textbook integration** | **Strong.** Protected SB pp. 40–41 support; official Track **51** / **53** handled correctly; no invented publisher audio scripts or Activity 11 answer keys. |
+| **Provenance** | **Strong.** No unmarked invented publisher content treated as book audio/keys. |
+| **Added material** | **Curation note (not failure):** generated definitions, matching, quizzes, reveals, and examples = optional support; must not displace protected book work; mark `[SUPPLEMENTARY]` unless directly verified SB content. |
+| **Slide economy** | **Acceptable.** 31/31 PDF pages including likely reveals; not scored as failure. |
+| **Teacher curation** | Still required for optional generated support; continue to avoid invented publisher audio wording, keys, or answers. |
+| **Transfer meaning** | **PASS.** Pattern transferred beyond BE2 U5 LiA to a new book level with a two-focus LiA spread. |
+
+### 9.3 Corrected lesson-allocation finding (vocabulary-allocation confound)
+
+An earlier informal read suggested: “Lesson split mostly strong — L1 introduces frequency words early, and L2 reteaches the whole chores set.”
+
+**Causal correction:** that appearance is **partly caused by our own setup**, not an independent Chalkie sequencing failure.
+
+- Experiment 8 manually entered the **identical 12-item list** into **both** lessons (chores **and** frequency adverbs).
+- Chalkie was therefore explicitly given both the chores and frequency-adverb material for both lessons.
+- Record as a **vocabulary-allocation confound**: Experiment 8 does **not** cleanly test whether Chalkie can maintain a strict L1/L2 vocabulary split when supplied **distinct** lists.
+
+**Do not** present L1 early frequency introduction or L2 full-chore reuse as a clean Chalkie failure.  
+**Do** require **separate vocabulary lists per lesson** in the next handoff iteration (see §8.1 and the revised provisional template).
+
+### 9.4 Retained curation findings
+
+- Generated definitions, matching, quizzes, reveals, and examples remain **optional support** and must not displace protected book work.
+- Mark generated material `[SUPPLEMENTARY]` unless it is directly verified SB content.
+- Continue to avoid invented publisher audio wording, keys, or answers.
+
+### 9.5 Non-claims
+
+- No classroom validation; no product readiness; no Phase 2 closure.
+- Does **not** lock the handoff pattern as production methodology.
+- Does **not** revise D018 / Arm B2 / V2b scores.
+- Further generation is **not authorized** by this review.
 
 ---
 
@@ -309,21 +357,21 @@ make my bed, walk the dog, practice the piano, take out the trash, do the dishes
 | --- | --- | --- |
 | 1 | Source preflight complete | **Done** |
 | 2 | Target identity confirmed (*Working Hard!*) | **Done** (owner) |
-| 3 | Design drafted from verified preflight evidence | **Done** (this doc) |
-| 4 | Owner approves design | **Pending** |
-| 5 | Owner authorizes **one** Chalkie Lesson Series generation | **Not authorized** |
-| 6 | Record exports + qualitative review per §9 | **Not started** |
+| 3 | Design drafted from verified preflight evidence | **Done** |
+| 4 | Owner approves design | **Done** |
+| 5 | Owner authorizes **one** Chalkie Lesson Series generation | **Done** — Experiment 8 generated |
+| 6 | Record exports + qualitative review per §9 | **Done** — PASS / strong transfer success; vocab-allocation confound recorded |
 | 7 | Further regeneration | **Not authorized** |
 
-**Status line for trackers:** DESIGN DRAFT · NOT AUTHORIZED TO GENERATE.
+**Status line for trackers:** GENERATED · QUALITATIVELY REVIEWED · PASS — strong transfer success · vocab-allocation confound recorded · further generation not authorized.
 
 ---
 
 ## 11. Boundaries
 
-- Does **not** authorize Chalkie generation.
+- Does **not** authorize another Chalkie generation.
 - Does **not** revise D018 / Arm B2 / V2b scores or preferred-control status.
-- Does **not** lock the Experiment 5/6/7 handoff as production methodology.
+- Does **not** lock the Experiment 5/6/7/8 handoff as production methodology.
 - Does **not** claim classroom validation or product readiness.
 - Does **not** add UI, schema, or horizontal-mapping requirements.
 - Chalkie remains a transfer/diagnostics surface downstream of curriculum evidence.

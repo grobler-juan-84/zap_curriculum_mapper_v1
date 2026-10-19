@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 215
+**Last updated:** Step 216
 
 
 
@@ -368,9 +368,13 @@
 
 - [x] Owner confirmed target = BE3 U3 *Working Hard!* LiA SB pp. 40–41.
 
-- [x] **Draft BE3 U3 LiA transfer-test design** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md). DESIGN DRAFT / **not authorized to generate**.
+- [x] **Draft BE3 U3 LiA transfer-test design** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md).
 
-- [ ] Owner approve the BE3 U3 LiA design; authorize one Chalkie generation only explicitly. Do not lock methodology.
+- [x] **Experiment 8 generated + reviewed** — PASS / strong qualitative transfer success (31/31). Vocabulary-allocation confound recorded (identical 12-item list both lessons). Further generation **not authorized**.
+
+- [x] **Revise provisional handoff template** — require per-lesson vocabulary allocation (supersedes “same set both lessons”).
+
+- [ ] Optional later: owner-gated repeat with L1 chores-only / L2 frequency-only vocab. Do not lock methodology; do not regenerate by default.
 
 
 

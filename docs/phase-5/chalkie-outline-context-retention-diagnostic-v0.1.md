@@ -1,7 +1,7 @@
 # Chalkie Outline / Context Retention Diagnostic
 
 **Version:** 0.1  
-**Status:** ACTIVE / EVOLVING — Experiments 1–6 recorded; Experiment 7 U5 LiA **transfer test succeeded** (qualitative); pattern remains provisional / not locked; further generation not authorized by this record  
+**Status:** ACTIVE / EVOLVING — Experiments 1–8 recorded; Experiment 7 and Experiment 8 LiA transfers **PASS** (qualitative); pattern remains provisional / not locked; further generation not authorized by this record  
 **Date:** 2026-10-19  
 **Scope:** Narrow Chalkie workflow diagnostic. This is not a D018 iteration, a lesson-quality verdict, a methodology lock, or a product decision.
 
@@ -262,6 +262,46 @@ Experiments 5–6 showed the pattern works for a Unit 8 vocabulary/song context.
 
 The pattern remains a **provisional candidate**, not a locked methodology, classroom validation, or product standard. Further generation is **not authorized** by this record.
 
-## 10. Provisional implication
+## 10. Experiment 8 — cross-level LiA transfer (BE3 U3)
 
-The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, explicit output field alongside the short general brief and the per-lesson instructional sequence. Experiment 7 strengthens that hypothesis by succeeding with a deliberately restricted six-word list on a LiA spread. That is still a design hypothesis only — not a packaging format lock or a claim that Chalkie is (or is not) suitable as a production backend.
+### 10.1 Setup
+
+Experiment 8 applied the same provisional handoff pattern to a **new book level**:
+
+- **Target:** Big English 3 Unit 3 *Working Hard!* Language in Action, Student Book **pp. 40–41** (*have to / has to* + frequency adverbs).
+- **Design / review:** [`chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md)
+- **Inputs:** detailed initial curriculum handoff + concise teacher-controlled outlines + explicit vocabulary.
+- **Pre-run vocabulary entry (historical):** the **identical** 12-item list in **both** lessons — eight chores + `always, usually, sometimes, never`.
+- **Configuration:** Lesson Series · 2 lessons · 25 slides/lesson · ≈40 min including book work · Chalkie Default · Simple · Grade 3 / English ability Grade 2 · Audio OFF.
+
+### 10.2 Outputs
+
+- `CHORES AND OBLIGATIONS - experiment 8 - lesson 1.pdf` — **31** exported PDF pages.
+- `Adverbs of Frequency for Daily Routines - experiment 8 - lesson 2.pdf` — **31** exported PDF pages.
+
+### 10.3 Result — PASS / strong qualitative transfer success
+
+Owner review records a **PASS — strong qualitative transfer success**:
+
+- Scope stayed on BE3 U3 LiA SB pp. 40–41 (new level/unit/grammar focus; two-page LiA spread).
+- Accurate grammar; protected SB pp. 40–41 support; official Track **51** / **53** handled correctly.
+- No invented publisher audio scripts or Activity 11 answer keys; no topic drift.
+- 31/31 PDF pages are acceptable (reveal/animation expansion expected; not a slide-count failure).
+
+**Curation notes (not failure findings):** optional generated definitions/matching/quizzes/reveals/examples; do not let them displace textbook work; keep unverified examples visibly `[SUPPLEMENTARY]`.
+
+### 10.4 Vocabulary-allocation confound (corrected causal read)
+
+An informal observation that Lesson 1 introduced frequency words early and Lesson 2 retaught the whole chores set is **partly caused by duplicated manual vocabulary input**, not a clean independent Chalkie sequencing failure.
+
+Experiment 8 therefore does **not** cleanly test whether Chalkie can maintain a strict L1/L2 vocabulary split when supplied **distinct** lists. The provisional handoff template now requires **per-lesson vocabulary allocation**. Recommended future split for this target: L1 = eight chores; L2 = four frequency adverbs only (retrieve chores orally/via SB as needed).
+
+### 10.5 Transfer finding
+
+Experiment 7 showed cross-**unit** LiA transfer within BE2. Experiment 8 shows the pattern can also transfer across **book level** (BE3) with a two-focus LiA spread.
+
+The pattern remains a **provisional candidate**, not a locked methodology, classroom validation, or product standard. Further generation is **not authorized** by this record.
+
+## 11. Provisional implication
+
+The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, explicit output field alongside the short general brief and the per-lesson instructional sequence. Experiment 7 strengthened that hypothesis with a restricted six-word list. Experiment 8 strengthens it further: vocabulary must be allocated **per lesson**, not pasted as one combined list into both lessons. That is still a design hypothesis only — not a packaging format lock or a claim that Chalkie is (or is not) suitable as a production backend.

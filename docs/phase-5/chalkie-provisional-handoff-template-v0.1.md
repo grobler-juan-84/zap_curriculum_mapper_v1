@@ -2,8 +2,9 @@
 
 **Status:** DRAFT / EXPERIMENTAL / **NOT A METHODOLOGY LOCK** / **DOES NOT AUTHORIZE GENERATION**  
 **Date:** 2026-10-19  
-**Evidence base:** Chalkie diagnostic Experiments **5**, **6**, and **7** (U8 Wild Animals + U5 Language in Action transfer)  
+**Evidence base:** Chalkie diagnostic Experiments **5**–**8** (U8 Wild Animals + U5 LiA + BE3 U3 LiA transfer)  
 **Usability check:** [`chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md)  
+**Vocab-allocation revision:** Experiment 8 confound — [`chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) §9.3  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
 ---
@@ -66,14 +67,20 @@ Include all six beats below; **order may adjust** so protected textbook time is 
 
 ---
 
-## 4. Explicit vocabulary (required)
+## 4. Explicit vocabulary (required) — per-lesson allocation
 
 ```text
-VOCABULARY (manual Chalkie entry, comma-separated): word1, word2, word3
+VOCABULARY — Lesson 1 (manual Chalkie entry, comma-separated): …
+VOCABULARY — Lesson 2 (manual Chalkie entry, comma-separated): …
 ```
 
-Include **only** words justified by the **scoped pages**. Do **not** dump broader unit vocabulary merely because it appears elsewhere in the unit.  
-Enter chips **per lesson**; use the **same scoped list** for both lessons unless page scope differs.
+Include **only** words justified by each lesson’s **intended focus** within the scoped pages. Do **not** dump broader unit vocabulary merely because it appears elsewhere in the unit.
+
+**Required:** allocate vocabulary **separately per lesson**, aligned to that lesson’s focus (e.g. Lesson 1 = page/frame focus A; Lesson 2 = page/frame focus B). Do **not** default to pasting the same combined list into both lessons.
+
+**Why:** Experiment 8 showed that an identical combined list in both lessons is a **vocabulary-allocation confound** — early appearance of Lesson-2 words in Lesson 1 (and full reteach of Lesson-1 words in Lesson 2) is partly caused by the duplicated input, not a clean Chalkie sequencing failure.
+
+Retrieval of already-taught words may happen orally or via the Student Book without re-entering the full prior list, unless the teacher deliberately wants reteaching.
 
 ---
 
@@ -109,7 +116,7 @@ Exported PDF pages may include reveal states and are **not** equivalent to plann
 - [ ] Title / initial prompt / outline bodies aligned (no conflicting topic residue)
 - [ ] Exact page scope + exclusions stated
 - [ ] Floor frames and book activities match verified evidence
-- [ ] Vocabulary chips = scoped list only (same set unless scope differs)
+- [ ] Vocabulary chips = per-lesson allocation only (lists match each lesson’s focus; not an identical combined dump)
 - [ ] Settings recorded (§5)
 
 **Post-generation**
