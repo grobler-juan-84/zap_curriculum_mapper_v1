@@ -36,7 +36,6 @@ const BE2_U08_VOCABULARY = [
 const BE2_U08_LANGUAGE: TeacherChoiceLanguageExample[] = [
   { label: 'Preference', example: 'Do you like cheetahs? Yes, I do!' },
   { label: 'Ability statement', example: 'Cheetahs can run.' },
-  { label: 'Ability question', example: 'Can a kangaroo jump? Yes, it can.' },
 ]
 
 const BE2_U08_CLARIFICATION =

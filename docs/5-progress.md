@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 232
+**Last updated:** Step 233
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Chalkie Workspace teacher-choice overlay Steps 1–4 complete for BE2 U8 prototype (summary closes without prompt generation).
+- **UI micro-step:** Full teacher-choice journey through local copy-ready Chalkie prompt preview (BE2 U8 pp. 128–129; no API/Chalkie submit).
 
 ## In progress
 
-- Owner review of the full Prepare → Steps 1–4 teacher-choice journey.
+- Owner review of Prepare → Steps 1–4 → prompt preview / copy handoff.
 
 ## Next
 
-- Owner review the Step 4 lesson-input summary; decide whether to authorize a later prompt-preview / generation handoff.
+- Owner try the copy-ready prompt preview with selected HM + teacher-added cases; decide whether to authorize any later Chalkie submit / generation path.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 

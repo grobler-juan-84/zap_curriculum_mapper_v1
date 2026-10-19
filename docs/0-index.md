@@ -168,7 +168,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: Prepare Chalkie prompt → teacher-choice Steps 1–4 through lesson-input summary (no generation yet). Not a product lock. | 1.4 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: teacher-choice Steps 1–4 + local copy-ready prompt preview for BE2 U8 pp. 128–129. Not a product lock. | 1.5 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) | Historical page-scoped Chalkie brief for BE2 U8 pp. 128–129 (pre-D018). Research only. | 1.0 | PARKED |

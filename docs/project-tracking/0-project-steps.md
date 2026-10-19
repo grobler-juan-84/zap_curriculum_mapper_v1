@@ -3967,3 +3967,20 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 233
+
+**Summary:** Added local copy-ready Chalkie prompt preview from Step 4 (deterministic BE2 U8 pp. 128–129 assembly with selected [HM] and teacher-added labels). Corrected Steps 1/4 current language to drop the non-page kangaroo Q&A. Clipboard copy only; no API/Chalkie submit or persistence.
+
+**Files touched:**
+- app/src/features/chalkie/buildChalkiePromptPreview.ts (created)
+- app/src/features/chalkie/teacherChoicePrototypeContent.ts (updated)
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

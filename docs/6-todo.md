@@ -400,7 +400,9 @@
 
 - [x] **UI micro-step: teacher-choice Step 4 (Lesson-input summary)** — review current lesson + selected/teacher-added inputs; Back to workspace closes without generation.
 
-- [ ] Owner review full Prepare → Steps 1–4 journey in `/app/chalkie` (BE2 Unit 8); decide whether to authorize prompt-preview / generation next. Do not lock methodology.
+- [x] **UI micro-step: local Chalkie prompt preview** — page-scoped BE2 U8 pp. 128–129 prompt assembly + clipboard copy; no API/Chalkie submit.
+
+- [ ] Owner review Prepare → prompt preview / copy in `/app/chalkie` (BE2 Unit 8); decide whether any later submit/generation path is authorized. Do not lock methodology.
 
 
 

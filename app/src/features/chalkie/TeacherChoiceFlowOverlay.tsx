@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { buildChalkiePromptPreview } from './buildChalkiePromptPreview'
 import type { TeacherChoiceLessonContext } from './teacherChoicePrototypeContent'
 import { BE2_U08_AI_SUGGESTIONS } from './teacherChoiceSuggestions'
 
@@ -47,6 +48,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [teacherAdditions, setTeacherAdditions] = useState<TeacherAddedLanguage[]>([])
   const [newFrame, setNewFrame] = useState('')
   const [newNote, setNewNote] = useState('')
+  const [showPromptPreview, setShowPromptPreview] = useState(false)
+  const [promptPreview, setPromptPreview] = useState('')
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
 
   useEffect(() => {
     if (!open) {
@@ -56,6 +60,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setTeacherAdditions([])
       setNewFrame('')
       setNewNote('')
+      setShowPromptPreview(false)
+      setPromptPreview('')
+      setCopyStatus('idle')
       return
     }
 
@@ -112,11 +119,41 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const useTwoColumnSelected = selectedSuggestions.length >= 2
 
   const handleContinue = () => {
-    if (step < 4) setStep(step + 1)
+    if (step < 4) {
+      setShowPromptPreview(false)
+      setCopyStatus('idle')
+      setStep(step + 1)
+    }
   }
 
   const handleBack = () => {
+    if (showPromptPreview) {
+      setShowPromptPreview(false)
+      setCopyStatus('idle')
+      return
+    }
     if (step > 1) setStep(step - 1)
+  }
+
+  const handleGeneratePromptPreview = () => {
+    const assembled = buildChalkiePromptPreview({
+      selectedSuggestions,
+      teacherAdditions,
+    })
+    setPromptPreview(assembled)
+    setShowPromptPreview(true)
+    setCopyStatus('idle')
+  }
+
+  const handleCopyPrompt = async () => {
+    if (!promptPreview) return
+    try {
+      await navigator.clipboard.writeText(promptPreview)
+      setCopyStatus('copied')
+      window.setTimeout(() => setCopyStatus('idle'), 2000)
+    } catch {
+      setCopyStatus('failed')
+    }
   }
 
   const toggleSuggestion = (id: string) => {
@@ -518,7 +555,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
             </div>
           ) : null}
 
-          {step === 4 ? (
+          {step === 4 && !showPromptPreview ? (
             <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
@@ -661,12 +698,60 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </section>
             </div>
           ) : null}
+
+          {step === 4 && showPromptPreview ? (
+            <div className="mx-auto flex w-full max-w-4xl flex-col gap-5">
+              <div className="space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  Chalkie prompt preview
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  This prompt was assembled from the visible book pages and your selected lesson
+                  inputs.
+                </p>
+              </div>
+
+              <label htmlFor="chalkie-prompt-preview" className="sr-only">
+                Copy-ready Chalkie prompt
+              </label>
+              <textarea
+                id="chalkie-prompt-preview"
+                readOnly
+                value={promptPreview}
+                rows={22}
+                className="min-h-[18rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+              />
+
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleCopyPrompt}
+                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                >
+                  {copyStatus === 'copied' ? 'Copied' : 'Copy prompt'}
+                </button>
+                {copyStatus === 'failed' ? (
+                  <p className="text-sm text-slate-500">
+                    Copying was unavailable. Select the prompt text and copy it manually.
+                  </p>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
         </div>
 
         <footer className="shrink-0 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
-          {step === 4 ? (
+          {step === 4 && !showPromptPreview ? (
             <p className="mb-3 text-sm text-slate-500">
               No Chalkie prompt has been generated yet.
+            </p>
+          ) : null}
+          {step === 4 && showPromptPreview ? (
+            <p className="mb-3 text-sm text-slate-500">
+              Local preview only. No Chalkie lesson has been created.
             </p>
           ) : null}
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -678,13 +763,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   : null}
             </p>
             <div className="flex flex-wrap items-center justify-end gap-2">
-              {step > 1 ? (
+              {step > 1 || showPromptPreview ? (
                 <button
                   type="button"
                   onClick={handleBack}
                   className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
                 >
-                  Back
+                  {showPromptPreview ? 'Back to lesson inputs' : 'Back'}
                 </button>
               ) : null}
               <button
@@ -703,7 +788,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 >
                   Continue
                 </button>
-              ) : (
+              ) : showPromptPreview ? (
                 <button
                   ref={continueRef}
                   type="button"
@@ -711,6 +796,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
                 >
                   Back to workspace
+                </button>
+              ) : (
+                <button
+                  ref={continueRef}
+                  type="button"
+                  onClick={handleGeneratePromptPreview}
+                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                >
+                  Generate Chalkie prompt
                 </button>
               )}
             </div>
