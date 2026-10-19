@@ -417,6 +417,60 @@ Do not isolate [HM] only in explanation/quiz slides.
 | Exports          | `Wild Animals - Arm A - Lesson 1/2.pdf` (historical; L1 **30** / L2 **31** PDF pages incl. reveals) | `Wild Animals - Arm 7A&7B2v2 - lesson 1.pdf` (**30** PDF pages); `Wild Animals - Arm 7A&7B2v2 - lesson 2.pdf` (**32** PDF pages) |
 | Location         | Owner Downloads (not committed)         | Owner Downloads (not committed) |
 
+### 11.1 Generation-stage observation — Chalkie auto-outline is a possible transformation point
+
+**Recorded:** 2026-10-18, from the owner’s direct Arm B2 run. **Status:** unscored observation; not yet a causal conclusion or a change to the D018 rubric.
+
+Before slide generation, Chalkie converted the full §7A + §7B2 handoff into separate editable Lesson 1 and Lesson 2 outlines. This is a substantive intermediate transformation, not merely a display of the supplied prompt. The owner did not manually enter the vocabulary selections that Chalkie proposed.
+
+**Lesson 1 outline observations:**
+
+- It retained the broad Student Book vocabulary split, the required like + can model, the teacher-added identification frame, and song / book-activity references.
+- It described `Listen, find, and say` as using “official Student Book audio tracks,” and included a “pair speaking game and true/false response practice.” These need later checking against the output and the source evidence; the prompt prohibited inventing official audio scripts or true/false item text, not teacher use of official audio.
+- Chalkie’s proposed vocabulary was only `Cheetah`, `Crocodile`, `Elephant`, and `Chase`, despite the broader input. The selection was automatic.
+
+**Lesson 2 outline observations:**
+
+- It retained recall, workbook naming / matching support, the negative preference path, ability practice, song support, and the short zoo-writing response.
+- It introduced a “guided word search and spelling review.” The supplied workbook evidence specifies `Look and write` and `Look and match`; it does not establish a word-search activity. It also paraphrased the p.105 writing activity as a fill-in-the-blank task. These are possible examples of activity transformation or invention at the outline stage.
+- It labeled an ability check as `[SS] [HM] [SUPPLEMENTARY]`, and described a full-echo agreement activity as `[HM] [WB p.105]`. Later review must check whether these mixed labels preserve the intended distinction between publisher evidence and mapper-generated support.
+- Chalkie’s proposed vocabulary was automatically limited to `Giraffe`, `Kangaroo`, `Peacock`, and `Zebra`.
+
+**Working hypothesis for a dedicated outline-to-slide review:** Chalkie’s auto-outline may be a material source of fidelity loss. A long, carefully bounded prompt can be compressed into a partial lesson plan before slides are generated; at that point it may select only a subset of vocabulary, reframe activities, and blend evidence/provenance labels. Compare the editable outline, final slides, and §7A + §7B2 separately. Do not assume that a slide-level problem originated in the original curriculum handoff, and do not attribute causation until that comparison is completed.
+
+**Future control consideration (not authorized in this record):** when testing Chalkie, preserve the generated outline alongside the final exports and consider a controlled comparison between (a) accepting the auto-outline and (b) correcting it before generation. Do not run that comparison without separate owner authorization.
+
+### 11.2 Corroborating earlier case — teacher-controlled outline intervention
+
+**Recorded:** 2026-10-18 from an owner-supplied historical handover. **Status:** informal evidence only; it does not amend D018 decisions, historical scores, the rubric, or project architecture.
+
+This is the **second recorded observation** that Chalkie rewrites a careful curriculum handoff at its auto-outline stage. In the earlier Big English 2 Unit 8 experiment, the original comprehensive curriculum prompt was retained, but the owner replaced Chalkie’s generated Lesson 1 and Lesson 2 outlines with detailed teacher-controlled outlines before generation. The intervention specified instructional order, modelling, guided practice, progressive conversation, reduction of language support, textbook working time, provenance boundaries, and restrictions on invented publisher content.
+
+The historical informal comparison reported **4 Yes / 3 Partial** for the original 7A&B2 series and **5 Yes / 2 Partial** for the teacher-controlled-outline series. The reported strengths were more connected language recycling, clearer guided-to-independent progression, more deliberate textbook integration, and stronger cumulative speaking. Remaining concerns included export length, inconsistent supplementary provenance, possible song-related invention, generic ability language, and vocabulary density.
+
+**Interpretation:** This earlier case is consistent with the §11.1 hypothesis that the auto-outline may compress or rewrite instructional relationships even when it preserves many content ingredients. It is not proof that the outline stage alone caused the reported improvement: the manual intervention also increased specificity, the generation run differed, and the evaluation was informal. The available evidence therefore supports treating outline capture and review as an important diagnostic point, not as a settled product rule.
+
+**Preserved research question:** What is the minimum teacher-controlled instructional structure Chalkie needs to generate a faithful, scaffolded, classroom-usable lesson? A future controlled study could compare the same original prompt under three conditions: (A) Chalkie outline accepted unchanged, (B) detailed teacher-controlled outline, and (C) concise teacher-controlled outline that retains scope, source boundaries, instructional progression, textbook integration, and timing without prescribing every slide. This study is **not authorized** by this record.
+
+### 11.3 Three-artifact trace — handoff → auto-outline → exported PDFs
+
+**Recorded:** 2026-10-18. **Method:** read-only comparison of §7A + §7B2, the owner-captured auto-outlines in §11.1, and the text/content of the two Arm B2 PDF exports. This is a diagnostic trace, not a replacement for the existing evaluation or a causal finding about Chalkie’s internal implementation.
+
+| Requirement / risk point | Approved handoff | Auto-outline | Exported PDFs | Trace finding |
+| --- | --- | --- | --- | --- |
+| Lesson allocation and page scope | Lesson 1 = SB pp.128–129; Lesson 2 = WB pp.104–105 | Preserved the two-lesson allocation | L1 labels the Student Book pages; L2 labels Workbook practice and directs work in pp.104–105 | Core allocation survived, but both PDFs add substantial generated preparation/practice around the book work. |
+| Animal vocabulary | The page-set animals are the teaching floor; avoid unnecessary repetition | Outline automatically surfaced only 4 vocabulary items per lesson | PDFs collectively include all 12 animals, but through extra factual descriptions, definitions, matching and clue tasks | Coverage survived, but the generated form changed from book-focused recognition/practice into broader animal-fact and definition teaching. |
+| Textbook activity fidelity | Support book activities; do not replace them or invent missing answers/scripts | L2 changed WB work into “word search and spelling review”; p.105 became “fill-in-the-blank words” | L2 adds definition matching and an animal-letter unscramble before workbook work; it later correctly names the real WB activities | The transformation visible in the outline reached the PDFs: generated activities supplement or reframe the workbook rather than merely preparing for its stated tasks. |
+| Official audio / song boundaries | Direct teacher to official book/audio; do not invent lyrics, audio scripts, or true/false item text | Outline refers to official tracks and true/false practice | PDFs direct use of official audio and do not print lyrics or official item scripts | The no-script boundary largely survived. However, additional generated true/false/fact activities appear elsewhere, so a teacher still needs to distinguish those from publisher tasks. |
+| `[HM]` selection and PL-08 exclusion | Use only PL-01, PL-03, PL-19 and teacher-added ID; do not use `Me, too!` / `Me neither!` | Keeps ID, preferences and ability; no PL-08 | PDFs include ID, positive/negative preference and full-echo agreement; no `Me, too!` / `Me neither!` found | The selected/deselected language constraint survived this run. |
+| Progressive exchange | Use short, natural progressive beats; do not require a full chain everywhere | Outline names individual language targets, with limited sequencing detail | L1 p.26 gives ID → preference → ability → action; L2 p.20 gives ID → preference → ability | The core sequence survives, but it is compressed. The L1 action becomes `The cheetah is chasing!` rather than the specified `It is chasing the kangaroo.` |
+| Provenance separation | `[SS]`, `[SB]`, `[WB]`, `[HM]`, `[SUPPLEMENTARY]` must not be silently fused | Outline already labels ability as `[SS] [HM] [SUPPLEMENTARY]` and full echo as `[HM] [WB p.105]` | Examples include `It is an elephant. [HM] [SB p.128]`, ability labelled `[SB p.129]`, and full echo on a slide headed `[WB p.105]` | This is the clearest cross-stage fidelity risk: mixed labels from the outline persist in the output and can blur publisher evidence versus generated support. |
+| Classroom economy / textbook time | About 40 minutes including book work; avoid unnecessary slides and repeated lists | Outline remains broad about pacing | Exports have 30 and 32 pages, including reveal pages; both contain extra quizzes, facts, definitions, matching and recap/check slides | The PDFs reserve explicit book-work slides, but the amount of generated pre-/post-book content leaves pacing and necessity for later review. PDF pages must still not be equated with unique planned slides. |
+
+**Directly supported conclusion:** The auto-outline is not neutral transcription. It appears to be a material planning transformation: it preserves much of the scope and selected language, while reframing activities, narrowing its visible vocabulary selection, and mixing evidence/provenance categories. Those transformations are observable again in the final PDFs.
+
+**Boundary on that conclusion:** This trace cannot establish whether Chalkie generated the final slides from only the auto-outline, from the original handoff plus the outline, or from another internal representation. It also does not establish that every additional activity is pedagogically harmful. It establishes where the handoff must be checked and where a controlled auto-outline-versus-teacher-outline test would be informative.
+
 
 **Page-count caution:** Exported PDF pages include answer/reveal pages. Do **not** equate 30/32 PDF pages with unique Chalkie slides or with 25 requested slides.
 
