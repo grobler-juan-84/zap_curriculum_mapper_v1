@@ -1,9 +1,9 @@
 # Chalkie Transfer Test — BE2 Unit 5 Language in Action pp. 78–79 (v0.1)
 
-**Status:** DESIGN DRAFT / **NOT AUTHORIZED TO GENERATE**  
+**Status:** DESIGN **APPROVED** · **GENERATED** · **QUALITATIVELY REVIEWED** — **strong transfer success** · further generation **not authorized**  
 **Date:** 2026-10-19  
 **Branch:** `phase-2`  
-**Purpose:** Owner-gated transfer test of the provisional Chalkie handoff pattern (Experiments 5/6) on a **new** Big English 2 lesson spread. Design only — no Chalkie run, no lesson evaluation in this document.
+**Purpose:** Owner-gated transfer test of the provisional Chalkie handoff pattern (Experiments 5/6) on Big English 2 Unit 5 Language in Action (SB pp. 78–79). Generation and qualitative review recorded; not a D018 scored iteration.
 
 **Provisional handoff pattern under test (not locked):**
 
@@ -29,7 +29,7 @@
 | Framework **Chalkie Default** · Theme **Simple** | New concise teacher-controlled outlines (§7) |
 | Grade **3** · English ability **Grade 2** · Audio **OFF** | New explicit manual vocabulary list (§8) |
 | No BI / no `[HM]` / no school intelligence | Transfer fidelity vs Experiment 5/6 working pattern (§9) |
-| No generation until owner authorizes | — |
+| One authorized generation run (completed) | Further regeneration not authorized |
 
 **Not a D018 iteration.** Do not revise D018 scores, V2b status, Arm B2 scores, or lock methodology.
 
@@ -289,23 +289,52 @@ actor, doctor, vet, teacher, dancer, singer
 
 
 
-## 9. Evaluation plan (after a future authorized generation)
+## 9. Qualitative review (Experiment 7 — recorded)
 
-Compare the transfer output to the **Experiment 5/6 working pattern** (diagnostic lenses — **not** a D018 score rewrite).
+**Verdict:** **Strong qualitative transfer success** for the provisional handoff pattern:
 
-| Lens | Ask |
+> Detailed initial curriculum handoff + concise teacher-controlled outline + explicit vocabulary selection.
+
+**Method:** Owner review of the generated Lesson Series slides/exports against the §9 lenses and the Experiment 5/6 working pattern. **Not** a D018 seven-criterion scored Pass/Fail.
+
+### 9.1 Generation record
+
+
+| Item | Lesson 1 | Lesson 2 |
+| --- | --- | --- |
+| Export | `Asking About Dream Jobs - experiment 7 - lesson 1.pdf` | `QUESTIONS WITH DO AND DOES - expeririment 7 - lesson 2.pdf` |
+| Exported PDF pages | **30** | **30** |
+| Location | Owner Downloads (not committed) | Owner Downloads (not committed) |
+| Prompt / outlines / vocab | §6 + §7 + §8 (six jobs) | Same pattern |
+
+
+**Page-count note:** 30/30 exported PDF pages are **acceptable**. Do **not** treat them as a slide-count failure — reveal/animation states can add PDF pages beyond the 25 requested slides.
+
+### 9.2 Lens findings
+
+
+| Lens | Finding |
 | --- | --- |
-| **Topic / scope fidelity** | Stays on Unit 5 dream jobs / LiA? Any Unit 8 or out-of-scope Unit 5 (CLIL, *because*, values, phonics)? |
-| **Sequence** | Lesson 1 introduce → p.78; Lesson 2 retrieve → p.79; modelling → guided → communicative → book work → short check? |
-| **Textbook integration** | Protected p.78 / p.79 working time? Official audio/sticker directions without invented scripts? |
-| **Provenance** | `[SS]` / `[SB]` / `[SUPPLEMENTARY]` distinguishable? No false publisher audio? |
-| **Added material** | Extra definitions/quizzes/reveals beyond the outlines? |
-| **Slide economy** | Usable within ≈40 minutes including book work (25 slides = request; PDF pages may include reveals)? |
-| **Teacher curation** | How much would a teacher need to cut/relabel before classroom use? |
+| **Topic / scope fidelity** | **Strong.** Stayed on Unit 5 Language in Action SB pp. 78–79. No Unit 8 drift; no unrelated Unit 5 (CLIL / *because* / values / phonics) drift. |
+| **Sequence** | **Strong.** Lesson 1 supported p.78 (self/other dream-job frames, Acts 9–10). Lesson 2 supported p.79 (`do/does`, Acts 11–13, ask-and-answer, short independent use). |
+| **Textbook integration** | **Strong.** Protected book work; official Track **104** (L1) and Track **105** / sticker direction (L2) without treating invented scripts as publisher audio. |
+| **Grammar progression** | **Strong.** Accurate and appropriately scaffolded for LiA frames and `do`/`does`. |
+| **Vocabulary** | **Strong.** Restricted six-job set (`actor, doctor, vet, teacher, dancer, singer`) worked well. |
+| **Slide economy** | **Acceptable.** 30/30 PDF pages including likely reveals; not scored as failure. |
+| **Transfer meaning** | **Meaningful evidence** that the handoff pattern transfers beyond the Unit 8 vocabulary/song context to a **grammar / Language in Action** lesson. |
 
-**Success signal (qualitative):** On-topic, sequence-aligned two-lesson series that supports pp.78–79 comparably to how Experiments 5/6 supported their Wild Animals spread — without claiming classroom validation or methodology lock.
+### 9.3 Future curation considerations (not failure findings)
 
-**Non-claims:** No Pass/Fail against D018 rubric unless the owner later authorizes a separate scored review; no product readiness; no Phase 2 closure.
+- Some generated job definitions, matching tasks, and answer-reveal material may be **optional** rather than essential.
+- Such generated support should **not displace** protected textbook work.
+- Unverified generated examples should remain visibly **`[SUPPLEMENTARY]`**.
+
+### 9.4 Non-claims
+
+- No classroom validation; no product readiness; no Phase 2 closure.
+- Does **not** lock the handoff pattern as production methodology.
+- Does **not** revise D018 / Arm B2 / V2b scores.
+- Further generation is **not authorized** by this review.
 
 ---
 
@@ -316,13 +345,14 @@ Compare the transfer output to the **Experiment 5/6 working pattern** (diagnosti
 
 | # | Gate | Status |
 | --- | --- | --- |
-| 1 | Design drafted from verified SB + SS evidence | **Done (this document)** |
-| 2 | Owner approves design (or requests revise) | Pending |
-| 3 | Owner authorizes **one** Chalkie Lesson Series generation | **Not authorized** |
-| 4 | Record exports + evaluate per §9 | Not started |
+| 1 | Design drafted from verified SB + SS evidence | **Done** |
+| 2 | Owner approves design | **Done** (accepted 2026-10-19) |
+| 3 | Owner authorizes **one** Chalkie Lesson Series generation | **Done** — generated (Experiment 7) |
+| 4 | Record exports + qualitative review per §9 | **Done** — strong transfer success |
+| 5 | Further regeneration | **Not authorized** |
 
 
-**Status line for trackers:** DESIGN DRAFT / NOT AUTHORIZED TO GENERATE.
+**Status line for trackers:** GENERATED · QUALITATIVELY REVIEWED · strong transfer success · further generation not authorized.
 
 ---
 
@@ -330,8 +360,9 @@ Compare the transfer output to the **Experiment 5/6 working pattern** (diagnosti
 
 ## 11. Boundaries
 
-- Does **not** authorize Chalkie generation.
+- Does **not** authorize another Chalkie generation.
 - Does **not** revise D018 / Arm B2 / V2b scores or preferred-control status.
-- Does **not** lock the Experiment 5/6 handoff as production methodology.
+- Does **not** lock the Experiment 5/6/7 handoff as production methodology.
 - Does **not** add UI, schema, or horizontal-mapping requirements.
+- Does **not** claim classroom validation or product readiness.
 - Chalkie remains a transfer/diagnostics surface downstream of curriculum evidence.

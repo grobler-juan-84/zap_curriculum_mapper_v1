@@ -3627,3 +3627,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 211
+
+**Summary:** Recorded Experiment 7 Chalkie transfer-test generation and qualitative review for BE2 U5 Language in Action SB pp. 78-79. Strong transfer success for the provisional handoff pattern; 30/30 PDF pages acceptable; curation notes only (not failures). Further generation not authorized; D018 scores and methodology unlocked status unchanged.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md (updated)
+- docs/phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md (updated; tracked)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 210
+**Last updated:** Step 211
 
 
 
@@ -356,9 +356,11 @@
 
 - [x] Owner review of the Experiment 1–6 diagnostic findings — transfer-test design drafted (generation still gated).
 
-- [x] **Draft Chalkie transfer-test design** — BE2 U5 LiA pp. 78–79 in [`phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md). Status: DESIGN DRAFT / **not authorized to generate**.
+- [x] **Draft Chalkie transfer-test design** — BE2 U5 LiA pp. 78–79 in [`phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md).
 
-- [ ] Owner **approve or revise** the U5 LiA transfer-test design. Do not generate until explicitly authorized.
+- [x] Owner **accepted and authorized** the U5 LiA transfer-test design; **Experiment 7 generated** and qualitatively reviewed — **strong transfer success** (30/30 PDF pages). Further generation **not authorized**.
+
+- [ ] Owner review of Experiment 7 implications only; do not lock methodology or authorize another generation by default.
 
 
 

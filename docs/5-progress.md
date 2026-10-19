@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 210
+**Last updated:** Step 211
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,25 +22,23 @@
 
 - **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → lesson-input pack **recorded**.
 
-- **Arm B2 generated + evaluated** — preferred vs Arm A for pack fidelity / progressive ID language; neither Pass (≥5 Yes); further regeneration not authorized.
+- **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie outline/context diagnostic — Experiments 1–6 recorded:** provisional candidate = detailed handoff + concise teacher-controlled outline + explicit vocabulary (not locked).
+- **Chalkie diagnostic Experiments 1–6** — provisional handoff pattern identified (not locked).
 
-- **Chalkie transfer-test design drafted** — BE2 U5 Language in Action pp. 78–79; DESIGN DRAFT / **not authorized to generate**.
-
-- **U5 LiA explicit vocabulary narrowed** — manual Chalkie list = `actor, doctor, vet, teacher, dancer, singer` only.
+- **Experiment 7 transfer test succeeded** — BE2 U5 LiA SB pp. 78–79; strong qualitative transfer of detailed handoff + concise outline + explicit six-job vocabulary; further generation not authorized.
 
 ## In progress
 
-- Owner review of the U5 LiA transfer-test design before any generation authorization.
+- Owner review of Experiment 7 implications (pattern remains provisional).
 
 ## Next
 
-- Owner approve or revise [`phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md). Do **not** generate until explicitly authorized.
+- Decide any separately gated follow-on only explicitly. Do **not** regenerate by default. Do not lock methodology from Experiment 7 alone.
 
 ## Blocked
 
-- Soft: Chalkie transfer generation, further Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, and classroom-validation claims are not authorized by this micro-step.
+- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
 
 ---
 
@@ -48,6 +46,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Transfer target verified from Phase 1 canonical `bep2_p078`/`bep2_p079` + SS Unit 5 *My Dream Job*; source PDF present (image pages; identity via human-verified JSON).
+- Experiment 7 exports: `Asking About Dream Jobs - experiment 7 - lesson 1.pdf` (30) · `QUESTIONS WITH DO AND DOES - expeririment 7 - lesson 2.pdf` (30).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.
