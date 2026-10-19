@@ -404,7 +404,9 @@
 
 - [x] **UI micro-step: Step 4 lesson-shape selection** — Single lesson default; two-lesson series visible but unavailable; copyable lesson title.
 
-- [ ] Owner review Prepare → lesson shape → prompt preview / copy in `/app/chalkie` (BE2 Unit 8); decide later work. Do not lock methodology.
+- [x] **UI micro-step: enable BE2 U8 two-lesson series preview** — SB 128–129 + WB 104–105; left prompt / right Lesson 1–2 rundown; local only.
+
+- [ ] Owner review Single vs Two-lesson series prompt preview in `/app/chalkie`; decide later work. Do not lock methodology.
 
 
 

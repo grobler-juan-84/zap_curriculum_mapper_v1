@@ -4000,3 +4000,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 235
+
+**Summary:** Enabled the agreed BE2 U8 two-lesson series packaging preview (Lesson 1 SB pp. 128–129 → Lesson 2 WB pp. 104–105): selectable package radio, series title, local series prompt with [SB]/[WB]/[HM]/teacher-added labels, and a wide left-prompt / right Lesson 1–2 rundown layout. Single-lesson route preserved; no API/persistence.
+
+**Files touched:**
+- app/src/features/chalkie/buildChalkiePromptPreview.ts (updated)
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 234
+**Last updated:** Step 235
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Teacher-choice journey through Step 4 lesson-shape (Single lesson default) + local copy-ready prompt preview (BE2 U8 pp. 128–129).
+- **UI micro-step:** Teacher-choice packaging supports Single lesson (SB 128–129) and local Two-lesson series preview (SB 128–129 → WB 104–105) with split handoff layout.
 
 ## In progress
 
-- Owner review of Prepare → Steps 1–4 → lesson shape → prompt preview / copy handoff.
+- Owner review of Single vs Two-lesson series local prompt preview.
 
 ## Next
 
-- Owner try Single lesson packaging + title copy + prompt preview; decide later whether to authorize two-lesson series work.
+- Owner try both packaging routes + copy title/prompt; decide whether any later Chalkie submit path is authorized.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 
