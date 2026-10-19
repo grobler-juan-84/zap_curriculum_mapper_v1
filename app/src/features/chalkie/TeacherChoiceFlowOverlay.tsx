@@ -1,6 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import type { TeacherChoiceLessonContext } from './teacherChoicePrototypeContent'
+import { BE2_U08_AI_SUGGESTIONS } from './teacherChoiceSuggestions'
 
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
@@ -9,6 +10,12 @@ interface TeacherChoiceFlowOverlayProps {
 }
 
 const TOTAL_STEPS = 4
+
+function stepNameFor(step: number): string {
+  if (step === 1) return 'Current lesson'
+  if (step === 2) return 'Prior learning'
+  return 'Coming next'
+}
 
 export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> = ({
   open,
@@ -19,10 +26,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const dialogRef = useRef<HTMLDivElement>(null)
   const continueRef = useRef<HTMLButtonElement>(null)
   const [step, setStep] = useState(1)
+  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [openEvidenceIds, setOpenEvidenceIds] = useState<string[]>([])
 
   useEffect(() => {
     if (!open) {
       setStep(1)
+      setSelectedIds([])
+      setOpenEvidenceIds([])
       return
     }
 
@@ -67,9 +78,27 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   if (!open) return null
 
-  const stepName = step === 1 ? 'Current lesson' : 'Coming next'
+  const stepName = stepNameFor(step)
+  const selectedCount = selectedIds.length
+
   const handleContinue = () => {
-    if (step < 2) setStep(2)
+    if (step < 3) setStep(step + 1)
+  }
+
+  const handleBack = () => {
+    if (step > 1) setStep(step - 1)
+  }
+
+  const toggleSuggestion = (id: string) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    )
+  }
+
+  const toggleEvidence = (id: string) => {
+    setOpenEvidenceIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    )
   }
 
   return createPortal(
@@ -166,48 +195,147 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 ) : null}
               </section>
             </div>
-          ) : (
+          ) : null}
+
+          {step === 2 ? (
+            <div className="space-y-7">
+              <div className="space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  What might be useful to reuse?
+                </h2>
+                <p className="max-w-xl text-sm leading-relaxed text-slate-600">
+                  AI found four useful language patterns from earlier units in this book. Choose only
+                  what helps this lesson.
+                </p>
+              </div>
+
+              <ul className="space-y-5" aria-label="AI prior-learning suggestions">
+                {BE2_U08_AI_SUGGESTIONS.map((suggestion) => {
+                  const checked = selectedIds.includes(suggestion.id)
+                  const evidenceOpen = openEvidenceIds.includes(suggestion.id)
+                  const checkboxId = `teacher-choice-${suggestion.id}`
+                  return (
+                    <li
+                      key={suggestion.id}
+                      className="border-b border-slate-100 pb-5 last:border-b-0 last:pb-0"
+                    >
+                      <div className="flex gap-3">
+                        <input
+                          id={checkboxId}
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleSuggestion(suggestion.id)}
+                          className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                          aria-describedby={`${checkboxId}-details`}
+                        />
+                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2">
+                          <div className="space-y-0.5">
+                            <label
+                              htmlFor={checkboxId}
+                              className="block text-sm font-medium text-slate-900"
+                            >
+                              {suggestion.label}
+                            </label>
+                            <p className="text-xs text-slate-500">{suggestion.source}</p>
+                          </div>
+                          <p className="text-sm leading-relaxed text-slate-800">
+                            {suggestion.frame}
+                          </p>
+                          <p className="text-sm leading-relaxed text-slate-600">
+                            <span className="font-medium text-slate-700">Why it may help:</span>{' '}
+                            {suggestion.whyItMayHelp}
+                          </p>
+                          <p className="text-sm leading-relaxed text-slate-600">
+                            <span className="font-medium text-slate-700">Caution:</span>{' '}
+                            {suggestion.caution}
+                          </p>
+                          <div>
+                            <button
+                              type="button"
+                              onClick={() => toggleEvidence(suggestion.id)}
+                              className="text-sm text-slate-500 underline-offset-2 transition-colors hover:text-slate-700 hover:underline"
+                              aria-expanded={evidenceOpen}
+                            >
+                              Why this suggestion?
+                            </button>
+                            {evidenceOpen ? (
+                              <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
+                                {suggestion.evidenceNote}
+                              </p>
+                            ) : null}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  )
+                })}
+              </ul>
+
+              <p className="text-sm text-slate-500">
+                You can continue without selecting any prior learning.
+              </p>
+            </div>
+          ) : null}
+
+          {step === 3 ? (
             <div className="space-y-3 py-8">
               <h2
                 id={titleId}
                 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
               >
-                Step 2 prototype coming next
+                Step 3 prototype coming next
               </h2>
               <p className="max-w-md text-sm leading-relaxed text-slate-600">
                 This micro-step stops here. No prompt has been generated.
               </p>
             </div>
-          )}
+          ) : null}
         </div>
 
-        <footer className="flex shrink-0 items-center justify-end gap-2 border-t border-slate-100 px-5 py-3.5 sm:px-6">
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-          >
-            Cancel
-          </button>
-          {step === 1 ? (
+        <footer className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-5 py-3.5 sm:px-6">
+          <p className="min-w-[5.5rem] text-sm text-slate-500">
+            {step === 2 ? `${selectedCount} selected` : null}
+          </p>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {step > 1 ? (
+              <button
+                type="button"
+                onClick={handleBack}
+                className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              >
+                Back
+              </button>
+            ) : null}
             <button
-              ref={continueRef}
-              type="button"
-              onClick={handleContinue}
-              className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
-            >
-              Continue
-            </button>
-          ) : (
-            <button
-              ref={continueRef}
               type="button"
               onClick={onClose}
-              className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+              className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
             >
-              Back to workspace
+              Cancel
             </button>
-          )}
+            {step < 3 ? (
+              <button
+                ref={continueRef}
+                type="button"
+                onClick={handleContinue}
+                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+              >
+                Continue
+              </button>
+            ) : (
+              <button
+                ref={continueRef}
+                type="button"
+                onClick={onClose}
+                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+              >
+                Back to workspace
+              </button>
+            )}
+          </div>
         </footer>
       </div>
     </div>,

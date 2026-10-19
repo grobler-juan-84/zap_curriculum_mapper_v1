@@ -3909,3 +3909,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 229
+
+**Summary:** Implemented teacher-choice overlay Step 2 (Prior learning): four AI suggestions with native checkboxes (all start unchecked), optional evidence disclosure, quiet selected count, Back to Step 1 preserving local selection, Continue to Step 3 placeholder with zero selection allowed. No persistence or prompt generation.
+
+**Files touched:**
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- app/src/features/chalkie/teacherChoiceSuggestions.ts (created)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

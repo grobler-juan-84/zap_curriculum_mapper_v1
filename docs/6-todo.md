@@ -394,7 +394,9 @@
 
 - [x] **UI micro-step: Chalkie Workspace → Prepare → Step 1 overlay** — compact launch action + Current lesson overlay for BE2 U8; no prompt generation yet.
 
-- [ ] Owner try the Prepare → Step 1 journey in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 2+ overlay content. Do not lock methodology.
+- [x] **UI micro-step: teacher-choice Step 2 (AI suggestions)** — four unchecked prior-learning rows with local selection; Continue with zero allowed; Step 3 still placeholder.
+
+- [ ] Owner try Prepare → Step 1 → Step 2 in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 3 choices screen. Do not lock methodology.
 
 
 

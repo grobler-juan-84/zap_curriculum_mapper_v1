@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 228
+**Last updated:** Step 229
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Chalkie Workspace → **Prepare Chalkie prompt** → overlay Step 1 (BE2 U8); matching fixed for string `unitNumber` + dual catalog candidates.
+- **UI micro-step:** Chalkie Workspace → Prepare → overlay Steps 1–2 (Current lesson + AI prior-learning suggestions with local checkbox selection).
 
 ## In progress
 
-- Teacher-choice guided overlay micro-step (Step 1 live; Steps 2–4 not built).
+- Teacher-choice guided overlay (Steps 1–2 live; Steps 3–4 not built).
 
 ## Next
 
-- Owner re-check Prepare → Step 1 on BE2 Unit 8 (prototype content); decide whether to authorize Step 2+ overlay content.
+- Owner try Prepare → Step 1 → Step 2 selection on BE2 Unit 8; decide whether to authorize Step 3 choices screen.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 
