@@ -3832,3 +3832,21 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 224
+
+**Summary:** Locked **D020** — Phase 3 Vertical Mapping parked as a later priority (not gated on Phase 2 “useful/sufficient” overviews). Documented eventual teacher-facing cross-book prior-learning reuse parallel to horizontal mapping; AI suggests / teacher chooses; exposure ≠ mastery; BE3 U1 ← BE2 U1–9 as non-binding example. Aligned overview, architecture, workflow, index, F005, and trackers. Docs-only; no Phase 3 implementation.
+
+**Files touched:**
+- docs/4-decisions.md (updated)
+- docs/1-project-overview.md (updated)
+- docs/3-architecture.md (updated)
+- docs/11-curriculum-mapping-workflow.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/7-future.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

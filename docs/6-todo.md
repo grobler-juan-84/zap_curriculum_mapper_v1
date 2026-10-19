@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 223
+**Last updated:** Step 224
 
 
 
@@ -443,6 +443,10 @@
 
 
 ## Deferred
+
+
+
+- [ ] Phase 3 Series Intelligence / Vertical Mapping productization (**F005 / D020**) — parked as **later priority**, not gated on Phase 2 completion; do not unlock, schedule, or implement now.
 
 
 

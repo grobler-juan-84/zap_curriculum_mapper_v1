@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order with **immediate emphasis on bounded horizontal mapping** for cumulative learning (within one book; teacher-controlled). Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). **D018** evidence is preserved but **downstream / parked** for now (V2b preferred control; V3 generated, formal evaluation pending; Lesson Series prompt approved but not authorized). Book Intelligence remains provisional under D017/D019; Vertical Mapping remains parked.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. Active development follows a **teacher-first** priority order: workable Phase 2; practical Phase 4–7 pathway; clear teacher-facing options — with **immediate emphasis on bounded horizontal mapping** for cumulative learning (within one book; teacher-controlled). Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). **D018** evidence is preserved but **downstream / parked** for now. Book Intelligence remains provisional under D017/D019. Phase 3 Vertical Mapping remains **parked as a later priority (D020)** — not gated on Phase 2 completion; eventual cross-book prior-learning reuse for teacher choice.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -30,17 +30,17 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
-| [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; **immediate emphasis: horizontal mapping** for cumulative learning; D018/Chalkie downstream; D017/D019 provisional; Vertical Mapping parked. | — | ACTIVE |
+| [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; **immediate emphasis: horizontal mapping**; Phase 3 Vertical Mapping later priority (D020) for cross-book prior-learning reuse; D018/Chalkie downstream; D017/D019 provisional. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
-| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
+| [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked as later priority (D020) — teacher-facing cross-book reuse, not Phase-2-gated; D018 downstream. | — | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D020**: Phase 3 Vertical Mapping parked as later priority (not Phase-2-gated); cross-book prior-learning reuse for teacher choice; D017/D019 BI methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; Exp 10 closed (PASS AFTER TEACHER REVIEW); identify next project question. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority (D020); D018 / Lesson Series parked downstream (not cancelled); full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
-| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow; **main explanation** of immediate horizontal-mapping flow; D018/Chalkie downstream; Vertical Mapping parked. | 1.1 | ACTIVE |
+| [11-curriculum-mapping-workflow.md](./11-curriculum-mapping-workflow.md) | Project-wide curriculum mapping workflow; **main explanation** of immediate horizontal-mapping flow; Phase 3 Vertical Mapping later priority (D020) for optional cross-book prior learning; D018/Chalkie downstream. | 1.1 | ACTIVE |
 
 ### Project tracking
 

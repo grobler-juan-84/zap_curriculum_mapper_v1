@@ -4,7 +4,7 @@
 **Version:** 1.1  
 **Purpose:** Project-wide working workflow for curriculum intelligence across Phases 1–4. Practical handoffs only — not a schema, API, or product lock. Main explanation for the immediate horizontal-mapping emphasis.
 
-**Authority:** Locked phase intent and progressive method live in [`4-decisions.md`](./4-decisions.md) **D017**. Architecture boundaries: [`3-architecture.md`](./3-architecture.md). Overview: [`1-project-overview.md`](./1-project-overview.md).
+**Authority:** Locked phase intent and progressive method live in [`4-decisions.md`](./4-decisions.md) **D017**; Phase 3 park / eventual purpose in **D020**. Architecture boundaries: [`3-architecture.md`](./3-architecture.md). Overview: [`1-project-overview.md`](./1-project-overview.md).
 
 **Related phase detail:**
 - Phase 1 procedures → [`phase-1/phase-1-extraction-workflow.md`](./phase-1/phase-1-extraction-workflow.md)
@@ -40,14 +40,14 @@ Conceptual phases stay numbered as in [`3-architecture.md`](./3-architecture.md)
 |---|---|---|---|
 | **1** | Extraction / Book Evidence | What does the source contain? | PAUSED at 14/18 COMPLETE (D015); resume only by owner decision |
 | **2** | Book Intelligence / Horizontal Mapping | What does this book teach unit by unit — and what prior language can be reused? | Provisional BI baselines + BI UI (D017/D019); **immediate bounded research:** teacher-directed horizontal mapping for cumulative learning (methodology **not locked**) |
-| **3** | Series Intelligence / Vertical Mapping | How does learning develop across books? | **PARKED** (F005) |
+| **3** | Series Intelligence / Vertical Mapping | How does learning connect across books/grades — and what prior language can teachers optionally reuse? | **PARKED — later priority (D020 / F005)**; not gated on Phase 2 completion |
 | **4** | Teaching Intelligence | What scaffolding, recycling, gaps, enrichment are justified? | Supporting philosophy exists; productization later — not the current packaging engine |
 | **5–6** | Lesson packaging / generation | Package intelligence → Chalkie prompt → evaluate generated lesson | **Downstream / parked for now** — D018 evidence preserved (V2b preferred; V3 pending formal eval; Lesson Series approved but **not authorized**). Chalkie is downstream of curriculum intelligence |
 | **7** | Evaluation & refinement | Where did problems originate? | Continuous alongside experiments |
 
-**Teacher-first priority order (operational):** Teacher Workspace → Curriculum Requirements (including horizontal prior-language inventory) → teacher-controlled cumulative applications → (later) Lesson Packaging / Chalkie → Vertical Mapping (**parked**).
+**Teacher-first priority order (operational):** (1) workable Phase 2 / Teacher Workspace → Curriculum Requirements (including horizontal prior-language inventory) → teacher-controlled cumulative applications; (2) practical Phase 4–7 pathway (teaching intelligence, packaging, generation, evaluation) and clear teacher-facing options; (3) Vertical Mapping **much later (D020)**. AI suggests; teacher chooses — not assumed fully automatic one-click reuse.
 
-**Authority:** Locked decisions live in [`4-decisions.md`](./4-decisions.md) (**D017**, **D018**, **D019**). Do not treat proposed drafts as authority. Horizontal-mapping ownership is **not** newly locked here — bounded Phase 2 / teacher-directed research pending owner approval.
+**Authority:** Locked decisions live in [`4-decisions.md`](./4-decisions.md) (**D017**, **D018**, **D019**, **D020**). Do not treat proposed drafts as authority. Horizontal-mapping ownership is **not** newly locked here — bounded Phase 2 / teacher-directed research pending owner approval.
 
 ---
 
@@ -185,49 +185,51 @@ Supporting philosophy (recycle before adding): [`phase-4/teacher-enrichment-phil
 
 ### Handoff to Phase 3
 
-Phase 3 should start from accepted Phase 2 book overviews (plus Phase 1 when needed). Do not invent progression from raw PDFs alone. Vertical mapping remains **parked** and is not required for the immediate horizontal-mapping research.
+When Phase 3 is eventually taken up, it should use verified Phase 1 evidence and appropriate Phase 2 interpretation — not invent progression from raw PDFs alone. Vertical mapping remains **parked as a later priority (D020)** and has **no immediate workflow impact**; it is **not** required for current horizontal-mapping research and is **not** blocked by Phase 2 “sufficiency.”
 
-**Not authorized here:** Phase 2 JSON schema, API, database model, UI lock, Phase 2 closure, or Chalkie regeneration.
+**Not authorized here:** Phase 2 JSON schema, API, database model, UI lock, Phase 2 closure, Phase 3 unlock, or Chalkie regeneration.
 
 ---
 
 ## 6. Phase 3 — Series Intelligence / Vertical Mapping
 
-### Purpose
+### Purpose (eventual — parked now)
 
-Connect learning **across books and levels**: introduction, recycling, extension, and increasing linguistic complexity (D017).
+**Teacher-facing:** offer optional, evidence-grounded prior learning from **earlier books / grades** for teacher choice — the cross-book counterpart to within-book horizontal mapping (D020). AI may suggest a small set (e.g. 0–5); the teacher selects, deselects, replaces, adds, or uses none. Prior exposure ≠ mastery. Cumulative practice and consolidation are the primary rationale.
 
-Shared topics or shared vocabulary alone do **not** establish progression.
+May also note introduction, recycling, extension, and increasing complexity (D017), but is **not** merely abstract curriculum-progression analysis. Shared topics or shared vocabulary alone do **not** establish progression or mandate reuse.
 
-### Inputs
+**Non-binding example:** BE3 Unit 8 can use horizontal mapping from BE3 Units 1–7; BE3 Unit 1 has no earlier in-book units — later, vertical mapping could optionally surface suitable items from BE2 Units 1–9. No matching rules, eligible-book policy, UI, or timeline locked.
 
-- Phase 2 book overviews for the books in scope
-- Supporting Phase 1 evidence where claims need verification
+### Inputs (when later built)
+
+- Verified Phase 1 evidence for books in scope
+- Appropriate Phase 2 interpretation where helpful
 - Clear book/level identity (catalog IDs)
 
-### Process (summary)
+### Process (summary — not an implementation plan)
 
 1. Align comparable language targets / functions across books (not topic match alone).
-2. Classify relationships (e.g. first encounter → practice → recycle → extend) only when evidence supports them.
-3. Separate documented prior learning from assumed prerequisites and observed learner reality.
-4. Record gaps that imply missing Phase 2 (or Phase 1) information — fix upstream selectively.
+2. Surface a small set of optional reuse candidates for the current lesson context.
+3. Classify relationships (e.g. first encounter → practice → recycle → extend) only when evidence supports them.
+4. Keep source evidence, AI suggestions, teacher selections, and mapper-generated applications distinguishable.
 
 ### Outputs
 
-- Cross-book / cross-level connection notes or maps (**format not locked**)
+- Cross-book / cross-level connection notes or optional reuse suggestions (**format not locked**)
 - Explicit non-claims where evidence is weak
 
 ### Validation
 
 - Language-led checks (grammar / functions primary; vocab/topic secondary)
-- Traceability back to Phase 2 / Phase 1 references
+- Traceability back to Phase 1 / Phase 2 references
 - Owner review before treating any relationship model as production
 
 ### Handoff to Phase 4
 
-Teaching Intelligence uses Phase 3 connections **and** earlier evidence. Previously taught content must not be treated as mastered.
+Teaching Intelligence uses available evidence and connections (including Phase 3 **when later available**). Previously taught content must not be treated as mastered.
 
-**Status:** Parked until useful Phase 2 book overviews exist and owner authorizes a vertical probe. Historical cross-unit experiments remain research only.
+**Status:** **PARKED — later priority (D020 / F005).** Historical cross-unit / vertical probes remain research only. No Phase 3 productization, schema, or schedule.
 
 ---
 

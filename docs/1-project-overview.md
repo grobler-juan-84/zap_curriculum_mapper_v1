@@ -146,7 +146,7 @@ Produce a concise, teacher-readable unit-by-unit overview of what the book teach
 
 ### Phase 3 — Series Intelligence / Vertical Mapping
 
-Identify linguistic development across books in a series: introduction, recycling, extension, and increasing complexity (D017).
+**Parked for a much later stage (D020)** — priority/sequencing, **not** a gate waiting for Phase 2 “sufficient” overviews. Eventually: teacher-facing **cross-book / cross-grade** prior-learning retrieval and reuse (parallel to within-book horizontal mapping) — AI may suggest a small evidence-grounded set; the teacher selects, deselects, replaces, adds, or uses none; prior exposure ≠ mastery. May still note introduction, recycling, extension, and complexity, but is not framed only as abstract progression analysis (D017 + D020).
 
 ### Phase 4 — Teaching Intelligence
 
@@ -176,9 +176,11 @@ Development priority follows a **teacher-first** sequence. Conceptual phase numb
 | 2 | Curriculum Requirements + horizontal prior-language inventory | Identify what is new **and** what prior language in the same book can be reused | **Immediate emphasis:** bounded horizontal mapping (teacher-controlled; see [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)) |
 | 3 | Teaching Intelligence | Suggest scaffolding, recycling, and appropriate enrichment | Supporting philosophy; not a production engine |
 | 4 | Lesson Packaging / Chalkie | Produce and evaluate AI lesson prompts | **Downstream / parked for now** — D018 evidence preserved; not the current priority |
-| 5 | Vertical Mapping | Improve recommendations using previous and future learning across books | **PARKED** (F005 / D017) |
+| 5 | Vertical Mapping | Later: optional prior learning from earlier books/grades for teacher choice (esp. when a book has no earlier units) | **PARKED — later priority (D020 / F005)**; not blocked by Phase 2 completion |
 
-**Immediate experimental priority:** bounded **horizontal mapping** for cumulative learning — eligible prior units in the same book → traceable prior-language inventory → AI recommends 0–5 patterns → teacher accepts / deselects / replaces / adds / selects none → mapper-generated cumulative applications. Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). Curriculum evidence, AI interpretation, and mapper-generated applications must remain distinguishable. AI does **not** control what teachers may select.
+**Immediate priorities:** (1) finalize a workable Phase 2; (2) develop the practical Phase 4–7 pathway (teaching intelligence, packaging, generation, evaluation); (3) present evidence-grounded options clearly in the teacher interface. Product direction: AI suggests a small number of relevant options; the teacher makes the instructional choice — not assumed fully automatic “one-click” reuse, and not an abandonment of automation.
+
+**Immediate experimental priority:** bounded **horizontal mapping** for cumulative learning — eligible prior units in the same book → traceable prior-language inventory → AI recommends 0–5 patterns → teacher accepts / deselects / replaces / adds / selects none → mapper-generated cumulative applications. Main explanation: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md). Curriculum evidence, AI interpretation, and mapper-generated applications must remain distinguishable. AI does **not** control what teachers may select. Prior exposure ≠ mastery.
 
 **Preserved D018 / Chalkie history (not cancelled):** V2-family closed with **V2b** preferred Pass baseline; **V3** generated, formal evaluation still pending; Lesson Series Experiment 1 prompt owner-approved but **not authorized** to run. A future comparison *may* test that approved lesson-generation configuration with teacher-selected horizontal mappings — **that comparison is not authorized now**. Chalkie remains **downstream of curriculum intelligence**.
 
@@ -187,7 +189,7 @@ Development priority follows a **teacher-first** sequence. Conceptual phase numb
 - Phase 1 remains **PAUSED at 14 / 18 COMPLETE** (D015). Deferred: BH2, RH2B, RH3A, RH4A.
 - **D017** Progressive Curriculum Intelligence remains LOCKED. BE2-SB D017 **v2** eight-column and BE3-SB nine-column **A+B** preferences remain **provisional**. Format / methodology / schema are **not locked**.
 - **D019** Book Intelligence MVP UI path is **implementation-validated** for BE2-SB and BE3-SB only; methodologies remain provisional; contract/schema not locked.
-- Vertical Mapping / Phase 3 productization stays parked; bounded Series Intelligence research evidence may exist without unlocking Phase 3.
+- Vertical Mapping / Phase 3 stays parked as a **later priority (D020)** — not waiting for Phase 2 “useful overviews.” Eventual role: cross-book prior-learning options for teacher choice (e.g. BE3 U1 optionally drawing from BE2 U1–9 when horizontal history is unavailable). No Phase 3 schema, matching, UI, or timeline locked. Bounded Series Intelligence research evidence may exist without unlocking Phase 3.
 - Parked Phase 1 ideas: F017 / F018.
 
 **Historical research (not production-mandatory):** early LR experiments (D016), BE2 U1/U6/U8 V3.1 analyses, Cross-Unit V1.2 connections, and U6 e2e / enrichment probes remain preserved under D017 principle 4.
@@ -363,7 +365,7 @@ Chalkie is **downstream of curriculum intelligence**. Immediate emphasis is teac
 
 For **how to operate Chalkie** when generation is later authorized, use [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) (tool/UI reference only).
 
-Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007; parked productization notes in [`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). Vertical Mapping remains parked.
+Full Phase 5–6 productization and locked Chalkie handover standards remain later (see [`7-future.md`](./7-future.md) F007; parked productization notes in [`phase-6/chalkie-ai-handover-specifications.md`](./phase-6/chalkie-ai-handover-specifications.md)). Vertical Mapping remains parked as a later priority (**D020 / F005**), not blocked by Phase 2 completion.
 
 ---
 
@@ -391,7 +393,7 @@ The interface should therefore evolve alongside the curriculum model.
 
 Near-term success is:
 
-> **Demonstrate teacher-directed horizontal mapping that yields a traceable prior-language inventory and purposeful cumulative applications for a current unit — without pretending prior exposure is mastery, without forcing pattern coverage, and without unlocking Chalkie regeneration or Phase 3.**
+> **Demonstrate teacher-directed horizontal mapping that yields a traceable prior-language inventory and purposeful cumulative applications for a current unit — without pretending prior exposure is mastery, without forcing pattern coverage, and without unlocking Chalkie regeneration or Phase 3 (parked later per D020).**
 
 Success at this stage does **not** require:
 

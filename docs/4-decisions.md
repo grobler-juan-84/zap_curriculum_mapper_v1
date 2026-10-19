@@ -54,6 +54,7 @@
 | D017 | Progressive Curriculum Intelligence | 2026-10-12 | LOCKED |
 | D018 | Five-iteration Chalkie prompt validation | 2026-10-15 | LOCKED |
 | D019 | Book Intelligence MVP UI path validated (BE2 + BE3) | 2026-10-15 | LOCKED |
+| D020 | Phase 3 Vertical Mapping parked as later priority; cross-book prior-learning reuse | 2026-10-19 | LOCKED |
 
 ---
 
@@ -242,8 +243,9 @@
 **Decision:** Intentionally pause Phase 1 with 14 of 18 books COMPLETE and make Phase 2 curriculum interpretation the active development priority. Immediate Phase 2 experiments use the 12 completed Big English Student Books and Workbooks (Levels 1–6). Beehive and Reach Higher are excluded from the immediate experiments; BH1 and RH2A remain valid completed Phase 1 assets, while BH2, RH2B, RH3A, and RH4A remain NOT STARTED and deferred. Phase 3 follows through later controlled experiments. This decision does not select or lock a Phase 2 implementation, JSON schema, storage model, or architecture.
 **Reason:** The complete Big English sequence provides a coherent evidence base for learning how curriculum interpretation should work before more extraction or downstream mapping architecture is committed. The phase model is intentionally iterative, so useful Phase 2 evidence can guide whether later Phase 1 work needs adjustment.
 **Alternatives rejected:** Treating all 18 books as a prerequisite for Phase 2; declaring project-wide Phase 1 complete; abandoning the four remaining books; including Beehive or Reach Higher in the immediate Phase 2 experiments; prematurely fixing a Phase 2 schema or implementation.
-**Implications:** Operating trackers and current-status documentation must show Phase 1 as **PAUSED at 14/18 COMPLETE**, not completed or abandoned. The full Phase 1 pipeline for BH2, RH2B, RH3A, and RH4A stays visible as deferred work. Phase 2 remains a separate interpretation layer over verified Phase 1 evidence (D001), and Phase 3 remains parked until controlled Phase 2 experiments provide enough evidence.
+**Implications:** Operating trackers and current-status documentation must show Phase 1 as **PAUSED at 14/18 COMPLETE**, not completed or abandoned. The full Phase 1 pipeline for BH2, RH2B, RH3A, and RH4A stays visible as deferred work. Phase 2 remains a separate interpretation layer over verified Phase 1 evidence (D001). Phase 3 parking rationale is clarified by **D020** (later priority — not a “wait for useful Phase 2 overviews” gate).
 **Supersedes:** The draft Phase 1 processing order in `phase-1/dataset-registry.md` §15 as an active priority; the table remains historical context.
+**Amended by:** D020 (Phase 3 park reason)
 
 ---
 
@@ -267,8 +269,8 @@
 
 - **Phase 1 — Extraction:** Preserve detailed, verified textbook evidence.
 - **Phase 2 — Book Intelligence / Horizontal Mapping:** Produce a concise, structured, teacher-readable unit-by-unit overview of what the book teaches and expects students to learn. Use the Big English publisher overview as a reference for output density, not as a mandatory schema. Include meaningful distinctions such as target/supporting vocabulary, grammatical structures, communicative functions, instructional language, skills, components, and observable outcomes where supported. Do not require all possible fields for every publisher.
-- **Phase 3 — Series Intelligence / Vertical Mapping:** Use Phase 2 outputs to identify linguistic development across books: introduction, recycling, extension, increasing complexity, and relevant lexical/topic continuity. Similar topics alone are not proof of progression.
-- **Phase 4 — Teaching Intelligence:** Use Phase 3 connections and earlier evidence to identify assumed prior learning, appropriate scaffolding, purposeful recycling, gaps, enrichment opportunities, and preparation for later lessons/units/levels. Do not equate previously taught with mastered.
+- **Phase 3 — Series Intelligence / Vertical Mapping:** Eventually support cross-book / cross-grade prior-learning retrieval and reuse for teacher choice (parallel to within-book horizontal mapping). May still identify introduction, recycling, extension, and increasing complexity, but is **not** framed only as abstract progression analysis. Similar topics alone are not proof of progression. **Parked as a later priority — see D020** (not gated on Phase 2 “sufficiency”).
+- **Phase 4 — Teaching Intelligence:** Use available curriculum evidence and connections (including Phase 3 when later available) to identify assumed prior learning, appropriate scaffolding, purposeful recycling, gaps, enrichment opportunities, and preparation for later lessons/units/levels. Do not equate previously taught with mastered.
 
 **Operating principles:**
 
@@ -350,6 +352,36 @@ D017 operating principle 6 remains in force.
 
 ---
 
+### D020 — Phase 3 Vertical Mapping parked as later priority; cross-book prior-learning reuse
+
+**Date:** 2026-10-19  
+**Status:** LOCKED  
+**Decision:** Phase 3 — Series Intelligence / Vertical Mapping — remains deliberately **parked for a much later stage** as a matter of **project priority and sequencing**. It is **not** blocked by Phase 2 completion, a “useful / sufficient book overview” threshold, or a standing “wait for owner approval to unlock” prerequisite gate.
+
+When Phase 3 is eventually taken up, its practical teacher-facing role is to extend the same **retrieval-and-reuse** principle as within-book horizontal mapping:
+
+| | Horizontal mapping (current emphasis) | Vertical mapping (Phase 3, later) |
+|---|---|---|
+| Scope | Earlier **units in the same book** | Earlier **books / grades** in the series |
+| AI role | Small evidence-grounded suggestion set (currently **0–5**) | Same pattern when later built |
+| Teacher role | Select, deselect, replace, add to, or use **none** | Same when later built |
+| Mastery | Prior exposure / prior teaching ≠ mastery | Same |
+
+Primary educational rationale: **cumulative practice and consolidation** — learners may have met foundational language earlier but still need repeated chances to use it accurately and confidently. Illustrative only: a later-grade learner may still need meaningful practice of *What is it? / It is a giraffe.* even if that exchange was introduced in an earlier book.
+
+A particularly important eventual use case is **early units in a new book** (non-binding example): when teaching Big English 3 Unit 8, horizontal mapping can draw from BE3 Units 1–7; when teaching BE3 Unit 1, there are no earlier units in that book — later, vertical mapping could optionally surface suitable prior learning from Big English 2 Units 1–9. This example does **not** lock eligibility rules, matching logic, UI, or timelines.
+
+**Current priorities (unchanged by this park):** (1) finalize a workable Phase 2; (2) develop the practical Phase 4–7 pathway (teaching intelligence, packaging, generation, evaluation); (3) work out how the interface presents evidence-grounded options clearly for teachers. Product direction is AI-suggests / teacher-chooses — not assumed fully automatic “one-click” curricular reuse, and not an abandonment of automation.
+
+**Reason:** Keep later cross-book work visible without contaminating the immediate horizontal-mapping and Phase 2 / Phase 4–7 interface focus; correct docs that incorrectly treated Phase 3 as gated on Phase 2 overview “sufficiency.”  
+**Alternatives rejected:** Unlocking or scheduling Phase 3 now; treating Phase 3 as blocked until Phase 2 is “complete” or overviews are “sufficient”; framing Phase 3 only as abstract progression analysis; locking Phase 3 schema, matching, eligible-book policy, UI, or timeline; implying all prior-book material should be reused; equating prior learning with mastery.  
+**Implications:** Update overview, architecture, workflow, index, F005, and trackers to match this park reason and eventual teacher-facing purpose. Do **not** start, productize, or schedule Phase 3 implementation. Preserve distinctions among source evidence, AI suggestions, teacher selections, and mapper-generated applications. Horizontal mapping remains the current within-book emphasis.  
+**Supersedes:** —  
+**Amends / clarifies:** D015 implication that Phase 3 was “parked until controlled Phase 2 experiments provide enough evidence”; D017 Phase 3 bullet (adds teacher-facing retrieval/reuse and explicit later-priority park via this decision); workflow wording that parked Phase 3 “until useful Phase 2 book overviews exist and owner authorizes.”  
+**Compatibility:** Preserves D017 progressive method and D001 evidence separation; does not reopen D018/D019.
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -376,4 +408,5 @@ D017 operating principle 6 remains in force.
 | 2026-10-15 | Amended D019 — two-book implementation validation (BE2 eight-column + BE3 nine-column); both methodologies remain provisional; schema/contract not locked. |
 | 2026-10-16 | D018 operational note — cross-reference Chalkie interface/generation workflow V1 for settings recording; decision substance unchanged. |
 | 2026-10-16 | D018 owner override — one-time experimental authorization to proceed to V2 despite V1 below formal Pass; rubric and decision design unchanged. |
+| 2026-10-19 | Added D020 — Phase 3 Vertical Mapping parked as later priority (not a Phase 2-sufficiency gate); eventual cross-book prior-learning reuse for teacher choice; amends D015/D017 park wording. |
 

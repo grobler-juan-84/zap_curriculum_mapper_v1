@@ -38,7 +38,7 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
-**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Active bounded research focus is **horizontal mapping** within Phase 2 evidence/interpretation — teacher-directed cumulative applications from prior units in the same book — with Chalkie / **D018** packaging treated as **downstream** (preserved evidence; not the current priority). Series Intelligence / Vertical Mapping (Phase 3) remains **parked**; Phase 4 productization remains later. That does not collapse phase boundaries, lock horizontal-mapping ownership, or treat experimental prompts as production generation. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Active bounded research focus is **horizontal mapping** within Phase 2 evidence/interpretation — teacher-directed cumulative applications from prior units in the same book — with Chalkie / **D018** packaging treated as **downstream** (preserved evidence; not the current priority). Series Intelligence / Vertical Mapping (Phase 3) remains **parked as a later priority (D020)** — not gated on Phase 2 completion or “sufficient” overviews. Near-term priorities: workable Phase 2, practical Phase 4–7 pathway, and clear teacher-facing option presentation. That does not collapse phase boundaries, lock horizontal-mapping ownership, or treat experimental prompts as production generation. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
 
 ---
 
@@ -265,39 +265,34 @@ They should not silently become Phase 1 book truth.
 
 # 8. Phase 3 — Series Intelligence / Vertical Mapping
 
-Phase 3 examines linguistic progression across books in a series (D017).
+**Status:** **PARKED — later priority (D020 / F005).** Not unlocked, scheduled, or productized now. Park reason is sequencing/priority, **not** “wait until Phase 2 overviews are sufficient.”
 
-Its primary question is:
+Phase 3’s eventual **teacher-facing** role is cross-book / cross-grade **prior-learning retrieval and reuse** — conceptually parallel to within-book horizontal mapping, differently scoped (D020):
 
-> **How does this learning connect to other learning?**
+| | Horizontal (current) | Vertical (Phase 3, later) |
+|---|---|---|
+| Source of reuse | Earlier units in the **same** book | Earlier **books / grades** |
+| AI | Suggest small evidence-grounded set (e.g. 0–5) | Same pattern when later built |
+| Teacher | Select / deselect / replace / add / use none | Same |
+| Mastery | Exposure ≠ mastery | Same |
 
-Possible relationships include:
+It may still identify introduction, recycling, extension, and increasing complexity (D017), but is **not** framed merely as abstract progression analysis. Primary educational rationale: cumulative practice and consolidation.
+
+**Non-binding example:** Teaching BE3 Unit 8 can use horizontal mapping from BE3 Units 1–7; teaching BE3 Unit 1 has no earlier units in-book — later, vertical mapping could optionally suggest suitable prior learning from BE2 Units 1–9. No eligibility rules, matching logic, UI, or timeline are locked by this example.
+
+Its connecting question remains:
+
+> **How does this learning connect to other learning across books and grades — and what prior language can the teacher optionally reuse now?**
 
 ```text
-Previous Learning
+Previous Learning (other books / grades)
 ↓
 Current Learning
 ↓
 Future Learning
 ```
 
-Phase 3 may eventually identify:
-
-- vocabulary recycling;
-- language progression;
-- grammar progression;
-- repeated sentence structures;
-- prerequisite relationships;
-- skill progression;
-- concept recurrence;
-- cross-unit relationships;
-- cross-book relationships;
-- cross-level relationships;
-- and cross-series relationships.
-
-This phase creates the actual curriculum mapping layer.
-
-Phase 3 should use verified evidence and appropriate Phase 2 interpretation rather than attempting to infer curriculum progression directly from raw source files.
+Phase 3 should use verified evidence and appropriate Phase 2 interpretation rather than inferring progression from raw source files alone. Do **not** imply all prior-book material should be reused. Preserve source evidence vs AI suggestion vs teacher selection vs mapper-generated application.
 
 ---
 
