@@ -1,7 +1,7 @@
 # Chalkie Outline / Context Retention Diagnostic
 
 **Version:** 0.1  
-**Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 10 operational pilot **CONDITIONAL FAIL** (source fidelity); pattern remains provisional / not locked; further generation not authorized by this record  
+**Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 10 operational pilot **closed** (raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW); pattern remains provisional / not locked; further generation not authorized by this record  
 **Date:** 2026-10-19  
 **Scope:** Narrow Chalkie workflow diagnostic plus operational-pilot follow-on. This is not a D018 iteration, a methodology lock, or a product decision.  
 **Consolidation:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md) · Exp 10: [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6
@@ -356,14 +356,15 @@ The eventual platform-neutral lesson package may need to treat vocabulary select
 - `Past Actions and Regular Spelling Patterns - experiment 10 - lesson 1.pdf` — **32** PDF pages.
 - `Irregular Past Forms and Sharing Yesterday - experiment 10 - lesson 2.pdf` — **31** PDF pages.
 
-### 13.3 Verdict — CONDITIONAL FAIL
+### 13.3 Dual-stage verdict
 
-**Source-fidelity gate failed; not classroom-ready as exported.**
+| Stage | Verdict |
+| --- | --- |
+| **1 — Raw export** | **CONDITIONAL FAIL — source-fidelity gate failed.** Act 19 reveal *on foot* contradicted verified *by bike*. |
+| **2 — Teacher-reviewed** | **PASS AFTER TEACHER REVIEW.** Teacher corrected to *He rode his bicycle home / He came home by bicycle* (filename preserved: `…experimpent 10… [fixed - by teacher].pdf`). |
 
-Critical failure: Lesson 1 Activity 19 generated answer *He walked home / He came home on foot* contradicts verified canonical *He came home on his bicycle / by bike* — factual error plus provenance/visual-reconstruction risk despite official Track 159 direction and “no invented answers” handoff rule.
+**Also strong (unchanged):** correct scope/sequence; per-lesson chips; Track 159 without invented script; early open for Act 19; L2 path; attractive visuals.
 
-**Also strong:** correct scope/sequence; per-lesson chips; Track 159 referenced without invented script; early open for Act 19; L2 irregular/mixed past path; attractive visuals.
+**Operational conclusion:** successful demonstration of **teacher-in-the-loop** production (AI start → review → bounded factual correction → usable lesson). Does not erase the raw error; does not claim autonomous reliability or measured 90% accuracy.
 
-**Operational conclusion:** coherent/attractive lessons are possible, but publisher facts and provenance still require **page-level teacher verification** before classroom use.
-
-Further regeneration **not authorized**; owner choice pending (manual curate vs targeted regen design).
+Further regeneration **not authorized**. Experiment 10 record **closed**.

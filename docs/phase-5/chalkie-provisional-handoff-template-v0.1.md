@@ -5,7 +5,7 @@
 **Evidence base:** Chalkie diagnostic Experiments **5**–**9** + operational Pilot Experiment **10** (BE3 U8 Grammar)  
 **Usability check:** [`chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md)  
 **Vocab-allocation:** Exp 8 confound + Exp 9 control — [`chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) §9.3 · [`chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md)  
-**Source-fidelity gate:** Exp 10 CONDITIONAL FAIL — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6  
+**Source-fidelity gate + teacher-in-the-loop:** Exp 10 dual-stage (raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW) — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6  
 **Evidence synthesis:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
@@ -24,6 +24,8 @@ Explicit vocabulary selection (per lesson)
 Working experimental preference only. Teacher review remains required after every generation.
 
 **Working finding (Exp 8–9):** lesson-specific vocabulary chips materially influence what Chalkie treats as teachable content per lesson. Per-lesson allocation remains part of this provisional pattern (practical evidence, not absolute causal proof).
+
+**Teacher-in-the-loop (Exp 10):** AI starting point → teacher review → bounded factual correction → usable lesson. Occasional errors are expected; teacher review is a deliberate production stage (**Beauty in Simplicity** — thorough but practical). Distinguish **must correct** / **should improve** / **optional refinement**. Aspirational 90–100% starting-point quality is **not** a measured claim.
 
 ---
 

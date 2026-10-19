@@ -1,13 +1,13 @@
 # Operational Pilot Handoff Design — BE3 Unit 8 Grammar SB pp. 136–137 (v0.1)
 
-**Status:** OPERATIONAL PILOT · **GENERATED** (Experiment 10) · **REVIEWED** — **CONDITIONAL FAIL — source-fidelity gate failed; not classroom-ready as exported** · further regeneration **not authorized**  
+**Status:** OPERATIONAL PILOT · **CLOSED** (Experiment 10) · dual-stage: raw **CONDITIONAL FAIL** → teacher-reviewed **PASS AFTER TEACHER REVIEW** · further regeneration **not authorized**  
 **Date:** 2026-10-19  
 **Pilot type:** First **operational** application of the provisional Chalkie workflow from Experiments 1–9 — **not** another transfer experiment · **not** a D018 scored run  
 **Branch:** `phase-2`
 
-**Boundaries:** No methodology lock · no classroom-validation or product-readiness claim · no D018 / Arm B2 / V2b changes · `4-decisions.md` not modified · regeneration not authorized by this review
+**Boundaries:** No methodology lock · no autonomous-reliability claim · no classroom-validation or product-readiness claim · no D018 / Arm B2 / V2b changes · `4-decisions.md` not modified · regeneration not authorized
 
-**Document structure note:** §§1–5 preserve the **pre-run handoff design**. §6 records the **post-run** Experiment 10 review. Do not rewrite §§1–5 to erase that history.
+**Document structure note:** §§1–5 preserve the **pre-run handoff design**. §6 preserves the **raw** export review. §6.8+ records the **teacher-corrected** completion. Do not rewrite raw findings as if the export passed unchanged.
 
 **Evidence base:**  
 [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) ·  
@@ -228,13 +228,18 @@ go, went, come, came, have, had, sleep, slept, fall, fell, write, wrote, fly, fl
 
 ## 6. Operational-pilot review (Experiment 10 — recorded)
 
-### 6.0 Verdict
+### 6.0 Dual-stage verdict
 
-> **CONDITIONAL FAIL — source-fidelity gate failed; not classroom-ready as exported.**
+| Stage | Verdict |
+| --- | --- |
+| **1 — Raw Chalkie export** | **CONDITIONAL FAIL — source-fidelity gate failed.** Activity 19 suggested answer contradicted the verified source. |
+| **2 — Teacher-reviewed production version** | **PASS AFTER TEACHER REVIEW — factual blocker corrected through one bounded manual edit.** |
 
-Page counts **32 / 31** are acceptable (reveal inflation). Page count is **not** the failure reason. Strengths below do **not** override the failed source-fidelity gate. Not a D018 score.
+Page counts **32 / 31** are acceptable (reveal inflation). Page count is **not** a failure reason. Remaining Stage-2 notes are **teacher-curation considerations**, not automatic classroom blockers. Not a D018 score.
 
 ### 6.1 Export record
+
+**Stage 1 — raw exports**
 
 | Item | Lesson 1 | Lesson 2 |
 | --- | --- | --- |
@@ -243,7 +248,15 @@ Page counts **32 / 31** are acceptable (reveal inflation). Page count is **not**
 | Exported PDF pages | **32** | **31** |
 | Location | Owner Downloads (not committed) | Owner Downloads (not committed) |
 
-### 6.2 Critical source-fidelity failure (Activity 19)
+**Stage 2 — teacher-corrected Lesson 1** (filename preserved exactly, including `experimpent`)
+
+| Item | Lesson 1 (corrected) | Lesson 2 (unchanged) |
+| --- | --- | --- |
+| Export | `Past Actions and Regular Spelling Patterns - experimpent 10 - lesson 1 [fixed - by teacher].pdf` | `Irregular Past Forms and Sharing Yesterday - experiment 10 - lesson 2.pdf` |
+| Exported PDF pages | **32** | **31** |
+| Location | Owner Downloads (not committed) | Owner Downloads (not committed) |
+
+### 6.2 Critical source-fidelity failure (Activity 19) — Stage 1 raw export
 
 | Item | Content |
 | --- | --- |
@@ -257,6 +270,17 @@ Page counts **32 / 31** are acceptable (reveal inflation). Page count is **not**
 
 The handoff required official Track **159** and forbade invented publisher answers. Chalkie referenced official audio but still produced an **incorrect answer reveal**.
 
+### 6.2b Teacher correction (Stage 2) — must-correct item fixed
+
+Teacher manually corrected the Activity 19 reveal to:
+
+- *He rode his bicycle home.*
+- *He came home by bicycle.*
+
+Wording agrees with verified canonical (*by bike / on his bicycle*). Correction is visually clean; remainder of Lesson 1 unchanged. Lesson 2 unchanged.
+
+**Severity class (Exp 10):** Activity 19 answer = **must correct** (verified factual contradiction). Remaining notes in §§6.4–6.5 = **should improve** / optional refinement — not automatic fail conditions after Stage 2.
+
 ### 6.3 What worked (retained)
 
 - Correct BE3 U8 *Healthy Living* Grammar pp. 136–137 scope.
@@ -267,16 +291,16 @@ The handoff required official Track **159** and forbade invented publisher answe
 - L2 moves from regular consolidation → irregular pairs → mixed past speaking; Act 23 supports partner communication.
 - Visual design attractive, consistent, generally readable.
 
-### 6.4 Lesson 1 curation
+### 6.4 Lesson 1 curation (post Stage 2: should-improve / optional)
 
-- Act 19 answer reveal incorrect — remove or correct from verified source only.
+- Act 19 raw reveal was incorrect — **must-correct**; **done** via teacher edit (§6.2b).
 - Generated Act 19 visual must not be treated as publisher-scene reconstruction or used to infer the answer.
 - Act 20 begins only ~PDF p.23 — book opened early for Act 19, but main spelling work delayed by explanations/reveals.
 - “Checking your chart” shows only three spelling groups; omits double-consonant group.
 - Generated consonant-doubling explanation overly broad if treated as a universal rule.
-- Generated explanations/examples need `[SUPPLEMENTARY]` unless directly verified.
+- Generated explanations/examples could use clearer `[SUPPLEMENTARY]` labels unless directly verified.
 
-### 6.5 Lesson 2 curation
+### 6.5 Lesson 2 curation (should-improve / optional)
 
 - Generated example sentences labelled `[SB p.137]` merely because they use verified irregular pairs — pairs may be `[SB]`; sentences must be `[SUPPLEMENTARY]`.
 - Examples such as *I had a good breakfast*, *The ball fell down*, *She wrote a note*, *The kite flew high* are **not** verified publisher sentences.
@@ -287,25 +311,39 @@ The handoff required official Track **159** and forbade invented publisher answe
 
 ### 6.6 Operational metrics
 
-| Lens | Result |
-| --- | --- |
-| Source fidelity | **Failed** — one critical verified contradiction |
-| Sequence | **Strong** |
-| Scope | **Strong** |
-| Book integration | Present but uneven; Act 20 and p.137 work later than intended |
-| Provenance | Needs material correction |
-| Teacher-curation effort | **Material** — not merely cosmetic |
-| Classroom usability | **Not validated** and **not acceptable as exported** |
-| Preparation / generation time | **Unknown** (no measured run record) |
+| Lens | Stage 1 (raw) | Stage 2 (teacher-reviewed) |
+| --- | --- | --- |
+| Source fidelity | **Failed** — Act 19 contradiction | **Blocker corrected** — agrees with verified *by bike* evidence |
+| Sequence | **Strong** | **Strong** (unchanged) |
+| Scope | **Strong** | **Strong** |
+| Book integration | Uneven; Act 20 / p.137 later than intended | Same pacing notes (should improve) |
+| Provenance | Needs material correction | Should improve (labels/examples) |
+| Teacher-curation effort | Material | **One bounded factual edit** demonstrated efficient |
+| Classroom usability | Not acceptable as exported | Production version usable after review; **not** separately classroom-validated |
+| Preparation / generation time | **Unknown** | **Unknown** |
 
-**Operational conclusion:**
+### 6.7 Overall operational conclusion
 
-> The provisional workflow can produce coherent, attractive and instructionally plausible lessons, but Chalkie still cannot be trusted to preserve publisher facts or provenance without page-level teacher verification.
+> **Successful demonstration of the teacher-in-the-loop production workflow: AI-generated starting point → teacher review → bounded factual correction → usable lesson.**
 
-### 6.7 Non-claims
+This does **not** erase the raw-generation error. It shows the intended production process **detected and corrected** it efficiently.
 
-- No D018 / Arm B2 / V2b score change; no methodology lock; no classroom validation; no product readiness.
-- Further regeneration **not authorized** by this review.
+The project is **not** trying to guarantee a perfect autonomous machine. Its practical target is a highly accurate and useful starting point — approximately **90–100%** as an **aspirational** quality range — followed by **mandatory** professional teacher review during production. Do **not** claim statistically measured 90% accuracy from current evidence.
+
+**Review philosophy (Beauty in Simplicity):** Accuracy remains essential, but occasional errors are expected when processing substantial curriculum evidence. Teacher review is a deliberate production stage, not proof the system has failed. Distinguish **correctable issues** from failures that make an output unusable. Keep review thorough but practical — avoid a gate so rigid that useful outputs cannot pass or evolve.
+
+**Three-level distinction (practical; not locked methodology):**
+
+1. **Must correct** — verified factual contradictions, invented publisher answers/scripts, or unsafe/misleading content.  
+2. **Should improve** — provenance labels, pacing, incomplete supporting explanations, or potentially confusing generated material.  
+3. **Optional refinement** — stylistic preferences, extra examples, visual choices, teacher-specific adaptations.
+
+In Experiment 10, the Activity 19 answer was **must correct**; the teacher corrected it successfully.
+
+### 6.8 Non-claims
+
+- No D018 / Arm B2 / V2b score change; no methodology lock; no autonomous reliability; no classroom validation; no product readiness; no measured 90% accuracy claim.
+- Further regeneration **not authorized**.
 
 ---
 
@@ -316,15 +354,15 @@ The handoff required official Track **159** and forbade invented publisher answe
 | 1 | Source preflight completed | **Done** |
 | 2 | Handoff design drafted | **Done** |
 | 3 | Owner authorized generation | **Done** — Experiment 10 |
-| 4 | Export / operational review | **Done** — CONDITIONAL FAIL (source fidelity) |
-| 5 | Further regeneration | **Not authorized** |
-| 6 | Owner choice: curate vs targeted regen design | **Pending** (see below) |
+| 4 | Raw export review | **Done** — Stage 1 CONDITIONAL FAIL |
+| 5 | Teacher correction of must-correct item | **Done** — Stage 2 PASS AFTER TEACHER REVIEW |
+| 6 | Further regeneration | **Not authorized** |
+| 7 | Experiment 10 operational-pilot record | **Closed** |
 
 ---
 
-## Pending owner choice (do not auto-select)
+## Closed — smallest pending action after this record
 
-1. **Manually curate/correct** the current Experiment 10 exports; or  
-2. **Design one targeted regeneration** addressing the demonstrated Activity 19 / answer-reveal failure.
+Experiment 10’s operational-pilot record is **closed**.
 
-Neither option is selected by this record.
+**Identify what project question should be addressed next** (examples only — **do not auto-select**): another operational pilot lesson, a packaging/UI field question from the Exp 1–9 synthesis uncertainties, horizontal-mapping resume, or an unrelated Phase 2 priority. Owner chooses; no new lesson or experiment is selected here.

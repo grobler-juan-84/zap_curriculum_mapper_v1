@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 222
+**Last updated:** Step 223
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Chalkie Experiments 1–9** — synthesized; provisional handoff pattern not locked.
 
-- **Experiment 10 (operational pilot, BE3 U8 Grammar)** — generated and reviewed: **CONDITIONAL FAIL** (source-fidelity gate; Act 19 answer contradicted verified *by bike*). Template hardened with post-generation source-fidelity / answer-reveal gate. Regeneration not authorized.
+- **Experiment 10 (operational pilot)** — **closed**: raw CONDITIONAL FAIL (Act 19) → teacher-corrected **PASS AFTER TEACHER REVIEW**; teacher-in-the-loop production demonstrated; regeneration not authorized.
 
 ## In progress
 
-- Owner choice after Exp 10: manually curate/correct exports **or** design one targeted regeneration (neither selected).
+- None on Exp 10; awaiting owner choice of next project question.
 
 ## Next
 
-- Owner selects curate vs targeted-regen design. Do not regenerate by default; do not lock methodology.
+- Identify the next project question (do not auto-select another lesson or experiment). Options include another operational pilot, packaging/UI fields, horizontal mapping, or other Phase 2 priorities.
 
 ## Blocked
 
@@ -40,6 +40,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Exp 10 review: [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6.
+- Exp 10 closed: [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

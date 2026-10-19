@@ -3815,3 +3815,20 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 223
+
+**Summary:** Recorded Experiment 10 teacher-corrected completion as dual-stage: raw CONDITIONAL FAIL preserved; Stage 2 PASS AFTER TEACHER REVIEW (Act 19 bike wording; exact `experimpent` filename). Closed operational-pilot record; teacher-in-the-loop / must-correct philosophy captured. No regeneration; no decisions change. Next: owner names the next project question.
+
+**Files touched:**
+- docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md (updated)
+- docs/phase-5/chalkie-provisional-handoff-template-v0.1.md (updated)
+- docs/phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md (updated)
+- docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

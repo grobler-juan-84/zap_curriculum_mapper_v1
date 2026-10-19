@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 222
+**Last updated:** Step 223
 
 
 
@@ -386,9 +386,11 @@
 
 - [x] **Draft operational-pilot handoff design** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md).
 
-- [x] **Experiment 10 generated + reviewed** — **CONDITIONAL FAIL** (source-fidelity gate; Act 19 generated *on foot* vs verified *by bike*). Template source-fidelity / answer-reveal gate strengthened. Regeneration **not authorized**.
+- [x] **Experiment 10 generated + reviewed** — Stage 1 **CONDITIONAL FAIL** (Act 19 *on foot* vs *by bike*).
 
-- [ ] Owner choose: (1) manually curate/correct Exp 10 exports, **or** (2) design one targeted regeneration for the demonstrated failure. Do not auto-select; do not lock methodology.
+- [x] **Experiment 10 teacher correction** — Stage 2 **PASS AFTER TEACHER REVIEW** (`…experimpent 10… [fixed - by teacher].pdf`); record closed; teacher-in-the-loop demonstrated. Regeneration **not authorized**.
+
+- [ ] Owner identify the **next project question** (do not auto-select another lesson/experiment). Do not lock methodology.
 
 
 
