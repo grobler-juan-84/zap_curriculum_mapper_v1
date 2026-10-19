@@ -3674,3 +3674,17 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 214
+
+**Summary:** Created a source-only preflight for BE3 Unit 3 Language in Action SB pp. 40–41. Verified Phase 1 canonical + SS evidence; unit title is *Working Hard!* (requested *In My House* is a mismatch). Recorded page inventory, scoped vocab floor, template-readiness gaps, and conditional suitability. No Chalkie prompt, generation, or decisions change.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md (created)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 213
+**Last updated:** Step 214
 
 
 
@@ -364,7 +364,9 @@
 
 - [x] **Retrospective dry run** of the handoff template against Experiment 7 — [`phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md); bounded template revision applied.
 
-- [ ] Owner review of the revised provisional handoff template; do not lock methodology or authorize another generation by default.
+- [x] **Source-only preflight** for BE3 U3 LiA SB pp. 40–41 — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md). Verified unit is *Working Hard!* (not *In My House*); conditionally suitable; **not** a handoff prompt; generation **not** authorized.
+
+- [ ] Owner confirm next transfer target identity (BE3 U3 *Working Hard!* LiA 40–41 vs requested *In My House*); then review revised handoff template. Do not lock methodology or authorize generation by default.
 
 
 

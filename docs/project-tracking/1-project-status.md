@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 213
+**Last synced:** Step 214
 
 ## One-line state
 
 - D018 V2-family CLOSED; preferred control = **V2b**.
-- Provisional Chalkie handoff template dry-run against Experiment 7 and revised for demonstrated ambiguities; still experimental; generation not authorized.
+- BE3 U3 LiA pp. 40–41 source preflight complete (*Working Hard!*; title mismatch flagged); conditionally suitable; no generation authorized.
 
 ## Branch
 
@@ -14,4 +14,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Review the revised handoff template; authorize any new Chalkie run only explicitly.
+**Suggestion:** Confirm target is BE3 U3 *Working Hard!* LiA 40–41; do not draft a Chalkie prompt unless explicitly authorized.

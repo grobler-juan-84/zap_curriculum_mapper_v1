@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 213
+**Last updated:** Step 214
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -28,13 +28,15 @@
 
 - **Provisional Chalkie handoff template** — drafted, dry-run filled against Experiment 7, and revised for demonstrated ambiguities only; still experimental; does **not** authorize generation.
 
+- **BE3 U3 LiA pp. 40–41 source preflight** — Phase 1 + SS verified; unit title is *Working Hard!* (not *In My House*); conditionally suitable pending owner identity confirm; no handoff/prompt/generation.
+
 ## In progress
 
-- Owner review of the revised provisional handoff template.
+- Owner confirmation that the next transfer target is BE3 U3 *Working Hard!* LiA SB pp. 40–41 (requested title mismatched).
 
 ## Next
 
-- Use the template only under a separate owner-gated generation decision. Do not lock methodology.
+- Confirm target identity, then (only if owner-gated) fill the provisional handoff template from the preflight. Do not draft a Chalkie prompt or authorize generation by default.
 
 ## Blocked
 
@@ -46,6 +48,8 @@
 
 - Active Git branch: `phase-2`.
 
-- Template: [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md) · Retrofill: [`phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md).
+- Preflight: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md).
+
+- Template: [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.
