@@ -4016,3 +4016,26 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 236
+
+**Summary:** Added server-side OpenAI generation test path for the teacher-choice overlay: `POST /api/chalkie/generate` (Bearer JWT, Responses API, `OPENAI_API_KEY` + `OPENAI_MODEL`), teacher-triggered **Generate Chalkie lesson draft** after the local prompt preview, copyable unsaved Markdown result. No persistence; local deterministic preview unchanged.
+
+**Files touched:**
+- app/package.json (updated)
+- app/package-lock.json (updated)
+- app/server/openaiConfig.ts (created)
+- app/server/handleGenerateChalkieLessonDraftRequest.ts (created)
+- app/vite-plugins/generateChalkieLessonDraftPlugin.ts (created)
+- app/src/services/chalkieLessonDraftService.ts (created)
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- app/vite.config.ts (updated)
+- .env.example (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

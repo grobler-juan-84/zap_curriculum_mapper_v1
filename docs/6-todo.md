@@ -406,7 +406,9 @@
 
 - [x] **UI micro-step: enable BE2 U8 two-lesson series preview** — SB 128–129 + WB 104–105; left prompt / right Lesson 1–2 rundown; local only.
 
-- [ ] Owner review Single vs Two-lesson series prompt preview in `/app/chalkie`; decide later work. Do not lock methodology.
+- [x] **Server-side OpenAI generation test path** — `POST /api/chalkie/generate`; teacher-triggered only; no persistence; key from root `.env.local`.
+
+- [ ] Owner live-test Generate Chalkie lesson draft (Single + Series); decide keep/harden/park. Do not lock methodology.
 
 
 

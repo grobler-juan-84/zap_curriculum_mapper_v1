@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 235
+**Last updated:** Step 236
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Teacher-choice packaging supports Single lesson (SB 128–129) and local Two-lesson series preview (SB 128–129 → WB 104–105) with split handoff layout.
+- **UI micro-step:** Teacher-choice packaging + local prompt preview; **server-side OpenAI generation test path** added (`POST /api/chalkie/generate`); teacher-triggered only; no persistence.
 
 ## In progress
 
-- Owner review of Single vs Two-lesson series local prompt preview.
+- Owner live test of Generate Chalkie lesson draft (Single + Series) with configured `OPENAI_API_KEY` / `OPENAI_MODEL`.
 
 ## Next
 
-- Owner try both packaging routes + copy title/prompt; decide whether any later Chalkie submit path is authorized.
+- Owner run one Single and one Series draft generation; decide whether to keep, harden, or park the OpenAI path.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 

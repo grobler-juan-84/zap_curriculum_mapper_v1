@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { chalkieLessonDraftService } from '../../services/chalkieLessonDraftService'
 import {
   BE2_U08_SERIES_LESSON1_VOCAB,
   BE2_U08_SERIES_LESSON2_VOCAB,
@@ -59,6 +60,22 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [titleCopyStatus, setTitleCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
+  const [generatingDraft, setGeneratingDraft] = useState(false)
+  const [draftMarkdown, setDraftMarkdown] = useState('')
+  const [draftError, setDraftError] = useState<string | null>(null)
+  const [draftCopyStatus, setDraftCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [draftMeta, setDraftMeta] = useState<{
+    packageType: LessonPackageShape
+    displayTitle: string
+  } | null>(null)
+
+  const clearGeneratedDraft = () => {
+    setGeneratingDraft(false)
+    setDraftMarkdown('')
+    setDraftError(null)
+    setDraftCopyStatus('idle')
+    setDraftMeta(null)
+  }
 
   useEffect(() => {
     if (!open) {
@@ -73,6 +90,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setCopyStatus('idle')
       setTitleCopyStatus('idle')
       setLessonShape('single')
+      clearGeneratedDraft()
       return
     }
 
@@ -142,6 +160,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     if (showPromptPreview) {
       setShowPromptPreview(false)
       setCopyStatus('idle')
+      clearGeneratedDraft()
       return
     }
     if (step > 1) setStep(step - 1)
@@ -150,6 +169,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const handlePackageShapeChange = (next: LessonPackageShape) => {
     setLessonShape(next)
     setTitleCopyStatus('idle')
+    clearGeneratedDraft()
     if (showPromptPreview) {
       setShowPromptPreview(false)
       setPromptPreview('')
@@ -167,6 +187,43 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setShowPromptPreview(true)
     setCopyStatus('idle')
     setTitleCopyStatus('idle')
+    clearGeneratedDraft()
+  }
+
+  const handleGenerateLessonDraft = async () => {
+    if (!promptPreview || generatingDraft) return
+    setGeneratingDraft(true)
+    setDraftError(null)
+    setDraftCopyStatus('idle')
+    try {
+      const result = await chalkieLessonDraftService.generate({
+        assembledPrompt: promptPreview,
+        packageType: lessonShape,
+        displayTitle: activeLessonTitle,
+      })
+      setDraftMarkdown(result.draftMarkdown)
+      setDraftMeta({
+        packageType: result.packageType,
+        displayTitle: result.displayTitle,
+      })
+    } catch (err) {
+      setDraftMarkdown('')
+      setDraftMeta(null)
+      setDraftError(err instanceof Error ? err.message : 'Generation failed.')
+    } finally {
+      setGeneratingDraft(false)
+    }
+  }
+
+  const handleCopyGeneratedDraft = async () => {
+    if (!draftMarkdown) return
+    try {
+      await navigator.clipboard.writeText(draftMarkdown)
+      setDraftCopyStatus('copied')
+      window.setTimeout(() => setDraftCopyStatus('idle'), 2000)
+    } catch {
+      setDraftCopyStatus('failed')
+    }
   }
 
   const handleCopyPrompt = async () => {
@@ -959,6 +1016,85 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </div>
                 </div>
               )}
+
+              <section
+                className="space-y-4 border-t border-slate-100 pt-5"
+                aria-label="Generated Chalkie lesson draft"
+              >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Optional model draft
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-500">
+                      Sends the local prompt above to a server-side OpenAI test path. Nothing is
+                      saved.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    disabled={generatingDraft || !promptPreview}
+                    onClick={handleGenerateLessonDraft}
+                    className={`shrink-0 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                      generatingDraft || !promptPreview
+                        ? 'cursor-not-allowed bg-slate-200 text-slate-500'
+                        : 'bg-slate-800 text-white hover:bg-slate-700'
+                    }`}
+                  >
+                    {generatingDraft ? 'Generating…' : 'Generate Chalkie lesson draft'}
+                  </button>
+                </div>
+
+                {draftError ? (
+                  <p className="text-sm leading-relaxed text-rose-700" role="alert">
+                    {draftError}
+                  </p>
+                ) : null}
+
+                {draftMarkdown ? (
+                  <div className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-medium text-slate-900">
+                        Generated Chalkie lesson draft — review before use
+                      </h4>
+                      <p className="text-sm text-slate-500">
+                        {(draftMeta?.packageType ?? lessonShape) === 'series'
+                          ? 'Two-lesson series'
+                          : 'Single lesson'}
+                        {' · '}
+                        {draftMeta?.displayTitle ?? activeLessonTitle}
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Not saved. Closing this overlay discards the draft.
+                      </p>
+                    </div>
+                    <label htmlFor="chalkie-lesson-draft" className="sr-only">
+                      Generated Chalkie lesson draft
+                    </label>
+                    <textarea
+                      id="chalkie-lesson-draft"
+                      readOnly
+                      value={draftMarkdown}
+                      rows={18}
+                      className="min-h-[14rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                    />
+                    <div className="flex flex-wrap items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={handleCopyGeneratedDraft}
+                        className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50"
+                      >
+                        {draftCopyStatus === 'copied' ? 'Copied' : 'Copy generated draft'}
+                      </button>
+                      {draftCopyStatus === 'failed' ? (
+                        <p className="text-sm text-slate-500">
+                          Copying was unavailable. Select the draft text and copy it manually.
+                        </p>
+                      ) : null}
+                    </div>
+                  </div>
+                ) : null}
+              </section>
             </div>
           ) : null}
         </div>
@@ -971,7 +1107,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
           {step === 4 && showPromptPreview ? (
             <p className="mb-3 text-sm text-slate-500">
-              Local preview only. No Chalkie lesson has been created.
+              {draftMarkdown
+                ? 'Local prompt preview plus an unsaved model draft. Nothing is persisted.'
+                : 'Local preview only. A model draft is optional and not saved.'}
             </p>
           ) : null}
           <div className="flex flex-wrap items-center justify-between gap-3">
