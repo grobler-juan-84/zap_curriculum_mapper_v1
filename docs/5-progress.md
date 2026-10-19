@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 217
+**Last updated:** Step 218
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,23 +24,23 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie diagnostic Experiments 1–8** — provisional handoff pattern transfer-tested; not locked.
+- **Chalkie diagnostic Experiments 1–9** — provisional handoff pattern transfer-tested; not locked.
 
-- **Experiment 8 (BE3 U3 LiA)** — **PASS / strong qualitative transfer success**; vocabulary-allocation confound recorded.
+- **Experiment 8 (BE3 U3 LiA)** — PASS / strong transfer success; vocabulary-allocation confound recorded.
 
-- **Experiment 9 run card drafted** — Exp 8 repeat with L1 chores / L2 frequency vocab only; generation **not** authorized.
+- **Experiment 9 (vocab-split control)** — **PASS**; L1 chores / L2 frequency chips produced intended lesson separation; template strengthenings recorded; further generation not authorized.
 
 ## In progress
 
-- Owner gate for Experiment 9 generation (optional controlled follow-up).
+- None active on Chalkie transfer experiments.
 
 ## Next
 
-- Authorize Experiment 9 only explicitly; otherwise leave Chalkie gated. Do not lock methodology.
+- Use the revised provisional handoff template (per-lesson vocab + provenance/frequency/book-work rules) only under explicit owner authorization. Do not lock methodology.
 
 ## Blocked
 
-- Soft: further Chalkie regeneration (including Exp 9), Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
+- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
 
 ---
 
@@ -48,6 +48,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Run card: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md).
+- Exp 9: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

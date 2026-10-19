@@ -1,7 +1,7 @@
 # Chalkie Outline / Context Retention Diagnostic
 
 **Version:** 0.1  
-**Status:** ACTIVE / EVOLVING — Experiments 1–8 recorded; Experiment 7 and Experiment 8 LiA transfers **PASS** (qualitative); pattern remains provisional / not locked; further generation not authorized by this record  
+**Status:** ACTIVE / EVOLVING — Experiments 1–9 recorded; Exp 7–8 LiA transfers **PASS**; Exp 9 vocab-split control **PASS**; pattern remains provisional / not locked; further generation not authorized by this record  
 **Date:** 2026-10-19  
 **Scope:** Narrow Chalkie workflow diagnostic. This is not a D018 iteration, a lesson-quality verdict, a methodology lock, or a product decision.
 
@@ -302,6 +302,40 @@ Experiment 7 showed cross-**unit** LiA transfer within BE2. Experiment 8 shows t
 
 The pattern remains a **provisional candidate**, not a locked methodology, classroom validation, or product standard. Further generation is **not authorized** by this record.
 
-## 11. Provisional implication
+## 11. Experiment 9 — vocabulary-split control (BE3 U3)
 
-The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, explicit output field alongside the short general brief and the per-lesson instructional sequence. Experiment 7 strengthened that hypothesis with a restricted six-word list. Experiment 8 strengthens it further: vocabulary must be allocated **per lesson**, not pasted as one combined list into both lessons. That is still a design hypothesis only — not a packaging format lock or a claim that Chalkie is (or is not) suitable as a production backend.
+### 11.1 Setup
+
+Experiment 9 repeated Experiment 8 with **one intentional change**:
+
+- **Run card / review:** [`chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md)
+- **Fixed:** Exp 8 title, detailed handoff, concise outlines, settings, page scope, exclusions.
+- **Changed:** Lesson 1 chips = eight chores only; Lesson 2 chips = `always, usually, sometimes, never` only.
+
+### 11.2 Outputs
+
+- `Chores and Obligations - experiment 9 - lesson 1.pdf` — **31** exported PDF pages.
+- `How Often We Do Chores - experiment 9 - lesson 2.pdf` — **31** exported PDF pages.
+
+### 11.3 Result — PASS / vocabulary-split control succeeded
+
+Owner review records a **PASS**:
+
+- L1 did not introduce frequency adverbs as new teaching.
+- L2 did not reteach the full eight-item chore set; it still retrieved enough chore language for coherent frequency teaching.
+- SB p.40 → p.41 progression remained intact; Tracks 51/53 handled responsibly; no invented Track 53 / Act 11 keys.
+- 31/31 PDF pages acceptable (reveals).
+
+**Supported working finding:** Chalkie’s lesson-specific vocabulary chips materially influence what it treats as teachable content in each lesson. Per-lesson vocabulary allocation should remain part of the provisional handoff pattern.
+
+**Qualification:** one stochastic generation is not absolute causal proof; Exp 9 provides **convincing practical evidence** vs Exp 8.
+
+**Curation (not failure):** late L1 book work; optional definitions/matching/quizzes/reveals; mislabelled provenance (`[SS]`/`[SB]` on generated material); rigid invented frequency→days scale; Act 13 chart lookalike / Leo challenge must be verified or `[SUPPLEMENTARY]`.
+
+### 11.4 Transfer finding
+
+Exp 8 established the confound; Exp 9 shows that **distinct per-lesson vocab lists** can produce the intended lesson separation in this setup. Pattern remains provisional; further generation **not authorized**.
+
+## 12. Provisional implication
+
+The eventual platform-neutral lesson package may need to treat vocabulary selection as a first-class, **per-lesson** output field alongside the short general brief and the per-lesson instructional sequence. Experiments 7–9 strengthen that hypothesis. Still a design hypothesis only — not a packaging format lock, methodology lock, or claim that Chalkie is (or is not) suitable as a production backend.

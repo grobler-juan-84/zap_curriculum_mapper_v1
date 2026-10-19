@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 217
+**Last updated:** Step 218
 
 
 
@@ -374,9 +374,11 @@
 
 - [x] **Revise provisional handoff template** — require per-lesson vocabulary allocation (supersedes “same set both lessons”).
 
-- [x] **Draft Experiment 9 vocab-split run card** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md). Exp 8 setup fixed; only L1 chores / L2 frequency vocab changes. **Not authorized to generate**.
+- [x] **Draft Experiment 9 vocab-split run card** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md).
 
-- [ ] Owner authorize Experiment 9 generation only explicitly; then compare lesson-split vs Exp 8. Do not lock methodology.
+- [x] **Experiment 9 generated + reviewed** — PASS / vocabulary-split control succeeded (31/31). Per-lesson vocab chips kept in provisional pattern; template provenance/frequency/book-work rules strengthened. Further generation **not authorized**.
+
+- [ ] Further Chalkie runs only under explicit owner authorization. Do not lock methodology.
 
 
 

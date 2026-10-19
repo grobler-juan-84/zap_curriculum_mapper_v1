@@ -3734,3 +3734,20 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 218
+
+**Summary:** Recorded Experiment 9 review as PASS / vocabulary-split control succeeded (31/31). Confirmed per-lesson vocab chips as provisional-pattern practice (practical evidence vs Exp 8). Strengthened handoff template on provenance, frequency scales, and earlier book work. Pre-run run-card design preserved. No D018/decisions change.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md (updated)
+- docs/phase-5/chalkie-provisional-handoff-template-v0.1.md (updated)
+- docs/phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md (updated)
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
