@@ -289,6 +289,8 @@ Do **not** rewrite Experiment 8’s actual inputs. For any future handoff iterat
 
 Lesson 2 may **retrieve** a small number of already-taught chores orally or via the Student Book; it should **not** receive the entire chore list again unless the teacher deliberately wants reteaching.
 
+**Controlled follow-up (draft only):** Experiment 9 vocab-split run card — [`chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md). Same Exp 8 setup; **only** vocab allocation changes. Generation **not** authorized by that card alone.
+
 ---
 
 ## 9. Qualitative review (Experiment 8 — recorded)

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 216
+**Last updated:** Step 217
 
 
 
@@ -374,7 +374,9 @@
 
 - [x] **Revise provisional handoff template** — require per-lesson vocabulary allocation (supersedes “same set both lessons”).
 
-- [ ] Optional later: owner-gated repeat with L1 chores-only / L2 frequency-only vocab. Do not lock methodology; do not regenerate by default.
+- [x] **Draft Experiment 9 vocab-split run card** — [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md). Exp 8 setup fixed; only L1 chores / L2 frequency vocab changes. **Not authorized to generate**.
+
+- [ ] Owner authorize Experiment 9 generation only explicitly; then compare lesson-split vs Exp 8. Do not lock methodology.
 
 
 

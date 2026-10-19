@@ -3719,3 +3719,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 217
+
+**Summary:** Drafted Experiment 9 one-page vocab-split run card — repeat Experiment 8 BE3 U3 LiA pp. 40–41 changing only L1 chores / L2 frequency vocabulary allocation. Generation not authorized. Linked from Exp 8 design §8.1.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md (created)
+- docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

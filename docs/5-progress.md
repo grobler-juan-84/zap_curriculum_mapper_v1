@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 216
+**Last updated:** Step 217
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,23 +24,23 @@
 
 - **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
 
-- **Chalkie diagnostic Experiments 1–8** — provisional handoff pattern transfer-tested (U5 LiA + BE3 U3 LiA); not locked.
+- **Chalkie diagnostic Experiments 1–8** — provisional handoff pattern transfer-tested; not locked.
 
-- **Experiment 8 (BE3 U3 LiA pp. 40–41)** — **PASS / strong qualitative transfer success** (31/31 PDF pages); vocabulary-allocation confound recorded; further generation not authorized.
+- **Experiment 8 (BE3 U3 LiA)** — **PASS / strong qualitative transfer success**; vocabulary-allocation confound recorded.
 
-- **Provisional Chalkie handoff template** — revised to require **per-lesson vocabulary allocation** (Exp 8 learning); still experimental; does **not** authorize generation.
+- **Experiment 9 run card drafted** — Exp 8 repeat with L1 chores / L2 frequency vocab only; generation **not** authorized.
 
 ## In progress
 
-- None active on Chalkie transfer; owner may later authorize a repeat with split vocab lists only.
+- Owner gate for Experiment 9 generation (optional controlled follow-up).
 
 ## Next
 
-- Any future Chalkie handoff for this target should use separate L1 chores / L2 frequency vocabulary lists. Do not lock methodology; do not regenerate without explicit authorization.
+- Authorize Experiment 9 only explicitly; otherwise leave Chalkie gated. Do not lock methodology.
 
 ## Blocked
 
-- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
+- Soft: further Chalkie regeneration (including Exp 9), Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
 
 ---
 
@@ -48,6 +48,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Exp 8: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md).
+- Run card: [`phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md`](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

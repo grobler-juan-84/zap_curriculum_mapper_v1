@@ -35,7 +35,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: optional future Chalkie repeat only with per-lesson vocab split (generation gated). | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner authorize Experiment 9 vocab-split run only if desired (run card drafted; generation gated). | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -167,6 +167,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md) | Read-only retrospective dry run of the handoff template against Experiment 7; usability marks, gaps, bounded revision list; later note that same-list vocab guidance was superseded after Exp 8. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md) | Source-only preflight for BE3 U3 LiA SB pp. 40–41 (*Working Hard!*); verified Phase 1/SS facts; not a handoff prompt; generation not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) | BE3 U3 *Working Hard!* LiA pp. 40–41 Experiment 8: PASS / strong transfer success; vocab-allocation confound recorded; further generation not authorized. | 0.1 | ACTIVE |
+| [phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md) | Experiment 9 run card: Exp 8 repeat with L1 chores / L2 frequency vocab only; DRAFT; generation not authorized. | 0.1 | ACTIVE |
 
 ### Phase 6
 
@@ -181,7 +182,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 111 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus evaluated Arm B2 follow-on, Chalkie diagnostic Experiments 1–8 + provisional handoff template (per-lesson vocab) + BE3 U3 LiA Experiment 8 PASS, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 112 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus evaluated Arm B2 follow-on, Chalkie diagnostic Experiments 1–8 + Exp 9 vocab-split run card (draft) + provisional handoff template (per-lesson vocab) + BE3 U3 LiA Experiment 8 PASS, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 4 | D018 V2/V2b/V2c experiment pack (V2-family closed; V2b preferred); Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 
