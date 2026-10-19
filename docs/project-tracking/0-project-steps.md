@@ -3925,3 +3925,15 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 230
+
+**Summary:** Refined teacher-choice overlay shell and Step 2 layout: dialog width `min(80vw, 1440px)`, Step 1 kept in a centred reading column (~736px), Step 2 as a responsive two-by-two suggestion card grid with subtle selected state. Selection behaviour and copy unchanged; Steps 3–4 not built.
+
+**Files touched:**
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/5-progress.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

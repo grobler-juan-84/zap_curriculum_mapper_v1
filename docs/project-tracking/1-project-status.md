@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 229
+**Last synced:** Step 230
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Chalkie teacher-choice overlay Steps 1–2 live (AI suggestions with checkboxes).
+- Chalkie teacher-choice overlay widened; Step 2 is a two-by-two suggestion grid.
 - Phase 3 remains parked (D020); OpenAI Generate deferred from this launch path.
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Try `/app/chalkie` → Prepare → Step 2 selection; decide whether to authorize Step 3.
+**Suggestion:** Review wide Step 2 comparison layout; decide whether to authorize Step 3.

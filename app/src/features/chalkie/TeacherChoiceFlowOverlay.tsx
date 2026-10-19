@@ -102,15 +102,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/45 p-3 sm:items-center sm:p-6">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/45 p-3 sm:items-center sm:p-5 lg:p-8">
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl"
+        className="flex max-h-[92vh] w-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl sm:w-[min(80vw,1440px)]"
       >
-        <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:px-6">
+        <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="min-w-0">
             <p className="text-xs text-slate-500">
               {step} of {TOTAL_STEPS}
@@ -129,9 +129,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           </button>
         </header>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8">
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
           {step === 1 ? (
-            <div className="space-y-7">
+            <div className="mx-auto w-full max-w-[46rem] space-y-7">
               <div className="space-y-3">
                 <h2
                   id={titleId}
@@ -199,20 +199,23 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
           {step === 2 ? (
             <div className="space-y-7">
-              <div className="space-y-3">
+              <div className="max-w-3xl space-y-3">
                 <h2
                   id={titleId}
                   className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
                 >
                   What might be useful to reuse?
                 </h2>
-                <p className="max-w-xl text-sm leading-relaxed text-slate-600">
+                <p className="text-sm leading-relaxed text-slate-600">
                   AI found four useful language patterns from earlier units in this book. Choose only
                   what helps this lesson.
                 </p>
               </div>
 
-              <ul className="space-y-5" aria-label="AI prior-learning suggestions">
+              <ul
+                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                aria-label="AI prior-learning suggestions"
+              >
                 {BE2_U08_AI_SUGGESTIONS.map((suggestion) => {
                   const checked = selectedIds.includes(suggestion.id)
                   const evidenceOpen = openEvidenceIds.includes(suggestion.id)
@@ -220,9 +223,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   return (
                     <li
                       key={suggestion.id}
-                      className="border-b border-slate-100 pb-5 last:border-b-0 last:pb-0"
+                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
+                        checked
+                          ? 'border-indigo-200 bg-indigo-50/50'
+                          : 'border-slate-200/80 bg-slate-50/40'
+                      }`}
                     >
-                      <div className="flex gap-3">
+                      <div className="flex h-full gap-3">
                         <input
                           id={checkboxId}
                           type="checkbox"
@@ -231,7 +238,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
                           aria-describedby={`${checkboxId}-details`}
                         />
-                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2">
+                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
                           <div className="space-y-0.5">
                             <label
                               htmlFor={checkboxId}
@@ -241,15 +248,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                             </label>
                             <p className="text-xs text-slate-500">{suggestion.source}</p>
                           </div>
-                          <p className="text-sm leading-relaxed text-slate-800">
+                          <p className="text-[0.95rem] leading-relaxed text-slate-900">
                             {suggestion.frame}
                           </p>
                           <p className="text-sm leading-relaxed text-slate-600">
                             <span className="font-medium text-slate-700">Why it may help:</span>{' '}
                             {suggestion.whyItMayHelp}
                           </p>
-                          <p className="text-sm leading-relaxed text-slate-600">
-                            <span className="font-medium text-slate-700">Caution:</span>{' '}
+                          <p className="text-sm leading-relaxed text-slate-500">
+                            <span className="font-medium text-slate-600">Caution:</span>{' '}
                             {suggestion.caution}
                           </p>
                           <div>
@@ -281,7 +288,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
 
           {step === 3 ? (
-            <div className="space-y-3 py-8">
+            <div className="mx-auto w-full max-w-[46rem] space-y-3 py-8">
               <h2
                 id={titleId}
                 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
@@ -295,7 +302,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
         </div>
 
-        <footer className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-5 py-3.5 sm:px-6">
+        <footer className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
           <p className="min-w-[5.5rem] text-sm text-slate-500">
             {step === 2 ? `${selectedCount} selected` : null}
           </p>
