@@ -1,27 +1,27 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 1.0  
-**Branch:** `feature/chalkie-workspace`  
+**Version:** 1.1  
 **Route:** `/app/chalkie` (protected)
 
 ---
 
 ## Purpose and scope
 
-First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textbook PDF, see concise Phase 1 evidence summaries, and reserve space for server-generated Chalkie prompts.
+First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textbook PDF, see concise Phase 1 evidence summaries, and launch a guided teacher-choice setup before prompt preparation.
 
 **In scope:**
 
-- Three-pane layout aligned with Validation Workspace (header, left context, PDF, bottom prompt area).
+- Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
-- **Generate Chalkie Prompt** via server `POST /api/generate-chalkie-prompt` (OpenAI, session JWT, `OPENAI_API_KEY`).
-- Copy controls for lesson topic, Chalkie prompt, and vocabulary CSV.
+- **Prepare Chalkie prompt** launch into a focused four-step teacher-choice overlay (Step 1 implemented for the BE2 Unit 8 prototype case).
 
 **Out of scope (explicit):**
 
 - Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
+- Full teacher-choice Steps 2–4 (AI suggestions, selection controls, lesson-input summary).
+- Actual Chalkie prompt generation / copy output in this micro-step.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
 
@@ -35,8 +35,9 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 | Header | Reuses `ValidationHeader` with verification status badge hidden |
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
 | Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) |
-| Bottom panel | Generate (OpenAI) + copy for topic / prompt / vocabulary CSV |
-| API | `POST /api/generate-chalkie-prompt` (Vite middleware; Bearer JWT) |
+| Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
+| Overlay | Teacher-choice Step 1 (“Current lesson”) for BE2 U8 prototype content; Cancel returns to workspace |
+| API (deferred) | `POST /api/generate-chalkie-prompt` still exists server-side; not launched from this bottom panel in the current micro-step |
 
 ---
 
@@ -54,9 +55,10 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 
 ## What remains pending
 
-1. Optional: teacher page-range picker beyond the current PDF spread.
-2. Optional: harden scaffolding with the approved BE2 U8 pp. 128–129 brief as a golden-path fixture.
-3. Optional: Vercel/serverless adapter for `/api/generate-chalkie-prompt` (local Vite middleware works today).
+1. Teacher-choice Steps 2–4 overlay content (AI suggestions, teacher selection, lesson-input summary).
+2. Optional: teacher page-range picker beyond the current PDF spread.
+3. Optional: re-wire or redesign Generate / copy after the guided flow is complete.
+4. Optional: Vercel/serverless adapter for `/api/generate-chalkie-prompt` (local Vite middleware works today).
 
 ---
 
@@ -64,7 +66,8 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 
 - Visible scope = current PDF spread only (typically two printed pages).
 - Summaries depend on Phase 1 JSON linkage (`printed_page`, `page_id`); sparse links may yield empty spread vocabulary.
-- No Phase 2 learning-requirement interpretation in the UI.
+- Teacher-choice overlay Step 1 is the active micro-step; later steps are placeholder only.
+- Curated BE2 U8 prototype content is used when `big_english_2_sb` Unit 8 is selected; other units fall back to Phase 1 previews.
 - Header may still show “from canonical” when applicable; verification status is hidden only.
 
 ---
@@ -84,3 +87,4 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 | 2026-10-10 | Owner approved UI prototype and pp. 128–129 packaging brief; OpenAI wiring not started. |
 | 2026-10-10 | Documented `OPENAI_API_KEY` env setup (root `.env.local`); Generate route still pending. |
 | 2026-10-10 | Wired Generate via OpenAI server route; copy controls enabled. |
+| 2026-10-19 | Bottom panel replaced with **Prepare Chalkie prompt** launch; Step 1 teacher-choice overlay for BE2 U8. |

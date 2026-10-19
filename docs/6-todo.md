@@ -392,7 +392,9 @@
 
 - [x] **Docs-only teacher-choice flow sketch** — [`phase-2/experiments/teacher-choice-flow-sketch-v0.1.md`](./phase-2/experiments/teacher-choice-flow-sketch-v0.1.md) (BE2 U8 worked example; not UI/schema lock).
 
-- [ ] Owner usability review of the teacher-choice flow sketch; decide next concrete step (refine sketch vs authorize build/docs). Do not lock methodology.
+- [x] **UI micro-step: Chalkie Workspace → Prepare → Step 1 overlay** — compact launch action + Current lesson overlay for BE2 U8; no prompt generation yet.
+
+- [ ] Owner try the Prepare → Step 1 journey in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 2+ overlay content. Do not lock methodology.
 
 
 

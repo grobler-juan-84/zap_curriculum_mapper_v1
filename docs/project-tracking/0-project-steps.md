@@ -3865,3 +3865,21 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 226
+
+**Summary:** Integrated teacher-choice Step 1 into Chalkie Workspace: replaced the lower Generate/output panel with a calm **Prepare Chalkie prompt** action, and opened a focused overlay (`1 of 4 · Current lesson`) with BE2 U8 prototype context. Cancel returns to the workspace; Continue shows a non-generating Step 2 placeholder. No API/schema/data changes.
+
+**Files touched:**
+- app/src/features/chalkie/ChalkieWorkspace.tsx (updated)
+- app/src/features/chalkie/ChalkieOutputPanel.tsx (updated)
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (created)
+- app/src/features/chalkie/teacherChoicePrototypeContent.ts (created)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

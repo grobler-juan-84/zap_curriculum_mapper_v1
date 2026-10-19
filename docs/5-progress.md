@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 225
+**Last updated:** Step 226
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,21 +18,23 @@
 
 - Git consolidation: Chalkie Workspace merged on integration branch; **`main` fast-forwarded** to consolidated tip (`b7d3c04`).
 
-- **Teacher-choice flow sketch v0.1** — docs-only prototype of AI-suggest / teacher-decide prior-learning flow (BE2 U8 example).
+- **Teacher-choice flow sketch v0.1** recorded (docs).
+
+- **UI micro-step:** Chalkie Workspace lower area launches **Prepare Chalkie prompt** → focused overlay Step 1 (Current lesson) for BE2 U8 prototype content.
 
 ## In progress
 
-- Clarify teacher-facing option presentation for horizontal mapping (design sketches; no UI build authorized by this step).
+- Teacher-choice guided overlay micro-step (Step 1 live; Steps 2–4 not built).
 
 ## Next
 
-- Owner usability review of the teacher-choice flow sketch; decide whether to refine the sketch or authorize a next concrete build/docs step.
+- Owner try the Chalkie Workspace → Prepare → Step 1 journey; decide whether to authorize Step 2+ overlay content.
 - Keep Phase 3 / F005 parked (D020).
-- OpenAI Chalkie Generate remains deferred/untested until API access is available.
+- OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 
 ## Blocked
 
-- Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and Chalkie regeneration remain unauthorized without explicit owner approval.
+- Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
 
 ---
 
@@ -42,4 +44,4 @@
 
 - Sketch: [`phase-2/experiments/teacher-choice-flow-sketch-v0.1.md`](./phase-2/experiments/teacher-choice-flow-sketch-v0.1.md).
 
-- Direction: AI suggests / teacher chooses; exposure ≠ mastery; horizontal mapping first.
+- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → overlay `1 of 4 · Current lesson`.

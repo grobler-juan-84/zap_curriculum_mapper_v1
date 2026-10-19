@@ -8,13 +8,14 @@ import {
   summarizeBatchJson,
   validationService,
 } from '../../services/validationService'
-import { chalkieGenerateService } from '../../services/chalkieGenerateService'
 import { ValidationHeader } from '../validation/ValidationHeader'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
 import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
-import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
+import { buildUnitSummaryView } from './chalkieEvidence'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
-import { ChalkieOutputPanel, type ChalkieGeneratedOutput } from './ChalkieOutputPanel'
+import { ChalkieOutputPanel } from './ChalkieOutputPanel'
+import { TeacherChoiceFlowOverlay } from './TeacherChoiceFlowOverlay'
+import { buildTeacherChoiceLessonContext } from './teacherChoicePrototypeContent'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -77,12 +78,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const [visiblePrintedPages, setVisiblePrintedPages] = useState<number[]>([])
 
-  const [generating, setGenerating] = useState(false)
-  const [generateError, setGenerateError] = useState<string | null>(null)
-  const [generated, setGenerated] = useState<ChalkieGeneratedOutput | null>(null)
+  const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
 
-  const [topPaneHeightPercent, setTopPaneHeightPercent] = useState(62)
-  const [isDraggingRowSplitter, setIsDraggingRowSplitter] = useState(false)
   const [leftPaneWidthPercent, setLeftPaneWidthPercent] = useState(33)
   const [isDraggingColSplitter, setIsDraggingColSplitter] = useState(false)
 
@@ -113,76 +110,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     () => (summary ? buildUnitSummaryView(summary) : null),
     [summary],
   )
-  const visibleView = useMemo(
-    () => buildVisiblePagesView(summary, visiblePrintedPages),
-    [summary, visiblePrintedPages],
-  )
 
-  const canGenerate = Boolean(
-    summary && unitView && visiblePrintedPages.length > 0 && !jsonLoading && !batchesLoading,
-  )
-  const disabledReason = !summary
-    ? 'Select a unit with Phase 1 evidence first.'
-    : visiblePrintedPages.length === 0
-      ? 'Navigate the PDF so a printed-page spread is visible.'
-      : null
-
-  const handleGenerate = useCallback(async () => {
-    if (!summary || !unitView || visiblePrintedPages.length === 0) return
-    setGenerating(true)
-    setGenerateError(null)
-    try {
-      const unitVocabulary = summary.vocabulary
-        .map((v) => v.term?.trim())
-        .filter((t): t is string => Boolean(t))
-      const unitLanguage = summary.language
-        .map((item) => {
-          const q = item.prompt?.trim()
-          const a = item.response?.trim()
-          if (q && a) return `${q} → ${a}`
-          return q || a || ''
-        })
-        .filter(Boolean)
-      const unitActivities = summary.activities
-        .map((a) => a.title?.trim() || a.activityType?.trim() || '')
-        .filter(Boolean)
-
-      const result = await chalkieGenerateService.generate({
-        bookTitle: book.title,
-        catalogBookId: book.catalogBookId ?? summary.catalogBookId,
-        series: summary.series ?? series.name,
-        unitLabel: unitView.unitLabel,
-        unitTheme: unitView.theme,
-        unitPageRange: unitView.pageRange,
-        learningFocus: unitView.learningFocus,
-        visiblePrintedPages,
-        unitVocabulary,
-        unitLanguage,
-        unitActivities,
-        visiblePageLabels: visibleView.pageLabels,
-        visibleVocabulary: visibleView.vocabulary,
-        visibleLanguage: visibleView.languageLines,
-        visibleActivities: visibleView.activityLines,
-      })
-      setGenerated({
-        lessonTopic: result.lessonTopic,
-        chalkiePrompt: result.chalkiePrompt,
-        vocabularyCsv: result.vocabularyCsv,
-      })
-    } catch (err: unknown) {
-      setGenerateError(err instanceof Error ? err.message : 'Generate failed.')
-    } finally {
-      setGenerating(false)
-    }
-  }, [
-    summary,
-    unitView,
-    visiblePrintedPages,
-    visibleView,
-    book.title,
-    book.catalogBookId,
-    series.name,
-  ])
+  const teacherChoiceLesson = useMemo(() => {
+    const unit = summary?.units[0]
+    return buildTeacherChoiceLessonContext({
+      bookTitle: book.title,
+      catalogBookId: book.catalogBookId ?? summary?.catalogBookId,
+      unitNumber: currentBatch?.unitNumber ?? unit?.unitNumber ?? null,
+      unitTitle: unit?.title ?? null,
+      unitTheme: unit?.theme ?? unitView?.theme ?? null,
+      vocabularyPreview: unitView?.vocabularyPreview,
+      languagePreview: unitView?.languagePreview,
+    })
+  }, [book.title, book.catalogBookId, summary, currentBatch?.unitNumber, unitView])
 
   useEffect(() => {
     let cancelled = false
@@ -194,8 +134,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setFromCanonical(false)
     setBatches([])
     setVisiblePrintedPages([])
-    setGenerated(null)
-    setGenerateError(null)
+    setTeacherChoiceOpen(false)
 
     ;(async () => {
       try {
@@ -283,11 +222,6 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   }, [book.id])
 
   useEffect(() => {
-    setGenerated(null)
-    setGenerateError(null)
-  }, [selectedBatchId])
-
-  useEffect(() => {
     if (!currentBatch) {
       setSummary(null)
       setJsonError(null)
@@ -350,6 +284,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (teacherChoiceOpen) return
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement ||
@@ -367,31 +302,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [handlePrev, handleNext])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDraggingRowSplitter) return
-      const pane = document.getElementById('chalkie-right-pane')
-      if (!pane) return
-      const rect = pane.getBoundingClientRect()
-      const relativeY = e.clientY - rect.top
-      const newPercent = (relativeY / rect.height) * 100
-      if (newPercent >= 30 && newPercent <= 75) {
-        setTopPaneHeightPercent(newPercent)
-      }
-    }
-    const handleMouseUp = () => setIsDraggingRowSplitter(false)
-
-    if (isDraggingRowSplitter) {
-      window.addEventListener('mousemove', handleMouseMove)
-      window.addEventListener('mouseup', handleMouseUp)
-    }
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [isDraggingRowSplitter])
+  }, [handlePrev, handleNext, teacherChoiceOpen])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -480,10 +391,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           aria-label="Source PDF and Chalkie prompt"
           className="relative flex h-full flex-1 flex-col overflow-hidden"
         >
-          <div
-            style={{ height: `${topPaneHeightPercent}%` }}
-            className="overflow-hidden bg-slate-200/60 p-2 transition-all duration-75"
-          >
+          <div className="min-h-0 flex-1 overflow-hidden bg-slate-200/60 p-2">
             <ValidationPdfPane
               pdfUrl={pdfUrl}
               loading={pdfLoading}
@@ -495,32 +403,15 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
             />
           </div>
 
-          <div
-            onMouseDown={(e) => {
-              e.preventDefault()
-              setIsDraggingRowSplitter(true)
-            }}
-            title="Drag to resize PDF and prompt panel"
-            className="z-20 flex h-2 shrink-0 cursor-row-resize items-center justify-center bg-slate-300 transition-colors hover:bg-indigo-400 active:bg-indigo-600 group"
-          >
-            <div className="h-1 w-10 rounded-full bg-slate-400 group-hover:bg-white" />
-          </div>
-
-          <div
-            style={{ height: `${100 - topPaneHeightPercent}%` }}
-            className="flex flex-col overflow-hidden transition-all duration-75"
-          >
-            <ChalkieOutputPanel
-              canGenerate={canGenerate}
-              generating={generating}
-              error={generateError}
-              output={generated}
-              disabledReason={disabledReason}
-              onGenerate={handleGenerate}
-            />
-          </div>
+          <ChalkieOutputPanel onPreparePrompt={() => setTeacherChoiceOpen(true)} />
         </section>
       </div>
+
+      <TeacherChoiceFlowOverlay
+        open={teacherChoiceOpen}
+        onClose={() => setTeacherChoiceOpen(false)}
+        lesson={teacherChoiceLesson}
+      />
     </div>
   )
 }
