@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 219
+**Last updated:** Step 220
 
 
 
@@ -380,7 +380,11 @@
 
 - [x] **Evidence synthesis Experiments 1–9** — [`phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md). Consolidation checkpoint; pause further Chalkie prompt experiments unless a specific unresolved question remains.
 
-- [ ] Owner select a real new lesson for an operational pilot under the provisional workflow (prep / generation / curation / fidelity / usability). Do not lock methodology; do not generate without authorization.
+- [x] Owner selected operational-pilot target: BE3 U8 Grammar SB pp. 136–137.
+
+- [x] **Source preflight** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md). Identity verified (*Healthy Living* Grammar); **CONDITIONALLY SUITABLE**. Not a handoff; generation **not** authorized.
+
+- [ ] Draft operational-pilot handoff design from the preflight (detailed handoff + two concise outlines + per-lesson vocab). Do not generate without explicit authorization.
 
 
 

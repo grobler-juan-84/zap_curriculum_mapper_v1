@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 219
+**Last synced:** Step 220
 
 ## One-line state
 
 - D018 V2-family CLOSED; preferred control = **V2b**.
-- Chalkie Experiments 1–9 synthesized; prompt experiments paused; operational pilot next (lesson TBD).
+- BE3 U8 Grammar pp.136–137 operational-pilot preflight: CONDITIONALLY SUITABLE; handoff not drafted; generation gated.
 
 ## Branch
 
@@ -14,4 +14,4 @@ On branch `phase-2`.
 
 ## Suggested next prompt
 
-**Suggestion:** Select a real new lesson for an operational pilot under the provisional handoff workflow; do not authorize generation until ready.
+**Suggestion:** Draft the operational-pilot handoff from the preflight; do not authorize generation until ready.

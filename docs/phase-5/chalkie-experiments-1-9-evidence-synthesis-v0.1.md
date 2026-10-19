@@ -133,4 +133,4 @@ Next phase: apply the provisional workflow to a **real new lesson as an operatio
 - source fidelity,
 - classroom usability.
 
-This synthesis does **not** select that lesson, authorize generation, or create a new experiment design.
+**Selected operational-pilot candidate (owner-supplied; source-preflighted):** Big English 3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) (**CONDITIONALLY SUITABLE**; handoff not drafted; generation not authorized).

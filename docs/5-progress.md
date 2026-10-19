@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 219
+**Last updated:** Step 220
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,27 +18,21 @@
 
 - **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (unchanged).
 
-- **V2b-scope Lesson Series A/B comparison** — evaluated; Arm A&B preferred for narrow polarity/agreement; scores preserved.
+- **Chalkie Experiments 1–9** — synthesized; provisional handoff pattern not locked; prompt experiments paused.
 
-- **BE2 U8 horizontal mapping (docs)** — bank → teacher choice → scripts → polarity cue → lesson-input pack **recorded**.
-
-- **Arm B2 generated + evaluated** — preferred vs Arm A; neither Pass; further regeneration not authorized.
-
-- **Chalkie Experiments 1–9** — diagnostic + LiA transfers + vocab-split control recorded; provisional handoff pattern not locked.
-
-- **Experiments 1–9 evidence synthesis** — consolidation checkpoint written; further Chalkie prompt experiments paused unless a specific question remains.
+- **Operational-pilot candidate selected** — BE3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 source-preflighted (**CONDITIONALLY SUITABLE**); handoff not drafted; generation not authorized.
 
 ## In progress
 
-- None on Chalkie prompt experiments; operational pilot not yet selected.
+- First operational Chalkie pilot preparation (preflight complete; design draft pending).
 
 ## Next
 
-- Apply the provisional workflow to a real new lesson as an operational pilot (lesson TBD by owner). Do not lock methodology; do not generate without authorization.
+- Draft the operational-pilot handoff (detailed handoff + concise outlines + per-lesson vocab) from the preflight. Do not generate without explicit owner authorization.
 
 ## Blocked
 
-- Soft: further Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
+- Soft: Chalkie generation, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, classroom-validation claims, and methodology lock are not authorized by this micro-step.
 
 ---
 
@@ -46,6 +40,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Synthesis: [`phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md).
+- Preflight: [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

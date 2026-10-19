@@ -3767,3 +3767,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 220
+
+**Summary:** Source-preflighted first operational Chalkie pilot candidate BE3 Unit 8 *Healthy Living* Grammar SB pp. 136–137. Identity verified; CONDITIONALLY SUITABLE with Track 159 / answer-key / per-lesson vocab conditions. No handoff or generation. Cross-linked from Exp 1–9 synthesis.
+
+**Files touched:**
+- docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md (created)
+- docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
