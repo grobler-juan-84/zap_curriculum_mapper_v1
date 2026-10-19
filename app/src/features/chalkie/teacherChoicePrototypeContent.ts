@@ -1,11 +1,16 @@
 /** Prototype lesson context for the teacher-choice flow micro-step (BE2 Unit 8). */
 
+export type TeacherChoiceLanguageExample = {
+  label?: string
+  example: string
+}
+
 export type TeacherChoiceLessonContext = {
   bookLabel: string
   unitLine: string
   currentFocus: string
   vocabulary: string[]
-  languageExamples: string[]
+  languageExamples: TeacherChoiceLanguageExample[]
   clarification: string | null
   isPrototypeCase: boolean
 }
@@ -25,14 +30,14 @@ const BE2_U08_VOCABULARY = [
   'zebra',
 ] as const
 
-const BE2_U08_LANGUAGE = [
-  'Do you like cheetahs? Yes, I do!',
-  'Cheetahs can run.',
-  'Can a kangaroo jump? Yes, it can.',
-] as const
+const BE2_U08_LANGUAGE: TeacherChoiceLanguageExample[] = [
+  { label: 'Preference', example: 'Do you like cheetahs? Yes, I do!' },
+  { label: 'Ability statement', example: 'Cheetahs can run.' },
+  { label: 'Ability question', example: 'Can a kangaroo jump? Yes, it can.' },
+]
 
 const BE2_U08_CLARIFICATION =
-  'Ability language with “can” is current Unit 8 learning. It is not retrieved prior learning.'
+  'can / can’t is current Unit 8 learning, not prior learning to reuse.'
 
 export function buildTeacherChoiceLessonContext(input: {
   bookTitle: string
@@ -52,9 +57,9 @@ export function buildTeacherChoiceLessonContext(input: {
     return {
       bookLabel: 'Big English 2',
       unitLine: `Unit 8 · ${theme}`,
-      currentFocus: 'speaking with animal vocabulary',
+      currentFocus: 'Speak about wild animals using preference and ability language.',
       vocabulary: [...BE2_U08_VOCABULARY],
-      languageExamples: [...BE2_U08_LANGUAGE],
+      languageExamples: BE2_U08_LANGUAGE,
       clarification: BE2_U08_CLARIFICATION,
       isPrototypeCase: true,
     }
@@ -72,7 +77,7 @@ export function buildTeacherChoiceLessonContext(input: {
     unitLine: unitLabel,
     currentFocus: input.unitTheme?.trim() || 'Review the visible lesson in the source PDF.',
     vocabulary: (input.vocabularyPreview ?? []).slice(0, 12),
-    languageExamples: (input.languagePreview ?? []).slice(0, 3),
+    languageExamples: (input.languagePreview ?? []).slice(0, 3).map((example) => ({ example })),
     clarification: null,
     isPrototypeCase: false,
   }

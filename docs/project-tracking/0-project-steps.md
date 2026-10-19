@@ -3883,3 +3883,16 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 227
+
+**Summary:** Refined teacher-choice overlay Step 1 for BE2 U8: page-specific current focus (pp. 128–129 lesson), labelled Preference / Ability language entries, and an inline `can / can’t` note under Current language. Left Workspace panel and other UI unchanged.
+
+**Files touched:**
+- app/src/features/chalkie/teacherChoicePrototypeContent.ts (updated)
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/5-progress.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

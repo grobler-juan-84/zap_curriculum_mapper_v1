@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 226
+**Last updated:** Step 227
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,7 +20,7 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Chalkie Workspace lower area launches **Prepare Chalkie prompt** → focused overlay Step 1 (Current lesson) for BE2 U8 prototype content.
+- **UI micro-step:** Chalkie Workspace → **Prepare Chalkie prompt** → overlay Step 1 (BE2 U8); page-specific focus + labelled current-language entries.
 
 ## In progress
 
@@ -28,7 +28,7 @@
 
 ## Next
 
-- Owner try the Chalkie Workspace → Prepare → Step 1 journey; decide whether to authorize Step 2+ overlay content.
+- Owner try the Prepare → Step 1 journey (page-specific focus + language labels); decide whether to authorize Step 2+ overlay content.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 

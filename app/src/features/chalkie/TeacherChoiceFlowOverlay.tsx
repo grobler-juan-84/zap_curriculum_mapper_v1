@@ -141,8 +141,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 <h3 className="text-sm font-medium text-slate-800">Current language</h3>
                 {lesson.languageExamples.length > 0 ? (
                   <ul className="space-y-2 text-sm leading-relaxed text-slate-700">
-                    {lesson.languageExamples.map((line) => (
-                      <li key={line}>{line}</li>
+                    {lesson.languageExamples.map((item) => (
+                      <li key={`${item.label ?? ''}:${item.example}`}>
+                        {item.label ? (
+                          <>
+                            <span className="font-medium text-slate-800">{item.label}:</span>{' '}
+                            <span>{item.example}</span>
+                          </>
+                        ) : (
+                          item.example
+                        )}
+                      </li>
                     ))}
                   </ul>
                 ) : (
@@ -150,13 +159,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     No language examples are available for this unit yet.
                   </p>
                 )}
+                {lesson.clarification ? (
+                  <p className="pt-1 text-sm leading-relaxed text-slate-600">
+                    <span className="font-medium text-slate-700">Note:</span> {lesson.clarification}
+                  </p>
+                ) : null}
               </section>
-
-              {lesson.clarification ? (
-                <aside className="border-l-2 border-slate-200 pl-4 text-sm leading-relaxed text-slate-600">
-                  {lesson.clarification}
-                </aside>
-              ) : null}
             </div>
           ) : (
             <div className="space-y-3 py-8">
