@@ -141,11 +141,23 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-evaluation.md](./phase-2/p2-exp-be2-u06-e2e-v1/p2-exp-be2-u06-e2e-v1-evaluation.md) | Comparative evaluation of teacher Briefs A vs B; modest planning usefulness; not a methodology lock. | 1.0 | ACTIVE |
 | [phase-2/phase2-unit-page-output-v0.1.md](./phase-2/phase2-unit-page-output-v0.1.md) | Earlier experimental Phase 2 unit+page JSON output sketch (0.1-experimental); superseded in practice by v3.1 `phase2_linguistic_anatomy` output shape; retained for history. | 0.1-experimental | PARKED |
 
+### Phase 3
+
+| Doc | Summary | Version | Lifecycle |
+|---|---|---|---|
+| [phase-3/p3-vertical-mapping-candidates.md](./phase-3/p3-vertical-mapping-candidates.md) | Early Phase 3 vertical-mapping candidate notes (historical). Phase 3 remains parked later priority (D020); not a product start. | — | PARKED |
+| [phase-3/p3-exp-be2-u06-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u06-vertical-v1-protocol.md) | Historical BE2 U6 vertical-mapping experiment protocol. Research only; Phase 3 not unlocked. | 1.0 | PARKED |
+| [phase-3/p3-exp-be2-u06-vertical-v1-review.md](./phase-3/p3-exp-be2-u06-vertical-v1-review.md) | Historical BE2 U6 vertical-mapping experiment review. | 1.0 | PARKED |
+| [phase-3/p3-exp-be2-u08-vertical-v1-protocol.md](./phase-3/p3-exp-be2-u08-vertical-v1-protocol.md) | Historical BE2 U8 vertical-mapping experiment protocol. Research only; Phase 3 not unlocked. | 1.0 | PARKED |
+| [phase-3/p3-exp-be2-u08-vertical-v1-review.md](./phase-3/p3-exp-be2-u08-vertical-v1-review.md) | Historical BE2 U8 vertical-mapping experiment review. | 1.0 | PARKED |
+
 ### Phase 4
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
 | [phase-4/teacher-enrichment-philosophy.md](./phase-4/teacher-enrichment-philosophy.md) | Phase 4 philosophy for teacher enrichment: floor-first depth, curriculum fidelity, productive language practice, and how enrichment must stay distinct from source evidence. | V1 | ACTIVE |
+| [phase-4/p4-exp-be2-u08-enrich-v1-protocol.md](./phase-4/p4-exp-be2-u08-enrich-v1-protocol.md) | Historical first Phase 4 enrichment experiment protocol for BE2 U8. Research record; not a product pipeline. | 1.0 | PARKED |
+| [phase-4/p4-exp-be2-u08-enrich-v1-review.md](./phase-4/p4-exp-be2-u08-enrich-v1-review.md) | Historical BE2 U8 enrichment experiment review. | 1.0 | PARKED |
 | [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-protocol.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-protocol.md) | Bounded Phase 4 enrichment probe protocol: BE2 U6 A/B (Phase 1 vs V3.1+V1.2); isolation, classification, and decision-change rules; not a Phase 4 start. | 1.0 | ACTIVE |
 | [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-a-phase1.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-a-phase1.md) | Enrichment Proposal A for BE2 U6 focus: up to three conditional opportunities from Phase 1 only (isolation before V3.1/V1.2). | 1.0 | ACTIVE |
 | [phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md](./phase-4/p4-exp-be2-u06-enrich-v1/p4-exp-be2-u06-enrich-v1-proposal-b-informed.md) | Enrichment Proposal B for BE2 U6 focus: Phase 1 + V3.1 + CON-01/CON-02; same format as A; CON-01 declined as enrichment driver. | 1.0 | ACTIVE |
@@ -155,6 +167,11 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype design notes for `/app/chalkie` (integrated on consolidation branch). Not a product lock. | — | ACTIVE |
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
+| [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
+| [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) | Historical page-scoped Chalkie brief for BE2 U8 pp. 128–129 (pre-D018). Research only. | 1.0 | PARKED |
+| [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1-review.md) | Historical review of page-scoped BE2 U8 Chalkie brief. | 1.0 | PARKED |
 | [phase-5/d018-v1-be2-u08-p128-129-experiment.md](./phase-5/d018-v1-be2-u08-p128-129-experiment.md) | D018 V1 Chalkie experiment (BE2 U8 pp. 128–129): closed as comparative baseline (4 Yes / 3 Partial; formal Pass not met); one-time owner override authorizes V2 (+ Workbook). | 1.2 | ACTIVE |
 | [phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md](./phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md) | D018 V2-family **CLOSED**: V1/V2 below Pass; V2b preferred Pass baseline/control; V2c Pass equivalent but not preferred; no V2d. | 2.2 | PARKED |
 | [phase-5/d018-v3-be2-u08-book-intelligence-experiment.md](./phase-5/d018-v3-be2-u08-book-intelligence-experiment.md) | D018 V3 Book Intelligence experiment: V2b control + append-only `[BI]`; generated as `WILD ANIMALS (1)(1).pdf` (31 PDF pages); formal evaluation pending. | 1.2 | ACTIVE |
@@ -185,8 +202,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 115 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus evaluated Arm B2 follow-on, Chalkie Experiments 1–10 (Exp 10 operational CONDITIONAL FAIL) + provisional handoff template with source-fidelity gate, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
-| PARKED | 4 | D018 V2/V2b/V2c experiment pack (V2-family closed; V2b preferred); Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
+| ACTIVE | 116 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, Chalkie Workspace prototype notes, Chalkie Experiments 1–10 + provisional handoff template, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 
 ---

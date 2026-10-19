@@ -35,6 +35,8 @@ interface ValidationPdfPaneProps {
   pageMap?: PageMap
   /** Fired whenever the visible PDF pair changes (load, Prev/Next, Go, or jump). */
   onVisibleRangeChange?: (range: PdfVisibleRange) => void
+  /** Called when the visible spread’s printed page numbers change (Chalkie Workspace). */
+  onVisiblePrintedPagesChange?: (printedPages: number[]) => void
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
@@ -53,6 +55,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   initialPageEnd = null,
   pageMap = EMPTY_PAGE_MAP,
   onVisibleRangeChange,
+  onVisiblePrintedPagesChange,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
@@ -114,6 +117,26 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   const leftPrinted = printedForPdf(pageMap, leftPage)
   const rightPrinted = rightPage ? printedForPdf(pageMap, rightPage) : null
+
+  useEffect(() => {
+    if (!onVisiblePrintedPagesChange || !numPages || !rangeReportReady) return
+    const pages: number[] = []
+    const left = printedForPdf(pageMap, leftPage)
+    if (left != null) pages.push(left)
+    if (rightPage != null) {
+      const right = printedForPdf(pageMap, rightPage)
+      if (right != null && right !== left) pages.push(right)
+    }
+    pages.sort((a, b) => a - b)
+    onVisiblePrintedPagesChange(pages)
+  }, [
+    onVisiblePrintedPagesChange,
+    numPages,
+    pageMap,
+    leftPage,
+    rightPage,
+    rangeReportReady,
+  ])
 
   const pdfLabel = useMemo(() => {
     if (!numPages) return '—'

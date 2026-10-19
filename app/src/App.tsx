@@ -10,6 +10,7 @@ import { LandingPage } from './features/landing/LandingPage'
 import { SeriesLibraryPage } from './features/series-library/SeriesLibraryPage'
 import { AppShell } from './features/shell/AppShell'
 import { BookIntelligencePreviewPage } from './features/book-intelligence/BookIntelligencePreviewPage'
+import { ChalkiePage } from './features/chalkie/ChalkiePage'
 import { ValidationPage } from './features/validation/ValidationPage'
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
           path="book-intelligence/:catalogBookId"
           element={<BookIntelligencePreviewPage />}
         />
+        <Route path="chalkie" element={<ChalkiePage />} />
       </Route>
     </Routes>
   )
