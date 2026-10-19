@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 224
+**Last updated:** Step 225
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,34 +16,30 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- **D018 V2-family CLOSED** — preferred Pass baseline/control = **V2b** (unchanged).
+- Git consolidation: Chalkie Workspace merged on integration branch; **`main` fast-forwarded** to consolidated tip (`b7d3c04`).
 
-- **Chalkie Experiments 1–9** — synthesized; provisional handoff pattern not locked.
-
-- **Experiment 10 (operational pilot)** — **closed**: raw CONDITIONAL FAIL (Act 19) → teacher-corrected **PASS AFTER TEACHER REVIEW**.
-
-- **D020** — Phase 3 Vertical Mapping locked as **parked later priority** (not Phase-2-gated); eventual cross-book prior-learning reuse for teacher choice (parallel to horizontal mapping).
+- **Teacher-choice flow sketch v0.1** — docs-only prototype of AI-suggest / teacher-decide prior-learning flow (BE2 U8 example).
 
 ## In progress
 
-- Documentation alignment for D020 complete; awaiting owner choice of next project question.
+- Clarify teacher-facing option presentation for horizontal mapping (design sketches; no UI build authorized by this step).
 
 ## Next
 
-- Finalize a workable Phase 2; develop practical Phase 4–7 pathway; present evidence-grounded options clearly for teachers.
-- Keep Phase 3 / F005 parked — do not unlock, schedule, or productize vertical mapping.
-- Owner names the next concrete project question (do not auto-select another lesson or experiment).
+- Owner usability review of the teacher-choice flow sketch; decide whether to refine the sketch or authorize a next concrete build/docs step.
+- Keep Phase 3 / F005 parked (D020).
+- OpenAI Chalkie Generate remains deferred/untested until API access is available.
 
 ## Blocked
 
-- Soft: Chalkie regeneration, Arm B2 regeneration, V3/V4/V5, rubric rewrite, Phase 2 closure, Phase 3 unlock, classroom-validation claims, and methodology lock are not authorized by this micro-step.
+- Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and Chalkie regeneration remain unauthorized without explicit owner approval.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `phase-2`.
+- Active Git branch: `main` (consolidated application).
 
-- Authority: [`4-decisions.md`](./4-decisions.md) **D020**; workflow: [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+- Sketch: [`phase-2/experiments/teacher-choice-flow-sketch-v0.1.md`](./phase-2/experiments/teacher-choice-flow-sketch-v0.1.md).
 
-- Direction: AI suggests / teacher chooses; exposure ≠ mastery; horizontal mapping remains current within-book emphasis.
+- Direction: AI suggests / teacher chooses; exposure ≠ mastery; horizontal mapping first.

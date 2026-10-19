@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 224
+**Last updated:** Step 225
 
 
 
@@ -390,7 +390,9 @@
 
 - [x] **Experiment 10 teacher correction** — Stage 2 **PASS AFTER TEACHER REVIEW** (`…experimpent 10… [fixed - by teacher].pdf`); record closed; teacher-in-the-loop demonstrated. Regeneration **not authorized**.
 
-- [ ] Owner identify the **next project question** (do not auto-select another lesson/experiment). Do not lock methodology.
+- [x] **Docs-only teacher-choice flow sketch** — [`phase-2/experiments/teacher-choice-flow-sketch-v0.1.md`](./phase-2/experiments/teacher-choice-flow-sketch-v0.1.md) (BE2 U8 worked example; not UI/schema lock).
+
+- [ ] Owner usability review of the teacher-choice flow sketch; decide next concrete step (refine sketch vs authorize build/docs). Do not lock methodology.
 
 
 

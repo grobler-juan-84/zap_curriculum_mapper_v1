@@ -3850,3 +3850,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 225
+
+**Summary:** Added docs-only **teacher-choice flow sketch v0.1** — simplest teacher-facing prior-learning selection flow (current lesson → AI 0–5 → teacher decide → lesson-input summary) with BE2 U8 worked example. Linked from Phase 2 experiment status and docs index. No application code, schema, API, or Phase 3 unlock.
+
+**Files touched:**
+- docs/phase-2/experiments/teacher-choice-flow-sketch-v0.1.md (created)
+- docs/phase-2/phase-2-experiment-status.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

@@ -1,18 +1,18 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 224
+**Last synced:** Step 225
 
 ## One-line state
 
-- **D020** LOCKED: Phase 3 Vertical Mapping parked as later priority (not Phase-2-gated); eventual cross-book prior-learning reuse for teacher choice.
-- Immediate priorities: workable Phase 2; Phase 4–7 pathway; clear teacher-facing options (horizontal mapping first).
-- Exp 10 closed; next project question TBD.
+- On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
+- Teacher-choice flow sketch v0.1 recorded (docs only).
+- Phase 3 remains parked (D020); OpenAI Generate still deferred.
 
 ## Branch
 
-On branch `phase-2`.
+On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Name the next project question (Phase 2 / Phase 4–7 interface / HM) — do not unlock Phase 3.
+**Suggestion:** Review [`phase-2/experiments/teacher-choice-flow-sketch-v0.1.md`](../phase-2/experiments/teacher-choice-flow-sketch-v0.1.md) for usability clarity; do not auto-build UI.

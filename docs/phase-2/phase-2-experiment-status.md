@@ -1,8 +1,8 @@
 # Phase 2 Experiment Status
 
 **Status:** ACTIVE  
-**Version:** 1.45  
-**Date:** 2026-10-18  
+**Version:** 1.46  
+**Date:** 2026-10-19  
 **Purpose:** Living inventory of Phase 2 experiment lineages. Early LR, V3.1, cross-unit, e2e, and enrichment work remain **historical research evidence** (D017 principle 4). Active direction is Progressive Curriculum Intelligence (D017): minimum-sufficient Book Intelligence, plus bounded **teacher-directed horizontal mapping** for cumulative learning. Does **not** lock a Phase 2 methodology, JSON schema, storage model, or product implementation.
 
 ---
@@ -49,6 +49,7 @@ Bounded research only — **not** classroom validation, UI, schema work, Phase 2
 | Prior-language investigation | [`experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md`](./experiments/be2-u01-u07-prior-language-bank-u08-horizontal-map-v0.1.md) | SS-first, selectively SB-verified inventory |
 | Teacher choice card | [`experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md`](./experiments/be2-u08-horizontal-map-teacher-choice-card-v0.1.md) | Owner selection + feedback Q4–5 |
 | Cumulative script pack | [`experiments/be2-u08-cumulative-language-script-pack-v0.1.md`](./experiments/be2-u08-cumulative-language-script-pack-v0.1.md) | Manual scripts + qualitative comparison (document/teacher-judgment evidence) |
+| Teacher-choice flow sketch | [`experiments/teacher-choice-flow-sketch-v0.1.md`](./experiments/teacher-choice-flow-sketch-v0.1.md) | Prototype design sketch of the end-to-end teacher choice flow (docs only; not UI/schema) |
 
 **Recorded accurately:**
 
@@ -58,7 +59,7 @@ Bounded research only — **not** classroom validation, UI, schema work, Phase 2
 - Teacher feedback supports fuller **positive and negative** preference paths and polarity-matched `Me, too!` / `Me neither!`.
 - **Smallest next step:** one polarity-safe opener cue card based on Scripts A–C, then a teacher-usefulness judgment — before considering any bounded Chalkie / Lesson Series trial.
 
-**Boundaries unchanged:** no D018 result/prompt/rubric changes; no V4/V5; no Phase 2 closure; vertical mapping remains parked.
+**Boundaries unchanged:** no D018 result/prompt/rubric changes; no V4/V5; no Phase 2 closure; vertical mapping remains parked (**D020** later priority). The teacher-choice flow sketch (2026-10-19) clarifies product direction for AI-suggest / teacher-decide prior learning; it does **not** authorize UI build or Phase 3 work.
 
 ---
 
