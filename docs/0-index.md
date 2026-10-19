@@ -35,7 +35,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; active research focus is horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log: locked choices through D019; D019 amended for BE2+BE3 BI MVP UI implementation validation; BE2 eight-column and BE3 nine-column methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner review of provisional Chalkie handoff template (experimental; generation gated). | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next: owner review of handoff template after U5 LiA retrospective dry run (experimental; generation gated). | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; D018 / Lesson Series parked downstream (not cancelled); V3 formal evaluation pending; full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -163,7 +163,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md](./phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md) | Arm B2 vs Arm A: generated + evaluated; Arm B2 preferred (pack fidelity); neither Pass; regeneration not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md](./phase-5/chalkie-outline-context-retention-diagnostic-v0.1.md) | Chalkie outline/context diagnostic: Experiments 1–6 plus Experiment 7 U5 LiA transfer success; provisional handoff pattern strengthened, not locked; further generation not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md) | BE2 U5 LiA pp. 78–79 Chalkie transfer test: generated + qualitatively reviewed; strong transfer success; further generation not authorized. | 0.1 | ACTIVE |
-| [phase-5/chalkie-provisional-handoff-template-v0.1.md](./phase-5/chalkie-provisional-handoff-template-v0.1.md) | Concise reusable Chalkie handoff template from Experiments 5–7; DRAFT / experimental / not a methodology lock; does not authorize generation. | 0.1 | ACTIVE |
+| [phase-5/chalkie-provisional-handoff-template-v0.1.md](./phase-5/chalkie-provisional-handoff-template-v0.1.md) | Concise reusable Chalkie handoff template from Experiments 5–7; revised after U5 LiA retrospective dry run; DRAFT / experimental / not a methodology lock; does not authorize generation. | 0.1 | ACTIVE |
+| [phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md) | Read-only retrospective dry run of the handoff template against Experiment 7; usability marks, gaps, bounded revision list; not a generation authorization. | 0.1 | ACTIVE |
 
 ### Phase 6
 
@@ -178,7 +179,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 108 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus evaluated Arm B2 follow-on, Chalkie diagnostic Experiments 1–7 + provisional handoff template draft, D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 109 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, five BE2 U8 HM artifacts (incl. lesson-input pack), evaluated V2b vs `[HM]` A/B plus evaluated Arm B2 follow-on, Chalkie diagnostic Experiments 1–7 + provisional handoff template (with U5 LiA retrofill), D017 BI artifacts, preserved D018 V1/V3 + Lesson Series design (downstream), Phase 6 Chalkie ops guide, Phase 2 research inventory, Phase 4 enrichment probe, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 4 | D018 V2/V2b/V2c experiment pack (V2-family closed; V2b preferred); Phase 6 handover spec; Phase 2 unit+page output sketch v0.1; Phase 2 overview v2 (superseded by D017) |
 | LOCKED | 0 | None currently frozen |
 

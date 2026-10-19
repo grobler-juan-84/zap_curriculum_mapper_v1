@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 212
+**Last updated:** Step 213
 
 
 
@@ -362,7 +362,9 @@
 
 - [x] **Draft provisional Chalkie handoff template** — [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md) (Experiments 5–7). DRAFT / experimental / not a methodology lock; does not authorize generation.
 
-- [ ] Owner review of the provisional handoff template; do not lock methodology or authorize another generation by default.
+- [x] **Retrospective dry run** of the handoff template against Experiment 7 — [`phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md); bounded template revision applied.
+
+- [ ] Owner review of the revised provisional handoff template; do not lock methodology or authorize another generation by default.
 
 
 

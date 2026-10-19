@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 212
+**Last updated:** Step 213
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -26,15 +26,15 @@
 
 - **Chalkie diagnostic Experiments 1–7** — provisional handoff pattern identified and transfer-tested (U5 LiA); not locked.
 
-- **Provisional Chalkie handoff template drafted** — reusable one-page fill-in from Experiments 5–7; experimental; does **not** authorize generation.
+- **Provisional Chalkie handoff template** — drafted, dry-run filled against Experiment 7, and revised for demonstrated ambiguities only; still experimental; does **not** authorize generation.
 
 ## In progress
 
-- Owner review of the provisional handoff template (keep provisional; no methodology lock).
+- Owner review of the revised provisional handoff template.
 
 ## Next
 
-- Review/revise the template if needed. Any new Chalkie run remains separately owner-gated.
+- Use the template only under a separate owner-gated generation decision. Do not lock methodology.
 
 ## Blocked
 
@@ -46,6 +46,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Template: [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md).
+- Template: [`phase-5/chalkie-provisional-handoff-template-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-v0.1.md) · Retrofill: [`phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

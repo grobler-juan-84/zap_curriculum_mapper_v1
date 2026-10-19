@@ -3,6 +3,7 @@
 **Status:** DRAFT / EXPERIMENTAL / **NOT A METHODOLOGY LOCK** / **DOES NOT AUTHORIZE GENERATION**  
 **Date:** 2026-10-19  
 **Evidence base:** Chalkie diagnostic Experiments **5**, **6**, and **7** (U8 Wild Animals + U5 Language in Action transfer)  
+**Usability check:** [`chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md`](./chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
 ---
@@ -24,14 +25,15 @@ Working experimental preference only. Teacher review remains required after ever
 ## 2. Detailed initial handoff (fill-in)
 
 ```text
+TITLE / TOPIC: […]
 LESSON IDENTITY: [Book · Unit · Title]
 EXACT PAGE SCOPE: [e.g. SB pp. __–__ / WB pp. __–__] — only these pages
-SOURCE LABELS: [SS] · [SB] · [WB] · [SUPPLEMENTARY] (keep distinguishable)
+SOURCE LABELS: [SS] · [SB] · [WB] · [SUPPLEMENTARY] (omit unused; keep distinguishable)
 
 VERIFIED FLOOR CONTENT:
 - Target frames / structures: …
 - Book activities to support: …
-- Jobs/words/models used on these pages: …
+- Scoped words / models used on these pages: …
 
 LESSON ALLOCATION:
 - Lesson 1: …
@@ -50,10 +52,11 @@ PROTECTED TEXTBOOK WORK: reserve real Student Book / Workbook working time; slid
 
 ## 3. Concise teacher-controlled outline (per lesson)
 
-**Not a slide-by-slide script.** Prescribe sequence and textbook integration only.
+**Not a slide-by-slide script.** Prescribe sequence and textbook integration only.  
+Include all six beats below; **order may adjust** so protected textbook time is not delayed by optional speaking (e.g. retrieve → model → guided → book work → communicative → check).
 
 ```text
-1. Short activation
+1. Short activation or retrieve
 2. Model (target frames; label [SB]/[SUPPLEMENTARY] correctly)
 3. Guided practice
 4. Purposeful communicative use (light, natural)
@@ -69,11 +72,12 @@ PROTECTED TEXTBOOK WORK: reserve real Student Book / Workbook working time; slid
 VOCABULARY (manual Chalkie entry, comma-separated): word1, word2, word3
 ```
 
-Include **only** words justified by the **scoped pages**. Do **not** dump broader unit vocabulary merely because it appears elsewhere in the unit.
+Include **only** words justified by the **scoped pages**. Do **not** dump broader unit vocabulary merely because it appears elsewhere in the unit.  
+Enter chips **per lesson**; use the **same scoped list** for both lessons unless page scope differs.
 
 ---
 
-## 5. Fixed settings to record (controlled run)
+## 5. Fixed settings + run record
 
 | Setting | Record |
 | --- | --- |
@@ -88,6 +92,14 @@ Include **only** words justified by the **scoped pages**. Do **not** dump broade
 
 Align **title**, **initial handoff**, and **outline bodies** before Generate.
 
+```text
+RUN RECORD (after export):
+- Lesson 1 export filename / requested slides / exported PDF pages: …
+- Lesson 2 export filename / requested slides / exported PDF pages: …
+```
+
+Exported PDF pages may include reveal states and are **not** equivalent to planned slides.
+
 ---
 
 ## 6. Quality checklist
@@ -97,7 +109,7 @@ Align **title**, **initial handoff**, and **outline bodies** before Generate.
 - [ ] Title / initial prompt / outline bodies aligned (no conflicting topic residue)
 - [ ] Exact page scope + exclusions stated
 - [ ] Floor frames and book activities match verified evidence
-- [ ] Vocabulary chips = scoped list only
+- [ ] Vocabulary chips = scoped list only (same set unless scope differs)
 - [ ] Settings recorded (§5)
 
 **Post-generation**
@@ -107,7 +119,7 @@ Align **title**, **initial handoff**, and **outline bodies** before Generate.
 - [ ] No invented official audio, lyrics, sticker keys, or unknown answers presented as publisher text
 - [ ] Protected textbook work not displaced by generated filler
 - [ ] Definitions / matching / quizzes / answer reveals = **optional support only**
-- [ ] Exported PDF page count recorded separately from requested slides (reveals may inflate PDF pages)
+- [ ] Run record completed (§5); PDF page count interpreted with reveal caution
 
 ---
 

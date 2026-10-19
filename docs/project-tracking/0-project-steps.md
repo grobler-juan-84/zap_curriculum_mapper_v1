@@ -3658,3 +3658,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 213
+
+**Summary:** Completed a read-only retrospective dry run of the provisional Chalkie handoff template against Experiment 7 (BE2 U5 LiA). Recorded field usability marks, genuine gaps, and a bounded revision list; revised the template for demonstrated ambiguities only (title field, scoped-words wording, activation/retrieve, outline-order note, vocab same-set rule, run record). Verdict: usable provisional starting point. No generation authorized; D018/decisions unchanged.
+
+**Files touched:**
+- docs/phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md (created)
+- docs/phase-5/chalkie-provisional-handoff-template-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
