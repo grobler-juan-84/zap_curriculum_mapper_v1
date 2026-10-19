@@ -398,7 +398,9 @@
 
 - [x] **UI micro-step: teacher-choice Step 3 (Your choices)** — review/adjust Step 2 selections, local teacher-added language, use-no-prior-learning; Step 4 still placeholder.
 
-- [ ] Owner try Prepare → Steps 1–3 in `/app/chalkie` (BE2 Unit 8); decide whether to authorize Step 4 summary. Do not lock methodology.
+- [x] **UI micro-step: teacher-choice Step 4 (Lesson-input summary)** — review current lesson + selected/teacher-added inputs; Back to workspace closes without generation.
+
+- [ ] Owner review full Prepare → Steps 1–4 journey in `/app/chalkie` (BE2 Unit 8); decide whether to authorize prompt-preview / generation next. Do not lock methodology.
 
 
 

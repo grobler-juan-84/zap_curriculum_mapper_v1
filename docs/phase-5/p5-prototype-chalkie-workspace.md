@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 1.3  
+**Version:** 1.4  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -15,13 +15,12 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
-- **Prepare Chalkie prompt** launch into a focused four-step teacher-choice overlay (Steps 1–3 implemented for the BE2 Unit 8 prototype case).
+- **Prepare Chalkie prompt** launch into a focused four-step teacher-choice overlay (Steps 1–4 implemented for the BE2 Unit 8 prototype case).
 
 **Out of scope (explicit):**
 
 - Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
-- Full teacher-choice Step 4 lesson-input summary.
-- Actual Chalkie prompt generation / copy output in this micro-step.
+- Actual Chalkie prompt generation / copy / persistence after the lesson-input summary.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
 
@@ -36,7 +35,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
 | Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
-| Overlay | Teacher-choice Steps 1–3 (Current lesson, AI suggestions, Your choices with local teacher-added language); Cancel returns to workspace |
+| Overlay | Teacher-choice Steps 1–4 (Current lesson → AI suggestions → Your choices → Lesson-input summary); closes without generation |
 | API (deferred) | `POST /api/generate-chalkie-prompt` still exists server-side; not launched from this bottom panel in the current micro-step |
 
 ---
@@ -55,7 +54,7 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 
 ## What remains pending
 
-1. Teacher-choice Step 4 lesson-input summary.
+1. Optional: prompt-preview / generation handoff after the lesson-input summary.
 2. Optional: teacher page-range picker beyond the current PDF spread.
 3. Optional: re-wire or redesign Generate / copy after the guided flow is complete.
 4. Optional: Vercel/serverless adapter for `/api/generate-chalkie-prompt` (local Vite middleware works today).
@@ -66,7 +65,7 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 
 - Visible scope = current PDF spread only (typically two printed pages).
 - Summaries depend on Phase 1 JSON linkage (`printed_page`, `page_id`); sparse links may yield empty spread vocabulary.
-- Teacher-choice overlay Steps 1–3 are live; Step 4 remains placeholder only.
+- Teacher-choice overlay Steps 1–4 are live for the BE2 U8 prototype; no prompt is generated from the summary yet.
 - Curated BE2 U8 prototype content is used when `big_english_2_sb` Unit 8 is selected; other units fall back to Phase 1 previews.
 - Header may still show “from canonical” when applicable; verification status is hidden only.
 
@@ -90,3 +89,4 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 | 2026-10-19 | Bottom panel replaced with **Prepare Chalkie prompt** launch; Step 1 teacher-choice overlay for BE2 U8. |
 | 2026-10-19 | Step 2 AI suggestions (four unchecked prior-learning rows; local selection; Step 3 placeholder). |
 | 2026-10-19 | Step 3 Your choices: review selections, teacher-added language, use-no-prior-learning; Step 4 placeholder. |
+| 2026-10-19 | Step 4 Lesson-input summary: current lesson + selected/teacher-added inputs; Back to workspace without generation. |

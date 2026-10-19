@@ -21,7 +21,7 @@ function stepNameFor(step: number): string {
   if (step === 1) return 'Current lesson'
   if (step === 2) return 'Prior learning'
   if (step === 3) return 'Your choices'
-  return 'Coming next'
+  return 'Lesson inputs'
 }
 
 function footerSummary(selectedCount: number, teacherAddedCount: number): string {
@@ -519,62 +519,201 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
 
           {step === 4 ? (
-            <div className="mx-auto w-full max-w-[46rem] space-y-3 py-8">
-              <h2
-                id={titleId}
-                className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+            <div className="space-y-8">
+              <div className="max-w-3xl space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  What will support this lesson?
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Review the current lesson and chosen prior learning before preparing a prompt.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+                <section className="space-y-4" aria-label="Current lesson requirements">
+                  <h3 className="text-sm font-medium text-slate-800">Current lesson requirements</h3>
+                  <div className="space-y-1 text-sm leading-relaxed text-slate-600">
+                    <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
+                    <p>{lesson.unitLine}</p>
+                    <p>Current focus: {lesson.currentFocus}</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium text-slate-800">Current vocabulary</h4>
+                    {lesson.vocabulary.length > 0 ? (
+                      <ul className="flex flex-wrap gap-2">
+                        {lesson.vocabulary.map((term) => (
+                          <li
+                            key={term}
+                            className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
+                          >
+                            {term}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-slate-500">No vocabulary listed for this lesson.</p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium text-slate-800">Current language</h4>
+                    {lesson.languageExamples.length > 0 ? (
+                      <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
+                        {lesson.languageExamples.map((item) => (
+                          <li key={`${item.label ?? ''}:${item.example}`}>
+                            {item.label ? (
+                              <>
+                                <span className="font-medium text-slate-800">{item.label}:</span>{' '}
+                                <span>{item.example}</span>
+                              </>
+                            ) : (
+                              item.example
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-slate-500">
+                        No current language listed for this lesson.
+                      </p>
+                    )}
+                    {lesson.clarification ? (
+                      <p className="pt-1 text-sm leading-relaxed text-slate-600">
+                        <span className="font-medium text-slate-700">Note:</span>{' '}
+                        {lesson.clarification}
+                      </p>
+                    ) : null}
+                  </div>
+                </section>
+
+                <div className="space-y-8">
+                  <section className="space-y-4" aria-label="Selected prior learning">
+                    <h3 className="text-sm font-medium text-slate-800">Selected prior learning</h3>
+                    {selectedSuggestions.length === 0 ? (
+                      <p className="text-sm leading-relaxed text-slate-500">
+                        No verified prior learning was selected for this lesson.
+                      </p>
+                    ) : (
+                      <ul className="space-y-4">
+                        {selectedSuggestions.map((suggestion) => (
+                          <li key={suggestion.id} className="space-y-1.5">
+                            <div className="space-y-0.5">
+                              <p className="text-sm font-medium text-slate-900">
+                                {suggestion.label}
+                              </p>
+                              <p className="text-xs text-slate-500">{suggestion.source}</p>
+                            </div>
+                            <p className="text-sm leading-relaxed text-slate-800">
+                              {suggestion.frame}
+                            </p>
+                            <p className="text-sm text-slate-500">Available for this lesson</p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+
+                  {teacherAdditions.length > 0 ? (
+                    <section className="space-y-4" aria-label="Teacher-added language">
+                      <h3 className="text-sm font-medium text-slate-800">Teacher-added language</h3>
+                      <ul className="space-y-4">
+                        {teacherAdditions.map((item) => (
+                          <li key={item.id} className="space-y-1.5">
+                            <p className="text-sm leading-relaxed text-slate-900">{item.frame}</p>
+                            {item.note ? (
+                              <p className="text-sm leading-relaxed text-slate-600">{item.note}</p>
+                            ) : null}
+                            <p className="text-sm font-medium text-slate-700">
+                              Teacher-added · unverified
+                            </p>
+                            <p className="text-sm leading-relaxed text-slate-500">
+                              Useful for this class, but not currently verified as prior-book
+                              evidence.
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ) : null}
+                </div>
+              </div>
+
+              <section
+                className="max-w-3xl space-y-2 border-t border-slate-100 pt-6"
+                aria-label="Use guidance"
               >
-                Step 4 prototype coming next
-              </h2>
-              <p className="max-w-md text-sm leading-relaxed text-slate-600">
-                This micro-step stops here. No prompt has been generated.
-              </p>
+                <h3 className="text-sm font-medium text-slate-800">Use guidance</h3>
+                <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-slate-600">
+                  <li>Use selected language only where it fits naturally.</li>
+                  <li>Do not force every selected frame into every activity.</li>
+                  <li>
+                    Do not present teacher-added or mapper-generated wording as publisher text.
+                  </li>
+                  <li>
+                    These selections are available lesson inputs; they do not automatically create a
+                    lesson.
+                  </li>
+                </ul>
+              </section>
             </div>
           ) : null}
         </div>
 
-        <footer className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
-          <p className="min-w-[5.5rem] text-sm text-slate-500">
-            {step === 2 || step === 3
-              ? footerSummary(selectedCount, step === 3 ? teacherAddedCount : 0)
-              : null}
-          </p>
-          <div className="flex flex-wrap items-center justify-end gap-2">
-            {step > 1 ? (
+        <footer className="shrink-0 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
+          {step === 4 ? (
+            <p className="mb-3 text-sm text-slate-500">
+              No Chalkie prompt has been generated yet.
+            </p>
+          ) : null}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="min-w-[5.5rem] text-sm text-slate-500">
+              {step === 2 || step === 3
+                ? footerSummary(selectedCount, step === 3 ? teacherAddedCount : 0)
+                : step === 4
+                  ? footerSummary(selectedCount, teacherAddedCount)
+                  : null}
+            </p>
+            <div className="flex flex-wrap items-center justify-end gap-2">
+              {step > 1 ? (
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                >
+                  Back
+                </button>
+              ) : null}
               <button
-                type="button"
-                onClick={handleBack}
-                className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-              >
-                Back
-              </button>
-            ) : null}
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-            >
-              Cancel
-            </button>
-            {step < 4 ? (
-              <button
-                ref={continueRef}
-                type="button"
-                onClick={handleContinue}
-                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
-              >
-                Continue
-              </button>
-            ) : (
-              <button
-                ref={continueRef}
                 type="button"
                 onClick={onClose}
-                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
               >
-                Back to workspace
+                Cancel
               </button>
-            )}
+              {step < 4 ? (
+                <button
+                  ref={continueRef}
+                  type="button"
+                  onClick={handleContinue}
+                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                >
+                  Continue
+                </button>
+              ) : (
+                <button
+                  ref={continueRef}
+                  type="button"
+                  onClick={onClose}
+                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                >
+                  Back to workspace
+                </button>
+              )}
+            </div>
           </div>
         </footer>
       </div>

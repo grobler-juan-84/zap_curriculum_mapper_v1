@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 231
+**Last updated:** Step 232
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Teacher-choice flow sketch v0.1** recorded (docs).
 
-- **UI micro-step:** Chalkie Workspace teacher-choice overlay Steps 1–3 (Current lesson → AI suggestions → Your choices); Step 4 still placeholder.
+- **UI micro-step:** Chalkie Workspace teacher-choice overlay Steps 1–4 complete for BE2 U8 prototype (summary closes without prompt generation).
 
 ## In progress
 
-- Teacher-choice guided overlay (Steps 1–3 live; Step 4 summary not built).
+- Owner review of the full Prepare → Steps 1–4 teacher-choice journey.
 
 ## Next
 
-- Owner try Step 3 review/adjust + teacher-added language on BE2 Unit 8; decide whether to authorize Step 4 summary.
+- Owner review the Step 4 lesson-input summary; decide whether to authorize a later prompt-preview / generation handoff.
 - Keep Phase 3 / F005 parked (D020).
 - OpenAI Chalkie Generate remains deferred from this launch path until the guided flow is further defined.
 

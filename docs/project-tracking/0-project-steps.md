@@ -3952,3 +3952,18 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 232
+
+**Summary:** Implemented teacher-choice overlay Step 4 (Lesson inputs): concise review of current lesson requirements, selected prior learning, optional teacher-added language, and use guidance. Primary action is Back to workspace; no prompt generation, copy, or persistence.
+
+**Files touched:**
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---
