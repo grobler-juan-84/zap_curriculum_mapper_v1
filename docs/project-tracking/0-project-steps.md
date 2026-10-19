@@ -3613,3 +3613,17 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+
+### Step 210
+
+**Summary:** Narrowed the BE2 U5 LiA transfer-test explicit Chalkie vocabulary to the six jobs used on pp. 78-79: actor, doctor, vet, teacher, dancer, singer. Updated the copy-ready prompt and Lesson 1 activate note for consistency. Generation still not authorized.
+
+**Files touched:**
+- docs/phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

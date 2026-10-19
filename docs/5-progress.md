@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 209
+**Last updated:** Step 210
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -27,6 +27,8 @@
 - **Chalkie outline/context diagnostic — Experiments 1–6 recorded:** provisional candidate = detailed handoff + concise teacher-controlled outline + explicit vocabulary (not locked).
 
 - **Chalkie transfer-test design drafted** — BE2 U5 Language in Action pp. 78–79; DESIGN DRAFT / **not authorized to generate**.
+
+- **U5 LiA explicit vocabulary narrowed** — manual Chalkie list = `actor, doctor, vet, teacher, dancer, singer` only.
 
 ## In progress
 

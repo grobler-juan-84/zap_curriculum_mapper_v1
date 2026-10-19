@@ -92,7 +92,7 @@ Do **not** teach in this series:
 - Unit 8 / Wild Animals / `[HM]` horizontal mapping
 - Book Intelligence columns
 - Invented Track 104/105 scripts, sticker key beyond “use stickers from p. 190”, or keyed answers for open Act 10 item 4
-- Forcing all eleven p.74 job words into every activity
+- Forcing the full p.74 / `[SS]` Jobs list into every activity (manual Chalkie vocabulary is the six LiA words in §8 only)
 
 ### 3.3 Lesson allocation (two lessons on one spread)
 
@@ -167,7 +167,8 @@ A. WHAT THESE PAGES TEACH
 
 [SS] Unit 5 title: My Dream Job (full SB unit pp. 74–89 — this series uses SB 78–79 only)
 
-[SS] Vocabulary — Jobs (unit list; re-activate as needed for LiA): actor, artist, athlete, chef, dancer, doctor, pilot, singer, teacher, vet, writer
+[SS] Vocabulary — Jobs (unit-level list exists on SS / SB p.74; do not dump the full unit list).
+Manual Chalkie vocabulary for this series (only): actor, doctor, vet, teacher, dancer, singer
 
 [SS] Structures (unit-level; use the LiA pair on these pages):
 - What do you want to be? I want to be an actor.
@@ -247,7 +248,7 @@ Replace Chalkie auto-outline bodies with these (sequence + textbook integration 
 
 **Goal:** Students recognise Jobs words needed for LiA and can use *What do you want to be?* / *What does he/she want to be?* in short guided exchanges, then work p.78.
 
-1. **Warm / activate (short):** Picture-led recall of job words from Unit 5 opener (actor, doctor, teacher, vet, dancer, singer, …). Label examples `[SUPPLEMENTARY]` if not quoting the book.
+1. **Warm / activate (short):** Picture-led recall of the six selected job words (actor, doctor, vet, teacher, dancer, singer). Label examples `[SUPPLEMENTARY]` if not quoting the book.
 2. **Model:** Teacher models 1st/2nd-person and 3rd-person frames with clear *a/an* + job. Keep `[SB]` frames distinct from `[SUPPLEMENTARY]` swaps.
 3. **Guided practice:** Choral → pair build of short Q&A (*What do you want to be?* / *What does she want to be?*).
 4. **Communicative use (light):** Two–three guided partner turns choosing a job picture.
@@ -271,18 +272,18 @@ Replace Chalkie auto-outline bodies with these (sequence + textbook integration 
 
 ## 8. Explicit vocabulary list (manual Chalkie entry)
 
-Enter **comma-separated** in each lesson’s vocabulary UI (same set unless the owner trims Lesson 2).
+Enter **comma-separated** in each lesson’s vocabulary UI (same set for both lessons).
 
 ```text
-actor, artist, athlete, chef, dancer, doctor, pilot, singer, teacher, vet, writer
+actor, doctor, vet, teacher, dancer, singer
 ```
 
 | Justification | Evidence |
 | --- | --- |
-| Unit Jobs list | `[SS]` Unit 5 Vocabulary — Jobs; `[SB p.74]` vocab IDs `bep2_vocab_u5_001`–`011` |
-| LiA page use | Models/items on pp.78–79 use actor, doctor, vet, teacher, dancer, singer |
-| Why all eleven | Re-activation set for LiA; Chalkie Experiments 5/6 treated explicit vocabulary as a first-class input. Teacher may deselect unused chips after outline review |
-| Not included | CLIL/culture jobs (carpenter, nurse, … on later pages); phonics/subject words |
+| LiA page use | Models/items on pp.78–79 use **actor, doctor, vet, teacher, dancer, singer** only |
+| Source membership | Each word is also on `[SS]` Unit 5 Jobs and `[SB p.74]` (`bep2_vocab_u5_*`) |
+| Why not the full eleven | Owner selection for this transfer test: keep explicit Chalkie vocabulary to the jobs actually used on pp.78–79 |
+| Not included | artist, athlete, chef, pilot, writer (p.74 / SS Jobs but unused on these LiA pages); CLIL/culture jobs; phonics/subject words |
 
 ---
 
