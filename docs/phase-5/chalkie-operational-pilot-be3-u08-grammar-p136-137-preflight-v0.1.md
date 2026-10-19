@@ -197,4 +197,4 @@ None of these block a design draft; they constrain generation safeguards.
 
 ## Smallest next action
 
-**Draft the operational-pilot handoff design** for BE3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 from this preflight (detailed handoff + two concise outlines + per-lesson vocab proposal) — still **not** authorized to generate until the owner explicitly gates a run.
+**Done:** Handoff design drafted — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) (DRAFT / not authorized to generate). **Next:** owner review/approve before any Chalkie run.

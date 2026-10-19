@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 220
+**Last updated:** Step 221
 
 
 
@@ -382,9 +382,11 @@
 
 - [x] Owner selected operational-pilot target: BE3 U8 Grammar SB pp. 136–137.
 
-- [x] **Source preflight** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md). Identity verified (*Healthy Living* Grammar); **CONDITIONALLY SUITABLE**. Not a handoff; generation **not** authorized.
+- [x] **Source preflight** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md). Identity verified (*Healthy Living* Grammar); **CONDITIONALLY SUITABLE**.
 
-- [ ] Draft operational-pilot handoff design from the preflight (detailed handoff + two concise outlines + per-lesson vocab). Do not generate without explicit authorization.
+- [x] **Draft operational-pilot handoff design** — [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md). DRAFT / **not authorized to generate**.
+
+- [ ] Owner review/approve or revise the handoff design; authorize one Chalkie generation only explicitly. Do not lock methodology.
 
 
 

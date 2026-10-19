@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 220
+**Last updated:** Step 221
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,15 +20,15 @@
 
 - **Chalkie Experiments 1–9** — synthesized; provisional handoff pattern not locked; prompt experiments paused.
 
-- **Operational-pilot candidate selected** — BE3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 source-preflighted (**CONDITIONALLY SUITABLE**); handoff not drafted; generation not authorized.
+- **Operational pilot (BE3 U8 Grammar pp. 136–137)** — source preflight CONDITIONALLY SUITABLE; **handoff design drafted** (copy-ready prompt, outlines, per-lesson chips); generation **not** authorized.
 
 ## In progress
 
-- First operational Chalkie pilot preparation (preflight complete; design draft pending).
+- Owner review of the operational-pilot handoff design.
 
 ## Next
 
-- Draft the operational-pilot handoff (detailed handoff + concise outlines + per-lesson vocab) from the preflight. Do not generate without explicit owner authorization.
+- Owner approve or revise the handoff; authorize one Chalkie generation only explicitly. Do not lock methodology.
 
 ## Blocked
 
@@ -40,6 +40,6 @@
 
 - Active Git branch: `phase-2`.
 
-- Preflight: [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md).
+- Handoff: [`phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md).
 
 - Direction: methodologies **not** locked; Phase 2 **not** closed; V2b historical status preserved.

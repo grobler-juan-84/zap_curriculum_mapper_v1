@@ -3782,3 +3782,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 221
+
+**Summary:** Drafted the BE3 U8 Grammar pp. 136–137 operational-pilot handoff design (copy-ready prompt, two concise outlines with early book work, separate L1/L2 model chips, provenance safeguards, review plan). Owner review pending; generation not authorized. No decisions change.
+
+**Files touched:**
+- docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md (created)
+- docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md (updated)
+- docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

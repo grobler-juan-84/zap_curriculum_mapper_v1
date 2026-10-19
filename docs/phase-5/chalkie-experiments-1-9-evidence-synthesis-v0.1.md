@@ -133,4 +133,4 @@ Next phase: apply the provisional workflow to a **real new lesson as an operatio
 - source fidelity,
 - classroom usability.
 
-**Selected operational-pilot candidate (owner-supplied; source-preflighted):** Big English 3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) (**CONDITIONALLY SUITABLE**; handoff not drafted; generation not authorized).
+**Selected operational-pilot candidate (owner-supplied; source-preflighted):** Big English 3 Unit 8 *Healthy Living* Grammar SB pp. 136–137 — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md) (**CONDITIONALLY SUITABLE**). Handoff design drafted: [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) (DRAFT / **not authorized to generate**; owner review pending).
