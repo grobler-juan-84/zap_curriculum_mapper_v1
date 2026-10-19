@@ -3984,3 +3984,19 @@
 - docs/project-tracking/0-project-steps.md (updated)
 
 ---
+
+### Step 234
+
+**Summary:** Added Step 4 lesson-shape selection (Single lesson default; Two-lesson series visible but disabled with quiet scope note) and a copyable lesson title for BE2 U8 pp. 128–129. Existing single-lesson prompt preview unchanged; future series requirements documented in code/docs only.
+
+**Files touched:**
+- app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- app/src/features/chalkie/buildChalkiePromptPreview.ts (updated)
+- docs/phase-5/p5-prototype-chalkie-workspace.md (updated)
+- docs/0-index.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+
+---

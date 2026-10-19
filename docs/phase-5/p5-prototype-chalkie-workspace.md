@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 1.5  
+**Version:** 1.6  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -55,9 +55,10 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 ## What remains pending
 
 1. Optional: later Chalkie submit / lesson generation after local prompt preview (not authorized by this prototype).
-2. Optional: teacher page-range picker beyond the current PDF spread.
-3. Optional: re-wire or redesign Generate / copy after the guided flow is complete.
-4. Optional: Vercel/serverless adapter for `/api/generate-chalkie-prompt` (local Vite middleware works today).
+2. Future two-lesson series preview requires: explicit Lesson 2 source scope, Lesson 1/2 vocabulary allocation, separate lesson rundowns, and a revised series-scope prompt (not enabled in this page-scoped prototype).
+3. Optional: teacher page-range picker beyond the current PDF spread.
+4. Optional: re-wire or redesign Generate / copy after the guided flow is complete.
+5. Optional: Vercel/serverless adapter for `/api/generate-chalkie-prompt` (local Vite middleware works today).
 
 ---
 
@@ -91,3 +92,4 @@ After adding the key, restart the Vite dev server (`npm run dev` in `app/`).
 | 2026-10-19 | Step 3 Your choices: review selections, teacher-added language, use-no-prior-learning; Step 4 placeholder. |
 | 2026-10-19 | Step 4 Lesson-input summary: current lesson + selected/teacher-added inputs; Back to workspace without generation. |
 | 2026-10-19 | Local Chalkie prompt preview/copy from Step 4; removed non-page kangaroo Q&A from Steps 1/4 current language. |
+| 2026-10-19 | Step 4 lesson-shape choice (Single lesson default; two-lesson series visible but unavailable) + copyable lesson title. |

@@ -18,6 +18,10 @@ type TeacherAddedLanguage = {
 
 const TOTAL_STEPS = 4
 
+/** Practical handoff label for the current page-scoped BE2 U8 prototype (not persisted). */
+const BE2_U08_LESSON_TITLE =
+  'Big English 2 Student Book · Unit 8 · pp. 128–129 · Wild Animals'
+
 function stepNameFor(step: number): string {
   if (step === 1) return 'Current lesson'
   if (step === 2) return 'Prior learning'
@@ -51,6 +55,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [titleCopyStatus, setTitleCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  // Single lesson is the only enabled packaging shape in this page-scoped prototype.
+  const [lessonShape] = useState<'single'>('single')
 
   useEffect(() => {
     if (!open) {
@@ -63,6 +70,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setShowPromptPreview(false)
       setPromptPreview('')
       setCopyStatus('idle')
+      setTitleCopyStatus('idle')
       return
     }
 
@@ -153,6 +161,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       window.setTimeout(() => setCopyStatus('idle'), 2000)
     } catch {
       setCopyStatus('failed')
+    }
+  }
+
+  const handleCopyLessonTitle = async () => {
+    try {
+      await navigator.clipboard.writeText(BE2_U08_LESSON_TITLE)
+      setTitleCopyStatus('copied')
+      window.setTimeout(() => setTitleCopyStatus('idle'), 2000)
+    } catch {
+      setTitleCopyStatus('failed')
     }
   }
 
@@ -568,6 +586,70 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   Review the current lesson and chosen prior learning before preparing a prompt.
                 </p>
               </div>
+
+              <section className="max-w-3xl space-y-3" aria-label="Lesson title">
+                <h3 className="text-sm font-medium text-slate-800">Lesson title</h3>
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <p className="select-text text-sm leading-relaxed text-slate-800">
+                    {BE2_U08_LESSON_TITLE}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleCopyLessonTitle}
+                    className="shrink-0 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50"
+                  >
+                    {titleCopyStatus === 'copied' ? 'Copied' : 'Copy title'}
+                  </button>
+                </div>
+                {titleCopyStatus === 'failed' ? (
+                  <p className="text-sm text-slate-500">
+                    Copying was unavailable. Select the title text and copy it manually.
+                  </p>
+                ) : null}
+              </section>
+
+              <section className="max-w-3xl space-y-3" aria-label="How should this be packaged?">
+                <h3 className="text-sm font-medium text-slate-800">How should this be packaged?</h3>
+                <div className="space-y-3">
+                  <label className="flex cursor-pointer gap-3">
+                    <input
+                      type="radio"
+                      name="lesson-shape"
+                      value="single"
+                      checked={lessonShape === 'single'}
+                      onChange={() => undefined}
+                      className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span className="min-w-0 space-y-0.5">
+                      <span className="block text-sm font-medium text-slate-900">Single lesson</span>
+                      <span className="block text-sm leading-relaxed text-slate-600">
+                        One short lesson supporting Student Book pages 128–129.
+                      </span>
+                    </span>
+                  </label>
+
+                  <div className="flex gap-3 opacity-70">
+                    <input
+                      type="radio"
+                      name="lesson-shape"
+                      value="series"
+                      disabled
+                      checked={false}
+                      className="mt-1 h-4 w-4 border-slate-300 text-indigo-600"
+                      aria-describedby="lesson-shape-series-note"
+                    />
+                    <div className="min-w-0 space-y-0.5">
+                      <p className="text-sm font-medium text-slate-700">Two-lesson series</p>
+                      <p className="text-sm leading-relaxed text-slate-500">
+                        A later option for separating introduction and practice across two lessons.
+                      </p>
+                      <p id="lesson-shape-series-note" className="text-sm leading-relaxed text-slate-500">
+                        Lesson 2 needs an explicit source scope before a series can be prepared.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
                 <section className="space-y-4" aria-label="Current lesson requirements">

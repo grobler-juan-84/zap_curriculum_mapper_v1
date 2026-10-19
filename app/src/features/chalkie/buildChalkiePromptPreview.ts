@@ -5,7 +5,14 @@ export type TeacherAddedLanguageInput = {
   note: string
 }
 
-/** Deterministic page-scoped Chalkie prompt for BE2 U8 pp. 128–129 (local only). */
+/**
+ * Deterministic page-scoped Chalkie prompt for BE2 U8 pp. 128–129 (local only).
+ *
+ * Future two-lesson series preview is intentionally not implemented here. Enabling
+ * it would require: (1) an explicit Lesson 2 source choice, (2) an explicit
+ * Lesson 1 / Lesson 2 vocabulary allocation, (3) separate teacher-readable lesson
+ * rundowns, and (4) a revised copy-ready prompt that names the chosen series scope.
+ */
 export function buildChalkiePromptPreview(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]

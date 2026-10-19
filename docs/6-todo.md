@@ -402,7 +402,9 @@
 
 - [x] **UI micro-step: local Chalkie prompt preview** — page-scoped BE2 U8 pp. 128–129 prompt assembly + clipboard copy; no API/Chalkie submit.
 
-- [ ] Owner review Prepare → prompt preview / copy in `/app/chalkie` (BE2 Unit 8); decide whether any later submit/generation path is authorized. Do not lock methodology.
+- [x] **UI micro-step: Step 4 lesson-shape selection** — Single lesson default; two-lesson series visible but unavailable; copyable lesson title.
+
+- [ ] Owner review Prepare → lesson shape → prompt preview / copy in `/app/chalkie` (BE2 Unit 8); decide later work. Do not lock methodology.
 
 
 
