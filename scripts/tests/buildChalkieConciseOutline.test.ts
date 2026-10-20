@@ -312,7 +312,7 @@ test('BE2 curated detailed prompt behaviour remains intact', () => {
     selectedSuggestions: selected,
     teacherAdditions: [],
   })
-  assert.match(prompt, /\[HM\] Unit 07 pp\.113-116: Preference/)
+  assert.match(prompt, /\[HM\] Preference: Unit 07 pp\.113-116/)
 
   const outline = buildChalkieConciseOutline({
     lesson,

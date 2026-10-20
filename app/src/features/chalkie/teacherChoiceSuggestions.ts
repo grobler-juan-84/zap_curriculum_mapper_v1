@@ -15,7 +15,7 @@ export type TeacherChoiceSuggestion = {
   provenanceTag?: '[HM]' | '[PRIOR]'
 }
 
-/** Card / prompt title: `Unit 07 pp.113-116: Preference` */
+/** Card / prompt title: `Preference: Unit 07 pp.113-116` */
 export function formatPriorSkillCardTitle(input: {
   unitNumber: number
   pageStart: number
@@ -25,7 +25,21 @@ export function formatPriorSkillCardTitle(input: {
   const unit = String(input.unitNumber).padStart(2, '0')
   const start = String(input.pageStart).padStart(2, '0')
   const end = String(input.pageEnd).padStart(2, '0')
-  return `Unit ${unit} pp.${start}-${end}: ${input.skillName.trim()}`
+  return `${input.skillName.trim()}: Unit ${unit} pp.${start}-${end}`
+}
+
+/** Split `Preference: Unit 07 pp.113-116` for UI (bold skill name only). */
+export function splitPriorSkillCardTitle(label: string): {
+  skillName: string
+  bookSources: string | null
+} {
+  const separator = ': '
+  const index = label.indexOf(separator)
+  if (index <= 0) return { skillName: label.trim(), bookSources: null }
+  const skillName = label.slice(0, index).trim()
+  const bookSources = label.slice(index + separator.length).trim()
+  if (!skillName || !bookSources) return { skillName: label.trim(), bookSources: null }
+  return { skillName, bookSources }
 }
 
 export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
@@ -75,7 +89,7 @@ export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
   {
     id: 'PL-03',
     // Dual-unit bank item: primary SB page evidence is U1 p.9; U6 is also in the bank.
-    label: 'Units 01 & 06 pp.09-09: Quantity',
+    label: 'Quantity: Units 01 & 06 pp.09-09',
     source: 'Units 1 and 6 · SB p.9 (+ U6 quantity reuse)',
     frame: 'How many + plural noun are there? There are …',
     whyItMayHelp: 'It is useful when there is a clear animal picture or scene to count.',

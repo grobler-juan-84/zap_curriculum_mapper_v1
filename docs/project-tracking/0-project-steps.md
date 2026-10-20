@@ -4498,3 +4498,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 265
+
+**Summary:** Reordered prior-skill titles to `Skill name: Unit 0N pp.NN-KK` and bold only the skill name in the Step 2/3 card UI.
+
+**Files touched:**
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkieConciseOutline.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `scripts/tests/buildChalkieConciseOutline.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

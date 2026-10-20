@@ -448,7 +448,7 @@ test('BE3 U8 pp.132–133 offers one earlier same-unit vocabulary bundle from p.
   const suggestion = resolved.priorLearningSuggestions[0]
   assert.equal(
     suggestion.label,
-    'Unit 08 pp.128-128: Healthy and unhealthy activities',
+    'Healthy and unhealthy activities: Unit 08 pp.128-128',
   )
   assert.equal(suggestion.source, 'Earlier in this unit · p.128')
   assert.equal(suggestion.provenanceTag, '[PRIOR]')
@@ -484,7 +484,7 @@ test('selected same-unit vocabulary bundle reaches local prompt without API', ()
     teacherAdditions: [],
   })
   assert.match(prompt, /\[PRIOR\]/)
-  assert.match(prompt, /Unit 08 pp\.128-128: Healthy and unhealthy activities/)
+  assert.match(prompt, /Healthy and unhealthy activities: Unit 08 pp\.128-128/)
   assert.match(prompt, /Earlier in this unit · p\.128/)
   assert.match(prompt, /have a big breakfast/)
   assert.match(prompt, /get enough sleep/)

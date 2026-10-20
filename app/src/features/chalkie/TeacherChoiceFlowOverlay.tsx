@@ -22,6 +22,20 @@ import {
   toggleSelectedSuggestionId,
   type TeacherAddedLanguage,
 } from './teacherChoiceFlow'
+import { splitPriorSkillCardTitle } from './teacherChoiceSuggestions'
+
+function PriorSkillCardHeading({ label }: { label: string }) {
+  const { skillName, bookSources } = splitPriorSkillCardTitle(label)
+  if (!bookSources) {
+    return <span className="font-bold text-slate-900">{skillName}</span>
+  }
+  return (
+    <>
+      <span className="font-bold text-slate-900">{skillName}</span>
+      <span className="font-normal text-slate-700">: {bookSources}</span>
+    </>
+  )
+}
 
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
@@ -644,11 +658,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           aria-describedby={`${checkboxId}-details`}
                         />
                         <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                          <label
-                            htmlFor={checkboxId}
-                            className="block text-sm font-medium text-slate-900"
-                          >
-                            {item.title}
+                          <label htmlFor={checkboxId} className="block text-sm text-slate-900">
+                            <span className="font-bold">{item.title}</span>
                           </label>
                           <p className="text-[0.95rem] leading-relaxed text-slate-900">
                             {item.frame}
@@ -685,11 +696,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           aria-describedby={`${checkboxId}-details`}
                         />
                         <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                          <label
-                            htmlFor={checkboxId}
-                            className="block text-sm font-medium text-slate-900"
-                          >
-                            {suggestion.label}
+                          <label htmlFor={checkboxId} className="block text-sm text-slate-900">
+                            <PriorSkillCardHeading label={suggestion.label} />
                           </label>
                           <p className="text-[0.95rem] leading-relaxed text-slate-900">
                             {suggestion.frame}
@@ -915,8 +923,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         {selectedSuggestions.map((suggestion) => (
                           <li key={suggestion.id} className="space-y-1.5">
                             <div className="space-y-0.5">
-                              <p className="text-sm font-medium text-slate-900">
-                                {suggestion.label}
+                              <p className="text-sm text-slate-900">
+                                <PriorSkillCardHeading label={suggestion.label} />
                               </p>
                               <p className="text-xs text-slate-500">{suggestion.source}</p>
                             </div>
@@ -938,7 +946,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       <ul className="space-y-4">
                         {selectedTeacherAdditions.map((item) => (
                           <li key={item.id} className="space-y-1.5">
-                            <p className="text-sm font-medium text-slate-900">{item.title}</p>
+                            <p className="text-sm font-bold text-slate-900">{item.title}</p>
                             <p className="text-sm leading-relaxed text-slate-900">{item.frame}</p>
                             <p className="text-sm leading-relaxed text-slate-600">
                               <span className="font-medium text-slate-700">Purpose:</span>{' '}

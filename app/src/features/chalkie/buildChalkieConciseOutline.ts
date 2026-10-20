@@ -3,7 +3,10 @@
  * Local only — no API. Separate from the detailed evidence prompt.
  */
 import type { ChalkieOutlineActivity } from './chalkieEvidence'
-import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
+import {
+  splitPriorSkillCardTitle,
+  type TeacherChoiceSuggestion,
+} from './teacherChoiceSuggestions'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 
 export type { ChalkieOutlineActivity }
@@ -24,8 +27,8 @@ function pageRefFromSuggestion(suggestion: TeacherChoiceSuggestion): string | nu
 }
 
 function topicFromSuggestion(suggestion: TeacherChoiceSuggestion): string {
-  const afterColon = suggestion.label.match(/:\s*(.+)$/)
-  if (afterColon?.[1]?.trim()) return afterColon[1].trim()
+  const { skillName } = splitPriorSkillCardTitle(suggestion.label)
+  if (skillName && skillName !== suggestion.label) return skillName
   return suggestion.label.replace(/\s*[—-]\s*from\s*p\.\s*\d+\s*$/i, '').trim() || suggestion.label
 }
 
