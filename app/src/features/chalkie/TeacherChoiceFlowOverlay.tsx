@@ -105,6 +105,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [newTitle, setNewTitle] = useState('')
   const [newFrame, setNewFrame] = useState('')
   const [newPurpose, setNewPurpose] = useState('')
+  const [addPriorSkillExpanded, setAddPriorSkillExpanded] = useState(false)
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
   const [conciseOutline, setConciseOutline] = useState('')
@@ -128,6 +129,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setNewTitle('')
       setNewFrame('')
       setNewPurpose('')
+      setAddPriorSkillExpanded(false)
       setShowPromptPreview(false)
       setPromptPreview('')
       setConciseOutline('')
@@ -332,6 +334,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setNewTitle('')
     setNewFrame('')
     setNewPurpose('')
+    setAddPriorSkillExpanded(false)
   }
 
   return createPortal(
@@ -490,99 +493,129 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </div>
 
               <section
-                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30"
                 aria-label="Add a prior skill"
               >
-                <div className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30 p-4 sm:p-5">
-                  <div className="space-y-3">
-                    <div className="space-y-0.5">
-                      <p className="text-sm font-semibold text-indigo-900">Add a prior skill</p>
+                <button
+                  type="button"
+                  onClick={() => setAddPriorSkillExpanded((open) => !open)}
+                  className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left sm:px-5"
+                  aria-expanded={addPriorSkillExpanded}
+                  aria-controls="add-prior-skill-panel"
+                  id="add-prior-skill-toggle"
+                >
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold text-indigo-900">
+                      Add a prior skill
+                    </span>
+                    {!addPriorSkillExpanded ? (
+                      <span className="mt-0.5 block text-xs leading-relaxed text-indigo-800/80">
+                        Teacher-created · not a verified suggestion
+                      </span>
+                    ) : null}
+                  </span>
+                  <span
+                    className="shrink-0 text-xs font-medium text-indigo-800"
+                    aria-hidden="true"
+                  >
+                    {addPriorSkillExpanded ? 'Hide' : 'Show'}
+                  </span>
+                </button>
+
+                {addPriorSkillExpanded ? (
+                  <div
+                    id="add-prior-skill-panel"
+                    role="region"
+                    aria-labelledby="add-prior-skill-toggle"
+                    className="grid grid-cols-1 gap-4 border-t border-indigo-200/70 px-4 pb-4 pt-3 sm:px-5 sm:pb-5 md:grid-cols-2 md:gap-5"
+                  >
+                    <div className="space-y-3">
                       <p className="text-xs leading-relaxed text-indigo-800/80">
                         Teacher-created · not a verified suggestion
                       </p>
+                      <div className="space-y-2.5">
+                        <div className="space-y-1">
+                          <label
+                            htmlFor="teacher-added-title"
+                            className="block text-xs font-medium text-slate-700"
+                          >
+                            Short title
+                          </label>
+                          <input
+                            id="teacher-added-title"
+                            type="text"
+                            value={newTitle}
+                            onChange={(event) => setNewTitle(event.target.value)}
+                            placeholder="e.g. Preference"
+                            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <label
+                            htmlFor="teacher-added-frame"
+                            className="block text-xs font-medium text-slate-700"
+                          >
+                            Language frame
+                          </label>
+                          <input
+                            id="teacher-added-frame"
+                            type="text"
+                            value={newFrame}
+                            onChange={(event) => setNewFrame(event.target.value)}
+                            onKeyDown={(event) => {
+                              if (event.key === 'Enter' && canAddPriorSkill) {
+                                event.preventDefault()
+                                handleAddPriorSkill()
+                              }
+                            }}
+                            placeholder="e.g. Do you like + noun? Yes, I do. / No, I don’t."
+                            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <label
+                            htmlFor="teacher-added-purpose"
+                            className="block text-xs font-medium text-slate-700"
+                          >
+                            Purpose
+                          </label>
+                          <input
+                            id="teacher-added-purpose"
+                            type="text"
+                            value={newPurpose}
+                            onChange={(event) => setNewPurpose(event.target.value)}
+                            onKeyDown={(event) => {
+                              if (event.key === 'Enter' && canAddPriorSkill) {
+                                event.preventDefault()
+                                handleAddPriorSkill()
+                              }
+                            }}
+                            placeholder="e.g. Extends preference talk with this lesson’s vocabulary"
+                            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                          />
+                        </div>
+                        <button
+                          type="button"
+                          disabled={!canAddPriorSkill}
+                          onClick={handleAddPriorSkill}
+                          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                            canAddPriorSkill
+                              ? 'bg-[#3766a3] text-white hover:bg-[#2f578c]'
+                              : 'cursor-not-allowed bg-slate-200 text-slate-500'
+                          }`}
+                        >
+                          Add prior skill
+                        </button>
+                      </div>
                     </div>
-                    <div className="space-y-2.5">
-                      <div className="space-y-1">
-                        <label
-                          htmlFor="teacher-added-title"
-                          className="block text-xs font-medium text-slate-700"
-                        >
-                          Short title
-                        </label>
-                        <input
-                          id="teacher-added-title"
-                          type="text"
-                          value={newTitle}
-                          onChange={(event) => setNewTitle(event.target.value)}
-                          placeholder="e.g. Preference"
-                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <label
-                          htmlFor="teacher-added-frame"
-                          className="block text-xs font-medium text-slate-700"
-                        >
-                          Language frame
-                        </label>
-                        <input
-                          id="teacher-added-frame"
-                          type="text"
-                          value={newFrame}
-                          onChange={(event) => setNewFrame(event.target.value)}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' && canAddPriorSkill) {
-                              event.preventDefault()
-                              handleAddPriorSkill()
-                            }
-                          }}
-                          placeholder="e.g. Do you like + noun? Yes, I do. / No, I don’t."
-                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <label
-                          htmlFor="teacher-added-purpose"
-                          className="block text-xs font-medium text-slate-700"
-                        >
-                          Purpose
-                        </label>
-                        <input
-                          id="teacher-added-purpose"
-                          type="text"
-                          value={newPurpose}
-                          onChange={(event) => setNewPurpose(event.target.value)}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' && canAddPriorSkill) {
-                              event.preventDefault()
-                              handleAddPriorSkill()
-                            }
-                          }}
-                          placeholder="e.g. Extends preference talk with this lesson’s vocabulary"
-                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-                        />
-                      </div>
-                      <button
-                        type="button"
-                        disabled={!canAddPriorSkill}
-                        onClick={handleAddPriorSkill}
-                        className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                          canAddPriorSkill
-                            ? 'bg-[#3766a3] text-white hover:bg-[#2f578c]'
-                            : 'cursor-not-allowed bg-slate-200 text-slate-500'
-                        }`}
-                      >
-                        Add prior skill
-                      </button>
+
+                    <div className="rounded-xl border border-slate-200/80 bg-white/70 p-4 sm:p-5">
+                      <p className="text-sm leading-relaxed text-slate-700">
+                        future instructions to come here
+                      </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="rounded-xl border border-slate-200/80 bg-slate-50/40 p-4 sm:p-5">
-                  <p className="text-sm leading-relaxed text-slate-700">
-                    future instructions to come here
-                  </p>
-                </div>
+                ) : null}
               </section>
 
               <ul

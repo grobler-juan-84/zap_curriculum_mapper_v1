@@ -4467,3 +4467,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 263
+
+**Summary:** Made the Step 2 “Add a prior skill” two-column block collapsed by default (header-height only) and expandable on click; expanded view keeps left inputs + right instructions placeholder above the suggestion cards.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
