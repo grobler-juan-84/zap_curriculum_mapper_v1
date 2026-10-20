@@ -1,7 +1,7 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 272
+**Last synced:** Step 273
 
 ## One-line state
 

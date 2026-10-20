@@ -4601,3 +4601,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 273
+
+**Summary:** Removed the Step 3 review-screen “Copy title” button next to the lesson title (handoff-screen title copy control kept).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

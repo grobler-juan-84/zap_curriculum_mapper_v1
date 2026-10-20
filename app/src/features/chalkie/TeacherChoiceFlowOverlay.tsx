@@ -720,30 +720,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
               <section className="max-w-3xl space-y-3" aria-label="Lesson title">
                 <h3 className="text-sm font-medium text-slate-800">Lesson title</h3>
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <div className="min-w-0 space-y-1">
-                    <p className="select-text text-sm leading-relaxed text-slate-800">
-                      {activeLessonTitle}
-                    </p>
-                    {lesson.stableLessonReference ? (
-                      <p className="text-xs text-slate-500">
-                        Ref: {lesson.stableLessonReference}
-                      </p>
-                    ) : null}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleCopyLessonTitle}
-                    className="shrink-0 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50"
-                  >
-                    {titleCopyStatus === 'copied' ? 'Copied' : 'Copy title'}
-                  </button>
-                </div>
-                {titleCopyStatus === 'failed' ? (
-                  <p className="text-sm text-slate-500">
-                    Copying was unavailable. Select the title text and copy it manually.
+                <div className="min-w-0 space-y-1">
+                  <p className="select-text text-sm leading-relaxed text-slate-800">
+                    {activeLessonTitle}
                   </p>
-                ) : null}
+                  {lesson.stableLessonReference ? (
+                    <p className="text-xs text-slate-500">
+                      Ref: {lesson.stableLessonReference}
+                    </p>
+                  ) : null}
+                </div>
               </section>
 
               <section className="max-w-3xl space-y-3" aria-label="How should this be packaged?">
