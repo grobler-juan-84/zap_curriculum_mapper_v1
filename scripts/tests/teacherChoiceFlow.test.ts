@@ -179,8 +179,13 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
   assert.ok(!overlaySource.includes(REMOVED_TEACHER_CHOICE_SCREEN_TITLE))
   assert.ok(!overlaySource.includes('Your choices'))
-  assert.ok(overlaySource.includes('What might be useful to reuse?'))
-  assert.ok(overlaySource.includes('Add language of your own'))
+  assert.ok(overlaySource.includes('Add Prior Skills'))
+  assert.ok(overlaySource.includes('Add a prior skill'))
+  assert.ok(!overlaySource.includes('What might be useful to reuse?'))
+  assert.ok(!overlaySource.includes('Add language of your own'))
+  assert.ok(!overlaySource.includes('Why it may help:'))
+  assert.ok(!overlaySource.includes('Caution:'))
+  assert.ok(overlaySource.includes('Purpose:'))
   assert.ok(overlaySource.includes('TEACHER_CHOICE_TOTAL_STEPS'))
 })
 
@@ -232,7 +237,7 @@ test('combined prior-learning screen can select p.128 card and add custom langua
   assert.equal(lesson.priorLearningSuggestions.length, 1)
 
   let selectedIds: string[] = []
-  let teacherAdditions: { id: string; frame: string; note: string }[] = []
+  let teacherAdditions: { id: string; title: string; frame: string; purpose: string }[] = []
 
   const card = lesson.priorLearningSuggestions[0]
   selectedIds = toggleSelectedSuggestionId(selectedIds, card.id)
@@ -241,15 +246,20 @@ test('combined prior-learning screen can select p.128 card and add custom langua
 
   const added = appendTeacherAddedLanguage(
     teacherAdditions,
+    'Past habits',
     'What did you do yesterday?',
     'Quick warm-up',
     () => 'teacher-added-1',
   )
   assert.ok(added)
   teacherAdditions = added
+  selectedIds = toggleSelectedSuggestionId(selectedIds, 'teacher-added-1')
   assert.equal(teacherAdditions.length, 1)
   assert.equal(
-    footerSelectionSummary(selectedIds.length, teacherAdditions.length),
+    footerSelectionSummary(
+      selectedIds.filter((id) => id !== 'teacher-added-1').length,
+      selectedIds.includes('teacher-added-1') ? 1 : 0,
+    ),
     '1 selected · 1 teacher-added',
   )
 
@@ -259,23 +269,31 @@ test('combined prior-learning screen can select p.128 card and add custom langua
   assert.equal(step, 3)
   step = retreatTeacherChoiceStep(step)
   assert.equal(step, 2)
-  assert.deepEqual(selectedIds, [card.id])
+  assert.ok(selectedIds.includes(card.id))
   assert.equal(teacherAdditions[0]?.frame, 'What did you do yesterday?')
+  assert.equal(teacherAdditions[0]?.title, 'Past habits')
 
   const selectedSuggestions = lesson.priorLearningSuggestions.filter((item) =>
+    selectedIds.includes(item.id),
+  )
+  const selectedTeacherAdditions = teacherAdditions.filter((item) =>
     selectedIds.includes(item.id),
   )
   const prompt = buildChalkiePromptPreview({
     lesson,
     packageShape: 'single',
     selectedSuggestions,
-    teacherAdditions: teacherAdditions.map(({ frame, note }) => ({ frame, note })),
+    teacherAdditions: selectedTeacherAdditions.map(({ title, frame, purpose }) => ({
+      title,
+      frame,
+      purpose,
+    })),
   })
   assert.match(prompt, /\[PRIOR\]/)
   assert.match(prompt, /Healthy and unhealthy activities — from p\.128/)
   assert.match(prompt, /have a big breakfast/)
-  assert.match(prompt, /\[TEACHER-ADDED · UNVERIFIED\] What did you do yesterday\?/)
-  assert.match(prompt, /Teacher note: Quick warm-up/)
+  assert.match(prompt, /\[TEACHER-ADDED · UNVERIFIED\] Past habits: What did you do yesterday\?/)
+  assert.match(prompt, /Purpose: Quick warm-up/)
 })
 
 test('continuing with neither selection nor custom language remains allowed', () => {
@@ -292,7 +310,8 @@ test('continuing with neither selection nor custom language remains allowed', ()
   assert.deepEqual(cleared.selectedIds, [])
   assert.deepEqual(cleared.teacherAdditions, [])
   assert.equal(footerSelectionSummary(0, 0), 'No prior learning selected')
-  assert.equal(appendTeacherAddedLanguage([], '   ', 'note'), null)
+  assert.equal(appendTeacherAddedLanguage([], 'Title', '   ', 'purpose'), null)
+  assert.equal(appendTeacherAddedLanguage([], '', 'frame', 'purpose'), null)
 
   const prompt = buildChalkiePromptPreview({
     lesson,

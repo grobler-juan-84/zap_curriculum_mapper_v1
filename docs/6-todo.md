@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 257
+**Last updated:** Step 258
 
 
 
@@ -447,6 +447,8 @@
 - [x] **BE3 U8 production-pilot plan drafted** — [`phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md`](./phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md); coverage map + first candidate pp.128–129; no generation authorized.
 
 - [x] **BE3 U8 SB→WB pairing gap recorded** — then content review **ACCEPTED** curated opener pair SB 128–129 → WB 104–105; resolver recognises it; unmapped spreads stay unpaired.
+
+- [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
 - [ ] **Next microstep:** build local two-lesson SB→WB handoff (six copyables) for the accepted BE3 U8 opener pair only — do not broaden pairing rules.
 

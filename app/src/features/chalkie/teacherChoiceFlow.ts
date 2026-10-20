@@ -7,8 +7,9 @@ export const TEACHER_CHOICE_TOTAL_STEPS = 3
 
 export type TeacherAddedLanguage = {
   id: string
+  title: string
   frame: string
-  note: string
+  purpose: string
 }
 
 export function teacherChoiceStepName(step: number): string {
@@ -38,19 +39,23 @@ export function toggleSelectedSuggestionId(
 
 export function appendTeacherAddedLanguage(
   existing: TeacherAddedLanguage[],
+  title: string,
   frame: string,
-  note: string,
+  purpose: string,
   idFactory: () => string = () =>
     `teacher-added-${Date.now()}-${existing.length + 1}`,
 ): TeacherAddedLanguage[] | null {
+  const trimmedTitle = title.trim()
   const trimmedFrame = frame.trim()
-  if (!trimmedFrame) return null
+  const trimmedPurpose = purpose.trim()
+  if (!trimmedTitle || !trimmedFrame || !trimmedPurpose) return null
   return [
     ...existing,
     {
       id: idFactory(),
+      title: trimmedTitle,
       frame: trimmedFrame,
-      note: note.trim(),
+      purpose: trimmedPurpose,
     },
   ]
 }

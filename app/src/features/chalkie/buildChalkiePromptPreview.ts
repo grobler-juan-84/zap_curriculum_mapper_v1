@@ -6,8 +6,9 @@ import {
 } from './teacherChoicePrototypeContent'
 
 export type TeacherAddedLanguageInput = {
+  title: string
   frame: string
-  note: string
+  purpose: string
 }
 
 export type LessonPackageShape = 'single' | 'series'
@@ -42,9 +43,13 @@ function buildPriorLearningBlock(input: {
   if (input.teacherAdditions.length > 0) {
     priorLines.push('')
     for (const addition of input.teacherAdditions) {
-      priorLines.push(`[TEACHER-ADDED · UNVERIFIED] ${addition.frame}`)
-      if (addition.note.trim()) {
-        priorLines.push(`Teacher note: ${addition.note.trim()}`)
+      const title = addition.title.trim()
+      const frame = addition.frame.trim()
+      priorLines.push(
+        `[TEACHER-ADDED · UNVERIFIED] ${title ? `${title}: ` : ''}${frame}`,
+      )
+      if (addition.purpose.trim()) {
+        priorLines.push(`Purpose: ${addition.purpose.trim()}`)
       }
     }
   }

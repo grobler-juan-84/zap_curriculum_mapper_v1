@@ -4399,3 +4399,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 258
+
+**Summary:** Updated teacher-choice Step 2 (Prior learning): heading **Add Prior Skills**; removed “Choose only what helps this lesson.”; replaced separate custom-language section with a first-grid “Add a prior skill” card (title / frame / purpose, then selectable); simplified all cards to title + language frame + Purpose (no Caution).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/buildChalkieConciseOutline.test.ts` (updated)
+- `scripts/tests/buildSuggestedChalkieVocabulary.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

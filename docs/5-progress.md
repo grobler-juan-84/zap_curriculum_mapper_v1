@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 257
+**Last updated:** Step 258
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,9 +20,11 @@
 
 - **BE3 U8 SB→WB opener pairing ACCEPTED:** SB pp.128–129 → WB pp.104–105 as one curated verified relationship (content-aligned, not pagination). Series handoff not built yet.
 
+- **Prior-learning Step 2 UI:** heading **Add Prior Skills**; first grid card is teacher-created “Add a prior skill”; suggestion cards show title / language frame / Purpose only (no Caution).
+
 ## In progress
 
-- Next microstep: build local two-lesson handoff for the accepted BE3 opener pair only.
+- Next microstep remains: build local two-lesson handoff for the accepted BE3 opener pair only.
 
 ## Next
 

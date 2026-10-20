@@ -230,7 +230,9 @@ test('detailed prompt and concise outline remain unchanged by vocabulary builder
     lesson,
     packageShape: 'single',
     selectedSuggestions: [prior],
-    teacherAdditions: [{ frame: 'What did you do yesterday?', note: 'warm-up' }],
+    teacherAdditions: [
+      { title: 'Past habits', frame: 'What did you do yesterday?', purpose: 'warm-up' },
+    ],
   })
   const outline = buildChalkieConciseOutline({
     lesson,
@@ -240,7 +242,11 @@ test('detailed prompt and concise outline remain unchanged by vocabulary builder
 
   assert.match(prompt, /\[PRIOR\]/)
   assert.match(prompt, /have a big breakfast/)
-  assert.match(prompt, /\[TEACHER-ADDED · UNVERIFIED\] What did you do yesterday\?/)
+  assert.match(
+    prompt,
+    /\[TEACHER-ADDED · UNVERIFIED\] Past habits: What did you do yesterday\?/,
+  )
+  assert.match(prompt, /Purpose: warm-up/)
   assert.match(outline, /\[PRIOR\]/)
   assert.match(outline, /Activity 8:/)
   assert.doesNotMatch(prompt, /Suggested Chalkie vocabulary/)

@@ -101,10 +101,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const continueRef = useRef<HTMLButtonElement>(null)
   const [step, setStep] = useState(1)
   const [selectedIds, setSelectedIds] = useState<string[]>([])
-  const [openEvidenceIds, setOpenEvidenceIds] = useState<string[]>([])
   const [teacherAdditions, setTeacherAdditions] = useState<TeacherAddedLanguage[]>([])
+  const [newTitle, setNewTitle] = useState('')
   const [newFrame, setNewFrame] = useState('')
-  const [newNote, setNewNote] = useState('')
+  const [newPurpose, setNewPurpose] = useState('')
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
   const [conciseOutline, setConciseOutline] = useState('')
@@ -124,10 +124,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     if (!open) {
       setStep(1)
       setSelectedIds([])
-      setOpenEvidenceIds([])
       setTeacherAdditions([])
+      setNewTitle('')
       setNewFrame('')
-      setNewNote('')
+      setNewPurpose('')
       setShowPromptPreview(false)
       setPromptPreview('')
       setConciseOutline('')
@@ -189,12 +189,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     [priorLearningSuggestions, selectedIds],
   )
 
+  const selectedTeacherAdditions = useMemo(
+    () => teacherAdditions.filter((item) => selectedIds.includes(item.id)),
+    [teacherAdditions, selectedIds],
+  )
+
   if (!open || !lesson) return null
 
   const stepName = teacherChoiceStepName(step)
-  const selectedCount = selectedIds.length
-  const teacherAddedCount = teacherAdditions.length
-  const canAddFrame = newFrame.trim().length > 0
+  const selectedCount = selectedSuggestions.length
+  const teacherAddedCount = selectedTeacherAdditions.length
+  const canAddPriorSkill =
+    newTitle.trim().length > 0 &&
+    newFrame.trim().length > 0 &&
+    newPurpose.trim().length > 0
   const effectiveLessonShape: LessonPackageShape =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
@@ -239,7 +247,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       lesson,
       packageShape: effectiveLessonShape,
       selectedSuggestions,
-      teacherAdditions,
+      teacherAdditions: selectedTeacherAdditions,
     })
     const outline = buildChalkieConciseOutline({
       lesson,
@@ -304,33 +312,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSelectedIds((prev) => toggleSelectedSuggestionId(prev, id))
   }
 
-  const toggleEvidence = (id: string) => {
-    setOpenEvidenceIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-    )
-  }
-
-  const handleAddTeacherLanguage = () => {
+  const handleAddPriorSkill = () => {
+    if (!canAddPriorSkill) return
+    const id = `teacher-added-${Date.now()}-${teacherAdditions.length + 1}`
     setTeacherAdditions((prev) => {
-      const next = appendTeacherAddedLanguage(prev, newFrame, newNote)
+      const next = appendTeacherAddedLanguage(prev, newTitle, newFrame, newPurpose, () => id)
       return next ?? prev
     })
-    if (newFrame.trim()) {
-      setNewFrame('')
-      setNewNote('')
-    }
-  }
-
-  const handleRemoveTeacherLanguage = (id: string) => {
-    setTeacherAdditions((prev) => prev.filter((item) => item.id !== id))
+    setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]))
+    setNewTitle('')
+    setNewFrame('')
+    setNewPurpose('')
   }
 
   const handleUseNoPriorLearning = () => {
     const cleared = clearPriorLearningSelections()
     setSelectedIds(cleared.selectedIds)
     setTeacherAdditions(cleared.teacherAdditions)
+    setNewTitle('')
     setNewFrame('')
-    setNewNote('')
+    setNewPurpose('')
   }
 
   return createPortal(
@@ -479,183 +480,186 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   id={titleId}
                   className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
                 >
-                  What might be useful to reuse?
+                  Add Prior Skills
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
                   {hasPriorLearningSuggestions
-                    ? 'Verified prior-learning suggestions from earlier pages or units in this book. Choose only what helps this lesson. You can also add a language frame of your own.'
+                    ? 'Verified prior-learning suggestions from earlier pages or units in this book. You can also add a language frame of your own.'
                     : 'No verified suggestions for this lesson yet. You can add a language frame of your own, or continue with no prior learning.'}
                 </p>
               </div>
 
-              {hasPriorLearningSuggestions ? (
-                <ul
-                  className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
-                  aria-label="Prior-learning suggestions"
-                >
-                  {priorLearningSuggestions.map((suggestion) => {
-                    const checked = selectedIds.includes(suggestion.id)
-                    const evidenceOpen = openEvidenceIds.includes(suggestion.id)
-                    const checkboxId = `teacher-choice-${suggestion.id}`
-                    return (
-                      <li
-                        key={suggestion.id}
-                        className={`rounded-xl border p-4 transition-colors sm:p-5 ${
-                          checked
-                            ? 'border-indigo-200 bg-indigo-50/50'
-                            : 'border-slate-200/80 bg-slate-50/40'
+              <ul
+                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                aria-label="Prior skills"
+              >
+                <li className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30 p-4 sm:p-5">
+                  <div className="space-y-3">
+                    <div className="space-y-0.5">
+                      <p className="text-sm font-semibold text-indigo-900">Add a prior skill</p>
+                      <p className="text-xs leading-relaxed text-indigo-800/80">
+                        Teacher-created · not a verified suggestion
+                      </p>
+                    </div>
+                    <div className="space-y-2.5">
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-title"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Short title
+                        </label>
+                        <input
+                          id="teacher-added-title"
+                          type="text"
+                          value={newTitle}
+                          onChange={(event) => setNewTitle(event.target.value)}
+                          placeholder="e.g. Preference"
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-frame"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Language frame
+                        </label>
+                        <input
+                          id="teacher-added-frame"
+                          type="text"
+                          value={newFrame}
+                          onChange={(event) => setNewFrame(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' && canAddPriorSkill) {
+                              event.preventDefault()
+                              handleAddPriorSkill()
+                            }
+                          }}
+                          placeholder="e.g. Do you like + noun? Yes, I do. / No, I don’t."
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-purpose"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Purpose
+                        </label>
+                        <input
+                          id="teacher-added-purpose"
+                          type="text"
+                          value={newPurpose}
+                          onChange={(event) => setNewPurpose(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' && canAddPriorSkill) {
+                              event.preventDefault()
+                              handleAddPriorSkill()
+                            }
+                          }}
+                          placeholder="e.g. Extends preference talk with this lesson’s vocabulary"
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        disabled={!canAddPriorSkill}
+                        onClick={handleAddPriorSkill}
+                        className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                          canAddPriorSkill
+                            ? 'bg-indigo-700 text-white hover:bg-indigo-600'
+                            : 'cursor-not-allowed bg-slate-200 text-slate-500'
                         }`}
                       >
-                        <div className="flex h-full gap-3">
-                          <input
-                            id={checkboxId}
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => toggleSuggestion(suggestion.id)}
-                            className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                            aria-describedby={`${checkboxId}-details`}
-                          />
-                          <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                            <div className="space-y-0.5">
-                              <label
-                                htmlFor={checkboxId}
-                                className="block text-sm font-medium text-slate-900"
-                              >
-                                {suggestion.label}
-                              </label>
-                              <p className="text-xs text-slate-500">{suggestion.source}</p>
-                            </div>
-                            <p className="text-[0.95rem] leading-relaxed text-slate-900">
-                              {suggestion.frame}
-                            </p>
-                            <p className="text-sm leading-relaxed text-slate-600">
-                              <span className="font-medium text-slate-700">Why it may help:</span>{' '}
-                              {suggestion.whyItMayHelp}
-                            </p>
-                            <p className="text-sm leading-relaxed text-slate-500">
-                              <span className="font-medium text-slate-600">Caution:</span>{' '}
-                              {suggestion.caution}
-                            </p>
-                            <div>
-                              <button
-                                type="button"
-                                onClick={() => toggleEvidence(suggestion.id)}
-                                className="text-sm text-slate-500 underline-offset-2 transition-colors hover:text-slate-700 hover:underline"
-                                aria-expanded={evidenceOpen}
-                              >
-                                Why this suggestion?
-                              </button>
-                              {evidenceOpen ? (
-                                <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
-                                  {suggestion.evidenceNote}
-                                </p>
-                              ) : null}
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-              ) : null}
+                        Add prior skill
+                      </button>
+                    </div>
+                  </div>
+                </li>
 
-              <section className="max-w-2xl space-y-4" aria-label="Add language of your own">
-                <div className="space-y-1.5">
-                  <h3 className="text-sm font-medium text-slate-800">Add language of your own</h3>
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    Add a useful language frame for this class when it is not in the suggested
-                    choices.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="teacher-added-frame"
-                      className="block text-sm text-slate-700"
+                {teacherAdditions.map((item) => {
+                  const checked = selectedIds.includes(item.id)
+                  const checkboxId = `teacher-choice-${item.id}`
+                  return (
+                    <li
+                      key={item.id}
+                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
+                        checked
+                          ? 'border-indigo-200 bg-indigo-50/50'
+                          : 'border-dashed border-indigo-200/80 bg-white'
+                      }`}
                     >
-                      Language frame
-                    </label>
-                    <input
-                      id="teacher-added-frame"
-                      type="text"
-                      value={newFrame}
-                      onChange={(event) => setNewFrame(event.target.value)}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' && canAddFrame) {
-                          event.preventDefault()
-                          handleAddTeacherLanguage()
-                        }
-                      }}
-                      placeholder="e.g. What is it? / What are they?"
-                      className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="teacher-added-note" className="block text-sm text-slate-700">
-                      Optional note
-                    </label>
-                    <input
-                      id="teacher-added-note"
-                      type="text"
-                      value={newNote}
-                      onChange={(event) => setNewNote(event.target.value)}
-                      placeholder="Why this helps your class"
-                      className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    disabled={!canAddFrame}
-                    onClick={handleAddTeacherLanguage}
-                    className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                      canAddFrame
-                        ? 'bg-slate-800 text-white hover:bg-slate-700'
-                        : 'cursor-not-allowed bg-slate-200 text-slate-500'
-                    }`}
-                  >
-                    Add
-                  </button>
-                </div>
-
-                {teacherAdditions.length > 0 ? (
-                  <ul className="space-y-3" aria-label="Teacher-added language">
-                    {teacherAdditions.map((item) => (
-                      <li
-                        key={item.id}
-                        className="rounded-xl border border-slate-200 bg-slate-50/50 p-4"
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0 space-y-1.5">
-                            <p className="text-[0.95rem] leading-relaxed text-slate-900">
-                              {item.frame}
-                            </p>
-                            {item.note ? (
-                              <p className="text-sm leading-relaxed text-slate-600">{item.note}</p>
-                            ) : null}
-                            <p className="text-sm text-slate-600">
-                              <span className="font-medium text-slate-700">
-                                Teacher-added · unverified
-                              </span>
-                            </p>
-                            <p className="text-sm leading-relaxed text-slate-500">
-                              Useful for this class, but not currently verified as prior-book
-                              evidence.
-                            </p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => handleRemoveTeacherLanguage(item.id)}
-                            className="shrink-0 rounded-md px-2 py-1 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                      <div className="flex h-full gap-3">
+                        <input
+                          id={checkboxId}
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleSuggestion(item.id)}
+                          className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                          aria-describedby={`${checkboxId}-details`}
+                        />
+                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
+                          <label
+                            htmlFor={checkboxId}
+                            className="block text-sm font-medium text-slate-900"
                           >
-                            Remove
-                          </button>
+                            {item.title}
+                          </label>
+                          <p className="text-[0.95rem] leading-relaxed text-slate-900">
+                            {item.frame}
+                          </p>
+                          <p className="text-sm leading-relaxed text-slate-600">
+                            <span className="font-medium text-slate-700">Purpose:</span>{' '}
+                            {item.purpose}
+                          </p>
                         </div>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </section>
+                      </div>
+                    </li>
+                  )
+                })}
+
+                {priorLearningSuggestions.map((suggestion) => {
+                  const checked = selectedIds.includes(suggestion.id)
+                  const checkboxId = `teacher-choice-${suggestion.id}`
+                  return (
+                    <li
+                      key={suggestion.id}
+                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
+                        checked
+                          ? 'border-indigo-200 bg-indigo-50/50'
+                          : 'border-slate-200/80 bg-slate-50/40'
+                      }`}
+                    >
+                      <div className="flex h-full gap-3">
+                        <input
+                          id={checkboxId}
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleSuggestion(suggestion.id)}
+                          className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                          aria-describedby={`${checkboxId}-details`}
+                        />
+                        <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
+                          <label
+                            htmlFor={checkboxId}
+                            className="block text-sm font-medium text-slate-900"
+                          >
+                            {suggestion.label}
+                          </label>
+                          <p className="text-[0.95rem] leading-relaxed text-slate-900">
+                            {suggestion.frame}
+                          </p>
+                          <p className="text-sm leading-relaxed text-slate-600">
+                            <span className="font-medium text-slate-700">Purpose:</span>{' '}
+                            {suggestion.whyItMayHelp}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  )
+                })}
+              </ul>
 
               <section className="max-w-2xl space-y-2" aria-label="Continue options">
                 <p className="text-sm text-slate-500">
@@ -882,22 +886,22 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     )}
                   </section>
 
-                  {teacherAdditions.length > 0 ? (
-                    <section className="space-y-4" aria-label="Teacher-added language">
-                      <h3 className="text-sm font-medium text-slate-800">Teacher-added language</h3>
+                  {selectedTeacherAdditions.length > 0 ? (
+                    <section className="space-y-4" aria-label="Teacher-added prior skills">
+                      <h3 className="text-sm font-medium text-slate-800">
+                        Teacher-added prior skills
+                      </h3>
                       <ul className="space-y-4">
-                        {teacherAdditions.map((item) => (
+                        {selectedTeacherAdditions.map((item) => (
                           <li key={item.id} className="space-y-1.5">
+                            <p className="text-sm font-medium text-slate-900">{item.title}</p>
                             <p className="text-sm leading-relaxed text-slate-900">{item.frame}</p>
-                            {item.note ? (
-                              <p className="text-sm leading-relaxed text-slate-600">{item.note}</p>
-                            ) : null}
+                            <p className="text-sm leading-relaxed text-slate-600">
+                              <span className="font-medium text-slate-700">Purpose:</span>{' '}
+                              {item.purpose}
+                            </p>
                             <p className="text-sm font-medium text-slate-700">
                               Teacher-added · unverified
-                            </p>
-                            <p className="text-sm leading-relaxed text-slate-500">
-                              Useful for this class, but not currently verified as prior-book
-                              evidence.
                             </p>
                           </li>
                         ))}

@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 257
+**Last synced:** Step 258
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- BE3 U8 SB 128–129 → WB 104–105 pairing ACCEPTED (curated verified). Series handoff packaging is the next microstep.
+- Prior-learning Step 2 UI updated (Add Prior Skills + teacher-created first card). BE3 U8 opener pairing ACCEPTED; series handoff packaging is still the next microstep.
 - Phase 3 remains parked (D020).
 
 ## Branch

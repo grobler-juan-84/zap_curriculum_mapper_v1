@@ -213,7 +213,7 @@ test('no prior selection means no PRIOR outline step; teacher-added stays out', 
     packageShape: 'single',
     selectedSuggestions: [],
     teacherAdditions: [
-      { frame: 'What did you do yesterday?', note: 'warm-up' },
+      { title: 'Past habits', frame: 'What did you do yesterday?', purpose: 'warm-up' },
     ],
   })
   const outlineWithIgnoredTeacherAdd = buildChalkieConciseOutline({
@@ -221,7 +221,11 @@ test('no prior selection means no PRIOR outline step; teacher-added stays out', 
     selectedSuggestions: [],
   })
   assert.doesNotMatch(outlineWithIgnoredTeacherAdd, /What did you do yesterday/)
-  assert.match(prompt, /\[TEACHER-ADDED · UNVERIFIED\] What did you do yesterday\?/)
+  assert.match(
+    prompt,
+    /\[TEACHER-ADDED · UNVERIFIED\] Past habits: What did you do yesterday\?/,
+  )
+  assert.match(prompt, /Purpose: warm-up/)
 })
 
 test('detailed prompt remains unchanged by outline builder', () => {
