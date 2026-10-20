@@ -9,6 +9,13 @@ import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 export type { ChalkieOutlineActivity }
 
 function pageRefFromSuggestion(suggestion: TeacherChoiceSuggestion): string | null {
+  const fromLabelPp = suggestion.label.match(/\bpp\.(\d+)(?:-(\d+))?/i)
+  if (fromLabelPp) {
+    const start = fromLabelPp[1]
+    const end = fromLabelPp[2]
+    if (end && end !== start) return `pp.${start}-${end}`
+    return `p.${start}`
+  }
   const fromSource = suggestion.source.match(/\bp\.\s*(\d+)\b/i)
   if (fromSource) return `p.${fromSource[1]}`
   const fromLabel = suggestion.label.match(/\bp\.\s*(\d+)\b/i)
@@ -17,6 +24,8 @@ function pageRefFromSuggestion(suggestion: TeacherChoiceSuggestion): string | nu
 }
 
 function topicFromSuggestion(suggestion: TeacherChoiceSuggestion): string {
+  const afterColon = suggestion.label.match(/:\s*(.+)$/)
+  if (afterColon?.[1]?.trim()) return afterColon[1].trim()
   return suggestion.label.replace(/\s*[—-]\s*from\s*p\.\s*\d+\s*$/i, '').trim() || suggestion.label
 }
 

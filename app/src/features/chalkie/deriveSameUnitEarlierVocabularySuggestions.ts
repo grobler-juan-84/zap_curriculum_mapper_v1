@@ -3,7 +3,10 @@
  * No API calls. Not cross-unit horizontal mapping.
  */
 import type { BatchJsonSummary } from '../../types/validation'
-import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
+import {
+  formatPriorSkillCardTitle,
+  type TeacherChoiceSuggestion,
+} from './teacherChoiceSuggestions'
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -68,9 +71,11 @@ function componentTitleForPage(
 export function deriveSameUnitEarlierVocabularySuggestions(input: {
   summary: BatchJsonSummary
   visiblePrintedPages: number[]
+  unitNumber: number
 }): TeacherChoiceSuggestion[] {
   const visible = input.visiblePrintedPages.filter((n) => Number.isFinite(n))
   if (visible.length === 0) return []
+  const unitNumber = input.unitNumber
 
   const earliestVisible = Math.min(...visible)
   const raw = asRecord(input.summary.raw)
@@ -133,7 +138,12 @@ export function deriveSameUnitEarlierVocabularySuggestions(input: {
       const id = `same-unit-vocab-${bundle.pageId}-${bundle.printedPage}`
       return {
         id,
-        label: `${bundle.title} — from p.${bundle.printedPage}`,
+        label: formatPriorSkillCardTitle({
+          unitNumber,
+          pageStart: bundle.printedPage,
+          pageEnd: bundle.printedPage,
+          skillName: bundle.title,
+        }),
         source: `Earlier in this unit · p.${bundle.printedPage}`,
         frame: bundle.terms.join(', '),
         whyItMayHelp:

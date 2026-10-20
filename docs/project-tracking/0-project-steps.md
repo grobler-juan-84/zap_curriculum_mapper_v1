@@ -4480,3 +4480,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 264
+
+**Summary:** Prior-skill card titles now include Student Book unit and page range (`Unit 0N pp.NN-KK: Skill name`) for curated BE2 suggestions and same-unit PRIOR bundles, so teachers can check the source pages before selecting.
+
+**Files touched:**
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/deriveSameUnitEarlierVocabularySuggestions.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkieConciseOutline.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `scripts/tests/buildChalkieConciseOutline.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

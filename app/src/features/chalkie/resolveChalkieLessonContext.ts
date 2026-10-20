@@ -396,12 +396,14 @@ export function resolveChalkieLessonContext(input: {
       ? visibleView!.pageLabels.join(' · ')
       : 'Review the visible lesson in the source PDF.'
 
-  const priorLearningSuggestions = input.summary
-    ? deriveSameUnitEarlierVocabularySuggestions({
-        summary: input.summary,
-        visiblePrintedPages: sortedVisible,
-      })
-    : []
+  const priorLearningSuggestions =
+    input.summary && unitNumber != null
+      ? deriveSameUnitEarlierVocabularySuggestions({
+          summary: input.summary,
+          visiblePrintedPages: sortedVisible,
+          unitNumber,
+        })
+      : []
 
   const naming = buildChalkieLessonNaming({
     catalogBookId,
