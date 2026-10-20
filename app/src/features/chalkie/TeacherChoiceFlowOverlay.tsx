@@ -1136,7 +1136,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
         </div>
 
-        <footer className="shrink-0 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
+        <footer className="shrink-0 border-t border-slate-200/60 bg-[#8bcfd9] px-5 py-3.5 sm:px-6 lg:px-8">
           {step === 3 && !showPromptPreview ? (
             <p className="mb-3 text-sm text-slate-500">
               No Chalkie prompt has been prepared yet.
