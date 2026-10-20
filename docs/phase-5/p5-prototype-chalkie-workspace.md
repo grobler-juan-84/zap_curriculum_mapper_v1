@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.5  
+**Version:** 2.6  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -15,14 +15,15 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
-- **Prepare Chalkie prompt** launch into a focused four-step teacher-choice overlay ending in a local copy-ready prompt preview.
+- **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
 - Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** only on the exact BE2 U8 SB 128–129 → WB 104–105 route.
-- Optional teacher-triggered **Generate Chalkie lesson draft** via server-side OpenAI (`POST /api/chalkie/generate`); no persistence.
-- **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, local preview, and OpenAI request metadata all use one resolved context from selected book/unit + open PDF pages.
+- Fully local, deterministic handoff — no visible OpenAI / model-draft step.
+- **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
 
 **Out of scope (explicit):**
 
 - Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
+- Calling or exposing the dormant OpenAI lesson-draft endpoint from the current handoff UI.
 - Persisting generated drafts, creating slides, or submitting to the Chalkie product.
 - Arbitrary configurable series packaging beyond the agreed BE2 U8 SB→WB route.
 - Validation status writes or ops tooling.
@@ -39,9 +40,9 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
 | Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
-| Overlay | Teacher-choice Steps 1–3 + local prompt preview/copy; optional server OpenAI lesson-draft button after preview |
+| Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
-| API | `POST /api/chalkie/generate` (teacher-triggered lesson draft; Bearer JWT; `OPENAI_API_KEY` + `OPENAI_MODEL`) |
+| API | `POST /api/chalkie/generate` remains on disk (**dormant**; not exposed or called from the current handoff UI) |
 | Legacy API | `POST /api/generate-chalkie-prompt` still exists; not used by the teacher-choice overlay path |
 
 ---
@@ -61,8 +62,7 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 | **Step 1 — What are you teaching now?** | Book, unit, visible page range, current focus, unit-context note, current vocabulary and language | `ChalkieLessonContext` from `resolveChalkieLessonContext.ts` | Normal route: selected book metadata + current PDF printed-page numbers + matching Phase 1 JSON in `chalkieEvidence.ts`. Exact BE2 Student Book Unit 8, pp. 128–129 instead uses curated values in `teacherChoicePrototypeContent.ts`. |
 | **Step 2 — What might be useful to reuse?** | Prior-learning cards plus **Add language of your own** (frame, optional note, Add) on one screen; selected-count in the footer | `lesson.priorLearningSuggestions` + overlay `selectedIds` / `teacherAdditions` | BE2 U8: curated `[HM]` cards. Other ready routes: same-unit earlier-page `[PRIOR]` vocabulary bundles. Custom language is teacher-entered, labelled unverified, session-only. The old separate “What do you choose?” confirmation step is removed. |
 | **Step 3 — What will support this lesson?** | Lesson title, package choice, current lesson recap, selected prior learning, teacher additions, and guidance; then four separate copyable handoff items: title, detailed prompt, concise outline, suggested Chalkie vocabulary | Resolved context plus Step 2 session state | Suggested vocabulary uses current-page words/models only (not PRIOR/HM/teacher-added). Empty state when none exist. Detailed prompt and outline unchanged. |
-| **Prompt preview** | Copy-ready prompt and title | `buildChalkiePromptPreview.ts` | Normal single lesson is deterministically assembled from the resolved context plus selections/additions. BE2 U8 uses curated single/series prompt templates in that file, with prototype constants from `teacherChoicePrototypeContent.ts`. |
-| **Generated lesson draft** | Returned Markdown draft, title, and package type | `chalkieLessonDraftService.ts` → `POST /api/chalkie/generate` | The request sends the already-assembled local prompt and selected package metadata. The returned draft is session-only, has no curriculum-data fetch in the overlay, and is cleared when it closes. |
+| **Prompt preview / handoff** | Copy-ready title, detailed prompt, concise outline, suggested vocabulary | `buildChalkiePromptPreview.ts`, `buildChalkieConciseOutline.ts`, `buildSuggestedChalkieVocabulary.ts` | Fully local and deterministic. Normal single lesson is assembled from the resolved context plus selections/additions. BE2 U8 uses curated single/series prompt templates. No OpenAI call from this screen. |
 
 ### Field-level Step 1 mapping
 
@@ -101,8 +101,7 @@ The overlay performs no new curriculum fetches after **Prepare Chalkie prompt**.
 | **Step 1** | Renders the resolved context unchanged. | The teacher reviews current lesson evidence; nothing is selected or saved. |
 | **Step 2** | Renders suggestion cards and custom-language controls together. | `selectedIds` + `teacherAdditions` in overlay session state; footer shows selection counts. |
 | **Step 3** | Re-renders current lesson context and Step 2 local state; package choice (`single` or BE2 U8 `series`); then local prompt preview. | Confirmation of inputs; still not a persisted generated lesson. |
-| **Prompt preview** | `buildChalkiePromptPreview.ts` composes fixed instruction text + resolved page evidence + selections/additions. | Copyable deterministic prompt string. |
-| **Optional draft** | `chalkieLessonDraftService.ts` sends the completed prompt, package type, and title to `POST /api/chalkie/generate`. | Session-only Markdown response; it does not change the underlying evidence or selections. |
+| **Prompt preview / handoff** | Local builders compose title, detailed prompt, concise outline, and suggested vocabulary from the resolved context + selections. | Four copyable local artifacts. The OpenAI lesson-draft path is dormant and not called. |
 
 ### Future API-backed prior-learning cards — proposed, not implemented or locked
 
@@ -139,24 +138,23 @@ The current `/api/chalkie/generate` endpoint is **not** this future retrieval AP
 
 ---
 
-## Environment (OpenAI key)
+## Environment (OpenAI key — dormant path only)
 
-Server-only secret. Never prefix with `VITE_` (that would expose it to the browser).
+The lesson-draft endpoint and env wiring remain on disk for a possible future prompt/question capability. The current Chalkie handoff UI does **not** call them. Server-only secret if revived later. Never prefix with `VITE_` (that would expose it to the browser).
 
 | Where | Purpose |
 |---|---|
-| **Root** [`.env.local`](../../.env.local) (gitignored) | **Put `OPENAI_API_KEY` and `OPENAI_MODEL` here** — Vite middleware via `loadServerEnv` |
+| **Root** [`.env.local`](../../.env.local) (gitignored) | `OPENAI_API_KEY` / `OPENAI_MODEL` for the dormant server route only |
 | Root [`.env.example`](../../.env.example) | Documented empty template (committed; no secrets) |
 | `app/.env.local` | Public Supabase `VITE_*` only — **do not** put OpenAI here |
 
-After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`). Never use `VITE_OPENAI_API_KEY`.
+Never use `VITE_OPENAI_API_KEY`.
 
 ## What remains pending
 
-1. Owner live validation of the OpenAI lesson-draft path; decide keep / harden / park.
-2. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md) (next coding slice: richer activity evidence, not Exp 10 fixture).
-3. Optional: teacher page-range picker beyond the current PDF spread.
-4. Optional: Vercel/serverless adapter for `/api/chalkie/generate` (local Vite middleware works today).
+1. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md) (next coding slice: richer activity evidence, not Exp 10 fixture).
+2. Optional: teacher page-range picker beyond the current PDF spread.
+3. OpenAI lesson-draft endpoint remains dormant on disk; decide later whether to revive for prompt/question help, harden, or park permanently.
 
 ---
 
@@ -166,8 +164,7 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 - Summaries depend on Phase 1 JSON linkage (`printed_page`, `page_id`); sparse links may yield empty spread vocabulary even when activities resolve.
 - Activity labels prefer `title` → `activity_title` → `instruction`; activity-rich spreads (e.g. BE3 U8 Grammar pp. 136–137) can open the teacher-choice flow with activity-derived words/models, language frames, and a derived teaching-focus planning summary. The prompt is still a generic dynamic single-lesson assembly — not Experiment 10. Gap analysis: [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
 - Act 20 chart category dumps (comma-separated answer lists) are intentionally not shown as word models — only safely shaped item pairs are extracted.
-- Local prompt preview remains deterministic and copyable; OpenAI is called only when the teacher presses **Generate Chalkie lesson draft**.
-- Generated drafts are session-local only (cleared on overlay close); nothing is persisted.
+- Local handoff remains fully deterministic and copyable (title, detailed prompt, concise outline, suggested vocabulary). The OpenAI lesson-draft UI is removed; the server path stays dormant and unused.
 - Two-lesson series uses Workbook pp. 104–105 as packaging source evidence; those pages may not be the PDF open in the workspace viewer.
 - Curated BE2 U8 fixture (prior-learning cards + SB→WB series) applies only to the exact route `big_english_2_sb` Unit 8 with visible pages **128–129**. Horizontal suggestions remain fixture-only for that route.
 - Other in-unit spreads use Phase 1 visible-page evidence only (single-lesson path); missing page evidence blocks generation honestly.

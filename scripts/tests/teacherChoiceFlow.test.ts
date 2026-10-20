@@ -33,6 +33,14 @@ const OVERLAY_PATH = path.join(
   ROOT,
   'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx',
 )
+const DRAFT_SERVICE_PATH = path.join(
+  ROOT,
+  'app/src/services/chalkieLessonDraftService.ts',
+)
+const DRAFT_HANDLER_PATH = path.join(
+  ROOT,
+  'app/server/handleGenerateChalkieLessonDraftRequest.ts',
+)
 const BE3_CANONICAL_PATH = path.join(
   ROOT,
   'data/phase1/big_english_3_sb/canonical/v1.json',
@@ -174,6 +182,40 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   assert.ok(overlaySource.includes('What might be useful to reuse?'))
   assert.ok(overlaySource.includes('Add language of your own'))
   assert.ok(overlaySource.includes('TEACHER_CHOICE_TOTAL_STEPS'))
+})
+
+test('handoff overlay has no model-draft UI and does not call the OpenAI endpoint', () => {
+  const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
+  assert.ok(!overlaySource.includes('Optional model draft'))
+  assert.ok(!overlaySource.includes('Generate Chalkie lesson draft'))
+  assert.ok(!overlaySource.includes('chalkieLessonDraftService'))
+  assert.ok(!overlaySource.includes('/api/chalkie/generate'))
+  assert.ok(!overlaySource.includes('OpenAI'))
+  assert.ok(!overlaySource.includes('model draft'))
+  assert.ok(overlaySource.includes('HandoffCopyableBox'))
+  assert.ok(overlaySource.includes('Copy title'))
+  assert.ok(overlaySource.includes('Copy prompt'))
+  assert.ok(overlaySource.includes('Copy outline'))
+  assert.ok(overlaySource.includes('Copy vocabulary'))
+  assert.ok(overlaySource.includes('Detailed Chalkie prompt'))
+  assert.ok(overlaySource.includes('Suggested Chalkie vocabulary'))
+  assert.ok(overlaySource.includes('Concise teacher-controlled outline'))
+  assert.ok(
+    overlaySource.includes(
+      'Prepared locally from verified curriculum evidence and your selections',
+    ),
+  )
+  assert.ok(overlaySource.includes('No AI'))
+  assert.ok(overlaySource.includes('generation was used'))
+  assert.ok(overlaySource.includes('Back to lesson inputs'))
+  assert.ok(overlaySource.includes('handleBack'))
+
+  assert.ok(fs.existsSync(DRAFT_SERVICE_PATH), 'draft service should remain dormant on disk')
+  assert.ok(fs.existsSync(DRAFT_HANDLER_PATH), 'draft handler should remain dormant on disk')
+  const serviceSource = fs.readFileSync(DRAFT_SERVICE_PATH, 'utf8')
+  assert.match(serviceSource, /\/api\/chalkie\/generate/)
+  const handlerSource = fs.readFileSync(DRAFT_HANDLER_PATH, 'utf8')
+  assert.match(handlerSource, /openai|OpenAI/i)
 })
 
 test('combined prior-learning screen can select p.128 card and add custom language into prompt', () => {

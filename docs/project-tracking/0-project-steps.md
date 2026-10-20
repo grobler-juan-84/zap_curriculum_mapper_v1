@@ -4262,3 +4262,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 250
+
+**Summary:** Removed the optional OpenAI model-draft section from the visible Chalkie handoff: no draft button, loading/error UI, or client calls to `/api/chalkie/generate`. Final screen is local-only (title, detailed prompt, concise outline, suggested vocabulary) with honest “Prepared locally… No AI generation was used.” wording. Server draft endpoint/service left dormant on disk.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

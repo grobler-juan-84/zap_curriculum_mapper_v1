@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 249
+**Last updated:** Step 250
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,11 +18,11 @@
 
 - Chalkie Workspace: dynamic source-context binding, teaching-focus lanes, same-unit `[PRIOR]` vocabulary, 3-step teacher-choice flow.
 
-- **Final handoff copyables:** lesson title, detailed prompt, concise outline, and **Suggested Chalkie vocabulary** (current-page words/models only; honest empty state). Each block uses an in-box top-right copy icon.
+- **Local-only final handoff:** lesson title, detailed prompt, concise outline, and Suggested Chalkie vocabulary (in-box copy icons). Optional OpenAI model-draft UI removed; server endpoint kept dormant.
 
 ## In progress
 
-- Owner smoke-check of the four handoff copyables on BE3 U8 pp.132–133.
+- Owner smoke-check of the four local handoff copyables on BE3 U8 pp.132–133.
 
 ## Next
 
