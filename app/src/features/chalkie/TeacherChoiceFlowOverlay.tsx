@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { Check, Copy } from 'lucide-react'
 import { chalkieLessonDraftService } from '../../services/chalkieLessonDraftService'
 import { buildChalkieConciseOutline } from './buildChalkieConciseOutline'
 import {
@@ -27,6 +28,68 @@ interface TeacherChoiceFlowOverlayProps {
   open: boolean
   onClose: () => void
   lesson: ChalkieLessonContext | null
+}
+
+type CopyFeedback = 'idle' | 'copied' | 'failed'
+
+function HandoffCopyableBox(props: {
+  id: string
+  value: string
+  rows: number
+  copyLabel: string
+  copyStatus: CopyFeedback
+  onCopy: () => void
+  disabled?: boolean
+  className?: string
+  textareaClassName?: string
+}) {
+  const {
+    id,
+    value,
+    rows,
+    copyLabel,
+    copyStatus,
+    onCopy,
+    disabled = false,
+    className = '',
+    textareaClassName = '',
+  } = props
+  const label = copyStatus === 'copied' ? 'Copied' : copyLabel
+
+  return (
+    <div className={`relative ${className}`}>
+      <label htmlFor={id} className="sr-only">
+        {copyLabel.replace(/^Copy /, 'Copy-ready ')}
+      </label>
+      <textarea
+        id={id}
+        readOnly
+        value={value}
+        rows={rows}
+        className={`w-full resize-y rounded-lg border border-slate-200 bg-slate-50 py-3 pl-4 pr-11 text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 ${textareaClassName}`}
+      />
+      <button
+        type="button"
+        onClick={onCopy}
+        disabled={disabled}
+        title={label}
+        aria-label={label}
+        className={`absolute right-1.5 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
+          disabled
+            ? 'cursor-not-allowed text-slate-300'
+            : copyStatus === 'copied'
+              ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-50'
+              : 'text-slate-500 hover:bg-white/80 hover:text-slate-800'
+        }`}
+      >
+        {copyStatus === 'copied' ? (
+          <Check className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <Copy className="h-4 w-4" aria-hidden="true" />
+        )}
+      </button>
+    </div>
+  )
 }
 
 export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> = ({
@@ -930,19 +993,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </p>
               </div>
 
-              <section className="space-y-2" aria-label="Series or lesson title">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <p className="select-text text-sm font-medium leading-relaxed text-slate-800">
-                    {activeLessonTitle}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={handleCopyLessonTitle}
-                    className="shrink-0 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50"
-                  >
-                    {titleCopyStatus === 'copied' ? 'Copied' : 'Copy title'}
-                  </button>
-                </div>
+              <section className="mx-auto w-full max-w-4xl space-y-2" aria-label="Series or lesson title">
+                <h3 className="text-sm font-medium text-slate-800">Lesson title</h3>
+                <HandoffCopyableBox
+                  id="chalkie-lesson-title-handoff"
+                  value={activeLessonTitle}
+                  rows={2}
+                  copyLabel="Copy title"
+                  copyStatus={titleCopyStatus}
+                  onCopy={handleCopyLessonTitle}
+                  textareaClassName="min-h-[2.75rem] resize-none text-sm font-medium leading-relaxed"
+                />
                 {titleCopyStatus === 'failed' ? (
                   <p className="text-sm text-slate-500">
                     Copying was unavailable. Select the title text and copy it manually.
@@ -952,31 +1013,22 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
               {isSeriesPreview ? (
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
-                  <div className="flex min-w-0 flex-col gap-3 lg:col-span-7">
-                    <label htmlFor="chalkie-prompt-preview" className="sr-only">
-                      Copy-ready Chalkie prompt
-                    </label>
-                    <textarea
+                  <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
+                    <HandoffCopyableBox
                       id="chalkie-prompt-preview"
-                      readOnly
                       value={promptPreview}
                       rows={24}
-                      className="min-h-[20rem] w-full flex-1 resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+                      copyLabel="Copy prompt"
+                      copyStatus={copyStatus}
+                      onCopy={handleCopyPrompt}
+                      className="flex-1"
+                      textareaClassName="min-h-[20rem] font-mono text-xs leading-relaxed sm:text-[13px]"
                     />
-                    <div className="flex flex-wrap items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={handleCopyPrompt}
-                        className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
-                      >
-                        {copyStatus === 'copied' ? 'Copied' : 'Copy prompt'}
-                      </button>
-                      {copyStatus === 'failed' ? (
-                        <p className="text-sm text-slate-500">
-                          Copying was unavailable. Select the prompt text and copy it manually.
-                        </p>
-                      ) : null}
-                    </div>
+                    {copyStatus === 'failed' ? (
+                      <p className="text-sm text-slate-500">
+                        Copying was unavailable. Select the prompt text and copy it manually.
+                      </p>
+                    ) : null}
                   </div>
 
                   <aside className="flex min-w-0 flex-col gap-4 lg:col-span-5">
@@ -1035,31 +1087,21 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </aside>
                 </div>
               ) : (
-                <div className="mx-auto flex w-full max-w-4xl flex-col gap-3">
-                  <label htmlFor="chalkie-prompt-preview" className="sr-only">
-                    Copy-ready Chalkie prompt
-                  </label>
-                  <textarea
+                <div className="mx-auto flex w-full max-w-4xl flex-col gap-2">
+                  <HandoffCopyableBox
                     id="chalkie-prompt-preview"
-                    readOnly
                     value={promptPreview}
                     rows={22}
-                    className="min-h-[18rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+                    copyLabel="Copy prompt"
+                    copyStatus={copyStatus}
+                    onCopy={handleCopyPrompt}
+                    textareaClassName="min-h-[18rem] font-mono text-xs leading-relaxed sm:text-[13px]"
                   />
-                  <div className="flex flex-wrap items-center gap-3">
-                    <button
-                      type="button"
-                      onClick={handleCopyPrompt}
-                      className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
-                    >
-                      {copyStatus === 'copied' ? 'Copied' : 'Copy prompt'}
-                    </button>
-                    {copyStatus === 'failed' ? (
-                      <p className="text-sm text-slate-500">
-                        Copying was unavailable. Select the prompt text and copy it manually.
-                      </p>
-                    ) : null}
-                  </div>
+                  {copyStatus === 'failed' ? (
+                    <p className="text-sm text-slate-500">
+                      Copying was unavailable. Select the prompt text and copy it manually.
+                    </p>
+                  ) : null}
                 </div>
               )}
 
@@ -1077,30 +1119,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       detailed prompt above. Not a slide-by-slide script.
                     </p>
                   </div>
-                  <label htmlFor="chalkie-concise-outline" className="sr-only">
-                    Copy-ready concise outline
-                  </label>
-                  <textarea
+                  <HandoffCopyableBox
                     id="chalkie-concise-outline"
-                    readOnly
                     value={conciseOutline}
                     rows={12}
-                    className="min-h-[12rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+                    copyLabel="Copy outline"
+                    copyStatus={outlineCopyStatus}
+                    onCopy={handleCopyOutline}
+                    textareaClassName="min-h-[12rem] font-mono text-xs leading-relaxed sm:text-[13px]"
                   />
-                  <div className="flex flex-wrap items-center gap-3">
-                    <button
-                      type="button"
-                      onClick={handleCopyOutline}
-                      className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
-                    >
-                      {outlineCopyStatus === 'copied' ? 'Copied' : 'Copy outline'}
-                    </button>
-                    {outlineCopyStatus === 'failed' ? (
-                      <p className="text-sm text-slate-500">
-                        Copying was unavailable. Select the outline text and copy it manually.
-                      </p>
-                    ) : null}
-                  </div>
+                  {outlineCopyStatus === 'failed' ? (
+                    <p className="text-sm text-slate-500">
+                      Copying was unavailable. Select the outline text and copy it manually.
+                    </p>
+                  ) : null}
                 </section>
               ) : null}
 
@@ -1123,38 +1155,21 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     field on these pages.
                   </p>
                 ) : (
-                  <>
-                    <label htmlFor="chalkie-suggested-vocabulary" className="sr-only">
-                      Copy-ready suggested Chalkie vocabulary
-                    </label>
-                    <textarea
-                      id="chalkie-suggested-vocabulary"
-                      readOnly
-                      value={suggestedVocabulary}
-                      rows={3}
-                      className="min-h-[4.5rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
-                    />
-                  </>
+                  <HandoffCopyableBox
+                    id="chalkie-suggested-vocabulary"
+                    value={suggestedVocabulary}
+                    rows={3}
+                    copyLabel="Copy vocabulary"
+                    copyStatus={vocabularyCopyStatus}
+                    onCopy={handleCopyVocabulary}
+                    textareaClassName="min-h-[4.5rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                  />
                 )}
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
-                    disabled={suggestedVocabularyEmpty || !suggestedVocabulary}
-                    onClick={handleCopyVocabulary}
-                    className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                      suggestedVocabularyEmpty || !suggestedVocabulary
-                        ? 'cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-400'
-                        : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    {vocabularyCopyStatus === 'copied' ? 'Copied' : 'Copy vocabulary'}
-                  </button>
-                  {vocabularyCopyStatus === 'failed' ? (
-                    <p className="text-sm text-slate-500">
-                      Copying was unavailable. Select the vocabulary text and copy it manually.
-                    </p>
-                  ) : null}
-                </div>
+                {vocabularyCopyStatus === 'failed' ? (
+                  <p className="text-sm text-slate-500">
+                    Copying was unavailable. Select the vocabulary text and copy it manually.
+                  </p>
+                ) : null}
               </section>
 
               <section

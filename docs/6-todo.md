@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 248
+**Last updated:** Step 249
 
 
 
@@ -429,6 +429,8 @@
 - [x] **Handoff: concise teacher-controlled outline** — local activity-order outline with `[PRIOR]` / `[SB]` / `[SUPPLEMENTARY]`; separate Copy outline; detailed prompt unchanged.
 
 - [x] **Handoff: Suggested Chalkie vocabulary** — current-page words/models only; Copy vocabulary; PRIOR/HM/teacher-added excluded; empty state when none.
+
+- [x] **UI: handoff copy affordance** — in-box top-right copy icons for title/prompt/outline/vocabulary; title is a short copyable text box.
 
 - [ ] Owner smoke-check of BE3 U8 pp.132–133 four handoff copyables (title, prompt, outline, vocabulary).
 

@@ -4249,3 +4249,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 249
+
+**Summary:** Cosmetic handoff pass: each of the four copyable items (title, detailed prompt, concise outline, suggested vocabulary) is a text box with a compact top-right copy icon (accessible label + copied check feedback). External labelled copy buttons removed on the final preview screen; contents and copy behaviour unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

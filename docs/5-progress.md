@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 248
+**Last updated:** Step 249
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,7 +18,7 @@
 
 - Chalkie Workspace: dynamic source-context binding, teaching-focus lanes, same-unit `[PRIOR]` vocabulary, 3-step teacher-choice flow.
 
-- **Final handoff copyables:** lesson title, detailed prompt, concise outline, and **Suggested Chalkie vocabulary** (current-page words/models only; Copy vocabulary; honest empty state). PRIOR/HM/teacher-added stay out of the vocabulary chips.
+- **Final handoff copyables:** lesson title, detailed prompt, concise outline, and **Suggested Chalkie vocabulary** (current-page words/models only; honest empty state). Each block uses an in-box top-right copy icon.
 
 ## In progress
 
