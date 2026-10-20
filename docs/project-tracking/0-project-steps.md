@@ -4529,3 +4529,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 267
+
+**Summary:** Set the teacher-choice modal body background to `#8bcfd9` at 50% opacity; header stays white and footer stays solid `#8bcfd9`.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

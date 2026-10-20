@@ -349,7 +349,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         aria-labelledby={titleId}
         className="flex max-h-[92vh] w-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl sm:w-[min(80vw,1440px)]"
       >
-        <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
+        <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 bg-white px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="min-w-0">
             <p className="text-xs text-slate-500">
               {step} of {TEACHER_CHOICE_TOTAL_STEPS}
@@ -368,7 +368,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           </button>
         </header>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+        <div className="min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/50 px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
           {step === 1 ? (
             <div className="mx-auto w-full max-w-[46rem] space-y-7">
               <div className="space-y-3">
