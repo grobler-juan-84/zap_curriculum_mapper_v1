@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 255
+**Last updated:** Step 256
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,22 +16,23 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace + Exp 11–14 preferred Single Lesson path recorded; Ask Chalkie optional post-generation only.
+- Chalkie Exp 11–14 preferred Single Lesson path recorded; BE3 U8 production-pilot plan drafted.
 
-- **BE3 U8 production-pilot plan drafted:** full-unit spread coverage map; first recommended untested two-page spread = pp.128–129. Generation **not** authorized.
+- **BE3 SB→WB series packaging blocked on evidence:** no verified cross-book pairing for SB pp.128–129; non-heuristic resolver + gap doc recorded. Single-lesson path unchanged.
 
 ## In progress
 
-- Waiting on owner authorization (or decline) for the first production-pilot generation on BE3 U8 pp.128–129.
+- Waiting on owner choice: single-lesson pilot on pp.128–129, or authorize verified SB→WB pairing work before any BE3 series package.
 
 ## Next
 
-- Owner decide: authorize or decline one Chalkie run for BE3 SB Unit 8 pp. 128–129 under the provisional preferred workflow.
+- Owner choose next action from the production-pilot plan / pairing-gap docs.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked
 
 - Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
+- Soft: BE3 two-lesson SB→WB handoff cannot ship until a human-verified pairing exists.
 
 ---
 

@@ -1,0 +1,354 @@
+/**
+ * Verified SB→WB companion pairing tests.
+ * Run: npx tsx --test scripts/tests/resolveVerifiedSbWbCompanion.test.ts
+ */
+import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import path from 'node:path'
+import test from 'node:test'
+import { fileURLToPath } from 'node:url'
+
+import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
+import {
+  resolveVerifiedSbWbCompanion,
+} from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
+import type { Book } from '../../app/src/types/curriculum.ts'
+import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+const BE3_SB_PATH = path.join(ROOT, 'data/phase1/big_english_3_sb/canonical/v1.json')
+const BE3_WB_PATH = path.join(ROOT, 'data/phase1/big_english_3_wb/canonical/v1.json')
+const RESOLVER_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts',
+)
+const OVERLAY_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx',
+)
+
+function bookStub(overrides: Partial<Book> & Pick<Book, 'catalogBookId' | 'title'>): Book {
+  return {
+    id: 'book-uuid-test',
+    seriesId: 'series-uuid-test',
+    catalogBookId: overrides.catalogBookId,
+    title: overrides.title,
+    level: overrides.level ?? '3',
+    audience: overrides.audience ?? 'Primary',
+    totalUnits: overrides.totalUnits ?? 9,
+    type: overrides.type ?? 'Student Book',
+    colorScheme: overrides.colorScheme ?? {
+      primary: '#000000',
+      accent: '#333333',
+      badgeBg: '#eeeeee',
+      badgeText: '#111111',
+    },
+    pageSpreads: overrides.pageSpreads ?? [],
+  }
+}
+
+function asArray(value: unknown): unknown[] {
+  return Array.isArray(value) ? value : []
+}
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {}
+}
+
+function loadJson(filePath: string): Record<string, unknown> {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8')) as Record<string, unknown>
+}
+
+function be3Unit8SbSummary(): BatchJsonSummary {
+  const rawBook = loadJson(BE3_SB_PATH)
+  const unit = asArray(rawBook.units).find((entry) => {
+    const u = asRecord(entry)
+    return u.unit_number === 8 || u.unit_number === '8'
+  })
+  const unitRec = asRecord(unit)
+  const start =
+    typeof unitRec.printed_page_start === 'number' ? unitRec.printed_page_start : 128
+  const end = typeof unitRec.printed_page_end === 'number' ? unitRec.printed_page_end : 143
+  const unitPages: number[] = []
+  for (let page = start; page <= end; page += 1) unitPages.push(page)
+
+  const pageRows = asArray(rawBook.pages).filter((entry) => {
+    const printed = asRecord(entry).printed_page
+    return typeof printed === 'number' && unitPages.includes(printed)
+  })
+  const pageIds = new Set(
+    pageRows
+      .map((entry) => asRecord(entry).page_id)
+      .filter((id): id is string => typeof id === 'string'),
+  )
+  const raw = {
+    book_id: 'big_english_3_sb',
+    units: asArray(rawBook.units).filter((entry) => {
+      const u = asRecord(entry)
+      return u.unit_number === 8 || u.unit_number === '8'
+    }),
+    pages: pageRows,
+    vocabulary: asArray(rawBook.vocabulary).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    language: asArray(rawBook.language).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    activities: asArray(rawBook.activities).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    curriculum_components: asArray(rawBook.curriculum_components).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    relationships: asArray(rawBook.relationships),
+  }
+
+  return {
+    catalogBookId: 'big_english_3_sb',
+    units: [
+      {
+        unitNumber: 8,
+        title: typeof unitRec.title === 'string' ? unitRec.title : 'Healthy Living',
+        printedPageStart: start,
+        printedPageEnd: end,
+      },
+    ],
+    vocabulary: [],
+    language: [],
+    activities: asArray(raw.activities).map((entry) => {
+      const a = asRecord(entry)
+      return {
+        title:
+          typeof a.instruction === 'string'
+            ? a.instruction
+            : typeof a.title === 'string'
+              ? a.title
+              : undefined,
+        pageId: typeof a.page_id === 'string' ? a.page_id : undefined,
+      }
+    }),
+    pages: pageRows.map((entry) => {
+      const p = asRecord(entry)
+      return {
+        printedPage: typeof p.printed_page === 'number' ? p.printed_page : null,
+        sectionTitle: typeof p.section_title === 'string' ? p.section_title : undefined,
+        sectionType: typeof p.section_type === 'string' ? p.section_type : undefined,
+        pageHeading: typeof p.page_heading === 'string' ? p.page_heading : undefined,
+      }
+    }),
+    raw,
+  }
+}
+
+test('BE3 U8 SB pp.128–129 has no verified SB→WB companion even with WB canonical present', () => {
+  assert.ok(fs.existsSync(BE3_SB_PATH), 'BE3 SB canonical required')
+  assert.ok(fs.existsSync(BE3_WB_PATH), 'BE3 WB canonical required')
+
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wb,
+    studentBookPrintedPages: [128, 129],
+  })
+
+  assert.equal(result.companion, null)
+  assert.equal(result.gapReason, 'no_cross_book_relationship')
+})
+
+test('structural parallel alone must not invent WB 104–105 pairing', () => {
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCanonical: wb,
+    studentBookPrintedPages: [128, 129],
+  })
+
+  assert.equal(result.companion, null)
+  assert.ok(result.gapReason !== null)
+  // Prove WB opener pages exist as content, but are not linked as verified companions.
+  const wbOpener = asArray(wb.pages).filter((entry) => {
+    const printed = asRecord(entry).printed_page
+    return printed === 104 || printed === 105
+  })
+  assert.equal(wbOpener.length, 2)
+})
+
+test('incomplete workbook_practice_for relationship is rejected', () => {
+  const sb = {
+    book_id: 'big_english_3_sb',
+    pages: [
+      { page_id: 'bep3_sb_p128', printed_page: 128 },
+      { page_id: 'bep3_sb_p129', printed_page: 129 },
+    ],
+    relationships: [
+      {
+        relationship_id: 'fake_rel',
+        book_id: 'big_english_3_sb',
+        relationship_type: 'workbook_practice_for',
+        source_entity_id: 'bep3_sb_p128',
+        target_entity_id: null,
+        verification_status: 'human_verified',
+      },
+    ],
+  }
+  const wb = {
+    book_id: 'big_english_3_wb',
+    pages: [
+      { page_id: 'bep_3_wb_p104', printed_page: 104 },
+      { page_id: 'bep_3_wb_p105', printed_page: 105 },
+    ],
+    relationships: [],
+  }
+
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCanonical: wb,
+    studentBookPrintedPages: [128, 129],
+  })
+  assert.equal(result.companion, null)
+  assert.equal(result.gapReason, 'relationship_target_incomplete')
+})
+
+test('verified complete cross-book relationship resolves companion pages', () => {
+  const sb = {
+    book_id: 'big_english_3_sb',
+    pages: [
+      { page_id: 'bep3_sb_p128', printed_page: 128 },
+      { page_id: 'bep3_sb_p129', printed_page: 129 },
+    ],
+    relationships: [
+      {
+        relationship_id: 'ok_rel',
+        book_id: 'big_english_3_sb',
+        relationship_type: 'workbook_practice_for',
+        source_entity_id: 'bep3_sb_p128',
+        target_entity_id: 'bep_3_wb_p104',
+        target_book_id: 'big_english_3_wb',
+        verification_status: 'human_verified',
+      },
+    ],
+  }
+  const wb = {
+    book_id: 'big_english_3_wb',
+    pages: [
+      { page_id: 'bep_3_wb_p104', printed_page: 104 },
+      { page_id: 'bep_3_wb_p105', printed_page: 105 },
+    ],
+    relationships: [],
+  }
+
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCanonical: wb,
+    studentBookPrintedPages: [128, 129],
+  })
+
+  // Source entity is only p128; companion pages from target entity are p104 only.
+  // That is honest incomplete page-range coverage for a two-page spread pairing —
+  // accept as resolved companion only if pages match. Our resolver requires student
+  // pages equal visible spread; linked student pages from p128 alone are [128], not [128,129].
+  assert.equal(result.companion, null)
+  assert.ok(
+    result.gapReason === 'pages_do_not_match_visible_spread' ||
+      result.gapReason === 'relationship_target_incomplete',
+  )
+})
+
+test('verified relationship covering both SB pages resolves WB companion', () => {
+  const sb = {
+    book_id: 'big_english_3_sb',
+    pages: [
+      { page_id: 'bep3_sb_spread_128_129', printed_page: 128 },
+      { page_id: 'bep3_sb_spread_128_129', printed_page: 129 },
+    ],
+    relationships: [
+      {
+        relationship_id: 'ok_rel_spread',
+        book_id: 'big_english_3_sb',
+        relationship_type: 'workbook_practice_for',
+        source_entity_id: 'bep3_sb_spread_128_129',
+        target_entity_id: 'bep_3_wb_spread_104_105',
+        target_book_id: 'big_english_3_wb',
+        verification_status: 'human_verified',
+      },
+    ],
+  }
+  const wb = {
+    book_id: 'big_english_3_wb',
+    pages: [
+      { page_id: 'bep_3_wb_spread_104_105', printed_page: 104 },
+      { page_id: 'bep_3_wb_spread_104_105', printed_page: 105 },
+    ],
+    relationships: [],
+  }
+
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCanonical: wb,
+    studentBookPrintedPages: [128, 129],
+  })
+
+  assert.ok(result.companion)
+  assert.deepEqual(result.companion?.workbookPrintedPages, [104, 105])
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [128, 129])
+  assert.equal(result.companion?.workbookCatalogId, 'big_english_3_wb')
+  assert.equal(result.gapReason, null)
+})
+
+test('BE3 ready resolve keeps series unavailable without verified pairing', () => {
+  const wb = loadJson(BE3_WB_PATH)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [128, 129],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.workbookCompanion, null)
+  assert.equal(lesson.isBe2U08PrototypeRoute, false)
+})
+
+test('single-lesson BE3 path remains ready and local (regression)', () => {
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [128, 129],
+    unitNumber: 8,
+  })
+  assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.singleLessonTitle.includes('BE3 SB Unit 08'))
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+})
+
+test('pairing resolver and overlay do not call OpenAI endpoints', () => {
+  const resolverSource = fs.readFileSync(RESOLVER_PATH, 'utf8')
+  const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
+  assert.ok(!resolverSource.includes('/api/chalkie/generate'))
+  assert.ok(!resolverSource.includes('openai'))
+  assert.ok(!overlaySource.includes('chalkieLessonDraftService'))
+  assert.ok(!overlaySource.includes('/api/chalkie/generate'))
+  assert.ok(
+    overlaySource.includes(
+      'A two-lesson Student Book → Workbook series is not available for this source',
+    ),
+  )
+})

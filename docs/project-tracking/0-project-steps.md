@@ -4360,3 +4360,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 256
+
+**Summary:** Attempted BE3 U8 two-lesson SB→WB handoff; stopped after proving no verified canonical/SS pairing for SB pp.128–129 (WB 104–105 exist as content only). Added non-heuristic `resolveVerifiedSbWbCompanion`, kept series unavailable for BE3, documented the gap. No AI/API, no generation, D018/4-decisions untouched.
+
+**Files touched:**
+- `app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (created)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (created)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

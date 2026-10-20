@@ -28,6 +28,10 @@ import {
 } from './teacherChoiceSuggestions'
 import { deriveSameUnitEarlierVocabularySuggestions } from './deriveSameUnitEarlierVocabularySuggestions'
 import { buildChalkieLessonNaming } from './buildChalkieLessonNaming'
+import {
+  resolveVerifiedSbWbCompanion,
+  type VerifiedSbWbCompanion,
+} from './resolveVerifiedSbWbCompanion'
 
 export type ChalkieLessonContextStatus =
   | 'ready'
@@ -72,6 +76,11 @@ export type ChalkieLessonContext = {
   /** Exact BE2 SB Unit 8 · pp. 128–129 curated prototype route. */
   isBe2U08PrototypeRoute: boolean
   supportsTwoLessonSeries: boolean
+  /**
+   * Verified SB→WB companion from explicit human-verified cross-book relationships only.
+   * Null when no pairing exists — never filled by structural heuristics.
+   */
+  workbookCompanion: VerifiedSbWbCompanion | null
   priorLearningSuggestions: TeacherChoiceSuggestion[]
   singleLessonTitle: string
   seriesLessonTitle: string | null
@@ -170,6 +179,11 @@ export function resolveChalkieLessonContext(input: {
   summary: BatchJsonSummary | null
   visiblePrintedPages: number[]
   unitNumber?: number | string | null
+  /**
+   * Optional Workbook canonical JSON for verified SB→WB pairing only.
+   * When omitted or unpaired, two-lesson series stays unavailable (except BE2 U8 fixture).
+   */
+  workbookCanonical?: Record<string, unknown> | null
 }): ChalkieLessonContext {
   const sortedVisible = [...input.visiblePrintedPages].sort((a, b) => a - b)
   const visiblePageRangeLabel = formatPageRange(sortedVisible)
@@ -221,6 +235,7 @@ export function resolveChalkieLessonContext(input: {
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
+      workbookCompanion: null,
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -246,6 +261,7 @@ export function resolveChalkieLessonContext(input: {
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
+      workbookCompanion: null,
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -279,6 +295,7 @@ export function resolveChalkieLessonContext(input: {
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
+      workbookCompanion: null,
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -312,6 +329,7 @@ export function resolveChalkieLessonContext(input: {
       pageLabels: [...BE2_U08_PROTOTYPE_PAGE_LABELS],
       isBe2U08PrototypeRoute: true,
       supportsTwoLessonSeries: true,
+      workbookCompanion: null,
       priorLearningSuggestions: BE2_U08_AI_SUGGESTIONS,
       singleLessonTitle: BE2_U08_SINGLE_LESSON_TITLE,
       seriesLessonTitle: BE2_U08_SERIES_LESSON_TITLE,
@@ -360,6 +378,7 @@ export function resolveChalkieLessonContext(input: {
       pageLabels: visibleView?.pageLabels ?? [],
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
+      workbookCompanion: null,
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -395,6 +414,17 @@ export function resolveChalkieLessonContext(input: {
     lessonTopic: visibleView!.lessonTopic,
   })
 
+  const studentBookCanonical =
+    input.summary?.raw && typeof input.summary.raw === 'object'
+      ? (input.summary.raw as Record<string, unknown>)
+      : null
+  const { companion: workbookCompanion } = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: catalogBookId,
+    studentBookCanonical,
+    workbookCanonical: input.workbookCanonical ?? null,
+    studentBookPrintedPages: sortedVisible,
+  })
+
   return {
     ...base,
     status: 'ready',
@@ -415,7 +445,8 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    supportsTwoLessonSeries: false,
+    supportsTwoLessonSeries: workbookCompanion != null,
+    workbookCompanion,
     priorLearningSuggestions,
     singleLessonTitle: naming.teacherFacingTitle,
     seriesLessonTitle: null,

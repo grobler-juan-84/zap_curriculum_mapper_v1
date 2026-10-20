@@ -139,8 +139,19 @@ No new rubric. No D018 re-score.
 
 ---
 
-## 8. Next owner action
+## 8. SB→WB series note (blocked)
 
-**Next owner action:** Authorize (or decline) a **single** Chalkie generation for **BE3 SB Unit 8 pp. 128–129** using the provisional preferred workflow above, then record the export filename and teacher-review notes in a short Exp 15-style results note.
+Attempted enablement of a two-lesson Student Book → Workbook package for SB pp.128–129 stopped on an evidence gap: no verified canonical/SS pairing to a Workbook companion spread. WB Unit 8 opener pages 104–105 exist as content but are **not** linked by a human-verified cross-book relationship. See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-Until that explicit authorization, **do not generate**.
+This production pilot remains **Single Lesson** only until that pairing is verified.
+
+---
+
+## 9. Next owner action
+
+**Next owner action (choose one):**
+
+1. Authorize (or decline) a **single-lesson** Chalkie generation for **BE3 SB Unit 8 pp. 128–129** using the provisional preferred workflow; or  
+2. Authorize Phase 1 / SS work to record a **human-verified** SB→WB page pairing before any two-lesson BE3 series packaging.
+
+Until explicitly authorized, **do not generate**.

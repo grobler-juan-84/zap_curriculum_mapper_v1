@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 255
+**Last updated:** Step 256
 
 
 
@@ -446,7 +446,9 @@
 
 - [x] **BE3 U8 production-pilot plan drafted** — [`phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md`](./phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md); coverage map + first candidate pp.128–129; no generation authorized.
 
-- [ ] Owner authorize or decline one production-pilot Chalkie generation for BE3 SB Unit 8 pp. 128–129 (provisional preferred workflow).
+- [x] **BE3 U8 SB→WB pairing gap recorded** — [`phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md); no verified companion for SB 128–129; series option stays off; no heuristic pairing.
+
+- [ ] Owner choose: authorize/decline single-lesson Chalkie run for BE3 SB U8 pp.128–129, **or** authorize verified SB→WB pairing evidence work before any BE3 series package.
 
 
 
