@@ -274,33 +274,45 @@ test('extractActivityItemModel joins matching_and_speaking phrase halves', () =>
   )
 })
 
-test('BE3 pp.128–129 keeps complete Q&A exchanges and component lesson topic', () => {
+test('BE3 pp.128–129 prioritizes vocabulary teaching focus over secondary Did…?', () => {
   const resolved = resolveBe3([128, 129])
   assert.equal(resolved.status, 'ready')
   assert.equal(resolved.lessonTopic, 'Healthy and unhealthy activities · Live Right!')
+  assert.match(resolved.teachingFocus ?? '', /Learn and use the phrases for Healthy and unhealthy activities/i)
+  assert.match(resolved.teachingFocus ?? '', /Did/)
+  assert.match(resolved.teachingFocus ?? '', /short answers/i)
+  assert.ok(
+    (resolved.teachingFocus ?? '').toLowerCase().indexOf('learn and use') <
+      (resolved.teachingFocus ?? '').toLowerCase().indexOf('did'),
+  )
   const examples = resolved.languageExamples.map((item) => item.example)
   assert.ok(examples.includes("Did he eat breakfast? / No, he didn't."))
   assert.ok(examples.includes('Did she ride her bike? / Yes, she did.'))
   assert.ok(!examples.some((ex) => ex === "No, he didn't."))
 })
 
-test('BE3 pp.130–131 shows An Unhealthy Dinner without Activity 8 language records', () => {
+test('BE3 pp.130–131 uses story-comprehension teaching focus', () => {
   const resolved = resolveBe3([130, 131])
   assert.equal(resolved.status, 'ready')
   assert.equal(resolved.lessonTopic, 'An Unhealthy Dinner')
   assert.equal(resolved.hasDedicatedVocabulary, false)
   assert.equal(resolved.hasActivityDerivedModels, false)
   assert.equal(resolved.vocabulary.length, 0)
+  assert.match(resolved.teachingFocus ?? '', /An Unhealthy Dinner/)
+  assert.match(resolved.teachingFocus ?? '', /unhealthy/i)
+  assert.doesNotMatch(resolved.teachingFocus ?? '', /^Ask and answer about past activities/)
   const language = resolved.languageExamples.map((item) => item.example).join('\n')
   assert.doesNotMatch(language, /Did you have breakfast\?/)
   assert.doesNotMatch(language, /Did he get enough sleep\?/)
 })
 
-test('BE3 pp.132–133 receives Did…? language records and five safe activity phrases', () => {
+test('BE3 pp.132–133 retains Did…? teaching focus and five safe activity phrases', () => {
   const resolved = resolveBe3([132, 133])
   assert.equal(resolved.status, 'ready')
-  assert.match(resolved.teachingFocus ?? '', /Did/)
-  assert.match(resolved.teachingFocus ?? '', /short answers/i)
+  assert.equal(
+    resolved.teachingFocus,
+    'Ask and answer about past activities using Did…? and short answers.',
+  )
   assert.doesNotMatch(resolved.teachingFocus ?? '', /irregular/i)
   const examples = resolved.languageExamples.map((item) => item.example)
   assert.ok(examples.includes("Did you have breakfast? / No, I didn't."))
@@ -316,20 +328,27 @@ test('BE3 pp.132–133 receives Did…? language records and five safe activity 
   }
 })
 
-test('BE3 pp.134–135 surfaces calorie topic without Grammar-box language records', () => {
+test('BE3 pp.134–135 uses CLIL content-reading teaching focus without Grammar-box language', () => {
   const resolved = resolveBe3([134, 135])
   assert.equal(resolved.status, 'ready')
   assert.equal(resolved.lessonTopic, 'What Is a Calorie?')
   assert.ok(resolved.hasDedicatedVocabulary)
+  assert.match(resolved.teachingFocus ?? '', /calorie/i)
+  assert.match(resolved.teachingFocus ?? '', /good or bad for the body/i)
+  assert.doesNotMatch(resolved.teachingFocus ?? '', /^Ask and answer about past activities/)
   const language = resolved.languageExamples.map((item) => item.example).join('\n')
   assert.doesNotMatch(language, /played \/ walked \/ stayed/)
   assert.doesNotMatch(language, /went \/ saw \/ came/)
 })
 
-test('BE3 pp.136–137 receives past-tense grammar patterns and keeps activity-derived verbs', () => {
+test('BE3 pp.136–137 retains regular/irregular past-tense teaching focus', () => {
   const visible = buildVisiblePagesView(be3SummaryForPrintedPages([136, 137]), [136, 137])
   const resolved = resolveBe3([136, 137])
   assert.equal(resolved.status, 'ready')
+  assert.equal(
+    resolved.teachingFocus,
+    'Use regular and irregular past-tense verbs to make simple sentences about yesterday.',
+  )
   assert.match(resolved.teachingFocus ?? '', /regular/i)
   assert.match(resolved.teachingFocus ?? '', /irregular/i)
   assert.match(resolved.teachingFocus ?? '', /yesterday/i)

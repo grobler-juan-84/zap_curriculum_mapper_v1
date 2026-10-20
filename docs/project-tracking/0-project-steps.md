@@ -4159,3 +4159,20 @@
 - `data/phase1/big_english_3_sb/canonical/v1.json` (updated, gitignored)
 
 ---
+
+### Step 244
+
+**Summary:** Improved deterministic Teaching focus for non-grammar lesson types: vocabulary/song, story/reading, and CLIL lanes now take priority over secondary `Did…?` frames using verified section/component evidence. Grammar and Language in Action focus strings unchanged; Screen 1 and prompt preview continue to share the same derived focus. Regression coverage updated for all five BE3 U8 spreads.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieEvidence.ts` (updated)
+- `app/src/types/validation.ts` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

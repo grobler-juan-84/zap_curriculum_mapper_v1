@@ -238,15 +238,42 @@ function collectVisibleComponents(
   return rows
 }
 
+function componentTypeOf(component: Record<string, unknown>): string {
+  return (
+    asString(component.component_type) ??
+    asString(component.type) ??
+    ''
+  ).toLowerCase()
+}
+
+function firstComponentTitle(
+  components: Record<string, unknown>[],
+  typePattern: RegExp,
+): string | null {
+  for (const component of components) {
+    if (!typePattern.test(componentTypeOf(component))) continue
+    const title = asString(component.title)
+    if (title) return title
+  }
+  return null
+}
+
 /**
  * Deterministic planning summary from verified component/activity metadata.
  * Not publisher wording — do not label as [SB] quotation.
+ *
+ * Priority for non-grammar lanes (vocabulary/song, story/reading, CLIL) runs
+ * before Did…? detection so secondary Q&A frames do not replace the lesson type.
+ * Grammar and Language-in-Action Did…? / past-tense behaviour is unchanged.
  */
 export function deriveTeachingFocus(input: {
   activities: Record<string, unknown>[]
   components: Record<string, unknown>[]
   activityDerivedModels: string[]
   activityLanguageFrames: string[]
+  sectionTypes: string[]
+  pageHeadings: string[]
+  hasDedicatedVocabulary: boolean
 }): string | null {
   const noteBlob = input.activities
     .map((a) => asString(a.notes) ?? '')
@@ -264,7 +291,10 @@ export function deriveTeachingFocus(input: {
     .map((c) => `${asString(c.title) ?? ''} ${asString(c.source_label) ?? ''}`)
     .join(' ')
     .toLowerCase()
+  const componentTypeBlob = input.components.map((c) => componentTypeOf(c)).join(' ')
+  const sectionBlob = input.sectionTypes.join(' ').toLowerCase()
   const frameBlob = input.activityLanguageFrames.join(' ').toLowerCase()
+  const headingBlob = input.pageHeadings.join(' ')
 
   const hasDidQa =
     /\bdid\b[^|]*\?/.test(frameBlob) ||
@@ -299,6 +329,76 @@ export function deriveTeachingFocus(input: {
   const grammarPastComponent =
     /grammar/.test(componentBlob) &&
     (hasRegular || hasIrregular || /\bcame\b|\bplayed\b|\bpast\b/.test(componentBlob))
+
+  const isVocabularySongLesson =
+    input.hasDedicatedVocabulary &&
+    !/\bgrammar\b/.test(componentTypeBlob) &&
+    (/\b(vocabulary|song_vocabulary|vocabulary_presentation|song(?:_and)?_practice|song)\b/.test(
+      sectionBlob,
+    ) ||
+      /\bvocabulary\b/.test(componentTypeBlob) ||
+      /song\s*\/\s*vocabulary|song\/vocabulary/.test(componentBlob))
+
+  const isStoryReadingLesson =
+    !/\bgrammar\b/.test(componentTypeBlob) &&
+    !/\bclil\b/.test(componentTypeBlob) &&
+    (/\b(story|story_comprehension|story_reading|reading_comprehension)\b/.test(
+      sectionBlob,
+    ) ||
+      (/\breading\b/.test(componentTypeBlob) &&
+        /\bstory\b/.test(`${sectionBlob} ${componentBlob}`)))
+
+  const isClilLesson =
+    /\bclil\b/.test(sectionBlob) || /\bclil\b/.test(componentTypeBlob)
+
+  // Non-grammar lesson lanes: prefer section/component type over secondary Did…? frames.
+  if (isVocabularySongLesson) {
+    const vocabTitle = firstComponentTitle(input.components, /\bvocabulary\b/)
+    let focus = vocabTitle
+      ? `Learn and use the phrases for ${vocabTitle}.`
+      : 'Learn and practise the vocabulary and phrases on these pages.'
+    if (hasDidQa) {
+      focus += ' Then ask and answer using Did…? and short answers.'
+    }
+    return focus
+  }
+
+  if (isStoryReadingLesson) {
+    const storyTitle =
+      input.pageHeadings.find((heading) => heading.trim().length > 0) ??
+      firstComponentTitle(input.components, /\breading\b/)
+    if (storyTitle) {
+      if (/unhealthy/i.test(storyTitle) && /dinner/i.test(storyTitle)) {
+        return `Listen to and read ${storyTitle}, and understand why the dinner was unhealthy.`
+      }
+      if (/listen and read|read and/.test(instructionBlob)) {
+        return `Listen to and read ${storyTitle}, and check understanding of the story.`
+      }
+      return `Read ${storyTitle}, and check understanding of the story.`
+    }
+    return 'Listen to and read the story, and check understanding of the main idea.'
+  }
+
+  if (isClilLesson) {
+    const clilTitle =
+      input.pageHeadings.find((heading) => heading.trim().length > 0) ??
+      firstComponentTitle(input.components, /\bclil\b/)
+    const hasGoodBadApplication =
+      /good activit|bad activit/.test(instructionBlob) ||
+      /good activities and bad activities/.test(instructionBlob)
+    if (/calorie/i.test(`${headingBlob} ${componentBlob} ${instructionBlob}`)) {
+      return hasGoodBadApplication
+        ? 'Read about calories and healthy activity, then identify or discuss activities that are good or bad for the body.'
+        : 'Read about calories and healthy activity on these pages.'
+    }
+    if (clilTitle && hasGoodBadApplication) {
+      return `Read ${clilTitle}, then identify or discuss activities that are good or bad for the body.`
+    }
+    if (clilTitle) {
+      return `Read ${clilTitle}, and talk about the ideas in the content connection.`
+    }
+    return 'Read the content-connection text, then talk about the ideas on these pages.'
+  }
 
   // Did…? Q&A practice is distinct from verb-form teaching.
   if (hasDidQa && !hasIrregular && !hasRegular) {
@@ -559,17 +659,48 @@ export function buildVisiblePagesView(
     ...uniqueFrames.filter((frame) => !uniqueDedicatedLanguage.includes(frame)),
   ]
 
+  const hasDedicatedVocabulary = uniqueDedicatedVocab.length > 0
+  const hasActivityDerivedModels = uniqueDerivedModels.length > 0
+  const hasDedicatedLanguage = uniqueDedicatedLanguage.length > 0
+  const hasActivityLanguageFrames = uniqueFrames.length > 0
+
+  const sectionTypes = summary.pages
+    .filter((p) => p.printedPage != null && visibleSet.has(p.printedPage))
+    .map((p) => p.sectionType?.trim() ?? '')
+    .filter(Boolean)
+  for (const raw of asArray(asRecord(summary.raw).pages)) {
+    const p = asRecord(raw)
+    const printed = asNumber(p.printed_page)
+    if (printed == null || !visibleSet.has(printed)) continue
+    const sectionType = asString(p.section_type)
+    if (sectionType && !sectionTypes.includes(sectionType)) {
+      sectionTypes.push(sectionType)
+    }
+  }
+
+  const pageHeadings: string[] = []
+  for (const p of summary.pages) {
+    if (p.printedPage == null || !visibleSet.has(p.printedPage)) continue
+    const heading = p.pageHeading?.trim()
+    if (heading && !pageHeadings.includes(heading)) pageHeadings.push(heading)
+  }
+  for (const raw of asArray(asRecord(summary.raw).pages)) {
+    const p = asRecord(raw)
+    const printed = asNumber(p.printed_page)
+    if (printed == null || !visibleSet.has(printed)) continue
+    const heading = asString(p.page_heading)
+    if (heading && !pageHeadings.includes(heading)) pageHeadings.push(heading)
+  }
+
   const teachingFocus = deriveTeachingFocus({
     activities: visibleActivities,
     components: visibleComponents,
     activityDerivedModels: uniqueDerivedModels,
     activityLanguageFrames: uniqueFrames,
+    sectionTypes,
+    pageHeadings,
+    hasDedicatedVocabulary,
   })
-
-  const hasDedicatedVocabulary = uniqueDedicatedVocab.length > 0
-  const hasActivityDerivedModels = uniqueDerivedModels.length > 0
-  const hasDedicatedLanguage = uniqueDedicatedLanguage.length > 0
-  const hasActivityLanguageFrames = uniqueFrames.length > 0
 
   const hasContent =
     pageLabels.length > 0 ||

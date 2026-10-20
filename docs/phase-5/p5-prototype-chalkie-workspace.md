@@ -77,7 +77,7 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 | Lesson topic | Page-linked curriculum-component titles (preferred) or `page_heading` — orientation only, not a teaching aim. | Not used on BE2 U8 fixture |
 | Words and models | Dedicated `vocabulary` rows when present; otherwise conservative activity-item models (bracket fills; base→form match pairs; `matching_and_speaking` phrase halves). Bound **24**. Chart/comprehension dumps skipped. UI: **Current words and models**. | `BE2_U08_VOCABULARY` |
 | Language | Dedicated rows via `prompt`/`response`, else verified `full_text`; activity `language_frame` with `|` separating complete Q&A exchanges (`/` inside an exchange preserved). | `BE2_U08_LANGUAGE` |
-| Teaching focus | Deterministic planning summary; `Did…?` Q&A practice detected separately from irregular-verb teaching (`read_and_match` alone is not irregular evidence). | Curated prototype focus string |
+| Teaching focus | Deterministic planning summary; vocabulary/song, story/reading, and CLIL lanes take priority over secondary `Did…?` frames; grammar / LiA past-tense behaviour unchanged (`read_and_match` alone is not irregular evidence). | Curated prototype focus string |
 | Clarification, page labels, activities | No clarification; labels and activities from matching Phase 1 JSON rows. Activity display text preference: `title` → `activity_title` → `instruction`. Visible-page activity lines are bounded to six. | Curated BE2 U8 constants |
 
 ### Regression case — BE3 Unit 8 Grammar pp. 136–137

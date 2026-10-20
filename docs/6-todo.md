@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 243
+**Last updated:** Step 244
 
 
 
@@ -420,7 +420,9 @@
 
 - [x] **Data: BE3 U8 language page placement** — `lang_08_01`/`02` → p.132; `lang_08_03`/`04` → p.136; unit_08 batch + remarged canonical; placement regression tests.
 
-- [ ] Owner visual revalidation of BE3 U8 spreads pp. 132–133, 134–135, 136–137 in `/app/chalkie` (language placement).
+- [x] **Code: non-grammar teaching-focus lanes** — vocabulary/song, story/reading, CLIL priority over secondary Did…?; LiA/Grammar unchanged; Screen 1 + prompt preview shared.
+
+- [ ] Owner visual revalidation of BE3 U8 teaching focus on pp. 128–129, 130–131, 134–135 (and spot-check 132–133 / 136–137 unchanged).
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

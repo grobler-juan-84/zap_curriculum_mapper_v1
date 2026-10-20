@@ -59,6 +59,7 @@ export type BatchJsonSummary = {
     pdfPage?: number | null
     sectionTitle?: string
     sectionType?: string
+    pageHeading?: string | null
   }>
   raw: unknown
 }
