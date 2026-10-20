@@ -1,20 +1,28 @@
 /**
  * Resolve a verified Student Book → Workbook lesson pairing for Chalkie series packaging.
  *
- * Accepts only explicit, human-verified cross-book relationships with both ends present.
+ * Accepts only:
+ * 1) Explicit curated companions in `verifiedSbWbCompanions.ts`, or
+ * 2) Human-verified cross-book relationships with both ends present in canonical JSON.
+ *
  * Does **not** invent pairings from parallel unit structure, matching page counts,
  * matching section titles, or “same unit number” heuristics.
  *
- * When no such relationship exists, returns null. The two-lesson series option must stay off.
+ * When no such relationship exists, returns null.
  */
+
+import { CURATED_VERIFIED_SB_WB_COMPANIONS } from './verifiedSbWbCompanions'
 
 export type VerifiedSbWbCompanion = {
   studentBookCatalogId: string
   workbookCatalogId: string
   studentBookPrintedPages: number[]
   workbookPrintedPages: number[]
+  studentBookPageIds?: string[]
+  workbookPageIds?: string[]
   relationshipId: string
   relationshipType: string
+  source: 'curated_verified' | 'canonical_relationship'
 }
 
 export type SbWbCompanionGapReason =
@@ -149,6 +157,29 @@ function relationshipTouchesStudentSpread(
   return false
 }
 
+function matchCuratedCompanion(input: {
+  studentCatalog: string
+  studentPages: number[]
+}): VerifiedSbWbCompanion | null {
+  for (const entry of CURATED_VERIFIED_SB_WB_COMPANIONS) {
+    if (entry.verificationStatus !== 'human_verified') continue
+    if (entry.studentBookCatalogId !== input.studentCatalog) continue
+    if (!pagesEqual(entry.studentBookPrintedPages, input.studentPages)) continue
+    return {
+      studentBookCatalogId: entry.studentBookCatalogId,
+      workbookCatalogId: entry.workbookCatalogId,
+      studentBookPrintedPages: [...entry.studentBookPrintedPages],
+      workbookPrintedPages: [...entry.workbookPrintedPages],
+      studentBookPageIds: [...entry.studentBookPageIds],
+      workbookPageIds: [...entry.workbookPageIds],
+      relationshipId: entry.relationshipId,
+      relationshipType: entry.relationshipType,
+      source: 'curated_verified',
+    }
+  }
+  return null
+}
+
 /**
  * Attempt to resolve a verified SB→WB companion for the visible Student Book pages.
  * Returns null when evidence is missing or incomplete — never guesses.
@@ -165,16 +196,20 @@ export function resolveVerifiedSbWbCompanion(input: {
     input.studentBookCatalogId?.trim() ||
     catalogBookIdOf(input.studentBookCanonical) ||
     null
+
+  if (!studentCatalog || studentPages.length === 0) {
+    return { companion: null, gapReason: 'no_cross_book_relationship' }
+  }
+
+  const curated = matchCuratedCompanion({ studentCatalog, studentPages })
+  if (curated) return { companion: curated, gapReason: null }
+
   const workbookCanonical = input.workbookCanonical ?? null
   const workbookCatalog =
     input.workbookCatalogId?.trim() || catalogBookIdOf(workbookCanonical) || null
 
   if (!workbookCanonical || !workbookCatalog) {
     return { companion: null, gapReason: 'workbook_canonical_missing' }
-  }
-
-  if (!studentCatalog || studentPages.length === 0) {
-    return { companion: null, gapReason: 'no_cross_book_relationship' }
   }
 
   const studentPageIds = collectPageIdsForPrintedPages(
@@ -257,6 +292,7 @@ export function resolveVerifiedSbWbCompanion(input: {
         workbookPrintedPages: workbookPages,
         relationshipId: asString(rel.relationship_id) ?? `${type}:${sourceId}->${targetId}`,
         relationshipType: type,
+        source: 'canonical_relationship',
       },
       gapReason: null,
     }

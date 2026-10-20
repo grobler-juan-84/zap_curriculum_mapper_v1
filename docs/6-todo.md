@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 256
+**Last updated:** Step 257
 
 
 
@@ -446,9 +446,9 @@
 
 - [x] **BE3 U8 production-pilot plan drafted** — [`phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md`](./phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md); coverage map + first candidate pp.128–129; no generation authorized.
 
-- [x] **BE3 U8 SB→WB pairing gap recorded** — [`phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md); no verified companion for SB 128–129; series option stays off; no heuristic pairing.
+- [x] **BE3 U8 SB→WB pairing gap recorded** — then content review **ACCEPTED** curated opener pair SB 128–129 → WB 104–105; resolver recognises it; unmapped spreads stay unpaired.
 
-- [ ] Owner choose: authorize/decline single-lesson Chalkie run for BE3 SB U8 pp.128–129, **or** authorize verified SB→WB pairing evidence work before any BE3 series package.
+- [ ] **Next microstep:** build local two-lesson SB→WB handoff (six copyables) for the accepted BE3 U8 opener pair only — do not broaden pairing rules.
 
 
 

@@ -16,7 +16,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
-- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** only when a verified SB→WB companion exists (today: curated BE2 U8 SB 128–129 → WB 104–105 fixture). BE3 series packaging is blocked until a human-verified pairing is recorded — see [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
+- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** only on the curated BE2 U8 fixture for now. BE3 U8 SB 128–129 → WB 104–105 companion is **accepted** as curated verified evidence ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)); series handoff UI not built yet.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
 

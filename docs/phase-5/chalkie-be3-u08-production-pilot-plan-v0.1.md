@@ -139,11 +139,11 @@ No new rubric. No D018 re-score.
 
 ---
 
-## 8. SB→WB series note (blocked)
+## 8. SB→WB series note
 
-Attempted enablement of a two-lesson Student Book → Workbook package for SB pp.128–129 stopped on an evidence gap: no verified canonical/SS pairing to a Workbook companion spread. WB Unit 8 opener pages 104–105 exist as content but are **not** linked by a human-verified cross-book relationship. See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
+Content review **ACCEPTED** one curated pairing: SB pp.128–129 → WB pp.104–105 (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`). See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-This production pilot remains **Single Lesson** only until that pairing is verified.
+The local two-lesson handoff (six copyables) is **not built yet**. Until that packaging step lands, the production pilot remains Single Lesson–first; series UI stays off for BE3.
 
 ---
 

@@ -4379,3 +4379,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 257
+
+**Summary:** Content-reviewed and **ACCEPTED** one curated BE3 U8 SB→WB pairing (SB pp.128–129 → WB pp.104–105) based on shared vocab/Did…?/song-consolidation evidence—not pagination. Resolver recognises the curated relationship; unmapped spreads stay unpaired; series handoff UI deferred to the next microstep.
+
+**Files touched:**
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (created)
+- `app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

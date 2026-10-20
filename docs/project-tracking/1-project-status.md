@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 256
+**Last synced:** Step 257
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- BE3 two-lesson SB→WB packaging blocked: no verified pairing for Unit 8 SB pp.128–129. Single-lesson path and BE2 fixture series unchanged.
+- BE3 U8 SB 128–129 → WB 104–105 pairing ACCEPTED (curated verified). Series handoff packaging is the next microstep.
 - Phase 3 remains parked (D020).
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Either authorize a single-lesson Chalkie run for BE3 U8 pp.128–129, or authorize recording a human-verified SB→WB page pairing before series packaging.
+**Suggestion:** Build the local two-lesson SB→WB handoff for BE3 SB pp.128–129 → WB pp.104–105 only.

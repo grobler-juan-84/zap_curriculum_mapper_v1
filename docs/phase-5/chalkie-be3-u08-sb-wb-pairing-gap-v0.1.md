@@ -1,81 +1,79 @@
-# BE3 Unit 8 — Student Book → Workbook pairing gap (v0.1)
+# BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** EVIDENCE GAP RECORD / **DRAFT** / **NO SERIES PACKAGING AUTHORIZED**  
+**Status:** PAIRING REVIEW / **ACCEPTED** for one curated opener pair / **SERIES HANDOFF NOT YET BUILT**  
 **Date:** 2026-10-20  
-**Scope:** Big English 3 · Unit 8 *Healthy Living* · attempted SB pp. **128–129** → WB companion
+**Scope:** Big English 3 · Unit 8 *Healthy Living* · SB pp. **128–129** ↔ WB pp. **104–105**
 
 **Related:**  
 [`chalkie-be3-u08-production-pilot-plan-v0.1.md`](./chalkie-be3-u08-production-pilot-plan-v0.1.md) ·  
 [`p5-prototype-chalkie-workspace.md`](./p5-prototype-chalkie-workspace.md) ·  
 [`../phase-1/audits/BE3-SB_canonical_v1_audit.md`](../phase-1/audits/BE3-SB_canonical_v1_audit.md) ·  
-[`../phase-1/audits/BE3-WB_canonical_v1_audit.md`](../phase-1/audits/BE3-WB_canonical_v1_audit.md)
+[`../phase-1/audits/BE3-WB_canonical_v1_audit.md`](../phase-1/audits/BE3-WB_canonical_v1_audit.md) ·  
+Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts`
 
 ---
 
-## 1. Requested outcome (blocked)
+## 1. Verdict
 
-Enable the Chalkie Workspace **two-lesson Student Book → Workbook** package for one verified BE3 Unit 8 pair, starting from SB pp.128–129.
+**ACCEPTED** — one explicit curated relationship for this pair only.
 
-**Blocked:** no verified SB→WB page pairing exists in canonical / scope-and-sequence evidence.
+Not accepted as a general Unit 8 pagination rule. Unmapped BE3 spreads still have **no** Workbook companion.
 
 ---
 
-## 2. What was checked
+## 2. SB versus WB evidence table
 
-| Source | Finding |
+| Lens | Student Book pp.128–129 | Workbook pp.104–105 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* (`big_english_3_sb_unit_08`, human_verified) | Unit 8 *Healthy Living* (`big_english_3_wb_unit_08`, human_verified) | Yes |
+| Page IDs | `bep3_sb_p128`, `bep3_sb_p129` | `bep_3_wb_p104`, `bep_3_wb_p105` | — |
+| Section / type | Vocabulary + Song / Vocabulary | unit_opener_vocabulary + song_practice | Yes (opener strand) |
+| Target vocabulary | Healthy/unhealthy activity phrases (present): *have a big breakfast*, *drink lots of water*, *ride a bike*, *get enough sleep*, … | Same strand in past/contrast forms: *ate a healthy breakfast*, *drank lots of water*, *rode a bike*, *got ten hours of sleep*, plus unhealthy contrasts | Yes |
+| Target language | Act 5: *Did he eat breakfast? / No, he didn’t.* · *Did she ride her bike? / Yes, she did.* | Acts 2–4: *Did you…?* sleep/water/bike/lunch/exercise; *Yes, I did / No, I didn’t* | Yes |
+| Activity purpose | Present vocab (listen/look/say), song *Live Right!*, ask-and-answer | Write/check healthy activities, personal Did you…?, song listen/write (Track 153), Yes/No table | Yes — WB consolidates SB opener |
+| Pagination alone | First SB spread of U8 | First WB spread of U8 | **Not used as approval basis** |
+
+**Rationale:** content overlap (vocab set, Did…? practice, song strand) shows the Workbook spread practises/consolidates the Student Book opener. Position-in-unit alone was insufficient and was not the acceptance criterion.
+
+---
+
+## 3. Exact mapping added
+
+| Field | Value |
 | --- | --- |
-| `big_english_3_sb` canonical relationships | No cross-book `workbook_practice_for` (or similar) links with non-null Workbook targets for Unit 8 / pp.128–129 |
-| `big_english_3_wb` canonical relationships | No Unit 8 relationships pointing at Student Book pages; existing `paired_with` / `practises` rows are **within-book** activity/text links |
-| Scope-and-sequence artifacts in repo | No dedicated BE3 SB↔WB page-pairing SS file for Unit 8 spreads |
-| SB extraction issues | Unit 2 issue `big_english_3_sb_issue_workbook_u02_crossref` records removal of invalid `"workbook practice for"` with **null** `target_entity_id` — project already refuses inventing workbook page entities |
-| BE3-WB Unit 8 content | Unit **does** exist and is `human_verified`: printed **pp.104–117**. Opener pages **104–105** are `unit_opener_vocabulary` + `song_practice` |
+| Relationship ID | `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` |
+| Type | `workbook_practice_for` |
+| Verification | `human_verified` (curated after content review) |
+| Source | `curated_verified` (not a pagination heuristic) |
+| SB catalog | `big_english_3_sb` |
+| SB pages | 128–129 · `bep3_sb_p128`, `bep3_sb_p129` |
+| WB catalog | `big_english_3_wb` |
+| WB pages | 104–105 · `bep_3_wb_p104`, `bep_3_wb_p105` |
+
+Stored in `app/src/features/chalkie/verifiedSbWbCompanions.ts`. Recognised by `resolveVerifiedSbWbCompanion`.
 
 ---
 
-## 3. Exact data gap
-
-**Missing:** a human-verified cross-book relationship (or equivalent SS record) that binds:
-
-- Student Book entities/pages for **pp.128–129**, to  
-- Workbook entities/pages for a specific companion spread (commonly assumed **104–105** by structural parallel only).
-
-**Not missing:** Workbook Unit 8 opener pages as isolated verified content. Those pages exist; the **pairing** does not.
-
-**Forbidden heuristic (not used):** same unit title + parallel opener section types + BE2’s historical 128–129→104–105 packaging. Parallel structure is **not** verified pairing.
-
----
-
-## 4. Workspace consequence
+## 4. Workspace consequence (this step)
 
 | Behaviour | Status |
 | --- | --- |
-| Single-lesson handoff for BE3 U8 SB pp.128–129 | Unchanged / available when page evidence resolves |
-| Two-lesson SB→WB series option for BE3 | **Remains unavailable** (`supportsTwoLessonSeries: false`) |
-| BE2 U8 curated fixture series (SB 128–129 → WB 104–105) | Unchanged (prototype route; not a BE3 pairing claim) |
-
-Resolver: `app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts` — returns `null` + `gapReason: 'no_cross_book_relationship'` for real BE3 canonicals on pp.128–129.
+| Companion resolution for SB 128–129 | **Resolves** to WB 104–105 |
+| Other BE3 U8 spreads | Still **no** companion |
+| Two-lesson series packaging UI / six copyables | **Not built yet** (`supportsTwoLessonSeries` remains false for BE3) |
+| Single-lesson path | Unchanged |
 
 ---
 
-## 5. What would unlock the series package later
+## 5. Next microstep
 
-Add **human-verified** cross-book relationship evidence (non-null targets, page-complete for the spread), for example:
-
-- `relationship_type`: `workbook_practice_for` (or an agreed equivalent),  
-- `verification_status`: `human_verified`,  
-- `target_book_id`: `big_english_3_wb`,  
-- source/target entities covering the full SB spread and the full WB companion spread.
-
-Then re-run the focused pairing tests and implement the six local copyables for that one pair only.
-
-Until then: **do not enable BE3 series packaging** and **do not generate** a two-lesson Chalkie handoff for BE3.
+Build the local two-lesson SB→WB handoff (title, detailed series prompt, L1/L2 outlines, L1/L2 vocabulary) for this one accepted pair only.
 
 ---
 
 ## 6. Boundaries
 
-- No heuristic pairing.  
-- No OpenAI/API.  
+- No general automatic SB→WB pairing rule.  
+- No AI/API.  
 - No Chalkie generation.  
-- No D018 / `4-decisions.md` changes.  
-- No methodology lock.
+- No D018 / `4-decisions.md` changes.

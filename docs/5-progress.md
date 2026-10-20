@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 256
+**Last updated:** Step 257
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,21 +18,20 @@
 
 - Chalkie Exp 11–14 preferred Single Lesson path recorded; BE3 U8 production-pilot plan drafted.
 
-- **BE3 SB→WB series packaging blocked on evidence:** no verified cross-book pairing for SB pp.128–129; non-heuristic resolver + gap doc recorded. Single-lesson path unchanged.
+- **BE3 U8 SB→WB opener pairing ACCEPTED:** SB pp.128–129 → WB pp.104–105 as one curated verified relationship (content-aligned, not pagination). Series handoff not built yet.
 
 ## In progress
 
-- Waiting on owner choice: single-lesson pilot on pp.128–129, or authorize verified SB→WB pairing work before any BE3 series package.
+- Next microstep: build local two-lesson handoff for the accepted BE3 opener pair only.
 
 ## Next
 
-- Owner choose next action from the production-pilot plan / pairing-gap docs.
+- Implement six local series copyables for BE3 SB 128–129 → WB 104–105.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked
 
 - Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
-- Soft: BE3 two-lesson SB→WB handoff cannot ship until a human-verified pairing exists.
 
 ---
 

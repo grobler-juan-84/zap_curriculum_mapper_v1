@@ -445,7 +445,8 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    supportsTwoLessonSeries: workbookCompanion != null,
+    // Companion may resolve for BE3 U8 opener; series packaging UI/handoff is the next step.
+    supportsTwoLessonSeries: false,
     workbookCompanion,
     priorLearningSuggestions,
     singleLessonTitle: naming.teacherFacingTitle,

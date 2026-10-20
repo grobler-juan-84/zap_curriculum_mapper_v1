@@ -142,7 +142,7 @@ function be3Unit8SbSummary(): BatchJsonSummary {
   }
 }
 
-test('BE3 U8 SB pp.128–129 has no verified SB→WB companion even with WB canonical present', () => {
+test('BE3 SB pp.128–129 resolves to curated WB pp.104–105 companion', () => {
   assert.ok(fs.existsSync(BE3_SB_PATH), 'BE3 SB canonical required')
   assert.ok(fs.existsSync(BE3_WB_PATH), 'BE3 WB canonical required')
 
@@ -156,43 +156,65 @@ test('BE3 U8 SB pp.128–129 has no verified SB→WB companion even with WB cano
     studentBookPrintedPages: [128, 129],
   })
 
-  assert.equal(result.companion, null)
-  assert.equal(result.gapReason, 'no_cross_book_relationship')
+  assert.ok(result.companion)
+  assert.equal(result.gapReason, null)
+  assert.equal(result.companion?.source, 'curated_verified')
+  assert.equal(
+    result.companion?.relationshipId,
+    'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  )
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [128, 129])
+  assert.deepEqual(result.companion?.workbookPrintedPages, [104, 105])
+  assert.deepEqual(result.companion?.studentBookPageIds, [
+    'bep3_sb_p128',
+    'bep3_sb_p129',
+  ])
+  assert.deepEqual(result.companion?.workbookPageIds, [
+    'bep_3_wb_p104',
+    'bep_3_wb_p105',
+  ])
+  assert.equal(result.companion?.workbookCatalogId, 'big_english_3_wb')
 })
 
-test('structural parallel alone must not invent WB 104–105 pairing', () => {
+test('unmapped BE3 spreads still do not receive guessed Workbook companions', () => {
   const sb = loadJson(BE3_SB_PATH)
   const wb = loadJson(BE3_WB_PATH)
-  const result = resolveVerifiedSbWbCompanion({
-    studentBookCatalogId: 'big_english_3_sb',
-    studentBookCanonical: sb,
-    workbookCanonical: wb,
-    studentBookPrintedPages: [128, 129],
-  })
-
-  assert.equal(result.companion, null)
-  assert.ok(result.gapReason !== null)
-  // Prove WB opener pages exist as content, but are not linked as verified companions.
-  const wbOpener = asArray(wb.pages).filter((entry) => {
-    const printed = asRecord(entry).printed_page
-    return printed === 104 || printed === 105
-  })
-  assert.equal(wbOpener.length, 2)
+  for (const pages of [
+    [130, 131],
+    [132, 133],
+    [134, 135],
+    [136, 137],
+    [138, 139],
+  ]) {
+    const result = resolveVerifiedSbWbCompanion({
+      studentBookCatalogId: 'big_english_3_sb',
+      studentBookCanonical: sb,
+      workbookCanonical: wb,
+      studentBookPrintedPages: pages,
+    })
+    assert.equal(
+      result.companion,
+      null,
+      `pages ${pages.join('-')} must not invent a WB companion`,
+    )
+    assert.ok(result.gapReason)
+  }
 })
 
 test('incomplete workbook_practice_for relationship is rejected', () => {
+  // Use an unmapped spread so the curated opener pair does not intercept.
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p128', printed_page: 128 },
-      { page_id: 'bep3_sb_p129', printed_page: 129 },
+      { page_id: 'bep3_sb_p132', printed_page: 132 },
+      { page_id: 'bep3_sb_p133', printed_page: 133 },
     ],
     relationships: [
       {
         relationship_id: 'fake_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p128',
+        source_entity_id: 'bep3_sb_p132',
         target_entity_id: null,
         verification_status: 'human_verified',
       },
@@ -201,8 +223,8 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p104', printed_page: 104 },
-      { page_id: 'bep_3_wb_p105', printed_page: 105 },
+      { page_id: 'bep_3_wb_p107', printed_page: 107 },
+      { page_id: 'bep_3_wb_p108', printed_page: 108 },
     ],
     relationships: [],
   }
@@ -211,26 +233,26 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [128, 129],
+    studentBookPrintedPages: [132, 133],
   })
   assert.equal(result.companion, null)
   assert.equal(result.gapReason, 'relationship_target_incomplete')
 })
 
-test('verified complete cross-book relationship resolves companion pages', () => {
+test('partial canonical cross-book relationship does not invent full-spread companion', () => {
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p128', printed_page: 128 },
-      { page_id: 'bep3_sb_p129', printed_page: 129 },
+      { page_id: 'bep3_sb_p132', printed_page: 132 },
+      { page_id: 'bep3_sb_p133', printed_page: 133 },
     ],
     relationships: [
       {
         relationship_id: 'ok_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p128',
-        target_entity_id: 'bep_3_wb_p104',
+        source_entity_id: 'bep3_sb_p132',
+        target_entity_id: 'bep_3_wb_p107',
         target_book_id: 'big_english_3_wb',
         verification_status: 'human_verified',
       },
@@ -239,8 +261,8 @@ test('verified complete cross-book relationship resolves companion pages', () =>
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p104', printed_page: 104 },
-      { page_id: 'bep_3_wb_p105', printed_page: 105 },
+      { page_id: 'bep_3_wb_p107', printed_page: 107 },
+      { page_id: 'bep_3_wb_p108', printed_page: 108 },
     ],
     relationships: [],
   }
@@ -249,13 +271,9 @@ test('verified complete cross-book relationship resolves companion pages', () =>
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [128, 129],
+    studentBookPrintedPages: [132, 133],
   })
 
-  // Source entity is only p128; companion pages from target entity are p104 only.
-  // That is honest incomplete page-range coverage for a two-page spread pairing —
-  // accept as resolved companion only if pages match. Our resolver requires student
-  // pages equal visible spread; linked student pages from p128 alone are [128], not [128,129].
   assert.equal(result.companion, null)
   assert.ok(
     result.gapReason === 'pages_do_not_match_visible_spread' ||
@@ -305,7 +323,7 @@ test('verified relationship covering both SB pages resolves WB companion', () =>
   assert.equal(result.gapReason, null)
 })
 
-test('BE3 ready resolve keeps series unavailable without verified pairing', () => {
+test('BE3 ready resolve records companion but keeps series packaging off for now', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -319,8 +337,10 @@ test('BE3 ready resolve keeps series unavailable without verified pairing', () =
   })
 
   assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.workbookCompanion)
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [104, 105])
+  // Series handoff UI/builders are the next step — companion alone must not enable them yet.
   assert.equal(lesson.supportsTwoLessonSeries, false)
-  assert.equal(lesson.workbookCompanion, null)
   assert.equal(lesson.isBe2U08PrototypeRoute, false)
 })
 
