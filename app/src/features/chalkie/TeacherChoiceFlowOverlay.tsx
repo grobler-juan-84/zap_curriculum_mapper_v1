@@ -1074,16 +1074,18 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     ) : null}
                   </div>
 
-                  <aside className="flex min-w-0 flex-col gap-4 lg:col-span-5">
+                  <aside className="flex min-w-0 flex-col gap-2 lg:col-span-5">
+                    <h3 className="text-sm font-medium text-slate-800">Lesson Outlines</h3>
+                    <div className="flex min-w-0 flex-col gap-4">
                     <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
                       <HandoffCopyIconButton
                         copyLabel="Copy Lesson 1 outline"
                         copyStatus={lesson1OutlineCopyStatus}
                         onCopy={handleCopyLesson1Outline}
                       />
-                      <h3 className="text-sm font-medium text-slate-900">
+                      <h4 className="text-sm font-medium text-slate-900">
                         Lesson 1 — Student Book pp. 128–129
-                      </h3>
+                      </h4>
                       <p className="mt-2 text-sm text-slate-500">Source: Student Book pp. 128–129</p>
                       <p className="mt-2 text-sm leading-relaxed text-slate-700">
                         Focus: introduce and practise wild-animal vocabulary through the page
@@ -1111,9 +1113,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         copyStatus={lesson2OutlineCopyStatus}
                         onCopy={handleCopyLesson2Outline}
                       />
-                      <h3 className="text-sm font-medium text-slate-900">
+                      <h4 className="text-sm font-medium text-slate-900">
                         Lesson 2 — Workbook pp. 104–105
-                      </h3>
+                      </h4>
                       <p className="mt-2 text-sm text-slate-500">Source: Workbook pp. 104–105</p>
                       <p className="mt-2 text-sm leading-relaxed text-slate-700">
                         Focus: use the matching workbook evidence for animal naming/matching,
@@ -1130,6 +1132,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         </p>
                       ) : null}
                     </section>
+                    </div>
 
                     <section className="space-y-2 border-t border-slate-100 pt-4">
                       <h3 className="text-sm font-medium text-slate-800">

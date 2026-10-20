@@ -4626,3 +4626,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 275
+
+**Summary:** Added a “Lesson Outlines” header above the series Lesson 1/2 cards so they align vertically with “Detailed Chalkie prompt” on the left.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

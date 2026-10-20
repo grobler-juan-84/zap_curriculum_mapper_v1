@@ -211,6 +211,7 @@ test('handoff overlay has no model-draft UI and does not call the OpenAI endpoin
   assert.ok(overlaySource.includes('Copy Lesson 1 outline'))
   assert.ok(overlaySource.includes('Copy Lesson 2 outline'))
   assert.ok(overlaySource.includes('Detailed Chalkie prompt'))
+  assert.ok(overlaySource.includes('Lesson Outlines'))
   assert.ok(overlaySource.includes('Suggested Chalkie vocabulary'))
   assert.ok(overlaySource.includes('Concise teacher-controlled outline'))
   assert.ok(
