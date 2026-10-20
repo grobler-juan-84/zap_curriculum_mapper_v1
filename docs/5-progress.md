@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 237
+**Last updated:** Step 238
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -23,6 +23,8 @@
 - **UI micro-step:** Teacher-choice packaging + local prompt preview; **server-side OpenAI generation test path** added (`POST /api/chalkie/generate`); teacher-triggered only; no persistence.
 
 - **Dynamic source-context binding and page-scope guard** added: one resolved Chalkie lesson context from selected book/unit + open PDF pages; generation blocked when pages are outside the unit or lack verified page evidence. Horizontal suggestions remain fixture-only for BE2 U8 pp. 128–129.
+
+- **Chalkie prep modals** top-aligned so the step header / Cancel stay fixed when step content height changes.
 
 ## In progress
 

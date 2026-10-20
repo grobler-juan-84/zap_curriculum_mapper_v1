@@ -4059,3 +4059,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 238
+
+**Summary:** Top-aligned Prepare Chalkie prompt modals (teacher-choice overlay and scope-guard dialog) so the header and Cancel stay stable across steps instead of bouncing when content height changes.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

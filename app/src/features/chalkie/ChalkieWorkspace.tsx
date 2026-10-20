@@ -454,7 +454,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       </div>
 
       {scopeGuard ? (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/45 p-3 sm:items-center sm:p-5">
+        <div className="fixed inset-0 z-50 flex items-start justify-center bg-slate-900/45 p-3 sm:p-5">
           <div
             role="dialog"
             aria-modal="true"

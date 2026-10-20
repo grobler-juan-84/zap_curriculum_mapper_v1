@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 237
+**Last synced:** Step 238
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Dynamic Chalkie source-context binding + page-scope guard; local prompt preview + optional teacher-triggered server OpenAI lesson-draft path (no persistence).
+- Dynamic Chalkie source-context binding + page-scope guard; local prompt preview + optional teacher-triggered server OpenAI lesson-draft path (no persistence). Chalkie prep modals top-aligned for stable headers.
 - Phase 3 remains parked (D020).
 
 ## Branch
