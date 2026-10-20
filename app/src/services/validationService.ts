@@ -335,7 +335,8 @@ export function summarizeBatchJson(raw: unknown): BatchJsonSummary {
   const activities = asArray(root.activities).map((entry) => {
     const a = asRecord(entry)
     return {
-      title: asString(a.title) ?? asString(a.activity_title),
+      // Preference: title → activity_title → instruction (verified canonical text).
+      title: asString(a.title) ?? asString(a.activity_title) ?? asString(a.instruction),
       activityType: asString(a.activity_type) ?? asString(a.type),
       pageId: asString(a.page_id),
     }

@@ -99,8 +99,8 @@ export function buildUnitSummaryView(summary: BatchJsonSummary): UnitSummaryView
     .filter(Boolean)
 
   const activityPreview = summary.activities
-    .slice(0, 5)
-    .map((a) => a.title?.trim() || a.activityType?.trim() || '')
+    .slice(0, 6)
+    .map((a) => a.title?.trim() || '')
     .filter(Boolean)
 
   return {
@@ -182,9 +182,22 @@ export function buildVisiblePagesView(
     const pageId = asString(a.page_id)
     const printed = asNumber(a.printed_page)
     if (!belongsToPrintedPages(pageId, printed, visibleSet, pageIdMap)) continue
-    const title = asString(a.title) ?? asString(a.activity_title)
-    const type = asString(a.activity_type) ?? asString(a.type)
-    if (title) activityLines.push(type ? `${title} (${type})` : title)
+    // Preference: title → activity_title → instruction (verified canonical text).
+    const title =
+      asString(a.title) ?? asString(a.activity_title) ?? asString(a.instruction)
+    if (title) activityLines.push(title)
+  }
+  if (activityLines.length === 0) {
+    for (const item of summary.activities) {
+      if (
+        item.pageId &&
+        pageIdMap.has(item.pageId) &&
+        visibleSet.has(pageIdMap.get(item.pageId)!)
+      ) {
+        const title = item.title?.trim()
+        if (title) activityLines.push(title)
+      }
+    }
   }
 
   const hasContent =
@@ -197,7 +210,8 @@ export function buildVisiblePagesView(
     pageLabels: pageLabels.slice(0, 6),
     vocabulary: [...new Set(vocabulary)].slice(0, 16),
     languageLines: languageLines.slice(0, 4),
-    activityLines: activityLines.slice(0, 4),
+    // Bound of six keeps a two-page five-activity spread intact (e.g. BE3 U8 136–137).
+    activityLines: activityLines.slice(0, 6),
     emptyMessage: hasContent
       ? null
       : 'No structured evidence matched these printed pages in the unit JSON.',

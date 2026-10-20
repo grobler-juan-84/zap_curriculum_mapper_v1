@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 237
+**Last updated:** Step 239
 
 
 
@@ -409,6 +409,10 @@
 - [x] **Server-side OpenAI generation test path** — `POST /api/chalkie/generate`; teacher-triggered only; no persistence; key from root `.env.local`.
 
 - [x] **Dynamic source-context binding + page-scope guard** — resolved context from book/unit/open pages; block out-of-unit and missing page evidence; BE2 U8 fixture + series only for pp. 128–129.
+
+- [x] **Activity evidence instruction fallback** — resolve verified canonical `instruction` when title fields are absent; keep five-activity spreads (bound six); focused regression tests for BE3 U8 pp. 136–137.
+
+- [ ] Owner live-validate BE3 U8 Grammar pp. 136–137 Prepare Chalkie prompt (canonical) shows Acts 19–23; not Experiment 10 handoff parity.
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

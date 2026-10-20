@@ -4072,3 +4072,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 239
+
+**Summary:** Fixed Chalkie visible-page activity resolution to prefer verified canonical `instruction` when `title` / `activity_title` are absent, raised the visible activity bound to six so BE3 U8 Grammar pp. 136–137 Acts 19–23 resolve as ready, and added focused regression tests. Documented the fallback and regression without claiming Experiment 10 handoff parity.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieEvidence.ts` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

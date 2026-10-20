@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 238
+**Last updated:** Step 239
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -26,14 +26,17 @@
 
 - **Chalkie prep modals** top-aligned so the step header / Cancel stay fixed when step content height changes.
 
+- **Activity evidence fix:** canonical `instruction` fallback (`title` → `activity_title` → `instruction`) + visible activity bound of six; BE3 U8 Grammar pp. 136–137 resolves `ready` from Acts 19–23 without fixtures.
+
 ## In progress
 
-- Owner live test of Generate Chalkie lesson draft (Single + Series) with configured `OPENAI_API_KEY` / `OPENAI_MODEL`, including the new scope-guard cases.
+- Owner live validation of BE3 U8 pp. 136–137 Prepare Chalkie prompt route after the activity-resolution fix; OpenAI draft path keep/harden/park still owner-gated.
 
 ## Next
 
-- Owner run Single (BE2 U8 128–129), Series (same route), out-of-unit block, and another unit/spread; decide whether to keep, harden, or park the OpenAI path.
-- Keep Phase 3 / F005 parked (D020).
+- Owner confirm BE3 U8 *Healthy Living* Grammar pp. 136–137 opens teacher-choice with Acts 19–23 instructions (canonical source).
+- Owner run Single (BE2 U8 128–129), Series (same route), out-of-unit block; decide whether to keep, harden, or park the OpenAI path.
+- Keep Phase 3 / F005 parked (D020). Do not treat Experiment 10 handoff parity as done by this evidence fix.
 
 ## Blocked
 
