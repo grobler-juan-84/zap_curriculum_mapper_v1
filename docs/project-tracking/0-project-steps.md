@@ -4676,3 +4676,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 279
+
+**Summary:** Moved Step 3 packaging radios into a white card above Current lesson requirements, left-column width only (right side empty).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

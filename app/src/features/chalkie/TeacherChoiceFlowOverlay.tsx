@@ -794,71 +794,77 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </p>
               </section>
 
-              <section className="max-w-3xl space-y-3" aria-label="How should this be packaged?">
-                <h3 className="text-sm font-medium text-slate-800">How should this be packaged?</h3>
-                <div className="space-y-3">
-                  <label className="flex cursor-pointer gap-3">
-                    <input
-                      type="radio"
-                      name="lesson-shape"
-                      value="single"
-                      checked={effectiveLessonShape === 'single'}
-                      onChange={() => handlePackageShapeChange('single')}
-                      className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                    />
-                    <span className="min-w-0 space-y-0.5">
-                      <span className="block text-sm font-medium text-slate-900">Single lesson</span>
-                      <span className="block text-sm leading-relaxed text-slate-600">
-                        One short lesson supporting Student Book {lesson.visiblePageRangeLabel}.
-                      </span>
-                    </span>
-                  </label>
-
-                  {lesson.supportsTwoLessonSeries ? (
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+                <section className="space-y-4" aria-label="How should this be packaged?">
+                  <h3 className="text-sm font-medium text-slate-800">How should this be packaged?</h3>
+                  <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
                     <label className="flex cursor-pointer gap-3">
                       <input
                         type="radio"
                         name="lesson-shape"
-                        value="series"
-                        checked={effectiveLessonShape === 'series'}
-                        onChange={() => handlePackageShapeChange('series')}
+                        value="single"
+                        checked={effectiveLessonShape === 'single'}
+                        onChange={() => handlePackageShapeChange('single')}
                         className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                        aria-describedby={
-                          effectiveLessonShape === 'series'
-                            ? 'lesson-shape-series-note'
-                            : undefined
-                        }
                       />
-                      <span className="min-w-0 space-y-1">
+                      <span className="min-w-0 space-y-0.5">
                         <span className="block text-sm font-medium text-slate-900">
-                          Two-lesson series
+                          Single lesson
                         </span>
                         <span className="block text-sm leading-relaxed text-slate-600">
-                          Separate introduction and practice across Student Book and Workbook pages.
+                          One short lesson supporting Student Book {lesson.visiblePageRangeLabel}.
                         </span>
-                        {effectiveLessonShape === 'series' ? (
-                          <span
-                            id="lesson-shape-series-note"
-                            className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
-                          >
-                            <span className="block">Lesson 1 — Student Book pp. 128–129</span>
-                            <span className="block">Lesson 2 — Workbook pp. 104–105</span>
-                            <span className="block pt-1">
-                              Workbook pages are verified source evidence for this packaging choice;
-                              they may not be the PDF currently open in the workspace.
-                            </span>
-                          </span>
-                        ) : null}
                       </span>
                     </label>
-                  ) : (
-                    <p className="text-sm leading-relaxed text-slate-500">
-                      A two-lesson Student Book → Workbook series is not available for this source
-                      route yet.
-                    </p>
-                  )}
-                </div>
-              </section>
+
+                    {lesson.supportsTwoLessonSeries ? (
+                      <label className="flex cursor-pointer gap-3">
+                        <input
+                          type="radio"
+                          name="lesson-shape"
+                          value="series"
+                          checked={effectiveLessonShape === 'series'}
+                          onChange={() => handlePackageShapeChange('series')}
+                          className="mt-1 h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                          aria-describedby={
+                            effectiveLessonShape === 'series'
+                              ? 'lesson-shape-series-note'
+                              : undefined
+                          }
+                        />
+                        <span className="min-w-0 space-y-1">
+                          <span className="block text-sm font-medium text-slate-900">
+                            Two-lesson series
+                          </span>
+                          <span className="block text-sm leading-relaxed text-slate-600">
+                            Separate introduction and practice across Student Book and Workbook
+                            pages.
+                          </span>
+                          {effectiveLessonShape === 'series' ? (
+                            <span
+                              id="lesson-shape-series-note"
+                              className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
+                            >
+                              <span className="block">Lesson 1 — Student Book pp. 128–129</span>
+                              <span className="block">Lesson 2 — Workbook pp. 104–105</span>
+                              <span className="block pt-1">
+                                Workbook pages are verified source evidence for this packaging
+                                choice; they may not be the PDF currently open in the workspace.
+                              </span>
+                            </span>
+                          ) : null}
+                        </span>
+                      </label>
+                    ) : (
+                      <p className="text-sm leading-relaxed text-slate-500">
+                        A two-lesson Student Book → Workbook series is not available for this source
+                        route yet.
+                      </p>
+                    )}
+                  </div>
+                </section>
+                <div className="hidden lg:block" aria-hidden="true" />
+              </div>
 
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
                 <section className="space-y-4" aria-label="Current lesson requirements">
