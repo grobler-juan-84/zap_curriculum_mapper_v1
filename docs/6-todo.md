@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 254
+**Last updated:** Step 255
 
 
 
@@ -443,6 +443,10 @@
 - [x] **Experiments 11–13 results recorded** — [`phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md); provisional preferred Single Lesson path (detailed + appended outline; no Create outline); further generation not authorized by that record.
 
 - [x] **Experiment 14 + Ask Chalkie recorded** — [`phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md`](./phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md); non-grammar transfer PASS AFTER LIGHT TEACHER REVIEW; Ask Chalkie optional post-generation only.
+
+- [x] **BE3 U8 production-pilot plan drafted** — [`phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md`](./phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md); coverage map + first candidate pp.128–129; no generation authorized.
+
+- [ ] Owner authorize or decline one production-pilot Chalkie generation for BE3 SB Unit 8 pp. 128–129 (provisional preferred workflow).
 
 
 

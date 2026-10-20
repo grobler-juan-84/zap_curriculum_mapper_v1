@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 254
+**Last synced:** Step 255
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Chalkie Single Lesson Exp 11–14 recorded; preferred path holds on non-grammar Exp 14; Ask Chalkie is optional post-generation review only. Further generation not authorized by that record.
+- BE3 U8 production-pilot plan drafted; first recommended untested spread is Vocabulary/Song pp.128–129. Generation not authorized until owner says so.
 - Phase 3 remains parked (D020).
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Owner chooses the next project question; do not auto-authorize another Chalkie generation.
+**Suggestion:** Authorize or decline one Chalkie generation for BE3 SB Unit 8 pp. 128–129 under the provisional preferred workflow.

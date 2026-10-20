@@ -4346,3 +4346,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 255
+
+**Summary:** Drafted BE3 SB Unit 8 Chalkie production-pilot plan from canonical page evidence: six legitimate two-page spreads mapped; Exp 10/11–13/14 linked; first recommended untested production spread = Vocabulary/Song pp.128–129. No generation authorized; D018 and 4-decisions untouched.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

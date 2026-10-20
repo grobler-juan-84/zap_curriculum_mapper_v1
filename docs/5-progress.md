@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 254
+**Last updated:** Step 255
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,18 +16,17 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: local four-artifact handoff + deterministic lesson naming; OpenAI model-draft UI dormant.
+- Chalkie Workspace + Exp 11–14 preferred Single Lesson path recorded; Ask Chalkie optional post-generation only.
 
-- **Chalkie Single Lesson Exp 11–14 recorded:** preferred path = detailed handoff + appended outline (no Create outline). Exp 13 strong LiA success; Exp 14 strong non-grammar transfer (*What Is a Calorie?*). Optional **Ask Chalkie** documented as post-generation review aid only.
+- **BE3 U8 production-pilot plan drafted:** full-unit spread coverage map; first recommended untested two-page spread = pp.128–129. Generation **not** authorized.
 
 ## In progress
 
-- None for Chalkie generation; further runs not authorized by the Exp 14 results record.
+- Waiting on owner authorization (or decline) for the first production-pilot generation on BE3 U8 pp.128–129.
 
 ## Next
 
-- Owner chooses the next project question (not auto-selected).
-- Cross-unit suggestions remain out of scope until requested.
+- Owner decide: authorize or decline one Chalkie run for BE3 SB Unit 8 pp. 128–129 under the provisional preferred workflow.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked
