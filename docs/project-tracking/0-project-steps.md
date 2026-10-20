@@ -4329,3 +4329,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 254
+
+**Summary:** Recorded Chalkie Single-Lesson Experiment 14 (BE3 U8 Content Connection / P.E. pp.134–135, *What Is a Calorie?*): preferred-path non-grammar transfer PASS AFTER LIGHT TEACHER REVIEW. Documented optional Ask Chalkie as post-generation teacher-review aid only. Docs only — D018 and 4-decisions untouched.
+
+**Files touched:**
+- `docs/phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md` (created)
+- `docs/phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md` (updated — cross-link + optional Ask Chalkie step)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated to V1.3)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated — related link)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 253
+**Last synced:** Step 254
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Chalkie Single Lesson Exp 11–13 results recorded for BE3 U8 LiA pp.132–133; provisional preferred path is detailed handoff + appended outline (no Create outline). Further generation not authorized by that record.
+- Chalkie Single Lesson Exp 11–14 recorded; preferred path holds on non-grammar Exp 14; Ask Chalkie is optional post-generation review only. Further generation not authorized by that record.
 - Phase 3 remains parked (D020).
 
 ## Branch

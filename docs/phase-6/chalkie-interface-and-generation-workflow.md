@@ -1,10 +1,10 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.2
+**Version:** V1.3
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16 and 2026-10-20, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
-**Scope:** Single Lesson and Lesson Series creation, options, prompts, review, theme, export and quality control. Does not cover Activity Sheets or Workbooks as standalone creation modes.
+**Scope:** Single Lesson and Lesson Series creation, options, prompts, review (including optional **Ask Chalkie**), theme, export and quality control. Does not cover Activity Sheets or Workbooks as standalone creation modes.
 
 ## 1. Purpose and authority
 
@@ -31,6 +31,8 @@ The Refine screen accepted the five manually supplied vocabulary phrases as sepa
 **Observed (Exp 12):** selecting **Create outline** and replacing Chalkie’s outline with the local concise outline made the concise outline the dominant/replacement input; the detailed handoff was no longer visible in the main field. Treat that path as outline-replacement, not “detailed handoff plus outline.”
 
 **Provisional preferred Single Lesson path (Exp 13; not a methodology lock):** paste the detailed handoff into the initial prompt box, append the concise teacher-controlled outline underneath it in the **same** box, and do **not** click `Create outline`. Enter vocabulary chips on Refine; generate; teacher-review. Full findings: [`../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md). Pre-run design: [`../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md).
+
+**Transfer evidence (Exp 14):** same preferred path on BE3 U8 Content Connection / P.E. pp. 134–135 (*What Is a Calorie?*) — **PASS AFTER LIGHT TEACHER REVIEW — strong non-grammar transfer success**. [`../phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md`](../phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md).
 
 ### Step 1 — Topic
 
@@ -81,6 +83,20 @@ The Refine screen accepted the five manually supplied vocabulary phrases as sepa
 **User-confirmed:** Single Lesson also has a theme selection step, although the supplied detailed theme screenshot comes from Lesson Series. Select a readable, classroom-appropriate theme and generate. Do not assume that theme names guarantee large fonts or minimal text. Inspect the output.
 
 **Single-lesson outline note:** `Create outline` is confirmed on the Topic screen. Exp 12 recorded that replacing the auto-outline with a local outline makes the outline the dominant input (detailed handoff no longer visible). Prefer appending the local outline under the detailed handoff without clicking `Create outline` (Exp 13). Do not conflate this with the four-step Lesson Series workflow.
+
+### Optional post-generation: Ask Chalkie
+
+**Observed (Exp 14 screenshot):** after the lesson is generated, Chalkie offers **Ask Chalkie** as a way to question or revise a specific slide. In the recorded case, challenging an ambiguous learning goal (“Is this the right phrasing?”) produced a correct explanation of the ambiguity and clearer suggested wording.
+
+**Intended position in the workflow:**
+
+1. Local system builds the evidence-based handoff **without AI**.
+2. Chalkie generates the lesson.
+3. Teacher reviews the lesson.
+4. When useful, teacher may use **Ask Chalkie** on a specific slide.
+5. Teacher approves (or rejects) the final wording.
+
+**Recommended:** treat Ask Chalkie as an **optional** teacher-review aid. It is **not** part of handoff construction, **not** a mandatory gate, and **not** a guarantee of correctness. Preserve teacher-in-the-loop and **Beauty in Simplicity**.
 
 ## 4. Step-by-step: Lesson series
 
@@ -181,6 +197,7 @@ PROMPT VERSION / ITERATION: ...
 - [ ] Student-facing text minimal; visuals meaningful; no unnecessary explanatory paragraphs.
 - [ ] No unnecessary activities or unrequested topic expansion.
 - [ ] Actual output and export reveal pages counted separately.
+- [ ] Optional: use **Ask Chalkie** only when a specific slide needs questioning; teacher still approves final wording.
 - [ ] D018 evaluation uses the same criteria across iterations; improvements judged by teaching value, not simply more content.
 
 ## 8. Known pitfalls and safeguards

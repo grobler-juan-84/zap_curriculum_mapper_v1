@@ -5,7 +5,8 @@
 **Target:** Big English 3 Student Book, Unit 8 *Healthy Living*, Language in Action, pp. 132–133  
 **Local lesson reference:** `be3-sb-u08-p132-133`  
 **Pre-run design (preserved):** [`chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](./chalkie-single-lesson-experiments-11-12-run-card-v0.1.md)  
-**Related:** [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) · [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md) · [`chalkie-provisional-handoff-template-v0.1.md`](./chalkie-provisional-handoff-template-v0.1.md)
+**Related:** [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) · [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md) · [`chalkie-provisional-handoff-template-v0.1.md`](./chalkie-provisional-handoff-template-v0.1.md)  
+**Follow-on transfer (Exp 14):** [`chalkie-single-lesson-experiment-14-results-v0.1.md`](./chalkie-single-lesson-experiment-14-results-v0.1.md) — BE3 U8 Content Connection / P.E. pp. 134–135 (*What Is a Calorie?*); same preferred path; optional **Ask Chalkie** post-generation review noted there.
 
 **Boundaries:** Documentation of owner-reviewed exports only. No classroom validation. No D018 score change. No methodology lock. No further Chalkie generation authorized by this document. Theme for Experiment 13 is **not** inferred beyond what the export filename and run evidence show.
 
@@ -103,6 +104,7 @@ Operational preference from Experiments 11–13 only. **Not** a permanent method
    - invented publisher-like content;
    - text embedded inside AI-generated images;
    - lesson timing and where book work should occur.
+9. Optionally, when useful, use Chalkie’s **Ask Chalkie** on a specific slide during review (Exp 14). Optional only — not required; not part of handoff construction. See Exp 14 §4.
 
 ### Practical comparison (this target only)
 

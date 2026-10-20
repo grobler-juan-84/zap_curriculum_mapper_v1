@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 253
+**Last updated:** Step 254
 
 
 
@@ -441,6 +441,8 @@
 - [x] **Document current Chalkie Single Lesson workflow + Experiments 11–12 run card** — Topic → Refine → Theme; new AI title suggestion recorded; controlled comparison defined in [`phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](./phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md).
 
 - [x] **Experiments 11–13 results recorded** — [`phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md); provisional preferred Single Lesson path (detailed + appended outline; no Create outline); further generation not authorized by that record.
+
+- [x] **Experiment 14 + Ask Chalkie recorded** — [`phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md`](./phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md); non-grammar transfer PASS AFTER LIGHT TEACHER REVIEW; Ask Chalkie optional post-generation only.
 
 
 

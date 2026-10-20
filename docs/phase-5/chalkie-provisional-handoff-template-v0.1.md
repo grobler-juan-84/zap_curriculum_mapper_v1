@@ -8,6 +8,7 @@
 **Source-fidelity gate + teacher-in-the-loop:** Exp 10 dual-stage (raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW) — [`chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md`](./chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md) §6  
 **Evidence synthesis:** [`chalkie-experiments-1-9-evidence-synthesis-v0.1.md`](./chalkie-experiments-1-9-evidence-synthesis-v0.1.md)  
 **Single Lesson Exp 11–13 results:** [`chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./chalkie-single-lesson-experiments-11-13-results-v0.1.md) (provisional preferred: detailed handoff + appended concise outline; do not click `Create outline`)  
+**Single Lesson Exp 14 results:** [`chalkie-single-lesson-experiment-14-results-v0.1.md`](./chalkie-single-lesson-experiment-14-results-v0.1.md) (non-grammar transfer; optional **Ask Chalkie** post-generation review)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
 ---

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 253
+**Last updated:** Step 254
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,11 +18,11 @@
 
 - Chalkie Workspace: local four-artifact handoff + deterministic lesson naming; OpenAI model-draft UI dormant.
 
-- **Chalkie Single Lesson Exp 11–13 recorded:** BE3 U8 LiA pp.132–133. Exp 11 PASS AFTER LIGHT TEACHER REVIEW; Exp 12 pedagogically usable but not preferred; Exp 13 PASS AFTER LIGHT TEACHER REVIEW (strong qualitative success). Provisional preferred path: detailed handoff + appended concise outline; do not click Create outline.
+- **Chalkie Single Lesson Exp 11–14 recorded:** preferred path = detailed handoff + appended outline (no Create outline). Exp 13 strong LiA success; Exp 14 strong non-grammar transfer (*What Is a Calorie?*). Optional **Ask Chalkie** documented as post-generation review aid only.
 
 ## In progress
 
-- None for Chalkie generation; further runs not authorized by the Exp 11–13 results record.
+- None for Chalkie generation; further runs not authorized by the Exp 14 results record.
 
 ## Next
 
