@@ -4176,3 +4176,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 245
+
+**Summary:** Added deterministic same-unit earlier-page vocabulary prior-learning for Chalkie Step 2: human-verified target vocab from earlier printed pages in the loaded unit summary is grouped by curriculum-component title into a selectable `[PRIOR]` bundle (e.g. BE3 U8 p.128 → pp.132–133). Screen 1 evidence unchanged; BE2 curated `[HM]` suggestions preserved; selection flows into the local prompt with earlier-page provenance.
+
+**Files touched:**
+- `app/src/features/chalkie/deriveSameUnitEarlierVocabularySuggestions.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -32,8 +32,9 @@ function buildPriorLearningBlock(input: {
     priorLines.push('No verified prior learning was selected for this lesson.')
   } else {
     for (const suggestion of input.selectedSuggestions) {
+      const tag = suggestion.provenanceTag ?? '[HM]'
       priorLines.push(
-        `[HM] ${suggestion.label} (${suggestion.source}): ${suggestion.frame}`,
+        `${tag} ${suggestion.label} (${suggestion.source}): ${suggestion.frame}`,
       )
     }
   }
@@ -250,6 +251,7 @@ function buildDynamicSingleLessonPrompt(input: {
     '',
     'SOURCE LABELS:',
     `- [SB] = Student Book evidence from printed pages ${pageList} only`,
+    '- [PRIOR] = teacher-selected prior learning from earlier pages in the same unit (not visible-page evidence)',
     '- [HM] = teacher-selected prior learning from earlier units in the same book',
     '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
     '',
@@ -276,9 +278,10 @@ function buildDynamicSingleLessonPrompt(input: {
     'C. TEACHING GUIDANCE',
     '',
     '- Stay on the listed printed pages only.',
-    '- Use selected [HM] language only where it fits naturally.',
+    '- Use selected [PRIOR] / [HM] language only where it fits naturally.',
     '- Treat selected language as available support, not as a requirement to force into every activity.',
-    '- Do not present [HM] combinations or teacher-added language as publisher wording.',
+    '- Do not present [PRIOR] / [HM] combinations or teacher-added language as publisher wording.',
+    '- Do not present [PRIOR] language as if it were printed on the current visible pages.',
     '- Keep generated examples supplementary and clearly distinguishable from textbook content.',
     '- Keep the lesson concise and classroom-usable.',
     `- Success means students are prepared to work with the book pages ${pageList}.`,

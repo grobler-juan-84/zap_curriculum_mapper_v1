@@ -247,6 +247,45 @@ function resolveBe3(pages: number[]) {
   })
 }
 
+/** Full Unit 8 slice (as the app loads from canonical) so earlier-page prior learning can resolve. */
+function be3Unit8Summary(): BatchJsonSummary {
+  const rawBook = loadBe3Canonical()
+  const unit = asArray(rawBook.units).find((entry) => {
+    const u = asRecord(entry)
+    return u.unit_number === 8 || u.unit_number === '8'
+  })
+  const unitRec = asRecord(unit)
+  const start =
+    typeof unitRec.printed_page_start === 'number' ? unitRec.printed_page_start : 128
+  const end = typeof unitRec.printed_page_end === 'number' ? unitRec.printed_page_end : 143
+  const unitPages: number[] = []
+  for (let page = start; page <= end; page += 1) unitPages.push(page)
+  return be3SummaryForPrintedPages(unitPages)
+}
+
+function resolveBe3WithUnitSummary(pages: number[]) {
+  return resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8Summary(),
+    visiblePrintedPages: pages,
+    unitNumber: 8,
+  })
+}
+
+const BE3_U08_P128_TARGET_PHRASES = [
+  'have a big breakfast',
+  'get 10 hours of sleep',
+  'drink lots of water',
+  'ride a bike',
+  'eat breakfast',
+  'get any exercise',
+  'have a healthy lunch',
+  'get enough sleep',
+] as const
+
 test('splitLanguageFrames preserves Q&A exchanges separated by |', () => {
   const parts = splitLanguageFrames(
     "Did he eat breakfast? / No, he didn't. | Did she ride her bike? / Yes, she did.",
@@ -396,6 +435,58 @@ test('exact BE2 Unit 8 fixture route is unchanged', () => {
   assert.equal(resolved.currentFocus, BE2_U08_PROTOTYPE_FOCUS)
   assert.deepEqual(resolved.vocabulary, [...BE2_U08_VOCABULARY])
   assert.equal(resolved.priorLearningSuggestions.length, 4)
+  assert.deepEqual(
+    resolved.priorLearningSuggestions.map((item) => item.id),
+    ['PL-19', 'PL-08', 'PL-01', 'PL-03'],
+  )
+})
+
+test('BE3 U8 pp.132–133 offers one earlier same-unit vocabulary bundle from p.128', () => {
+  const resolved = resolveBe3WithUnitSummary([132, 133])
+  assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.priorLearningSuggestions.length, 1)
+  const suggestion = resolved.priorLearningSuggestions[0]
+  assert.equal(suggestion.label, 'Healthy and unhealthy activities — from p.128')
+  assert.equal(suggestion.source, 'Earlier in this unit · p.128')
+  assert.equal(suggestion.provenanceTag, '[PRIOR]')
+  assert.match(suggestion.source, /Earlier in this unit/)
+  assert.match(suggestion.source, /p\.128/)
+  for (const phrase of BE3_U08_P128_TARGET_PHRASES) {
+    assert.ok(suggestion.frame.includes(phrase), `missing phrase: ${phrase}`)
+  }
+  // Screen 1 current-page evidence unchanged (Did…? focus; activity phrases, not p.128 bundle).
+  assert.equal(
+    resolved.teachingFocus,
+    'Ask and answer about past activities using Did…? and short answers.',
+  )
+  assert.ok(!resolved.vocabulary.includes('have a big breakfast'))
+  assert.ok(resolved.vocabulary.includes('do any exercise'))
+})
+
+test('BE3 U8 pp.128–129 does not suggest its own vocabulary as prior learning', () => {
+  const resolved = resolveBe3WithUnitSummary([128, 129])
+  assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.priorLearningSuggestions.length, 0)
+  assert.match(resolved.teachingFocus ?? '', /Learn and use the phrases for Healthy and unhealthy activities/i)
+})
+
+test('selected same-unit vocabulary bundle reaches local prompt without API', () => {
+  const resolved = resolveBe3WithUnitSummary([132, 133])
+  const suggestion = resolved.priorLearningSuggestions[0]
+  assert.ok(suggestion)
+  const prompt = buildChalkiePromptPreview({
+    lesson: resolved,
+    packageShape: 'single',
+    selectedSuggestions: [suggestion],
+    teacherAdditions: [],
+  })
+  assert.match(prompt, /\[PRIOR\]/)
+  assert.match(prompt, /Healthy and unhealthy activities — from p\.128/)
+  assert.match(prompt, /Earlier in this unit · p\.128/)
+  assert.match(prompt, /have a big breakfast/)
+  assert.match(prompt, /get enough sleep/)
+  assert.doesNotMatch(prompt, /\[HM\] Healthy and unhealthy activities/)
+  assert.match(prompt, /Ask and answer about past activities using Did/)
 })
 
 test('dynamic prompt preview carries topic, focus, models, and language', () => {

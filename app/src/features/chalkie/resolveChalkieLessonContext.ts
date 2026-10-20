@@ -22,6 +22,7 @@ import {
   BE2_U08_AI_SUGGESTIONS,
   type TeacherChoiceSuggestion,
 } from './teacherChoiceSuggestions'
+import { deriveSameUnitEarlierVocabularySuggestions } from './deriveSameUnitEarlierVocabularySuggestions'
 
 export type ChalkieLessonContextStatus =
   | 'ready'
@@ -362,6 +363,13 @@ export function resolveChalkieLessonContext(input: {
       ? visibleView!.pageLabels.join(' · ')
       : 'Review the visible lesson in the source PDF.'
 
+  const priorLearningSuggestions = input.summary
+    ? deriveSameUnitEarlierVocabularySuggestions({
+        summary: input.summary,
+        visiblePrintedPages: sortedVisible,
+      })
+    : []
+
   return {
     ...base,
     status: 'ready',
@@ -382,7 +390,7 @@ export function resolveChalkieLessonContext(input: {
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
     supportsTwoLessonSeries: false,
-    priorLearningSuggestions: [],
+    priorLearningSuggestions,
     singleLessonTitle: buildGenericSingleTitle({
       bookLabel,
       unitNumber,

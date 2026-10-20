@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 244
+**Last updated:** Step 245
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,20 +16,20 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity-derived words/models + teaching focus.
+- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity-derived words/models, non-grammar teaching-focus lanes.
 
-- **BE3 U8 evidence correction pass (128–137)** and **language page-placement fix** (`lang_08_01`/`02` → p.132; `08_03`/`04` → p.136).
+- **BE3 U8** evidence + language page-placement corrections; teaching-focus lanes for vocab/story/CLIL.
 
-- **Teaching-focus lanes:** vocabulary/song, story/reading, and CLIL prioritize over secondary `Did…?` frames; grammar / LiA focus unchanged. Screen 1 and prompt preview share the same string.
+- **Same-unit earlier vocabulary prior-learning:** deterministic Step 2 bundle from earlier human-verified target vocab (e.g. BE3 U8 p.128 → pp.132–133), tagged `[PRIOR]` with earlier-page provenance. BE2 curated `[HM]` suggestions unchanged.
 
 ## In progress
 
-- Owner visual revalidation of BE3 U8 teaching-focus wording on the three non-grammar spreads (128–129, 130–131, 134–135), plus spot-check LiA/Grammar unchanged.
+- Owner visual check of Screen 2 same-unit vocabulary suggestion on BE3 U8 pp.132–133.
 
 ## Next
 
-- Owner revalidate teaching focus on Vocabulary/Song, Story, and CLIL spreads in `/app/chalkie`.
-- Further gap-audit slices only when requested.
+- Owner confirm Screen 2 card + prompt provenance for the p.128 vocabulary bundle.
+- Cross-unit suggestions remain out of scope until requested.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked

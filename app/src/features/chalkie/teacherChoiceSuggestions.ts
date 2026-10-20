@@ -8,6 +8,11 @@ export type TeacherChoiceSuggestion = {
   whyItMayHelp: string
   caution: string
   evidenceNote: string
+  /**
+   * Prompt provenance marker. Defaults to `[HM]` (curated cross-unit).
+   * Same-unit earlier-page vocabulary uses `[PRIOR]`.
+   */
+  provenanceTag?: '[HM]' | '[PRIOR]'
 }
 
 export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [

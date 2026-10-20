@@ -443,7 +443,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
                   {hasPriorLearningSuggestions
-                    ? 'Verified prior-learning suggestions from earlier units in this book. Choose only what helps this lesson.'
+                    ? 'Verified prior-learning suggestions from earlier pages or units in this book. Choose only what helps this lesson.'
                     : 'Prior-learning suggestions are only available when verified for the current lesson source.'}
                 </p>
               </div>

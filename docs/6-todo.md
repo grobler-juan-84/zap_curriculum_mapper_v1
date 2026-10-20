@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 244
+**Last updated:** Step 245
 
 
 
@@ -422,7 +422,9 @@
 
 - [x] **Code: non-grammar teaching-focus lanes** — vocabulary/song, story/reading, CLIL priority over secondary Did…?; LiA/Grammar unchanged; Screen 1 + prompt preview shared.
 
-- [ ] Owner visual revalidation of BE3 U8 teaching focus on pp. 128–129, 130–131, 134–135 (and spot-check 132–133 / 136–137 unchanged).
+- [x] **Code: same-unit earlier vocabulary prior-learning** — deterministic Step 2 bundle from earlier human-verified target vocab; `[PRIOR]` provenance; BE2 curated suggestions unchanged.
+
+- [ ] Owner visual check of BE3 U8 pp.132–133 Screen 2 vocabulary bundle (p.128) and prompt provenance.
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 
