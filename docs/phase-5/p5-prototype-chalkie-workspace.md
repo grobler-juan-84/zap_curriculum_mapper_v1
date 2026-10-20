@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.2  
+**Version:** 2.3  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -154,8 +154,9 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 ## What remains pending
 
 1. Owner live validation of the OpenAI lesson-draft path; decide keep / harden / park.
-2. Optional: teacher page-range picker beyond the current PDF spread.
-3. Optional: Vercel/serverless adapter for `/api/chalkie/generate` (local Vite middleware works today).
+2. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md) (next coding slice: richer activity evidence, not Exp 10 fixture).
+3. Optional: teacher page-range picker beyond the current PDF spread.
+4. Optional: Vercel/serverless adapter for `/api/chalkie/generate` (local Vite middleware works today).
 
 ---
 
@@ -163,7 +164,7 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 
 - Visible scope = current PDF spread only (typically two printed pages).
 - Summaries depend on Phase 1 JSON linkage (`printed_page`, `page_id`); sparse links may yield empty spread vocabulary even when activities resolve.
-- Activity labels prefer `title` → `activity_title` → `instruction`; spreads that are activity-only (e.g. BE3 U8 Grammar pp. 136–137) can now open the teacher-choice flow, but the prompt is still a generic dynamic single-lesson assembly — not Experiment 10.
+- Activity labels prefer `title` → `activity_title` → `instruction`; spreads that are activity-only (e.g. BE3 U8 Grammar pp. 136–137) can now open the teacher-choice flow, but the prompt is still a generic dynamic single-lesson assembly — not Experiment 10. Gap analysis and smallest next slice: [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
 - Local prompt preview remains deterministic and copyable; OpenAI is called only when the teacher presses **Generate Chalkie lesson draft**.
 - Generated drafts are session-local only (cleared on overlay close); nothing is persisted.
 - Two-lesson series uses Workbook pp. 104–105 as packaging source evidence; those pages may not be the PDF open in the workspace viewer.
@@ -200,3 +201,4 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 | 2026-10-20 | Documented the end-to-end source map for every teacher-choice screen, including the Phase 1 JSON/PDF scope distinction and BE2 U8 fixture exceptions. |
 | 2026-10-20 | Added the four-screen compilation sequence, proposed API-backed card-retrieval boundary, and evidence/provenance safeguards. |
 | 2026-10-20 | Activity evidence resolution: `title` → `activity_title` → `instruction`; visible activity bound raised to six; BE3 U8 pp. 136–137 regression noted. |
+| 2026-10-20 | Cross-linked generic detailed-handoff gap audit (Exp 10 vs current prompt; next coding slice defined). |

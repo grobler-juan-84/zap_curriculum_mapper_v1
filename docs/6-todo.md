@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 239
+**Last updated:** Step 240
 
 
 
@@ -411,6 +411,10 @@
 - [x] **Dynamic source-context binding + page-scope guard** — resolved context from book/unit/open pages; block out-of-unit and missing page evidence; BE2 U8 fixture + series only for pp. 128–129.
 
 - [x] **Activity evidence instruction fallback** — resolve verified canonical `instruction` when title fields are absent; keep five-activity spreads (bound six); focused regression tests for BE3 U8 pp. 136–137.
+
+- [x] **Docs: generic detailed-handoff gap audit** — [`phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) vs Experiment 10; smallest next coding slice defined.
+
+- [ ] **Code: richer visible-page activity evidence** — frames, dependency notes/flags, activity-specific models; honest dedicated-vs-activity-specific empty wording; derived communicative aim; extend BE3 136–137 tests (per gap audit §7.6). No package/outline/`[HM]` work in that slice.
 
 - [ ] Owner live-validate BE3 U8 Grammar pp. 136–137 Prepare Chalkie prompt (canonical) shows Acts 19–23; not Experiment 10 handoff parity.
 

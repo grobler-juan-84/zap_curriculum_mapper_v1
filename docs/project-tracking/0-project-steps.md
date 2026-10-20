@@ -4089,3 +4089,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 240
+
+**Summary:** Added the Phase 5 gap audit comparing the generic `/app/chalkie` prompt preview with the Experiment 10 detailed handoff. Mapped required evidence fields, evidence-handling rules, minimum generic package, UI vs automatic split, acceptance cases (BE3 U8 136–137 + BE3 U3 40–41 regression), and the single next coding slice. Docs/trackers only; no code.
+
+**Files touched:**
+- `docs/phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
