@@ -4232,3 +4232,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 248
+
+**Summary:** Added a separate Suggested Chalkie vocabulary handoff section from verified current-page words/models only (deduped, source order), with Copy vocabulary and an honest empty state. PRIOR / HM / teacher-added language are excluded so they do not become automatic Chalkie vocabulary chips. Detailed prompt and concise outline unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/buildSuggestedChalkieVocabulary.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildSuggestedChalkieVocabulary.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

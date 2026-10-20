@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 247
+**Last updated:** Step 248
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,15 +18,15 @@
 
 - Chalkie Workspace: dynamic source-context binding, teaching-focus lanes, same-unit `[PRIOR]` vocabulary, 3-step teacher-choice flow.
 
-- **Concise teacher-controlled outline** on the final handoff: local deterministic activity sequence (optional `[PRIOR]`, verified `[SB]` activities in order, `[SUPPLEMENTARY]` close) with its own Copy outline action; detailed prompt unchanged.
+- **Final handoff copyables:** lesson title, detailed prompt, concise outline, and **Suggested Chalkie vocabulary** (current-page words/models only; Copy vocabulary; honest empty state). PRIOR/HM/teacher-added stay out of the vocabulary chips.
 
 ## In progress
 
-- Owner smoke-check of detailed prompt + concise outline on BE3 U8 pp.132–133.
+- Owner smoke-check of the four handoff copyables on BE3 U8 pp.132–133.
 
 ## Next
 
-- Owner confirm outline wording/order for pp.132–133 with p.128 prior selected.
+- Owner confirm suggested vocabulary on pp.132–133 is the five current-page models (not the p.128 PRIOR bundle).
 - Cross-unit suggestions remain out of scope until requested.
 - Keep Phase 3 / F005 parked (D020).
 

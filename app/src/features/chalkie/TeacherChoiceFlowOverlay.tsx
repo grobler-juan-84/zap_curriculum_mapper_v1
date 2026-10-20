@@ -9,6 +9,7 @@ import {
   lessonTitleForPackage,
   type LessonPackageShape,
 } from './buildChalkiePromptPreview'
+import { buildSuggestedChalkieVocabulary } from './buildSuggestedChalkieVocabulary'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 import {
   TEACHER_CHOICE_TOTAL_STEPS,
@@ -45,10 +46,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
   const [conciseOutline, setConciseOutline] = useState('')
+  const [suggestedVocabulary, setSuggestedVocabulary] = useState('')
+  const [suggestedVocabularyEmpty, setSuggestedVocabularyEmpty] = useState(false)
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [outlineCopyStatus, setOutlineCopyStatus] = useState<'idle' | 'copied' | 'failed'>(
     'idle',
   )
+  const [vocabularyCopyStatus, setVocabularyCopyStatus] = useState<
+    'idle' | 'copied' | 'failed'
+  >('idle')
   const [titleCopyStatus, setTitleCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
   const [generatingDraft, setGeneratingDraft] = useState(false)
@@ -79,8 +85,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setShowPromptPreview(false)
       setPromptPreview('')
       setConciseOutline('')
+      setSuggestedVocabulary('')
+      setSuggestedVocabularyEmpty(false)
       setCopyStatus('idle')
       setOutlineCopyStatus('idle')
+      setVocabularyCopyStatus('idle')
       setTitleCopyStatus('idle')
       setLessonShape('single')
       clearGeneratedDraft()
@@ -174,8 +183,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setShowPromptPreview(false)
       setPromptPreview('')
       setConciseOutline('')
+      setSuggestedVocabulary('')
+      setSuggestedVocabularyEmpty(false)
       setCopyStatus('idle')
       setOutlineCopyStatus('idle')
+      setVocabularyCopyStatus('idle')
     }
   }
 
@@ -190,11 +202,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       lesson,
       selectedSuggestions,
     })
+    const suggested = buildSuggestedChalkieVocabulary(lesson)
     setPromptPreview(assembled)
     setConciseOutline(outline)
+    setSuggestedVocabulary(suggested.copyText)
+    setSuggestedVocabularyEmpty(suggested.isEmpty)
     setShowPromptPreview(true)
     setCopyStatus('idle')
     setOutlineCopyStatus('idle')
+    setVocabularyCopyStatus('idle')
     setTitleCopyStatus('idle')
     clearGeneratedDraft()
   }
@@ -254,6 +270,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       window.setTimeout(() => setOutlineCopyStatus('idle'), 2000)
     } catch {
       setOutlineCopyStatus('failed')
+    }
+  }
+
+  const handleCopyVocabulary = async () => {
+    if (!suggestedVocabulary || suggestedVocabularyEmpty) return
+    try {
+      await navigator.clipboard.writeText(suggestedVocabulary)
+      setVocabularyCopyStatus('copied')
+      window.setTimeout(() => setVocabularyCopyStatus('idle'), 2000)
+    } catch {
+      setVocabularyCopyStatus('failed')
     }
   }
 
@@ -1076,6 +1103,59 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </div>
                 </section>
               ) : null}
+
+              <section
+                className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
+                aria-label="Suggested Chalkie vocabulary"
+              >
+                <div className="space-y-1">
+                  <h3 className="text-sm font-medium text-slate-800">
+                    Suggested Chalkie vocabulary
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    Current-page words/models suggested for Chalkie’s vocabulary field. Review
+                    before pasting.
+                  </p>
+                </div>
+                {suggestedVocabularyEmpty ? (
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    No verified current-page words or models are available for Chalkie’s vocabulary
+                    field on these pages.
+                  </p>
+                ) : (
+                  <>
+                    <label htmlFor="chalkie-suggested-vocabulary" className="sr-only">
+                      Copy-ready suggested Chalkie vocabulary
+                    </label>
+                    <textarea
+                      id="chalkie-suggested-vocabulary"
+                      readOnly
+                      value={suggestedVocabulary}
+                      rows={3}
+                      className="min-h-[4.5rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+                    />
+                  </>
+                )}
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    disabled={suggestedVocabularyEmpty || !suggestedVocabulary}
+                    onClick={handleCopyVocabulary}
+                    className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                      suggestedVocabularyEmpty || !suggestedVocabulary
+                        ? 'cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-400'
+                        : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    {vocabularyCopyStatus === 'copied' ? 'Copied' : 'Copy vocabulary'}
+                  </button>
+                  {vocabularyCopyStatus === 'failed' ? (
+                    <p className="text-sm text-slate-500">
+                      Copying was unavailable. Select the vocabulary text and copy it manually.
+                    </p>
+                  ) : null}
+                </div>
+              </section>
 
               <section
                 className="space-y-4 border-t border-slate-100 pt-5"
