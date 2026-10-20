@@ -4454,3 +4454,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 262
+
+**Summary:** Corrected Step 2 layout: “Add a prior skill” is its own two-column section above the suggestion grid (left inputs restored; right hard-coded “future instructions to come here”); Preference and other skill cards stay in the grid below.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

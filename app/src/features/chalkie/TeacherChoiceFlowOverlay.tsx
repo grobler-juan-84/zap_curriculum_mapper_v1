@@ -14,6 +14,7 @@ import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 import {
   TEACHER_CHOICE_TOTAL_STEPS,
   advanceTeacherChoiceStep,
+  appendTeacherAddedLanguage,
   clearPriorLearningSelections,
   footerSelectionSummary,
   retreatTeacherChoiceStep,
@@ -101,7 +102,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [step, setStep] = useState(1)
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [teacherAdditions, setTeacherAdditions] = useState<TeacherAddedLanguage[]>([])
-  const [addPriorSkillExpanded, setAddPriorSkillExpanded] = useState(false)
+  const [newTitle, setNewTitle] = useState('')
+  const [newFrame, setNewFrame] = useState('')
+  const [newPurpose, setNewPurpose] = useState('')
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
   const [conciseOutline, setConciseOutline] = useState('')
@@ -122,7 +125,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setStep(1)
       setSelectedIds([])
       setTeacherAdditions([])
-      setAddPriorSkillExpanded(false)
+      setNewTitle('')
+      setNewFrame('')
+      setNewPurpose('')
       setShowPromptPreview(false)
       setPromptPreview('')
       setConciseOutline('')
@@ -194,6 +199,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const stepName = teacherChoiceStepName(step)
   const selectedCount = selectedSuggestions.length
   const teacherAddedCount = selectedTeacherAdditions.length
+  const canAddPriorSkill =
+    newTitle.trim().length > 0 &&
+    newFrame.trim().length > 0 &&
+    newPurpose.trim().length > 0
   const effectiveLessonShape: LessonPackageShape =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
@@ -303,11 +312,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSelectedIds((prev) => toggleSelectedSuggestionId(prev, id))
   }
 
+  const handleAddPriorSkill = () => {
+    if (!canAddPriorSkill) return
+    const id = `teacher-added-${Date.now()}-${teacherAdditions.length + 1}`
+    setTeacherAdditions((prev) => {
+      const next = appendTeacherAddedLanguage(prev, newTitle, newFrame, newPurpose, () => id)
+      return next ?? prev
+    })
+    setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]))
+    setNewTitle('')
+    setNewFrame('')
+    setNewPurpose('')
+  }
+
   const handleUseNoPriorLearning = () => {
     const cleared = clearPriorLearningSelections()
     setSelectedIds(cleared.selectedIds)
     setTeacherAdditions(cleared.teacherAdditions)
-    setAddPriorSkillExpanded(false)
+    setNewTitle('')
+    setNewFrame('')
+    setNewPurpose('')
   }
 
   return createPortal(
@@ -465,48 +489,106 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </p>
               </div>
 
-              <ul
-                className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-5"
-                aria-label="Prior skills"
+              <section
+                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                aria-label="Add a prior skill"
               >
-                <li className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30 p-4 sm:p-5">
-                  <button
-                    type="button"
-                    onClick={() => setAddPriorSkillExpanded((open) => !open)}
-                    className="flex w-full items-start justify-between gap-3 text-left"
-                    aria-expanded={addPriorSkillExpanded}
-                    aria-controls="add-prior-skill-panel"
-                    id="add-prior-skill-toggle"
-                  >
-                    <span className="min-w-0 space-y-0.5">
-                      <span className="block text-sm font-semibold text-indigo-900">
-                        Add a prior skill
-                      </span>
-                      <span className="block text-xs leading-relaxed text-indigo-800/80">
+                <div className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30 p-4 sm:p-5">
+                  <div className="space-y-3">
+                    <div className="space-y-0.5">
+                      <p className="text-sm font-semibold text-indigo-900">Add a prior skill</p>
+                      <p className="text-xs leading-relaxed text-indigo-800/80">
                         Teacher-created · not a verified suggestion
-                      </span>
-                    </span>
-                    <span
-                      className="mt-0.5 shrink-0 text-xs font-medium text-indigo-800"
-                      aria-hidden="true"
-                    >
-                      {addPriorSkillExpanded ? 'Hide' : 'Show'}
-                    </span>
-                  </button>
-                  {addPriorSkillExpanded ? (
-                    <div
-                      id="add-prior-skill-panel"
-                      role="region"
-                      aria-labelledby="add-prior-skill-toggle"
-                      className="mt-3 border-t border-indigo-200/70 pt-3"
-                    >
-                      <p className="text-sm leading-relaxed text-slate-700">
-                        future instructions to come here
                       </p>
                     </div>
-                  ) : null}
-                </li>
+                    <div className="space-y-2.5">
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-title"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Short title
+                        </label>
+                        <input
+                          id="teacher-added-title"
+                          type="text"
+                          value={newTitle}
+                          onChange={(event) => setNewTitle(event.target.value)}
+                          placeholder="e.g. Preference"
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-frame"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Language frame
+                        </label>
+                        <input
+                          id="teacher-added-frame"
+                          type="text"
+                          value={newFrame}
+                          onChange={(event) => setNewFrame(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' && canAddPriorSkill) {
+                              event.preventDefault()
+                              handleAddPriorSkill()
+                            }
+                          }}
+                          placeholder="e.g. Do you like + noun? Yes, I do. / No, I don’t."
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="teacher-added-purpose"
+                          className="block text-xs font-medium text-slate-700"
+                        >
+                          Purpose
+                        </label>
+                        <input
+                          id="teacher-added-purpose"
+                          type="text"
+                          value={newPurpose}
+                          onChange={(event) => setNewPurpose(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' && canAddPriorSkill) {
+                              event.preventDefault()
+                              handleAddPriorSkill()
+                            }
+                          }}
+                          placeholder="e.g. Extends preference talk with this lesson’s vocabulary"
+                          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-xs focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        disabled={!canAddPriorSkill}
+                        onClick={handleAddPriorSkill}
+                        className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                          canAddPriorSkill
+                            ? 'bg-[#3766a3] text-white hover:bg-[#2f578c]'
+                            : 'cursor-not-allowed bg-slate-200 text-slate-500'
+                        }`}
+                      >
+                        Add prior skill
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
+                <div className="rounded-xl border border-slate-200/80 bg-slate-50/40 p-4 sm:p-5">
+                  <p className="text-sm leading-relaxed text-slate-700">
+                    future instructions to come here
+                  </p>
+                </div>
+              </section>
+
+              <ul
+                className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+                aria-label="Prior skills"
+              >
                 {teacherAdditions.map((item) => {
                   const checked = selectedIds.includes(item.id)
                   const checkboxId = `teacher-choice-${item.id}`
