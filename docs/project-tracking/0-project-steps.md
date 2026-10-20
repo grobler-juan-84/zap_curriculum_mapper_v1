@@ -4613,3 +4613,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 274
+
+**Summary:** Added the same copy-icon control to series Lesson 1 and Lesson 2 outline cards on the Chalkie prompt preview, copying each lesson outline as plain text.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

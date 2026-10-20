@@ -44,6 +44,58 @@ interface TeacherChoiceFlowOverlayProps {
 
 type CopyFeedback = 'idle' | 'copied' | 'failed'
 
+const BE2_U08_SERIES_LESSON1_OUTLINE_COPY = [
+  'Lesson 1 — Student Book pp. 128–129',
+  'Source: Student Book pp. 128–129',
+  'Focus: introduce and practise wild-animal vocabulary through the page spread, song context, and the current-unit preference/ability model.',
+  '- Animal vocabulary',
+  '- To the Zoo!',
+  '- Do you like cheetahs? Yes, I do! Cheetahs can run.',
+  '- Visible page activities: listen/look/say, find/say, game, song/listen, true/false, ask/answer',
+].join('\n')
+
+const BE2_U08_SERIES_LESSON2_OUTLINE_COPY = [
+  'Lesson 2 — Workbook pp. 104–105',
+  'Source: Workbook pp. 104–105',
+  'Focus: use the matching workbook evidence for animal naming/matching, song-related writing, and a short zoo-animal response.',
+  '- Animal naming/matching (Look and write / Look and match)',
+  '- Song-related listening/writing',
+  '- What animals do you like seeing at the zoo?',
+].join('\n')
+
+function HandoffCopyIconButton(props: {
+  copyLabel: string
+  copyStatus: CopyFeedback
+  onCopy: () => void
+  disabled?: boolean
+}) {
+  const { copyLabel, copyStatus, onCopy, disabled = false } = props
+  const label = copyStatus === 'copied' ? 'Copied' : copyLabel
+
+  return (
+    <button
+      type="button"
+      onClick={onCopy}
+      disabled={disabled}
+      title={label}
+      aria-label={label}
+      className={`absolute right-1.5 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
+        disabled
+          ? 'cursor-not-allowed text-slate-300'
+          : copyStatus === 'copied'
+            ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-50'
+            : 'text-slate-500 hover:bg-white/80 hover:text-slate-800'
+      }`}
+    >
+      {copyStatus === 'copied' ? (
+        <Check className="h-4 w-4" aria-hidden="true" />
+      ) : (
+        <Copy className="h-4 w-4" aria-hidden="true" />
+      )}
+    </button>
+  )
+}
+
 function HandoffCopyableBox(props: {
   id: string
   value: string
@@ -66,7 +118,6 @@ function HandoffCopyableBox(props: {
     className = '',
     textareaClassName = '',
   } = props
-  const label = copyStatus === 'copied' ? 'Copied' : copyLabel
 
   return (
     <div className={`relative ${className}`}>
@@ -80,26 +131,12 @@ function HandoffCopyableBox(props: {
         rows={rows}
         className={`w-full resize-y rounded-lg border border-slate-200 bg-slate-50 py-3 pl-4 pr-11 text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 ${textareaClassName}`}
       />
-      <button
-        type="button"
-        onClick={onCopy}
+      <HandoffCopyIconButton
+        copyLabel={copyLabel}
+        copyStatus={copyStatus}
+        onCopy={onCopy}
         disabled={disabled}
-        title={label}
-        aria-label={label}
-        className={`absolute right-1.5 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
-          disabled
-            ? 'cursor-not-allowed text-slate-300'
-            : copyStatus === 'copied'
-              ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-50'
-              : 'text-slate-500 hover:bg-white/80 hover:text-slate-800'
-        }`}
-      >
-        {copyStatus === 'copied' ? (
-          <Check className="h-4 w-4" aria-hidden="true" />
-        ) : (
-          <Copy className="h-4 w-4" aria-hidden="true" />
-        )}
-      </button>
+      />
     </div>
   )
 }
@@ -132,6 +169,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     'idle' | 'copied' | 'failed'
   >('idle')
   const [titleCopyStatus, setTitleCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [lesson1OutlineCopyStatus, setLesson1OutlineCopyStatus] = useState<
+    'idle' | 'copied' | 'failed'
+  >('idle')
+  const [lesson2OutlineCopyStatus, setLesson2OutlineCopyStatus] = useState<
+    'idle' | 'copied' | 'failed'
+  >('idle')
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
 
   useEffect(() => {
@@ -152,6 +195,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setOutlineCopyStatus('idle')
       setVocabularyCopyStatus('idle')
       setTitleCopyStatus('idle')
+      setLesson1OutlineCopyStatus('idle')
+      setLesson2OutlineCopyStatus('idle')
       setLessonShape('single')
       return
     }
@@ -254,6 +299,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setCopyStatus('idle')
       setOutlineCopyStatus('idle')
       setVocabularyCopyStatus('idle')
+      setLesson1OutlineCopyStatus('idle')
+      setLesson2OutlineCopyStatus('idle')
     }
   }
 
@@ -278,6 +325,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setOutlineCopyStatus('idle')
     setVocabularyCopyStatus('idle')
     setTitleCopyStatus('idle')
+    setLesson1OutlineCopyStatus('idle')
+    setLesson2OutlineCopyStatus('idle')
   }
 
   const handleCopyPrompt = async () => {
@@ -320,6 +369,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       window.setTimeout(() => setTitleCopyStatus('idle'), 2000)
     } catch {
       setTitleCopyStatus('failed')
+    }
+  }
+
+  const handleCopyLesson1Outline = async () => {
+    try {
+      await navigator.clipboard.writeText(BE2_U08_SERIES_LESSON1_OUTLINE_COPY)
+      setLesson1OutlineCopyStatus('copied')
+      window.setTimeout(() => setLesson1OutlineCopyStatus('idle'), 2000)
+    } catch {
+      setLesson1OutlineCopyStatus('failed')
+    }
+  }
+
+  const handleCopyLesson2Outline = async () => {
+    try {
+      await navigator.clipboard.writeText(BE2_U08_SERIES_LESSON2_OUTLINE_COPY)
+      setLesson2OutlineCopyStatus('copied')
+      window.setTimeout(() => setLesson2OutlineCopyStatus('idle'), 2000)
+    } catch {
+      setLesson2OutlineCopyStatus('failed')
     }
   }
 
@@ -1006,7 +1075,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </div>
 
                   <aside className="flex min-w-0 flex-col gap-4 lg:col-span-5">
-                    <section className="rounded-xl border border-slate-200 bg-slate-50/50 p-4 sm:p-5">
+                    <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
+                      <HandoffCopyIconButton
+                        copyLabel="Copy Lesson 1 outline"
+                        copyStatus={lesson1OutlineCopyStatus}
+                        onCopy={handleCopyLesson1Outline}
+                      />
                       <h3 className="text-sm font-medium text-slate-900">
                         Lesson 1 — Student Book pp. 128–129
                       </h3>
@@ -1024,9 +1098,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           true/false, ask/answer
                         </li>
                       </ul>
+                      {lesson1OutlineCopyStatus === 'failed' ? (
+                        <p className="mt-2 text-sm text-slate-500">
+                          Copying was unavailable. Select the outline text and copy it manually.
+                        </p>
+                      ) : null}
                     </section>
 
-                    <section className="rounded-xl border border-slate-200 bg-slate-50/50 p-4 sm:p-5">
+                    <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
+                      <HandoffCopyIconButton
+                        copyLabel="Copy Lesson 2 outline"
+                        copyStatus={lesson2OutlineCopyStatus}
+                        onCopy={handleCopyLesson2Outline}
+                      />
                       <h3 className="text-sm font-medium text-slate-900">
                         Lesson 2 — Workbook pp. 104–105
                       </h3>
@@ -1040,6 +1124,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         <li>Song-related listening/writing</li>
                         <li>What animals do you like seeing at the zoo?</li>
                       </ul>
+                      {lesson2OutlineCopyStatus === 'failed' ? (
+                        <p className="mt-2 text-sm text-slate-500">
+                          Copying was unavailable. Select the outline text and copy it manually.
+                        </p>
+                      ) : null}
                     </section>
 
                     <section className="space-y-2 border-t border-slate-100 pt-4">
