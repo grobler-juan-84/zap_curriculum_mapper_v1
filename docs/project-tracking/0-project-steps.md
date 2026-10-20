@@ -4639,3 +4639,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 276
+
+**Summary:** Removed the visible `Ref: …` stable-lesson-reference line from Step 3 review and Chalkie prompt-preview title sections.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

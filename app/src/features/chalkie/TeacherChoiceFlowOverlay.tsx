@@ -789,16 +789,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
               <section className="max-w-3xl space-y-3" aria-label="Lesson title">
                 <h3 className="text-sm font-medium text-slate-800">Lesson title</h3>
-                <div className="min-w-0 space-y-1">
-                  <p className="select-text text-sm leading-relaxed text-slate-800">
-                    {activeLessonTitle}
-                  </p>
-                  {lesson.stableLessonReference ? (
-                    <p className="text-xs text-slate-500">
-                      Ref: {lesson.stableLessonReference}
-                    </p>
-                  ) : null}
-                </div>
+                <p className="select-text text-sm leading-relaxed text-slate-800">
+                  {activeLessonTitle}
+                </p>
               </section>
 
               <section className="max-w-3xl space-y-3" aria-label="How should this be packaged?">
@@ -1041,11 +1034,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   onCopy={handleCopyLessonTitle}
                   textareaClassName="min-h-[2.75rem] resize-none text-sm font-medium leading-relaxed"
                 />
-                {lesson.stableLessonReference ? (
-                  <p className="text-xs text-slate-500">
-                    Ref: {lesson.stableLessonReference}
-                  </p>
-                ) : null}
                 {titleCopyStatus === 'failed' ? (
                   <p className="text-sm text-slate-500">
                     Copying was unavailable. Select the title text and copy it manually.
