@@ -1176,7 +1176,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   ref={continueRef}
                   type="button"
                   onClick={handleContinue}
-                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
                 >
                   Continue
                 </button>
@@ -1185,7 +1185,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   ref={continueRef}
                   type="button"
                   onClick={onClose}
-                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
                 >
                   Back to workspace
                 </button>
@@ -1194,7 +1194,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   ref={continueRef}
                   type="button"
                   onClick={handleGeneratePromptPreview}
-                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
                 >
                   Generate Chalkie prompt
                 </button>
