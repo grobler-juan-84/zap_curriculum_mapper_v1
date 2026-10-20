@@ -4565,3 +4565,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 270
+
+**Summary:** Made Step 2 prior-skill / add-skill cards opaque white (selected: solid indigo-50) so the teal body tint no longer shows through translucent card backgrounds.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

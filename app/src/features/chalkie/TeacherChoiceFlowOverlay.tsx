@@ -496,7 +496,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </div>
 
               <section
-                className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/30"
+                className="rounded-xl border-2 border-dashed border-indigo-200 bg-white"
                 aria-label="Add a prior skill"
               >
                 <button
@@ -612,7 +612,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       </div>
                     </div>
 
-                    <div className="rounded-xl border border-slate-200/80 bg-white/70 p-4 sm:p-5">
+                    <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-4 sm:p-5">
                       <p className="text-sm leading-relaxed text-slate-700">
                         future instructions to come here
                       </p>
@@ -633,7 +633,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       key={item.id}
                       className={`rounded-xl border p-4 transition-colors sm:p-5 ${
                         checked
-                          ? 'border-indigo-200 bg-indigo-50/50'
+                          ? 'border-indigo-200 bg-indigo-50'
                           : 'border-dashed border-indigo-200/80 bg-white'
                       }`}
                     >
@@ -671,8 +671,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       key={suggestion.id}
                       className={`rounded-xl border p-4 transition-colors sm:p-5 ${
                         checked
-                          ? 'border-indigo-200 bg-indigo-50/50'
-                          : 'border-slate-200/80 bg-slate-50/40'
+                          ? 'border-indigo-200 bg-indigo-50'
+                          : 'border-slate-200/80 bg-white'
                       }`}
                     >
                       <div className="flex h-full gap-3">
