@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.6  
+**Version:** 2.7  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -62,7 +62,7 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 | **Step 1 — What are you teaching now?** | Book, unit, visible page range, current focus, unit-context note, current vocabulary and language | `ChalkieLessonContext` from `resolveChalkieLessonContext.ts` | Normal route: selected book metadata + current PDF printed-page numbers + matching Phase 1 JSON in `chalkieEvidence.ts`. Exact BE2 Student Book Unit 8, pp. 128–129 instead uses curated values in `teacherChoicePrototypeContent.ts`. |
 | **Step 2 — What might be useful to reuse?** | Prior-learning cards plus **Add language of your own** (frame, optional note, Add) on one screen; selected-count in the footer | `lesson.priorLearningSuggestions` + overlay `selectedIds` / `teacherAdditions` | BE2 U8: curated `[HM]` cards. Other ready routes: same-unit earlier-page `[PRIOR]` vocabulary bundles. Custom language is teacher-entered, labelled unverified, session-only. The old separate “What do you choose?” confirmation step is removed. |
 | **Step 3 — What will support this lesson?** | Lesson title, package choice, current lesson recap, selected prior learning, teacher additions, and guidance; then four separate copyable handoff items: title, detailed prompt, concise outline, suggested Chalkie vocabulary | Resolved context plus Step 2 session state | Suggested vocabulary uses current-page words/models only (not PRIOR/HM/teacher-added). Empty state when none exist. Detailed prompt and outline unchanged. |
-| **Prompt preview / handoff** | Copy-ready title, detailed prompt, concise outline, suggested vocabulary | `buildChalkiePromptPreview.ts`, `buildChalkieConciseOutline.ts`, `buildSuggestedChalkieVocabulary.ts` | Fully local and deterministic. Normal single lesson is assembled from the resolved context plus selections/additions. BE2 U8 uses curated single/series prompt templates. No OpenAI call from this screen. |
+| **Prompt preview / handoff** | Copy-ready title, detailed prompt, concise outline, suggested vocabulary; optional small `Ref:` line for tracking | `buildChalkieLessonNaming.ts`, `buildChalkiePromptPreview.ts`, `buildChalkieConciseOutline.ts`, `buildSuggestedChalkieVocabulary.ts` | Teacher-facing title uses `{series} {SB\|WB} Unit {NN} {page ref} — {unit title} — {short focus}` (e.g. BE3 SB Unit 08 pp. 132–133 — Healthy Living — Asking About Yesterday). Stable ref e.g. `be3-sb-u08-p132-133` is tracking-only (not copied). Optional `-l01` / `-l02` may be appended later for multi-lesson spreads. Detailed prompt keeps full book/unit/page wording. |
 
 ### Field-level Step 1 mapping
 

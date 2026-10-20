@@ -4278,3 +4278,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 251
+
+**Summary:** Applied deterministic Chalkie lesson naming: teacher-facing titles (`BE3 SB Unit 08 pp. 132–133 — Healthy Living — Asking About Yesterday`) plus stable tracking refs (`be3-sb-u08-p132-133`). Short focus derived from verified Did…? teaching focus (not page hardcoding); copy action uses the teacher-facing title only; detailed prompt/outline/vocabulary unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/buildChalkieLessonNaming.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildChalkieLessonNaming.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

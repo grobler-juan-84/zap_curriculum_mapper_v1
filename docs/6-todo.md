@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 250
+**Last updated:** Step 251
 
 
 
@@ -434,7 +434,9 @@
 
 - [x] **UI: hide OpenAI model-draft from handoff** — remove Optional model draft section/state/calls from overlay; keep `POST /api/chalkie/generate` dormant on disk; local four-artifact handoff only.
 
-- [ ] Owner smoke-check of BE3 U8 pp.132–133 four handoff copyables (title, prompt, outline, vocabulary).
+- [x] **Handoff: deterministic lesson naming** — teacher-facing `{series} {SB|WB} Unit {NN} {pages} — {unit} — {short focus}` plus stable ref `be3-sb-u08-p132-133`; short focus from verified evidence (Did…? → Asking About Yesterday); no page hardcoding; prompt/outline/vocab unchanged.
+
+- [ ] Owner smoke-check of BE3 U8 pp.132–133 four handoff copyables (named title, prompt, outline, vocabulary).
 
 
 

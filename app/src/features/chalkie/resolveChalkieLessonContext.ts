@@ -27,6 +27,7 @@ import {
   type TeacherChoiceSuggestion,
 } from './teacherChoiceSuggestions'
 import { deriveSameUnitEarlierVocabularySuggestions } from './deriveSameUnitEarlierVocabularySuggestions'
+import { buildChalkieLessonNaming } from './buildChalkieLessonNaming'
 
 export type ChalkieLessonContextStatus =
   | 'ready'
@@ -74,6 +75,12 @@ export type ChalkieLessonContext = {
   priorLearningSuggestions: TeacherChoiceSuggestion[]
   singleLessonTitle: string
   seriesLessonTitle: string | null
+  /**
+   * Filename/database-safe tracking id (e.g. be3-sb-u08-p132-133).
+   * Not copied as the teacher-facing lesson title. Optional `-l01` / `-l02`
+   * suffixes may be appended later when multiple lessons share a spread.
+   */
+  stableLessonReference: string | null
   scopeMessage: string | null
   canJumpToUnitOpening: boolean
   unitOpeningPrintedPage: number | null
@@ -131,21 +138,6 @@ function buildUnitLine(unitNumber: number | null, unitTitle: string | null): str
   if (unitNumber != null && unitTitle) return `Unit ${unitNumber} · ${unitTitle}`
   if (unitNumber != null) return `Unit ${unitNumber}`
   return unitTitle?.trim() || 'Current unit'
-}
-
-function buildGenericSingleTitle(input: {
-  bookLabel: string
-  unitNumber: number | null
-  unitTitle: string | null
-  visiblePageRangeLabel: string
-}): string {
-  const unitPart =
-    input.unitNumber != null
-      ? input.unitTitle
-        ? `Unit ${input.unitNumber} · ${input.unitTitle}`
-        : `Unit ${input.unitNumber}`
-      : input.unitTitle ?? 'Current unit'
-  return `${input.bookLabel} · ${unitPart} · ${input.visiblePageRangeLabel}`
 }
 
 function languageExamplesFromVisibleView(input: {
@@ -232,6 +224,7 @@ export function resolveChalkieLessonContext(input: {
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
+      stableLessonReference: null,
       scopeMessage:
         'Open a page spread in the source PDF before preparing a Chalkie prompt.',
       hasVerifiedPageEvidence: false,
@@ -256,6 +249,7 @@ export function resolveChalkieLessonContext(input: {
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
+      stableLessonReference: null,
       scopeMessage:
         'This unit does not have a verified printed page range yet, so Chalkie cannot confirm that the open pages belong to the selected unit.',
       hasVerifiedPageEvidence: false,
@@ -288,6 +282,7 @@ export function resolveChalkieLessonContext(input: {
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
+      stableLessonReference: null,
       scopeMessage: `The open pages (${visiblePageRangeLabel}) are outside ${unitLabel}. Open a page spread from this unit before preparing a Chalkie prompt.`,
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: null,
@@ -320,6 +315,16 @@ export function resolveChalkieLessonContext(input: {
       priorLearningSuggestions: BE2_U08_AI_SUGGESTIONS,
       singleLessonTitle: BE2_U08_SINGLE_LESSON_TITLE,
       seriesLessonTitle: BE2_U08_SERIES_LESSON_TITLE,
+      stableLessonReference: buildChalkieLessonNaming({
+        catalogBookId,
+        bookTitle: input.book.title,
+        bookType: input.book.type,
+        unitNumber,
+        unitTitle,
+        visiblePrintedPages: sortedVisible,
+        teachingFocus: BE2_U08_PROTOTYPE_FOCUS,
+        lessonTopic: null,
+      }).stableLessonReference,
       scopeMessage: null,
       hasVerifiedPageEvidence: true,
       evidenceUnavailableMessage: null,
@@ -358,6 +363,7 @@ export function resolveChalkieLessonContext(input: {
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
+      stableLessonReference: null,
       scopeMessage: null,
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: `Source evidence is not available for these pages (${visiblePageRangeLabel}) yet. Open a spread with verified page evidence before preparing a Chalkie prompt.`,
@@ -377,6 +383,17 @@ export function resolveChalkieLessonContext(input: {
         visiblePrintedPages: sortedVisible,
       })
     : []
+
+  const naming = buildChalkieLessonNaming({
+    catalogBookId,
+    bookTitle: input.book.title,
+    bookType: input.book.type,
+    unitNumber,
+    unitTitle,
+    visiblePrintedPages: sortedVisible,
+    teachingFocus: visibleView!.teachingFocus,
+    lessonTopic: visibleView!.lessonTopic,
+  })
 
   return {
     ...base,
@@ -400,13 +417,9 @@ export function resolveChalkieLessonContext(input: {
     isBe2U08PrototypeRoute: false,
     supportsTwoLessonSeries: false,
     priorLearningSuggestions,
-    singleLessonTitle: buildGenericSingleTitle({
-      bookLabel,
-      unitNumber,
-      unitTitle,
-      visiblePageRangeLabel,
-    }),
+    singleLessonTitle: naming.teacherFacingTitle,
     seriesLessonTitle: null,
+    stableLessonReference: naming.stableLessonReference,
     scopeMessage: null,
     hasVerifiedPageEvidence: true,
     evidenceUnavailableMessage: null,
