@@ -39,7 +39,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
 | Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
-| Overlay | Teacher-choice Steps 1–4 + local prompt preview/copy; optional server OpenAI lesson-draft button after preview |
+| Overlay | Teacher-choice Steps 1–3 + local prompt preview/copy; optional server OpenAI lesson-draft button after preview |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
 | API | `POST /api/chalkie/generate` (teacher-triggered lesson draft; Bearer JWT; `OPENAI_API_KEY` + `OPENAI_MODEL`) |
 | Legacy API | `POST /api/generate-chalkie-prompt` still exists; not used by the teacher-choice overlay path |
