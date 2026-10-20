@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 245
+**Last updated:** Step 246
 
 
 
@@ -424,7 +424,9 @@
 
 - [x] **Code: same-unit earlier vocabulary prior-learning** — deterministic Step 2 bundle from earlier human-verified target vocab; `[PRIOR]` provenance; BE2 curated suggestions unchanged.
 
-- [ ] Owner visual check of BE3 U8 pp.132–133 Screen 2 vocabulary bundle (p.128) and prompt provenance.
+- [x] **UI: merge teacher-choice Steps 2+3** — prior-learning suggestions + custom language on one screen; 3-step flow; Back preserves state; prompt preview remains confirmation.
+
+- [ ] Owner smoke-check of 3-step teacher-choice flow (BE3 U8 pp.132–133 + BE2 U8 fixture).
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

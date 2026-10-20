@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 245
+**Last synced:** Step 246
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Same-unit earlier vocabulary prior-learning live for Chalkie Step 2 (`[PRIOR]`); BE2 curated suggestions unchanged. Owner visual check pending on BE3 U8 pp.132–133.
+- Chalkie teacher-choice flow is now 3 steps (prior learning + custom language merged); owner smoke-check pending.
 - Phase 3 remains parked (D020).
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Visually check Screen 2 on BE3 U8 pp.132–133 for the p.128 vocabulary bundle and prompt provenance.
+**Suggestion:** Smoke-check the 3-step Prepare Chalkie prompt flow on BE3 U8 pp.132–133 (select p.128 card + add custom language, Back, then prompt preview).

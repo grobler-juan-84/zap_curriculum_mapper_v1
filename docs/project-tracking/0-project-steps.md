@@ -4196,3 +4196,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 246
+
+**Summary:** Merged the teacher-choice “Your choices / What do you choose?” step into “What might be useful to reuse?” so suggestion cards and custom-language entry share one screen. Flow is now 3 steps; footer shows selected/teacher-added counts; Back preserves session state; prompt preview remains the confirmation point. No evidence/suggestion-rule changes.
+
+**Files touched:**
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

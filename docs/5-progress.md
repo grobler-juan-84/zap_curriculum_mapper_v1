@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 245
+**Last updated:** Step 246
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,19 +16,17 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity-derived words/models, non-grammar teaching-focus lanes.
+- Chalkie Workspace: dynamic source-context binding, page-scope guard, teaching-focus lanes, same-unit `[PRIOR]` vocabulary suggestions.
 
-- **BE3 U8** evidence + language page-placement corrections; teaching-focus lanes for vocab/story/CLIL.
-
-- **Same-unit earlier vocabulary prior-learning:** deterministic Step 2 bundle from earlier human-verified target vocab (e.g. BE3 U8 p.128 → pp.132–133), tagged `[PRIOR]` with earlier-page provenance. BE2 curated `[HM]` suggestions unchanged.
+- **Teacher-choice flow simplified to 3 steps:** Current lesson → Prior learning (suggestions + custom language) → Lesson inputs / prompt preview. Separate “What do you choose?” screen removed; Back preserves selections.
 
 ## In progress
 
-- Owner visual check of Screen 2 same-unit vocabulary suggestion on BE3 U8 pp.132–133.
+- Owner smoke-check of the shortened teacher-choice flow on BE3 U8 pp.132–133 and BE2 U8 fixture.
 
 ## Next
 
-- Owner confirm Screen 2 card + prompt provenance for the p.128 vocabulary bundle.
+- Owner confirm the merged prior-learning screen and prompt preview still feel classroom-friendly.
 - Cross-unit suggestions remain out of scope until requested.
 - Keep Phase 3 / F005 parked (D020).
 

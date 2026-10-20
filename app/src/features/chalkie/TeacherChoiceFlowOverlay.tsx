@@ -9,35 +9,22 @@ import {
   type LessonPackageShape,
 } from './buildChalkiePromptPreview'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
+import {
+  TEACHER_CHOICE_TOTAL_STEPS,
+  advanceTeacherChoiceStep,
+  appendTeacherAddedLanguage,
+  clearPriorLearningSelections,
+  footerSelectionSummary,
+  retreatTeacherChoiceStep,
+  teacherChoiceStepName,
+  toggleSelectedSuggestionId,
+  type TeacherAddedLanguage,
+} from './teacherChoiceFlow'
 
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
   onClose: () => void
   lesson: ChalkieLessonContext | null
-}
-
-type TeacherAddedLanguage = {
-  id: string
-  frame: string
-  note: string
-}
-
-const TOTAL_STEPS = 4
-
-function stepNameFor(step: number): string {
-  if (step === 1) return 'Current lesson'
-  if (step === 2) return 'Prior learning'
-  if (step === 3) return 'Your choices'
-  return 'Lesson inputs'
-}
-
-function footerSummary(selectedCount: number, teacherAddedCount: number): string {
-  if (selectedCount === 0 && teacherAddedCount === 0) {
-    return 'No prior learning selected'
-  }
-  const selectedPart = `${selectedCount} selected`
-  if (teacherAddedCount === 0) return selectedPart
-  return `${selectedPart} · ${teacherAddedCount} teacher-added`
 }
 
 export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> = ({
@@ -143,11 +130,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   if (!open || !lesson) return null
 
-  const stepName = stepNameFor(step)
+  const stepName = teacherChoiceStepName(step)
   const selectedCount = selectedIds.length
   const teacherAddedCount = teacherAdditions.length
   const canAddFrame = newFrame.trim().length > 0
-  const useTwoColumnSelected = selectedSuggestions.length >= 2
   const effectiveLessonShape: LessonPackageShape =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
@@ -155,10 +141,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const hasPriorLearningSuggestions = priorLearningSuggestions.length > 0
 
   const handleContinue = () => {
-    if (step < 4) {
+    if (step < TEACHER_CHOICE_TOTAL_STEPS) {
       setShowPromptPreview(false)
       setCopyStatus('idle')
-      setStep(step + 1)
+      setStep(advanceTeacherChoiceStep(step))
     }
   }
 
@@ -169,7 +155,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       clearGeneratedDraft()
       return
     }
-    if (step > 1) setStep(step - 1)
+    if (step > 1) setStep(retreatTeacherChoiceStep(step))
   }
 
   const handlePackageShapeChange = (next: LessonPackageShape) => {
@@ -256,9 +242,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const toggleSuggestion = (id: string) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-    )
+    setSelectedIds((prev) => toggleSelectedSuggestionId(prev, id))
   }
 
   const toggleEvidence = (id: string) => {
@@ -268,18 +252,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleAddTeacherLanguage = () => {
-    const frame = newFrame.trim()
-    if (!frame) return
-    setTeacherAdditions((prev) => [
-      ...prev,
-      {
-        id: `teacher-added-${Date.now()}-${prev.length + 1}`,
-        frame,
-        note: newNote.trim(),
-      },
-    ])
-    setNewFrame('')
-    setNewNote('')
+    setTeacherAdditions((prev) => {
+      const next = appendTeacherAddedLanguage(prev, newFrame, newNote)
+      return next ?? prev
+    })
+    if (newFrame.trim()) {
+      setNewFrame('')
+      setNewNote('')
+    }
   }
 
   const handleRemoveTeacherLanguage = (id: string) => {
@@ -287,8 +267,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleUseNoPriorLearning = () => {
-    setSelectedIds([])
-    setTeacherAdditions([])
+    const cleared = clearPriorLearningSelections()
+    setSelectedIds(cleared.selectedIds)
+    setTeacherAdditions(cleared.teacherAdditions)
     setNewFrame('')
     setNewNote('')
   }
@@ -305,7 +286,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="min-w-0">
             <p className="text-xs text-slate-500">
-              {step} of {TOTAL_STEPS}
+              {step} of {TEACHER_CHOICE_TOTAL_STEPS}
               <span className="mx-2 text-slate-300" aria-hidden="true">
                 ·
               </span>
@@ -433,7 +414,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
 
           {step === 2 ? (
-            <div className="space-y-7">
+            <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
                   id={titleId}
@@ -443,15 +424,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
                   {hasPriorLearningSuggestions
-                    ? 'Verified prior-learning suggestions from earlier pages or units in this book. Choose only what helps this lesson.'
-                    : 'Prior-learning suggestions are only available when verified for the current lesson source.'}
+                    ? 'Verified prior-learning suggestions from earlier pages or units in this book. Choose only what helps this lesson. You can also add a language frame of your own.'
+                    : 'No verified suggestions for this lesson yet. You can add a language frame of your own, or continue with no prior learning.'}
                 </p>
               </div>
 
               {hasPriorLearningSuggestions ? (
                 <ul
                   className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
-                  aria-label="AI prior-learning suggestions"
+                  aria-label="Prior-learning suggestions"
                 >
                   {priorLearningSuggestions.map((suggestion) => {
                     const checked = selectedIds.includes(suggestion.id)
@@ -517,85 +498,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     )
                   })}
                 </ul>
-              ) : (
-                <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
-                  No verified prior-learning suggestions are available for this lesson yet. You can
-                  continue without selecting prior learning.
-                </p>
-              )}
-
-              {hasPriorLearningSuggestions ? (
-                <p className="text-sm text-slate-500">
-                  You can continue without selecting any prior learning.
-                </p>
               ) : null}
-            </div>
-          ) : null}
-
-          {step === 3 ? (
-            <div className="space-y-9">
-              <div className="max-w-3xl space-y-3">
-                <h2
-                  id={titleId}
-                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
-                >
-                  What do you choose?
-                </h2>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  Choose the prior learning that will be available to support this lesson.
-                </p>
-              </div>
-
-              <section className="space-y-4" aria-label="Selected prior learning">
-                <h3 className="text-sm font-medium text-slate-800">Selected prior learning</h3>
-
-                {selectedSuggestions.length === 0 ? (
-                  <p className="max-w-xl text-sm leading-relaxed text-slate-500">
-                    No prior learning is selected yet. That is a valid choice for this lesson.
-                  </p>
-                ) : (
-                  <ul
-                    className={`grid grid-cols-1 gap-4 ${
-                      useTwoColumnSelected ? 'md:grid-cols-2 md:gap-5' : 'max-w-xl'
-                    }`}
-                  >
-                    {selectedSuggestions.map((suggestion) => {
-                      const checkboxId = `teacher-choice-selected-${suggestion.id}`
-                      return (
-                        <li
-                          key={suggestion.id}
-                          className="rounded-xl border border-indigo-200 bg-indigo-50/40 p-4 sm:p-5"
-                        >
-                          <div className="flex gap-3">
-                            <input
-                              id={checkboxId}
-                              type="checkbox"
-                              checked
-                              onChange={() => toggleSuggestion(suggestion.id)}
-                              className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                            />
-                            <div className="min-w-0 flex-1 space-y-2">
-                              <div className="space-y-0.5">
-                                <label
-                                  htmlFor={checkboxId}
-                                  className="block text-sm font-medium text-slate-900"
-                                >
-                                  {suggestion.label}
-                                </label>
-                                <p className="text-xs text-slate-500">{suggestion.source}</p>
-                              </div>
-                              <p className="text-[0.95rem] leading-relaxed text-slate-900">
-                                {suggestion.frame}
-                              </p>
-                              <p className="text-sm text-slate-500">Available for this lesson</p>
-                            </div>
-                          </div>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                )}
-              </section>
 
               <section className="max-w-2xl space-y-4" aria-label="Add language of your own">
                 <div className="space-y-1.5">
@@ -695,7 +598,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 ) : null}
               </section>
 
-              <section className="max-w-2xl space-y-2" aria-label="Use no prior learning">
+              <section className="max-w-2xl space-y-2" aria-label="Continue options">
+                <p className="text-sm text-slate-500">
+                  You can continue without selecting any prior learning.
+                </p>
                 <button
                   type="button"
                   onClick={handleUseNoPriorLearning}
@@ -707,7 +613,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
             </div>
           ) : null}
 
-          {step === 4 && !showPromptPreview ? (
+          {step === 3 && !showPromptPreview ? (
             <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
@@ -955,7 +861,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
             </div>
           ) : null}
 
-          {step === 4 && showPromptPreview ? (
+          {step === 3 && showPromptPreview ? (
             <div className="flex w-full flex-col gap-5">
               <div className="space-y-3">
                 <h2
@@ -1187,12 +1093,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         </div>
 
         <footer className="shrink-0 border-t border-slate-100 px-5 py-3.5 sm:px-6 lg:px-8">
-          {step === 4 && !showPromptPreview ? (
+          {step === 3 && !showPromptPreview ? (
             <p className="mb-3 text-sm text-slate-500">
               No Chalkie prompt has been generated yet.
             </p>
           ) : null}
-          {step === 4 && showPromptPreview ? (
+          {step === 3 && showPromptPreview ? (
             <p className="mb-3 text-sm text-slate-500">
               {draftMarkdown
                 ? 'Local prompt preview plus an unsaved model draft. Nothing is persisted.'
@@ -1202,10 +1108,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="min-w-[5.5rem] text-sm text-slate-500">
               {step === 2 || step === 3
-                ? footerSummary(selectedCount, step === 3 ? teacherAddedCount : 0)
-                : step === 4
-                  ? footerSummary(selectedCount, teacherAddedCount)
-                  : null}
+                ? footerSelectionSummary(selectedCount, teacherAddedCount)
+                : null}
             </p>
             <div className="flex flex-wrap items-center justify-end gap-2">
               {step > 1 || showPromptPreview ? (
@@ -1224,7 +1128,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               >
                 Cancel
               </button>
-              {step < 4 ? (
+              {step < TEACHER_CHOICE_TOTAL_STEPS ? (
                 <button
                   ref={continueRef}
                   type="button"
