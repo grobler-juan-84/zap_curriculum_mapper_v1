@@ -187,6 +187,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md](./phase-5/chalkie-transfer-be2-u05-lia-p78-79-experiment-design-v0.1.md) | BE2 U5 LiA pp. 78–79 Chalkie transfer test: generated + qualitatively reviewed; strong transfer success; further generation not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-provisional-handoff-template-v0.1.md](./phase-5/chalkie-provisional-handoff-template-v0.1.md) | Provisional Chalkie handoff template; source-fidelity gate + teacher-in-the-loop / must-correct distinction from Exp 10; DRAFT / experimental. | 0.1 | ACTIVE |
 | [phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md](./phase-5/chalkie-provisional-handoff-template-be2-u05-lia-retrofill-v0.1.md) | Read-only retrospective dry run of the handoff template against Experiment 7; usability marks, gaps, bounded revision list; later note that same-list vocab guidance was superseded after Exp 8. | 0.1 | ACTIVE |
+| [phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md](./phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md) | Pre-run Single Lesson design for Experiments 11–12 (Topic → Refine → Theme; outline comparison); links to post-run results; design text preserved. | 0.1 | ACTIVE |
+| [phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md](./phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md) | Results for Single Lesson Experiments 11–13 on BE3 U8 LiA pp.132–133; provisional preferred workflow (detailed + appended outline, no Create outline); not a methodology lock. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md) | Source-only preflight for BE3 U3 LiA SB pp. 40–41 (*Working Hard!*); verified Phase 1/SS facts; not a handoff prompt; generation not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md) | BE3 U3 *Working Hard!* LiA pp. 40–41 Experiment 8: PASS / strong transfer success; vocab-allocation confound recorded; further generation not authorized. | 0.1 | ACTIVE |
 | [phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md](./phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md) | Experiment 9 vocab-split control: PASS; L1 chores / L2 frequency chips produced intended lesson separation; further generation not authorized. | 0.1 | ACTIVE |
@@ -195,7 +197,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.0): Single Lesson vs Lesson Series modes, slide-count/settings, outline review, themes, vocabulary/audio handling, export behavior, and quality control. Observed UI guide for D018 experiments — not a product or schema lock. | V1.0 | ACTIVE |
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.2): Single Lesson Topic → Refine → Theme; Exp 11–13 outline findings and provisional preferred append-outline path; Lesson Series workflow, settings, export and quality control. Not a product or schema lock. | V1.2 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
@@ -204,7 +206,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 118 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, teacher-choice flow sketch, Chalkie Workspace prototype notes, generic detailed-handoff gap audit, Chalkie Experiments 1–10 + provisional handoff template, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 120 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, teacher-choice flow sketch, Chalkie Workspace prototype notes, generic detailed-handoff gap audit, Chalkie Experiments 1–13 design/results + provisional handoff template, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 

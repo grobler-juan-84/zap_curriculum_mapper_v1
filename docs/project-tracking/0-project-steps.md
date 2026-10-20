@@ -4296,3 +4296,36 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 252
+
+**Summary:** Documented the current Chalkie Single Lesson workflow (Topic → Refine → Theme), including the newly observed AI title suggestion, manual vocabulary entry and first-screen `Create outline` control. Added a controlled Experiments 11–12 run card for BE3 U8 LiA pp.132–133: no outline request vs exact local concise-outline replacement, with title and all other settings held fixed. No lesson generated in this documentation step.
+
+**Files touched:**
+- `docs/phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md` (created)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated to V1.1)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 253
+
+**Summary:** Recorded Chalkie Single-Lesson Experiments 11–13 results for BE3 U8 LiA pp.132–133 (31-page exports). Linked from the preserved 11–12 run card; Exp 13 provisional preferred workflow is detailed handoff + appended concise outline without Create outline. Docs only — D018 and 4-decisions untouched; no generation authorized.
+
+**Files touched:**
+- `docs/phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md` (created)
+- `docs/phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md` (updated — link + run record only)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated to V1.2)
+- `docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md` (updated — follow-up note)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated — related link)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

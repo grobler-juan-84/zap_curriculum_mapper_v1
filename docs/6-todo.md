@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 251
+**Last updated:** Step 253
 
 
 
@@ -436,7 +436,11 @@
 
 - [x] **Handoff: deterministic lesson naming** — teacher-facing `{series} {SB|WB} Unit {NN} {pages} — {unit} — {short focus}` plus stable ref `be3-sb-u08-p132-133`; short focus from verified evidence (Did…? → Asking About Yesterday); no page hardcoding; prompt/outline/vocab unchanged.
 
-- [ ] Owner smoke-check of BE3 U8 pp.132–133 four handoff copyables (named title, prompt, outline, vocabulary).
+- [x] Owner smoke-check of BE3 U8 pp.132–133 four handoff copyables (named title, prompt, outline, vocabulary).
+
+- [x] **Document current Chalkie Single Lesson workflow + Experiments 11–12 run card** — Topic → Refine → Theme; new AI title suggestion recorded; controlled comparison defined in [`phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](./phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md).
+
+- [x] **Experiments 11–13 results recorded** — [`phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md); provisional preferred Single Lesson path (detailed + appended outline; no Create outline); further generation not authorized by that record.
 
 
 

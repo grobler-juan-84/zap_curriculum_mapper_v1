@@ -1,8 +1,8 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.0  
+**Version:** V1.2
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
-**Observed:** 2026-10-16, from user-supplied screenshots and generation/export experience  
+**Observed:** 2026-10-16 and 2026-10-20, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
 **Scope:** Single Lesson and Lesson Series creation, options, prompts, review, theme, export and quality control. Does not cover Activity Sheets or Workbooks as standalone creation modes.
 
@@ -22,6 +22,16 @@ From Home, Chalkie shows **Single lesson** (one-off lesson), **Lesson series** (
 
 ## 3. Step-by-step: Single lesson
 
+### Current observed path (2026-10-20)
+
+The current Single Lesson path is **Topic → Refine → Theme**. The Topic screen now exposes **Create outline** directly beneath the prompt field. Chalkie may also replace or propose a title after the teacher pastes one; in the observed BE3 U8 pp. 132–133 run, the local standard title was followed by the suggested title `Healthy Living Language in Action`. Record both the pasted title and the final accepted Chalkie title during experiments.
+
+The Refine screen accepted the five manually supplied vocabulary phrases as separate chips. The run then continued directly to **Pick your theme**.
+
+**Observed (Exp 12):** selecting **Create outline** and replacing Chalkie’s outline with the local concise outline made the concise outline the dominant/replacement input; the detailed handoff was no longer visible in the main field. Treat that path as outline-replacement, not “detailed handoff plus outline.”
+
+**Provisional preferred Single Lesson path (Exp 13; not a methodology lock):** paste the detailed handoff into the initial prompt box, append the concise teacher-controlled outline underneath it in the **same** box, and do **not** click `Create outline`. Enter vocabulary chips on Refine; generate; teacher-review. Full findings: [`../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md). Pre-run design: [`../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md).
+
 ### Step 1 — Topic
 
 **Observed controls:** topic/title; first dropdown (example: `3rd grade`); second dropdown (example: `2nd grade`); slide-count selector (example: `25 slides`); language (example: `American English`); large free-text instruction box (`Any specific instructions or topics?`); `Create outline` link; file/resource upload area (local upload, Google Drive, link, video icons); Continue.
@@ -33,7 +43,7 @@ From Home, Chalkie shows **Single lesson** (one-off lesson), **Lesson series** (
 4. Select language intentionally.
 5. Paste the curriculum-grounded prompt into the specific-instructions field. Keep it scoped, with clear floor content, supporting practice, source references and prohibitions.
 6. Upload source resources if useful and permitted. Attaching a textbook does not establish that Chalkie will interpret it perfectly: verify results.
-7. Continue. The single-lesson Topic screen includes `Create outline`; its precise single-lesson outline/review behavior has **not** been verified in these screenshots.
+7. For the current provisional preferred Single Lesson path, paste detailed handoff + appended concise outline and **do not** click `Create outline`. If `Create outline` is used, expect the outline to dominate/replace the main input (Exp 12); do not assume Lesson Series outline-review behavior.
 
 ### Step 2 — Refine
 
@@ -70,7 +80,7 @@ From Home, Chalkie shows **Single lesson** (one-off lesson), **Lesson series** (
 
 **User-confirmed:** Single Lesson also has a theme selection step, although the supplied detailed theme screenshot comes from Lesson Series. Select a readable, classroom-appropriate theme and generate. Do not assume that theme names guarantee large fonts or minimal text. Inspect the output.
 
-**Single-lesson outline note:** `Create outline` is visible on the Topic screen, but the supplied screenshots do **not** establish that the full four-step Lesson Series outline workflow also occurs for Single Lesson. Do not conflate the two.
+**Single-lesson outline note:** `Create outline` is confirmed on the Topic screen. Exp 12 recorded that replacing the auto-outline with a local outline makes the outline the dominant input (detailed handoff no longer visible). Prefer appending the local outline under the detailed handoff without clicking `Create outline` (Exp 13). Do not conflate this with the four-step Lesson Series workflow.
 
 ## 4. Step-by-step: Lesson series
 
@@ -193,7 +203,7 @@ PROMPT VERSION / ITERATION: ...
 - What exactly do the first and second grade/level dropdowns mean?
 - What slide-count choices are available; is there any hard limit?
 - For Lesson Series, can different slide counts be assigned to individual lessons within one series?
-- What precisely happens when `Create outline` is used in Single Lesson?
+- What precise intermediate screen/state appears after `Create outline` is used in Single Lesson? Partially answered by Exp 12 (outline becomes dominant/replacement input); further UI detail may still be needed.
 - What image source/style alternatives exist beyond Auto?
 - How does `Custom MAX` theme customization work?
 - How are custom vocabulary entries parsed and distributed across lessons?

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 251
+**Last updated:** Step 253
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,17 +16,17 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: dynamic source-context binding, teaching-focus lanes, same-unit `[PRIOR]` vocabulary, 3-step teacher-choice flow, local four-artifact handoff.
+- Chalkie Workspace: local four-artifact handoff + deterministic lesson naming; OpenAI model-draft UI dormant.
 
-- **Deterministic lesson naming:** teacher-facing title + stable tracking ref (e.g. BE3 SB Unit 08 pp. 132–133 — Healthy Living — Asking About Yesterday / `be3-sb-u08-p132-133`). OpenAI model-draft UI remains removed; server path dormant.
+- **Chalkie Single Lesson Exp 11–13 recorded:** BE3 U8 LiA pp.132–133. Exp 11 PASS AFTER LIGHT TEACHER REVIEW; Exp 12 pedagogically usable but not preferred; Exp 13 PASS AFTER LIGHT TEACHER REVIEW (strong qualitative success). Provisional preferred path: detailed handoff + appended concise outline; do not click Create outline.
 
 ## In progress
 
-- Owner smoke-check of named local handoff on BE3 U8 pp.132–133.
+- None for Chalkie generation; further runs not authorized by the Exp 11–13 results record.
 
 ## Next
 
-- Owner confirm suggested vocabulary on pp.132–133 is the five current-page models (not the p.128 PRIOR bundle).
+- Owner chooses the next project question (not auto-selected).
 - Cross-unit suggestions remain out of scope until requested.
 - Keep Phase 3 / F005 parked (D020).
 
