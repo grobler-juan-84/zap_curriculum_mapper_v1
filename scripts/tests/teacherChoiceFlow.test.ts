@@ -214,13 +214,6 @@ test('handoff overlay has no model-draft UI and does not call the OpenAI endpoin
   assert.ok(overlaySource.includes('Lesson Outlines'))
   assert.ok(overlaySource.includes('Suggested Chalkie vocabulary'))
   assert.ok(overlaySource.includes('Concise teacher-controlled outline'))
-  assert.ok(
-    overlaySource.includes(
-      'Prepared locally from verified curriculum evidence and your selections',
-    ),
-  )
-  assert.ok(overlaySource.includes('No AI'))
-  assert.ok(overlaySource.includes('generation was used'))
   assert.ok(overlaySource.includes('Back to lesson inputs'))
   assert.ok(overlaySource.includes('handleBack'))
 

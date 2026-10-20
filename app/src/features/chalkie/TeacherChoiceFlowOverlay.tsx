@@ -1231,12 +1231,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         </div>
 
         <footer className="shrink-0 border-t border-slate-200/60 bg-[#8bcfd9] px-5 py-3.5 sm:px-6 lg:px-8">
-          {step === 3 && showPromptPreview ? (
-            <p className="mb-3 text-sm text-slate-500">
-              Prepared locally from verified curriculum evidence and your selections. No AI
-              generation was used.
-            </p>
-          ) : null}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="min-w-[5.5rem] text-sm text-slate-500">
               {(step === 2 || step === 3) && (selectedCount > 0 || teacherAddedCount > 0)
