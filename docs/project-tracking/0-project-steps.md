@@ -4541,3 +4541,15 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 268
+
+**Summary:** Raised the teacher-choice modal body background opacity from 50% to 70% (`#8bcfd9` / 70).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

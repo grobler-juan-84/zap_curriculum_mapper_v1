@@ -368,7 +368,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           </button>
         </header>
 
-        <div className="min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/50 px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+        <div className="min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/70 px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
           {step === 1 ? (
             <div className="mx-auto w-full max-w-[46rem] space-y-7">
               <div className="space-y-3">
