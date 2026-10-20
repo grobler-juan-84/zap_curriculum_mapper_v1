@@ -72,7 +72,7 @@ export function footerSelectionSummary(
   teacherAddedCount: number,
 ): string {
   if (selectedCount === 0 && teacherAddedCount === 0) {
-    return 'No prior learning selected'
+    return ''
   }
   const selectedPart = `${selectedCount} selected`
   if (teacherAddedCount === 0) return selectedPart

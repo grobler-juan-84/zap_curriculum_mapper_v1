@@ -4515,3 +4515,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 266
+
+**Summary:** Removed Step 2 empty-state copy (“No prior learning selected”, continue-without / use-no-prior-learning prompts); footer selection text shows only when something is selected.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -315,7 +315,7 @@ test('continuing with neither selection nor custom language remains allowed', ()
   const cleared = clearPriorLearningSelections()
   assert.deepEqual(cleared.selectedIds, [])
   assert.deepEqual(cleared.teacherAdditions, [])
-  assert.equal(footerSelectionSummary(0, 0), 'No prior learning selected')
+  assert.equal(footerSelectionSummary(0, 0), '')
   assert.equal(appendTeacherAddedLanguage([], 'Title', '   ', 'purpose'), null)
   assert.equal(appendTeacherAddedLanguage([], '', 'frame', 'purpose'), null)
 

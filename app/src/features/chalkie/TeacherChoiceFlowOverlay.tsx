@@ -15,7 +15,6 @@ import {
   TEACHER_CHOICE_TOTAL_STEPS,
   advanceTeacherChoiceStep,
   appendTeacherAddedLanguage,
-  clearPriorLearningSelections,
   footerSelectionSummary,
   retreatTeacherChoiceStep,
   teacherChoiceStepName,
@@ -339,16 +338,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setNewTitle('')
     setNewFrame('')
     setNewPurpose('')
-  }
-
-  const handleUseNoPriorLearning = () => {
-    const cleared = clearPriorLearningSelections()
-    setSelectedIds(cleared.selectedIds)
-    setTeacherAdditions(cleared.teacherAdditions)
-    setNewTitle('')
-    setNewFrame('')
-    setNewPurpose('')
-    setAddPriorSkillExpanded(false)
   }
 
   return createPortal(
@@ -712,19 +701,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   )
                 })}
               </ul>
-
-              <section className="max-w-2xl space-y-2" aria-label="Continue options">
-                <p className="text-sm text-slate-500">
-                  You can continue without selecting any prior learning.
-                </p>
-                <button
-                  type="button"
-                  onClick={handleUseNoPriorLearning}
-                  className="text-sm font-medium text-slate-700 underline-offset-2 transition-colors hover:text-slate-900 hover:underline"
-                >
-                  Use no prior learning for this lesson
-                </button>
-              </section>
             </div>
           ) : null}
 
@@ -1202,7 +1178,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           ) : null}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="min-w-[5.5rem] text-sm text-slate-500">
-              {step === 2 || step === 3
+              {(step === 2 || step === 3) && (selectedCount > 0 || teacherAddedCount > 0)
                 ? footerSelectionSummary(selectedCount, teacherAddedCount)
                 : null}
             </p>
