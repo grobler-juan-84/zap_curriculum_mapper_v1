@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.4  
+**Version:** 2.5  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -74,9 +74,10 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 | Visible pages | `ValidationPdfPane` → `onVisiblePrintedPagesChange` → workspace state | Same |
 | Current focus | Matching page labels from `summary.pages` in `buildVisiblePagesView` | `BE2_U08_PROTOTYPE_FOCUS` |
 | Unit-context note | Unit `theme` or derived `learningFocus` from `buildUnitSummaryView`; never page evidence | Full-unit range note only |
-| Words and models | Dedicated `vocabulary` rows when present; otherwise conservative activity-item models (bracketed base + form; simple base prompt + matched form; strip match-label prefixes like `d went`). Chart multi-answer dumps are skipped. UI label: **Current words and models**. | `BE2_U08_VOCABULARY` |
-| Language | Dedicated `language` rows when present; otherwise verified activity `language_frame` values (split on ` / `). Honest empty-state distinguishes missing dedicated rows vs missing frames. | `BE2_U08_LANGUAGE` |
-| Teaching focus | Deterministic planning summary from component/activity notes, types, frames, and models — labelled as derived, not a publisher quotation. Page section labels stay as orientation only. | Curated prototype focus string |
+| Lesson topic | Page-linked curriculum-component titles (preferred) or `page_heading` — orientation only, not a teaching aim. | Not used on BE2 U8 fixture |
+| Words and models | Dedicated `vocabulary` rows when present; otherwise conservative activity-item models (bracket fills; base→form match pairs; `matching_and_speaking` phrase halves). Bound **24**. Chart/comprehension dumps skipped. UI: **Current words and models**. | `BE2_U08_VOCABULARY` |
+| Language | Dedicated rows via `prompt`/`response`, else verified `full_text`; activity `language_frame` with `|` separating complete Q&A exchanges (`/` inside an exchange preserved). | `BE2_U08_LANGUAGE` |
+| Teaching focus | Deterministic planning summary; `Did…?` Q&A practice detected separately from irregular-verb teaching (`read_and_match` alone is not irregular evidence). | Curated prototype focus string |
 | Clarification, page labels, activities | No clarification; labels and activities from matching Phase 1 JSON rows. Activity display text preference: `title` → `activity_title` → `instruction`. Visible-page activity lines are bounded to six. | Curated BE2 U8 constants |
 
 ### Regression case — BE3 Unit 8 Grammar pp. 136–137
@@ -205,3 +206,4 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 | 2026-10-20 | Activity evidence resolution: `title` → `activity_title` → `instruction`; visible activity bound raised to six; BE3 U8 pp. 136–137 regression noted. |
 | 2026-10-20 | Cross-linked generic detailed-handoff gap audit (Exp 10 vs current prompt; next coding slice defined). |
 | 2026-10-20 | Screen 1 / prompt: activity-derived words/models, language frames, teaching-focus planning summary; honest empty-state wording. |
+| 2026-10-20 | Correction pass for BE3 U8 spreads 128–137: lesson topic, Q&A `|` splits, `full_text` language, Did…? focus, phrase halves, models bound 24. |

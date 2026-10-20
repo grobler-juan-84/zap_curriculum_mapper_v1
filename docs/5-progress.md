@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 241
+**Last updated:** Step 242
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,20 +16,18 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity `instruction` fallback, top-aligned prep modals.
+- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity-derived words/models + teaching focus.
 
-- **Gap audit** recorded for generic detailed handoff vs Experiment 10.
-
-- **Activity-derived words/models + teaching focus** on Screen 1 and local prompt preview (dedicated vs activity-derived honesty; BE2 U8 fixture unchanged). No OpenAI / packaging / `[HM]` changes in that slice.
+- **BE3 U8 evidence correction pass (128–137):** lesson topic, intact Q&A exchanges, `full_text` language, Did…? focus (not false irregular), phrase-half models, words/models bound 24 (`put → put` retained). BE2 U8 fixture unchanged.
 
 ## In progress
 
-- Owner live validation of BE3 U8 pp. 136–137 richer Screen 1 / prompt evidence; OpenAI draft path keep/harden/park still owner-gated.
+- Owner visual revalidation of the five BE3 U8 spreads in `/app/chalkie`.
 
 ## Next
 
-- Owner confirm BE3 U8 Grammar 136–137 shows models, Act 23 frames, and teaching focus (not “no vocabulary/language”).
-- Continue remaining gap-audit slices only when requested (allocation, outlines, generic two-lesson, audio surfacing).
+- Owner revalidate pp. 128–129, 130–131, 132–133, 134–135, 136–137 after the correction pass.
+- Further gap-audit slices (allocation / outlines / audio) only when requested.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked

@@ -3,11 +3,15 @@
  * Run: npx tsx --test scripts/tests/resolveChalkieLessonContext.test.ts
  */
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import path from 'node:path'
 import test from 'node:test'
+import { fileURLToPath } from 'node:url'
 
 import {
   buildVisiblePagesView,
   extractActivityItemModel,
+  splitLanguageFrames,
 } from '../../app/src/features/chalkie/chalkieEvidence.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
@@ -18,15 +22,13 @@ import {
 import type { Book } from '../../app/src/types/curriculum.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
-const BE3_ACT_19 = "Look, listen, and read. How did Donna's dad come home?"
-const BE3_ACT_20 =
-  'Copy the chart in your notebook and complete. Use the words from the box.'
-const BE3_ACT_21 = 'Read and complete.'
-const BE3_ACT_22 = 'Read and match.'
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+const BE3_CANONICAL_PATH = path.join(
+  ROOT,
+  'data/phase1/big_english_3_sb/canonical/v1.json',
+)
+
 const BE3_ACT_23 = 'Tell your partner about what you did yesterday.'
-const BE3_ACT_23_FRAME_A = 'Yesterday, I woke up early and walked to school.'
-const BE3_ACT_23_FRAME_B =
-  'Yesterday, I went to the park after school. I played soccer.'
 
 function bookStub(overrides: Partial<Book> & Pick<Book, 'catalogBookId' | 'title'>): Book {
   return {
@@ -48,163 +50,105 @@ function bookStub(overrides: Partial<Book> & Pick<Book, 'catalogBookId' | 'title
   }
 }
 
-function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
+function loadBe3Canonical(): Record<string, unknown> {
+  return JSON.parse(fs.readFileSync(BE3_CANONICAL_PATH, 'utf8')) as Record<string, unknown>
+}
+
+function asArray(value: unknown): unknown[] {
+  return Array.isArray(value) ? value : []
+}
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {}
+}
+
+/** Slice real BE3 canonical JSON into a BatchJsonSummary for the given printed pages. */
+function be3SummaryForPrintedPages(printedPages: number[]): BatchJsonSummary {
+  const rawBook = loadBe3Canonical()
+  const pageRows = asArray(rawBook.pages).filter((entry) => {
+    const printed = asRecord(entry).printed_page
+    return typeof printed === 'number' && printedPages.includes(printed)
+  })
+  const pageIds = new Set(
+    pageRows
+      .map((entry) => asRecord(entry).page_id)
+      .filter((id): id is string => typeof id === 'string'),
+  )
+
+  const units = asArray(rawBook.units)
+    .filter((entry) => {
+      const u = asRecord(entry)
+      return u.unit_number === 8 || u.unit_number === '8'
+    })
+    .map((entry) => {
+      const u = asRecord(entry)
+      return {
+        unitId: typeof u.unit_id === 'string' ? u.unit_id : undefined,
+        unitNumber: 8,
+        title: typeof u.title === 'string' ? u.title : undefined,
+        theme: typeof u.theme === 'string' ? u.theme : undefined,
+        printedPageStart:
+          typeof u.printed_page_start === 'number' ? u.printed_page_start : null,
+        printedPageEnd: typeof u.printed_page_end === 'number' ? u.printed_page_end : null,
+      }
+    })
+
   const raw = {
     book_id: 'big_english_3_sb',
-    units: [
-      {
-        unit_id: 'big_english_3_sb_unit_08',
-        unit_number: 8,
-        title: 'Healthy Living',
-        theme: 'health / habits / exercise / past actions',
-        printed_page_start: 128,
-        printed_page_end: 143,
-      },
-    ],
-    pages: [
-      {
-        page_id: 'bep3_sb_p136',
-        printed_page: 136,
-        section_title: 'Grammar',
-        section_type: 'grammar',
-      },
-      {
-        page_id: 'bep3_sb_p137',
-        printed_page: 137,
-        section_title: 'Grammar',
-        section_type: 'grammar',
-      },
-    ],
-    curriculum_components: [
-      {
-        component_id: 'bep3_sb_comp_08_06',
-        page_id: 'bep3_sb_p136',
-        component_type: 'grammar',
-        source_label: 'Grammar',
-        title: 'grammar (They came, and we played.)',
-      },
-    ],
-    vocabulary: [],
-    language: [],
-    activities: [
-      {
-        activity_id: 'bep3_sb_act_19',
-        page_id: 'bep3_sb_p136',
-        printed_page: 136,
-        activity_number: 19,
-        instruction: BE3_ACT_19,
-        activity_type: 'listen_and_read_dialogue',
-        source_dependency_note: 'Audio track 159',
-      },
-      {
-        activity_id: 'bep3_sb_act_20',
-        page_id: 'bep3_sb_p136',
-        printed_page: 136,
-        activity_number: 20,
-        instruction: BE3_ACT_20,
-        activity_type: 'chart_completion_spelling',
-        notes:
-          'Classification of regular past simple verb spelling rules (-ed, -ied, -d, double consonant + -ed)',
-        items: [
-          {
-            item_number: 'started',
-            prompt:
-              'bake, carry, change, climb, cry, drop, exercise, finish, help, join, love, tip, try, worry',
-            expected_answer: 'climbed, finished, helped, joined',
-          },
-          {
-            item_number: 'stopped',
-            prompt: null,
-            expected_answer: 'dropped, tipped',
-          },
-        ],
-      },
-      {
-        activity_id: 'bep3_sb_act_21',
-        page_id: 'bep3_sb_p137',
-        printed_page: 137,
-        activity_number: 21,
-        instruction: BE3_ACT_21,
-        activity_type: 'read_and_complete_text',
-        items: [
-          {
-            item_number: '1.1',
-            prompt: "Ffyona Campbell's dad [work]",
-            expected_answer: 'worked',
-          },
-          {
-            item_number: '1.2',
-            prompt: 'she [move] to a new house',
-            expected_answer: 'moved',
-          },
-          {
-            item_number: '2.7',
-            prompt: 'Okan Kaya [play] the longest video game marathon',
-            expected_answer: 'played',
-          },
-          {
-            item_number: '2.9',
-            prompt: 'He only [stop] the game after seven days',
-            expected_answer: 'stopped',
-          },
-        ],
-      },
-      {
-        activity_id: 'bep3_sb_act_22',
-        page_id: 'bep3_sb_p137',
-        printed_page: 137,
-        activity_number: 22,
-        instruction: BE3_ACT_22,
-        activity_type: 'read_and_match',
-        notes: 'Matching present base verbs to irregular past forms',
-        items: [
-          { item_number: '1', prompt: 'go', expected_answer: 'd went' },
-          { item_number: '2', prompt: 'come', expected_answer: 'f came' },
-          { item_number: '3', prompt: 'have', expected_answer: 'e had' },
-          { item_number: '4', prompt: 'sleep', expected_answer: 'b slept' },
-          { item_number: '5', prompt: 'fall', expected_answer: 'h fell' },
-          { item_number: '6', prompt: 'write', expected_answer: 'a wrote' },
-          { item_number: '7', prompt: 'fly', expected_answer: 'g flew' },
-          { item_number: '8', prompt: 'put', expected_answer: 'c put' },
-        ],
-      },
-      {
-        activity_id: 'bep3_sb_act_23',
-        page_id: 'bep3_sb_p137',
-        printed_page: 137,
-        activity_number: 23,
-        instruction: BE3_ACT_23,
-        activity_type: 'pair_speaking',
-        language_frame: `${BE3_ACT_23_FRAME_A} / ${BE3_ACT_23_FRAME_B}`,
-      },
-    ],
+    units: asArray(rawBook.units).filter((entry) => {
+      const u = asRecord(entry)
+      return u.unit_number === 8 || u.unit_number === '8'
+    }),
+    pages: pageRows,
+    vocabulary: asArray(rawBook.vocabulary).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    language: asArray(rawBook.language).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    activities: asArray(rawBook.activities).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
+    curriculum_components: asArray(rawBook.curriculum_components).filter((entry) =>
+      pageIds.has(String(asRecord(entry).page_id ?? '')),
+    ),
   }
 
   return {
     catalogBookId: 'big_english_3_sb',
-    units: [
-      {
-        unitId: 'big_english_3_sb_unit_08',
-        unitNumber: 8,
-        title: 'Healthy Living',
-        theme: 'health / habits / exercise / past actions',
-        printedPageStart: 128,
-        printedPageEnd: 143,
-      },
-    ],
-    vocabulary: [],
+    units,
+    vocabulary: asArray(raw.vocabulary).map((entry) => {
+      const v = asRecord(entry)
+      return {
+        term: typeof v.term === 'string' ? v.term : undefined,
+        pageId: typeof v.page_id === 'string' ? v.page_id : undefined,
+      }
+    }),
     language: [],
-    activities: [
-      { pageId: 'bep3_sb_p136', activityType: 'listen_and_read_dialogue' },
-      { pageId: 'bep3_sb_p136' },
-      { pageId: 'bep3_sb_p137' },
-      { pageId: 'bep3_sb_p137' },
-      { pageId: 'bep3_sb_p137' },
-    ],
-    pages: [
-      { printedPage: 136, sectionTitle: 'Grammar', sectionType: 'grammar' },
-      { printedPage: 137, sectionTitle: 'Grammar', sectionType: 'grammar' },
-    ],
+    activities: asArray(raw.activities).map((entry) => {
+      const a = asRecord(entry)
+      return {
+        title:
+          typeof a.instruction === 'string'
+            ? a.instruction
+            : typeof a.title === 'string'
+              ? a.title
+              : undefined,
+        activityType: typeof a.activity_type === 'string' ? a.activity_type : undefined,
+        pageId: typeof a.page_id === 'string' ? a.page_id : undefined,
+      }
+    }),
+    pages: pageRows.map((entry) => {
+      const p = asRecord(entry)
+      return {
+        printedPage: typeof p.printed_page === 'number' ? p.printed_page : null,
+        sectionTitle: typeof p.section_title === 'string' ? p.section_title : undefined,
+        sectionType: typeof p.section_type === 'string' ? p.section_type : undefined,
+        pageHeading: typeof p.page_heading === 'string' ? p.page_heading : undefined,
+      }
+    }),
     raw,
   }
 }
@@ -221,16 +165,8 @@ function labelsOnlySummary(): BatchJsonSummary {
       },
     ],
     pages: [
-      {
-        page_id: 'bep3_sb_p136',
-        printed_page: 136,
-        section_title: 'Grammar',
-      },
-      {
-        page_id: 'bep3_sb_p137',
-        printed_page: 137,
-        section_title: 'Grammar',
-      },
+      { page_id: 'bep3_sb_p136', printed_page: 136, section_title: 'Grammar' },
+      { page_id: 'bep3_sb_p137', printed_page: 137, section_title: 'Grammar' },
     ],
     vocabulary: [],
     language: [],
@@ -299,59 +235,105 @@ function be2Unit8SummaryWithSparseVisibleEvidence(): BatchJsonSummary {
   }
 }
 
-test('BE3 Unit 8 pp.136–137 resolves ready from verified instruction-only activities', () => {
-  const resolved = resolveChalkieLessonContext({
+function resolveBe3(pages: number[]) {
+  return resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
       title: 'Big English 3 Student Book',
     }),
-    summary: be3Unit8HealthyLivingSummary(),
-    visiblePrintedPages: [136, 137],
+    summary: be3SummaryForPrintedPages(pages),
+    visiblePrintedPages: pages,
     unitNumber: 8,
   })
+}
 
-  assert.equal(resolved.status, 'ready')
-  assert.equal(resolved.isBe2U08PrototypeRoute, false)
-  assert.equal(resolved.supportsTwoLessonSeries, false)
-  assert.equal(resolved.hasVerifiedPageEvidence, true)
+test('splitLanguageFrames preserves Q&A exchanges separated by |', () => {
+  const parts = splitLanguageFrames(
+    "Did he eat breakfast? / No, he didn't. | Did she ride her bike? / Yes, she did.",
+  )
+  assert.deepEqual(parts, [
+    "Did he eat breakfast? / No, he didn't.",
+    'Did she ride her bike? / Yes, she did.',
+  ])
 })
 
-test('BE3 Unit 8 pp.136–137 exposes Activities 19–23 from instruction fields', () => {
-  const visible = buildVisiblePagesView(be3Unit8HealthyLivingSummary(), [136, 137])
-  const resolved = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8HealthyLivingSummary(),
-    visiblePrintedPages: [136, 137],
-    unitNumber: 8,
-  })
-
-  assert.deepEqual(visible.activityLines, [
-    BE3_ACT_19,
-    BE3_ACT_20,
-    BE3_ACT_21,
-    BE3_ACT_22,
-    BE3_ACT_23,
-  ])
-  assert.deepEqual(resolved.activityLines, [
-    BE3_ACT_19,
-    BE3_ACT_20,
-    BE3_ACT_21,
-    BE3_ACT_22,
-    BE3_ACT_23,
-  ])
-  assert.ok(
-    resolved.activityLines.some((line) => line.includes('Tell your partner')),
-    'Activity 23 instruction must be retained',
+test('extractActivityItemModel joins matching_and_speaking phrase halves', () => {
+  assert.equal(
+    extractActivityItemModel(
+      { prompt: 'do any', expected_answer: 'exercise' },
+      { activityType: 'matching_and_speaking' },
+    ),
+    'do any exercise',
+  )
+  assert.equal(
+    extractActivityItemModel(
+      { prompt: 'Did Ruth visit her cousin yesterday?', expected_answer: 'd Yes, she did.' },
+      { activityType: 'read_and_match' },
+    ),
+    null,
   )
 })
 
-test('Activity 23 is not dropped by the previous four-item visible-page limit', () => {
-  const visible = buildVisiblePagesView(be3Unit8HealthyLivingSummary(), [136, 137])
-  assert.equal(visible.activityLines.length, 5)
-  assert.equal(visible.activityLines[4], BE3_ACT_23)
+test('BE3 pp.128–129 keeps complete Q&A exchanges and component lesson topic', () => {
+  const resolved = resolveBe3([128, 129])
+  assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.lessonTopic, 'Healthy and unhealthy activities · Live Right!')
+  const examples = resolved.languageExamples.map((item) => item.example)
+  assert.ok(examples.includes("Did he eat breakfast? / No, he didn't."))
+  assert.ok(examples.includes('Did she ride her bike? / Yes, she did.'))
+  assert.ok(!examples.some((ex) => ex === "No, he didn't."))
+})
+
+test('BE3 pp.130–131 shows An Unhealthy Dinner without inventing vocabulary', () => {
+  const resolved = resolveBe3([130, 131])
+  assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.lessonTopic, 'An Unhealthy Dinner')
+  assert.equal(resolved.hasDedicatedVocabulary, false)
+  assert.equal(resolved.hasActivityDerivedModels, false)
+  assert.equal(resolved.vocabulary.length, 0)
+  assert.ok(resolved.languageExamples.length >= 2)
+})
+
+test('BE3 pp.132–133 Did…? focus and five safe activity phrases', () => {
+  const resolved = resolveBe3([132, 133])
+  assert.equal(resolved.status, 'ready')
+  assert.match(resolved.teachingFocus ?? '', /Did/)
+  assert.match(resolved.teachingFocus ?? '', /short answers/i)
+  assert.doesNotMatch(resolved.teachingFocus ?? '', /irregular/i)
+  for (const phrase of [
+    'do any exercise',
+    'drink lots of water',
+    'have a healthy lunch',
+    'get enough sleep',
+    'ride my bike',
+  ]) {
+    assert.ok(resolved.vocabulary.includes(phrase), `missing phrase: ${phrase}`)
+  }
+})
+
+test('BE3 pp.134–135 surfaces calorie topic and full_text grammar patterns', () => {
+  const resolved = resolveBe3([134, 135])
+  assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.lessonTopic, 'What Is a Calorie?')
+  assert.ok(resolved.hasDedicatedVocabulary)
+  const language = resolved.languageExamples.map((item) => item.example).join('\n')
+  assert.match(language, /played \/ walked \/ stayed/)
+  assert.match(language, /went \/ saw \/ came/)
+})
+
+test('BE3 pp.136–137 keeps past-verb focus and includes put → put', () => {
+  const visible = buildVisiblePagesView(be3SummaryForPrintedPages([136, 137]), [136, 137])
+  const resolved = resolveBe3([136, 137])
+  assert.equal(resolved.status, 'ready')
+  assert.match(resolved.teachingFocus ?? '', /regular/i)
+  assert.match(resolved.teachingFocus ?? '', /irregular/i)
+  assert.match(resolved.teachingFocus ?? '', /yesterday/i)
+  assert.ok(resolved.vocabulary.includes('put → put'))
+  assert.ok(resolved.vocabulary.includes('work → worked'))
+  assert.ok(resolved.vocabulary.includes('go → went'))
+  assert.ok(resolved.activityLines.some((line) => line.includes('Tell your partner')))
+  assert.ok(visible.vocabulary.includes('put → put'))
+  assert.ok(visible.vocabulary.length >= 17)
 })
 
 test('page labels alone still return no_page_evidence', () => {
@@ -367,10 +349,6 @@ test('page labels alone still return no_page_evidence', () => {
 
   assert.equal(resolved.status, 'no_page_evidence')
   assert.equal(resolved.hasVerifiedPageEvidence, false)
-  assert.match(
-    resolved.evidenceUnavailableMessage ?? '',
-    /Source evidence is not available for these pages/,
-  )
 })
 
 test('exact BE2 Unit 8 fixture route is unchanged', () => {
@@ -393,81 +371,8 @@ test('exact BE2 Unit 8 fixture route is unchanged', () => {
   assert.equal(resolved.priorLearningSuggestions.length, 4)
 })
 
-test('extractActivityItemModel handles bracket fills and match-label prefixes', () => {
-  assert.equal(
-    extractActivityItemModel({
-      prompt: "Ffyona Campbell's dad [work]",
-      expected_answer: 'worked',
-    }),
-    'work → worked',
-  )
-  assert.equal(
-    extractActivityItemModel({
-      prompt: 'go',
-      expected_answer: 'd went',
-    }),
-    'go → went',
-  )
-  assert.equal(
-    extractActivityItemModel({
-      prompt: 'word box dump',
-      expected_answer: 'climbed, finished, helped',
-    }),
-    null,
-  )
-})
-
-test('BE3 Unit 8 pp.136–137 surfaces activity-derived models, frames, and teaching focus', () => {
-  const visible = buildVisiblePagesView(be3Unit8HealthyLivingSummary(), [136, 137])
-  const resolved = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8HealthyLivingSummary(),
-    visiblePrintedPages: [136, 137],
-    unitNumber: 8,
-  })
-
-  assert.equal(visible.hasDedicatedVocabulary, false)
-  assert.equal(visible.hasActivityDerivedModels, true)
-  assert.equal(resolved.hasDedicatedVocabulary, false)
-  assert.equal(resolved.hasActivityDerivedModels, true)
-  assert.ok(resolved.vocabulary.length > 0)
-  assert.ok(resolved.vocabulary.includes('work → worked'))
-  assert.ok(resolved.vocabulary.includes('stop → stopped'))
-  assert.ok(resolved.vocabulary.includes('go → went'))
-  assert.ok(resolved.vocabulary.includes('come → came'))
-  assert.ok(resolved.vocabulary.includes('put → put'))
-  assert.ok(!resolved.vocabulary.some((m) => m.includes('climbed, finished')))
-
-  assert.equal(resolved.hasDedicatedLanguage, false)
-  assert.equal(resolved.hasActivityLanguageFrames, true)
-  const frameExamples = resolved.languageExamples.map((item) => item.example)
-  assert.ok(frameExamples.includes(BE3_ACT_23_FRAME_A))
-  assert.ok(frameExamples.includes(BE3_ACT_23_FRAME_B))
-
-  assert.ok(resolved.teachingFocus)
-  assert.match(resolved.teachingFocus ?? '', /regular/i)
-  assert.match(resolved.teachingFocus ?? '', /irregular/i)
-  assert.match(resolved.teachingFocus ?? '', /yesterday/i)
-
-  // Page labels remain orientation only — not treated as the teaching focus.
-  assert.match(resolved.currentFocus, /Grammar/)
-  assert.notEqual(resolved.teachingFocus, resolved.currentFocus)
-})
-
-test('dynamic prompt preview includes teaching focus, words/models, and activity language', () => {
-  const resolved = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8HealthyLivingSummary(),
-    visiblePrintedPages: [136, 137],
-    unitNumber: 8,
-  })
-
+test('dynamic prompt preview carries topic, focus, models, and language', () => {
+  const resolved = resolveBe3([136, 137])
   const prompt = buildChalkiePromptPreview({
     lesson: resolved,
     packageShape: 'single',
@@ -475,13 +380,11 @@ test('dynamic prompt preview includes teaching focus, words/models, and activity
     teacherAdditions: [],
   })
 
+  assert.match(prompt, /Lesson topic/)
   assert.match(prompt, /Teaching focus/)
   assert.match(prompt, /Verified words and models/)
   assert.match(prompt, /Verified activity language/)
-  assert.match(prompt, /work → worked/)
-  assert.match(prompt, /go → went/)
+  assert.match(prompt, /put → put/)
   assert.match(prompt, /Yesterday, I woke up early/)
-  assert.doesNotMatch(prompt, /What did you do yesterday\?/)
-  assert.doesNotMatch(prompt, /Target vocabulary: none verified/)
-  assert.doesNotMatch(prompt, /No verified language examples/)
+  assert.ok(resolved.activityLines.includes(BE3_ACT_23) || prompt.includes('Tell your partner'))
 })

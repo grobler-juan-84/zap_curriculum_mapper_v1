@@ -4123,3 +4123,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 242
+
+**Summary:** Correction pass for manually reviewed BE3 Unit 8 spreads 128–137: verified lesson topic, intact `|`-separated Q&A exchanges, language `full_text` fallback, Did…? teaching focus without false irregular detection, `matching_and_speaking` phrase models, and words/models bound raised to 24 so `put → put` is retained. Canonical-slice regression tests added; BE2 U8 fixture unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieEvidence.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

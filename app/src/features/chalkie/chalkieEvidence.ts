@@ -34,18 +34,20 @@ export type UnitSummaryView = {
 
 export type VisiblePagesView = {
   pageLabels: string[]
+  /** Verified page heading / curriculum-component topic (not a teaching aim). */
+  lessonTopic: string | null
   /** Dedicated Phase 1 vocabulary rows linked to the visible pages. */
   dedicatedVocabulary: string[]
-  /** Conservative base→form models from verified activity items. */
+  /** Conservative base→form / phrase models from verified activity items. */
   activityDerivedModels: string[]
   /**
    * Teacher-facing words/models list: dedicated rows first, then activity-derived
    * models when useful. Not a claim that derived models are publisher vocab rows.
    */
   vocabulary: string[]
-  /** Dedicated language entity lines (prompt/response). */
+  /** Dedicated language entity lines (prompt/response or full_text). */
   dedicatedLanguageLines: string[]
-  /** Verified activity language_frame values (may be split on " / "). */
+  /** Verified activity language_frame values (pipe-separated exchanges preserved). */
   activityLanguageFrames: string[]
   /** Combined dedicated language + activity frames for display/prompt. */
   languageLines: string[]
@@ -58,6 +60,9 @@ export type VisiblePagesView = {
   hasActivityLanguageFrames: boolean
   emptyMessage: string | null
 }
+
+/** Modest display bound so a 17-model grammar spread is not truncated. */
+const WORDS_AND_MODELS_BOUND = 24
 
 function pageIdToPrinted(summary: BatchJsonSummary): Map<string, number> {
   const map = new Map<string, number>()
@@ -106,37 +111,97 @@ function extractBracketedBase(prompt: string): string | null {
   return match ? match[1].toLowerCase() : null
 }
 
+function looksLikeShortPhraseHalf(value: string): boolean {
+  const trimmed = value.trim()
+  if (!trimmed || trimmed.includes('?') || /[.!]/.test(trimmed)) return false
+  if (/^(yes|no)\b/i.test(trimmed)) return false
+  const words = trimmed.split(/\s+/).filter(Boolean)
+  return words.length >= 1 && words.length <= 4 && words.every((w) => /^[A-Za-z']+$/.test(w))
+}
+
+function isBaseToFormModel(model: string): boolean {
+  return /^\S+\s+→\s+\S+$/.test(model.trim())
+}
+
+function looksLikeIrregularBaseToForm(model: string): boolean {
+  if (!isBaseToFormModel(model)) return false
+  const [base, form] = model.split('→').map((part) => part.trim().toLowerCase())
+  if (!base || !form) return false
+  if (form === base) return true
+  if (form.endsWith('ed') || form.endsWith('ied') || form === `${base}d`) return false
+  return true
+}
+
 /**
- * Conservatively extract a base → form model from one verified activity item.
- * Skips multi-answer key dumps (comma lists) and items without a clear base cue.
+ * Conservatively extract a base → form or short phrase model from one verified item.
+ * Skips multi-answer key dumps, comprehension keys, and multiple-choice answers.
  */
-export function extractActivityItemModel(item: Record<string, unknown>): string | null {
+export function extractActivityItemModel(
+  item: Record<string, unknown>,
+  options?: { activityType?: string | null },
+): string | null {
   const prompt = asString(item.prompt)
   const rawAnswer = asString(item.expected_answer)
   if (!rawAnswer) return null
 
-  // Chart-completion buckets often store several answers — do not dump answer keys.
+  // Chart-completion buckets / multi-key dumps — do not dump answer keys.
   if (rawAnswer.includes(',')) return null
-
-  const form = primaryAnswerForm(rawAnswer)
-  if (!form || !looksLikeSingleWord(form)) return null
 
   if (prompt) {
     const bracketBase = extractBracketedBase(prompt)
     if (bracketBase) {
-      return `${bracketBase} → ${form.toLowerCase()}`
+      const form = primaryAnswerForm(rawAnswer)
+      if (form && looksLikeSingleWord(form)) {
+        return `${bracketBase} → ${form.toLowerCase()}`
+      }
     }
     const simple = prompt.trim()
     if (looksLikeSingleWord(simple)) {
-      return `${simple.toLowerCase()} → ${form.toLowerCase()}`
+      const form = primaryAnswerForm(rawAnswer)
+      if (form && looksLikeSingleWord(form)) {
+        return `${simple.toLowerCase()} → ${form.toLowerCase()}`
+      }
     }
+  }
+
+  // Phrase-half join for matching_and_speaking only (e.g. "do any" + "exercise").
+  const activityType = options?.activityType?.toLowerCase() ?? ''
+  if (
+    activityType === 'matching_and_speaking' &&
+    prompt &&
+    looksLikeShortPhraseHalf(prompt) &&
+    looksLikeShortPhraseHalf(rawAnswer)
+  ) {
+    const joined = `${prompt.trim()} ${rawAnswer.trim()}`.replace(/\s+/g, ' ').trim()
+    if (joined.split(/\s+/).length <= 6) return joined
   }
 
   return null
 }
 
-function splitLanguageFrames(frame: string): string[] {
-  return frame
+/**
+ * Split verified language_frame text into display units.
+ * `|` separates complete exchanges; `/` inside a Q&A exchange is preserved.
+ * Without `|`, `/` may separate independent statement models.
+ */
+export function splitLanguageFrames(frame: string): string[] {
+  const trimmed = frame.trim()
+  if (!trimmed) return []
+
+  if (trimmed.includes('|')) {
+    return trimmed
+      .split('|')
+      .map((part) => part.trim())
+      .filter(Boolean)
+  }
+
+  // Single Q&A (or multi-clause answer) with "? /" — keep intact.
+  if (/\?\s*\//.test(trimmed)) {
+    return [trimmed]
+  }
+
+  // Independent statement models separated by " / ".
+  return trimmed
     .split(/\s+\/\s+/)
     .map((part) => part.trim())
     .filter(Boolean)
@@ -200,36 +265,47 @@ export function deriveTeachingFocus(input: {
     .join(' ')
     .toLowerCase()
   const frameBlob = input.activityLanguageFrames.join(' ').toLowerCase()
-  const modelBlob = input.activityDerivedModels.join(' ').toLowerCase()
+
+  const hasDidQa =
+    /\bdid\b[^|]*\?/.test(frameBlob) ||
+    /\b(yes|no),?\s+(i|he|she|they|we)\s+did\b/.test(frameBlob) ||
+    /\bdidn'?t\b/.test(frameBlob) ||
+    /did\s+he\s*\.\.\.|did\s*\.\.\./i.test(componentBlob) ||
+    (/\bdid\b/.test(instructionBlob) &&
+      /ask and answer|short answers|make five questions|complete the dialog/.test(
+        instructionBlob,
+      ))
 
   const hasRegular =
-    /regular\s+past|past\s+simple|spelling/.test(noteBlob) ||
-    /chart_completion_spelling|spelling/.test(typeBlob) ||
-    /\[[a-z']+\]/.test(instructionBlob) ||
-    input.activityDerivedModels.some((m) => /ed$/.test(m.split('→')[1]?.trim() ?? ''))
+    /regular\s+past|past\s+simple verb spelling|spelling rules/.test(noteBlob) ||
+    /chart_completion_spelling/.test(typeBlob) ||
+    input.activityDerivedModels.some((m) => {
+      if (!isBaseToFormModel(m)) return false
+      const form = m.split('→')[1]?.trim().toLowerCase() ?? ''
+      return /ed$/.test(form) || /ied$/.test(form)
+    })
 
+  // Do NOT treat activity_type read_and_match alone as irregular-verb evidence.
   const hasIrregular =
     /irregular/.test(noteBlob) ||
     /irregular/.test(componentBlob) ||
-    /read_and_match/.test(typeBlob) ||
-    input.activityDerivedModels.some((m) => {
-      const [, form] = m.split('→').map((p) => p.trim())
-      const [base] = m.split('→').map((p) => p.trim())
-      return Boolean(base && form && form !== `${base}ed` && !form.endsWith('ed'))
-    }) ||
-    /\b(went|came|had|slept|fell|wrote|flew)\b/.test(modelBlob)
+    input.activityDerivedModels.some((m) => looksLikeIrregularBaseToForm(m))
 
   const hasYesterday =
     /\byesterday\b/.test(instructionBlob) ||
     /\byesterday\b/.test(frameBlob) ||
     /\byesterday\b/.test(noteBlob)
 
-  // Strong grammar signal from component title when past models exist.
   const grammarPastComponent =
     /grammar/.test(componentBlob) &&
     (hasRegular || hasIrregular || /\bcame\b|\bplayed\b|\bpast\b/.test(componentBlob))
 
-  if (!hasRegular && !hasIrregular && !hasYesterday && !grammarPastComponent) {
+  // Did…? Q&A practice is distinct from verb-form teaching.
+  if (hasDidQa && !hasIrregular && !hasRegular) {
+    return 'Ask and answer about past activities using Did…? and short answers.'
+  }
+
+  if (!hasRegular && !hasIrregular && !hasYesterday && !grammarPastComponent && !hasDidQa) {
     return null
   }
 
@@ -245,6 +321,9 @@ export function deriveTeachingFocus(input: {
   if (hasIrregular && hasYesterday) {
     return 'Use irregular past-tense verbs to talk about what happened yesterday.'
   }
+  if (hasDidQa) {
+    return 'Ask and answer about past activities using Did…? and short answers.'
+  }
   if (hasYesterday) {
     return 'Talk about what happened yesterday using the language on these pages.'
   }
@@ -255,6 +334,44 @@ export function deriveTeachingFocus(input: {
     return 'Practise irregular past-tense verb forms on these pages.'
   }
   return null
+}
+
+/** Verified page/component topic for orientation — not a teaching aim. */
+export function deriveLessonTopic(input: {
+  pages: Array<{ printedPage?: number | null; pageHeading?: string | null }>
+  visiblePrintedPages: number[]
+  components: Record<string, unknown>[]
+  rawPages: unknown[]
+}): string | null {
+  const componentTitles = [
+    ...new Set(
+      input.components
+        .map((c) => asString(c.title))
+        .filter((title): title is string => Boolean(title)),
+    ),
+  ]
+  if (componentTitles.length > 0) {
+    return componentTitles.join(' · ')
+  }
+
+  const visibleSet = new Set(input.visiblePrintedPages)
+  const headings: string[] = []
+  for (const raw of input.rawPages) {
+    const p = asRecord(raw)
+    const printed = asNumber(p.printed_page)
+    if (printed == null || !visibleSet.has(printed)) continue
+    const heading = asString(p.page_heading)
+    if (heading) headings.push(heading)
+  }
+  if (headings.length === 0) {
+    for (const page of input.pages) {
+      if (page.printedPage == null || !visibleSet.has(page.printedPage)) continue
+      const heading = page.pageHeading?.trim()
+      if (heading) headings.push(heading)
+    }
+  }
+  const uniqueHeadings = [...new Set(headings)]
+  return uniqueHeadings.length > 0 ? uniqueHeadings.join(' · ') : null
 }
 
 /** Concise Phase 1 unit context for teachers (no Phase 2 interpretation). */
@@ -314,6 +431,7 @@ export function buildVisiblePagesView(
 ): VisiblePagesView {
   const empty: VisiblePagesView = {
     pageLabels: [],
+    lessonTopic: null,
     dedicatedVocabulary: [],
     activityDerivedModels: [],
     vocabulary: [],
@@ -375,13 +493,21 @@ export function buildVisiblePagesView(
     if (!belongsToPrintedPages(pageId, printed, visibleSet, pageIdMap)) continue
     const q = asString(l.prompt)
     const a = asString(l.response)
-    if (q && a) dedicatedLanguageLines.push(`${q} → ${a}`)
+    const fullText = asString(l.full_text)
+    if (q && a) dedicatedLanguageLines.push(`${q} / ${a}`)
     else if (q) dedicatedLanguageLines.push(q)
     else if (a) dedicatedLanguageLines.push(a)
+    else if (fullText) dedicatedLanguageLines.push(fullText)
   }
 
   const visibleActivities = collectVisibleActivities(summary, visibleSet, pageIdMap)
   const visibleComponents = collectVisibleComponents(summary, visibleSet, pageIdMap)
+  const lessonTopic = deriveLessonTopic({
+    pages: summary.pages,
+    visiblePrintedPages,
+    components: visibleComponents,
+    rawPages: asArray(asRecord(summary.raw).pages),
+  })
 
   const activityLines: string[] = []
   const activityDerivedModels: string[] = []
@@ -399,8 +525,9 @@ export function buildVisiblePagesView(
       }
     }
 
+    const activityType = asString(a.activity_type) ?? asString(a.type)
     for (const rawItem of asArray(a.items)) {
-      const model = extractActivityItemModel(asRecord(rawItem))
+      const model = extractActivityItemModel(asRecord(rawItem), { activityType })
       if (model) activityDerivedModels.push(model)
     }
   }
@@ -452,12 +579,13 @@ export function buildVisiblePagesView(
 
   return {
     pageLabels: pageLabels.slice(0, 6),
-    dedicatedVocabulary: uniqueDedicatedVocab.slice(0, 16),
-    activityDerivedModels: uniqueDerivedModels.slice(0, 16),
-    vocabulary: vocabulary.slice(0, 16),
-    dedicatedLanguageLines: uniqueDedicatedLanguage.slice(0, 4),
-    activityLanguageFrames: uniqueFrames.slice(0, 6),
-    languageLines: languageLines.slice(0, 6),
+    lessonTopic,
+    dedicatedVocabulary: uniqueDedicatedVocab.slice(0, WORDS_AND_MODELS_BOUND),
+    activityDerivedModels: uniqueDerivedModels.slice(0, WORDS_AND_MODELS_BOUND),
+    vocabulary: vocabulary.slice(0, WORDS_AND_MODELS_BOUND),
+    dedicatedLanguageLines: uniqueDedicatedLanguage.slice(0, 8),
+    activityLanguageFrames: uniqueFrames.slice(0, 8),
+    languageLines: languageLines.slice(0, 8),
     // Bound of six keeps a two-page five-activity spread intact (e.g. BE3 U8 136–137).
     activityLines: activityLines.slice(0, 6),
     teachingFocus,

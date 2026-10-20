@@ -229,6 +229,9 @@ function buildDynamicSingleLessonPrompt(input: {
     lesson.unitContextNote != null
       ? ['', 'Unit context (do not treat as visible-page evidence):', lesson.unitContextNote]
       : []
+  const lessonTopicBlock = lesson.lessonTopic
+    ? ['Lesson topic (verified page/component title — not a teaching aim):', lesson.lessonTopic, '']
+    : []
   const teachingFocusBlock = lesson.teachingFocus
     ? [
         'Teaching focus (planning summary derived from verified evidence — not a publisher quotation):',
@@ -255,6 +258,7 @@ function buildDynamicSingleLessonPrompt(input: {
     'Visible page labels:',
     ...pageLabelLines,
     '',
+    ...lessonTopicBlock,
     ...teachingFocusBlock,
     ...wordsLines,
     '',

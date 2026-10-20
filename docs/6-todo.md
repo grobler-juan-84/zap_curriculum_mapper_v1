@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 241
+**Last updated:** Step 242
 
 
 
@@ -416,7 +416,9 @@
 
 - [x] **Code: activity-derived words/models + teaching focus** — Screen 1 / prompt show conservative item models, `language_frame`s, planning teaching focus; honest empty states; BE2 U8 fixture unchanged; focused tests.
 
-- [ ] Owner live-validate BE3 U8 Grammar pp. 136–137 Screen 1 + prompt preview (models, Act 23 frames, teaching focus); not Experiment 10 handoff parity.
+- [x] **Code: BE3 U8 128–137 correction pass** — lesson topic; Q&A `|` splits; `full_text` language; Did…? focus; phrase halves; models bound 24; regression tests from canonical slices.
+
+- [ ] Owner visual revalidation of BE3 U8 spreads pp. 128–129, 130–131, 132–133, 134–135, 136–137 in `/app/chalkie`.
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

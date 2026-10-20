@@ -335,6 +335,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                   <p>{lesson.unitLine}</p>
                   <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
+                  {lesson.lessonTopic ? (
+                    <p>
+                      <span className="font-medium text-slate-800">Lesson topic:</span>{' '}
+                      {lesson.lessonTopic}
+                    </p>
+                  ) : null}
                   <p>Page sections: {lesson.currentFocus}</p>
                 </div>
                 {lesson.teachingFocus ? (
@@ -809,6 +815,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                     <p>{lesson.unitLine}</p>
                     <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
+                    {lesson.lessonTopic ? (
+                      <p>
+                        <span className="font-medium text-slate-700">Lesson topic:</span>{' '}
+                        {lesson.lessonTopic}
+                      </p>
+                    ) : null}
                     <p>Page sections: {lesson.currentFocus}</p>
                     {lesson.teachingFocus ? (
                       <p>

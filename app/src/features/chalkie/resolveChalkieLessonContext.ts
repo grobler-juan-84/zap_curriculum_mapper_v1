@@ -44,6 +44,8 @@ export type ChalkieLessonContext = {
   unitPageRangeLabel: string | null
   /** Page-section labels for orientation (not a communicative aim). */
   currentFocus: string
+  /** Verified page heading / curriculum-component topic (not a teaching aim). */
+  lessonTopic: string | null
   /**
    * Planning summary derived from verified activity/component evidence.
    * Not a publisher quotation — show with planning-summary wording in UI/prompt.
@@ -76,6 +78,7 @@ export type ChalkieLessonContext = {
 
 function emptyEvidenceFlags() {
   return {
+    lessonTopic: null as string | null,
     teachingFocus: null as string | null,
     hasDedicatedVocabulary: false,
     hasActivityDerivedModels: false,
@@ -143,24 +146,23 @@ function languageExamplesFromVisibleView(input: {
 }): TeacherChoiceLanguageExample[] {
   const examples: TeacherChoiceLanguageExample[] = []
 
-  for (const line of input.dedicatedLanguageLines.slice(0, 4)) {
-    const arrow = line.indexOf(' → ')
-    if (arrow > 0) {
-      examples.push({
-        label: 'Exchange',
-        example: `${line.slice(0, arrow)} ${line.slice(arrow + 3)}`.replace(/\s+/g, ' ').trim(),
-      })
-    } else {
-      examples.push({ example: line })
-    }
+  for (const line of input.dedicatedLanguageLines.slice(0, 8)) {
+    // Preserve verified Q&A / pattern text; do not rewrite publisher wording.
+    examples.push({
+      label: line.includes('?') ? 'Exchange' : undefined,
+      example: line,
+    })
   }
 
-  for (const frame of input.activityLanguageFrames.slice(0, 6)) {
+  for (const frame of input.activityLanguageFrames.slice(0, 8)) {
     if (examples.some((item) => item.example === frame)) continue
-    examples.push({ label: 'Language frame', example: frame })
+    examples.push({
+      label: frame.includes('?') ? 'Exchange' : 'Language frame',
+      example: frame,
+    })
   }
 
-  return examples.slice(0, 6)
+  return examples.slice(0, 8)
 }
 
 export function resolveChalkieLessonContext(input: {
@@ -293,6 +295,7 @@ export function resolveChalkieLessonContext(input: {
       ...base,
       status: 'ready',
       currentFocus: BE2_U08_PROTOTYPE_FOCUS,
+      lessonTopic: null,
       teachingFocus: BE2_U08_PROTOTYPE_FOCUS,
       vocabulary: [...BE2_U08_VOCABULARY],
       hasDedicatedVocabulary: true,
@@ -363,8 +366,9 @@ export function resolveChalkieLessonContext(input: {
     ...base,
     status: 'ready',
     currentFocus: pageFocus,
+    lessonTopic: visibleView!.lessonTopic,
     teachingFocus: visibleView!.teachingFocus,
-    vocabulary: visibleView!.vocabulary.slice(0, 16),
+    vocabulary: visibleView!.vocabulary.slice(0, 24),
     hasDedicatedVocabulary: visibleView!.hasDedicatedVocabulary,
     hasActivityDerivedModels: visibleView!.hasActivityDerivedModels,
     languageExamples: languageExamplesFromVisibleView({
