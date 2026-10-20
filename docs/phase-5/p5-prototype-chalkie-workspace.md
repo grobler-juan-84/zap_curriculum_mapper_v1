@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.3  
+**Version:** 2.4  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -74,13 +74,14 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 | Visible pages | `ValidationPdfPane` → `onVisiblePrintedPagesChange` → workspace state | Same |
 | Current focus | Matching page labels from `summary.pages` in `buildVisiblePagesView` | `BE2_U08_PROTOTYPE_FOCUS` |
 | Unit-context note | Unit `theme` or derived `learningFocus` from `buildUnitSummaryView`; never page evidence | Full-unit range note only |
-| Vocabulary | Matching `raw.vocabulary` rows (fallback: summarized vocabulary rows linked by `pageId`) | `BE2_U08_VOCABULARY` |
-| Language | Matching `raw.language` rows | `BE2_U08_LANGUAGE` |
-| Clarification, page labels, activities | No clarification; labels and activities from matching Phase 1 JSON rows. Activity display text preference: `title` → `activity_title` → `instruction` (do not invent labels from prompts, answers, notes, or activity types when a verified instruction exists). Visible-page activity lines are bounded to six. | Curated BE2 U8 constants |
+| Words and models | Dedicated `vocabulary` rows when present; otherwise conservative activity-item models (bracketed base + form; simple base prompt + matched form; strip match-label prefixes like `d went`). Chart multi-answer dumps are skipped. UI label: **Current words and models**. | `BE2_U08_VOCABULARY` |
+| Language | Dedicated `language` rows when present; otherwise verified activity `language_frame` values (split on ` / `). Honest empty-state distinguishes missing dedicated rows vs missing frames. | `BE2_U08_LANGUAGE` |
+| Teaching focus | Deterministic planning summary from component/activity notes, types, frames, and models — labelled as derived, not a publisher quotation. Page section labels stay as orientation only. | Curated prototype focus string |
+| Clarification, page labels, activities | No clarification; labels and activities from matching Phase 1 JSON rows. Activity display text preference: `title` → `activity_title` → `instruction`. Visible-page activity lines are bounded to six. | Curated BE2 U8 constants |
 
 ### Regression case — BE3 Unit 8 Grammar pp. 136–137
 
-Canonical Student Book Unit 8 *Healthy Living* Grammar pages `bep3_sb_p136` / `bep3_sb_p137` carry verified Activities **19–23** with `instruction` text and typically **no** page-linked vocabulary or language rows. Before the activity `instruction` fallback, `hasStructuredEvidence` was false and Prepare Chalkie prompt showed “Source evidence is not available for these pages yet.” After the fix, that spread resolves as `ready` from the five verified instructions. This does **not** claim the assembled prompt matches the detailed Experiment 10 handoff — that comparison remains a separate step.
+Canonical Student Book Unit 8 *Healthy Living* Grammar pages `bep3_sb_p136` / `bep3_sb_p137` carry verified Activities **19–23** with typically **no** dedicated vocabulary/language rows. After the instruction fallback and activity-derived model/frame extraction, the spread resolves as `ready` and Screen 1 / prompt can show regular/irregular past models, Act 23 language frames, and a derived teaching-focus planning summary. This does **not** claim Experiment 10 handoff parity.
 
 ### Guards and consistency rules
 
@@ -164,7 +165,8 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 
 - Visible scope = current PDF spread only (typically two printed pages).
 - Summaries depend on Phase 1 JSON linkage (`printed_page`, `page_id`); sparse links may yield empty spread vocabulary even when activities resolve.
-- Activity labels prefer `title` → `activity_title` → `instruction`; spreads that are activity-only (e.g. BE3 U8 Grammar pp. 136–137) can now open the teacher-choice flow, but the prompt is still a generic dynamic single-lesson assembly — not Experiment 10. Gap analysis and smallest next slice: [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
+- Activity labels prefer `title` → `activity_title` → `instruction`; activity-rich spreads (e.g. BE3 U8 Grammar pp. 136–137) can open the teacher-choice flow with activity-derived words/models, language frames, and a derived teaching-focus planning summary. The prompt is still a generic dynamic single-lesson assembly — not Experiment 10. Gap analysis: [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
+- Act 20 chart category dumps (comma-separated answer lists) are intentionally not shown as word models — only safely shaped item pairs are extracted.
 - Local prompt preview remains deterministic and copyable; OpenAI is called only when the teacher presses **Generate Chalkie lesson draft**.
 - Generated drafts are session-local only (cleared on overlay close); nothing is persisted.
 - Two-lesson series uses Workbook pp. 104–105 as packaging source evidence; those pages may not be the PDF open in the workspace viewer.
@@ -202,3 +204,4 @@ After adding the key/model, restart the Vite dev server (`npm run dev` in `app/`
 | 2026-10-20 | Added the four-screen compilation sequence, proposed API-backed card-retrieval boundary, and evidence/provenance safeguards. |
 | 2026-10-20 | Activity evidence resolution: `title` → `activity_title` → `instruction`; visible activity bound raised to six; BE3 U8 pp. 136–137 regression noted. |
 | 2026-10-20 | Cross-linked generic detailed-handoff gap audit (Exp 10 vs current prompt; next coding slice defined). |
+| 2026-10-20 | Screen 1 / prompt: activity-derived words/models, language frames, teaching-focus planning summary; honest empty-state wording. |

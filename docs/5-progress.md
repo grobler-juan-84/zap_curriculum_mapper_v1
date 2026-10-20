@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 240
+**Last updated:** Step 241
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,20 +16,20 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Git consolidation: Chalkie Workspace merged on integration branch; **`main` fast-forwarded** to consolidated tip.
+- Chalkie Workspace: dynamic source-context binding, page-scope guard, activity `instruction` fallback, top-aligned prep modals.
 
-- **Teacher-choice flow** + dynamic source-context binding, page-scope guard, top-aligned prep modals, activity `instruction` fallback (BE3 U8 136–137 resolves Acts 19–23).
+- **Gap audit** recorded for generic detailed handoff vs Experiment 10.
 
-- **Gap audit recorded:** [`phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) — current generic prompt vs Experiment 10; smallest generic detailed-handoff slice defined (docs only).
+- **Activity-derived words/models + teaching focus** on Screen 1 and local prompt preview (dedicated vs activity-derived honesty; BE2 U8 fixture unchanged). No OpenAI / packaging / `[HM]` changes in that slice.
 
 ## In progress
 
-- Next coding slice from the gap audit: richer visible-page activity evidence (frames, dependencies, activity-specific models, honest empty-state wording) — not yet implemented.
+- Owner live validation of BE3 U8 pp. 136–137 richer Screen 1 / prompt evidence; OpenAI draft path keep/harden/park still owner-gated.
 
 ## Next
 
-- Implement the single next coding task from the gap audit (richer activity evidence into prompt/context).
-- Owner live-validate BE3 U8 136–137 route and OpenAI draft path keep/harden/park when ready.
+- Owner confirm BE3 U8 Grammar 136–137 shows models, Act 23 frames, and teaching focus (not “no vocabulary/language”).
+- Continue remaining gap-audit slices only when requested (allocation, outlines, generic two-lesson, audio surfacing).
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked
@@ -40,6 +40,6 @@
 
 ## Snapshot notes
 
-- Active Git branch: `main` (consolidated application).
+- Active Git branch: `main`.
 
-- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → scope check → overlay `1 of 4 · Current lesson` (when source is truthful).
+- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → overlay when source evidence resolves.

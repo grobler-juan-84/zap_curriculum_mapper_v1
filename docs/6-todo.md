@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 240
+**Last updated:** Step 241
 
 
 
@@ -414,9 +414,9 @@
 
 - [x] **Docs: generic detailed-handoff gap audit** — [`phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) vs Experiment 10; smallest next coding slice defined.
 
-- [ ] **Code: richer visible-page activity evidence** — frames, dependency notes/flags, activity-specific models; honest dedicated-vs-activity-specific empty wording; derived communicative aim; extend BE3 136–137 tests (per gap audit §7.6). No package/outline/`[HM]` work in that slice.
+- [x] **Code: activity-derived words/models + teaching focus** — Screen 1 / prompt show conservative item models, `language_frame`s, planning teaching focus; honest empty states; BE2 U8 fixture unchanged; focused tests.
 
-- [ ] Owner live-validate BE3 U8 Grammar pp. 136–137 Prepare Chalkie prompt (canonical) shows Acts 19–23; not Experiment 10 handoff parity.
+- [ ] Owner live-validate BE3 U8 Grammar pp. 136–137 Screen 1 + prompt preview (models, Act 23 frames, teaching focus); not Experiment 10 handoff parity.
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

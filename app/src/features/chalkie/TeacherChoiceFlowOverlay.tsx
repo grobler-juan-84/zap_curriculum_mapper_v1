@@ -335,29 +335,53 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                   <p>{lesson.unitLine}</p>
                   <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
-                  <p>Current focus: {lesson.currentFocus}</p>
+                  <p>Page sections: {lesson.currentFocus}</p>
                 </div>
+                {lesson.teachingFocus ? (
+                  <div className="space-y-1 text-sm leading-relaxed text-slate-600">
+                    <p>
+                      <span className="font-medium text-slate-800">Teaching focus:</span>{' '}
+                      {lesson.teachingFocus}
+                    </p>
+                    <p className="text-slate-500">
+                      Planning summary derived from verified evidence — not a publisher quotation.
+                    </p>
+                  </div>
+                ) : null}
                 {lesson.unitContextNote ? (
                   <p className="text-sm leading-relaxed text-slate-500">{lesson.unitContextNote}</p>
                 ) : null}
               </div>
 
-              <section className="space-y-2.5" aria-label="Current vocabulary">
-                <h3 className="text-sm font-medium text-slate-800">Current vocabulary</h3>
+              <section className="space-y-2.5" aria-label="Current words and models">
+                <h3 className="text-sm font-medium text-slate-800">Current words and models</h3>
                 {lesson.vocabulary.length > 0 ? (
-                  <ul className="flex flex-wrap gap-2">
-                    {lesson.vocabulary.map((term) => (
-                      <li
-                        key={term}
-                        className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
-                      >
-                        {term}
-                      </li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul className="flex flex-wrap gap-2">
+                      {lesson.vocabulary.map((term) => (
+                        <li
+                          key={term}
+                          className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
+                        >
+                          {term}
+                        </li>
+                      ))}
+                    </ul>
+                    {lesson.hasActivityDerivedModels && !lesson.hasDedicatedVocabulary ? (
+                      <p className="text-sm text-slate-500">
+                        From verified activity items (not dedicated vocabulary rows).
+                      </p>
+                    ) : null}
+                    {lesson.hasDedicatedVocabulary && lesson.hasActivityDerivedModels ? (
+                      <p className="text-sm text-slate-500">
+                        Includes dedicated vocabulary rows and activity-derived models.
+                      </p>
+                    ) : null}
+                  </>
                 ) : (
                   <p className="text-sm text-slate-500">
-                    No vocabulary evidence is available for these pages yet.
+                    No dedicated vocabulary rows or safely extractable activity-derived models are
+                    available for these pages yet.
                   </p>
                 )}
               </section>
@@ -365,23 +389,32 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               <section className="space-y-2.5" aria-label="Current language">
                 <h3 className="text-sm font-medium text-slate-800">Current language</h3>
                 {lesson.languageExamples.length > 0 ? (
-                  <ul className="space-y-2 text-sm leading-relaxed text-slate-700">
-                    {lesson.languageExamples.map((item) => (
-                      <li key={`${item.label ?? ''}:${item.example}`}>
-                        {item.label ? (
-                          <>
-                            <span className="font-medium text-slate-800">{item.label}:</span>{' '}
-                            <span>{item.example}</span>
-                          </>
-                        ) : (
-                          item.example
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul className="space-y-2 text-sm leading-relaxed text-slate-700">
+                      {lesson.languageExamples.map((item) => (
+                        <li key={`${item.label ?? ''}:${item.example}`}>
+                          {item.label ? (
+                            <>
+                              <span className="font-medium text-slate-800">{item.label}:</span>{' '}
+                              <span>{item.example}</span>
+                            </>
+                          ) : (
+                            item.example
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                    {lesson.hasActivityLanguageFrames && !lesson.hasDedicatedLanguage ? (
+                      <p className="text-sm text-slate-500">
+                        No separate language entity is linked; verified activity language frames are
+                        shown.
+                      </p>
+                    ) : null}
+                  </>
                 ) : (
                   <p className="text-sm text-slate-500">
-                    No language evidence is available for these pages yet.
+                    No dedicated language rows or verified activity language frames are available for
+                    these pages yet.
                   </p>
                 )}
                 {lesson.clarification ? (
@@ -776,11 +809,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                     <p>{lesson.unitLine}</p>
                     <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
-                    <p>Current focus: {lesson.currentFocus}</p>
+                    <p>Page sections: {lesson.currentFocus}</p>
+                    {lesson.teachingFocus ? (
+                      <p>
+                        <span className="font-medium text-slate-700">Teaching focus:</span>{' '}
+                        {lesson.teachingFocus}
+                      </p>
+                    ) : null}
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-slate-800">Current vocabulary</h4>
+                    <h4 className="text-sm font-medium text-slate-800">Current words and models</h4>
                     {lesson.vocabulary.length > 0 ? (
                       <ul className="flex flex-wrap gap-2">
                         {lesson.vocabulary.map((term) => (
@@ -793,7 +832,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-sm text-slate-500">No vocabulary listed for this lesson.</p>
+                      <p className="text-sm text-slate-500">
+                        No dedicated vocabulary rows or activity-derived models listed for this
+                        lesson.
+                      </p>
                     )}
                   </div>
 
@@ -816,7 +858,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       </ul>
                     ) : (
                       <p className="text-sm text-slate-500">
-                        No current language listed for this lesson.
+                        No dedicated language rows or activity language frames listed for this
+                        lesson.
                       </p>
                     )}
                     {lesson.clarification ? (

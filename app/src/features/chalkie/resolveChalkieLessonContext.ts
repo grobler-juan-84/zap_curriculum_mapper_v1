@@ -42,9 +42,20 @@ export type ChalkieLessonContext = {
   unitPrintedPageStart: number | null
   unitPrintedPageEnd: number | null
   unitPageRangeLabel: string | null
+  /** Page-section labels for orientation (not a communicative aim). */
   currentFocus: string
+  /**
+   * Planning summary derived from verified activity/component evidence.
+   * Not a publisher quotation — show with planning-summary wording in UI/prompt.
+   */
+  teachingFocus: string | null
+  /** Dedicated vocab rows and/or activity-derived models for teacher display. */
   vocabulary: string[]
+  hasDedicatedVocabulary: boolean
+  hasActivityDerivedModels: boolean
   languageExamples: TeacherChoiceLanguageExample[]
+  hasDedicatedLanguage: boolean
+  hasActivityLanguageFrames: boolean
   clarification: string | null
   activityLines: string[]
   pageLabels: string[]
@@ -61,6 +72,16 @@ export type ChalkieLessonContext = {
   evidenceUnavailableMessage: string | null
   /** Optional unit-level note; never presented as visible-page evidence. */
   unitContextNote: string | null
+}
+
+function emptyEvidenceFlags() {
+  return {
+    teachingFocus: null as string | null,
+    hasDedicatedVocabulary: false,
+    hasActivityDerivedModels: false,
+    hasDedicatedLanguage: false,
+    hasActivityLanguageFrames: false,
+  }
 }
 
 function formatPageRange(pages: number[]): string {
@@ -116,17 +137,30 @@ function buildGenericSingleTitle(input: {
   return `${input.bookLabel} · ${unitPart} · ${input.visiblePageRangeLabel}`
 }
 
-function languageFromVisibleLines(lines: string[]): TeacherChoiceLanguageExample[] {
-  return lines.slice(0, 4).map((example) => {
-    const arrow = example.indexOf(' → ')
+function languageExamplesFromVisibleView(input: {
+  dedicatedLanguageLines: string[]
+  activityLanguageFrames: string[]
+}): TeacherChoiceLanguageExample[] {
+  const examples: TeacherChoiceLanguageExample[] = []
+
+  for (const line of input.dedicatedLanguageLines.slice(0, 4)) {
+    const arrow = line.indexOf(' → ')
     if (arrow > 0) {
-      return {
+      examples.push({
         label: 'Exchange',
-        example: `${example.slice(0, arrow)} ${example.slice(arrow + 3)}`.replace(/\s+/g, ' ').trim(),
-      }
+        example: `${line.slice(0, arrow)} ${line.slice(arrow + 3)}`.replace(/\s+/g, ' ').trim(),
+      })
+    } else {
+      examples.push({ example: line })
     }
-    return { example }
-  })
+  }
+
+  for (const frame of input.activityLanguageFrames.slice(0, 6)) {
+    if (examples.some((item) => item.example === frame)) continue
+    examples.push({ label: 'Language frame', example: frame })
+  }
+
+  return examples.slice(0, 6)
 }
 
 export function resolveChalkieLessonContext(input: {
@@ -175,6 +209,7 @@ export function resolveChalkieLessonContext(input: {
   if (sortedVisible.length === 0) {
     return {
       ...base,
+      ...emptyEvidenceFlags(),
       status: 'no_visible_pages',
       currentFocus: '',
       vocabulary: [],
@@ -198,6 +233,7 @@ export function resolveChalkieLessonContext(input: {
   if (unitPrintedPageStart == null || unitPrintedPageEnd == null) {
     return {
       ...base,
+      ...emptyEvidenceFlags(),
       status: 'no_unit_range',
       currentFocus: '',
       vocabulary: [],
@@ -229,6 +265,7 @@ export function resolveChalkieLessonContext(input: {
       unitNumber != null ? `${bookLabel} Unit ${unitNumber}` : `${bookLabel} this unit`
     return {
       ...base,
+      ...emptyEvidenceFlags(),
       status: 'out_of_unit',
       currentFocus: '',
       vocabulary: [],
@@ -256,8 +293,13 @@ export function resolveChalkieLessonContext(input: {
       ...base,
       status: 'ready',
       currentFocus: BE2_U08_PROTOTYPE_FOCUS,
+      teachingFocus: BE2_U08_PROTOTYPE_FOCUS,
       vocabulary: [...BE2_U08_VOCABULARY],
+      hasDedicatedVocabulary: true,
+      hasActivityDerivedModels: false,
       languageExamples: [...BE2_U08_LANGUAGE],
+      hasDedicatedLanguage: true,
+      hasActivityLanguageFrames: false,
       clarification: BE2_U08_CLARIFICATION,
       activityLines: [...BE2_U08_PROTOTYPE_ACTIVITIES],
       pageLabels: [...BE2_U08_PROTOTYPE_PAGE_LABELS],
@@ -291,6 +333,7 @@ export function resolveChalkieLessonContext(input: {
   if (!hasStructuredEvidence) {
     return {
       ...base,
+      ...emptyEvidenceFlags(),
       status: 'no_page_evidence',
       currentFocus: '',
       vocabulary: [],
@@ -320,8 +363,16 @@ export function resolveChalkieLessonContext(input: {
     ...base,
     status: 'ready',
     currentFocus: pageFocus,
+    teachingFocus: visibleView!.teachingFocus,
     vocabulary: visibleView!.vocabulary.slice(0, 16),
-    languageExamples: languageFromVisibleLines(visibleView!.languageLines),
+    hasDedicatedVocabulary: visibleView!.hasDedicatedVocabulary,
+    hasActivityDerivedModels: visibleView!.hasActivityDerivedModels,
+    languageExamples: languageExamplesFromVisibleView({
+      dedicatedLanguageLines: visibleView!.dedicatedLanguageLines,
+      activityLanguageFrames: visibleView!.activityLanguageFrames,
+    }),
+    hasDedicatedLanguage: visibleView!.hasDedicatedLanguage,
+    hasActivityLanguageFrames: visibleView!.hasActivityLanguageFrames,
     clarification: null,
     activityLines: visibleView!.activityLines.slice(0, 6),
     pageLabels: visibleView!.pageLabels.slice(0, 6),

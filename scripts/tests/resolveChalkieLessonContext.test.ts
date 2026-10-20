@@ -5,7 +5,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { buildVisiblePagesView } from '../../app/src/features/chalkie/chalkieEvidence.ts'
+import {
+  buildVisiblePagesView,
+  extractActivityItemModel,
+} from '../../app/src/features/chalkie/chalkieEvidence.ts'
+import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
 import {
   BE2_U08_PROTOTYPE_FOCUS,
@@ -20,6 +24,9 @@ const BE3_ACT_20 =
 const BE3_ACT_21 = 'Read and complete.'
 const BE3_ACT_22 = 'Read and match.'
 const BE3_ACT_23 = 'Tell your partner about what you did yesterday.'
+const BE3_ACT_23_FRAME_A = 'Yesterday, I woke up early and walked to school.'
+const BE3_ACT_23_FRAME_B =
+  'Yesterday, I went to the park after school. I played soccer.'
 
 function bookStub(overrides: Partial<Book> & Pick<Book, 'catalogBookId' | 'title'>): Book {
   return {
@@ -68,6 +75,15 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         section_type: 'grammar',
       },
     ],
+    curriculum_components: [
+      {
+        component_id: 'bep3_sb_comp_08_06',
+        page_id: 'bep3_sb_p136',
+        component_type: 'grammar',
+        source_label: 'Grammar',
+        title: 'grammar (They came, and we played.)',
+      },
+    ],
     vocabulary: [],
     language: [],
     activities: [
@@ -77,7 +93,8 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         printed_page: 136,
         activity_number: 19,
         instruction: BE3_ACT_19,
-        activity_type: 'listen_read',
+        activity_type: 'listen_and_read_dialogue',
+        source_dependency_note: 'Audio track 159',
       },
       {
         activity_id: 'bep3_sb_act_20',
@@ -85,6 +102,22 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         printed_page: 136,
         activity_number: 20,
         instruction: BE3_ACT_20,
+        activity_type: 'chart_completion_spelling',
+        notes:
+          'Classification of regular past simple verb spelling rules (-ed, -ied, -d, double consonant + -ed)',
+        items: [
+          {
+            item_number: 'started',
+            prompt:
+              'bake, carry, change, climb, cry, drop, exercise, finish, help, join, love, tip, try, worry',
+            expected_answer: 'climbed, finished, helped, joined',
+          },
+          {
+            item_number: 'stopped',
+            prompt: null,
+            expected_answer: 'dropped, tipped',
+          },
+        ],
       },
       {
         activity_id: 'bep3_sb_act_21',
@@ -92,6 +125,29 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         printed_page: 137,
         activity_number: 21,
         instruction: BE3_ACT_21,
+        activity_type: 'read_and_complete_text',
+        items: [
+          {
+            item_number: '1.1',
+            prompt: "Ffyona Campbell's dad [work]",
+            expected_answer: 'worked',
+          },
+          {
+            item_number: '1.2',
+            prompt: 'she [move] to a new house',
+            expected_answer: 'moved',
+          },
+          {
+            item_number: '2.7',
+            prompt: 'Okan Kaya [play] the longest video game marathon',
+            expected_answer: 'played',
+          },
+          {
+            item_number: '2.9',
+            prompt: 'He only [stop] the game after seven days',
+            expected_answer: 'stopped',
+          },
+        ],
       },
       {
         activity_id: 'bep3_sb_act_22',
@@ -99,6 +155,18 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         printed_page: 137,
         activity_number: 22,
         instruction: BE3_ACT_22,
+        activity_type: 'read_and_match',
+        notes: 'Matching present base verbs to irregular past forms',
+        items: [
+          { item_number: '1', prompt: 'go', expected_answer: 'd went' },
+          { item_number: '2', prompt: 'come', expected_answer: 'f came' },
+          { item_number: '3', prompt: 'have', expected_answer: 'e had' },
+          { item_number: '4', prompt: 'sleep', expected_answer: 'b slept' },
+          { item_number: '5', prompt: 'fall', expected_answer: 'h fell' },
+          { item_number: '6', prompt: 'write', expected_answer: 'a wrote' },
+          { item_number: '7', prompt: 'fly', expected_answer: 'g flew' },
+          { item_number: '8', prompt: 'put', expected_answer: 'c put' },
+        ],
       },
       {
         activity_id: 'bep3_sb_act_23',
@@ -106,6 +174,8 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
         printed_page: 137,
         activity_number: 23,
         instruction: BE3_ACT_23,
+        activity_type: 'pair_speaking',
+        language_frame: `${BE3_ACT_23_FRAME_A} / ${BE3_ACT_23_FRAME_B}`,
       },
     ],
   }
@@ -124,10 +194,8 @@ function be3Unit8HealthyLivingSummary(): BatchJsonSummary {
     ],
     vocabulary: [],
     language: [],
-    // Summarized titles empty until validationService instruction fallback runs;
-    // visible-page resolution must still read instruction from raw.
     activities: [
-      { pageId: 'bep3_sb_p136', activityType: 'listen_read' },
+      { pageId: 'bep3_sb_p136', activityType: 'listen_and_read_dialogue' },
       { pageId: 'bep3_sb_p136' },
       { pageId: 'bep3_sb_p137' },
       { pageId: 'bep3_sb_p137' },
@@ -323,4 +391,97 @@ test('exact BE2 Unit 8 fixture route is unchanged', () => {
   assert.equal(resolved.currentFocus, BE2_U08_PROTOTYPE_FOCUS)
   assert.deepEqual(resolved.vocabulary, [...BE2_U08_VOCABULARY])
   assert.equal(resolved.priorLearningSuggestions.length, 4)
+})
+
+test('extractActivityItemModel handles bracket fills and match-label prefixes', () => {
+  assert.equal(
+    extractActivityItemModel({
+      prompt: "Ffyona Campbell's dad [work]",
+      expected_answer: 'worked',
+    }),
+    'work → worked',
+  )
+  assert.equal(
+    extractActivityItemModel({
+      prompt: 'go',
+      expected_answer: 'd went',
+    }),
+    'go → went',
+  )
+  assert.equal(
+    extractActivityItemModel({
+      prompt: 'word box dump',
+      expected_answer: 'climbed, finished, helped',
+    }),
+    null,
+  )
+})
+
+test('BE3 Unit 8 pp.136–137 surfaces activity-derived models, frames, and teaching focus', () => {
+  const visible = buildVisiblePagesView(be3Unit8HealthyLivingSummary(), [136, 137])
+  const resolved = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8HealthyLivingSummary(),
+    visiblePrintedPages: [136, 137],
+    unitNumber: 8,
+  })
+
+  assert.equal(visible.hasDedicatedVocabulary, false)
+  assert.equal(visible.hasActivityDerivedModels, true)
+  assert.equal(resolved.hasDedicatedVocabulary, false)
+  assert.equal(resolved.hasActivityDerivedModels, true)
+  assert.ok(resolved.vocabulary.length > 0)
+  assert.ok(resolved.vocabulary.includes('work → worked'))
+  assert.ok(resolved.vocabulary.includes('stop → stopped'))
+  assert.ok(resolved.vocabulary.includes('go → went'))
+  assert.ok(resolved.vocabulary.includes('come → came'))
+  assert.ok(resolved.vocabulary.includes('put → put'))
+  assert.ok(!resolved.vocabulary.some((m) => m.includes('climbed, finished')))
+
+  assert.equal(resolved.hasDedicatedLanguage, false)
+  assert.equal(resolved.hasActivityLanguageFrames, true)
+  const frameExamples = resolved.languageExamples.map((item) => item.example)
+  assert.ok(frameExamples.includes(BE3_ACT_23_FRAME_A))
+  assert.ok(frameExamples.includes(BE3_ACT_23_FRAME_B))
+
+  assert.ok(resolved.teachingFocus)
+  assert.match(resolved.teachingFocus ?? '', /regular/i)
+  assert.match(resolved.teachingFocus ?? '', /irregular/i)
+  assert.match(resolved.teachingFocus ?? '', /yesterday/i)
+
+  // Page labels remain orientation only — not treated as the teaching focus.
+  assert.match(resolved.currentFocus, /Grammar/)
+  assert.notEqual(resolved.teachingFocus, resolved.currentFocus)
+})
+
+test('dynamic prompt preview includes teaching focus, words/models, and activity language', () => {
+  const resolved = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8HealthyLivingSummary(),
+    visiblePrintedPages: [136, 137],
+    unitNumber: 8,
+  })
+
+  const prompt = buildChalkiePromptPreview({
+    lesson: resolved,
+    packageShape: 'single',
+    selectedSuggestions: [],
+    teacherAdditions: [],
+  })
+
+  assert.match(prompt, /Teaching focus/)
+  assert.match(prompt, /Verified words and models/)
+  assert.match(prompt, /Verified activity language/)
+  assert.match(prompt, /work → worked/)
+  assert.match(prompt, /go → went/)
+  assert.match(prompt, /Yesterday, I woke up early/)
+  assert.doesNotMatch(prompt, /What did you do yesterday\?/)
+  assert.doesNotMatch(prompt, /Target vocabulary: none verified/)
+  assert.doesNotMatch(prompt, /No verified language examples/)
 })

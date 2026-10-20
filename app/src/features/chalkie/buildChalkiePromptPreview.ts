@@ -191,16 +191,32 @@ function buildDynamicSingleLessonPrompt(input: {
   const { lesson } = input
   const priorLines = buildPriorLearningBlock(input)
   const pageList = lesson.visiblePrintedPages.join(', ')
-  const vocabLine =
+  const wordsHeading =
+    lesson.hasDedicatedVocabulary && !lesson.hasActivityDerivedModels
+      ? 'Verified words and models (dedicated vocabulary rows):'
+      : lesson.hasActivityDerivedModels && !lesson.hasDedicatedVocabulary
+        ? 'Verified words and models (from activity items; not dedicated vocabulary rows):'
+        : lesson.vocabulary.length > 0
+          ? 'Verified words and models:'
+          : 'Verified words and models:'
+  const wordsLines =
     lesson.vocabulary.length > 0
-      ? `Target vocabulary (visible pages): ${lesson.vocabulary.join(', ')}.`
-      : 'Target vocabulary: none verified for these visible pages.'
+      ? [`${wordsHeading} ${lesson.vocabulary.join(', ')}.`]
+      : [
+          'Verified words and models: none — no dedicated vocabulary rows and no safely extractable activity-item models for these pages.',
+        ]
   const languageLines =
     lesson.languageExamples.length > 0
       ? lesson.languageExamples.map((item) =>
           item.label ? `- ${item.label}: ${item.example}` : `- ${item.example}`,
         )
-      : ['- No verified language examples for these visible pages.']
+      : [
+          '- No dedicated language rows or verified activity language frames for these pages.',
+        ]
+  const languageHeading =
+    lesson.hasActivityLanguageFrames && !lesson.hasDedicatedLanguage
+      ? 'Verified activity language:'
+      : 'Verified activity language:'
   const activityLines =
     lesson.activityLines.length > 0
       ? lesson.activityLines.map((line) => `- ${line}`)
@@ -213,6 +229,13 @@ function buildDynamicSingleLessonPrompt(input: {
     lesson.unitContextNote != null
       ? ['', 'Unit context (do not treat as visible-page evidence):', lesson.unitContextNote]
       : []
+  const teachingFocusBlock = lesson.teachingFocus
+    ? [
+        'Teaching focus (planning summary derived from verified evidence — not a publisher quotation):',
+        lesson.teachingFocus,
+        '',
+      ]
+    : []
 
   return [
     `Create a short, picture-led slide lesson to SUPPORT ${lesson.bookLabel} ${lesson.unitLine}, printed pages ${pageList} ONLY.`,
@@ -232,18 +255,15 @@ function buildDynamicSingleLessonPrompt(input: {
     'Visible page labels:',
     ...pageLabelLines,
     '',
-    vocabLine,
+    ...teachingFocusBlock,
+    ...wordsLines,
     '',
-    'Language evidence:',
+    languageHeading,
     ...languageLines,
     '',
     'Activity evidence:',
     ...activityLines,
     ...unitContext,
-    '',
-    'Communicative aim:',
-    lesson.currentFocus ||
-      'Students can work with the verified language and vocabulary on the listed pages.',
     '',
     'B. TEACHER-SELECTED PRIOR LEARNING',
     '',
@@ -265,6 +285,7 @@ function buildDynamicSingleLessonPrompt(input: {
     '- Do not invent publisher audio scripts or unknown exercise items.',
     '- Do not claim teacher-added language is publisher evidence.',
     '- Do not present unit-level context as if it were evidence from the visible pages.',
+    '- Do not treat the teaching-focus planning summary as a publisher quotation.',
   ].join('\n')
 }
 

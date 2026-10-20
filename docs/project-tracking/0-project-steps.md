@@ -4104,3 +4104,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 241
+
+**Summary:** Surfaced verified activity-derived words/models, language frames, and a deterministic teaching-focus planning summary on Chalkie Screen 1 and the local prompt preview. Renamed the vocab label to “Current words and models,” used honest dedicated-vs-activity empty-state wording, skipped chart answer-key dumps, and left the BE2 U8 fixture route unchanged. No OpenAI, packaging, outlines, or `[HM]` work.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieEvidence.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
