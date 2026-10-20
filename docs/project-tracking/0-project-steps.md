@@ -4213,3 +4213,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 247
+
+**Summary:** Added a deterministic local concise teacher-controlled outline on the final Chalkie handoff, separate from the detailed evidence prompt. Outline follows verified visible-page activities in page/number order, optional `[PRIOR]` retrieval when selected, audio note only for verified audio-dependent activities, and a `[SUPPLEMENTARY]` close; own Copy outline action. No API; detailed prompt unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/buildChalkieConciseOutline.ts` (created)
+- `app/src/features/chalkie/chalkieEvidence.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildChalkieConciseOutline.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

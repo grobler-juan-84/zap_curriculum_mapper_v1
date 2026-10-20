@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 246
+**Last updated:** Step 247
 
 
 
@@ -426,7 +426,9 @@
 
 - [x] **UI: merge teacher-choice Steps 2+3** — prior-learning suggestions + custom language on one screen; 3-step flow; Back preserves state; prompt preview remains confirmation.
 
-- [ ] Owner smoke-check of 3-step teacher-choice flow (BE3 U8 pp.132–133 + BE2 U8 fixture).
+- [x] **Handoff: concise teacher-controlled outline** — local activity-order outline with `[PRIOR]` / `[SB]` / `[SUPPLEMENTARY]`; separate Copy outline; detailed prompt unchanged.
+
+- [ ] Owner smoke-check of BE3 U8 pp.132–133 handoff (detailed prompt + concise outline with p.128 prior).
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

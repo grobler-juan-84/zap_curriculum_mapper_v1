@@ -32,6 +32,13 @@ export type UnitSummaryView = {
   activityPreview: string[]
 }
 
+export type ChalkieOutlineActivity = {
+  activityNumber: number | null
+  instruction: string
+  audioDependency: boolean
+  printedPage: number
+}
+
 export type VisiblePagesView = {
   pageLabels: string[]
   /** Verified page heading / curriculum-component topic (not a teaching aim). */
@@ -52,6 +59,11 @@ export type VisiblePagesView = {
   /** Combined dedicated language + activity frames for display/prompt. */
   languageLines: string[]
   activityLines: string[]
+  /**
+   * Verified visible-page activities for the concise outline (page + number order).
+   * Not shown on Screen 1.
+   */
+  outlineActivities: ChalkieOutlineActivity[]
   /** Planning summary derived from verified metadata — not a publisher quotation. */
   teachingFocus: string | null
   hasDedicatedVocabulary: boolean
@@ -539,6 +551,7 @@ export function buildVisiblePagesView(
     activityLanguageFrames: [],
     languageLines: [],
     activityLines: [],
+    outlineActivities: [],
     teachingFocus: null,
     hasDedicatedVocabulary: false,
     hasActivityDerivedModels: false,
@@ -612,11 +625,34 @@ export function buildVisiblePagesView(
   const activityLines: string[] = []
   const activityDerivedModels: string[] = []
   const activityLanguageFrames: string[] = []
+  const outlineActivities: ChalkieOutlineActivity[] = []
 
   for (const a of visibleActivities) {
     const title =
       asString(a.title) ?? asString(a.activity_title) ?? asString(a.instruction)
     if (title) activityLines.push(title)
+
+    const instruction =
+      asString(a.instruction) ?? asString(a.title) ?? asString(a.activity_title)
+    const pageId = asString(a.page_id)
+    const printed =
+      asNumber(a.printed_page) ??
+      (pageId && pageIdMap.has(pageId) ? pageIdMap.get(pageId)! : null)
+    if (instruction && printed != null) {
+      const rawNumber = a.activity_number ?? a.number
+      const activityNumber =
+        typeof rawNumber === 'number' && Number.isFinite(rawNumber)
+          ? rawNumber
+          : typeof rawNumber === 'string' && rawNumber.trim() && !Number.isNaN(Number(rawNumber))
+            ? Number(rawNumber)
+            : null
+      outlineActivities.push({
+        activityNumber,
+        instruction,
+        audioDependency: a.audio_dependency === true,
+        printedPage: printed,
+      })
+    }
 
     const frame = asString(a.language_frame)
     if (frame) {
@@ -708,6 +744,13 @@ export function buildVisiblePagesView(
     languageLines.length > 0 ||
     activityLines.length > 0
 
+  const sortedOutlineActivities = [...outlineActivities].sort((a, b) => {
+    if (a.printedPage !== b.printedPage) return a.printedPage - b.printedPage
+    const an = a.activityNumber ?? Number.POSITIVE_INFINITY
+    const bn = b.activityNumber ?? Number.POSITIVE_INFINITY
+    return an - bn
+  })
+
   return {
     pageLabels: pageLabels.slice(0, 6),
     lessonTopic,
@@ -719,6 +762,7 @@ export function buildVisiblePagesView(
     languageLines: languageLines.slice(0, 8),
     // Bound of six keeps a two-page five-activity spread intact (e.g. BE3 U8 136–137).
     activityLines: activityLines.slice(0, 6),
+    outlineActivities: sortedOutlineActivities,
     teachingFocus,
     hasDedicatedVocabulary,
     hasActivityDerivedModels,

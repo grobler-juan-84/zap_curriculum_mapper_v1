@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 246
+**Last updated:** Step 247
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,17 +16,17 @@
 
 - **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
 
-- Chalkie Workspace: dynamic source-context binding, page-scope guard, teaching-focus lanes, same-unit `[PRIOR]` vocabulary suggestions.
+- Chalkie Workspace: dynamic source-context binding, teaching-focus lanes, same-unit `[PRIOR]` vocabulary, 3-step teacher-choice flow.
 
-- **Teacher-choice flow simplified to 3 steps:** Current lesson → Prior learning (suggestions + custom language) → Lesson inputs / prompt preview. Separate “What do you choose?” screen removed; Back preserves selections.
+- **Concise teacher-controlled outline** on the final handoff: local deterministic activity sequence (optional `[PRIOR]`, verified `[SB]` activities in order, `[SUPPLEMENTARY]` close) with its own Copy outline action; detailed prompt unchanged.
 
 ## In progress
 
-- Owner smoke-check of the shortened teacher-choice flow on BE3 U8 pp.132–133 and BE2 U8 fixture.
+- Owner smoke-check of detailed prompt + concise outline on BE3 U8 pp.132–133.
 
 ## Next
 
-- Owner confirm the merged prior-learning screen and prompt preview still feel classroom-friendly.
+- Owner confirm outline wording/order for pp.132–133 with p.128 prior selected.
 - Cross-unit suggestions remain out of scope until requested.
 - Keep Phase 3 / F005 parked (D020).
 

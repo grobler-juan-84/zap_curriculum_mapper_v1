@@ -1,6 +1,7 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { chalkieLessonDraftService } from '../../services/chalkieLessonDraftService'
+import { buildChalkieConciseOutline } from './buildChalkieConciseOutline'
 import {
   BE2_U08_SERIES_LESSON1_VOCAB,
   BE2_U08_SERIES_LESSON2_VOCAB,
@@ -43,7 +44,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [newNote, setNewNote] = useState('')
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [promptPreview, setPromptPreview] = useState('')
+  const [conciseOutline, setConciseOutline] = useState('')
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [outlineCopyStatus, setOutlineCopyStatus] = useState<'idle' | 'copied' | 'failed'>(
+    'idle',
+  )
   const [titleCopyStatus, setTitleCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
   const [generatingDraft, setGeneratingDraft] = useState(false)
@@ -73,7 +78,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setNewNote('')
       setShowPromptPreview(false)
       setPromptPreview('')
+      setConciseOutline('')
       setCopyStatus('idle')
+      setOutlineCopyStatus('idle')
       setTitleCopyStatus('idle')
       setLessonShape('single')
       clearGeneratedDraft()
@@ -166,7 +173,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     if (showPromptPreview) {
       setShowPromptPreview(false)
       setPromptPreview('')
+      setConciseOutline('')
       setCopyStatus('idle')
+      setOutlineCopyStatus('idle')
     }
   }
 
@@ -177,9 +186,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       selectedSuggestions,
       teacherAdditions,
     })
+    const outline = buildChalkieConciseOutline({
+      lesson,
+      selectedSuggestions,
+    })
     setPromptPreview(assembled)
+    setConciseOutline(outline)
     setShowPromptPreview(true)
     setCopyStatus('idle')
+    setOutlineCopyStatus('idle')
     setTitleCopyStatus('idle')
     clearGeneratedDraft()
   }
@@ -228,6 +243,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       window.setTimeout(() => setCopyStatus('idle'), 2000)
     } catch {
       setCopyStatus('failed')
+    }
+  }
+
+  const handleCopyOutline = async () => {
+    if (!conciseOutline) return
+    try {
+      await navigator.clipboard.writeText(conciseOutline)
+      setOutlineCopyStatus('copied')
+      window.setTimeout(() => setOutlineCopyStatus('idle'), 2000)
+    } catch {
+      setOutlineCopyStatus('failed')
     }
   }
 
@@ -1009,6 +1035,47 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </div>
                 </div>
               )}
+
+              {conciseOutline ? (
+                <section
+                  className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
+                  aria-label="Concise teacher-controlled outline"
+                >
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Concise teacher-controlled outline
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-500">
+                      Local short teaching sequence for the current pages. Separate from the
+                      detailed prompt above. Not a slide-by-slide script.
+                    </p>
+                  </div>
+                  <label htmlFor="chalkie-concise-outline" className="sr-only">
+                    Copy-ready concise outline
+                  </label>
+                  <textarea
+                    id="chalkie-concise-outline"
+                    readOnly
+                    value={conciseOutline}
+                    rows={12}
+                    className="min-h-[12rem] w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-800 shadow-xs focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-[13px]"
+                  />
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={handleCopyOutline}
+                      className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+                    >
+                      {outlineCopyStatus === 'copied' ? 'Copied' : 'Copy outline'}
+                    </button>
+                    {outlineCopyStatus === 'failed' ? (
+                      <p className="text-sm text-slate-500">
+                        Copying was unavailable. Select the outline text and copy it manually.
+                      </p>
+                    ) : null}
+                  </div>
+                </section>
+              ) : null}
 
               <section
                 className="space-y-4 border-t border-slate-100 pt-5"

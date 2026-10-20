@@ -168,7 +168,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: dynamic source-context binding, page-scope guard, teaching-focus lanes, same-unit `[PRIOR]` vocabulary suggestions, 3-step teacher-choice flow (prior learning + custom language merged), local prompt preview, optional server OpenAI lesson-draft test path. Not a product lock. | 2.5 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: dynamic source-context binding, page-scope guard, teaching-focus lanes, same-unit `[PRIOR]` vocabulary suggestions, 3-step teacher-choice flow, local detailed prompt + separate concise outline, optional server OpenAI lesson-draft test path. Not a product lock. | 2.5 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |

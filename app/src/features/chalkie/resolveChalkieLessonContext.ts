@@ -4,7 +4,11 @@
  */
 import type { Book } from '../../types/curriculum'
 import type { BatchJsonSummary } from '../../types/validation'
-import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
+import {
+  buildUnitSummaryView,
+  buildVisiblePagesView,
+  type ChalkieOutlineActivity,
+} from './chalkieEvidence'
 import {
   BE2_U08_CLARIFICATION,
   BE2_U08_LANGUAGE,
@@ -61,6 +65,8 @@ export type ChalkieLessonContext = {
   hasActivityLanguageFrames: boolean
   clarification: string | null
   activityLines: string[]
+  /** Verified visible-page activities for the concise outline (not Screen 1). */
+  outlineActivities: ChalkieOutlineActivity[]
   pageLabels: string[]
   /** Exact BE2 SB Unit 8 · pp. 128–129 curated prototype route. */
   isBe2U08PrototypeRoute: boolean
@@ -85,6 +91,7 @@ function emptyEvidenceFlags() {
     hasActivityDerivedModels: false,
     hasDedicatedLanguage: false,
     hasActivityLanguageFrames: false,
+    outlineActivities: [] as ChalkieOutlineActivity[],
   }
 }
 
@@ -306,6 +313,7 @@ export function resolveChalkieLessonContext(input: {
       hasActivityLanguageFrames: false,
       clarification: BE2_U08_CLARIFICATION,
       activityLines: [...BE2_U08_PROTOTYPE_ACTIVITIES],
+      outlineActivities: [],
       pageLabels: [...BE2_U08_PROTOTYPE_PAGE_LABELS],
       isBe2U08PrototypeRoute: true,
       supportsTwoLessonSeries: true,
@@ -387,6 +395,7 @@ export function resolveChalkieLessonContext(input: {
     hasActivityLanguageFrames: visibleView!.hasActivityLanguageFrames,
     clarification: null,
     activityLines: visibleView!.activityLines.slice(0, 6),
+    outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
     supportsTwoLessonSeries: false,
