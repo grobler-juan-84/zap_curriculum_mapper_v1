@@ -863,103 +863,107 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
                 <section className="space-y-4" aria-label="Current lesson requirements">
                   <h3 className="text-sm font-medium text-slate-800">Current lesson requirements</h3>
-                  <div className="space-y-1 text-sm leading-relaxed text-slate-600">
-                    <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
-                    <p>{lesson.unitLine}</p>
-                    <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
-                    {lesson.lessonTopic ? (
-                      <p>
-                        <span className="font-medium text-slate-700">Lesson topic:</span>{' '}
-                        {lesson.lessonTopic}
-                      </p>
-                    ) : null}
-                    <p>Page sections: {lesson.currentFocus}</p>
-                    {lesson.teachingFocus ? (
-                      <p>
-                        <span className="font-medium text-slate-700">Teaching focus:</span>{' '}
-                        {lesson.teachingFocus}
-                      </p>
-                    ) : null}
-                  </div>
+                  <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                    <div className="space-y-1 text-sm leading-relaxed text-slate-600">
+                      <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
+                      <p>{lesson.unitLine}</p>
+                      <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
+                      {lesson.lessonTopic ? (
+                        <p>
+                          <span className="font-medium text-slate-700">Lesson topic:</span>{' '}
+                          {lesson.lessonTopic}
+                        </p>
+                      ) : null}
+                      <p>Page sections: {lesson.currentFocus}</p>
+                      {lesson.teachingFocus ? (
+                        <p>
+                          <span className="font-medium text-slate-700">Teaching focus:</span>{' '}
+                          {lesson.teachingFocus}
+                        </p>
+                      ) : null}
+                    </div>
 
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-slate-800">Current words and models</h4>
-                    {lesson.vocabulary.length > 0 ? (
-                      <ul className="flex flex-wrap gap-2">
-                        {lesson.vocabulary.map((term) => (
-                          <li
-                            key={term}
-                            className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
-                          >
-                            {term}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm text-slate-500">
-                        No dedicated vocabulary rows or activity-derived models listed for this
-                        lesson.
-                      </p>
-                    )}
-                  </div>
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium text-slate-800">Current words and models</h4>
+                      {lesson.vocabulary.length > 0 ? (
+                        <ul className="flex flex-wrap gap-2">
+                          {lesson.vocabulary.map((term) => (
+                            <li
+                              key={term}
+                              className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
+                            >
+                              {term}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-sm text-slate-500">
+                          No dedicated vocabulary rows or activity-derived models listed for this
+                          lesson.
+                        </p>
+                      )}
+                    </div>
 
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-slate-800">Current language</h4>
-                    {lesson.languageExamples.length > 0 ? (
-                      <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
-                        {lesson.languageExamples.map((item) => (
-                          <li key={`${item.label ?? ''}:${item.example}`}>
-                            {item.label ? (
-                              <>
-                                <span className="font-medium text-slate-800">{item.label}:</span>{' '}
-                                <span>{item.example}</span>
-                              </>
-                            ) : (
-                              item.example
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm text-slate-500">
-                        No dedicated language rows or activity language frames listed for this
-                        lesson.
-                      </p>
-                    )}
-                    {lesson.clarification ? (
-                      <p className="pt-1 text-sm leading-relaxed text-slate-600">
-                        <span className="font-medium text-slate-700">Note:</span>{' '}
-                        {lesson.clarification}
-                      </p>
-                    ) : null}
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium text-slate-800">Current language</h4>
+                      {lesson.languageExamples.length > 0 ? (
+                        <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
+                          {lesson.languageExamples.map((item) => (
+                            <li key={`${item.label ?? ''}:${item.example}`}>
+                              {item.label ? (
+                                <>
+                                  <span className="font-medium text-slate-800">{item.label}:</span>{' '}
+                                  <span>{item.example}</span>
+                                </>
+                              ) : (
+                                item.example
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-sm text-slate-500">
+                          No dedicated language rows or activity language frames listed for this
+                          lesson.
+                        </p>
+                      )}
+                      {lesson.clarification ? (
+                        <p className="pt-1 text-sm leading-relaxed text-slate-600">
+                          <span className="font-medium text-slate-700">Note:</span>{' '}
+                          {lesson.clarification}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
                 </section>
 
                 <div className="space-y-8">
                   <section className="space-y-4" aria-label="Selected prior learning">
                     <h3 className="text-sm font-medium text-slate-800">Selected prior learning</h3>
-                    {selectedSuggestions.length === 0 ? (
-                      <p className="text-sm leading-relaxed text-slate-500">
-                        No verified prior learning was selected for this lesson.
-                      </p>
-                    ) : (
-                      <ul className="space-y-4">
-                        {selectedSuggestions.map((suggestion) => (
-                          <li key={suggestion.id} className="space-y-1.5">
-                            <div className="space-y-0.5">
-                              <p className="text-sm text-slate-900">
-                                <PriorSkillCardHeading label={suggestion.label} />
+                    <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                      {selectedSuggestions.length === 0 ? (
+                        <p className="text-sm leading-relaxed text-slate-500">
+                          No verified prior learning was selected for this lesson.
+                        </p>
+                      ) : (
+                        <ul className="space-y-4">
+                          {selectedSuggestions.map((suggestion) => (
+                            <li key={suggestion.id} className="space-y-1.5">
+                              <div className="space-y-0.5">
+                                <p className="text-sm text-slate-900">
+                                  <PriorSkillCardHeading label={suggestion.label} />
+                                </p>
+                                <p className="text-xs text-slate-500">{suggestion.source}</p>
+                              </div>
+                              <p className="text-sm leading-relaxed text-slate-800">
+                                {suggestion.frame}
                               </p>
-                              <p className="text-xs text-slate-500">{suggestion.source}</p>
-                            </div>
-                            <p className="text-sm leading-relaxed text-slate-800">
-                              {suggestion.frame}
-                            </p>
-                            <p className="text-sm text-slate-500">Available for this lesson</p>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                              <p className="text-sm text-slate-500">Available for this lesson</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </section>
 
                   {selectedTeacherAdditions.length > 0 ? (
@@ -967,21 +971,23 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       <h3 className="text-sm font-medium text-slate-800">
                         Teacher-added prior skills
                       </h3>
-                      <ul className="space-y-4">
-                        {selectedTeacherAdditions.map((item) => (
-                          <li key={item.id} className="space-y-1.5">
-                            <p className="text-sm font-bold text-slate-900">{item.title}</p>
-                            <p className="text-sm leading-relaxed text-slate-900">{item.frame}</p>
-                            <p className="text-sm leading-relaxed text-slate-600">
-                              <span className="font-medium text-slate-700">Purpose:</span>{' '}
-                              {item.purpose}
-                            </p>
-                            <p className="text-sm font-medium text-slate-700">
-                              Teacher-added · unverified
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                        <ul className="space-y-4">
+                          {selectedTeacherAdditions.map((item) => (
+                            <li key={item.id} className="space-y-1.5">
+                              <p className="text-sm font-bold text-slate-900">{item.title}</p>
+                              <p className="text-sm leading-relaxed text-slate-900">{item.frame}</p>
+                              <p className="text-sm leading-relaxed text-slate-600">
+                                <span className="font-medium text-slate-700">Purpose:</span>{' '}
+                                {item.purpose}
+                              </p>
+                              <p className="text-sm font-medium text-slate-700">
+                                Teacher-added · unverified
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </section>
                   ) : null}
                 </div>
