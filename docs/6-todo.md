@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 242
+**Last updated:** Step 243
 
 
 
@@ -418,7 +418,9 @@
 
 - [x] **Code: BE3 U8 128–137 correction pass** — lesson topic; Q&A `|` splits; `full_text` language; Did…? focus; phrase halves; models bound 24; regression tests from canonical slices.
 
-- [ ] Owner visual revalidation of BE3 U8 spreads pp. 128–129, 130–131, 132–133, 134–135, 136–137 in `/app/chalkie`.
+- [x] **Data: BE3 U8 language page placement** — `lang_08_01`/`02` → p.132; `lang_08_03`/`04` → p.136; unit_08 batch + remarged canonical; placement regression tests.
+
+- [ ] Owner visual revalidation of BE3 U8 spreads pp. 132–133, 134–135, 136–137 in `/app/chalkie` (language placement).
 
 - [ ] Owner live-test Generate Chalkie lesson draft (Single + Series) plus scope-guard cases; decide keep/harden/park. Do not lock methodology.
 

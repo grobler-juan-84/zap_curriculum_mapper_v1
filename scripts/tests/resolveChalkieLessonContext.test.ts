@@ -284,22 +284,27 @@ test('BE3 pp.128–129 keeps complete Q&A exchanges and component lesson topic',
   assert.ok(!examples.some((ex) => ex === "No, he didn't."))
 })
 
-test('BE3 pp.130–131 shows An Unhealthy Dinner without inventing vocabulary', () => {
+test('BE3 pp.130–131 shows An Unhealthy Dinner without Activity 8 language records', () => {
   const resolved = resolveBe3([130, 131])
   assert.equal(resolved.status, 'ready')
   assert.equal(resolved.lessonTopic, 'An Unhealthy Dinner')
   assert.equal(resolved.hasDedicatedVocabulary, false)
   assert.equal(resolved.hasActivityDerivedModels, false)
   assert.equal(resolved.vocabulary.length, 0)
-  assert.ok(resolved.languageExamples.length >= 2)
+  const language = resolved.languageExamples.map((item) => item.example).join('\n')
+  assert.doesNotMatch(language, /Did you have breakfast\?/)
+  assert.doesNotMatch(language, /Did he get enough sleep\?/)
 })
 
-test('BE3 pp.132–133 Did…? focus and five safe activity phrases', () => {
+test('BE3 pp.132–133 receives Did…? language records and five safe activity phrases', () => {
   const resolved = resolveBe3([132, 133])
   assert.equal(resolved.status, 'ready')
   assert.match(resolved.teachingFocus ?? '', /Did/)
   assert.match(resolved.teachingFocus ?? '', /short answers/i)
   assert.doesNotMatch(resolved.teachingFocus ?? '', /irregular/i)
+  const examples = resolved.languageExamples.map((item) => item.example)
+  assert.ok(examples.includes("Did you have breakfast? / No, I didn't."))
+  assert.ok(examples.includes('Did he get enough sleep? / Yes, he did.'))
   for (const phrase of [
     'do any exercise',
     'drink lots of water',
@@ -311,23 +316,26 @@ test('BE3 pp.132–133 Did…? focus and five safe activity phrases', () => {
   }
 })
 
-test('BE3 pp.134–135 surfaces calorie topic and full_text grammar patterns', () => {
+test('BE3 pp.134–135 surfaces calorie topic without Grammar-box language records', () => {
   const resolved = resolveBe3([134, 135])
   assert.equal(resolved.status, 'ready')
   assert.equal(resolved.lessonTopic, 'What Is a Calorie?')
   assert.ok(resolved.hasDedicatedVocabulary)
   const language = resolved.languageExamples.map((item) => item.example).join('\n')
-  assert.match(language, /played \/ walked \/ stayed/)
-  assert.match(language, /went \/ saw \/ came/)
+  assert.doesNotMatch(language, /played \/ walked \/ stayed/)
+  assert.doesNotMatch(language, /went \/ saw \/ came/)
 })
 
-test('BE3 pp.136–137 keeps past-verb focus and includes put → put', () => {
+test('BE3 pp.136–137 receives past-tense grammar patterns and keeps activity-derived verbs', () => {
   const visible = buildVisiblePagesView(be3SummaryForPrintedPages([136, 137]), [136, 137])
   const resolved = resolveBe3([136, 137])
   assert.equal(resolved.status, 'ready')
   assert.match(resolved.teachingFocus ?? '', /regular/i)
   assert.match(resolved.teachingFocus ?? '', /irregular/i)
   assert.match(resolved.teachingFocus ?? '', /yesterday/i)
+  const language = resolved.languageExamples.map((item) => item.example).join('\n')
+  assert.match(language, /played \/ walked \/ stayed/)
+  assert.match(language, /went \/ saw \/ came/)
   assert.ok(resolved.vocabulary.includes('put → put'))
   assert.ok(resolved.vocabulary.includes('work → worked'))
   assert.ok(resolved.vocabulary.includes('go → went'))

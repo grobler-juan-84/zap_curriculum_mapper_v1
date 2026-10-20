@@ -40,7 +40,7 @@
 | Component | `bep3_sb_comp_08_06` · grammar · title **grammar (They came, and we played.)** · `page_id` `bep3_sb_p136` · `human_verified` |
 | Page flags | p.136: instructional · visual_dependency **true** · audio_dependency **true** · `human_verified` · p.137: instructional · visual/audio dependency **false** · `human_verified` |
 
-**Adjacent Unit 8 grammar (not these pages):** Language in Action **pp. 132–133** (`Did…?` past questions) is a **separate** earlier component. Content Connection P.E. **pp. 134–135** hosts verified grammar-box summaries for regular/irregular past (`bep3_sb_lang_08_03` / `08_04`) — **prerequisite exposure**, not in-scope teaching pages for this pilot.
+**Adjacent Unit 8 grammar:** Language in Action **pp. 132–133** hosts `Did…?` past questions (`bep3_sb_lang_08_01` / `08_02`). Content Connection P.E. **pp. 134–135** is calorie/CLIL only — regular/irregular past grammar-box rows (`bep3_sb_lang_08_03` / `08_04`) belong on this Grammar spread (**p.136**), not on the CLIL pages.
 
 ---
 
@@ -51,7 +51,7 @@
 | **[SB] canonical** | `data/phase1/big_english_3_sb/canonical/v1.json` | Pages, activities, component, unit — **human_verified** |
 | **Source PDF** | `app/src/assets/books/big-english/big_english_3_sb.pdf` | Present locally; identity rests on canonical printed↔pdf mapping (not OCR) |
 | **[SS]** | `data/phase1/big_english_3_sb/canonical/ss_v1.json` Unit 8 *Healthy Living* (SB pp. 128–143) | Structures include *They walked.* / *She saw a film.* / past *Did…?* — unit-level companion only |
-| Language entities on pp.136–137 | None extracted as separate `language` rows | Grammar targets recovered from activities + component title + **p.134** grammar boxes |
+| Language entities on pp.136–137 | `bep3_sb_lang_08_03` / `08_04` grammar_pattern rows on `bep3_sb_p136` | Plus activity-derived past-verb pairs and component title |
 
 **Not used:** Phase 2 BI; `[HM]`; invented Track 159 wording; Workbook.
 

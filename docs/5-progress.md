@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 242
+**Last updated:** Step 243
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,14 +20,16 @@
 
 - **BE3 U8 evidence correction pass (128–137):** lesson topic, intact Q&A exchanges, `full_text` language, Did…? focus (not false irregular), phrase-half models, words/models bound 24 (`put → put` retained). BE2 U8 fixture unchanged.
 
+- **BE3 U8 language page-placement fix:** `bep3_sb_lang_08_01`/`08_02` → p.132; `08_03`/`08_04` → p.136. Upstream unit_08 batch corrected, Storage uploaded, canonical remarged. Regression tests updated.
+
 ## In progress
 
-- Owner visual revalidation of the five BE3 U8 spreads in `/app/chalkie`.
+- Owner visual revalidation of the three affected BE3 U8 spreads (132–133, 134–135, 136–137) in `/app/chalkie`.
 
 ## Next
 
-- Owner revalidate pp. 128–129, 130–131, 132–133, 134–135, 136–137 after the correction pass.
-- Further gap-audit slices (allocation / outlines / audio) only when requested.
+- Owner revalidate Language in Action pp. 132–133, Content Connection pp. 134–135, and Grammar pp. 136–137 after the language page-placement fix.
+- Further gap-audit slices only when requested.
 - Keep Phase 3 / F005 parked (D020).
 
 ## Blocked

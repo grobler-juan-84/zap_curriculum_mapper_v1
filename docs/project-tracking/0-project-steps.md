@@ -4142,3 +4142,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 243
+
+**Summary:** Corrected verified BE3 Unit 8 language page-placement errors: Activity 8 `Did…?` frames (`lang_08_01`/`02`) moved from Story p.130 to Language in Action p.132; regular/irregular grammar-box rows (`lang_08_03`/`04`) moved from CLIL p.134 to Grammar p.136. Upstream unit_08 batch patched, Storage uploaded as verified, canonical remarged; placement regression tests and preflight note updated. No UI/heuristics/packaging changes.
+
+**Files touched:**
+- `scripts/fix_be3sb_u08_language_page_placement.mjs` (created)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `data/phase1/big_english_3_sb/big_english_3_sb_unit_08.json` (updated, gitignored)
+- `data/phase1/big_english_3_sb/canonical/v1.json` (updated, gitignored)
+
+---
