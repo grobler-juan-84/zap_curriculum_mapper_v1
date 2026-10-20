@@ -4441,3 +4441,16 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 261
+
+**Summary:** Made the Step 2 “Add a prior skill” card expandable and collapsed by default so its height matches other skill cards; expanded body temporarily shows “future instructions to come here” (form inputs deferred).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

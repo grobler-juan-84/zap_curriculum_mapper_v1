@@ -181,6 +181,8 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   assert.ok(!overlaySource.includes('Your choices'))
   assert.ok(overlaySource.includes('Add Prior Skills'))
   assert.ok(overlaySource.includes('Add a prior skill'))
+  assert.ok(overlaySource.includes('future instructions to come here'))
+  assert.ok(overlaySource.includes('addPriorSkillExpanded'))
   assert.ok(!overlaySource.includes('What might be useful to reuse?'))
   assert.ok(!overlaySource.includes('Add language of your own'))
   assert.ok(!overlaySource.includes('Why it may help:'))
