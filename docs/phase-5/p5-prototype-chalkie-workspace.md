@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.8  
+**Version:** 2.9  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -16,7 +16,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
-- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** only on the curated BE2 U8 fixture for now. BE3 U8 SB 128–129 → WB 104–105 companion is **accepted** as curated verified evidence ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)); series handoff UI not built yet.
+- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, or (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105 with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
 
@@ -25,7 +25,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
 - Calling or exposing the dormant OpenAI lesson-draft endpoint from the current handoff UI.
 - Persisting generated drafts, creating slides, or submitting to the Chalkie product.
-- Arbitrary configurable series packaging beyond the agreed BE2 U8 SB→WB route.
+- Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the one accepted BE3 U8 opener SB→WB pair.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
 

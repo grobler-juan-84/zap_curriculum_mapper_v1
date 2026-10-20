@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 279
+**Last synced:** Step 280
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Prior-learning Step 2 UI updated (Add Prior Skills + teacher-created first card). BE3 U8 opener pairing ACCEPTED; series handoff packaging is still the next microstep.
+- BE3 U8 SB 128–129 → WB 104–105 pairing ACCEPTED with local six-copyable series handoff; unmapped spreads stay unpaired.
 - Phase 3 remains parked (D020).
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Build the local two-lesson SB→WB handoff for BE3 SB pp.128–129 → WB pp.104–105 only.
+**Suggestion:** Owner-gated: paste the BE3 opener series handoff into Chalkie Lesson Series, or pick the next Single Lesson pilot spread — do not broaden SB→WB pairing.

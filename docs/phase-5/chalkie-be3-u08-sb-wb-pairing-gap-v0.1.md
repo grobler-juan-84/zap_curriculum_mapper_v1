@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** PAIRING REVIEW / **ACCEPTED** for one curated opener pair / **SERIES HANDOFF NOT YET BUILT**  
+**Status:** PAIRING **ACCEPTED** · SERIES HANDOFF **BUILT** for one curated opener pair  
 **Date:** 2026-10-20  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · SB pp. **128–129** ↔ WB pp. **104–105**
 
@@ -9,7 +9,7 @@
 [`p5-prototype-chalkie-workspace.md`](./p5-prototype-chalkie-workspace.md) ·  
 [`../phase-1/audits/BE3-SB_canonical_v1_audit.md`](../phase-1/audits/BE3-SB_canonical_v1_audit.md) ·  
 [`../phase-1/audits/BE3-WB_canonical_v1_audit.md`](../phase-1/audits/BE3-WB_canonical_v1_audit.md) ·  
-Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts`
+Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts` · `buildBe3U08OpenerSbWbSeriesHandoff.ts`
 
 ---
 
@@ -17,7 +17,7 @@ Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts`
 
 **ACCEPTED** — one explicit curated relationship for this pair only.
 
-Not accepted as a general Unit 8 pagination rule. Unmapped BE3 spreads still have **no** Workbook companion.
+Not accepted as a general Unit 8 pagination rule. Unmapped BE3 spreads still have **no** Workbook companion and **no** series package.
 
 ---
 
@@ -37,7 +37,7 @@ Not accepted as a general Unit 8 pagination rule. Unmapped BE3 spreads still hav
 
 ---
 
-## 3. Exact mapping added
+## 3. Exact mapping
 
 | Field | Value |
 | --- | --- |
@@ -54,20 +54,33 @@ Stored in `app/src/features/chalkie/verifiedSbWbCompanions.ts`. Recognised by `r
 
 ---
 
-## 4. Workspace consequence (this step)
+## 4. Series handoff (this pair only)
+
+When this exact pair is selected, `/app/chalkie` enables **Two-lesson series** and shows six local copyables:
+
+1. Series title  
+2. Detailed two-lesson Chalkie handoff  
+3. Lesson 1 concise outline (SB 128–129)  
+4. Lesson 1 suggested vocabulary  
+5. Lesson 2 concise outline (WB 104–105)  
+6. Lesson 2 suggested vocabulary  
+
+Stable series ref (shown separately, not in the copied title): `be3-sb-wb-u08-p128-129-wb104-105`
+
+Builder: `buildBe3U08OpenerSbWbSeriesHandoff.ts`. L1 = SB scope; L2 = WB consolidation/practice. BE2 fixture unchanged. Single-lesson path unchanged for all routes.
 
 | Behaviour | Status |
 | --- | --- |
 | Companion resolution for SB 128–129 | **Resolves** to WB 104–105 |
-| Other BE3 U8 spreads | Still **no** companion |
-| Two-lesson series packaging UI / six copyables | **Not built yet** (`supportsTwoLessonSeries` remains false for BE3) |
+| Other BE3 U8 spreads | Still **no** companion / **no** series |
+| Two-lesson series packaging | **Enabled** for this pair only |
 | Single-lesson path | Unchanged |
 
 ---
 
 ## 5. Next microstep
 
-Build the local two-lesson SB→WB handoff (title, detailed series prompt, L1/L2 outlines, L1/L2 vocabulary) for this one accepted pair only.
+Owner-gated: run or skip a production Chalkie Lesson Series paste for this accepted pair; do not broaden pairing rules.
 
 ---
 
@@ -75,5 +88,5 @@ Build the local two-lesson SB→WB handoff (title, detailed series prompt, L1/L2
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API.  
-- No Chalkie generation.  
+- No Chalkie generation in-app.  
 - No D018 / `4-decisions.md` changes.

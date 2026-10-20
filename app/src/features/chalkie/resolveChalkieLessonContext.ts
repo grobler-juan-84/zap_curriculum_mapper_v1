@@ -29,6 +29,11 @@ import {
 import { deriveSameUnitEarlierVocabularySuggestions } from './deriveSameUnitEarlierVocabularySuggestions'
 import { buildChalkieLessonNaming } from './buildChalkieLessonNaming'
 import {
+  BE3_U08_OPENER_SERIES_STABLE_REF,
+  BE3_U08_OPENER_SERIES_TITLE,
+  isBe3U08OpenerSeriesCompanion,
+} from './buildBe3U08OpenerSbWbSeriesHandoff'
+import {
   resolveVerifiedSbWbCompanion,
   type VerifiedSbWbCompanion,
 } from './resolveVerifiedSbWbCompanion'
@@ -90,6 +95,11 @@ export type ChalkieLessonContext = {
    * suffixes may be appended later when multiple lessons share a spread.
    */
   stableLessonReference: string | null
+  /**
+   * Series tracking id when a verified SB→WB package is available
+   * (e.g. be3-sb-wb-u08-p128-129-wb104-105). Shown separately; never part of the copied title.
+   */
+  stableSeriesReference: string | null
   scopeMessage: string | null
   canJumpToUnitOpening: boolean
   unitOpeningPrintedPage: number | null
@@ -240,6 +250,7 @@ export function resolveChalkieLessonContext(input: {
       singleLessonTitle: '',
       seriesLessonTitle: null,
       stableLessonReference: null,
+      stableSeriesReference: null,
       scopeMessage:
         'Open a page spread in the source PDF before preparing a Chalkie prompt.',
       hasVerifiedPageEvidence: false,
@@ -266,6 +277,7 @@ export function resolveChalkieLessonContext(input: {
       singleLessonTitle: '',
       seriesLessonTitle: null,
       stableLessonReference: null,
+      stableSeriesReference: null,
       scopeMessage:
         'This unit does not have a verified printed page range yet, so Chalkie cannot confirm that the open pages belong to the selected unit.',
       hasVerifiedPageEvidence: false,
@@ -300,6 +312,7 @@ export function resolveChalkieLessonContext(input: {
       singleLessonTitle: '',
       seriesLessonTitle: null,
       stableLessonReference: null,
+      stableSeriesReference: null,
       scopeMessage: `The open pages (${visiblePageRangeLabel}) are outside ${unitLabel}. Open a page spread from this unit before preparing a Chalkie prompt.`,
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: null,
@@ -343,6 +356,7 @@ export function resolveChalkieLessonContext(input: {
         teachingFocus: BE2_U08_PROTOTYPE_FOCUS,
         lessonTopic: null,
       }).stableLessonReference,
+      stableSeriesReference: null,
       scopeMessage: null,
       hasVerifiedPageEvidence: true,
       evidenceUnavailableMessage: null,
@@ -383,6 +397,7 @@ export function resolveChalkieLessonContext(input: {
       singleLessonTitle: '',
       seriesLessonTitle: null,
       stableLessonReference: null,
+      stableSeriesReference: null,
       scopeMessage: null,
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: `Source evidence is not available for these pages (${visiblePageRangeLabel}) yet. Open a spread with verified page evidence before preparing a Chalkie prompt.`,
@@ -426,6 +441,7 @@ export function resolveChalkieLessonContext(input: {
     workbookCanonical: input.workbookCanonical ?? null,
     studentBookPrintedPages: sortedVisible,
   })
+  const be3OpenerSeries = isBe3U08OpenerSeriesCompanion(workbookCompanion)
 
   return {
     ...base,
@@ -447,13 +463,14 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    // Companion may resolve for BE3 U8 opener; series packaging UI/handoff is the next step.
-    supportsTwoLessonSeries: false,
+    // Series packaging only for the one accepted BE3 U8 opener curated relationship.
+    supportsTwoLessonSeries: be3OpenerSeries,
     workbookCompanion,
     priorLearningSuggestions,
     singleLessonTitle: naming.teacherFacingTitle,
-    seriesLessonTitle: null,
+    seriesLessonTitle: be3OpenerSeries ? BE3_U08_OPENER_SERIES_TITLE : null,
     stableLessonReference: naming.stableLessonReference,
+    stableSeriesReference: be3OpenerSeries ? BE3_U08_OPENER_SERIES_STABLE_REF : null,
     scopeMessage: null,
     hasVerifiedPageEvidence: true,
     evidenceUnavailableMessage: null,

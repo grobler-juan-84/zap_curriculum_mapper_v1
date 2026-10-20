@@ -1,6 +1,10 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 import {
+  buildBe3U08OpenerSbWbSeriesHandoff,
+  isBe3U08OpenerSeriesCompanion,
+} from './buildBe3U08OpenerSbWbSeriesHandoff'
+import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
 } from './teacherChoicePrototypeContent'
@@ -306,7 +310,9 @@ function buildDynamicSingleLessonPrompt(input: {
  *
  * packageShape:
  * - single = visible SB pages only
- * - series = BE2 U8 Lesson 1 SB 128–129 + Lesson 2 WB 104–105 (exact prototype route only)
+ * - series = verified SB→WB package only:
+ *   - BE2 U8 curated fixture, or
+ *   - accepted BE3 U8 opener curated relationship
  */
 export function buildChalkiePromptPreview(input: {
   lesson: ChalkieLessonContext
@@ -315,11 +321,20 @@ export function buildChalkiePromptPreview(input: {
   teacherAdditions: TeacherAddedLanguageInput[]
 }): string {
   if (input.packageShape === 'series') {
-    if (!input.lesson.supportsTwoLessonSeries || !input.lesson.isBe2U08PrototypeRoute) {
-      // Refuse silent BE2 fallback — degrade to dynamic single if series unsupported.
+    if (!input.lesson.supportsTwoLessonSeries) {
       return buildDynamicSingleLessonPrompt(input)
     }
-    return buildBe2U08SeriesLessonPrompt(input)
+    if (input.lesson.isBe2U08PrototypeRoute) {
+      return buildBe2U08SeriesLessonPrompt(input)
+    }
+    if (isBe3U08OpenerSeriesCompanion(input.lesson.workbookCompanion)) {
+      return buildBe3U08OpenerSbWbSeriesHandoff({
+        selectedSuggestions: input.selectedSuggestions,
+        teacherAdditions: input.teacherAdditions,
+      }).detailedHandoff
+    }
+    // Refuse silent fixture fallback — degrade to dynamic single if series unsupported.
+    return buildDynamicSingleLessonPrompt(input)
   }
 
   if (input.lesson.isBe2U08PrototypeRoute) {

@@ -4688,3 +4688,25 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 280
+
+**Summary:** Built the local two-lesson SB→WB Chalkie handoff for the accepted BE3 U8 opener pair only (SB 128–129 → WB 104–105): six copyables from verified evidence, series enabled for that relationship, unmapped spreads and BE2 fixture unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/buildBe3U08OpenerSbWbSeriesHandoff.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (created)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

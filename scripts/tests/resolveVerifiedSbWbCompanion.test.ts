@@ -323,7 +323,7 @@ test('verified relationship covering both SB pages resolves WB companion', () =>
   assert.equal(result.gapReason, null)
 })
 
-test('BE3 ready resolve records companion but keeps series packaging off for now', () => {
+test('BE3 ready resolve enables series packaging for the accepted opener pair', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -339,12 +339,13 @@ test('BE3 ready resolve records companion but keeps series packaging off for now
   assert.equal(lesson.status, 'ready')
   assert.ok(lesson.workbookCompanion)
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [104, 105])
-  // Series handoff UI/builders are the next step — companion alone must not enable them yet.
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(lesson.isBe2U08PrototypeRoute, false)
 })
 
-test('single-lesson BE3 path remains ready and local (regression)', () => {
+test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -356,7 +357,9 @@ test('single-lesson BE3 path remains ready and local (regression)', () => {
   })
   assert.equal(lesson.status, 'ready')
   assert.ok(lesson.singleLessonTitle.includes('BE3 SB Unit 08'))
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  // Curated companion does not require workbook canonical to resolve.
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.ok(lesson.workbookCompanion)
 })
 
 test('pairing resolver and overlay do not call OpenAI endpoints', () => {

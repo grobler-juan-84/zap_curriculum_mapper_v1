@@ -1,6 +1,11 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, Copy } from 'lucide-react'
+import {
+  buildBe3U08OpenerSbWbSeriesHandoff,
+  isBe3U08OpenerSeriesCompanion,
+  type Be3U08OpenerSeriesHandoff,
+} from './buildBe3U08OpenerSbWbSeriesHandoff'
 import { buildChalkieConciseOutline } from './buildChalkieConciseOutline'
 import {
   BE2_U08_SERIES_LESSON1_VOCAB,
@@ -175,6 +180,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [lesson2OutlineCopyStatus, setLesson2OutlineCopyStatus] = useState<
     'idle' | 'copied' | 'failed'
   >('idle')
+  const [lesson1VocabCopyStatus, setLesson1VocabCopyStatus] = useState<
+    'idle' | 'copied' | 'failed'
+  >('idle')
+  const [lesson2VocabCopyStatus, setLesson2VocabCopyStatus] = useState<
+    'idle' | 'copied' | 'failed'
+  >('idle')
+  const [be3SeriesHandoff, setBe3SeriesHandoff] = useState<Be3U08OpenerSeriesHandoff | null>(
+    null,
+  )
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
 
   useEffect(() => {
@@ -197,6 +211,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setTitleCopyStatus('idle')
       setLesson1OutlineCopyStatus('idle')
       setLesson2OutlineCopyStatus('idle')
+      setLesson1VocabCopyStatus('idle')
+      setLesson2VocabCopyStatus('idle')
+      setBe3SeriesHandoff(null)
       setLessonShape('single')
       return
     }
@@ -267,6 +284,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
   const isSeriesPreview = showPromptPreview && effectiveLessonShape === 'series'
+  const isBe3SeriesPreview = isSeriesPreview && be3SeriesHandoff != null
+  const seriesLesson1Pages =
+    lesson.workbookCompanion?.studentBookPrintedPages?.join('–') ?? '128–129'
+  const seriesLesson2Pages =
+    lesson.workbookCompanion?.workbookPrintedPages?.join('–') ?? '104–105'
   const hasPriorLearningSuggestions = priorLearningSuggestions.length > 0
 
   const handleContinue = () => {
@@ -301,6 +323,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setVocabularyCopyStatus('idle')
       setLesson1OutlineCopyStatus('idle')
       setLesson2OutlineCopyStatus('idle')
+      setLesson1VocabCopyStatus('idle')
+      setLesson2VocabCopyStatus('idle')
+      setBe3SeriesHandoff(null)
     }
   }
 
@@ -311,12 +336,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       selectedSuggestions,
       teacherAdditions: selectedTeacherAdditions,
     })
-    const outline = buildChalkieConciseOutline({
-      lesson,
-      selectedSuggestions,
-    })
-    const suggested = buildSuggestedChalkieVocabulary(lesson)
+    const useBe3Series =
+      effectiveLessonShape === 'series' &&
+      isBe3U08OpenerSeriesCompanion(lesson.workbookCompanion)
+    const be3Handoff = useBe3Series
+      ? buildBe3U08OpenerSbWbSeriesHandoff({
+          selectedSuggestions,
+          teacherAdditions: selectedTeacherAdditions,
+        })
+      : null
+    const outline = useBe3Series
+      ? ''
+      : buildChalkieConciseOutline({
+          lesson,
+          selectedSuggestions,
+        })
+    const suggested = useBe3Series
+      ? { copyText: '', isEmpty: true }
+      : buildSuggestedChalkieVocabulary(lesson)
     setPromptPreview(assembled)
+    setBe3SeriesHandoff(be3Handoff)
     setConciseOutline(outline)
     setSuggestedVocabulary(suggested.copyText)
     setSuggestedVocabularyEmpty(suggested.isEmpty)
@@ -327,6 +366,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setTitleCopyStatus('idle')
     setLesson1OutlineCopyStatus('idle')
     setLesson2OutlineCopyStatus('idle')
+    setLesson1VocabCopyStatus('idle')
+    setLesson2VocabCopyStatus('idle')
   }
 
   const handleCopyPrompt = async () => {
@@ -373,8 +414,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleCopyLesson1Outline = async () => {
+    const text = be3SeriesHandoff?.lesson1Outline ?? BE2_U08_SERIES_LESSON1_OUTLINE_COPY
     try {
-      await navigator.clipboard.writeText(BE2_U08_SERIES_LESSON1_OUTLINE_COPY)
+      await navigator.clipboard.writeText(text)
       setLesson1OutlineCopyStatus('copied')
       window.setTimeout(() => setLesson1OutlineCopyStatus('idle'), 2000)
     } catch {
@@ -383,12 +425,35 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleCopyLesson2Outline = async () => {
+    const text = be3SeriesHandoff?.lesson2Outline ?? BE2_U08_SERIES_LESSON2_OUTLINE_COPY
     try {
-      await navigator.clipboard.writeText(BE2_U08_SERIES_LESSON2_OUTLINE_COPY)
+      await navigator.clipboard.writeText(text)
       setLesson2OutlineCopyStatus('copied')
       window.setTimeout(() => setLesson2OutlineCopyStatus('idle'), 2000)
     } catch {
       setLesson2OutlineCopyStatus('failed')
+    }
+  }
+
+  const handleCopyLesson1Vocabulary = async () => {
+    if (!be3SeriesHandoff?.lesson1Vocabulary) return
+    try {
+      await navigator.clipboard.writeText(be3SeriesHandoff.lesson1Vocabulary)
+      setLesson1VocabCopyStatus('copied')
+      window.setTimeout(() => setLesson1VocabCopyStatus('idle'), 2000)
+    } catch {
+      setLesson1VocabCopyStatus('failed')
+    }
+  }
+
+  const handleCopyLesson2Vocabulary = async () => {
+    if (!be3SeriesHandoff?.lesson2Vocabulary) return
+    try {
+      await navigator.clipboard.writeText(be3SeriesHandoff.lesson2Vocabulary)
+      setLesson2VocabCopyStatus('copied')
+      window.setTimeout(() => setLesson2VocabCopyStatus('idle'), 2000)
+    } catch {
+      setLesson2VocabCopyStatus('failed')
     }
   }
 
@@ -845,8 +910,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               id="lesson-shape-series-note"
                               className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
                             >
-                              <span className="block">Lesson 1 — Student Book pp. 128–129</span>
-                              <span className="block">Lesson 2 — Workbook pp. 104–105</span>
+                              <span className="block">
+                                Lesson 1 — Student Book pp. {seriesLesson1Pages}
+                              </span>
+                              <span className="block">
+                                Lesson 2 — Workbook pp. {seriesLesson2Pages}
+                              </span>
                               <span className="block pt-1">
                                 Workbook pages are verified source evidence for this packaging
                                 choice; they may not be the PDF currently open in the workspace.
@@ -1036,12 +1105,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </div>
 
               <section className="mx-auto w-full max-w-4xl space-y-2" aria-label="Series or lesson title">
-                <h3 className="text-sm font-medium text-slate-800">Lesson title</h3>
+                <h3 className="text-sm font-medium text-slate-800">
+                  {isSeriesPreview ? 'Series title' : 'Lesson title'}
+                </h3>
                 <HandoffCopyableBox
                   id="chalkie-lesson-title-handoff"
                   value={activeLessonTitle}
                   rows={2}
-                  copyLabel="Copy title"
+                  copyLabel={isSeriesPreview ? 'Copy series title' : 'Copy title'}
                   copyStatus={titleCopyStatus}
                   onCopy={handleCopyLessonTitle}
                   textareaClassName="min-h-[2.75rem] resize-none text-sm font-medium leading-relaxed"
@@ -1051,9 +1122,106 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     Copying was unavailable. Select the title text and copy it manually.
                   </p>
                 ) : null}
+                {isBe3SeriesPreview && be3SeriesHandoff?.stableSeriesReference ? (
+                  <p className="text-xs text-slate-500">
+                    Ref: <span className="font-mono">{be3SeriesHandoff.stableSeriesReference}</span>
+                  </p>
+                ) : lesson.stableSeriesReference && effectiveLessonShape === 'series' ? (
+                  <p className="text-xs text-slate-500">
+                    Ref: <span className="font-mono">{lesson.stableSeriesReference}</span>
+                  </p>
+                ) : lesson.stableLessonReference && !isSeriesPreview ? (
+                  <p className="text-xs text-slate-500">
+                    Ref: <span className="font-mono">{lesson.stableLessonReference}</span>
+                  </p>
+                ) : null}
               </section>
 
-              {isSeriesPreview ? (
+              {isBe3SeriesPreview && be3SeriesHandoff ? (
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+                  <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Detailed two-lesson Chalkie handoff
+                    </h3>
+                    <HandoffCopyableBox
+                      id="chalkie-prompt-preview"
+                      value={promptPreview}
+                      rows={24}
+                      copyLabel="Copy detailed handoff"
+                      copyStatus={copyStatus}
+                      onCopy={handleCopyPrompt}
+                      className="flex-1"
+                      textareaClassName="min-h-[20rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                    />
+                    {copyStatus === 'failed' ? (
+                      <p className="text-sm text-slate-500">
+                        Copying was unavailable. Select the handoff text and copy it manually.
+                      </p>
+                    ) : null}
+                  </div>
+                  <aside className="flex min-w-0 flex-col gap-2 lg:col-span-5">
+                    <h3 className="text-sm font-medium text-slate-800">Lesson outlines and vocabulary</h3>
+                    <div className="flex min-w-0 flex-col gap-4">
+                      <section className="space-y-2">
+                        <h4 className="text-sm font-medium text-slate-800">
+                          Lesson 1 concise outline (SB pp. {seriesLesson1Pages})
+                        </h4>
+                        <HandoffCopyableBox
+                          id="chalkie-be3-l1-outline"
+                          value={be3SeriesHandoff.lesson1Outline}
+                          rows={10}
+                          copyLabel="Copy Lesson 1 outline"
+                          copyStatus={lesson1OutlineCopyStatus}
+                          onCopy={handleCopyLesson1Outline}
+                          textareaClassName="min-h-[10rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                        />
+                      </section>
+                      <section className="space-y-2">
+                        <h4 className="text-sm font-medium text-slate-800">
+                          Lesson 1 suggested vocabulary
+                        </h4>
+                        <HandoffCopyableBox
+                          id="chalkie-be3-l1-vocab"
+                          value={be3SeriesHandoff.lesson1Vocabulary}
+                          rows={3}
+                          copyLabel="Copy Lesson 1 vocabulary"
+                          copyStatus={lesson1VocabCopyStatus}
+                          onCopy={handleCopyLesson1Vocabulary}
+                          textareaClassName="min-h-[4.5rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                        />
+                      </section>
+                      <section className="space-y-2">
+                        <h4 className="text-sm font-medium text-slate-800">
+                          Lesson 2 concise outline (WB pp. {seriesLesson2Pages})
+                        </h4>
+                        <HandoffCopyableBox
+                          id="chalkie-be3-l2-outline"
+                          value={be3SeriesHandoff.lesson2Outline}
+                          rows={9}
+                          copyLabel="Copy Lesson 2 outline"
+                          copyStatus={lesson2OutlineCopyStatus}
+                          onCopy={handleCopyLesson2Outline}
+                          textareaClassName="min-h-[9rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                        />
+                      </section>
+                      <section className="space-y-2">
+                        <h4 className="text-sm font-medium text-slate-800">
+                          Lesson 2 suggested vocabulary
+                        </h4>
+                        <HandoffCopyableBox
+                          id="chalkie-be3-l2-vocab"
+                          value={be3SeriesHandoff.lesson2Vocabulary}
+                          rows={3}
+                          copyLabel="Copy Lesson 2 vocabulary"
+                          copyStatus={lesson2VocabCopyStatus}
+                          onCopy={handleCopyLesson2Vocabulary}
+                          textareaClassName="min-h-[4.5rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                        />
+                      </section>
+                    </div>
+                  </aside>
+                </div>
+              ) : isSeriesPreview ? (
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
                   <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
                     <h3 className="text-sm font-medium text-slate-800">Detailed Chalkie prompt</h3>
@@ -1172,7 +1340,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </div>
               )}
 
-              {conciseOutline ? (
+              {!isBe3SeriesPreview && conciseOutline ? (
                 <section
                   className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
                   aria-label="Concise teacher-controlled outline"
@@ -1203,6 +1371,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </section>
               ) : null}
 
+              {!isBe3SeriesPreview ? (
               <section
                 className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
                 aria-label="Suggested Chalkie vocabulary"
@@ -1238,6 +1407,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </p>
                 ) : null}
               </section>
+              ) : null}
             </div>
           ) : null}
         </div>

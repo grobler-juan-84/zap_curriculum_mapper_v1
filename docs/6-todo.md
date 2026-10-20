@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 258
+**Last updated:** Step 280
 
 
 
@@ -448,9 +448,11 @@
 
 - [x] **BE3 U8 SB→WB pairing gap recorded** — then content review **ACCEPTED** curated opener pair SB 128–129 → WB 104–105; resolver recognises it; unmapped spreads stay unpaired.
 
+- [x] **BE3 U8 opener series handoff** — six local copyables for SB 128–129 → WB 104–105 only; BE2 fixture unchanged; unmapped spreads stay unpaired.
+
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** build local two-lesson SB→WB handoff (six copyables) for the accepted BE3 U8 opener pair only — do not broaden pairing rules.
+- [ ] **Next microstep:** owner-gated Chalkie Lesson Series paste for the accepted BE3 U8 opener pair only — or choose next Single Lesson pilot spread; do not broaden pairing rules.
 
 
 

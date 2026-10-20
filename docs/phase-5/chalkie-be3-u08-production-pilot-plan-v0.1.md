@@ -143,7 +143,7 @@ No new rubric. No D018 re-score.
 
 Content review **ACCEPTED** one curated pairing: SB pp.128–129 → WB pp.104–105 (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`). See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-The local two-lesson handoff (six copyables) is **not built yet**. Until that packaging step lands, the production pilot remains Single Lesson–first; series UI stays off for BE3.
+Local two-lesson handoff (six copyables) is **built** for this pair only via `buildBe3U08OpenerSbWbSeriesHandoff.ts`. Unmapped BE3 spreads still have no series. Production Chalkie generation remains owner-gated.
 
 ---
 
