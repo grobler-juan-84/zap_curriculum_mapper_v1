@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.20  
+**Version:** 2.21  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -27,7 +27,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
 - Series / Student Book / unit navigation and R2-backed PDF viewing (Workbook books omitted from teacher dropdown; WB PDF still loadable via verified companion toggle).
 - **Unit Summary**, **SB Pages Summary** (primary lesson source), optional **WB Pages Summary** (verified companion only), and **Unit Intelligence**.
-- **Unit Intelligence** — read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); labelled planning support, **not** current-page source evidence; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) is design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
+- **Unit Intelligence** — **implemented** read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); disclaimer *Phase 2 interpretation / planning support — not current-page source evidence.*; AI-inferred Learning Outcomes badge preserved; honest unavailable copy when BI is missing; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) remains design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
 - Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
@@ -226,3 +226,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-21 | Fix View Student Book restore: reinstate frozen SB spread (e.g. 128–129), PDF controls, companion toggle/WB summary; ignore one-page PDF overwrites during restore. |
 | 2026-10-21 | Fix PDF binding: render verified `pdf_page` for SB/WB companion views (remove remount-to-cover bug; SB 128–129 → PDF 126–127). |
 | 2026-10-21 | Fix renderer spread: force both mapped PDF pages; no clamp-collapse; Document `key={pdfUrl}`; SB restore force-displays 126–127. |
+| 2026-10-21 | Confirmed Unit Intelligence accordion against Teacher Intelligence left-pane contract v0.1; other TI sections still not built. |

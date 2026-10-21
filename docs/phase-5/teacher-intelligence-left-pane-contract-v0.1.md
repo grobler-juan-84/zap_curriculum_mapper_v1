@@ -1,11 +1,13 @@
 # Teacher Intelligence left-pane contract v0.1
 
 **Status:** ACTIVE (design record)  
-**Version:** 0.1  
+**Version:** 0.1.1  
 **Date:** 2026-10-21  
-**Type:** Information-architecture contract only  
+**Type:** Information-architecture contract  
 
-**Not:** UI implementation, schema lock, AI feature, Chalkie generation, or platform-adapter work.
+**Implementation status (2026-10-21):** **Unit Intelligence** read-only accordion is implemented in Chalkie Workspace (`/app/chalkie` left panel). Horizontal Mapping, School-Specific Notes, and Future Suggestions remain **not implemented**.
+
+**Not:** schema lock, AI feature, Chalkie generation, or platform-adapter expansion beyond the Unit Intelligence slice.
 
 ---
 
@@ -142,7 +144,7 @@ Future only:  Suggestions after explicit teacher acceptance
 |---|---|
 | [F021](../7-future.md) | Neutral package + separate platform workspaces — this pane feeds the package, not a single vendor UI |
 | [F022](../7-future.md) | Horizontal Mapping is the left-pane home for selectable prior-learning candidates (not implemented here) |
-| [Chalkie Workspace prototype](./p5-prototype-chalkie-workspace.md) | Current adapter UI; already has source summaries + a read-only Unit Intelligence accordion precursor |
+| [Chalkie Workspace prototype](./p5-prototype-chalkie-workspace.md) | Current adapter UI; source summaries + **implemented** read-only Unit Intelligence accordion |
 | D018 / handoff builders | **Unchanged** by this record |
 | `docs/4-decisions.md` | **Unchanged** by this record |
 
@@ -150,19 +152,32 @@ Future only:  Suggestions after explicit teacher acceptance
 
 ## Explicit non-goals (this record)
 
-- No app code, routes, or component work authorized beyond documenting the contract.
-- No data schema, Storage, or Postgres changes.
-- No AI/API calls, automatic prompt insertion, or Chalkie generation.
+- No data schema, Storage, or Postgres changes from this contract alone.
+- No AI/API calls, automatic prompt insertion, or Chalkie generation driven by Unit Intelligence.
 - No implementation of Horizontal Mapping, School-Specific Notes, or Future Suggestions UI.
 - No claim that today’s handoff objects are already a locked neutral lesson package.
+- Unit Intelligence must not alter source scope, prior learning, vocabulary, packaging, or handoff builders.
+
+---
+
+## Implementation notes (Unit Intelligence slice)
+
+| Item | Status |
+|---|---|
+| Left-panel accordion after source summaries | Done in `ChalkieLeftPanel` |
+| Load BI via Storage registry/loader for selected book | Done in `ChalkieWorkspace` |
+| Compact fields + AI-inferred Learning Outcomes badge | Done via `chalkieUnitIntelligence.ts` |
+| Exact unavailable copy when BI missing | Done (`UNIT_INTELLIGENCE_EMPTY_MESSAGE`) |
+| Read-only; no handoff/context mutation | Done (focused tests) |
+| Horizontal Mapping / School Notes / Future Suggestions | **Not started** |
 
 ---
 
 ## Next implementation slice (smallest)
 
-**Only:** keep / treat the **read-only Unit Intelligence** accordion in Chalkie Workspace as the first Teacher Intelligence surface under this contract — with an honest unavailable state when Book Intelligence is missing.
-
 **Do not** implement Horizontal Mapping, School-Specific Notes, or Future Suggestions yet.
+
+Optional later: wire more books into the BI Storage registry so Unit Intelligence covers more catalog books (still read-only).
 
 ---
 
@@ -171,3 +186,4 @@ Future only:  Suggestions after explicit teacher acceptance
 | Date | Note |
 |---|---|
 | 2026-10-21 | v0.1 design record created (IA contract only). |
+| 2026-10-21 | v0.1.1 — Unit Intelligence accordion marked implemented in Chalkie Workspace; other Teacher Intelligence sections still out of scope. |

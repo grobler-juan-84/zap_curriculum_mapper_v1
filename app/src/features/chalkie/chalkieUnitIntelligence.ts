@@ -18,7 +18,7 @@ export const UNIT_INTELLIGENCE_EMPTY_MESSAGE =
   'Unit Intelligence is not available for this book/unit yet. It can be added when Phase 2 Book Intelligence has been prepared.'
 
 export const UNIT_INTELLIGENCE_DISCLAIMER =
-  'Phase 2 interpretation / planning support — not current-page source evidence'
+  'Phase 2 interpretation / planning support — not current-page source evidence.'
 
 export type ChalkieUnitIntelligenceField = {
   key: BookIntelligenceUiFieldKey

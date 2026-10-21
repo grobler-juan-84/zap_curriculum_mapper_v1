@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 301
+**Last updated:** Step 302
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,13 +16,11 @@
 
 - **D017** / **D018** / **D019** / **D020** / **D021** LOCKED.
 
-- **D021** SB-led Chalkie Workspace with optional mapped Workbook view (PDF spread binding fixed).
+- **D021** SB-led Chalkie Workspace with optional mapped Workbook view.
 
-- **Teacher Intelligence left-pane contract v0.1** recorded (IA only: Source Context + Unit Intelligence / Horizontal Mapping / School Notes / Future Suggestions; F021–F022 boundary).
+- **Teacher Intelligence left-pane contract:** Unit Intelligence accordion **implemented** (read-only BI); Horizontal Mapping / School Notes / Future Suggestions still design-only.
 
 - BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
-
-- Unit Intelligence accordion in Chalkie; standalone BI preview retired.
 
 ## In progress
 
@@ -30,7 +28,7 @@
 
 ## Next
 
-- Keep Unit Intelligence read-only as the only Teacher Intelligence surface; do not build Horizontal Mapping / School Notes / Future Suggestions yet.
+- Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Owner visual recheck of SB↔WB spreads if still open.
 - Wire one or more docs-accepted Unit 8 companions (smallest safe batch) when ready.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

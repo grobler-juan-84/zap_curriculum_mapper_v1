@@ -5093,3 +5093,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 302
+
+**Summary:** Confirmed Unit Intelligence accordion against the Teacher Intelligence left-pane contract (already in app: Storage BI loader, fields, AI-inferred badge, exact unavailable copy, no handoff mutation). Aligned disclaimer punctuation; marked contract implementation status; updated prototype/index/trackers. No mappings/handoff/D018/decisions changes. F021/F022 preserved.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieUnitIntelligence.ts` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

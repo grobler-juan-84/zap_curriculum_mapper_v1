@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 301
+**Last updated:** Step 302
 
 
 
@@ -496,11 +496,13 @@
 
 - [x] **PDF renderer spread** — force both mapped PDF pages into ValidationPdfPane; Document remount on pdfUrl; regression for second-page EOD.
 
-- [x] **Teacher Intelligence left-pane contract v0.1** — IA design record only (Source Context + four Teacher Intelligence layers; F021–F022 handoff boundary).
+- [x] **Teacher Intelligence left-pane contract v0.1** — IA design record (Source Context + four Teacher Intelligence layers; F021–F022 handoff boundary).
+
+- [x] **Unit Intelligence accordion** — read-only BI in Chalkie left panel; honest unavailable state; does not alter handoff (contract slice complete).
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
-- [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet (contract: Unit Intelligence read-only only).
+- [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — expands View Workbook coverage; no new handoff/Chalkie without separate approval.
 
