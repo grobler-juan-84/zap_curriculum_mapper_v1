@@ -176,11 +176,39 @@ test('BE3 SB pp.128–129 resolves to curated WB pp.104–105 companion', () => 
   assert.equal(result.companion?.workbookCatalogId, 'big_english_3_wb')
 })
 
+test('BE3 SB pp.130–131 resolves to asymmetric curated WB p.106 companion only', () => {
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wb,
+    studentBookPrintedPages: [130, 131],
+  })
+
+  assert.ok(result.companion)
+  assert.equal(result.gapReason, null)
+  assert.equal(result.companion?.source, 'curated_verified')
+  assert.equal(
+    result.companion?.relationshipId,
+    'be3_sb_wb_rel_u08_story_sb130-131_wb106',
+  )
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [130, 131])
+  assert.deepEqual(result.companion?.workbookPrintedPages, [106])
+  assert.deepEqual(result.companion?.studentBookPageIds, [
+    'bep3_sb_p130',
+    'bep3_sb_p131',
+  ])
+  assert.deepEqual(result.companion?.workbookPageIds, ['bep_3_wb_p106'])
+  // Rejected 106–107 pairing must not reappear via page guess.
+  assert.ok(!result.companion?.workbookPrintedPages.includes(107))
+})
+
 test('unmapped BE3 spreads still do not receive guessed Workbook companions', () => {
   const sb = loadJson(BE3_SB_PATH)
   const wb = loadJson(BE3_WB_PATH)
   for (const pages of [
-    [130, 131],
     [132, 133],
     [134, 135],
     [136, 137],
@@ -343,6 +371,31 @@ test('BE3 ready resolve enables series packaging for the accepted opener pair', 
   assert.ok(lesson.seriesLessonTitle)
   assert.ok(lesson.stableSeriesReference)
   assert.equal(lesson.isBe2U08PrototypeRoute, false)
+})
+
+test('BE3 story companion resolves but series packaging stays off', () => {
+  const wb = loadJson(BE3_WB_PATH)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [130, 131],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.workbookCompanion)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_story_sb130-131_wb106',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [106])
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.seriesLessonTitle, null)
+  assert.equal(lesson.stableSeriesReference, null)
 })
 
 test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {

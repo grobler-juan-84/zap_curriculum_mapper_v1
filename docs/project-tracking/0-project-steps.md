@@ -4744,3 +4744,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 283
+
+**Summary:** Added BE3 U8 SB→WB component map (logical components, not equal page counts) and **ACCEPTED** asymmetric curated companion SB pp.130–131 → WB p.106 only; series packaging left off; focused resolver/series tests updated so story companion resolves without enabling opener series.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (created)
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

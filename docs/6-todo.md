@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 282
+**Last updated:** Step 283
 
 
 
@@ -452,11 +452,13 @@
 
 - [x] **First SB→WB two-lesson production pilot recorded** — [`phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md); PASS AFTER LIGHT TEACHER REVIEW; Chalkie-generation short-answer correction only; further generation not authorized.
 
-- [x] **Candidate SB 130–131 → WB 106–107 content-reviewed and REJECTED** — WB p.107 is Language in Action, not story consolidation; no mapping added ([`phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)).
+- [x] **Candidate SB 130–131 → WB 106–107 content-reviewed and REJECTED** — WB p.107 is Language in Action, not story consolidation.
+
+- [x] **BE3 U8 SB→WB component map** — [`phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md); then story **ACCEPTED** as SB 130–131 → WB **p.106 only** (series off).
 
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** owner-gated Single Lesson for SB 130–131 or 138–139, or content-review a different explicit SB→WB candidate — do not broaden pairing rules; do not generate without authorization.
+- [ ] **Next microstep:** owner-gated Single Lesson for SB 130–131, or approve a story series-handoff step, or content-review next component-map row — do not bulk-approve; do not generate without authorization.
 
 
 

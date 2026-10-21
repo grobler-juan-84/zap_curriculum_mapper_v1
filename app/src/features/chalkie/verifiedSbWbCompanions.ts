@@ -2,7 +2,10 @@
  * Explicitly curated, human-verified Student Book → Workbook companions.
  *
  * These are not pagination heuristics. Each entry records a reviewed content pairing
- * for one spread only. Do not auto-generate entries from unit position alone.
+ * for one logical component only. Do not auto-generate entries from unit position alone.
+ *
+ * Page-count asymmetry is allowed: e.g. two SB pages may map to one WB page when the
+ * Workbook component is a single page. Arrays record the verified pages exactly.
  */
 
 export type CuratedVerifiedSbWbCompanion = {
@@ -12,8 +15,10 @@ export type CuratedVerifiedSbWbCompanion = {
   studentBookCatalogId: string
   workbookCatalogId: string
   studentBookPageIds: string[]
+  /** Verified SB printed pages (may be one or more). */
   studentBookPrintedPages: number[]
   workbookPageIds: string[]
+  /** Verified WB printed pages (may be one or more; length need not equal SB). */
   workbookPrintedPages: number[]
   unitNumber: number
   unitTitle: string
@@ -52,7 +57,38 @@ export const BE3_U08_SB128_129_WB104_105: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Story / Reading → WB Story (asymmetric 2→1).
+ *
+ * Accepted after content review of SB pp.130–131 against WB p.106 only.
+ * WB p.107 (Language in Action) is explicitly excluded — rejected as part of 106–107.
+ */
+export const BE3_U08_SB130_131_WB106: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_story_sb130-131_wb106',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p130', 'bep3_sb_p131'],
+  studentBookPrintedPages: [130, 131],
+  workbookPageIds: ['bep_3_wb_p106'],
+  workbookPrintedPages: [106],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook p.106 consolidates Student Book Story/Reading *An Unhealthy Dinner* (pp.130–131): shared story title/component, Amy-dinner Did…? Yes/No she did short answers, and healthy/unhealthy personal extension. Single WB story page against a two-page SB spread is expected (component map). WB p.107 is Language in Action and is not part of this relationship.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB pp.130–131: Story + Reading · component An Unhealthy Dinner; Act 6 Listen and read. Did Amy eat a healthy dinner?; Act 7 Read and choose (Amy dinner comprehension).',
+    'WB p.106 only: Story · notes Story title: An Unhealthy Dinner; component An Unhealthy Dinner.',
+    'WB Act 5: Read and answer. Write Yes, she did or No, she didn’t. (Did Amy eat a burger and fries…? / Did she eat a healthy dinner?).',
+    'WB Act 6 + Think Big: personal dinner write/draw and healthy/unhealthy categorisation extending the story strand.',
+    'Explicitly excluded: WB p.107 Language in Action (weekend stickers / did–didn’t dialogues) — not story consolidation.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
+  BE3_U08_SB130_131_WB106,
 ]

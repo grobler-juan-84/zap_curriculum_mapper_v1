@@ -65,7 +65,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | Pages | Section / type | Topic or best label | Teaching focus (local) | Words/models | Activities | Prior | Handoff | Experimental history | Pilot status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
-| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Candidate WB 106–107 **REJECTED** (p.107 is LiA, not story) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Eligible **Single Lesson** next; no SB→WB series for 106–107 |
+| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected; series handoff **not** enabled — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | Companion recorded; Single Lesson or separate series-handoff approval next |
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; Exp 13 preferred combined-input result | **No immediate repeat** |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14** strong non-grammar transfer | **No immediate repeat** |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10** Lesson Series operational pilot: raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW | **No immediate repeat** (already teacher-reviewed; different series mode) |
@@ -98,7 +98,7 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 ### Later eligible (after first pilot)
 
-1. **pp.130–131** Story / Reading — ready as **Single Lesson** (thinner vocab chips; optional p.128 prior). Candidate SB→WB pair **106–107 REJECTED** (WB p.107 is Language in Action, not story consolidation).  
+1. **pp.130–131** Story / Reading — curated companion to **WB p.106 only** (series package off). Ready as Single Lesson, or owner may later approve a story series handoff.  
 2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab; natural mid/late-unit production candidate.
 
 ### Wait / out of this two-page pilot wave

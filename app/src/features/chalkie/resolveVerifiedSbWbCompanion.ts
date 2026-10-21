@@ -7,8 +7,10 @@
  *
  * Does **not** invent pairings from parallel unit structure, matching page counts,
  * matching section titles, or “same unit number” heuristics.
+ * Curated companions may be asymmetric (e.g. SB two pages → WB one page).
  *
  * When no such relationship exists, returns null.
+ * Resolving a companion does **not** by itself enable two-lesson series packaging.
  */
 
 import { CURATED_VERIFIED_SB_WB_COMPANIONS } from './verifiedSbWbCompanions'
