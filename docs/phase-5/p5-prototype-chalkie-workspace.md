@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.9  
+**Version:** 2.10  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -16,7 +16,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
-- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, or (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105 with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). No other BE3 series mappings.
+- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, or (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105 with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). First production Chalkie series run for that BE3 pair: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)); further generation not authorized. No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
 
@@ -105,7 +105,7 @@ The overlay performs no new curriculum fetches after **Prepare Chalkie prompt**.
 
 ### Future API-backed prior-learning cards — proposed, not implemented or locked
 
-The appropriate replacement for the U8 fixture is an **evidence-backed retrieval API**, not new hardcoded arrays in the UI. This is a proposed integration boundary only; it does not approve a Phase 2 schema, a Phase 3 policy, or a production endpoint.
+The appropriate replacement for the U8 fixture is an **evidence-backed retrieval API**, not new hardcoded arrays in the UI. This is a proposed integration boundary only; it does not approve a Phase 2 schema, a Phase 3 policy, or a production endpoint. Its required future coverage is both **earlier lessons/pages in the current unit** and **earlier units in the same book**; both remain optional teacher-selected supports, never automatic assumptions of mastery.
 
 1. The workspace resolves the current book, unit, and visible printed pages exactly as it does now.
 2. A server-side endpoint receives that bounded context, for example the catalog book ID, current unit ID/number, and visible printed pages. The client must not be trusted to supply arbitrary prior-learning claims.

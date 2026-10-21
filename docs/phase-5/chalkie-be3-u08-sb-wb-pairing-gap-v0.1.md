@@ -1,10 +1,11 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** PAIRING **ACCEPTED** · SERIES HANDOFF **BUILT** for one curated opener pair  
-**Date:** 2026-10-20  
+**Status:** PAIRING **ACCEPTED** · SERIES HANDOFF **BUILT** · first production pilot **PASS AFTER LIGHT TEACHER REVIEW**  
+**Date:** 2026-10-20 (pilot results 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · SB pp. **128–129** ↔ WB pp. **104–105**
 
 **Related:**  
+[`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) ·  
 [`chalkie-be3-u08-production-pilot-plan-v0.1.md`](./chalkie-be3-u08-production-pilot-plan-v0.1.md) ·  
 [`p5-prototype-chalkie-workspace.md`](./p5-prototype-chalkie-workspace.md) ·  
 [`../phase-1/audits/BE3-SB_canonical_v1_audit.md`](../phase-1/audits/BE3-SB_canonical_v1_audit.md) ·  
@@ -75,16 +76,28 @@ Builder: `buildBe3U08OpenerSbWbSeriesHandoff.ts`. L1 = SB scope; L2 = WB consoli
 | Other BE3 U8 spreads | Still **no** companion / **no** series |
 | Two-lesson series packaging | **Enabled** for this pair only |
 | Single-lesson path | Unchanged |
+| First production Chalkie series run | **PASS AFTER LIGHT TEACHER REVIEW** — see results doc |
 
 ---
 
-## 5. Next microstep
+## 5. Production pilot outcome
 
-Owner-gated: run or skip a production Chalkie Lesson Series paste for this accepted pair; do not broaden pairing rules.
+Owner-reviewed Lesson Series exports for this pair only:
+
+- L1: `HEALTHY LIVING_ ACTIVITIES AND QUESTIONS - lesson 1.pdf` (30 PDF pages)  
+- L2: `HEALTHY HABITS - lesson 2.pdf` (31 PDF pages)  
+
+Verdict and one Chalkie-generation short-answer correction: [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). **No further generation authorized.** Local handoff / app unchanged after the teacher edit.
 
 ---
 
-## 6. Boundaries
+## 6. Next microstep
+
+Owner-gated: choose the next Single Lesson Unit 8 spread, or authorize another **explicitly curated** SB→WB pair after content review — do not broaden pairing rules.
+
+---
+
+## 7. Boundaries
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API.  

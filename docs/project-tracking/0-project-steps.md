@@ -4710,3 +4710,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 281
+
+**Summary:** Documented the first successful BE3 U8 SB→WB two-lesson production pilot (SB 128–129 → WB 104–105) as PASS AFTER LIGHT TEACHER REVIEW; recorded one Chalkie-generation short-answer correction; no app/handoff/D018 changes; further generation not authorized.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md` (created)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

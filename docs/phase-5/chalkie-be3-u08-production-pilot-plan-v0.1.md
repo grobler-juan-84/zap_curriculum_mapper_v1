@@ -1,13 +1,14 @@
 # Chalkie BE3 Unit 8 — Production Pilot Plan (v0.1)
 
-**Status:** PRODUCTION PILOT PLAN / **DRAFT** / **NO GENERATION AUTHORIZED**  
-**Date:** 2026-10-20  
+**Status:** PRODUCTION PILOT PLAN / **ACTIVE** / first SB→WB pair **COMPLETED** (see results) / **NO FURTHER GENERATION AUTHORIZED**  
+**Date:** 2026-10-20 (results note 2026-10-21)  
 **Scope:** Big English 3 Student Book · Unit 8 *Healthy Living* · printed pages **128–143** only  
 **Catalog / local refs:** `big_english_3_sb` · unit `big_english_3_sb_unit_08`
 
 **Evidence base:** Phase 1 canonical `data/phase1/big_english_3_sb/canonical/v1.json` + local Chalkie resolve (`resolveChalkieLessonContext`) on the unit slice. Experimental history from Exp 10–14 docs only.
 
 **Related:**  
+[`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) ·  
 [`p5-prototype-chalkie-workspace.md`](./p5-prototype-chalkie-workspace.md) ·  
 [`chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./chalkie-single-lesson-experiments-11-13-results-v0.1.md) ·  
 [`chalkie-single-lesson-experiment-14-results-v0.1.md`](./chalkie-single-lesson-experiment-14-results-v0.1.md) ·  
@@ -63,7 +64,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 
 | Pages | Section / type | Topic or best label | Teaching focus (local) | Words/models | Activities | Prior | Handoff | Experimental history | Pilot status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **None documented** for BE3 this spread | **First production-pilot candidate** |
+| **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
 | **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | **None documented** | Eligible next (after 128–129); thinner vocab chips |
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; Exp 13 preferred combined-input result | **No immediate repeat** |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14** strong non-grammar transfer | **No immediate repeat** |
@@ -88,19 +89,14 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | pp.134–135 | Exp 14; non-grammar transfer already demonstrated |
 | pp.136–137 | Exp 10 closed (Lesson Series + teacher correction). Do not re-run unless the owner later wants a **Single Lesson** preferred-path transfer on Grammar |
 
-### First production-pilot spread (recommended)
+### First production-pilot spread (completed as SB→WB series)
 
-**BE3 SB Unit 08 pp. 128–129 — Vocabulary / Song**  
-Stable ref: `be3-sb-u08-p128-129`
+**BE3 SB Unit 08 pp. 128–129 — Vocabulary / Song** (+ WB pp. 104–105)  
+Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
-**Why first**
+**Outcome:** first SB→WB two-lesson production pilot — **PASS AFTER LIGHT TEACHER REVIEW**. See [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). Further generation not authorized by that record.
 
-- Earliest untested **legitimate** two-page spread in the unit.  
-- Local handoff **ready** with strong current-page vocabulary and activities.  
-- No same-unit prior required (honest empty prior list).  
-- Tests production repeatability on a non-grammar opener without new workflow invention.
-
-### Later eligible (after first pilot succeeds)
+### Later eligible (after first pilot)
 
 1. **pp.130–131** Story / Reading — ready but no current-page word models; rely on activities + optional p.128 prior.  
 2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab; natural mid/late-unit production candidate.
@@ -143,7 +139,9 @@ No new rubric. No D018 re-score.
 
 Content review **ACCEPTED** one curated pairing: SB pp.128–129 → WB pp.104–105 (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`). See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-Local two-lesson handoff (six copyables) is **built** for this pair only via `buildBe3U08OpenerSbWbSeriesHandoff.ts`. Unmapped BE3 spreads still have no series. Production Chalkie generation remains owner-gated.
+Local two-lesson handoff (six copyables) is **built** for this pair only via `buildBe3U08OpenerSbWbSeriesHandoff.ts`. Unmapped BE3 spreads still have no series.
+
+**Production pilot results (2026-10-21):** first successful SB→WB two-lesson run — **PASS AFTER LIGHT TEACHER REVIEW**. Exports: L1 30 PDF pages · L2 31 PDF pages. One contained Chalkie-generation short-answer fix (`Yes, did / No, didn't.` → `Yes, he/she did. / No, he/she didn't.`). Full record: [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). **No further generation authorized by that record.**
 
 ---
 
@@ -151,7 +149,7 @@ Local two-lesson handoff (six copyables) is **built** for this pair only via `bu
 
 **Next owner action (choose one):**
 
-1. Authorize (or decline) a **single-lesson** Chalkie generation for **BE3 SB Unit 8 pp. 128–129** using the provisional preferred workflow; or  
-2. Authorize Phase 1 / SS work to record a **human-verified** SB→WB page pairing before any two-lesson BE3 series packaging.
+1. Authorize (or decline) a **single-lesson** Chalkie generation for another eligible Unit 8 spread (e.g. pp. 130–131 or 138–139); or  
+2. Authorize another **explicitly curated** SB→WB pair only after content review — do not broaden pairing rules.
 
 Until explicitly authorized, **do not generate**.

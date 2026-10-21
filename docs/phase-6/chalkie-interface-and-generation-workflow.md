@@ -1,8 +1,8 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.3
+**Version:** V1.4
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
-**Observed:** 2026-10-16 and 2026-10-20, from user-supplied screenshots and generation/export experience
+**Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
 **Scope:** Single Lesson and Lesson Series creation, options, prompts, review (including optional **Ask Chalkie**), theme, export and quality control. Does not cover Activity Sheets or Workbooks as standalone creation modes.
 
@@ -33,6 +33,8 @@ The Refine screen accepted the five manually supplied vocabulary phrases as sepa
 **Provisional preferred Single Lesson path (Exp 13; not a methodology lock):** paste the detailed handoff into the initial prompt box, append the concise teacher-controlled outline underneath it in the **same** box, and do **not** click `Create outline`. Enter vocabulary chips on Refine; generate; teacher-review. Full findings: [`../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md). Pre-run design: [`../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md`](../phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md).
 
 **Transfer evidence (Exp 14):** same preferred path on BE3 U8 Content Connection / P.E. pp. 134–135 (*What Is a Calorie?*) — **PASS AFTER LIGHT TEACHER REVIEW — strong non-grammar transfer success**. [`../phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md`](../phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md).
+
+**SB→WB Lesson Series production pilot (2026-10-21):** curated BE3 U8 opener SB pp. 128–129 → WB pp. 104–105 — **PASS AFTER LIGHT TEACHER REVIEW — first successful SB→WB two-lesson production pilot**. One contained Chalkie-generation short-answer defect corrected in final review (`Yes, did / No, didn't.` → `Yes, he/she did. / No, he/she didn't.`). Exports 30/31 PDF pages (answer reveals). Further generation **not** authorized by that record. [`../phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](../phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md).
 
 ### Step 1 — Topic
 
@@ -101,6 +103,8 @@ The Refine screen accepted the five manually supplied vocabulary phrases as sepa
 ## 4. Step-by-step: Lesson series
 
 **Observed four-stage progression:** `1 Topic → 2 Refine → 3 Outline → 4 Theme`.
+
+**Production evidence (one curated pair only):** BE3 U8 SB 128–129 + WB 104–105 completed as a usable two-lesson series after light teacher review — see §3 transfer note and the Phase 5 results doc. This does **not** unlock open-ended Lesson Series generation or automatic SB→WB pairing.
 
 ### Step 1 — Topic
 
@@ -179,7 +183,7 @@ PROMPT VERSION / ITERATION: ...
 
 ## 6. Export and slide-count interpretation
 
-**User-confirmed:** Chalkie slide-count settings are chosen before generation for **both** Single Lesson and Lesson Series. In Lesson Series, the requested slide count is set **per lesson** together with the number of lessons. Do not assume different slide counts can be assigned to individual lessons within one series unless separately verified. During export to Google Slides or PDF, animated answer reveals can be represented as additional pages/slides (often a separate answer state). Thus a **25-slide selection may yield a 29-page PDF** without Chalkie having planned 29 original lesson slides.
+**User-confirmed:** Chalkie slide-count settings are chosen before generation for **both** Single Lesson and Lesson Series. In Lesson Series, the requested slide count is set **per lesson** together with the number of lessons. Do not assume different slide counts can be assigned to individual lessons within one series unless separately verified. During export to Google Slides or PDF, animated answer reveals can be represented as additional pages/slides (often a separate answer state). Thus a **25-slide selection may yield a 29-page PDF** without Chalkie having planned 29 original lesson slides. The 2026-10-21 SB→WB pilot exports (**30** and **31** PDF pages) are consistent with that reveal-page pattern and remain acceptable.
 
 **Evaluation rule:** record both `(a) slide-count selection in Chalkie` and `(b) exported page/slide count`. Inspect duplicated reveal states before calling the lesson too long. Still evaluate classroom pacing and genuine repetition independently.
 
