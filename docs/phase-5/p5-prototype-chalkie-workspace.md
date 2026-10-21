@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.10  
+**Version:** 2.12  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -9,6 +9,12 @@
 ## Purpose and scope
 
 First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textbook PDF, see concise Phase 1 evidence summaries, and launch a guided teacher-choice setup before prompt preparation.
+
+### Platform boundary (deliberate)
+
+**Chalkie Workspace is a Chalkie-specific handoff adapter, not the project’s curriculum or lesson-planning source of truth.** Its copyables deliberately use the workflow Chalkie currently responds to best. The durable layer is the verified source evidence, SB→WB component mappings, teacher-selected prior learning, scope, and future neutral lesson package.
+
+If another generator later becomes more suitable, add a parallel workspace (for example, MagicSchool Workspace or Canva Workspace) that translates the same package for that platform. Do **not** rename or replace Chalkie Workspace, rebuild the curriculum mapping, or hardwire every lesson prompt again. This is an architectural boundary and future direction, not authorization to build another integration now. See [F021](../7-future.md).
 
 **In scope:**
 
@@ -175,6 +181,7 @@ Never use `VITE_OPENAI_API_KEY`.
 ## Relationship to Phase 5 methodology and Phase 6
 
 - Aligns with **page-scoped packaging** discipline documented in [`p5-exp-be2-u08-p128-129-chalkie-brief-v1.md`](./p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) (manual paste brief; not yet automated).
+- **Provisional two-lesson-first packaging policy** (docs only): for new internal Chalkie generation, prefer two lessons (SB introduce → WB practise when a companion is verified; SB-only two-lesson split when none exists). Recorded in [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A. This prototype’s UI still enables series only for the curated BE2 fixture and the two accepted BE3 U8 pairs — the policy does **not** by itself unlock series for other routes or authorize generation.
 - **Phase 6** [`chalkie-ai-handover-specifications.md`](../phase-6/chalkie-ai-handover-specifications.md) remains **PARKED** for downstream generation productization; this prototype is Phase 5 teacher packaging UI, not Phase 6 lesson generation.
 
 ---
@@ -202,3 +209,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-20 | Cross-linked generic detailed-handoff gap audit (Exp 10 vs current prompt; next coding slice defined). |
 | 2026-10-20 | Screen 1 / prompt: activity-derived words/models, language frames, teaching-focus planning summary; honest empty-state wording. |
 | 2026-10-20 | Correction pass for BE3 U8 spreads 128–137: lesson topic, Q&A `|` splits, `full_text` language, Did…? focus, phrase halves, models bound 24. |
+| 2026-10-21 | Cross-linked provisional two-lesson-first packaging policy (§1A in Phase 6 Chalkie workflow); UI series gates unchanged; no generation authorized. |

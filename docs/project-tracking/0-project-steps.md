@@ -4917,3 +4917,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 293
+
+**Summary:** Recorded provisional two-lesson-first packaging policy for internal Chalkie generation (docs only): prefer two lessons; SB→WB split when companion verified; honest SB-only two-lesson split when not; 3–4 lessons only by deliberate teacher grouping. No app/handoff/Chalkie/D018/decisions changes; F021/F022 preserved.
+
+**Files touched:**
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 292
+**Last updated:** Step 293
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,6 +24,8 @@
 
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
+- **Provisional two-lesson-first packaging policy** recorded (docs only; Chalkie-specific; not locked).
+
 ## In progress
 
 - Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
@@ -31,7 +33,7 @@
 ## Next
 
 - Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
-- Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now.
+- Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now. No automatic generation.
 
 ## Blocked
 

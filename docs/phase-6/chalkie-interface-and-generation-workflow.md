@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.4
+**Version:** V1.5
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -10,14 +10,44 @@
 
 This is an operational reference for teachers, ChatGPT, and Cursor preparing or reviewing Chalkie-generated lessons. It documents *how to use Chalkie*, not what the publisher curriculum says. Curriculum content must come from verified evidence and the approved lesson package. This document supplements `11-curriculum-mapping-workflow.md`, the Phase 6 handover material, and D018 experiments; it does not override decisions or turn experimental settings into permanent standards.
 
+**Architecture boundary:** this workflow is intentionally Chalkie-specific. It is the current adapter from a shared evidence-backed lesson package to Chalkie’s title, prompt, outline, vocabulary, and review flow. It must not become the only way the project stores curriculum intent. A future platform may need a different handoff template, but should reuse the same verified evidence, component mappings, teacher choices, and neutral lesson package. See [F021](../7-future.md).
+
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
+
+## 1A. Provisional two-lesson-first packaging policy
+
+**Status:** **PROVISIONAL — DOCUMENTED / NOT LOCKED** (internal Chalkie generation preference only; not a methodology lock, schema change, D018 change, or app authorization)
+
+**Recorded:** 2026-10-21 · owner direction for the internal lesson-generation workflow
+
+This section records how the project currently prefers to **shape Chalkie generation**. It does **not** authorize new handoffs, Chalkie runs, or app wiring. It does **not** change verified SB→WB component relationships, teacher choices, or the future platform-neutral lesson-package direction ([F021](../7-future.md)).
+
+1. **Default generation shape — two lessons first.** Prefer **two** Chalkie lessons as the internal default format. Current evidence shows Chalkie generally produces more usable pacing, scaffolding, and visual variety across **two ~25-slide lessons** than in one compressed 25-slide lesson.
+
+2. **When a Workbook companion is verified.** Use the natural evidence-backed split:
+   - **Lesson 1** = Student Book introduction / support;
+   - **Lesson 2** = Workbook consolidation / practice.
+   Do **not** imply every page-count shape must be 2→2. Verified **2→1** and **1→1** component relationships remain valid; the two-lesson split still follows SB then WB when both sides exist.
+
+3. **When no Workbook companion exists.** Two lessons may still be used **honestly from the Student Book component alone**:
+   - **Lesson 1** = introduce / support the verified current-page content;
+   - **Lesson 2** = practise, apply, and complete real book work.
+   Never invent or imply Workbook evidence.
+
+4. **Three or four lessons — not automatic.** Use only when a teacher deliberately groups several connected, verified components and reviews the resulting scope. Do **not** create extra lessons merely to fill slides.
+
+5. **Teacher review remains required.** Chalkie is a starting-point generator, not a perfect lesson machine. Keep the existing final teacher-review safeguard. Aim for meaningful, usable lessons rather than perfect automated fidelity.
+
+6. **Architecture boundary.** This is a **current Chalkie-specific generation policy**. It does not change shared evidence, mappings, teacher choices, or the future platform-neutral lesson-package direction.
+
+**Relationship to UI / Single Lesson experiments:** the workspace may still expose Single Lesson as a path, and Exp 11–14 remain valid Single Lesson evidence. Those paths are not cancelled. For **new internal generation**, prefer two lessons per this section unless the teacher deliberately chooses otherwise after review.
 
 ## 2. Start: choose the correct creation mode
 
 From Home, Chalkie shows **Single lesson** (one-off lesson), **Lesson series** (multiple lessons on a topic), **Activity sheets** (print-ready task sheets), and **Workbooks** (whole-topic print resources). **Observed.**
 
-- **Single lesson** is the default for a bounded teaching session or the D018 baseline experiment.
-- **Lesson series** is available for a topic split across multiple lessons. **Do not automatically split every lesson into Floor / Enrichment / Extension.** That modular strategy is parked for future investigation.
+- For **new internal Chalkie generation**, prefer **Lesson series → 2 lessons** per §1A (provisional two-lesson-first policy). Single Lesson remains available and historically evidenced (Exp 11–14; D018 baselines).
+- **Lesson series** is the preferred creation mode when applying §1A. **Do not automatically split every lesson into Floor / Enrichment / Extension.** That modular strategy is parked for future investigation (F019).
 - The Activity Sheets and Workbooks creation workflows are outside this document's tested scope. Do not confuse the optional *Activity sheet* checkbox during lesson refinement with the standalone Activity sheets mode.
 
 ## 3. Step-by-step: Single lesson
@@ -217,7 +247,7 @@ PROMPT VERSION / ITERATION: ...
 | Treating generated outline as authoritative curriculum evidence | Verify against source evidence before generating |
 | Switching framework, theme, audio and sources mid-experiment | Hold settings constant unless explicitly testing them |
 | Letting slides replace book/audio | Use slides to prepare and scaffold the actual book tasks |
-| Making all lessons into series | Choose based on actual teaching need; optional Floor/Enrichment/Extension series idea remains parked |
+| Making all lessons into series | Prefer two lessons per §1A; use 3–4 only when deliberately grouping verified components; Floor/Enrichment/Extension remains parked (F019) |
 
 ## 9. Open questions for a future V1.1
 

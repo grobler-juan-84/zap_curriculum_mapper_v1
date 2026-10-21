@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 292
+**Last updated:** Step 293
 
 
 
@@ -479,6 +479,8 @@
 - [x] **BE3 U8 component-map content review COMPLETE**.
 
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
+
+- [x] **Provisional two-lesson-first packaging policy** recorded (docs only; Phase 6 §1A; Chalkie-specific; not locked; no generation authorized).
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — no new handoff/Chalkie without separate approval.
 

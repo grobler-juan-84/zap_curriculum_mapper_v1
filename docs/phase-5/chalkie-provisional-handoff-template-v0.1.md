@@ -10,6 +10,7 @@
 **Single Lesson Exp 11–13 results:** [`chalkie-single-lesson-experiments-11-13-results-v0.1.md`](./chalkie-single-lesson-experiments-11-13-results-v0.1.md) (provisional preferred: detailed handoff + appended concise outline; do not click `Create outline`)  
 **Single Lesson Exp 14 results:** [`chalkie-single-lesson-experiment-14-results-v0.1.md`](./chalkie-single-lesson-experiment-14-results-v0.1.md) (non-grammar transfer; optional **Ask Chalkie** post-generation review)  
 **First SB→WB two-lesson production pilot:** [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) (PASS AFTER LIGHT TEACHER REVIEW; one Chalkie-generation short-answer fix; further generation not authorized)  
+**Packaging preference:** provisional two-lesson-first policy — [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A (prefer two lessons; SB→WB split when companion verified; honest SB-only two-lesson split when not; does not authorize generation)  
 **Related:** [`chalkie-outline-context-retention-diagnostic-v0.1.md`](./chalkie-outline-context-retention-diagnostic-v0.1.md) · [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md)
 
 ---
