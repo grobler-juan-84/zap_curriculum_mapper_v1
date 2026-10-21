@@ -4901,3 +4901,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 292
+
+**Summary:** Completed final BE3 U8 map checks: Review SB p.143 to WB p.117 ACCEPTED (`be3_sb_wb_rel_u08_review_sb143_wb117`); Values SB p.142 SB-ONLY CONFIRMED (no WB Values page). Unit 8 component-map content review complete; no app wiring.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

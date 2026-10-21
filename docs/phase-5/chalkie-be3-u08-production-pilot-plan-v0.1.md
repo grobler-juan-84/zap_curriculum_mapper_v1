@@ -72,8 +72,8 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **140** | Writing \| Combining Sentences… (`writing`) | Combining Sentences with and, but, or | *(null from local focus lanes)* | No dedicated | Yes (4) | Yes | Ready (single page) | SB→WB companion **ACCEPTED** docs-only 1→1 (`be3_sb_wb_rel_u08_writing_sb140_wb115`) — packaging: **single lesson likely** | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **141** | Phonics \| all, au, aw (`phonics`) | all, au, aw | *(null)* | Yes (3) | Yes (4) | Yes | Ready (single page) | SB→WB companion **ACCEPTED** docs-only 1→1 (`be3_sb_wb_rel_u08_phonics_sb141_wb116`) — packaging: **single lesson likely** | Companion recorded (docs); handoff/Chalkie **not** authorized |
-| **142** | Values \| Get exercise. (`values_project`) | Get exercise. | *(null)* | No dedicated | Yes (3) | Yes | Ready (single page) | None | **Wait** — single-page |
-| **143** | Review (`review_self_assessment`) | Review / self-assessment Unit 8 | Practise regular and irregular past forms (local) | Yes (6 models) | Yes (3) | Yes | Ready (single page) | None | **Wait** — single-page; end-of-unit review |
+| **142** | Values \| Get exercise. (`values_project`) | Get exercise. | *(null)* | No dedicated | Yes (3) | Yes | Ready (single page) | **SB-ONLY CONFIRMED** — no WB Values page | **SB-only** — no companion expected |
+| **143** | Review (`review_self_assessment`) | Review / self-assessment Unit 8 | Practise regular and irregular past forms (local) | Yes (6 models) | Yes (3) | Yes | Ready (single page) | SB→WB companion **ACCEPTED** docs-only 1→1 (`be3_sb_wb_rel_u08_review_sb143_wb117`) — packaging: **single lesson likely** | Companion recorded (docs); handoff/Chalkie **not** authorized |
 
 **Do not force-pair** 140–141 or 142–143 as one Chalkie Single Lesson under this pilot.
 
@@ -124,10 +124,17 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **p.141** Phonics → WB **p.116**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). Recommended future packaging: **single lesson likely**. Not wired in app; no handoff; no Chalkie generation.
 
-### Later eligible (evidence / mapping first)
+### Review companion recorded (docs only, 1→1)
 
-1. Next **component-map content review** (Values SB 142 expected SB-only, or Review SB 143 ↔ WB 117), **or** owner-gated wire of a docs-accepted companion in app code.  
-2. Values remains expected **SB-only** (0 WB) until explicitly confirmed.
+**p.143** Review → WB **p.117**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`). Packaging: **single lesson likely**. Not wired; no handoff; no Chalkie generation.
+
+### Values SB-only confirmed
+
+**p.142** Values · *Get exercise.*: **SB-ONLY CONFIRMED** — no Workbook Values page in Unit 8; **SB-only component — no companion expected** (not a mapping failure).
+
+### Unit 8 map status
+
+Component-map content review is **complete**. Next work is owner-gated app wiring of docs-accepted companions (not more map rows).
 
 ### Wait / out of this two-page pilot wave
 
@@ -181,12 +188,16 @@ No new rubric. No D018 re-score.
 
 **Phonics:** Content review **ACCEPTED** SB p.141 → WB p.116 (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). Docs mapping only (1→1); recommended packaging **single lesson likely**; **not** in curated companion code; **no** handoff; **no** Chalkie generation.
 
-Unmapped BE3 spreads still have no series. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
+**Review:** Content review **ACCEPTED** SB p.143 → WB p.117 (`be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`). Docs mapping only (1→1); packaging **single lesson likely**; **not** in curated companion code; **no** handoff; **no** Chalkie generation.
+
+**Values:** **SB-ONLY CONFIRMED** for SB p.142 (*Get exercise.*) — no WB Values page; no companion expected.
+
+Unmapped BE3 spreads still have no series in app (docs-accepted companions not wired except opener/story). Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action (choose one):** wire one docs-accepted companion in app code, **or** content-review Values SB 142 (expected SB-only) / Review SB 143 ↔ WB 117. Do not build handoffs or authorize Chalkie without a separate step.
+**Next owner action:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch). Do not build new handoffs or authorize Chalkie without a separate step. Unit 8 component-map content review is **complete**.
 
 Until explicitly authorized for a *different* route, **do not generate**.

@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 291
+**Last synced:** Step 292
 
 ## One-line state
 
 - On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Phonics SB 141 → WB 116 ACCEPTED (docs, 1→1; single lesson likely). Writing through LiA docs-accepted; Story provisional handoff; opener pilot COMPLETE.
+- BE3 U8 component-map content review COMPLETE (Review ACCEPTED; Values SB-ONLY CONFIRMED). Opener + Story series in app; other companions docs-only.
 - Phase 3 remains parked (D020). F022 stays future-required.
 
 ## Branch
@@ -15,4 +15,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Wire one docs-accepted companion in app code, or content-review Values SB 142 / Review SB 143 ↔ WB 117 — do not build handoffs yet.
+**Suggestion:** Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch) — do not build new handoffs yet.

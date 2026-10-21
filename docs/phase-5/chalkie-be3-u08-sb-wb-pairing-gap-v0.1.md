@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA through Phonics **ACCEPTED** (docs) · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA through Phonics + Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -250,27 +250,70 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 10. Workspace consequence
+## 10. Accepted — SB p.143 → WB p.117 (Review, 1→1)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Review. Workbook consolidates SB *Did…?* / *did–didn't* and past-form review (Acts 31–32) and adds gerund-as-subject practice (Act 33) still on the Review page — not a different component. Valid **1→1**. No handoff; no app wiring; no Chalkie generation.
+
+### Evidence table
+
+| Lens | Student Book p.143 | Workbook p.117 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p143` | `bep_3_wb_p117` | — |
+| Component / type | Review · `review_self_assessment` | Review · `review` | Yes |
+| Target language / content | *Did…?* / *did–didn't* choice; healthy-habit survey; regular/irregular past (*slept, stopped, went, fell, joined, carried*) | Circle *eat/ate*, *drank*, *didn't play*; cloze *enough/didn't/any/got/healthy/rode*; gerund subjects (*Playing/Running…*) | Yes — consolidates review; Act 33 extends on same Review page |
+| Activity purpose | Choose/say; classmate survey; complete past forms | Circle verbs; complete healthy-living review text; complete gerund sentences | Yes |
+| Page-count shape | 1 SB page | 1 WB page | Valid |
+| Scope / excluded | — | Phonics 116; Values has no WB page | — |
+
+### Exact mapping (docs record only)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_review_sb143_wb117` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · p.143 |
+| WB | `big_english_3_wb` · p.117 |
+| Stable reference | `be3-sb-wb-u08-p143-wb117` |
+| Recommended future packaging | **single lesson likely** |
+
+---
+
+## 11. Values — SB p.142 only (**SB-ONLY CONFIRMED**)
+
+**SB-ONLY CONFIRMED** (2026-10-21). Not a missing pairing and not a mapping failure.
+
+| Field | Value |
+| --- | --- |
+| Page | SB `bep3_sb_p142` · printed p.142 |
+| Component | Values \| *Get exercise.* · `values_project` · `human_verified` |
+| Purpose | Identify healthy vs unhealthy activities; tell partner to do healthy things; invent/teach an outdoor game |
+| Workbook Values page in U8 | **None** — WB Unit 8 pages 104–117 have no Values section (`values`-like pages in WB: none) |
+| Recommended status | **SB-only component — no companion expected** |
+| Relationship ID | — (no mapping) |
+
+---
+
+## 12. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
-| SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
-| SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
-| SB 132–133 · 134–135 · 136–137 · 138–139 · 140 · 141 | WB 107–108 · 109–110 · 111–112 · 113–114 · 115 · 116 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
-| Other BE3 U8 spreads | No companion / no series unless separately reviewed (Values = expected SB-only) |
+| SB 128–129 · 130–131 | Series companions **on** (opener + story) |
+| SB 132–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
+| SB 142 Values | **SB-only — no companion expected** |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 11. Next microstep
+## 13. Next microstep
 
-Owner-gated: wire one docs-accepted companion in app code, **or** content-review Values SB 142 (expected SB-only, 0 WB) / Review SB 143 ↔ WB 117 — do not build handoffs or authorize Chalkie without a separate step.
+Owner-gated: wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch), starting with any chosen component — do not build new handoffs or authorize Chalkie without a separate step. Unit 8 component-map content review is **complete**.
 
 ---
 
-## 12. Boundaries
+## 14. Boundaries
 
 - No general automatic SB→WB pairing rule.  
-- No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  
+- No AI/API / Chalkie generation authorized by these docs-only records.  
 - No D018 / `4-decisions.md` changes.  
 - Docs ACCEPTED mappings are **documentation** only until a separate code step adds them to the curated companion table.

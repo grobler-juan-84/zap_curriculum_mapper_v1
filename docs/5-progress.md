@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 291
+**Last updated:** Step 292
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -20,21 +20,17 @@
 
 - **BE3 U8 SB→WB opener** ACCEPTED + series handoff + production pilot PASS AFTER LIGHT TEACHER REVIEW.
 
-- **BE3 U8 component map** recorded (logical components, not equal page counts).
-
-- **Story SB→WB handoff ACCEPTED FOR PROVISIONAL USE:** SB 130–131 → WB **p.106 only**.
-
-- **Docs-only ACCEPTED companions:** LiA through Phonics (Writing + Phonics = 1→1; packaging: single lesson likely).
+- **BE3 U8 component map content review COMPLETE:** Story handoff provisional; LiA through Phonics + Review docs-ACCEPTED; Values **SB-ONLY CONFIRMED**.
 
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
 ## In progress
 
-- Evidence-backed Unit 8 component mapping; remaining: Values (expected SB-only) and Review 143↔117.
+- Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
 
 ## Next
 
-- Wire one docs-accepted companion in app, or content-review Values SB 142 / Review SB 143 ↔ WB 117.
+- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
 - Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now.
 
 ## Blocked
