@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA through Phonics + Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA **docs-accepted + resolver-wired** (handoff/Chalkie not authorized) · CLIL through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -75,7 +75,9 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 4. Accepted — SB pp.132–133 → WB pp.107–108 (Language in Action)
 
-**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Language in Action component. Workbook consolidates SB *Did…?* / *did–didn't* short-answer practice; not a different strand. No handoff built; no Chalkie generation authorized.
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Language in Action component. Workbook consolidates SB *Did…?* / *did–didn't* short-answer practice; not a different strand.
+
+**Status:** **docs-accepted + resolver-wired**; handoff **not** built; Chalkie generation **not** authorized.
 
 ### Evidence table
 
@@ -89,15 +91,16 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
 | Scope / excluded | — | **WB p.106 Story** out of scope (story companion). No later Grammar/CLIL pages. | — |
 
-### Exact mapping (docs record only — not wired in app code)
+### Exact mapping
 
 | Field | Value |
 | --- | --- |
 | Relationship ID | `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` |
-| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| Type | `workbook_practice_for` · `human_verified` (**in** `verifiedSbWbCompanions.ts`) |
 | SB | `big_english_3_sb` · pp.132–133 |
 | WB | `big_english_3_wb` · pp.107–108 |
-| Stable reference | `be3-sb-wb-u08-p132-133-wb107-108` |
+| Stable reference | `be3-sb-wb-u08-p132-133-wb107-108` (`BE3_U08_LIA_STABLE_REF`) |
+| Runtime | Resolver enables **View Workbook** on exact SB 132–133 only (WB 107–108) |
 | Series handoff / Chalkie | **Not built** · **not authorized** |
 
 ---
@@ -299,7 +302,8 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 · 130–131 | Series companions **on** (opener + story) |
-| SB 132–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
+| SB 132–133 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
+| SB 134–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
 | SB 142 Values | **SB-only — no companion expected** |
 | Automatic pairing rule | **None** |
 
@@ -307,7 +311,7 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 13. Next microstep
 
-Owner-gated: wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch), starting with any chosen component — do not build new handoffs or authorize Chalkie without a separate step. Unit 8 component-map content review is **complete**.
+LiA is resolver-wired. Next owner-gated option: wire another docs-accepted companion (e.g. CLIL/Grammar) **or** separately authorize a LiA series handoff — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
 
 ---
 

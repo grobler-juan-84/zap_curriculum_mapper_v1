@@ -68,7 +68,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
 | **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** + asymmetric series handoff **ACCEPTED FOR PROVISIONAL USE** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | **Done (local handoff)** — provisional use; no Story Chalkie export claimed; no further Story Chalkie experiments now |
-| **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
+| **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; SB→WB companion **docs-accepted + resolver-wired** (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Resolver-wired (View Workbook); handoff/Chalkie **not** authorized |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
@@ -102,9 +102,9 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **pp.130–131** Story / Reading → WB **p.106 only**: local asymmetric series handoff **ACCEPTED FOR PROVISIONAL USE**. No further Story Chalkie experiments required now. Does **not** claim a Chalkie export or classroom validation for this route.
 
-### LiA companion recorded (docs only)
+### LiA companion — docs-accepted + resolver-wired
 
-**pp.132–133** Language in Action → WB **107–108**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). Not wired in app; no series handoff; no Chalkie generation. Exp 11–13 Single Lesson history remains **no immediate Chalkie repeat**.
+**pp.132–133** Language in Action → WB **107–108**: companion **ACCEPTED** and **resolver-wired** (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). Enables **View Workbook** on exact SB pages only. No series handoff; no Chalkie generation. Exp 11–13 Single Lesson history remains **no immediate Chalkie repeat**.
 
 ### CLIL P.E. companion recorded (docs only)
 
@@ -178,7 +178,7 @@ No new rubric. No D018 re-score.
 
 **Story:** Content review **ACCEPTED** SB pp.130–131 → WB **p.106 only** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`). Local asymmetric six copyables via `buildBe3U08StorySbWbSeriesHandoff.ts`. Handoff **ACCEPTED FOR PROVISIONAL USE** (2026-10-21) — local workflow only; **no** Story Chalkie export or classroom-validation claim; **no** further Story Chalkie experiments now. See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-**Language in Action:** Content review **ACCEPTED** SB pp.132–133 → WB pp.107–108 (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
+**Language in Action:** Content review **ACCEPTED** SB pp.132–133 → WB pp.107–108 (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). **docs-accepted + resolver-wired** — **no** series handoff; **no** Chalkie generation.
 
 **Content Connection / P.E.:** Content review **ACCEPTED** SB pp.134–135 → WB pp.109–110 (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
 
@@ -194,12 +194,12 @@ No new rubric. No D018 re-score.
 
 **Values:** **SB-ONLY CONFIRMED** for SB p.142 (*Get exercise.*) — no WB Values page; no companion expected.
 
-Unmapped BE3 spreads still have no series in app (docs-accepted companions not wired except opener/story). Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
+BE3 series packaging remains opener + story only. LiA is resolver-wired (View Workbook) without series. Other docs-accepted companions remain unwired. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch). Do not build new handoffs or authorize Chalkie without a separate step. Unit 8 component-map content review is **complete**.
+**Next owner action:** wire another docs-accepted Unit 8 companion (e.g. CLIL) **or** separately authorize a LiA series handoff — resolver wiring alone does not unlock packaging/generation. Unit 8 component-map content review is **complete**.
 
 Until explicitly authorized for a *different* route, **do not generate**.

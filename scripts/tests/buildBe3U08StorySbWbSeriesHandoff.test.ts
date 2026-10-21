@@ -248,7 +248,7 @@ test('story L1 is SB 130–131 only; L2 is WB 106 only; WB 107 absent everywhere
   assert.doesNotMatch(handoff.detailedHandoff, /106–107/)
 })
 
-test('story series is unavailable for unrelated SB pp.132–133', () => {
+test('story series is unavailable for LiA SB pp.132–133 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -261,7 +261,11 @@ test('story series is unavailable for unrelated SB pp.132–133', () => {
   })
 
   assert.equal(lesson.supportsTwoLessonSeries, false)
-  assert.equal(lesson.workbookCompanion, null)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [107, 108])
   assert.equal(lesson.seriesLessonTitle, null)
   assert.equal(lesson.stableSeriesReference, null)
 

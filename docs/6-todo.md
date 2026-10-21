@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 302
+**Last updated:** Step 303
 
 
 
@@ -500,11 +500,13 @@
 
 - [x] **Unit Intelligence accordion** — read-only BI in Chalkie left panel; honest unavailable state; does not alter handoff (contract slice complete).
 
+- [x] **BE3 U8 LiA companion resolver-wired** — SB 132–133 → WB 107–108; View Workbook only; handoff not built; Chalkie not authorized.
+
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — expands View Workbook coverage; no new handoff/Chalkie without separate approval.
+- [ ] **Next microstep:** wire another docs-accepted Unit 8 companion (e.g. CLIL) **or** separately authorize LiA series handoff — not both by default; no Chalkie without explicit approval.
 
 
 

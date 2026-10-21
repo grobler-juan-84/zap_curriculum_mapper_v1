@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 302
+**Last updated:** Step 303
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,19 +18,18 @@
 
 - **D021** SB-led Chalkie Workspace with optional mapped Workbook view.
 
-- **Teacher Intelligence left-pane contract:** Unit Intelligence accordion **implemented** (read-only BI); Horizontal Mapping / School Notes / Future Suggestions still design-only.
+- **BE3 U8 companions in resolver:** opener (series); story asymmetric (series provisional); **LiA 132–133 → 107–108 resolver-wired** (no handoff / no Chalkie).
 
-- BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
+- Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
+- Remaining docs-accepted Unit 8 companions (CLIL, Grammar, …) not yet resolver-wired.
 
 ## Next
 
+- Wire another docs-accepted companion **or** separately authorize a LiA series handoff (not implied by resolver wiring).
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
-- Owner visual recheck of SB↔WB spreads if still open.
-- Wire one or more docs-accepted Unit 8 companions (smallest safe batch) when ready.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked

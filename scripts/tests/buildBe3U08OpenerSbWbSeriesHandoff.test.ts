@@ -222,11 +222,29 @@ test('L1 uses SB scope and L2 uses WB scope', () => {
   assert.match(handoff.detailedHandoff, /Live Right!/)
 })
 
-test('unmapped BE3 spreads do not enable any BE3 series package', () => {
+test('non-series BE3 spreads do not enable opener/story series packages', () => {
   const wb = loadJson(BE3_WB_PATH)
 
+  // LiA is resolver-wired but has no series handoff.
+  const lia = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [132, 133],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(lia.supportsTwoLessonSeries, false)
+  assert.equal(
+    lia.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  )
+  assert.equal(lia.seriesLessonTitle, null)
+  assert.equal(lia.stableSeriesReference, null)
+
   for (const pages of [
-    [132, 133],
     [134, 135],
     [136, 137],
   ]) {

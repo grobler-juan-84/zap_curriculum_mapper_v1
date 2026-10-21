@@ -12,6 +12,9 @@ import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/reso
 import {
   resolveVerifiedSbWbCompanion,
 } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
+import {
+  BE3_U08_LIA_STABLE_REF,
+} from '../../app/src/features/chalkie/verifiedSbWbCompanions.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
@@ -205,14 +208,47 @@ test('BE3 SB pp.130–131 resolves to asymmetric curated WB p.106 companion only
   assert.ok(!result.companion?.workbookPrintedPages.includes(107))
 })
 
+test('BE3 SB pp.132–133 resolves to curated LiA WB pp.107–108 companion', () => {
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wb,
+    studentBookPrintedPages: [132, 133],
+  })
+
+  assert.ok(result.companion)
+  assert.equal(result.gapReason, null)
+  assert.equal(result.companion?.source, 'curated_verified')
+  assert.equal(
+    result.companion?.relationshipId,
+    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  )
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [132, 133])
+  assert.deepEqual(result.companion?.workbookPrintedPages, [107, 108])
+  assert.deepEqual(result.companion?.studentBookPageIds, [
+    'bep3_sb_p132',
+    'bep3_sb_p133',
+  ])
+  assert.deepEqual(result.companion?.workbookPageIds, [
+    'bep_3_wb_p107',
+    'bep_3_wb_p108',
+  ])
+  assert.equal(BE3_U08_LIA_STABLE_REF, 'be3-sb-wb-u08-p132-133-wb107-108')
+  // Resolver-wired only — story scope must not leak into LiA.
+  assert.ok(!result.companion?.workbookPrintedPages.includes(106))
+})
+
 test('unmapped BE3 spreads still do not receive guessed Workbook companions', () => {
   const sb = loadJson(BE3_SB_PATH)
   const wb = loadJson(BE3_WB_PATH)
   for (const pages of [
-    [132, 133],
     [134, 135],
     [136, 137],
     [138, 139],
+    [140, 141],
   ]) {
     const result = resolveVerifiedSbWbCompanion({
       studentBookCatalogId: 'big_english_3_sb',
@@ -226,23 +262,27 @@ test('unmapped BE3 spreads still do not receive guessed Workbook companions', ()
       `pages ${pages.join('-')} must not invent a WB companion`,
     )
     assert.ok(result.gapReason)
+    assert.notEqual(
+      result.companion?.relationshipId,
+      'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+    )
   }
 })
 
 test('incomplete workbook_practice_for relationship is rejected', () => {
-  // Use an unmapped spread so the curated opener pair does not intercept.
+  // Use an unmapped spread so curated companions do not intercept.
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p132', printed_page: 132 },
-      { page_id: 'bep3_sb_p133', printed_page: 133 },
+      { page_id: 'bep3_sb_p138', printed_page: 138 },
+      { page_id: 'bep3_sb_p139', printed_page: 139 },
     ],
     relationships: [
       {
         relationship_id: 'fake_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p132',
+        source_entity_id: 'bep3_sb_p138',
         target_entity_id: null,
         verification_status: 'human_verified',
       },
@@ -251,8 +291,8 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p107', printed_page: 107 },
-      { page_id: 'bep_3_wb_p108', printed_page: 108 },
+      { page_id: 'bep_3_wb_p113', printed_page: 113 },
+      { page_id: 'bep_3_wb_p114', printed_page: 114 },
     ],
     relationships: [],
   }
@@ -261,7 +301,7 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [132, 133],
+    studentBookPrintedPages: [138, 139],
   })
   assert.equal(result.companion, null)
   assert.equal(result.gapReason, 'relationship_target_incomplete')
@@ -271,16 +311,16 @@ test('partial canonical cross-book relationship does not invent full-spread comp
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p132', printed_page: 132 },
-      { page_id: 'bep3_sb_p133', printed_page: 133 },
+      { page_id: 'bep3_sb_p138', printed_page: 138 },
+      { page_id: 'bep3_sb_p139', printed_page: 139 },
     ],
     relationships: [
       {
         relationship_id: 'ok_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p132',
-        target_entity_id: 'bep_3_wb_p107',
+        source_entity_id: 'bep3_sb_p138',
+        target_entity_id: 'bep_3_wb_p113',
         target_book_id: 'big_english_3_wb',
         verification_status: 'human_verified',
       },
@@ -289,8 +329,8 @@ test('partial canonical cross-book relationship does not invent full-spread comp
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p107', printed_page: 107 },
-      { page_id: 'bep_3_wb_p108', printed_page: 108 },
+      { page_id: 'bep_3_wb_p113', printed_page: 113 },
+      { page_id: 'bep_3_wb_p114', printed_page: 114 },
     ],
     relationships: [],
   }
@@ -299,7 +339,7 @@ test('partial canonical cross-book relationship does not invent full-spread comp
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [132, 133],
+    studentBookPrintedPages: [138, 139],
   })
 
   assert.equal(result.companion, null)
@@ -398,6 +438,33 @@ test('BE3 story companion resolves and enables story series packaging only', () 
   assert.ok(lesson.seriesLessonTitle?.includes('WB p. 106'))
   assert.doesNotMatch(lesson.seriesLessonTitle ?? '', /107/)
   assert.equal(lesson.stableSeriesReference, 'be3-sb-wb-u08-p130-131-wb106')
+})
+
+test('BE3 LiA companion resolves without enabling series handoff packaging', () => {
+  const wb = loadJson(BE3_WB_PATH)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [132, 133],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.workbookCompanion)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [107, 108])
+  // Companion alone does not unlock six-copyable series for LiA.
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.seriesLessonTitle, null)
+  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(BE3_U08_LIA_STABLE_REF, 'be3-sb-wb-u08-p132-133-wb107-108')
 })
 
 test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {
