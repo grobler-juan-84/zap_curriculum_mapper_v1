@@ -5078,3 +5078,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 301
+
+**Summary:** Added Teacher Intelligence left-pane IA contract v0.1 (Source Context + Unit Intelligence / Horizontal Mapping / School-Specific Notes / Future Suggestions; handoff boundary vs neutral package and Chalkie adapter; F021/F022 linked). Docs/index/trackers only — no app, schema, D018, or decisions changes. F021/F022 preserved unstaged in `docs/7-future.md`.
+
+**Files touched:**
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

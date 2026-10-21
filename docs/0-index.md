@@ -168,7 +168,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; Unit Intelligence; **D021** SB-first; local handoff. OpenAI path dormant. Not a product lock. | 2.19 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; Unit Intelligence; **D021** SB-first; local handoff. OpenAI path dormant. Not a product lock. | 2.20 | ACTIVE |
+| [phase-5/teacher-intelligence-left-pane-contract-v0.1.md](./phase-5/teacher-intelligence-left-pane-contract-v0.1.md) | IA contract for future left pane: Source Context + Teacher Intelligence (Unit Intelligence, Horizontal Mapping, School Notes, Future Suggestions); handoff/F021–F022 boundary; no app/schema/AI work. | 0.1 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
@@ -211,7 +212,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 125 | Current working docs, including index, operating trackers, horizontal-mapping emphasis, teacher-choice flow sketch, Chalkie Workspace prototype notes, generic detailed-handoff gap audit, Chalkie Experiments 1–14 design/results + BE3 U8 production-pilot plan + SB→WB pairing/component map + first SB→WB production-pilot results + provisional handoff template, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 126 | Current working docs, including index, operating trackers, Teacher Intelligence left-pane contract, Chalkie Workspace prototype notes, horizontal-mapping emphasis, Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 

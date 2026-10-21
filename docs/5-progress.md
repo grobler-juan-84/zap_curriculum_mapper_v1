@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 300
+**Last updated:** Step 301
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,11 +16,13 @@
 
 - **D017** / **D018** / **D019** / **D020** / **D021** LOCKED.
 
-- **D021 UI + PDF renderer:** SB-led Workspace; companion toggle; verified `pdf_page` pairs forced into the pane (SB 126–127 / WB 104–105); Document remounts on source URL change.
+- **D021** SB-led Chalkie Workspace with optional mapped Workbook view (PDF spread binding fixed).
+
+- **Teacher Intelligence left-pane contract v0.1** recorded (IA only: Source Context + Unit Intelligence / Horizontal Mapping / School Notes / Future Suggestions; F021–F022 boundary).
 
 - BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
 
-- Unit Intelligence accordion; standalone BI preview retired.
+- Unit Intelligence accordion in Chalkie; standalone BI preview retired.
 
 ## In progress
 
@@ -28,9 +30,10 @@
 
 ## Next
 
-- Owner visual recheck: SB 128–129 → WB 104–105 → SB 128–129 (both pages each view).
-- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
-- Keep Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
+- Keep Unit Intelligence read-only as the only Teacher Intelligence surface; do not build Horizontal Mapping / School Notes / Future Suggestions yet.
+- Owner visual recheck of SB↔WB spreads if still open.
+- Wire one or more docs-accepted Unit 8 companions (smallest safe batch) when ready.
+- Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked
 
@@ -42,4 +45,4 @@
 
 - Active Git branch: `main`.
 
-- Entry: `/app/chalkie` — Student Book–first (D021); optional mapped Workbook view.
+- Entry: `/app/chalkie` — Student Book–first (D021).
