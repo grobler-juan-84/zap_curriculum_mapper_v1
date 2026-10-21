@@ -69,7 +69,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
-| **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | **None documented** | Eligible later in the unit sequence |
+| **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **140** | Writing \| Combining Sentences… (`writing`) | Combining Sentences with and, but, or | *(null from local focus lanes)* | No dedicated | Yes (4) | Yes | Ready (single page) | None | **Wait** — single-page; not a two-page spread |
 | **141** | Phonics \| all, au, aw (`phonics`) | all, au, aw | *(null)* | Yes (3) | Yes (4) | Yes | Ready (single page) | None | **Wait** — single-page |
 | **142** | Values \| Get exercise. (`values_project`) | Get exercise. | *(null)* | No dedicated | Yes (3) | Yes | Ready (single page) | None | **Wait** — single-page |
@@ -112,10 +112,14 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **pp.136–137** Grammar → WB **111–112**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`). Not wired in app; no series handoff; no Chalkie generation. Exp 10 Lesson Series history remains **no immediate Chalkie repeat**.
 
+### Culture companion recorded (docs only)
+
+**pp.138–139** Culture Connection → WB **113–114**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`). Not wired in app; no series handoff; no Chalkie generation.
+
 ### Later eligible (evidence / mapping first)
 
-1. Next **component-map content review** (e.g. Culture Connection SB 138–139 ↔ WB 113–114), **or** owner-gated wire of a docs-accepted companion in app code.  
-2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab if a later Single Lesson path is separately authorized.
+1. Next **component-map content review** (e.g. Writing SB 140 ↔ WB 115, 1→1), **or** owner-gated wire of a docs-accepted companion in app code.  
+2. Single-page routes (Writing / Phonics / Values / Review) remain wait / SB-only as noted below.
 
 ### Wait / out of this two-page pilot wave
 
@@ -163,12 +167,14 @@ No new rubric. No D018 re-score.
 
 **Grammar:** Content review **ACCEPTED** SB pp.136–137 → WB pp.111–112 (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
 
+**Culture Connection:** Content review **ACCEPTED** SB pp.138–139 → WB pp.113–114 (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
+
 Unmapped BE3 spreads still have no series. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action (choose one):** wire one docs-accepted companion in app code, **or** content-review the next map candidate (e.g. Culture Connection SB 138–139 ↔ WB 113–114). Do not build handoffs or authorize Chalkie without a separate step.
+**Next owner action (choose one):** wire one docs-accepted companion in app code, **or** content-review the next map candidate (e.g. Writing SB 140 ↔ WB 115). Do not build handoffs or authorize Chalkie without a separate step.
 
 Until explicitly authorized for a *different* route, **do not generate**.

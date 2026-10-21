@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar **ACCEPTED** (docs) · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar / Culture **ACCEPTED** (docs) · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -161,27 +161,54 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 7. Workspace consequence
+## 7. Accepted — SB pp.138–139 → WB pp.113–114 (Culture Connection)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Culture Connection / Around the World · *Strange Sports* (Octopush, Footvolley, Pumpkin Regatta). Workbook consolidates that culture reading strand; not a different topic. No handoff built; no app wiring; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book pp.138–139 | Workbook pp.113–114 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p138`, `bep3_sb_p139` | `bep_3_wb_p113`, `bep_3_wb_p114` | — |
+| Component / type | Culture Connection \| Around the World · `culture` / `culture_activities` · *Strange Sports* | Culture Connection · `culture_connection` · *Around the World* | Yes |
+| Target vocabulary | *contest, court, net, puck, race, regatta, rowing, scuba diving, team* | Supporting: *octopush, pumpkin regatta, footvolley*; cloze words *kick, net, regattas, rowing, score, Teams* | Yes — same sports strand |
+| Target language / purpose | Match sports/countries; listen/read *Strange Sports*; T/F; complete sports chart | Quick match (Octopush/Footvolley/Pumpkin); listen/read/write; match reasons; T/F; Think Big invent a sport | Yes — consolidates culture reading |
+| Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
+| Scope / excluded | — | Grammar 111–112 and Writing 115 out of scope | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · pp.138–139 |
+| WB | `big_english_3_wb` · pp.113–114 |
+| Stable reference | `be3-sb-wb-u08-p138-139-wb113-114` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+
+---
+
+## 8. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
 | SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
-| SB 132–133 companion | WB 107–108 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
-| SB 134–135 companion | WB 109–110 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
-| SB 136–137 companion | WB 111–112 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
+| SB 132–133 · 134–135 · 136–137 · 138–139 | WB 107–108 · 109–110 · 111–112 · 113–114 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
 | Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 8. Next microstep
+## 9. Next microstep
 
-Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Culture Connection SB 138–139 ↔ WB 113–114) — do not build handoffs or authorize Chalkie without a separate step.
+Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Writing SB 140 ↔ WB 115, 1→1) — do not build handoffs or authorize Chalkie without a separate step.
 
 ---
 
-## 9. Boundaries
+## 10. Boundaries
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  

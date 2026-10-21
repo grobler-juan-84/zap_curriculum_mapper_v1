@@ -4853,3 +4853,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 289
+
+**Summary:** Content-reviewed BE3 U8 Culture Connection SB pp.138-139 against WB pp.113-114 and ACCEPTED it as a docs-only curated mapping (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`); no handoff, no app code, no Chalkie generation.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
