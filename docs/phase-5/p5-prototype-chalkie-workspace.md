@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.15  
+**Version:** 2.16  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -18,18 +18,20 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 
 ### Student Book–first preparation ([D021](../4-decisions.md) — LOCKED)
 
-Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain. **D021 does not authorize immediate UI/code changes** to enforce this picker behaviour yet.
+Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain.
+
+**Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states.
 
 **In scope:**
 
 - Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
-- Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
-- **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
+- Series / Student Book / unit navigation and R2-backed PDF viewing (Workbook books omitted from teacher dropdown; WB PDF still loadable via verified companion toggle).
+- **Unit Summary**, **SB Pages Summary** (primary lesson source), optional **WB Pages Summary** (verified companion only), and **Unit Intelligence**.
 - **Unit Intelligence** — read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); labelled planning support, **not** current-page source evidence; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here).
-- **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
-- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). No other BE3 series mappings.
+- **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
+- Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
-- **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
+- **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
 
 **Out of scope (explicit):**
 
@@ -50,7 +52,8 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 | Navigation | Sidebar **Chalkie Workspace** → `/app/chalkie` |
 | Header | Reuses `ValidationHeader` with verification status badge hidden |
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
-| Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) + Unit Intelligence (`chalkieUnitIntelligence.ts` + Storage BI loader) |
+| Left panel | Unit Summary + SB Pages Summary + optional WB Pages Summary + Unit Intelligence |
+| WB toggle | **View Workbook** / **View Student Book** when curated companion matches visible SB pages; PDF nav locked on mapped WB pages only |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
 | Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
@@ -219,3 +222,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-21 | Left-panel **Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; honest empty state; does not affect handoff. |
 | 2026-10-21 | Unit Intelligence supersedes standalone Book Intelligence preview; sidebar BI item removed; legacy `/app/book-intelligence…` redirects to Chalkie (`?unit=` preserved when present). |
 | 2026-10-21 | Cross-linked **D021** Student Book–first lesson preparation (LOCKED); no UI enforcement yet. |
+| 2026-10-21 | D021 UI slice: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored. |

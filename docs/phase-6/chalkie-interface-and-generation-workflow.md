@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.6
+**Version:** V1.7
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -12,7 +12,9 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 
 **Architecture boundary:** this workflow is intentionally Chalkie-specific. It is the current adapter from a shared evidence-backed lesson package to Chalkie’s title, prompt, outline, vocabulary, and review flow. It must not become the only way the project stores curriculum intent. A future platform may need a different handoff template, but should reuse the same verified evidence, component mappings, teacher choices, and neutral lesson package. See [F021](../7-future.md).
 
-**Teacher workflow lock ([D021](../4-decisions.md)):** standard lesson preparation is **Student Book–first**. Teachers choose the SB unit/component they are teaching; they are not asked to pick SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice; unverified pairs must not be guessed. Workbook remains viewable. This decision does **not** by itself authorize UI/code changes.
+**Teacher workflow lock ([D021](../4-decisions.md)):** standard lesson preparation is **Student Book–first**. Teachers choose the SB unit/component they are teaching; they are not asked to pick SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice; unverified pairs must not be guessed. Workbook remains viewable.
+
+**Chalkie Workspace UI (2026-10-21):** Student Books only in the teacher book dropdown (display name without “Student Book”); optional **View Workbook** shows exact mapped WB pages with PDF navigation locked; prepare prompt remains SB-anchored. See [`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md).
 
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
 

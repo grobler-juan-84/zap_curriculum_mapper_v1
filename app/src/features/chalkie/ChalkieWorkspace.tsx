@@ -9,6 +9,7 @@ import {
   summarizeBatchJson,
   validationService,
 } from '../../services/validationService'
+import { curriculumService } from '../../services/curriculumService'
 import { ValidationHeader } from '../validation/ValidationHeader'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
 import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
@@ -17,6 +18,12 @@ import {
   hasBookIntelligenceOverview,
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { loadBookIntelligenceFromStorage } from '../book-intelligence/loadBookIntelligenceFromStorage'
+import {
+  isStudentBook,
+  lessonAnchorPrintedPages,
+  resolveCompanionForSbPages,
+  studentBookDisplayTitle,
+} from './chalkieStudentBookUi'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
 import { ChalkieOutputPanel } from './ChalkieOutputPanel'
 import { TeacherChoiceFlowOverlay } from './TeacherChoiceFlowOverlay'
@@ -108,7 +115,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const [pdfProvider, setPdfProvider] = useState<'r2' | 'supabase' | null>(null)
   const [pdfLoading, setPdfLoading] = useState(true)
 
-  const [visiblePrintedPages, setVisiblePrintedPages] = useState<number[]>([])
+  /** Student Book visible pages — lesson identity (never overwritten by WB viewer). */
+  const [sbVisiblePrintedPages, setSbVisiblePrintedPages] = useState<number[]>([])
+  const [pdfViewMode, setPdfViewMode] = useState<'student_book' | 'workbook'>(
+    'student_book',
+  )
+  const [frozenSbPrintedPages, setFrozenSbPrintedPages] = useState<number[] | null>(
+    null,
+  )
+
+  const [workbookSummary, setWorkbookSummary] = useState<BatchJsonSummary | null>(null)
+  const [wbPdfUrl, setWbPdfUrl] = useState<string | null>(null)
+  const [wbPdfProvider, setWbPdfProvider] = useState<'r2' | 'supabase' | null>(null)
+  const [wbPdfLoading, setWbPdfLoading] = useState(false)
 
   const [bookIntelligence, setBookIntelligence] =
     useState<BookIntelligenceOverviewDocument | null>(null)
@@ -134,6 +153,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const currentUnitNumber = unitNumberFromBatch(currentBatch)
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
+  const wbPageMap = useMemo(
+    () => buildPageMap(workbookSummary?.pages ?? []),
+    [workbookSummary],
+  )
 
   const pdfInitialPage = useMemo(() => {
     const unit = summary?.units[0]
@@ -145,8 +168,34 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     return null
   }, [summary, pageMap])
 
+  const anchorSbPages = useMemo(
+    () =>
+      lessonAnchorPrintedPages({
+        pdfViewMode,
+        sbVisiblePrintedPages,
+        frozenSbPrintedPages,
+      }),
+    [pdfViewMode, sbVisiblePrintedPages, frozenSbPrintedPages],
+  )
+
+  const verifiedCompanion = useMemo(
+    () =>
+      resolveCompanionForSbPages({
+        studentBookCatalogId: book.catalogBookId,
+        studentBookPrintedPages: anchorSbPages,
+        studentBookCanonical:
+          fromCanonical && canonicalRaw && typeof canonicalRaw === 'object'
+            ? (canonicalRaw as Record<string, unknown>)
+            : summary?.raw && typeof summary.raw === 'object'
+              ? (summary.raw as Record<string, unknown>)
+              : null,
+      }),
+    [book.catalogBookId, anchorSbPages, fromCanonical, canonicalRaw, summary?.raw],
+  )
+
   const handleVisiblePrintedPagesChange = useCallback((pages: number[]) => {
-    setVisiblePrintedPages(pages)
+    // Only Student Book view updates lesson-anchor pages (D021).
+    setSbVisiblePrintedPages(pages)
   }, [])
 
   const liveLessonContext = useMemo(
@@ -154,17 +203,17 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       resolveChalkieLessonContext({
         book,
         summary,
-        visiblePrintedPages,
+        visiblePrintedPages: anchorSbPages,
         unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
       }),
-    [book, summary, visiblePrintedPages, currentBatch?.unitNumber],
+    [book, summary, anchorSbPages, currentBatch?.unitNumber],
   )
 
   const handlePreparePrompt = useCallback(() => {
     const resolved = resolveChalkieLessonContext({
       book,
       summary,
-      visiblePrintedPages,
+      visiblePrintedPages: anchorSbPages,
       unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
     })
 
@@ -178,7 +227,24 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setScopeGuard(null)
     setActiveLesson(resolved)
     setTeacherChoiceOpen(true)
-  }, [book, summary, visiblePrintedPages, currentBatch?.unitNumber])
+  }, [book, summary, anchorSbPages, currentBatch?.unitNumber])
+
+  const handleTogglePdfSource = useCallback(() => {
+    if (pdfViewMode === 'student_book') {
+      setFrozenSbPrintedPages([...sbVisiblePrintedPages])
+      setPdfViewMode('workbook')
+      return
+    }
+    const restore = frozenSbPrintedPages ?? sbVisiblePrintedPages
+    setFrozenSbPrintedPages(null)
+    setPdfViewMode('student_book')
+    if (restore[0] != null) {
+      setPdfJumpRequest((prev) => ({
+        pdfPage: pdfForPrinted(pageMap, restore[0]),
+        requestId: (prev?.requestId ?? 0) + 1,
+      }))
+    }
+  }, [pdfViewMode, sbVisiblePrintedPages, frozenSbPrintedPages, pageMap])
 
   const handleCloseTeacherChoice = useCallback(() => {
     setTeacherChoiceOpen(false)
@@ -186,6 +252,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   }, [])
 
   const handleJumpToUnitOpening = useCallback(() => {
+    setPdfViewMode('student_book')
+    setFrozenSbPrintedPages(null)
     const printed = scopeGuard?.unitOpeningPrintedPage ?? liveLessonContext.unitOpeningPrintedPage
     if (printed == null) return
     const pdfPage = pdfForPrinted(pageMap, printed)
@@ -196,6 +264,27 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setScopeGuard(null)
   }, [scopeGuard, liveLessonContext.unitOpeningPrintedPage, pageMap])
 
+  // D021: Chalkie standard path is Student Book only — redirect WB/TG selections.
+  useEffect(() => {
+    if (isStudentBook(book)) return
+    const sb = series.books.find(isStudentBook)
+    if (sb) onSelectBook(sb.id)
+  }, [book, series.books, onSelectBook])
+
+  // Unit / book change → always Student Book view before resolving pages.
+  useEffect(() => {
+    setPdfViewMode('student_book')
+    setFrozenSbPrintedPages(null)
+  }, [selectedBatchId, book.id])
+
+  // Leave Workbook view if the mapped companion no longer applies.
+  useEffect(() => {
+    if (!verifiedCompanion && pdfViewMode === 'workbook') {
+      setPdfViewMode('student_book')
+      setFrozenSbPrintedPages(null)
+    }
+  }, [verifiedCompanion, pdfViewMode])
+
   useEffect(() => {
     let cancelled = false
     setBatchesLoading(true)
@@ -205,7 +294,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setCanonicalRaw(null)
     setFromCanonical(false)
     setBatches([])
-    setVisiblePrintedPages([])
+    setSbVisiblePrintedPages([])
+    setPdfViewMode('student_book')
+    setFrozenSbPrintedPages(null)
     setTeacherChoiceOpen(false)
     setActiveLesson(null)
     setScopeGuard(null)
@@ -342,11 +433,109 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     }
   }, [book.id])
 
+  // Load mapped Workbook PDF + summary only when a verified companion exists.
+  useEffect(() => {
+    let cancelled = false
+    let objectUrlToRevoke: string | null = null
+
+    if (!verifiedCompanion) {
+      setWorkbookSummary(null)
+      setWbPdfUrl(null)
+      setWbPdfProvider(null)
+      setWbPdfLoading(false)
+      return
+    }
+
+    const wbMatch = curriculumService.getBookByCatalogId(
+      verifiedCompanion.workbookCatalogId,
+    )
+    if (!wbMatch) {
+      setWorkbookSummary(null)
+      setWbPdfUrl(null)
+      setWbPdfProvider(null)
+      setWbPdfLoading(false)
+      return
+    }
+
+    setWbPdfLoading(true)
+
+    void (async () => {
+      try {
+        const rows = await validationService.listValidationFiles(wbMatch.book.id)
+        if (cancelled) return
+        const canonical = rows.find((row) => row.fileType === 'canonical_json')
+        if (canonical) {
+          const raw = await validationService.downloadJson(canonical)
+          if (cancelled) return
+          setWorkbookSummary(summarizeBatchJson(raw))
+        } else {
+          setWorkbookSummary(null)
+        }
+
+        const pdf = await validationService.findSourcePdf(wbMatch.book.id)
+        if (cancelled) return
+        if (!pdf) {
+          setWbPdfUrl(null)
+          setWbPdfProvider(null)
+          return
+        }
+        const signed = await validationService.createSignedPdfUrl(pdf)
+        if (cancelled) {
+          if (signed?.url.startsWith('blob:')) URL.revokeObjectURL(signed.url)
+          return
+        }
+        if (!signed) {
+          setWbPdfUrl(null)
+          setWbPdfProvider(null)
+          return
+        }
+        if (signed.url.startsWith('blob:')) objectUrlToRevoke = signed.url
+        setWbPdfUrl(signed.url)
+        setWbPdfProvider(signed.provider)
+      } catch (err) {
+        if (cancelled) return
+        console.error(
+          '[chalkie] Workbook companion load failed:',
+          err instanceof Error ? err.message : err,
+        )
+        setWorkbookSummary(null)
+        setWbPdfUrl(null)
+        setWbPdfProvider(null)
+      } finally {
+        if (!cancelled) setWbPdfLoading(false)
+      }
+    })()
+
+    return () => {
+      cancelled = true
+      if (objectUrlToRevoke) URL.revokeObjectURL(objectUrlToRevoke)
+    }
+  }, [verifiedCompanion?.relationshipId, verifiedCompanion?.workbookCatalogId])
+
+  // Jump to mapped WB pages when entering Workbook view.
+  useEffect(() => {
+    if (pdfViewMode !== 'workbook' || !verifiedCompanion) return
+    if (wbPageMap.length === 0 && !workbookSummary) return
+    const firstPrinted = verifiedCompanion.workbookPrintedPages[0]
+    if (firstPrinted == null) return
+    const pdfPage = pdfForPrinted(wbPageMap, firstPrinted)
+    setPdfJumpRequest((prev) => ({
+      pdfPage,
+      requestId: (prev?.requestId ?? 0) + 1,
+    }))
+  }, [
+    pdfViewMode,
+    verifiedCompanion?.relationshipId,
+    verifiedCompanion?.workbookPrintedPages,
+    wbPageMap,
+    workbookSummary,
+  ])
+
   useEffect(() => {
     if (!currentBatch) {
       setSummary(null)
       setJsonError(null)
-      setVisiblePrintedPages([])
+      setSbVisiblePrintedPages([])
       return
     }
 
@@ -391,17 +580,23 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     }
   }, [currentBatch, fromCanonical, canonicalRaw])
 
+  const handleSelectBatch = useCallback((batchId: string) => {
+    setPdfViewMode('student_book')
+    setFrozenSbPrintedPages(null)
+    setSelectedBatchId(batchId)
+  }, [])
+
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
-      setSelectedBatchId(batches[currentIndex - 1].id)
+      handleSelectBatch(batches[currentIndex - 1].id)
     }
-  }, [batches, currentIndex])
+  }, [batches, currentIndex, handleSelectBatch])
 
   const handleNext = useCallback(() => {
     if (currentIndex < batches.length - 1) {
-      setSelectedBatchId(batches[currentIndex + 1].id)
+      handleSelectBatch(batches[currentIndex + 1].id)
     }
-  }, [batches, currentIndex])
+  }, [batches, currentIndex, handleSelectBatch])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -466,11 +661,13 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         fromCanonical={fromCanonical}
         onPrev={handlePrev}
         onNext={handleNext}
-        onSelectBatch={setSelectedBatchId}
+        onSelectBatch={handleSelectBatch}
         onSelectSeries={onSelectSeries}
         onSelectBook={onSelectBook}
         onBackToBooks={onBackToBooks}
         showVerificationStatus={false}
+        bookOptionsFilter="student_books_only"
+        bookDisplayTitle={(entry) => studentBookDisplayTitle(entry.title)}
       />
 
       {batchesError ? (
@@ -495,11 +692,14 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           <ChalkieLeftPanel
             batch={currentBatch}
             summary={summary}
-            visiblePrintedPages={visiblePrintedPages}
+            sbPrintedPages={anchorSbPages}
             loading={batchesLoading || jsonLoading}
             error={jsonError}
             bookIntelligence={bookIntelligence}
             bookIntelligenceLoading={bookIntelligenceLoading}
+            workbookSummary={workbookSummary}
+            workbookPrintedPages={verifiedCompanion?.workbookPrintedPages ?? null}
+            companionRelationshipId={verifiedCompanion?.relationshipId ?? null}
           />
         </section>
 
@@ -521,16 +721,58 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         >
           <div className="min-h-0 flex-1 overflow-hidden bg-slate-200/60 p-2">
             <ValidationPdfPane
-              pdfUrl={pdfUrl}
-              loading={pdfLoading}
-              bookTitle={book.title}
-              pdfProvider={pdfProvider}
-              initialPage={pdfInitialPage}
-              pageMap={pageMap}
-              onVisiblePrintedPagesChange={handleVisiblePrintedPagesChange}
+              pdfUrl={pdfViewMode === 'workbook' ? wbPdfUrl : pdfUrl}
+              loading={
+                pdfViewMode === 'workbook' ? wbPdfLoading || pdfLoading : pdfLoading
+              }
+              bookTitle={
+                pdfViewMode === 'workbook'
+                  ? `Workbook · mapped pp. ${verifiedCompanion?.workbookPrintedPages.join('–') ?? '—'}`
+                  : studentBookDisplayTitle(book.title)
+              }
+              pdfProvider={pdfViewMode === 'workbook' ? wbPdfProvider : pdfProvider}
+              initialPage={
+                pdfViewMode === 'workbook'
+                  ? verifiedCompanion
+                    ? pdfForPrinted(
+                        wbPageMap,
+                        verifiedCompanion.workbookPrintedPages[0] ?? 1,
+                      )
+                    : null
+                  : pdfInitialPage
+              }
+              pageMap={pdfViewMode === 'workbook' ? wbPageMap : pageMap}
+              onVisiblePrintedPagesChange={
+                pdfViewMode === 'student_book'
+                  ? handleVisiblePrintedPagesChange
+                  : undefined
+              }
               jumpRequest={pdfJumpRequest}
+              navigationLocked={pdfViewMode === 'workbook'}
+              allowedPrintedPages={
+                pdfViewMode === 'workbook'
+                  ? verifiedCompanion?.workbookPrintedPages ?? null
+                  : null
+              }
             />
           </div>
+
+          {verifiedCompanion ? (
+            <div className="flex shrink-0 items-center justify-between gap-2 border-t border-slate-200 bg-white px-3 py-2">
+              <p className="text-[11px] text-slate-500">
+                {pdfViewMode === 'workbook'
+                  ? 'Inspecting mapped Workbook consolidation pages only. Lesson prep stays on the Student Book.'
+                  : 'Verified Workbook companion available for this Student Book spread.'}
+              </p>
+              <button
+                type="button"
+                onClick={handleTogglePdfSource}
+                className="shrink-0 rounded-md border border-indigo-300 bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-900 transition-colors hover:bg-indigo-100"
+              >
+                {pdfViewMode === 'workbook' ? 'View Student Book' : 'View Workbook'}
+              </button>
+            </div>
+          ) : null}
 
           <ChalkieOutputPanel onPreparePrompt={handlePreparePrompt} />
         </section>

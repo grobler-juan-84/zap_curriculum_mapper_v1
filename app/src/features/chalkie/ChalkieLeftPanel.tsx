@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { BookMarked, Brain, ChevronDown, ChevronRight, Eye } from 'lucide-react'
+import { BookMarked, BookOpen, Brain, ChevronDown, ChevronRight, Notebook } from 'lucide-react'
 import type { BatchJsonSummary, BookFileBatch } from '../../types/validation'
 import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
 import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
@@ -11,12 +11,17 @@ import {
 interface ChalkieLeftPanelProps {
   batch: BookFileBatch | null
   summary: BatchJsonSummary | null
-  visiblePrintedPages: number[]
+  /** Selected Student Book printed pages (lesson identity — not WB viewer pages). */
+  sbPrintedPages: number[]
   loading: boolean
   error: string | null
-  /** Phase 2 Book Intelligence overview for the selected book (null = unavailable / not registered). */
   bookIntelligence: BookIntelligenceOverviewDocument | null
   bookIntelligenceLoading: boolean
+  /** Workbook summary for the verified companion only (null when none / not loaded). */
+  workbookSummary: BatchJsonSummary | null
+  /** Exact mapped WB printed pages when a verified companion exists. */
+  workbookPrintedPages: number[] | null
+  companionRelationshipId: string | null
 }
 
 function Section({
@@ -68,23 +73,86 @@ function BulletList({ items, empty }: { items: string[]; empty: string }) {
   )
 }
 
+function PagesSummaryBody({
+  rangeLabel,
+  view,
+}: {
+  rangeLabel: string | null
+  view: ReturnType<typeof buildVisiblePagesView>
+}) {
+  return (
+    <>
+      {rangeLabel ? (
+        <p className="text-[11px] font-mono text-indigo-700">{rangeLabel}</p>
+      ) : null}
+      {view.emptyMessage ? (
+        <p className="text-xs text-slate-500">{view.emptyMessage}</p>
+      ) : (
+        <>
+          <BulletList
+            items={view.pageLabels}
+            empty="No page sections listed for this spread."
+          />
+          {view.vocabulary.length > 0 ? (
+            <div>
+              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Vocabulary on spread
+              </p>
+              <p className="text-xs text-slate-800">{view.vocabulary.join(', ')}</p>
+            </div>
+          ) : null}
+          {view.languageLines.length > 0 ? (
+            <div>
+              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Language on spread
+              </p>
+              <BulletList items={view.languageLines} empty="" />
+            </div>
+          ) : null}
+          {view.activityLines.length > 0 ? (
+            <div>
+              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Activities on spread
+              </p>
+              <BulletList items={view.activityLines} empty="" />
+            </div>
+          ) : null}
+        </>
+      )}
+    </>
+  )
+}
+
+function rangeLabelFor(pages: number[]): string | null {
+  if (pages.length === 0) return null
+  if (pages.length === 1) return `p. ${pages[0]}`
+  return `pp. ${pages[0]}–${pages[pages.length - 1]}`
+}
+
 export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   batch,
   summary,
-  visiblePrintedPages,
+  sbPrintedPages,
   loading,
   error,
   bookIntelligence,
   bookIntelligenceLoading,
+  workbookSummary,
+  workbookPrintedPages,
+  companionRelationshipId,
 }) => {
   const unitView = useMemo(
     () => (summary ? buildUnitSummaryView(summary) : null),
     [summary],
   )
-  const visibleView = useMemo(
-    () => buildVisiblePagesView(summary, visiblePrintedPages),
-    [summary, visiblePrintedPages],
+  const sbPagesView = useMemo(
+    () => buildVisiblePagesView(summary, sbPrintedPages),
+    [summary, sbPrintedPages],
   )
+  const wbPagesView = useMemo(() => {
+    if (!workbookPrintedPages?.length) return null
+    return buildVisiblePagesView(workbookSummary, workbookPrintedPages)
+  }, [workbookSummary, workbookPrintedPages])
   const unitIntelligence = useMemo(
     () =>
       buildChalkieUnitIntelligenceView({
@@ -100,12 +168,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
     ],
   )
 
-  const visibleRangeLabel =
-    visiblePrintedPages.length > 0
-      ? visiblePrintedPages.length === 1
-        ? `p. ${visiblePrintedPages[0]}`
-        : `pp. ${visiblePrintedPages[0]}–${visiblePrintedPages[visiblePrintedPages.length - 1]}`
-      : null
+  const showWbSection = Boolean(companionRelationshipId && workbookPrintedPages?.length)
 
   return (
     <div className="flex h-full select-none flex-col border-r border-slate-200 bg-white">
@@ -179,47 +242,34 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
               ) : null}
             </Section>
 
-            <Section title="Visible Pages Summary" icon={Eye} defaultOpen={false}>
-              {visibleRangeLabel ? (
-                <p className="text-[11px] font-mono text-indigo-700">{visibleRangeLabel}</p>
-              ) : null}
-              {visibleView.emptyMessage ? (
-                <p className="text-xs text-slate-500">{visibleView.emptyMessage}</p>
-              ) : (
-                <>
-                  <BulletList
-                    items={visibleView.pageLabels}
-                    empty="No page sections listed for this spread."
-                  />
-                  {visibleView.vocabulary.length > 0 ? (
-                    <div>
-                      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                        Vocabulary on spread
-                      </p>
-                      <p className="text-xs text-slate-800">
-                        {visibleView.vocabulary.join(', ')}
-                      </p>
-                    </div>
-                  ) : null}
-                  {visibleView.languageLines.length > 0 ? (
-                    <div>
-                      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                        Language on spread
-                      </p>
-                      <BulletList items={visibleView.languageLines} empty="" />
-                    </div>
-                  ) : null}
-                  {visibleView.activityLines.length > 0 ? (
-                    <div>
-                      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                        Activities on spread
-                      </p>
-                      <BulletList items={visibleView.activityLines} empty="" />
-                    </div>
-                  ) : null}
-                </>
-              )}
+            <Section title="SB Pages Summary" icon={BookOpen} defaultOpen={false}>
+              <p className="text-[11px] leading-relaxed text-slate-500">
+                Selected Student Book pages — primary lesson source.
+              </p>
+              <PagesSummaryBody
+                rangeLabel={rangeLabelFor(sbPrintedPages)}
+                view={sbPagesView}
+              />
             </Section>
+
+            {showWbSection && workbookPrintedPages ? (
+              <Section title="WB Pages Summary" icon={Notebook} defaultOpen={false}>
+                <p className="text-[11px] leading-relaxed text-slate-500">
+                  Mapped Workbook consolidation/practice (verified companion). Separate from
+                  Student Book lesson identity.
+                </p>
+                {companionRelationshipId ? (
+                  <p className="font-mono text-[10px] text-slate-400">{companionRelationshipId}</p>
+                ) : null}
+                <PagesSummaryBody
+                  rangeLabel={rangeLabelFor(workbookPrintedPages)}
+                  view={
+                    wbPagesView ??
+                    buildVisiblePagesView(null, workbookPrintedPages)
+                  }
+                />
+              </Section>
+            ) : null}
 
             <Section title="Unit Intelligence" icon={Brain} defaultOpen={false}>
               <p className="rounded border border-amber-200 bg-amber-50 px-2 py-1.5 text-[11px] leading-relaxed text-amber-900">

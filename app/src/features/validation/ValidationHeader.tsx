@@ -23,6 +23,13 @@ interface ValidationHeaderProps {
   onBackToBooks: () => void
   /** When false, hides batch verification status badge (Chalkie Workspace). Default true. */
   showVerificationStatus?: boolean
+  /**
+   * Chalkie (D021): show only Student Books in the book dropdown.
+   * Validation keeps the default `all`.
+   */
+  bookOptionsFilter?: 'all' | 'student_books_only'
+  /** Optional teacher-facing book label (e.g. strip “Student Book”). */
+  bookDisplayTitle?: (book: Book) => string
 }
 
 function batchLabel(batch: BookFileBatch): string {
@@ -45,10 +52,22 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   onSelectBook,
   onBackToBooks,
   showVerificationStatus = true,
+  bookOptionsFilter = 'all',
+  bookDisplayTitle,
 }) => {
   const hasPrev = currentIndex > 0
   const hasNext = currentIndex >= 0 && currentIndex < batches.length - 1
   const status = currentBatch?.status ?? 'pending'
+  const bookOptions =
+    bookOptionsFilter === 'student_books_only'
+      ? series.books.filter(
+          (entry) =>
+            entry.type === 'Student Book' ||
+            (!entry.type && /_sb$/i.test(entry.catalogBookId ?? '')),
+        )
+      : series.books
+  const labelFor = (entry: Book) =>
+    bookDisplayTitle ? bookDisplayTitle(entry) : entry.title
 
   return (
     <header className="z-10 flex h-11 shrink-0 select-none items-center justify-between gap-2 border-b border-slate-200 bg-white px-3 shadow-xs">
@@ -95,9 +114,9 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           aria-label="Select book"
           className="max-w-[220px] cursor-pointer truncate rounded border border-indigo-200 bg-indigo-50 px-2 py-1 text-xs font-bold text-indigo-900 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
         >
-          {series.books.map((entry) => (
+          {bookOptions.map((entry) => (
             <option key={entry.id} value={entry.id}>
-              {entry.title}
+              {labelFor(entry)}
             </option>
           ))}
         </select>

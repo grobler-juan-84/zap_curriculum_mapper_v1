@@ -42,6 +42,15 @@ interface ValidationPdfPaneProps {
    * Increments `requestId` to force a jump even when the target page is unchanged.
    */
   jumpRequest?: { pdfPage: number; requestId: number } | null
+  /**
+   * When true, disable Prev/Next, page spinner, and Go (Chalkie Workbook companion view).
+   */
+  navigationLocked?: boolean
+  /**
+   * When set, show only these printed pages (exact mapped companion pages).
+   * Single-page companions render one page; do not invent a facing page.
+   */
+  allowedPrintedPages?: number[] | null
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
@@ -62,6 +71,8 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   onVisibleRangeChange,
   onVisiblePrintedPagesChange,
   jumpRequest = null,
+  navigationLocked = false,
+  allowedPrintedPages = null,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
@@ -71,6 +82,16 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const [rangeReportReady, setRangeReportReady] = useState(false)
 
   const printedLabel = (pdfIndex: number): number => printedForPdf(pageMap, pdfIndex) ?? pdfIndex
+
+  const lockedPdfIndices = useMemo(() => {
+    if (!allowedPrintedPages?.length || !numPages) return null
+    const indices = allowedPrintedPages
+      .map((printed) => pdfForPrinted(pageMap, printed))
+      .filter((n) => Number.isFinite(n))
+      .map((n) => clampPage(n, numPages))
+    const unique = [...new Set(indices)].sort((a, b) => a - b)
+    return unique.length > 0 ? unique : null
+  }, [allowedPrintedPages, pageMap, numPages])
 
   useEffect(() => {
     setNumPages(0)
@@ -117,10 +138,16 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
   }, [jumpRequest, numPages, pageMap])
 
-  const leftPage = pairStart
-  const rightPage = pairStart + 1 <= numPages ? pairStart + 1 : null
-  const canPrev = pairStart > 1
-  const canNext = pairStart < numPages
+  const leftPage = lockedPdfIndices?.[0] ?? pairStart
+  const rightPage = lockedPdfIndices
+    ? lockedPdfIndices.length > 1
+      ? lockedPdfIndices[1]
+      : null
+    : pairStart + 1 <= numPages
+      ? pairStart + 1
+      : null
+  const canPrev = !navigationLocked && !lockedPdfIndices && pairStart > 1
+  const canNext = !navigationLocked && !lockedPdfIndices && pairStart < numPages
 
   useEffect(() => {
     if (!numPages || !onVisibleRangeChange || !rangeReportReady) return
@@ -174,6 +201,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
       : null
 
   const goPrev = () => {
+    if (navigationLocked || lockedPdfIndices) return
     setPairStart((current) => {
       const next = clampPage(current - 2, numPages)
       setJumpValue(String(printedLabel(next)))
@@ -182,6 +210,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }
 
   const goNext = () => {
+    if (navigationLocked || lockedPdfIndices) return
     setPairStart((current) => {
       const next = clampPage(current + 2, numPages)
       setJumpValue(String(printedLabel(next)))
@@ -190,6 +219,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }
 
   const jumpToPage = () => {
+    if (navigationLocked || lockedPdfIndices) return
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
     const start = clampPage(pdfForPrinted(pageMap, parsed), numPages)
@@ -256,32 +286,38 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
             >
               <ChevronRight className="h-3.5 w-3.5" />
             </button>
-            <form
-              className="ml-1 flex items-center gap-1"
-              onSubmit={(e) => {
-                e.preventDefault()
-                jumpToPage()
-              }}
-            >
-              <label className="sr-only" htmlFor="pdf-jump-page">
-                Jump to printed page
-              </label>
-              <input
-                id="pdf-jump-page"
-                type="number"
-                min={1}
-                title="Printed page number"
-                value={jumpValue}
-                onChange={(e) => setJumpValue(e.target.value)}
-                className="h-6 w-14 rounded border border-slate-300 px-1.5 font-mono text-[10px] text-slate-700"
-              />
-              <button
-                type="submit"
-                className="h-6 rounded border border-slate-300 bg-white px-2 text-[10px] font-semibold text-slate-700"
+            {navigationLocked || lockedPdfIndices ? (
+              <span className="ml-1 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[9px] font-semibold text-amber-900">
+                Mapped pages only
+              </span>
+            ) : (
+              <form
+                className="ml-1 flex items-center gap-1"
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  jumpToPage()
+                }}
               >
-                Go
-              </button>
-            </form>
+                <label className="sr-only" htmlFor="pdf-jump-page">
+                  Jump to printed page
+                </label>
+                <input
+                  id="pdf-jump-page"
+                  type="number"
+                  min={1}
+                  title="Printed page number"
+                  value={jumpValue}
+                  onChange={(e) => setJumpValue(e.target.value)}
+                  className="h-6 w-14 rounded border border-slate-300 px-1.5 font-mono text-[10px] text-slate-700"
+                />
+                <button
+                  type="submit"
+                  className="h-6 rounded border border-slate-300 bg-white px-2 text-[10px] font-semibold text-slate-700"
+                >
+                  Go
+                </button>
+              </form>
+            )}
           </div>
         ) : null}
       </div>

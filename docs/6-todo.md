@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 296
+**Last updated:** Step 297
 
 
 
@@ -486,9 +486,11 @@
 
 - [x] **Retire standalone Book Intelligence preview UI** — sidebar removed; legacy `/app/book-intelligence…` redirects to Chalkie; JSON/loaders retained.
 
-- [x] **D021 LOCKED** — Student Book–first lesson preparation; WB via verified companions only; no immediate UI/code authorization.
+- [x] **D021 LOCKED** — Student Book–first lesson preparation; WB via verified companions only.
 
-- [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — under-the-hood WB attach for D021; no SB-first picker UI / handoff/Chalkie without separate approval.
+- [x] **D021 UI slice** — SB-only book dropdown; View Workbook toggle (mapped pages, nav locked); SB/WB summaries; prepare SB-anchored.
+
+- [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — expands View Workbook coverage; no new handoff/Chalkie without separate approval.
 
 
 

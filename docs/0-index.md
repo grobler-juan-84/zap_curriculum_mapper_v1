@@ -168,7 +168,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: Unit Summary + Visible Pages + Unit Intelligence; **D021** Student Book–first (LOCKED, UI not yet enforced); local handoff; provisional two-lesson-first policy. OpenAI path dormant. Not a product lock. | 2.15 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; Unit Intelligence; **D021** SB-first; local handoff. OpenAI path dormant. Not a product lock. | 2.16 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
@@ -202,7 +202,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.6): **D021** Student Book–first lock; provisional two-lesson-first packaging (§1A); Exp 11–14 + SB→WB pilot retained. Not a product or schema lock. | V1.6 | ACTIVE |
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.7): **D021** SB-first + Workspace WB view toggle; provisional two-lesson-first packaging (§1A); Exp 11–14 + SB→WB pilot retained. Not a product or schema lock. | V1.7 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---

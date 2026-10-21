@@ -5002,3 +5002,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 297
+
+**Summary:** Implemented D021 Chalkie Workspace slice: Student Book–only teacher book dropdown with simplified display names; View Workbook / View Student Book toggle for verified companions (mapped pages only; PDF nav locked); SB/WB page summaries; prepare prompt remains SB-anchored. Focused tests + typecheck pass. F021/F022 preserved.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieStudentBookUi.ts` (created)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `scripts/tests/chalkieStudentBookUi.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

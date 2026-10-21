@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 296
+**Last updated:** Step 297
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,29 +14,22 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **D017** / **D018** / **D019** / **D020** / **D021** LOCKED (D021 = Student Book–first lesson preparation).
+- **D017** / **D018** / **D019** / **D020** / **D021** LOCKED.
 
-- Chalkie Exp 11–14 preferred Single Lesson path recorded; BE3 U8 production-pilot plan drafted.
+- **D021 UI slice:** Chalkie SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored.
 
-- **BE3 U8 SB→WB opener** ACCEPTED + series handoff + production pilot PASS AFTER LIGHT TEACHER REVIEW.
+- BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
 
-- **BE3 U8 component map content review COMPLETE:** Story handoff provisional; LiA through Phonics + Review docs-ACCEPTED; Values **SB-ONLY CONFIRMED**.
-
-- **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
-
-- **Provisional two-lesson-first packaging policy** recorded (docs only; Chalkie-specific; not locked).
-
-- **Chalkie Workspace Unit Intelligence** accordion: read-only Phase 2 BI; standalone BI preview retired.
+- Unit Intelligence accordion; standalone BI preview retired.
 
 ## In progress
 
 - Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
-- D021 is locked; UI enforcement of SB-first picker is **not** authorized yet.
 
 ## Next
 
-- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch) — under-the-hood WB attach for D021.
-- Keep Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation. No SB-first UI until separately authorized.
+- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
+- Keep Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked
 
@@ -48,4 +41,4 @@
 
 - Active Git branch: `main`.
 
-- Entry: `/app/chalkie` → **Prepare Chalkie prompt**. Standard teacher path is Student Book–first (D021).
+- Entry: `/app/chalkie` — Student Book–first (D021); optional mapped Workbook view.
