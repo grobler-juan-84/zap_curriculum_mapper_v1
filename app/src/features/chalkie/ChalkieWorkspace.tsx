@@ -11,6 +11,11 @@ import {
 import { ValidationHeader } from '../validation/ValidationHeader'
 import { ValidationPdfPane } from '../validation/ValidationPdfPane'
 import { buildPageMap, pdfForPrinted } from '../validation/pdfPageMap'
+import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
+import {
+  hasBookIntelligenceOverview,
+} from '../book-intelligence/bookIntelligenceStorageRegistry'
+import { loadBookIntelligenceFromStorage } from '../book-intelligence/loadBookIntelligenceFromStorage'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
 import { ChalkieOutputPanel } from './ChalkieOutputPanel'
 import { TeacherChoiceFlowOverlay } from './TeacherChoiceFlowOverlay'
@@ -79,6 +84,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const [pdfLoading, setPdfLoading] = useState(true)
 
   const [visiblePrintedPages, setVisiblePrintedPages] = useState<number[]>([])
+
+  const [bookIntelligence, setBookIntelligence] =
+    useState<BookIntelligenceOverviewDocument | null>(null)
+  const [bookIntelligenceLoading, setBookIntelligenceLoading] = useState(false)
 
   const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
   const [activeLesson, setActiveLesson] = useState<ChalkieLessonContext | null>(null)
@@ -215,6 +224,36 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       cancelled = true
     }
   }, [book.id])
+
+  // Phase 2 Book Intelligence — read-only unit arc; never blocks Chalkie prep.
+  useEffect(() => {
+    let cancelled = false
+    const catalogBookId = book.catalogBookId
+
+    setBookIntelligence(null)
+
+    if (!catalogBookId || !hasBookIntelligenceOverview(catalogBookId)) {
+      setBookIntelligenceLoading(false)
+      return
+    }
+
+    setBookIntelligenceLoading(true)
+
+    void (async () => {
+      const result = await loadBookIntelligenceFromStorage(catalogBookId)
+      if (cancelled) return
+      if (result.ok) {
+        setBookIntelligence(result.data)
+      } else {
+        setBookIntelligence(null)
+      }
+      setBookIntelligenceLoading(false)
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [book.catalogBookId])
 
   useEffect(() => {
     let cancelled = false
@@ -417,6 +456,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
             visiblePrintedPages={visiblePrintedPages}
             loading={batchesLoading || jsonLoading}
             error={jsonError}
+            bookIntelligence={bookIntelligence}
+            bookIntelligenceLoading={bookIntelligenceLoading}
           />
         </section>
 

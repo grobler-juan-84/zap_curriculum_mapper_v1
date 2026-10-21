@@ -4935,3 +4935,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 294
+
+**Summary:** Added read-only Unit Intelligence accordion to Chalkie Workspace left panel, reusing the Storage-backed Book Intelligence loader for the selected book/unit. Honest empty state when unavailable; does not alter handoff/context. Focused tests + typecheck pass.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieUnitIntelligence.ts` (created)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/chalkieUnitIntelligence.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

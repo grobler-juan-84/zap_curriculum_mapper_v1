@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.12  
+**Version:** 2.13  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -21,6 +21,7 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 - Three-pane layout aligned with Validation Workspace (header, left context, PDF, compact bottom action area).
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
+- **Unit Intelligence** — read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); labelled planning support, **not** current-page source evidence; does not alter handoff/context.
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
 - Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
@@ -28,7 +29,8 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 
 **Out of scope (explicit):**
 
-- Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
+- Feeding Unit Intelligence (or any Phase 2 interpretation) into source scope, prior learning, vocabulary, packaging, or Chalkie handoff builders.
+- Loading arbitrary Phase 2–4 experiment markdown into the app / inventing interpretation beyond the registered Book Intelligence Storage overview.
 - Calling or exposing the dormant OpenAI lesson-draft endpoint from the current handoff UI.
 - Persisting generated drafts, creating slides, or submitting to the Chalkie product.
 - Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two accepted BE3 U8 curated SB→WB pairs (opener; asymmetric story).
@@ -44,7 +46,7 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 | Navigation | Sidebar **Chalkie Workspace** → `/app/chalkie` |
 | Header | Reuses `ValidationHeader` with verification status badge hidden |
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
-| Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) |
+| Left panel | Collapsible Unit Summary + Visible Pages Summary (`chalkieEvidence.ts`) + Unit Intelligence (`chalkieUnitIntelligence.ts` + Storage BI loader) |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
 | Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
@@ -210,3 +212,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-20 | Screen 1 / prompt: activity-derived words/models, language frames, teaching-focus planning summary; honest empty-state wording. |
 | 2026-10-20 | Correction pass for BE3 U8 spreads 128–137: lesson topic, Q&A `|` splits, `full_text` language, Did…? focus, phrase halves, models bound 24. |
 | 2026-10-21 | Cross-linked provisional two-lesson-first packaging policy (§1A in Phase 6 Chalkie workflow); UI series gates unchanged; no generation authorized. |
+| 2026-10-21 | Left-panel **Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; honest empty state; does not affect handoff. |

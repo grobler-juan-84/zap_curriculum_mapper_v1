@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 293
+**Last updated:** Step 294
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -25,6 +25,8 @@
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
 - **Provisional two-lesson-first packaging policy** recorded (docs only; Chalkie-specific; not locked).
+
+- **Chalkie Workspace Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; does not alter handoff.
 
 ## In progress
 

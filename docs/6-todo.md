@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 293
+**Last updated:** Step 294
 
 
 
@@ -481,6 +481,8 @@
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
 - [x] **Provisional two-lesson-first packaging policy** recorded (docs only; Phase 6 §1A; Chalkie-specific; not locked; no generation authorized).
+
+- [x] **Chalkie Workspace Unit Intelligence** accordion — read-only Phase 2 BI for selected book/unit; honest empty state; does not alter handoff.
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — no new handoff/Chalkie without separate approval.
 

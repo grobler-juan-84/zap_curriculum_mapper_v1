@@ -1,7 +1,12 @@
 import React, { useMemo, useState } from 'react'
-import { BookMarked, ChevronDown, ChevronRight, Eye } from 'lucide-react'
+import { BookMarked, Brain, ChevronDown, ChevronRight, Eye } from 'lucide-react'
 import type { BatchJsonSummary, BookFileBatch } from '../../types/validation'
+import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
 import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
+import {
+  UNIT_INTELLIGENCE_DISCLAIMER,
+  buildChalkieUnitIntelligenceView,
+} from './chalkieUnitIntelligence'
 
 interface ChalkieLeftPanelProps {
   batch: BookFileBatch | null
@@ -9,6 +14,9 @@ interface ChalkieLeftPanelProps {
   visiblePrintedPages: number[]
   loading: boolean
   error: string | null
+  /** Phase 2 Book Intelligence overview for the selected book (null = unavailable / not registered). */
+  bookIntelligence: BookIntelligenceOverviewDocument | null
+  bookIntelligenceLoading: boolean
 }
 
 function Section({
@@ -66,6 +74,8 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   visiblePrintedPages,
   loading,
   error,
+  bookIntelligence,
+  bookIntelligenceLoading,
 }) => {
   const unitView = useMemo(
     () => (summary ? buildUnitSummaryView(summary) : null),
@@ -74,6 +84,20 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   const visibleView = useMemo(
     () => buildVisiblePagesView(summary, visiblePrintedPages),
     [summary, visiblePrintedPages],
+  )
+  const unitIntelligence = useMemo(
+    () =>
+      buildChalkieUnitIntelligenceView({
+        loading: bookIntelligenceLoading,
+        document: bookIntelligence,
+        unitNumber: batch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+      }),
+    [
+      bookIntelligenceLoading,
+      bookIntelligence,
+      batch?.unitNumber,
+      summary?.units,
+    ],
   )
 
   const visibleRangeLabel =
@@ -193,6 +217,52 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
                       <BulletList items={visibleView.activityLines} empty="" />
                     </div>
                   ) : null}
+                </>
+              )}
+            </Section>
+
+            <Section title="Unit Intelligence" icon={Brain} defaultOpen={false}>
+              <p className="rounded border border-amber-200 bg-amber-50 px-2 py-1.5 text-[11px] leading-relaxed text-amber-900">
+                {UNIT_INTELLIGENCE_DISCLAIMER}
+              </p>
+              {unitIntelligence.status === 'loading' ? (
+                <p className="text-xs text-slate-500">Loading Unit Intelligence…</p>
+              ) : unitIntelligence.status === 'unavailable' ? (
+                <p className="text-xs leading-relaxed text-slate-500">
+                  {unitIntelligence.message}
+                </p>
+              ) : (
+                <>
+                  <p className="text-xs font-semibold text-slate-900">
+                    Unit {unitIntelligence.unitNumber}: {unitIntelligence.title}
+                  </p>
+                  {unitIntelligence.pageRange ? (
+                    <p className="text-[11px] text-slate-500">
+                      {unitIntelligence.pageRange}
+                      {unitIntelligence.layer ? (
+                        <span className="text-slate-400"> · {unitIntelligence.layer}</span>
+                      ) : null}
+                    </p>
+                  ) : unitIntelligence.layer ? (
+                    <p className="text-[11px] text-slate-400">{unitIntelligence.layer}</p>
+                  ) : null}
+                  <dl className="space-y-2">
+                    {unitIntelligence.fields.map((field) => (
+                      <div key={field.key}>
+                        <dt className="mb-0.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                          <span>{field.label}</span>
+                          {field.badge ? (
+                            <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold normal-case tracking-normal text-violet-800">
+                              {field.badge}
+                            </span>
+                          ) : null}
+                        </dt>
+                        <dd className="text-xs leading-relaxed whitespace-pre-wrap text-slate-700">
+                          {field.value || '—'}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
                 </>
               )}
             </Section>
