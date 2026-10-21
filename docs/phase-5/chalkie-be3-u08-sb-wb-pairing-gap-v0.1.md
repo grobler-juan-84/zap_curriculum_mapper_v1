@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story **ACCEPTED** as SB 130–131 → WB **p.106 only** · 106–107 pair **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story **ACCEPTED** as SB 130–131 → WB **p.106 only** (+ asymmetric series handoff) · 106–107 pair **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -9,7 +9,7 @@
 [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) ·  
 [`chalkie-be3-u08-production-pilot-plan-v0.1.md`](./chalkie-be3-u08-production-pilot-plan-v0.1.md) ·  
 [`p5-prototype-chalkie-workspace.md`](./p5-prototype-chalkie-workspace.md) ·  
-Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts` · `buildBe3U08OpenerSbWbSeriesHandoff.ts`
+Code: `verifiedSbWbCompanions.ts` · `buildBe3U08OpenerSbWbSeriesHandoff.ts` · `buildBe3U08StorySbWbSeriesHandoff.ts`
 
 ---
 
@@ -48,7 +48,7 @@ Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts` · `buildBe3U08Opener
 | Type | `workbook_practice_for` · `human_verified` · `curated_verified` |
 | SB | `big_english_3_sb` · pp.130–131 |
 | WB | `big_english_3_wb` · **p.106 only** |
-| Series package | **Not enabled** (companion only; handoff requires separate approval) |
+| Series package | **Enabled** — six local copyables; L1 = SB 130–131; L2 = WB **106 only**; title `BE3 Unit 08 · SB pp. 130–131 + WB p. 106 — Healthy Living — An Unhealthy Dinner`; ref `be3-sb-wb-u08-p130-131-wb106` (shown separately). Chalkie generation **not** authorized by this record. |
 
 ---
 
@@ -62,16 +62,16 @@ Code: `app/src/features/chalkie/verifiedSbWbCompanions.ts` · `buildBe3U08Opener
 
 | Behaviour | Status |
 | --- | --- |
-| SB 128–129 companion | WB 104–105 · series **on** |
-| SB 130–131 companion | WB **106 only** · series **off** |
-| Other BE3 U8 spreads | No companion unless separately reviewed |
+| SB 128–129 companion | WB 104–105 · series **on** (opener handoff) |
+| SB 130–131 companion | WB **106 only** · series **on** (story handoff; asymmetric) |
+| Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
 ## 5. Next microstep
 
-Owner-gated: authorize Single Lesson for SB 130–131, or approve a separate story series-handoff step for `be3_sb_wb_rel_u08_story_sb130-131_wb106`, or content-review the next component-map row (e.g. LiA 132–133 ↔ WB 107–108) — do not bulk-approve the map.
+Owner-gated: run a **story series production pilot** in Chalkie for SB 130–131 → WB p.106, or content-review the next component-map row (e.g. LiA 132–133 ↔ WB 107–108) — do not bulk-approve the map; do not generate without authorization.
 
 ---
 

@@ -373,7 +373,7 @@ test('BE3 ready resolve enables series packaging for the accepted opener pair', 
   assert.equal(lesson.isBe2U08PrototypeRoute, false)
 })
 
-test('BE3 story companion resolves but series packaging stays off', () => {
+test('BE3 story companion resolves and enables story series packaging only', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -393,9 +393,11 @@ test('BE3 story companion resolves but series packaging stays off', () => {
     'be3_sb_wb_rel_u08_story_sb130-131_wb106',
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [106])
-  assert.equal(lesson.supportsTwoLessonSeries, false)
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.ok(lesson.seriesLessonTitle?.includes('An Unhealthy Dinner'))
+  assert.ok(lesson.seriesLessonTitle?.includes('WB p. 106'))
+  assert.doesNotMatch(lesson.seriesLessonTitle ?? '', /107/)
+  assert.equal(lesson.stableSeriesReference, 'be3-sb-wb-u08-p130-131-wb106')
 })
 
 test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {

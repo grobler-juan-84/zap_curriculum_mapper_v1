@@ -6,6 +6,11 @@ import {
   isBe3U08OpenerSeriesCompanion,
   type Be3U08OpenerSeriesHandoff,
 } from './buildBe3U08OpenerSbWbSeriesHandoff'
+import {
+  buildBe3U08StorySbWbSeriesHandoff,
+  isBe3U08StorySeriesCompanion,
+  type Be3U08StorySeriesHandoff,
+} from './buildBe3U08StorySbWbSeriesHandoff'
 import { buildChalkieConciseOutline } from './buildChalkieConciseOutline'
 import {
   BE2_U08_SERIES_LESSON1_VOCAB,
@@ -13,6 +18,7 @@ import {
   buildChalkiePromptPreview,
   lessonTitleForPackage,
   type LessonPackageShape,
+  type TeacherAddedLanguageInput,
 } from './buildChalkiePromptPreview'
 import { buildSuggestedChalkieVocabulary } from './buildSuggestedChalkieVocabulary'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
@@ -26,7 +32,41 @@ import {
   toggleSelectedSuggestionId,
   type TeacherAddedLanguage,
 } from './teacherChoiceFlow'
-import { splitPriorSkillCardTitle } from './teacherChoiceSuggestions'
+import {
+  splitPriorSkillCardTitle,
+  type TeacherChoiceSuggestion,
+} from './teacherChoiceSuggestions'
+
+type Be3U08SeriesHandoff = Be3U08OpenerSeriesHandoff | Be3U08StorySeriesHandoff
+
+function isBe3U08SeriesCompanion(
+  companion: { relationshipId?: string | null } | null | undefined,
+): boolean {
+  return (
+    isBe3U08OpenerSeriesCompanion(companion) ||
+    isBe3U08StorySeriesCompanion(companion)
+  )
+}
+
+function buildBe3U08SeriesHandoffForCompanion(
+  companion: { relationshipId?: string | null } | null | undefined,
+  selectedSuggestions: TeacherChoiceSuggestion[],
+  teacherAdditions: TeacherAddedLanguageInput[],
+): Be3U08SeriesHandoff | null {
+  if (isBe3U08OpenerSeriesCompanion(companion)) {
+    return buildBe3U08OpenerSbWbSeriesHandoff({
+      selectedSuggestions,
+      teacherAdditions,
+    })
+  }
+  if (isBe3U08StorySeriesCompanion(companion)) {
+    return buildBe3U08StorySbWbSeriesHandoff({
+      selectedSuggestions,
+      teacherAdditions,
+    })
+  }
+  return null
+}
 
 function PriorSkillCardHeading({ label }: { label: string }) {
   const { skillName, bookSources } = splitPriorSkillCardTitle(label)
@@ -186,7 +226,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [lesson2VocabCopyStatus, setLesson2VocabCopyStatus] = useState<
     'idle' | 'copied' | 'failed'
   >('idle')
-  const [be3SeriesHandoff, setBe3SeriesHandoff] = useState<Be3U08OpenerSeriesHandoff | null>(
+  const [be3SeriesHandoff, setBe3SeriesHandoff] = useState<Be3U08SeriesHandoff | null>(
     null,
   )
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
@@ -338,12 +378,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     })
     const useBe3Series =
       effectiveLessonShape === 'series' &&
-      isBe3U08OpenerSeriesCompanion(lesson.workbookCompanion)
+      isBe3U08SeriesCompanion(lesson.workbookCompanion)
     const be3Handoff = useBe3Series
-      ? buildBe3U08OpenerSbWbSeriesHandoff({
+      ? buildBe3U08SeriesHandoffForCompanion(
+          lesson.workbookCompanion,
           selectedSuggestions,
-          teacherAdditions: selectedTeacherAdditions,
-        })
+          selectedTeacherAdditions,
+        )
       : null
     const outline = useBe3Series
       ? ''

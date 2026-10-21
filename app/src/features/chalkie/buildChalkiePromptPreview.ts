@@ -5,6 +5,10 @@ import {
   isBe3U08OpenerSeriesCompanion,
 } from './buildBe3U08OpenerSbWbSeriesHandoff'
 import {
+  buildBe3U08StorySbWbSeriesHandoff,
+  isBe3U08StorySeriesCompanion,
+} from './buildBe3U08StorySbWbSeriesHandoff'
+import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
 } from './teacherChoicePrototypeContent'
@@ -312,7 +316,7 @@ function buildDynamicSingleLessonPrompt(input: {
  * - single = visible SB pages only
  * - series = verified SB→WB package only:
  *   - BE2 U8 curated fixture, or
- *   - accepted BE3 U8 opener curated relationship
+ *   - accepted BE3 U8 opener / story curated relationships
  */
 export function buildChalkiePromptPreview(input: {
   lesson: ChalkieLessonContext
@@ -329,6 +333,12 @@ export function buildChalkiePromptPreview(input: {
     }
     if (isBe3U08OpenerSeriesCompanion(input.lesson.workbookCompanion)) {
       return buildBe3U08OpenerSbWbSeriesHandoff({
+        selectedSuggestions: input.selectedSuggestions,
+        teacherAdditions: input.teacherAdditions,
+      }).detailedHandoff
+    }
+    if (isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion)) {
+      return buildBe3U08StorySbWbSeriesHandoff({
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
       }).detailedHandoff

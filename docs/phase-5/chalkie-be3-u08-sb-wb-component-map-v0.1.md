@@ -46,7 +46,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | Lesson component | SB printed pages | WB printed pages | Notes |
 | --- | --- | --- | --- |
 | Vocabulary & Song | 128–129 | 104–105 | **Curated** — `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` (+ series handoff / pilot) |
-| Story | 130–131 | **106 only** | Count asymmetry (2→1) is expected. Candidate WB 106–107 **rejected** as a pair (p.107 is LiA). |
+| Story | 130–131 | **106 only** | Count asymmetry (2→1) is expected. Candidate WB 106–107 **rejected** as a pair (p.107 is LiA). **Series handoff enabled** (six copyables; WB p.106 only). |
 | Language in Action | 132–133 | 107–108 | Candidate only — not content-verified in this doc |
 | Content Connection / Reading | 134–135 | 109–110 | Candidate only |
 | Grammar | 136–137 | 111–112 | Candidate only |
@@ -65,7 +65,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | SB 130–131 → WB **106 only** | **ACCEPTED** (content review 2026-10-21) | `be3_sb_wb_rel_u08_story_sb130-131_wb106` |
 | SB 130–131 → WB 106–107 | **REJECTED** (earlier) | — |
 
-Series packaging / six copyables for the story companion: **not enabled** (separate approval required).
+Series packaging / six copyables for the story companion: **enabled** for `be3_sb_wb_rel_u08_story_sb130-131_wb106` only (`buildBe3U08StorySbWbSeriesHandoff.ts`). WB p.107 remains out of package scope. Chalkie generation for this series is **not** authorized by this record.
 
 ---
 

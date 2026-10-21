@@ -1,4 +1,4 @@
-# General Curriculum Mapper — Project Steps
+# General Curriculum Mapper â Project Steps
 
 **Status:** ACTIVE  
 **Version:** 1.0  
@@ -40,7 +40,7 @@
 
 ### Step 3
 
-**Summary:** Added an evolving project-status snapshot (`docs/project-tracking/1-project-status.md`) with three sections — what has been done, current status, and suggested next small step — plus a Cursor rule to refresh it after each file-changing prompt. Updated the documentation index.
+**Summary:** Added an evolving project-status snapshot (`docs/project-tracking/1-project-status.md`) with three sections â what has been done, current status, and suggested next small step â plus a Cursor rule to refresh it after each file-changing prompt. Updated the documentation index.
 
 **Files touched:**
 - `docs/project-tracking/1-project-status.md` (created)
@@ -52,7 +52,7 @@
 
 ### Step 4
 
-**Summary:** Documentation consistency cleanup only — normalized Phase 1 schema version notation to `0.1`, corrected stale `3`/`3A` Phase 1 doc references to `4`/`4A`, and clarified that the Overview ~90% target is qualitative, not a formal automated acceptance threshold. No architecture or data-model changes.
+**Summary:** Documentation consistency cleanup only â normalized Phase 1 schema version notation to `0.1`, corrected stale `3`/`3A` Phase 1 doc references to `4`/`4A`, and clarified that the Overview ~90% target is qualitative, not a formal automated acceptance threshold. No architecture or data-model changes.
 
 **Files touched:**
 - `docs/4-Phase_1_Extraction_Data_Specification.md` (updated)
@@ -68,7 +68,7 @@
 
 ### Step 5
 
-**Summary:** Synced documentation to the updated Google AI Studio Prompt V2 workflow — complete textbook upload with unit-by-unit separate JSON batch outputs (`FILE:` labels). Updated the docs index and aligned Phase 1 process, extraction-spec, and registry batch-tracking language.
+**Summary:** Synced documentation to the updated Google AI Studio Prompt V2 workflow â complete textbook upload with unit-by-unit separate JSON batch outputs (`FILE:` labels). Updated the docs index and aligned Phase 1 process, extraction-spec, and registry batch-tracking language.
 
 **Files touched:**
 - `docs/0-index.md` (updated)
@@ -126,10 +126,10 @@
 
 ### Step 9
 
-**Summary:** Marked all Beehive 1 SB unit batches (`01–08`) as human-verified with batch-level `verification` objects; left open audio/workbook issues and SEL schema gaps documented. Updated dataset registry BH1 to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
+**Summary:** Marked all Beehive 1 SB unit batches (`01â08`) as human-verified with batch-level `verification` objects; left open audio/workbook issues and SEL schema gaps documented. Updated dataset registry BH1 to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
 
 **Files touched:**
-- `data/phase1/beehive_1_sb/beehive_1_sb_unit_01.json` … `unit_08.json` (updated)
+- `data/phase1/beehive_1_sb/beehive_1_sb_unit_01.json` â¦ `unit_08.json` (updated)
 - `docs/6-Dataset_registry.md` (updated)
 - `docs/project-tracking/1-project-status.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
@@ -138,10 +138,10 @@
 
 ### Step 10
 
-**Summary:** Marked all Big English 1 SB unit batches (`01–09`) as human-verified after project review; left open audio/visual issues and the Think Big schema gap documented. Updated dataset registry BE1-SB to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
+**Summary:** Marked all Big English 1 SB unit batches (`01â09`) as human-verified after project review; left open audio/visual issues and the Think Big schema gap documented. Updated dataset registry BE1-SB to EXTRACTED + human verification COMPLETE (Phase 1 still IN PROGRESS).
 
 **Files touched:**
-- `data/phase1/big_english_1_sb/big_english_1_sb_unit_01.json` … `unit_09.json` (updated)
+- `data/phase1/big_english_1_sb/big_english_1_sb_unit_01.json` â¦ `unit_09.json` (updated)
 - `docs/6-Dataset_registry.md` (updated)
 - `docs/project-tracking/1-project-status.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
@@ -150,11 +150,11 @@
 
 ### Step 11
 
-**Summary:** Marked Big English 2 SB units `01–09` and Reach Higher 2A units `1–3` human-verified after project review; left RH2A Unit 4 pending extraction restriction. Repaired truncated BE2 Unit 2 JSON (reconstructed header; pages/vocabulary/language empty with open issue). Updated dataset registry for BE2-SB (COMPLETE) and RH2A (PARTIAL).
+**Summary:** Marked Big English 2 SB units `01â09` and Reach Higher 2A units `1â3` human-verified after project review; left RH2A Unit 4 pending extraction restriction. Repaired truncated BE2 Unit 2 JSON (reconstructed header; pages/vocabulary/language empty with open issue). Updated dataset registry for BE2-SB (COMPLETE) and RH2A (PARTIAL).
 
 **Files touched:**
-- `data/phase1/big_english_2_sb/big_english_2_sb_unit_01.json` … `unit_09.json` (updated)
-- `data/phase1/reach_higher_2a/rh2a_sb_unit1.json` … `unit3.json` (updated)
+- `data/phase1/big_english_2_sb/big_english_2_sb_unit_01.json` â¦ `unit_09.json` (updated)
+- `data/phase1/reach_higher_2a/rh2a_sb_unit1.json` â¦ `unit3.json` (updated)
 - `docs/6-Dataset_registry.md` (updated)
 - `docs/project-tracking/1-project-status.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
@@ -198,7 +198,7 @@
 
 ### Step 15
 
-**Summary:** Explained in brainstorming how a React/Vite/Vercel app would create JSON via Gemini API and persist it to Blob/DB (not Vercel filesystem), replacing today’s Cursor/manual save workflow.
+**Summary:** Explained in brainstorming how a React/Vite/Vercel app would create JSON via Gemini API and persist it to Blob/DB (not Vercel filesystem), replacing todayâs Cursor/manual save workflow.
 
 **Files touched:**
 - `docs/project-tracking/2-internal-brainstorming.md` (updated)
@@ -235,7 +235,7 @@
 
 ### Step 18
 
-**Summary:** Audited the docs reorg into `phase-1`…`phase-6` folders; refreshed `docs/0-index.md` paths/sections and updated cross-document filename references in Phase 1 docs (plus the documentation-index Cursor rule examples).
+**Summary:** Audited the docs reorg into `phase-1`â¦`phase-6` folders; refreshed `docs/0-index.md` paths/sections and updated cross-document filename references in Phase 1 docs (plus the documentation-index Cursor rule examples).
 
 **Files touched:**
 - `docs/0-index.md` (updated)
@@ -269,8 +269,8 @@
 - `.cursor/rules/project_status_rule.mdc` (updated)
 - `.cursor/rules/project_steps_rule.mdc` (updated)
 - `.cursor/rules/github_commit_workflow.mdc` (updated)
-- `docs/project-tracking/1-project-status.md` (updated → legacy pointer)
-- `docs/project-tracking/3-project-decisions.md` (updated → legacy pointer)
+- `docs/project-tracking/1-project-status.md` (updated â legacy pointer)
+- `docs/project-tracking/3-project-decisions.md` (updated â legacy pointer)
 - `docs/project-tracking/2-internal-brainstorming.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
 
@@ -296,16 +296,16 @@
 **Summary:** Initialized technology scaffold only: Vite/React/TypeScript/Tailwind under `app/`, Supabase local config under `supabase/`, minimal Python tooling under `python/`, root `.env.example` + README; locked Supabase as backend platform (D005) without live project wiring or curriculum feature work.
 
 **Files touched:**
-- `app/` (created — Vite React TS Tailwind scaffold + minimal shell)
-- `supabase/` (created — local config only)
-- `python/` (created — tooling foundation)
-- `schemas/` (created — placeholder + README)
-- `scripts/` (created — placeholder)
+- `app/` (created â Vite React TS Tailwind scaffold + minimal shell)
+- `supabase/` (created â local config only)
+- `python/` (created â tooling foundation)
+- `schemas/` (created â placeholder + README)
+- `scripts/` (created â placeholder)
 - `.env.example` (created)
 - `README.md` (created)
 - `.gitignore` (updated)
 - `docs/2-tech-stack.md` (updated)
-- `docs/4-DECISIONS.md` (updated — D005)
+- `docs/4-DECISIONS.md` (updated â D005)
 - `docs/5-PROGRESS.md` (updated)
 - `docs/6-TODO.md` (updated)
 - `docs/7-FUTURE.md` (updated)
@@ -319,7 +319,7 @@
 **Summary:** Added clean zcmv1-inspired public UI: landing page plus login, signup, forgot-password, and reset-password screens with React Router. UI-only forms (no Supabase Auth wiring yet).
 
 **Files touched:**
-- `app/package.json` / `app/package-lock.json` (updated — react-router-dom, lucide-react)
+- `app/package.json` / `app/package-lock.json` (updated â react-router-dom, lucide-react)
 - `app/src/main.tsx` (updated)
 - `app/src/App.tsx` (updated)
 - `app/src/features/landing/LandingPage.tsx` (created)
@@ -410,7 +410,7 @@
 **Summary:** Extended `book_files` with nullable `label`/`status`, seeded the pilot catalog (3 series, 4 books, unit batch file pointers), and documented that working unit batches do not create `dataset_versions` until canonical merge.
 
 **Files touched:**
-- `supabase/migrations/20261007120000_create_curriculum_catalog.sql` (updated — include label/status on fresh installs)
+- `supabase/migrations/20261007120000_create_curriculum_catalog.sql` (updated â include label/status on fresh installs)
 - `supabase/migrations/20261007130000_book_files_label_status.sql` (created)
 - `supabase/migrations/20261007131000_seed_pilot_catalog.sql` (created)
 - `supabase/README.md` (updated)
@@ -541,7 +541,7 @@
 
 ### Step 34
 
-**Summary:** Added a separate `/app/validation` route with the workspace-style split layout (JSON evidence left, PDF stub top-right, validation status tools bottom) loading unit batches from Supabase Storage — no Ask AI.
+**Summary:** Added a separate `/app/validation` route with the workspace-style split layout (JSON evidence left, PDF stub top-right, validation status tools bottom) loading unit batches from Supabase Storage â no Ask AI.
 
 **Files touched:**
 - `app/src/App.tsx` (updated)
@@ -586,7 +586,7 @@
 - `scripts/upload_source_pdfs.mjs` (created)
 - `supabase/migrations/20261007160000_seed_source_pdf_book_files.sql` (created)
 - `supabase/README.md` (updated)
-- `app/package.json` / `app/package-lock.json` (updated — `react-pdf`)
+- `app/package.json` / `app/package-lock.json` (updated â `react-pdf`)
 - `app/src/features/validation/ValidationPdfPane.tsx` (updated)
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
 - `app/src/services/validationService.ts` (updated)
@@ -598,7 +598,7 @@
 
 ### Step 37
 
-**Summary:** Validation PDF two-page view now places the unit’s first printed page on the left (and the next page on the right) instead of snapping to odd-numbered spreads.
+**Summary:** Validation PDF two-page view now places the unitâs first printed page on the left (and the next page on the right) instead of snapping to odd-numbered spreads.
 
 **Files touched:**
 - `app/src/features/validation/ValidationPdfPane.tsx` (updated)
@@ -609,7 +609,7 @@
 
 ### Step 38
 
-**Summary:** Added a draggable vertical divider between Validation left (JSON evidence) and right (PDF + tools), mirroring the existing top/bottom resize pattern (left width clamped 22–50%).
+**Summary:** Added a draggable vertical divider between Validation left (JSON evidence) and right (PDF + tools), mirroring the existing top/bottom resize pattern (left width clamped 22â50%).
 
 **Files touched:**
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
@@ -637,7 +637,7 @@
 
 ### Step 40
 
-**Summary:** Added Beehive 1 Units 9–10 batch JSON to private `book-datasets`, upserted `book_files` rows (`pending`), and updated the upload script / dataset registry so Validation lists all 10 units.
+**Summary:** Added Beehive 1 Units 9â10 batch JSON to private `book-datasets`, upserted `book_files` rows (`pending`), and updated the upload script / dataset registry so Validation lists all 10 units.
 
 **Files touched:**
 - `supabase/migrations/20261007170000_seed_beehive_1_units_09_10.sql` (created)
@@ -691,12 +691,12 @@
 
 ### Step 43
 
-**Summary:** Marked Beehive 1 Units 9–10 and all Reach Higher 2A unit batches as `verified` in Supabase `book_files`, and updated Dataset Registry / trackers so pilot human verification is COMPLETE for BH1 and RH2A (Phase 1 still not COMPLETE — no canonical merge yet).
+**Summary:** Marked Beehive 1 Units 9â10 and all Reach Higher 2A unit batches as `verified` in Supabase `book_files`, and updated Dataset Registry / trackers so pilot human verification is COMPLETE for BH1 and RH2A (Phase 1 still not COMPLETE â no canonical merge yet).
 
 **Files touched:**
 - `supabase/migrations/20261007180000_verify_bh1_u09_u10_rh2a.sql` (created)
 - `supabase/migrations/20261007170000_seed_beehive_1_units_09_10.sql` (updated)
-- `supabase/migrations/20261007131000_seed_pilot_catalog.sql` (updated — RH2A Unit 4 seed status)
+- `supabase/migrations/20261007131000_seed_pilot_catalog.sql` (updated â RH2A Unit 4 seed status)
 - `scripts/upload_pilot_batches.mjs` (updated)
 - `scripts/mark_batches_verified.mjs` (created)
 - `supabase/README.md` (updated)
@@ -711,7 +711,7 @@
 
 ### Step 44
 
-**Summary:** First canonical merge for Big English 1 SB: nine verified unit batches → `canonical/v1.json` in Storage, `book_files` + `dataset_versions` v1 (`draft` / `is_current`), merge script + seed migration, registry/trackers updated (Phase 1 still not COMPLETE).
+**Summary:** First canonical merge for Big English 1 SB: nine verified unit batches â `canonical/v1.json` in Storage, `book_files` + `dataset_versions` v1 (`draft` / `is_current`), merge script + seed migration, registry/trackers updated (Phase 1 still not COMPLETE).
 
 **Files touched:**
 - `scripts/merge_canonical_book.mjs` (created)
@@ -758,7 +758,7 @@
 
 ### Step 47
 
-**Summary:** Validation now reviews one canonical book JSON via unit-scoped slices (Unit 1…N picker, filtered evidence panels) so the UI matches separate unit batches without dropping the canonical artifact.
+**Summary:** Validation now reviews one canonical book JSON via unit-scoped slices (Unit 1â¦N picker, filtered evidence panels) so the UI matches separate unit batches without dropping the canonical artifact.
 
 **Files touched:**
 - `app/src/services/validationService.ts` (updated)
@@ -878,7 +878,7 @@
 
 ### Step 54
 
-**Summary:** Merged BE2-SB verified unit batches into canonical v1 with book_id normalization (`bep_sb_2` → `big_english_2_sb`); registered `dataset_versions` draft; re-aligned unit batch statuses to verified.
+**Summary:** Merged BE2-SB verified unit batches into canonical v1 with book_id normalization (`bep_sb_2` â `big_english_2_sb`); registered `dataset_versions` draft; re-aligned unit batch statuses to verified.
 
 **Files touched:**
 - `scripts/merge_canonical_book.mjs` (updated)
@@ -911,7 +911,7 @@
 
 ### Step 56
 
-**Summary:** Merged RH2A verified unit batches into canonical v1 with book_id normalization (`rh_2a` → `reach_higher_2a`); registered `dataset_versions` draft. All four Storage-backed pilots now have canonical datasets.
+**Summary:** Merged RH2A verified unit batches into canonical v1 with book_id normalization (`rh_2a` â `reach_higher_2a`); registered `dataset_versions` draft. All four Storage-backed pilots now have canonical datasets.
 
 **Files touched:**
 - `scripts/merge_canonical_book.mjs` (updated)
@@ -994,7 +994,7 @@
 
 ### Step 60
 
-**Summary:** Triaged BE2-SB dangling `paired_with` targets by adding appendix sticker page records `bep2_p189`–`bep2_p191` (`unit_id` null). Revalidation now PASSED WITH WARNINGS for all four pilots; historical whole-book audit PASS retained.
+**Summary:** Triaged BE2-SB dangling `paired_with` targets by adding appendix sticker page records `bep2_p189`â`bep2_p191` (`unit_id` null). Revalidation now PASSED WITH WARNINGS for all four pilots; historical whole-book audit PASS retained.
 
 **Files touched:**
 - `scripts/patch_be2_appendix_sticker_pages.mjs` (created)
@@ -1089,10 +1089,10 @@
 
 ### Step 66
 
-**Summary:** Applied D009 §7.1 safe cosmetic rename batch: `assests`→`assets` with catalog-named local PDFs, `TeacherAiAssistant` file/export, root and phase docs to kebab-case, and live link/Cursor-rule updates. Historical project-steps filenames left unchanged; TS `bookId` mapper cleanup deferred.
+**Summary:** Applied D009 Â§7.1 safe cosmetic rename batch: `assests`â`assets` with catalog-named local PDFs, `TeacherAiAssistant` file/export, root and phase docs to kebab-case, and live link/Cursor-rule updates. Historical project-steps filenames left unchanged; TS `bookId` mapper cleanup deferred.
 
 **Files touched:**
-- `app/src/assests/` → `app/src/assets/` (renamed; gitignored)
+- `app/src/assests/` â `app/src/assets/` (renamed; gitignored)
 - `app/src/features/teacher-assistant/TeacherAiAssistant.tsx` (renamed/updated)
 - `app/src/features/book-workspace/BookWorkspace.tsx` (updated)
 - `.gitignore` (updated)
@@ -1101,7 +1101,7 @@
 - `docs/5-progress.md` (renamed/updated)
 - `docs/6-todo.md` (renamed/updated)
 - `docs/7-future.md` (renamed/updated)
-- `docs/phase-1/*.md` Title_Case → kebab-case (renamed; links updated)
+- `docs/phase-1/*.md` Title_Case â kebab-case (renamed; links updated)
 - `docs/phase-4/teacher-enrichment-philosophy.md` (renamed)
 - `docs/phase-6/chalkie-ai-handover-specifications.md` (renamed)
 - `.cursor/rules/*.mdc` (updated paths)
@@ -1115,7 +1115,7 @@
 
 ### Step 67
 
-**Summary:** Fixed Validation source-PDF pane stuck on “Checking…” by clearing `pdfLoading` in a `finally` when the active request is not cancelled. Aligned `upload_source_pdfs.mjs` with D009 local catalog PDF paths; verified Beehive 1 `source_pdf` row and Storage object are present (no re-upload needed).
+**Summary:** Fixed Validation source-PDF pane stuck on âCheckingâ¦â by clearing `pdfLoading` in a `finally` when the active request is not cancelled. Aligned `upload_source_pdfs.mjs` with D009 local catalog PDF paths; verified Beehive 1 `source_pdf` row and Storage object are present (no re-upload needed).
 
 **Files touched:**
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
@@ -1150,7 +1150,7 @@
 
 ### Step 69
 
-**Summary:** Documented Cloudflare R2 as the textbook PDF object-storage target (D010): storage architecture doc with Stages A–E, security rules, and refined hybrid-storage docs. No R2 configuration, upload, or app code changes.
+**Summary:** Documented Cloudflare R2 as the textbook PDF object-storage target (D010): storage architecture doc with Stages AâE, security rules, and refined hybrid-storage docs. No R2 configuration, upload, or app code changes.
 
 **Files touched:**
 - `docs/10-storage-architecture.md` (created)
@@ -1173,7 +1173,7 @@
 
 ### Step 70
 
-**Summary:** Added R2 Stage B connectivity-test tooling (`scripts/test_r2_connection.mjs`), gitignored vendor SDK path, and `.env.example` / `.env.local` placeholders. Stage B not marked complete — local R2 secrets were still empty at stop time.
+**Summary:** Added R2 Stage B connectivity-test tooling (`scripts/test_r2_connection.mjs`), gitignored vendor SDK path, and `.env.example` / `.env.local` placeholders. Stage B not marked complete â local R2 secrets were still empty at stop time.
 
 **Files touched:**
 - `scripts/test_r2_connection.mjs` (created)
@@ -1203,7 +1203,7 @@
 
 ### Step 72
 
-**Summary:** Stage C PASS — migrated Beehive 1 source PDF from Supabase to R2 at verified key `beehive/beehive_1_sb/source.pdf` with matching SHA-256; Supabase original preserved. Clarified that `beehive/beehive/…` is not the catalog path. No app or DB changes.
+**Summary:** Stage C PASS â migrated Beehive 1 source PDF from Supabase to R2 at verified key `beehive/beehive_1_sb/source.pdf` with matching SHA-256; Supabase original preserved. Clarified that `beehive/beehive/â¦` is not the catalog path. No app or DB changes.
 
 **Files touched:**
 - `scripts/migrate_pilot_pdf_to_r2.mjs` (created)
@@ -1218,7 +1218,7 @@
 
 ### Step 73
 
-**Summary:** Stage D PASS — Validation PDF signing via server `/api/sign-source-pdf` (JWT + catalog bookFileId auth, R2-first dual-read per D011). Provider badge in UI. CORS apply blocked by token (dashboard follow-up). JSON/covers and Supabase PDF originals unchanged.
+**Summary:** Stage D PASS â Validation PDF signing via server `/api/sign-source-pdf` (JWT + catalog bookFileId auth, R2-first dual-read per D011). Provider badge in UI. CORS apply blocked by token (dashboard follow-up). JSON/covers and Supabase PDF originals unchanged.
 
 **Files touched:**
 - `app/server/loadServerEnv.ts` (created)
@@ -1228,7 +1228,7 @@
 - `app/vite-plugins/signSourcePdfPlugin.ts` (created)
 - `app/vite.config.ts` (updated)
 - `app/tsconfig.node.json` (updated)
-- `app/package.json` / `app/package-lock.json` (updated — AWS SDK)
+- `app/package.json` / `app/package-lock.json` (updated â AWS SDK)
 - `app/src/services/validationService.ts` (updated)
 - `app/src/types/validation.ts` (updated)
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
@@ -1237,7 +1237,7 @@
 - `scripts/configure_r2_cors.mjs` (created)
 - `scripts/smoke_sign_source_pdf.mjs` (created)
 - `.env.example` (updated)
-- `docs/4-decisions.md` (updated — D011)
+- `docs/4-decisions.md` (updated â D011)
 - `docs/10-storage-architecture.md` (updated)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
@@ -1271,12 +1271,12 @@
 
 ### Step 75
 
-**Summary:** Stage E PASS — audited catalog/Supabase/R2 source PDFs; migrated the three remaining pilots to R2 with SHA-256 verify (Beehive already present); parked PDF delivery scalability as F013; Supabase originals and dual-read fallback retained. Browser Validation badge check left as manual pending.
+**Summary:** Stage E PASS â audited catalog/Supabase/R2 source PDFs; migrated the three remaining pilots to R2 with SHA-256 verify (Beehive already present); parked PDF delivery scalability as F013; Supabase originals and dual-read fallback retained. Browser Validation badge check left as manual pending.
 
 **Files touched:**
 - `scripts/migrate_source_pdfs_to_r2.mjs` (created)
 - `scripts/smoke_sign_source_pdf.mjs` (updated)
-- `docs/7-future.md` (updated — F013)
+- `docs/7-future.md` (updated â F013)
 - `docs/10-storage-architecture.md` (updated)
 - `docs/phase-1/dataset-registry.md` (updated)
 - `docs/5-progress.md` (updated)
@@ -1309,7 +1309,7 @@
 - `.cursor/rules/naming_conventions.mdc` (updated)
 - `app/src/assets/books/{beehive,big-english,reach-higher}/` (created locally; gitignored)
 - `app/src/assets/books/README.md` (created locally; gitignored)
-- `docs/9-naming-conventions.md` (updated → v1.3)
+- `docs/9-naming-conventions.md` (updated â v1.3)
 - `docs/0-index.md` (updated)
 - `supabase/README.md` (updated)
 - `docs/5-progress.md` (updated)
@@ -1321,14 +1321,14 @@
 
 ### Step 78
 
-**Summary:** Scaffolded remaining Big English unit-batch working folders under `data/phase1/` with 90 empty `{}` placeholders (`*_unit_01.json`–`*_unit_09.json` for WB/SB levels still to extract). Confirmed `data/phase1/` stays gitignored; added tracked `data/README.md` layout notes only.
+**Summary:** Scaffolded remaining Big English unit-batch working folders under `data/phase1/` with 90 empty `{}` placeholders (`*_unit_01.json`â`*_unit_09.json` for WB/SB levels still to extract). Confirmed `data/phase1/` stays gitignored; added tracked `data/README.md` layout notes only.
 
 **Files touched:**
 - `data/phase1/big_english_{1_wb,2_wb,3_sb,3_wb,4_sb,4_wb,5_sb,5_wb,6_sb,6_wb}/` (created locally; gitignored)
 - `data/phase1/README.md` (created locally; gitignored)
 - `data/README.md` (created; tracked layout notes)
 - `.gitignore` (updated comment)
-- `docs/9-naming-conventions.md` (updated → v1.4)
+- `docs/9-naming-conventions.md` (updated â v1.4)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -1339,19 +1339,19 @@
 
 ### Step 79
 
-**Summary:** Locked D012 — textbook source PDFs are R2-only. Removed Validation Supabase Storage fallback; retargeted `upload_source_pdfs.mjs` to R2 PutObject + Postgres `book_files` upsert; left existing Supabase `book-sources` objects unused (delete later = F014). Typecheck and R2 smoke PASS.
+**Summary:** Locked D012 â textbook source PDFs are R2-only. Removed Validation Supabase Storage fallback; retargeted `upload_source_pdfs.mjs` to R2 PutObject + Postgres `book_files` upsert; left existing Supabase `book-sources` objects unused (delete later = F014). Typecheck and R2 smoke PASS.
 
 **Files touched:**
-- `docs/4-decisions.md` (updated — D012)
-- `docs/10-storage-architecture.md` (updated → v1.2)
+- `docs/4-decisions.md` (updated â D012)
+- `docs/10-storage-architecture.md` (updated â v1.2)
 - `docs/2-tech-stack.md` (updated)
 - `docs/8-database-architecture.md` (updated)
-- `docs/7-future.md` (updated — F014)
+- `docs/7-future.md` (updated â F014)
 - `docs/0-index.md` (updated)
 - `supabase/README.md` (updated)
-- `app/src/services/validationService.ts` (updated — R2-only PDF)
+- `app/src/services/validationService.ts` (updated â R2-only PDF)
 - `app/src/features/validation/ValidationPdfPane.tsx` (updated comment)
-- `scripts/upload_source_pdfs.mjs` (updated — R2 PutObject)
+- `scripts/upload_source_pdfs.mjs` (updated â R2 PutObject)
 - `scripts/.r2-tools/` (vendor install for AWS SDK)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -1383,14 +1383,14 @@
 
 ### Step 81
 
-**Summary:** Recorded BE1-WB Unit 9 human verification for available PDF content (D013); documented missing printed pages 124–129 as open `missing_source`; parked Validation PDF page-nav mismatch as F015. No curriculum content, schema, or viewer code changes. Book-level HV and Phase 1 remain incomplete.
+**Summary:** Recorded BE1-WB Unit 9 human verification for available PDF content (D013); documented missing printed pages 124â129 as open `missing_source`; parked Validation PDF page-nav mismatch as F015. No curriculum content, schema, or viewer code changes. Book-level HV and Phase 1 remain incomplete.
 
 **Files touched:**
 - `data/phase1/big_english_1_wb/big_english_1_wb_unit_09.json` (updated locally + re-uploaded to Storage; gitignored)
 - `scripts/mark_be1wb_u09_verified.mjs` (created)
-- `docs/4-decisions.md` (updated — D013)
-- `docs/7-future.md` (updated — F015)
-- `docs/phase-1/dataset-registry.md` (updated — §8E + table)
+- `docs/4-decisions.md` (updated â D013)
+- `docs/7-future.md` (updated â F015)
+- `docs/phase-1/dataset-registry.md` (updated â Â§8E + table)
 - `docs/project-tracking/2-internal-brainstorming.md` (updated)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
@@ -1402,7 +1402,7 @@
 
 ### Step 82
 
-**Summary:** Finalized BE1-WB Phase 1: confirmed Units 1–9 verified, book-level human verification (available PDF content), canonical merge + automated validation PASSED WITH WARNINGS, whole-book audit PASSED. Kept Unit 9 printed pages 124–129 as open `missing_source` (D013). Project-wide Phase 1 remains incomplete (5/18).
+**Summary:** Finalized BE1-WB Phase 1: confirmed Units 1â9 verified, book-level human verification (available PDF content), canonical merge + automated validation PASSED WITH WARNINGS, whole-book audit PASSED. Kept Unit 9 printed pages 124â129 as open `missing_source` (D013). Project-wide Phase 1 remains incomplete (5/18).
 
 **Files touched:**
 - `scripts/finalize_be1wb_human_verify.mjs` (created)
@@ -1421,7 +1421,7 @@
 
 ### Step 83
 
-**Summary:** Confirmed all 12 Big English source PDFs are already present under `app/src/assets/books/big-english/` with D009 filenames (`big_english_{1–6}_{sb|wb}.pdf`); marked the related todo complete.
+**Summary:** Confirmed all 12 Big English source PDFs are already present under `app/src/assets/books/big-english/` with D009 filenames (`big_english_{1â6}_{sb|wb}.pdf`); marked the related todo complete.
 
 **Files touched:**
 - `docs/6-todo.md` (updated)
@@ -1442,7 +1442,7 @@
 - `scripts/lib/phase1Books.mjs` (updated)
 - `scripts/smoke_sign_source_pdf.mjs` (updated)
 - `docs/phase-1/book_id_aliases.json` (updated)
-- `docs/phase-1/book-id-alias-map.md` (updated → v1.2)
+- `docs/phase-1/book-id-alias-map.md` (updated â v1.2)
 - `docs/phase-1/dataset-registry.md` (updated)
 - `supabase/README.md` (updated)
 - `docs/0-index.md` (updated)
@@ -1455,7 +1455,7 @@
 
 ### Step 85
 
-**Summary:** Uploaded BE2-WB Units 1–9 batch JSON to Supabase `book-datasets` (all `pending`), set `books.status=extracted`, and recorded extraction alias `big_english_plus_2_wb` for D007 merge normalization. Human Validation left for owner.
+**Summary:** Uploaded BE2-WB Units 1â9 batch JSON to Supabase `book-datasets` (all `pending`), set `books.status=extracted`, and recorded extraction alias `big_english_plus_2_wb` for D007 merge normalization. Human Validation left for owner.
 
 **Files touched:**
 - `scripts/upload_pilot_batches.mjs` (updated)
@@ -1476,7 +1476,7 @@
 
 ### Step 86
 
-**Summary:** Recorded BE2-WB book-level human verification after owner confirmed Units 1–9 verified in Validation (PDF via R2). Synced JSON metadata + `books.status=verified`; merge/audit left for follow-up.
+**Summary:** Recorded BE2-WB book-level human verification after owner confirmed Units 1â9 verified in Validation (PDF via R2). Synced JSON metadata + `books.status=verified`; merge/audit left for follow-up.
 
 **Files touched:**
 - `scripts/finalize_be2wb_human_verify.mjs` (created)
@@ -1492,7 +1492,7 @@
 
 ### Step 87
 
-**Summary:** Completed BE2-WB Phase 1: remumbered colliding Unit 8–9 entity IDs, fixed language slug + dangling page_141 relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 6/18.
+**Summary:** Completed BE2-WB Phase 1: remumbered colliding Unit 8â9 entity IDs, fixed language slug + dangling page_141 relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 6/18.
 
 **Files touched:**
 - `scripts/renumber_be2wb_units_08_09.mjs` (created)
@@ -1511,7 +1511,7 @@
 
 ### Step 88
 
-**Summary:** Documented BE2-WB multi-chat Google AI Studio extraction lesson: registry §8F notes, audit root-cause line (mid-book new chats), and prompt caution to carry entity ID counters/slug forms across chats.
+**Summary:** Documented BE2-WB multi-chat Google AI Studio extraction lesson: registry Â§8F notes, audit root-cause line (mid-book new chats), and prompt caution to carry entity ID counters/slug forms across chats.
 
 **Files touched:**
 - `docs/phase-1/dataset-registry.md` (updated)
@@ -1526,7 +1526,7 @@
 
 ### Step 89
 
-**Summary:** Trial-merged BE3-SB Units 1–3 split part JSON files (~8 pages each) into single local unit batches; no entity-ID collisions within units. Part files kept for re-merge.
+**Summary:** Trial-merged BE3-SB Units 1â3 split part JSON files (~8 pages each) into single local unit batches; no entity-ID collisions within units. Part files kept for re-merge.
 
 **Files touched:**
 - `scripts/merge_be3sb_unit_parts.mjs` (created)
@@ -1541,7 +1541,7 @@
 
 ### Step 90
 
-**Summary:** Merged BE3-SB Units 4–5 part pairs into unit batches. Unit 6 blocked — `*_p98_105.json` is byte-identical to `*_p90-97.json` (needs re-export of pp. 98–105). Extended merge script with unit CLI args + page-overlap guard.
+**Summary:** Merged BE3-SB Units 4â5 part pairs into unit batches. Unit 6 blocked â `*_p98_105.json` is byte-identical to `*_p90-97.json` (needs re-export of pp. 98â105). Extended merge script with unit CLI args + page-overlap guard.
 
 **Files touched:**
 - `scripts/merge_be3sb_unit_parts.mjs` (updated)
@@ -1555,7 +1555,7 @@
 
 ### Step 91
 
-**Summary:** Merged BE3-SB Unit 6 after repairing invalid JSON in `*_p98_105.json` (unescaped quotes in a reading-passage `content` field). Local units 1–6 now complete.
+**Summary:** Merged BE3-SB Unit 6 after repairing invalid JSON in `*_p98_105.json` (unescaped quotes in a reading-passage `content` field). Local units 1â6 now complete.
 
 **Files touched:**
 - `scripts/fix_be3sb_unit06_part2_json.mjs` (created)
@@ -1569,7 +1569,7 @@
 
 ### Step 92
 
-**Summary:** Staged BE3-SB for Validation: catalog seed + R2 source PDF upload, script/alias wiring, Unit 7 catalog normalize. Batch JSON upload deferred — Units 8–9 local files are still empty `{}`.
+**Summary:** Staged BE3-SB for Validation: catalog seed + R2 source PDF upload, script/alias wiring, Unit 7 catalog normalize. Batch JSON upload deferred â Units 8â9 local files are still empty `{}`.
 
 **Files touched:**
 - `supabase/migrations/20261009100000_seed_big_english_3_sb.sql` (created)
@@ -1593,7 +1593,7 @@
 
 ### Step 93
 
-**Summary:** Normalized BE3-SB Units 8–9, uploaded all nine unit batches to `book-datasets` as `pending`, set `books.status=extracted`. Ready for Validation human verification.
+**Summary:** Normalized BE3-SB Units 8â9, uploaded all nine unit batches to `book-datasets` as `pending`, set `books.status=extracted`. Ready for Validation human verification.
 
 **Files touched:**
 - `scripts/normalize_be3sb_units.mjs` (created)
@@ -1612,7 +1612,7 @@
 
 ### Step 94
 
-**Summary:** Fixed Validation PDF navigation for source PDFs with missing pages: the viewer now opens units at the extracted `pdf_page_start`, shows printed page numbers in the counter, accepts printed pages in the Go box, and flags missing-page gaps. Locked D014, resolved F015, and recorded BE3-SB missing pp. 66–67.
+**Summary:** Fixed Validation PDF navigation for source PDFs with missing pages: the viewer now opens units at the extracted `pdf_page_start`, shows printed page numbers in the counter, accepts printed pages in the Go box, and flags missing-page gaps. Locked D014, resolved F015, and recorded BE3-SB missing pp. 66â67.
 
 **Files touched:**
 - `app/src/features/validation/pdfPageMap.ts` (created)
@@ -1620,8 +1620,8 @@
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
 - `app/src/services/validationService.ts` (updated)
 - `app/src/types/validation.ts` (updated)
-- `docs/4-decisions.md` (updated — D014)
-- `docs/7-future.md` (updated — F015 resolved)
+- `docs/4-decisions.md` (updated â D014)
+- `docs/7-future.md` (updated â F015 resolved)
 - `docs/phase-1/dataset-registry.md` (updated)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
@@ -1633,7 +1633,7 @@
 
 ### Step 95
 
-**Summary:** Recorded BE3-SB book-level human verification after owner confirmed Units 1–9 correct and page display fixed (D014). Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Unit 4 already carries open `missing_source` for printed pp. 66–67. Merge/audit left for follow-up.
+**Summary:** Recorded BE3-SB book-level human verification after owner confirmed Units 1â9 correct and page display fixed (D014). Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Unit 4 already carries open `missing_source` for printed pp. 66â67. Merge/audit left for follow-up.
 
 **Files touched:**
 - `scripts/finalize_be3sb_human_verify.mjs` (created)
@@ -1649,7 +1649,7 @@
 
 ### Step 96
 
-**Summary:** Completed BE3-SB Phase 1: remumbered colliding Unit 3–4 entity IDs, fixed Unit 2 null-target workbook relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 7/18 (D013 exception for printed pp. 66–67).
+**Summary:** Completed BE3-SB Phase 1: remumbered colliding Unit 3â4 entity IDs, fixed Unit 2 null-target workbook relationship, merged canonical v1, D008 PASSED WITH WARNINGS, whole-book audit PASSED. Project Phase 1 now 7/18 (D013 exception for printed pp. 66â67).
 
 **Files touched:**
 - `scripts/renumber_be3sb_merge_collisions.mjs` (created)
@@ -1669,7 +1669,7 @@
 
 ### Step 97
 
-**Summary:** Staged BE3-WB for Validation: catalog seed + R2 source PDF, sanitized/normalized Units 1–9, uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
+**Summary:** Staged BE3-WB for Validation: catalog seed + R2 source PDF, sanitized/normalized Units 1â9, uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
 
 **Files touched:**
 - `scripts/fix_be3wb_json_quotes.mjs` (created)
@@ -1695,7 +1695,7 @@
 
 ### Step 98
 
-**Summary:** Recorded BE3-WB book-level human verification after owner confirmed Units 1–9 in Validation. Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Merge/audit left for follow-up.
+**Summary:** Recorded BE3-WB book-level human verification after owner confirmed Units 1â9 in Validation. Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Merge/audit left for follow-up.
 
 **Files touched:**
 - `scripts/finalize_be3wb_human_verify.mjs` (created)
@@ -1730,7 +1730,7 @@
 
 ### Step 100
 
-**Summary:** Staged BE4-SB for Validation: catalog seed + R2 source PDF, normalized Units 1–9 (`bep4_sb` → catalog), uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
+**Summary:** Staged BE4-SB for Validation: catalog seed + R2 source PDF, normalized Units 1â9 (`bep4_sb` â catalog), uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
 
 **Files touched:**
 - `scripts/normalize_be4sb_units.mjs` (created)
@@ -1755,7 +1755,7 @@
 
 ### Step 101
 
-**Summary:** Recorded BE4-SB book-level human verification after owner confirmed Units 1–9 in Validation. Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Merge/audit left for follow-up.
+**Summary:** Recorded BE4-SB book-level human verification after owner confirmed Units 1â9 in Validation. Synced JSON metadata to `human_verified`, re-uploaded batches, set `books.status=verified`. Merge/audit left for follow-up.
 
 **Files touched:**
 - `scripts/finalize_be4sb_human_verify.mjs` (created)
@@ -1790,7 +1790,7 @@
 
 ### Step 103
 
-**Summary:** Staged BE4-WB for Validation: catalog seed + R2 source PDF, normalized Units 1–9 (mixed Studio aliases → catalog), uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
+**Summary:** Staged BE4-WB for Validation: catalog seed + R2 source PDF, normalized Units 1â9 (mixed Studio aliases â catalog), uploaded nine `book-datasets` batches as `pending`, set `books.status=extracted`. Alias map and registry updated.
 
 **Files touched:**
 - `scripts/normalize_be4wb_units.mjs` (created)
@@ -1949,7 +1949,7 @@
 - `app/src/features/validation/*` + series/curriculum library pages (updated)
 - `app/src/mocks/curriculum/curriculumSeries.ts` (updated)
 - `app/server/authorizeSourcePdf.ts` (updated)
-- `docs/9-naming-conventions.md` (updated → v1.5)
+- `docs/9-naming-conventions.md` (updated â v1.5)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -2000,7 +2000,7 @@
 
 ### Step 113
 
-**Summary:** Executed first Phase 2 experiment `P2-EXP-BE2-U06-v1` for BE2-SB Unit 6 *My Day*: produced the tagged review artifact, self-evaluated E1–E6 as PASS, and left findings for owner review without locking a Phase 2 schema.
+**Summary:** Executed first Phase 2 experiment `P2-EXP-BE2-U06-v1` for BE2-SB Unit 6 *My Day*: produced the tagged review artifact, self-evaluated E1âE6 as PASS, and left findings for owner review without locking a Phase 2 schema.
 
 **Files touched:**
 - `docs/phase-2/p2-exp-be2-u06-v1-review.md` (created)
@@ -2048,7 +2048,7 @@
 
 ### Step 116
 
-**Summary:** Executed `P2-EXP-BE2-U08-v1` on BE2-SB Unit 8 *Wild Animals* using the Unit 7 LR method (no redesign), produced the three-unit methodology comparison across U6–U8, and left further Phase 2 work for owner decision without locking a schema.
+**Summary:** Executed `P2-EXP-BE2-U08-v1` on BE2-SB Unit 8 *Wild Animals* using the Unit 7 LR method (no redesign), produced the three-unit methodology comparison across U6âU8, and left further Phase 2 work for owner decision without locking a schema.
 
 **Files touched:**
 - `docs/phase-2/p2-exp-be2-u08-v1-protocol.md` (created)
@@ -2064,7 +2064,7 @@
 
 ### Step 117
 
-**Summary:** Executed `P2-EXP-BE1-U01-v1` transferring the BE2 U6–U8 LR methodology as-is to BE1-SB Unit 1 *Good Morning, Class!*; produced 12 evidence-traceable LRs, evaluation vs BE2 baseline, and recommendations; stopped for owner review (no BE6, no methodology/schema lock).
+**Summary:** Executed `P2-EXP-BE1-U01-v1` transferring the BE2 U6âU8 LR methodology as-is to BE1-SB Unit 1 *Good Morning, Class!*; produced 12 evidence-traceable LRs, evaluation vs BE2 baseline, and recommendations; stopped for owner review (no BE6, no methodology/schema lock).
 
 **Files touched:**
 - `docs/phase-2/p2-exp-be1-u01-v1-protocol.md` (created)
@@ -2094,7 +2094,7 @@
 
 ### Step 119
 
-**Summary:** Realigned operating trackers to Phase 2 overview v2: near-term work is a minimal BE2 Unit 8 Google AI Studio interpretation loop (inspect → prompt/JSON → evaluate), not Phase 3 branch handoff or infrastructure.
+**Summary:** Realigned operating trackers to Phase 2 overview v2: near-term work is a minimal BE2 Unit 8 Google AI Studio interpretation loop (inspect â prompt/JSON â evaluate), not Phase 3 branch handoff or infrastructure.
 
 **Files touched:**
 - `docs/phase-2/phase-2-overview-v2` (created)
@@ -2108,7 +2108,7 @@
 
 ### Step 120
 
-**Summary:** Inspected local BE2/BE1 Phase 1 canonical JSON and prior Phase 2 U6–U8 / BE1 U1 experiment artifacts; recorded U8 slice readiness (~49 KB, 5 language rows) and implications for the next minimal Studio prompt/JSON design.
+**Summary:** Inspected local BE2/BE1 Phase 1 canonical JSON and prior Phase 2 U6âU8 / BE1 U1 experiment artifacts; recorded U8 slice readiness (~49 KB, 5 language rows) and implications for the next minimal Studio prompt/JSON design.
 
 **Files touched:**
 - `docs/phase-2/p2-inspect-be2-inputs.md` (created)
@@ -2234,7 +2234,7 @@
 
 ### Step 127
 
-**Summary:** Adopted D017 Progressive Curriculum Intelligence as the locked development direction (replacing the prior V3.1+V1.2 process preference wording). Aligned overview, process, architecture, experiment status, and operating trackers; queued BE2-SB U1–9 book overview as the next proposed experiment (awaiting owner execution approval). Deleted staging D017 file after merge into decisions.
+**Summary:** Adopted D017 Progressive Curriculum Intelligence as the locked development direction (replacing the prior V3.1+V1.2 process preference wording). Aligned overview, process, architecture, experiment status, and operating trackers; queued BE2-SB U1â9 book overview as the next proposed experiment (awaiting owner execution approval). Deleted staging D017 file after merge into decisions.
 
 **Files touched:**
 - `docs/4-decisions.md` (updated)
@@ -2255,7 +2255,7 @@
 
 ### Step 128
 
-**Summary:** Executed D017 Phase 2 Book Intelligence experiment for Big English 2 SB Units 1–9: concise Markdown whole-book curriculum overview from Phase 1 canonical evidence, with E1–E10 self-evaluation. Updated experiment status and operating trackers; awaiting owner review.
+**Summary:** Executed D017 Phase 2 Book Intelligence experiment for Big English 2 SB Units 1â9: concise Markdown whole-book curriculum overview from Phase 1 canonical evidence, with E1âE10 self-evaluation. Updated experiment status and operating trackers; awaiting owner review.
 
 **Files touched:**
 - `docs/phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v1.md` (created)
@@ -2270,7 +2270,7 @@
 
 ### Step 129
 
-**Summary:** Relocated and refactored `curriculum-mapping-process.md` into a project-wide Phases 1–4 workflow (`11-curriculum-mapping-workflow.md`) and a dedicated Phase 1 extraction workflow; updated links, index, and trackers. D017 preserved; D018 not recorded.
+**Summary:** Relocated and refactored `curriculum-mapping-process.md` into a project-wide Phases 1â4 workflow (`11-curriculum-mapping-workflow.md`) and a dedicated Phase 1 extraction workflow; updated links, index, and trackers. D017 preserved; D018 not recorded.
 
 **Files touched:**
 - `docs/11-curriculum-mapping-workflow.md` (created)
@@ -2290,7 +2290,7 @@
 
 ### Step 130
 
-**Summary:** Recorded ChatGPT owner review findings for the BE2-SB U1–9 D017 overview: promising minimum-sufficient baseline, not formally accepted; flagged U3/U6/U8 potential gaps; next proposed experiment = publisher overview comparison (~90% coverage as review target only). Updated Phase 2 status and operating trackers. Did not regenerate the overview or lock methodology.
+**Summary:** Recorded ChatGPT owner review findings for the BE2-SB U1â9 D017 overview: promising minimum-sufficient baseline, not formally accepted; flagged U3/U6/U8 potential gaps; next proposed experiment = publisher overview comparison (~90% coverage as review target only). Updated Phase 2 status and operating trackers. Did not regenerate the overview or lock methodology.
 
 **Files touched:**
 - `docs/phase-2/phase-2-experiment-status.md` (updated)
@@ -2305,7 +2305,7 @@
 
 ### Step 131
 
-**Summary:** Executed D017 Phase 2 second pass for BE2-SB Units 1–9: created v2 eight-column overview candidate (v1 preserved), validated against publisher Scope and Sequence (~92% meaningful coverage AI-assessed), corrected U3/U6/U8 omissions from Phase 1 evidence, and recorded Learning Outcomes consistency notes. v2 remains experimental / not accepted; D018 stays PROPOSED.
+**Summary:** Executed D017 Phase 2 second pass for BE2-SB Units 1â9: created v2 eight-column overview candidate (v1 preserved), validated against publisher Scope and Sequence (~92% meaningful coverage AI-assessed), corrected U3/U6/U8 omissions from Phase 1 evidence, and recorded Learning Outcomes consistency notes. v2 remains experimental / not accepted; D018 stays PROPOSED.
 
 **Files touched:**
 - `docs/phase-2/experiments/be2-sb-u01-u09-book-overview-d017-v2.md` (created)
@@ -2338,7 +2338,7 @@
 
 ### Step 133
 
-**Summary:** Generated BE1-SB and BE3-SB eight-column D017-pattern Book Intelligence overviews from verified Phase 1 evidence; completed combined horizontal consistency assessment and BE1→BE2→BE3 vertical sufficiency probe (coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; not a Phase 3 start). Preserved BE2 v1/v2 unchanged; BE1/BE3 not accepted pending owner review.
+**Summary:** Generated BE1-SB and BE3-SB eight-column D017-pattern Book Intelligence overviews from verified Phase 1 evidence; completed combined horizontal consistency assessment and BE1âBE2âBE3 vertical sufficiency probe (coarse progression signals; minimum-sufficient for bounded Series Intelligence experiments; not a Phase 3 start). Preserved BE2 v1/v2 unchanged; BE1/BE3 not accepted pending owner review.
 
 **Files touched:**
 - `docs/phase-2/experiments/be1-sb-u01-u09-book-overview-d017-v1.md` (created)
@@ -2372,7 +2372,7 @@
 
 ### Step 135
 
-**Summary:** Generated BE5-SB Units 1–9 Book Intelligence overview with the unchanged D017 eight-column method from Phase 1 only (no Writing column; no post-BE3 inference changes). Publisher BE5 S&S not available locally, so the separate publisher diagnostic was deferred. BE1/BE2/BE3 artifacts and Phase 1 data untouched; overview not accepted.
+**Summary:** Generated BE5-SB Units 1â9 Book Intelligence overview with the unchanged D017 eight-column method from Phase 1 only (no Writing column; no post-BE3 inference changes). Publisher BE5 S&S not available locally, so the separate publisher diagnostic was deferred. BE1/BE2/BE3 artifacts and Phase 1 data untouched; overview not accepted.
 
 **Files touched:**
 - `docs/phase-2/experiments/be5-sb-u01-u09-book-overview-d017-v1.md` (created)
@@ -2424,7 +2424,7 @@
 **Summary:** Renamed Phase 1 Google AI Studio SB/WB prompt to `google-ai-studio-prompt-sb-wb-v2.md`, added Scope & Sequence prompt `google-ai-studio-prompt-ss-v1.md`, and updated live documentation references (index, workflow, extraction spec, registry, future F017 note). Historical project-steps entries left unchanged.
 
 **Files touched:**
-- `docs/phase-1/google-ai-studio-prompt.md` (renamed → `google-ai-studio-prompt-sb-wb-v2.md`)
+- `docs/phase-1/google-ai-studio-prompt.md` (renamed â `google-ai-studio-prompt-sb-wb-v2.md`)
 - `docs/phase-1/google-ai-studio-prompt-sb-wb-v2.md` (created/updated)
 - `docs/phase-1/google-ai-studio-prompt-ss-v1.md` (created)
 - `docs/0-index.md` (updated)
@@ -2442,7 +2442,7 @@
 
 ### Step 139
 
-**Summary:** Registered BE3-SB companion Scope & Sequence as a separate local canonical source (`ss_v1.json`) beside preserved SB `v1.json`. Documented paths in the dataset registry, naming conventions, and data README; no JSON/UI/DB/architecture changes and no SB↔SS merge.
+**Summary:** Registered BE3-SB companion Scope & Sequence as a separate local canonical source (`ss_v1.json`) beside preserved SB `v1.json`. Documented paths in the dataset registry, naming conventions, and data README; no JSON/UI/DB/architecture changes and no SBâSS merge.
 
 **Files touched:**
 - `docs/phase-1/dataset-registry.md` (updated)
@@ -2542,7 +2542,7 @@
 
 ### Step 145
 
-**Summary:** Independently regenerated BE3 Unit 1 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 1 row. Reproducibility PASS (exact on non-experimental columns; near-exact on LO/Writing with soft “daily” wording only). Existing A+B overview and methodology/schema/UI left unchanged.
+**Summary:** Independently regenerated BE3 Unit 1 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 1 row. Reproducibility PASS (exact on non-experimental columns; near-exact on LO/Writing with soft âdailyâ wording only). Existing A+B overview and methodology/schema/UI left unchanged.
 
 **Files touched:**
 - `docs/phase-2/experiments/be3-u01-ab-regen-reproducibility-d017-v1.md` (created)
@@ -2557,7 +2557,7 @@
 
 ### Step 146
 
-**Summary:** Independently regenerated BE3 Unit 9 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 9 row (book-end reproducibility check). PASS — non-experimental columns and Writing exact; LO near-exact (soft “school trips” vs “trips”). Existing A+B overview and methodology/schema/UI left unchanged.
+**Summary:** Independently regenerated BE3 Unit 9 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 9 row (book-end reproducibility check). PASS â non-experimental columns and Writing exact; LO near-exact (soft âschool tripsâ vs âtripsâ). Existing A+B overview and methodology/schema/UI left unchanged.
 
 **Files touched:**
 - `docs/phase-2/experiments/be3-u09-ab-regen-reproducibility-d017-v1.md` (created)
@@ -2572,7 +2572,7 @@
 
 ### Step 147
 
-**Summary:** Independently regenerated BE3 Unit 5 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 5 row (mid-book reproducibility check). PASS — non-experimental columns and Writing exact; LO near-exact (soft “about seasons” only). With U1+U9, start/mid/end sampling all PASS. Existing A+B overview and methodology/schema/UI left unchanged.
+**Summary:** Independently regenerated BE3 Unit 5 using the approved A+B approach from Phase 1 only and compared it to the existing A+B Unit 5 row (mid-book reproducibility check). PASS â non-experimental columns and Writing exact; LO near-exact (soft âabout seasonsâ only). With U1+U9, start/mid/end sampling all PASS. Existing A+B overview and methodology/schema/UI left unchanged.
 
 **Files touched:**
 - `docs/phase-2/experiments/be3-u05-ab-regen-reproducibility-d017-v1.md` (created)
@@ -2587,7 +2587,7 @@
 
 ### Step 148
 
-**Summary:** Completed read-only A+B reproducibility check for remaining BE3 Units 2–4 and 6–8 and produced a full 9/9 roll-up with prior U1/U5/U9. All units PASS; discrepancies are soft Near LO paraphrases only (0 Drift/Fail). Existing A+B overview and methodology/schema/UI left unchanged.
+**Summary:** Completed read-only A+B reproducibility check for remaining BE3 Units 2â4 and 6â8 and produced a full 9/9 roll-up with prior U1/U5/U9. All units PASS; discrepancies are soft Near LO paraphrases only (0 Drift/Fail). Existing A+B overview and methodology/schema/UI left unchanged.
 
 **Files touched:**
 - `docs/phase-2/experiments/be3-ab-regen-reproducibility-full-roll-up-d017-v1.md` (created)
@@ -2617,7 +2617,7 @@
 
 ### Step 150
 
-**Summary:** Defined the nine-column Book Intelligence UI data contract draft (A+B): JSON/TS field names, types, book/unit identity, document envelope, and BE3 Unit 1 example structure. Documentation only — not locked; no implementation, database, or UI changes.
+**Summary:** Defined the nine-column Book Intelligence UI data contract draft (A+B): JSON/TS field names, types, book/unit identity, document envelope, and BE3 Unit 1 example structure. Documentation only â not locked; no implementation, database, or UI changes.
 
 **Files touched:**
 - `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (created)
@@ -2694,7 +2694,7 @@
 
 ### Step 154
 
-**Summary:** Extended the local Book Intelligence preview to all nine BE3 units from the preferred A+B overview. Replaced the Unit 1-only JSON with a Units 1–9 artifact; CLI PASS `units=9`; preview lists all unit cards with jump links. No Supabase, database, or schema changes.
+**Summary:** Extended the local Book Intelligence preview to all nine BE3 units from the preferred A+B overview. Replaced the Unit 1-only JSON with a Units 1â9 artifact; CLI PASS `units=9`; preview lists all unit cards with jump links. No Supabase, database, or schema changes.
 
 **Files touched:**
 - `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (created)
@@ -2721,7 +2721,7 @@
 
 ### Step 155
 
-**Summary:** Ran visual/content QA of all nine BE3 BI preview units against the preferred A+B overview (completeness, accuracy, formatting, AI-inferred LO labels). Fixed one discrepancy — Unit 8 Learning Outcomes restored to overview wording. Re-check 9/9 PASS; CLI PASS. No DB/Storage/schema changes.
+**Summary:** Ran visual/content QA of all nine BE3 BI preview units against the preferred A+B overview (completeness, accuracy, formatting, AI-inferred LO labels). Fixed one discrepancy â Unit 8 Learning Outcomes restored to overview wording. Re-check 9/9 PASS; CLI PASS. No DB/Storage/schema changes.
 
 **Files touched:**
 - `data/phase2/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json` (updated)
@@ -2736,7 +2736,7 @@
 
 ### Step 156
 
-**Summary:** Uploaded the validated BE3 Units 1–9 A+B Book Intelligence JSON to Supabase Storage (`book-datasets` interpretations path) as a separate Phase 2 companion. Download SHA-256 integrity verified. Added Storage-only upload script. No `book_files` / `dataset_versions`, schema, or UI wiring changes.
+**Summary:** Uploaded the validated BE3 Units 1â9 A+B Book Intelligence JSON to Supabase Storage (`book-datasets` interpretations path) as a separate Phase 2 companion. Download SHA-256 integrity verified. Added Storage-only upload script. No `book_files` / `dataset_versions`, schema, or UI wiring changes.
 
 **Files touched:**
 - `scripts/upload_book_intelligence_json.mjs` (created)
@@ -2804,7 +2804,7 @@
 
 ### Step 159
 
-**Summary:** Added a Units 1–9 selector to the Book Intelligence preview so one unit shows at a time instead of all nine stacked. Preserved all 8 content fields and AI-inferred LO labels. No database, schema, or methodology changes.
+**Summary:** Added a Units 1â9 selector to the Book Intelligence preview so one unit shows at a time instead of all nine stacked. Preserved all 8 content fields and AI-inferred LO labels. No database, schema, or methodology changes.
 
 **Files touched:**
 - `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
@@ -2836,7 +2836,7 @@
 
 ### Step 161
 
-**Summary:** Added a read-only Unit 1 “View Source Evidence” control on the Book Intelligence overview that selects the catalog book and opens Phase 1 Validation at `?unit=1`. Validation honors the unit query when loading. Units 2–9 deferred. No database, schema, or methodology changes.
+**Summary:** Added a read-only Unit 1 âView Source Evidenceâ control on the Book Intelligence overview that selects the catalog book and opens Phase 1 Validation at `?unit=1`. Validation honors the unit query when loading. Units 2â9 deferred. No database, schema, or methodology changes.
 
 **Files touched:**
 - `app/src/features/book-intelligence/phase1EvidenceLink.ts` (created)
@@ -2855,7 +2855,7 @@
 
 ### Step 162
 
-**Summary:** Extended View Source Evidence to Units 2–9 using the Unit 1 pattern. Verified each BI unit number maps to a unique Validation `?unit=N` target. No database, schema, or methodology changes.
+**Summary:** Extended View Source Evidence to Units 2â9 using the Unit 1 pattern. Verified each BI unit number maps to a unique Validation `?unit=N` target. No database, schema, or methodology changes.
 
 **Files touched:**
 - `app/src/features/book-intelligence/phase1EvidenceLink.ts` (updated)
@@ -2872,7 +2872,7 @@
 
 ### Step 163
 
-**Summary:** Added Validation “Back to Book Intelligence” that returns to the same catalog book and selected unit (`?unit=N`). Syncs Validation’s unit query as the picker changes. Verified U1–U9 round-trip paths. No database, schema, or methodology changes.
+**Summary:** Added Validation âBack to Book Intelligenceâ that returns to the same catalog book and selected unit (`?unit=N`). Syncs Validationâs unit query as the picker changes. Verified U1âU9 round-trip paths. No database, schema, or methodology changes.
 
 **Files touched:**
 - `app/src/features/validation/ValidationHeader.tsx` (updated)
@@ -2889,7 +2889,7 @@
 
 ### Step 164
 
-**Summary:** Ran Library → BI → Unit → Validation → Back E2E acceptance for BE3-SB. Fixed two Validation defects (reload on every `?unit=` change; deep-link unit overwritten by Unit 1). Recorded results; scripted U1–U9 PASS. No DB/schema/methodology changes.
+**Summary:** Ran Library â BI â Unit â Validation â Back E2E acceptance for BE3-SB. Fixed two Validation defects (reload on every `?unit=` change; deep-link unit overwritten by Unit 1). Recorded results; scripted U1âU9 PASS. No DB/schema/methodology changes.
 
 **Files touched:**
 - `app/src/features/validation/ValidationWorkspace.tsx` (updated)
@@ -2906,7 +2906,7 @@
 
 ### Step 165
 
-**Summary:** Recorded D019 — BE3 Book Intelligence MVP UI path implementation-validated (Library → BI → Unit → Validation → Back). Explicitly not a methodology/schema/contract lock. Synced progress, experiment status, and related docs.
+**Summary:** Recorded D019 â BE3 Book Intelligence MVP UI path implementation-validated (Library â BI â Unit â Validation â Back). Explicitly not a methodology/schema/contract lock. Synced progress, experiment status, and related docs.
 
 **Files touched:**
 - `docs/4-decisions.md` (updated)
@@ -2959,7 +2959,7 @@
 
 ### Step 168
 
-**Summary:** Synchronized Book Intelligence with PDF navigation: visible page range selects the matching unit and `?unit=N`; inter-unit review/checkpoint gaps show no-BI message; continuous PDF browsing preserved; loop prevention via `initialPageEnd` overlap skip. Verified U3→review→U4, U6→review→U7, U9→review. No schema/data changes.
+**Summary:** Synchronized Book Intelligence with PDF navigation: visible page range selects the matching unit and `?unit=N`; inter-unit review/checkpoint gaps show no-BI message; continuous PDF browsing preserved; loop prevention via `initialPageEnd` overlap skip. Verified U3âreviewâU4, U6âreviewâU7, U9âreview. No schema/data changes.
 
 **Files touched:**
 - `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
@@ -2979,7 +2979,7 @@
 
 ### Step 169
 
-**Summary:** Fixed Review 1 → Unit 4 selecting Unit 1. Root cause: clearing `?unit=` on review gaps plus `resolveUnit` fallback to `units[0]` applied a Unit 1 PDF jump. Stopped the fallback, kept `?unit=` across gaps, and suppressed unit-start jumps for PDF-driven sync. Verified Review1↔U4; nav + E2E PASS.
+**Summary:** Fixed Review 1 â Unit 4 selecting Unit 1. Root cause: clearing `?unit=` on review gaps plus `resolveUnit` fallback to `units[0]` applied a Unit 1 PDF jump. Stopped the fallback, kept `?unit=` across gaps, and suppressed unit-start jumps for PDF-driven sync. Verified Review1âU4; nav + E2E PASS.
 
 **Files touched:**
 - `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (updated)
@@ -2996,7 +2996,7 @@
 
 ### Step 170
 
-**Summary:** Ran complete U1–U9 PDF navigation regression (forward/backward walks, review gaps, unit selection targets, deep links, Storage). No application defects; corrected test-only gap-straddle assertion. Companion nav/E2E scripts and typecheck PASS.
+**Summary:** Ran complete U1âU9 PDF navigation regression (forward/backward walks, review gaps, unit selection targets, deep links, Storage). No application defects; corrected test-only gap-straddle assertion. Companion nav/E2E scripts and typecheck PASS.
 
 **Files touched:**
 - `scripts/verify_bi_pdf_u1_u9_regression.mjs` (created)
@@ -3027,7 +3027,7 @@
 
 ### Step 172
 
-**Summary:** Documented BE2 Book Intelligence integration plan: compared BE2 v2 eight-column overview + Phase 1 data with BE3 nine-column contract/UI; listed compatibility gaps; proposed book-independent column-set UI and phased P0–P5 implementation. Docs only — no code, schema, DB, or methodology changes.
+**Summary:** Documented BE2 Book Intelligence integration plan: compared BE2 v2 eight-column overview + Phase 1 data with BE3 nine-column contract/UI; listed compatibility gaps; proposed book-independent column-set UI and phased P0âP5 implementation. Docs only â no code, schema, DB, or methodology changes.
 
 **Files touched:**
 - `docs/phase-2/experiments/be2-bi-integration-compatibility-plan-d017-v1.md` (created)
@@ -3086,7 +3086,7 @@
 
 ### Step 175
 
-**Summary:** Enabled BE2 in Series Library → Book Intelligence: uploaded eight-column BI JSON to Storage (integrity verified) and registered `big_english_2_sb` in the BI Storage registry. Default BI book remains BE3; no Postgres / methodology lock.
+**Summary:** Enabled BE2 in Series Library â Book Intelligence: uploaded eight-column BI JSON to Storage (integrity verified) and registered `big_english_2_sb` in the BI Storage registry. Default BI book remains BE3; no Postgres / methodology lock.
 
 **Files touched:**
 - `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
@@ -3105,7 +3105,7 @@
 
 ### Step 176
 
-**Summary:** Ran BE2 BI E2E acceptance: fixed Library→BI / deep-link workspace selection; added BE2 E2E + PDF U1–U9 regression scripts (eight-column, gaps, deep links); all PASS; BE3 regressions still green. No schema/data/methodology changes.
+**Summary:** Ran BE2 BI E2E acceptance: fixed LibraryâBI / deep-link workspace selection; added BE2 E2E + PDF U1âU9 regression scripts (eight-column, gaps, deep links); all PASS; BE3 regressions still green. No schema/data/methodology changes.
 
 **Files touched:**
 - `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
@@ -3175,7 +3175,7 @@
 
 ### Step 180
 
-**Summary:** Verified BE2 companion Scope & Sequence `ss_v1.json` (local parse + Storage upload/hash match), registered it beside BE2 SB canonical without `dataset_versions` wiring, and prepared the smallest D018 V1 experiment pack for BE2 Unit 8 pp. 128–129 (ready Chalkie paste + evaluation checklist; no app/schema changes).
+**Summary:** Verified BE2 companion Scope & Sequence `ss_v1.json` (local parse + Storage upload/hash match), registered it beside BE2 SB canonical without `dataset_versions` wiring, and prepared the smallest D018 V1 experiment pack for BE2 Unit 8 pp. 128â129 (ready Chalkie paste + evaluation checklist; no app/schema changes).
 
 **Files touched:**
 - `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (created)
@@ -3197,11 +3197,11 @@
 **Summary:** Integrated Chalkie interface & generation workflow V1 into the documentation system as an Active/Evolving operational reference. Cross-linked from overview, architecture, D018 operational note, curriculum workflow handoff, parked handover spec, and future lot (F019). Renamed uploaded file to the canonical path declared in the doc; D018 substance and seven-phase architecture unchanged; no app/schema changes.
 
 **Files touched:**
-- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (added; renamed from `…-v1.md` to match declared path)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (added; renamed from `â¦-v1.md` to match declared path)
 - `docs/0-index.md` (updated)
 - `docs/1-project-overview.md` (updated)
 - `docs/3-architecture.md` (updated)
-- `docs/4-decisions.md` (updated — D018 operational note only)
+- `docs/4-decisions.md` (updated â D018 operational note only)
 - `docs/5-progress.md` (updated)
 - `docs/7-future.md` (updated)
 - `docs/11-curriculum-mapping-workflow.md` (updated)
@@ -3214,7 +3214,7 @@
 
 ### Step 182
 
-**Summary:** Recorded completed D018 V1 Chalkie generation and seven-criterion evaluation for BE2 U8 pp. 128–129. Formal rubric BELOW PASS THRESHOLD (4 Yes / 3 Partial); conditionally accepted as comparative baseline; V2 not started; Pass-gate bypass not authorized. No app/schema changes; D018 design unchanged.
+**Summary:** Recorded completed D018 V1 Chalkie generation and seven-criterion evaluation for BE2 U8 pp. 128â129. Formal rubric BELOW PASS THRESHOLD (4 Yes / 3 Partial); conditionally accepted as comparative baseline; V2 not started; Pass-gate bypass not authorized. No app/schema changes; D018 design unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated)
@@ -3228,10 +3228,10 @@
 
 ### Step 183
 
-**Summary:** Recorded owner one-time experimental override under D018 authorizing V2 (+ Workbook) despite V1 remaining BELOW PASS THRESHOLD. V1 closed as usable comparative baseline without formal Pass or rerun; rubric/productization/V3–V5 unchanged; V2 prompt not generated.
+**Summary:** Recorded owner one-time experimental override under D018 authorizing V2 (+ Workbook) despite V1 remaining BELOW PASS THRESHOLD. V1 closed as usable comparative baseline without formal Pass or rerun; rubric/productization/V3âV5 unchanged; V2 prompt not generated.
 
 **Files touched:**
-- `docs/4-decisions.md` (updated — D018 owner override note only)
+- `docs/4-decisions.md` (updated â D018 owner override note only)
 - `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -3243,11 +3243,11 @@
 
 ### Step 185
 
-**Summary:** Prepared smallest D018 V2 experiment pack adding BE2 Workbook pp. 104–105 to V1 SS + SB pp. 128–129 evidence. Recorded provenance, WB additions, comparison question, and unchanged seven-criterion rubric; deferred Chalkie prompt; excluded WB 106–117; V1 findings unchanged.
+**Summary:** Prepared smallest D018 V2 experiment pack adding BE2 Workbook pp. 104â105 to V1 SS + SB pp. 128â129 evidence. Recorded provenance, WB additions, comparison question, and unchanged seven-criterion rubric; deferred Chalkie prompt; excluded WB 106â117; V1 findings unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (created)
-- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated — changelog cross-ref only)
+- `docs/phase-5/d018-v1-be2-u08-p128-129-experiment.md` (updated â changelog cross-ref only)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -3258,7 +3258,7 @@
 
 ### Step 186
 
-**Summary:** Drafted copy-ready D018 V2 Chalkie paste prompt (SS + SB 128–129 + WB 104–105) into the V2 experiment pack. Status DRAFTED / NOT RUN; evaluation findings left blank; no Chalkie run; locked decisions and datasets unchanged.
+**Summary:** Drafted copy-ready D018 V2 Chalkie paste prompt (SS + SB 128â129 + WB 104â105) into the V2 experiment pack. Status DRAFTED / NOT RUN; evaluation findings left blank; no Chalkie run; locked decisions and datasets unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3272,7 +3272,7 @@
 
 ### Step 187
 
-**Summary:** Recorded D018 V2 Chalkie generation settings and initial PDF review findings (GENERATED / INITIAL REVIEW ONLY). Captured artifact `Wild Animals (2).pdf` (30 pages with reveals), textbook-alignment positives, audio provenance concern (“Zoo Friends” mislabeled `[SB]`), WB contribution notes, and efficiency/scope observations. Formal seven-criterion scores and Pass/Fail deferred to Step 188; prompt not rewritten; D018 unchanged.
+**Summary:** Recorded D018 V2 Chalkie generation settings and initial PDF review findings (GENERATED / INITIAL REVIEW ONLY). Captured artifact `Wild Animals (2).pdf` (30 pages with reveals), textbook-alignment positives, audio provenance concern (âZoo Friendsâ mislabeled `[SB]`), WB contribution notes, and efficiency/scope observations. Formal seven-criterion scores and Pass/Fail deferred to Step 188; prompt not rewritten; D018 unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3286,7 +3286,7 @@
 
 ### Step 188
 
-**Summary:** Formally evaluated D018 V2 against the seven-criterion rubric using Step 187 PDF review evidence. Result 4 Yes / 3 Partial — BELOW PASS THRESHOLD (Yes-count and invented listening labeled `[SB]`). Compared with V1: WB improved dual-book practice alignment but not formal Pass. Audio clarified as accurate AI supplementary ≠ publisher-authentic. Prompt not rewritten; V3 not authorized; D018 unchanged.
+**Summary:** Formally evaluated D018 V2 against the seven-criterion rubric using Step 187 PDF review evidence. Result 4 Yes / 3 Partial â BELOW PASS THRESHOLD (Yes-count and invented listening labeled `[SB]`). Compared with V1: WB improved dual-book practice alignment but not formal Pass. Audio clarified as accurate AI supplementary â  publisher-authentic. Prompt not rewritten; V3 not authorized; D018 unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3300,7 +3300,7 @@
 
 ### Step 189
 
-**Summary:** Recorded owner authorization for D018 V2b — controlled audio-OFF rerun of the exact V2 prompt (Single Lesson; same framework/theme/grades/slide count). Not V3; original V2 formal verdict preserved; generation not started.
+**Summary:** Recorded owner authorization for D018 V2b â controlled audio-OFF rerun of the exact V2 prompt (Single Lesson; same framework/theme/grades/slide count). Not V3; original V2 formal verdict preserved; generation not started.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3328,7 +3328,7 @@
 
 ### Step 191
 
-**Summary:** Formally evaluated D018 V2b (Audio OFF) against the seven-criterion rubric using Step 190 PDF review evidence. Result 5 Yes / 2 Partial — PASS (Yes-count, no hard scope fail, invented-listening gate cleared). Audio OFF improved formal result vs V2; concision not improved; residual `[WB]` provenance Partials recorded. Prompt unchanged; V2 verdict preserved; V3 not authorized; D018 unchanged.
+**Summary:** Formally evaluated D018 V2b (Audio OFF) against the seven-criterion rubric using Step 190 PDF review evidence. Result 5 Yes / 2 Partial â PASS (Yes-count, no hard scope fail, invented-listening gate cleared). Audio OFF improved formal result vs V2; concision not improved; residual `[WB]` provenance Partials recorded. Prompt unchanged; V2 verdict preserved; V3 not authorized; D018 unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3342,7 +3342,7 @@
 
 ### Step 192
 
-**Summary:** Recorded owner acceptance of D018 V2b (`WILD ANIMALS(2).pdf`, Audio OFF) as the V2-family Pass artifact. Audio OFF enabled the Pass by clearing the listening mislabel; residual p.13 / pp.19–20 / length notes are optional cleanup only (verdict not reopened; no rerun). V2 verdict unchanged; V3 not authorized; `4-decisions.md` not updated.
+**Summary:** Recorded owner acceptance of D018 V2b (`WILD ANIMALS(2).pdf`, Audio OFF) as the V2-family Pass artifact. Audio OFF enabled the Pass by clearing the listening mislabel; residual p.13 / pp.19â20 / length notes are optional cleanup only (verdict not reopened; no rerun). V2 verdict unchanged; V3 not authorized; `4-decisions.md` not updated.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3386,7 +3386,7 @@
 
 ### Step 195
 
-**Summary:** Recorded D018 V2c Chalkie generation (`Wild Animals(3).pdf`, 30 pages, Audio OFF, Single Lesson) and initial PDF review. Positives include 12 animals, like+can frame, SB/WB practice, no fabricated listening, and removal of the V2b WB picture-answer sequence. Concerns: grammar (“A elephant”), “chase” attribution to SB p.129, supplementary labeled `[SB]`/`[SS]`, length still 30 pages. Formal scores deferred to Step 196; V2b PASS preserved; V3 not authorized; D018/rubric unchanged.
+**Summary:** Recorded D018 V2c Chalkie generation (`Wild Animals(3).pdf`, 30 pages, Audio OFF, Single Lesson) and initial PDF review. Positives include 12 animals, like+can frame, SB/WB practice, no fabricated listening, and removal of the V2b WB picture-answer sequence. Concerns: grammar (âA elephantâ), âchaseâ attribution to SB p.129, supplementary labeled `[SB]`/`[SS]`, length still 30 pages. Formal scores deferred to Step 196; V2b PASS preserved; V3 not authorized; D018/rubric unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3401,7 +3401,7 @@
 
 ### Step 196
 
-**Summary:** Formally evaluated D018 V2c against the seven-criterion rubric using Step 195 PDF review evidence (PDF not local). Result 5 Yes / 2 Partial — PASS (equivalent formal totals to V2b). Mixed qualitative trade-off; V2c not preferred by default; V2b remains accepted Pass artifact. V3 not authorized; further V2 iterations not auto-authorized; D018/rubric/`4-decisions.md` unchanged.
+**Summary:** Formally evaluated D018 V2c against the seven-criterion rubric using Step 195 PDF review evidence (PDF not local). Result 5 Yes / 2 Partial â PASS (equivalent formal totals to V2b). Mixed qualitative trade-off; V2c not preferred by default; V2b remains accepted Pass artifact. V3 not authorized; further V2 iterations not auto-authorized; D018/rubric/`4-decisions.md` unchanged.
 
 **Files touched:**
 - `docs/phase-5/d018-v2-be2-u08-sb128-129-wb104-105-experiment.md` (updated)
@@ -3462,7 +3462,7 @@
 
 ### Step 200
 
-**Summary:** Recorded the completed D018 V3 Single Lesson generation (`WILD ANIMALS (1)(1).pdf`, 31 exported PDF pages, Audio OFF) without inventing initial-review findings or formal scores. Documented an owner-directed experimental pivot: Chalkie Single Lesson slide allocation may constrain scaffolding; approved a design-only two-lesson Lesson Series direction (SB introduce → WB practise), proposed 30 slides per lesson pending owner confirmation, added instructional-quality evaluation dimensions, and parked a three-lesson comparison plus ChatGPT + Canva benchmark. No lesson-series generation, new scores, application changes, or `4-decisions.md` update.
+**Summary:** Recorded the completed D018 V3 Single Lesson generation (`WILD ANIMALS (1)(1).pdf`, 31 exported PDF pages, Audio OFF) without inventing initial-review findings or formal scores. Documented an owner-directed experimental pivot: Chalkie Single Lesson slide allocation may constrain scaffolding; approved a design-only two-lesson Lesson Series direction (SB introduce â WB practise), proposed 30 slides per lesson pending owner confirmation, added instructional-quality evaluation dimensions, and parked a three-lesson comparison plus ChatGPT + Canva benchmark. No lesson-series generation, new scores, application changes, or `4-decisions.md` update.
 
 **Files touched:**
 - `docs/phase-5/d018-v3-be2-u08-book-intelligence-experiment.md` (updated)
@@ -3493,7 +3493,7 @@
 
 ### Step 202
 
-**Summary:** Drafted the copy-ready D018 Lesson Series Experiment 1 prompt from the approved Step 201 configuration. The prompt defines two approximately 40-minute lessons (SB introduce → WB practise), 30 requested slides per lesson as a platform setting, verified SS/SB/WB evidence, unchanged V3 `[BI]`, basic scaffolding, purposeful repetition versus filler, provenance rules, and an outline-review gate. No Teaching or School/Teacher-Specific Intelligence, new thresholds, generation, or `4-decisions.md` change.
+**Summary:** Drafted the copy-ready D018 Lesson Series Experiment 1 prompt from the approved Step 201 configuration. The prompt defines two approximately 40-minute lessons (SB introduce â WB practise), 30 requested slides per lesson as a platform setting, verified SS/SB/WB evidence, unchanged V3 `[BI]`, basic scaffolding, purposeful repetition versus filler, provenance rules, and an outline-review gate. No Teaching or School/Teacher-Specific Intelligence, new thresholds, generation, or `4-decisions.md` change.
 
 **Files touched:**
 - `docs/phase-5/d018-lesson-series-be2-u08-experiment-design.md` (updated)
@@ -3574,10 +3574,10 @@
 
 ### Step 207
 
-**Summary:** Backfilled the project-steps gap and synced stale references after Arm B2 generation was recorded (L1 30 / L2 32 PDF pages; filenames Wild Animals - Arm 7A&7B2v2). No evaluation in this step entry alone — evaluation follows in Step 208.
+**Summary:** Backfilled the project-steps gap and synced stale references after Arm B2 generation was recorded (L1 30 / L2 32 PDF pages; filenames Wild Animals - Arm 7A&7B2v2). No evaluation in this step entry alone â evaluation follows in Step 208.
 
 **Files touched:**
-- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (updated — section 10 pointer during sync)
+- docs/phase-5/d018-arm-b2-horizontal-map-lesson-input-comparison-design-v0.1.md (updated â section 10 pointer during sync)
 - docs/phase-2/experiments/be2-u08-horizontal-map-lesson-input-pack-v0.1.md (updated)
 - docs/0-index.md (updated)
 - docs/project-tracking/0-project-steps.md (updated)
@@ -3677,7 +3677,7 @@
 
 ### Step 214
 
-**Summary:** Created a source-only preflight for BE3 Unit 3 Language in Action SB pp. 40–41. Verified Phase 1 canonical + SS evidence; unit title is *Working Hard!* (requested *In My House* is a mismatch). Recorded page inventory, scoped vocab floor, template-readiness gaps, and conditional suitability. No Chalkie prompt, generation, or decisions change.
+**Summary:** Created a source-only preflight for BE3 Unit 3 Language in Action SB pp. 40â41. Verified Phase 1 canonical + SS evidence; unit title is *Working Hard!* (requested *In My House* is a mismatch). Recorded page inventory, scoped vocab floor, template-readiness gaps, and conditional suitability. No Chalkie prompt, generation, or decisions change.
 
 **Files touched:**
 - docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-preflight-v0.1.md (created)
@@ -3691,7 +3691,7 @@
 
 ### Step 215
 
-**Summary:** Drafted the owner-gated BE3 Unit 3 *Working Hard!* LiA pp. 40–41 Chalkie transfer-test design from verified preflight evidence (detailed handoff, two concise outlines, scoped vocab, evaluation lenses). Status DESIGN DRAFT / not authorized to generate. No decisions change.
+**Summary:** Drafted the owner-gated BE3 Unit 3 *Working Hard!* LiA pp. 40â41 Chalkie transfer-test design from verified preflight evidence (detailed handoff, two concise outlines, scoped vocab, evaluation lenses). Status DESIGN DRAFT / not authorized to generate. No decisions change.
 
 **Files touched:**
 - docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-experiment-design-v0.1.md (created)
@@ -3722,7 +3722,7 @@
 
 ### Step 217
 
-**Summary:** Drafted Experiment 9 one-page vocab-split run card — repeat Experiment 8 BE3 U3 LiA pp. 40–41 changing only L1 chores / L2 frequency vocabulary allocation. Generation not authorized. Linked from Exp 8 design §8.1.
+**Summary:** Drafted Experiment 9 one-page vocab-split run card â repeat Experiment 8 BE3 U3 LiA pp. 40â41 changing only L1 chores / L2 frequency vocabulary allocation. Generation not authorized. Linked from Exp 8 design Â§8.1.
 
 **Files touched:**
 - docs/phase-5/chalkie-transfer-be3-u03-lia-p40-41-vocab-split-runcard-v0.1.md (created)
@@ -3754,7 +3754,7 @@
 
 ### Step 219
 
-**Summary:** Created Experiments 1–9 evidence synthesis (matrix, supported findings, rejected approaches, provisional workflow, uncertainties, next-phase recommendation). Cross-linked from handoff template and diagnostic. Pause further Chalkie prompt experiments unless a specific question remains. No generation authorized; no decisions change.
+**Summary:** Created Experiments 1â9 evidence synthesis (matrix, supported findings, rejected approaches, provisional workflow, uncertainties, next-phase recommendation). Cross-linked from handoff template and diagnostic. Pause further Chalkie prompt experiments unless a specific question remains. No generation authorized; no decisions change.
 
 **Files touched:**
 - docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md (created)
@@ -3770,7 +3770,7 @@
 
 ### Step 220
 
-**Summary:** Source-preflighted first operational Chalkie pilot candidate BE3 Unit 8 *Healthy Living* Grammar SB pp. 136–137. Identity verified; CONDITIONALLY SUITABLE with Track 159 / answer-key / per-lesson vocab conditions. No handoff or generation. Cross-linked from Exp 1–9 synthesis.
+**Summary:** Source-preflighted first operational Chalkie pilot candidate BE3 Unit 8 *Healthy Living* Grammar SB pp. 136â137. Identity verified; CONDITIONALLY SUITABLE with Track 159 / answer-key / per-lesson vocab conditions. No handoff or generation. Cross-linked from Exp 1â9 synthesis.
 
 **Files touched:**
 - docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-preflight-v0.1.md (created)
@@ -3785,7 +3785,7 @@
 
 ### Step 221
 
-**Summary:** Drafted the BE3 U8 Grammar pp. 136–137 operational-pilot handoff design (copy-ready prompt, two concise outlines with early book work, separate L1/L2 model chips, provenance safeguards, review plan). Owner review pending; generation not authorized. No decisions change.
+**Summary:** Drafted the BE3 U8 Grammar pp. 136â137 operational-pilot handoff design (copy-ready prompt, two concise outlines with early book work, separate L1/L2 model chips, provenance safeguards, review plan). Owner review pending; generation not authorized. No decisions change.
 
 **Files touched:**
 - docs/phase-5/chalkie-operational-pilot-be3-u08-grammar-p136-137-handoff-design-v0.1.md (created)
@@ -3835,7 +3835,7 @@
 
 ### Step 224
 
-**Summary:** Locked **D020** — Phase 3 Vertical Mapping parked as a later priority (not gated on Phase 2 “useful/sufficient” overviews). Documented eventual teacher-facing cross-book prior-learning reuse parallel to horizontal mapping; AI suggests / teacher chooses; exposure ≠ mastery; BE3 U1 ← BE2 U1–9 as non-binding example. Aligned overview, architecture, workflow, index, F005, and trackers. Docs-only; no Phase 3 implementation.
+**Summary:** Locked **D020** â Phase 3 Vertical Mapping parked as a later priority (not gated on Phase 2 âuseful/sufficientâ overviews). Documented eventual teacher-facing cross-book prior-learning reuse parallel to horizontal mapping; AI suggests / teacher chooses; exposure â  mastery; BE3 U1 â BE2 U1â9 as non-binding example. Aligned overview, architecture, workflow, index, F005, and trackers. Docs-only; no Phase 3 implementation.
 
 **Files touched:**
 - docs/4-decisions.md (updated)
@@ -3853,7 +3853,7 @@
 
 ### Step 225
 
-**Summary:** Added docs-only **teacher-choice flow sketch v0.1** — simplest teacher-facing prior-learning selection flow (current lesson → AI 0–5 → teacher decide → lesson-input summary) with BE2 U8 worked example. Linked from Phase 2 experiment status and docs index. No application code, schema, API, or Phase 3 unlock.
+**Summary:** Added docs-only **teacher-choice flow sketch v0.1** â simplest teacher-facing prior-learning selection flow (current lesson â AI 0â5 â teacher decide â lesson-input summary) with BE2 U8 worked example. Linked from Phase 2 experiment status and docs index. No application code, schema, API, or Phase 3 unlock.
 
 **Files touched:**
 - docs/phase-2/experiments/teacher-choice-flow-sketch-v0.1.md (created)
@@ -3868,7 +3868,7 @@
 
 ### Step 226
 
-**Summary:** Integrated teacher-choice Step 1 into Chalkie Workspace: replaced the lower Generate/output panel with a calm **Prepare Chalkie prompt** action, and opened a focused overlay (`1 of 4 · Current lesson`) with BE2 U8 prototype context. Cancel returns to the workspace; Continue shows a non-generating Step 2 placeholder. No API/schema/data changes.
+**Summary:** Integrated teacher-choice Step 1 into Chalkie Workspace: replaced the lower Generate/output panel with a calm **Prepare Chalkie prompt** action, and opened a focused overlay (`1 of 4 Â· Current lesson`) with BE2 U8 prototype context. Cancel returns to the workspace; Continue shows a non-generating Step 2 placeholder. No API/schema/data changes.
 
 **Files touched:**
 - app/src/features/chalkie/ChalkieWorkspace.tsx (updated)
@@ -3886,7 +3886,7 @@
 
 ### Step 227
 
-**Summary:** Refined teacher-choice overlay Step 1 for BE2 U8: page-specific current focus (pp. 128–129 lesson), labelled Preference / Ability language entries, and an inline `can / can’t` note under Current language. Left Workspace panel and other UI unchanged.
+**Summary:** Refined teacher-choice overlay Step 1 for BE2 U8: page-specific current focus (pp. 128â129 lesson), labelled Preference / Ability language entries, and an inline `can / canât` note under Current language. Left Workspace panel and other UI unchanged.
 
 **Files touched:**
 - app/src/features/chalkie/teacherChoicePrototypeContent.ts (updated)
@@ -3928,7 +3928,7 @@
 
 ### Step 230
 
-**Summary:** Refined teacher-choice overlay shell and Step 2 layout: dialog width `min(80vw, 1440px)`, Step 1 kept in a centred reading column (~736px), Step 2 as a responsive two-by-two suggestion card grid with subtle selected state. Selection behaviour and copy unchanged; Steps 3–4 not built.
+**Summary:** Refined teacher-choice overlay shell and Step 2 layout: dialog width `min(80vw, 1440px)`, Step 1 kept in a centred reading column (~736px), Step 2 as a responsive two-by-two suggestion card grid with subtle selected state. Selection behaviour and copy unchanged; Steps 3â4 not built.
 
 **Files touched:**
 - app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
@@ -3970,7 +3970,7 @@
 
 ### Step 233
 
-**Summary:** Added local copy-ready Chalkie prompt preview from Step 4 (deterministic BE2 U8 pp. 128–129 assembly with selected [HM] and teacher-added labels). Corrected Steps 1/4 current language to drop the non-page kangaroo Q&A. Clipboard copy only; no API/Chalkie submit or persistence.
+**Summary:** Added local copy-ready Chalkie prompt preview from Step 4 (deterministic BE2 U8 pp. 128â129 assembly with selected [HM] and teacher-added labels). Corrected Steps 1/4 current language to drop the non-page kangaroo Q&A. Clipboard copy only; no API/Chalkie submit or persistence.
 
 **Files touched:**
 - app/src/features/chalkie/buildChalkiePromptPreview.ts (created)
@@ -3987,7 +3987,7 @@
 
 ### Step 234
 
-**Summary:** Added Step 4 lesson-shape selection (Single lesson default; Two-lesson series visible but disabled with quiet scope note) and a copyable lesson title for BE2 U8 pp. 128–129. Existing single-lesson prompt preview unchanged; future series requirements documented in code/docs only.
+**Summary:** Added Step 4 lesson-shape selection (Single lesson default; Two-lesson series visible but disabled with quiet scope note) and a copyable lesson title for BE2 U8 pp. 128â129. Existing single-lesson prompt preview unchanged; future series requirements documented in code/docs only.
 
 **Files touched:**
 - app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
@@ -4003,7 +4003,7 @@
 
 ### Step 235
 
-**Summary:** Enabled the agreed BE2 U8 two-lesson series packaging preview (Lesson 1 SB pp. 128–129 → Lesson 2 WB pp. 104–105): selectable package radio, series title, local series prompt with [SB]/[WB]/[HM]/teacher-added labels, and a wide left-prompt / right Lesson 1–2 rundown layout. Single-lesson route preserved; no API/persistence.
+**Summary:** Enabled the agreed BE2 U8 two-lesson series packaging preview (Lesson 1 SB pp. 128â129 â Lesson 2 WB pp. 104â105): selectable package radio, series title, local series prompt with [SB]/[WB]/[HM]/teacher-added labels, and a wide left-prompt / right Lesson 1â2 rundown layout. Single-lesson route preserved; no API/persistence.
 
 **Files touched:**
 - app/src/features/chalkie/buildChalkiePromptPreview.ts (updated)
@@ -4042,7 +4042,7 @@
 
 ### Step 237
 
-**Summary:** Replaced hard-coded Chalkie lesson context with a resolved, data-backed context from selected book/unit and open PDF pages. Added page-scope guard (block out-of-unit / missing page evidence), kept BE2 U8 fixture + two-lesson series only for exact pp. 128–129, and wired the same context through Step 1/4, local prompt preview, and OpenAI request metadata. Dynamic source-context binding and page-scope guard added; horizontal suggestions remain fixture-only for BE2 U8 pp. 128–129.
+**Summary:** Replaced hard-coded Chalkie lesson context with a resolved, data-backed context from selected book/unit and open PDF pages. Added page-scope guard (block out-of-unit / missing page evidence), kept BE2 U8 fixture + two-lesson series only for exact pp. 128â129, and wired the same context through Step 1/4, local prompt preview, and OpenAI request metadata. Dynamic source-context binding and page-scope guard added; horizontal suggestions remain fixture-only for BE2 U8 pp. 128â129.
 
 **Files touched:**
 - `app/src/features/chalkie/resolveChalkieLessonContext.ts` (created)
@@ -4075,7 +4075,7 @@
 
 ### Step 239
 
-**Summary:** Fixed Chalkie visible-page activity resolution to prefer verified canonical `instruction` when `title` / `activity_title` are absent, raised the visible activity bound to six so BE3 U8 Grammar pp. 136–137 Acts 19–23 resolve as ready, and added focused regression tests. Documented the fallback and regression without claiming Experiment 10 handoff parity.
+**Summary:** Fixed Chalkie visible-page activity resolution to prefer verified canonical `instruction` when `title` / `activity_title` are absent, raised the visible activity bound to six so BE3 U8 Grammar pp. 136â137 Acts 19â23 resolve as ready, and added focused regression tests. Documented the fallback and regression without claiming Experiment 10 handoff parity.
 
 **Files touched:**
 - `app/src/features/chalkie/chalkieEvidence.ts` (updated)
@@ -4092,7 +4092,7 @@
 
 ### Step 240
 
-**Summary:** Added the Phase 5 gap audit comparing the generic `/app/chalkie` prompt preview with the Experiment 10 detailed handoff. Mapped required evidence fields, evidence-handling rules, minimum generic package, UI vs automatic split, acceptance cases (BE3 U8 136–137 + BE3 U3 40–41 regression), and the single next coding slice. Docs/trackers only; no code.
+**Summary:** Added the Phase 5 gap audit comparing the generic `/app/chalkie` prompt preview with the Experiment 10 detailed handoff. Mapped required evidence fields, evidence-handling rules, minimum generic package, UI vs automatic split, acceptance cases (BE3 U8 136â137 + BE3 U3 40â41 regression), and the single next coding slice. Docs/trackers only; no code.
 
 **Files touched:**
 - `docs/phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md` (created)
@@ -4107,7 +4107,7 @@
 
 ### Step 241
 
-**Summary:** Surfaced verified activity-derived words/models, language frames, and a deterministic teaching-focus planning summary on Chalkie Screen 1 and the local prompt preview. Renamed the vocab label to “Current words and models,” used honest dedicated-vs-activity empty-state wording, skipped chart answer-key dumps, and left the BE2 U8 fixture route unchanged. No OpenAI, packaging, outlines, or `[HM]` work.
+**Summary:** Surfaced verified activity-derived words/models, language frames, and a deterministic teaching-focus planning summary on Chalkie Screen 1 and the local prompt preview. Renamed the vocab label to âCurrent words and models,â used honest dedicated-vs-activity empty-state wording, skipped chart answer-key dumps, and left the BE2 U8 fixture route unchanged. No OpenAI, packaging, outlines, or `[HM]` work.
 
 **Files touched:**
 - `app/src/features/chalkie/chalkieEvidence.ts` (updated)
@@ -4126,7 +4126,7 @@
 
 ### Step 242
 
-**Summary:** Correction pass for manually reviewed BE3 Unit 8 spreads 128–137: verified lesson topic, intact `|`-separated Q&A exchanges, language `full_text` fallback, Did…? teaching focus without false irregular detection, `matching_and_speaking` phrase models, and words/models bound raised to 24 so `put → put` is retained. Canonical-slice regression tests added; BE2 U8 fixture unchanged.
+**Summary:** Correction pass for manually reviewed BE3 Unit 8 spreads 128â137: verified lesson topic, intact `|`-separated Q&A exchanges, language `full_text` fallback, Didâ¦? teaching focus without false irregular detection, `matching_and_speaking` phrase models, and words/models bound raised to 24 so `put â put` is retained. Canonical-slice regression tests added; BE2 U8 fixture unchanged.
 
 **Files touched:**
 - `app/src/features/chalkie/chalkieEvidence.ts` (updated)
@@ -4145,7 +4145,7 @@
 
 ### Step 243
 
-**Summary:** Corrected verified BE3 Unit 8 language page-placement errors: Activity 8 `Did…?` frames (`lang_08_01`/`02`) moved from Story p.130 to Language in Action p.132; regular/irregular grammar-box rows (`lang_08_03`/`04`) moved from CLIL p.134 to Grammar p.136. Upstream unit_08 batch patched, Storage uploaded as verified, canonical remarged; placement regression tests and preflight note updated. No UI/heuristics/packaging changes.
+**Summary:** Corrected verified BE3 Unit 8 language page-placement errors: Activity 8 `Didâ¦?` frames (`lang_08_01`/`02`) moved from Story p.130 to Language in Action p.132; regular/irregular grammar-box rows (`lang_08_03`/`04`) moved from CLIL p.134 to Grammar p.136. Upstream unit_08 batch patched, Storage uploaded as verified, canonical remarged; placement regression tests and preflight note updated. No UI/heuristics/packaging changes.
 
 **Files touched:**
 - `scripts/fix_be3sb_u08_language_page_placement.mjs` (created)
@@ -4162,7 +4162,7 @@
 
 ### Step 244
 
-**Summary:** Improved deterministic Teaching focus for non-grammar lesson types: vocabulary/song, story/reading, and CLIL lanes now take priority over secondary `Did…?` frames using verified section/component evidence. Grammar and Language in Action focus strings unchanged; Screen 1 and prompt preview continue to share the same derived focus. Regression coverage updated for all five BE3 U8 spreads.
+**Summary:** Improved deterministic Teaching focus for non-grammar lesson types: vocabulary/song, story/reading, and CLIL lanes now take priority over secondary `Didâ¦?` frames using verified section/component evidence. Grammar and Language in Action focus strings unchanged; Screen 1 and prompt preview continue to share the same derived focus. Regression coverage updated for all five BE3 U8 spreads.
 
 **Files touched:**
 - `app/src/features/chalkie/chalkieEvidence.ts` (updated)
@@ -4179,7 +4179,7 @@
 
 ### Step 245
 
-**Summary:** Added deterministic same-unit earlier-page vocabulary prior-learning for Chalkie Step 2: human-verified target vocab from earlier printed pages in the loaded unit summary is grouped by curriculum-component title into a selectable `[PRIOR]` bundle (e.g. BE3 U8 p.128 → pp.132–133). Screen 1 evidence unchanged; BE2 curated `[HM]` suggestions preserved; selection flows into the local prompt with earlier-page provenance.
+**Summary:** Added deterministic same-unit earlier-page vocabulary prior-learning for Chalkie Step 2: human-verified target vocab from earlier printed pages in the loaded unit summary is grouped by curriculum-component title into a selectable `[PRIOR]` bundle (e.g. BE3 U8 p.128 â pp.132â133). Screen 1 evidence unchanged; BE2 curated `[HM]` suggestions preserved; selection flows into the local prompt with earlier-page provenance.
 
 **Files touched:**
 - `app/src/features/chalkie/deriveSameUnitEarlierVocabularySuggestions.ts` (created)
@@ -4199,7 +4199,7 @@
 
 ### Step 246
 
-**Summary:** Merged the teacher-choice “Your choices / What do you choose?” step into “What might be useful to reuse?” so suggestion cards and custom-language entry share one screen. Flow is now 3 steps; footer shows selected/teacher-added counts; Back preserves session state; prompt preview remains the confirmation point. No evidence/suggestion-rule changes.
+**Summary:** Merged the teacher-choice âYour choices / What do you choose?â step into âWhat might be useful to reuse?â so suggestion cards and custom-language entry share one screen. Flow is now 3 steps; footer shows selected/teacher-added counts; Back preserves session state; prompt preview remains the confirmation point. No evidence/suggestion-rule changes.
 
 **Files touched:**
 - `app/src/features/chalkie/teacherChoiceFlow.ts` (created)
@@ -4265,7 +4265,7 @@
 
 ### Step 250
 
-**Summary:** Removed the optional OpenAI model-draft section from the visible Chalkie handoff: no draft button, loading/error UI, or client calls to `/api/chalkie/generate`. Final screen is local-only (title, detailed prompt, concise outline, suggested vocabulary) with honest “Prepared locally… No AI generation was used.” wording. Server draft endpoint/service left dormant on disk.
+**Summary:** Removed the optional OpenAI model-draft section from the visible Chalkie handoff: no draft button, loading/error UI, or client calls to `/api/chalkie/generate`. Final screen is local-only (title, detailed prompt, concise outline, suggested vocabulary) with honest âPrepared locallyâ¦ No AI generation was used.â wording. Server draft endpoint/service left dormant on disk.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4281,7 +4281,7 @@
 
 ### Step 251
 
-**Summary:** Applied deterministic Chalkie lesson naming: teacher-facing titles (`BE3 SB Unit 08 pp. 132–133 — Healthy Living — Asking About Yesterday`) plus stable tracking refs (`be3-sb-u08-p132-133`). Short focus derived from verified Did…? teaching focus (not page hardcoding); copy action uses the teacher-facing title only; detailed prompt/outline/vocabulary unchanged.
+**Summary:** Applied deterministic Chalkie lesson naming: teacher-facing titles (`BE3 SB Unit 08 pp. 132â133 â Healthy Living â Asking About Yesterday`) plus stable tracking refs (`be3-sb-u08-p132-133`). Short focus derived from verified Didâ¦? teaching focus (not page hardcoding); copy action uses the teacher-facing title only; detailed prompt/outline/vocabulary unchanged.
 
 **Files touched:**
 - `app/src/features/chalkie/buildChalkieLessonNaming.ts` (created)
@@ -4299,7 +4299,7 @@
 
 ### Step 252
 
-**Summary:** Documented the current Chalkie Single Lesson workflow (Topic → Refine → Theme), including the newly observed AI title suggestion, manual vocabulary entry and first-screen `Create outline` control. Added a controlled Experiments 11–12 run card for BE3 U8 LiA pp.132–133: no outline request vs exact local concise-outline replacement, with title and all other settings held fixed. No lesson generated in this documentation step.
+**Summary:** Documented the current Chalkie Single Lesson workflow (Topic â Refine â Theme), including the newly observed AI title suggestion, manual vocabulary entry and first-screen `Create outline` control. Added a controlled Experiments 11â12 run card for BE3 U8 LiA pp.132â133: no outline request vs exact local concise-outline replacement, with title and all other settings held fixed. No lesson generated in this documentation step.
 
 **Files touched:**
 - `docs/phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md` (created)
@@ -4314,14 +4314,14 @@
 
 ### Step 253
 
-**Summary:** Recorded Chalkie Single-Lesson Experiments 11–13 results for BE3 U8 LiA pp.132–133 (31-page exports). Linked from the preserved 11–12 run card; Exp 13 provisional preferred workflow is detailed handoff + appended concise outline without Create outline. Docs only — D018 and 4-decisions untouched; no generation authorized.
+**Summary:** Recorded Chalkie Single-Lesson Experiments 11â13 results for BE3 U8 LiA pp.132â133 (31-page exports). Linked from the preserved 11â12 run card; Exp 13 provisional preferred workflow is detailed handoff + appended concise outline without Create outline. Docs only â D018 and 4-decisions untouched; no generation authorized.
 
 **Files touched:**
 - `docs/phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md` (created)
-- `docs/phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md` (updated — link + run record only)
+- `docs/phase-5/chalkie-single-lesson-experiments-11-12-run-card-v0.1.md` (updated â link + run record only)
 - `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated to V1.2)
-- `docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md` (updated — follow-up note)
-- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated — related link)
+- `docs/phase-5/chalkie-experiments-1-9-evidence-synthesis-v0.1.md` (updated â follow-up note)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated â related link)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -4332,13 +4332,13 @@
 
 ### Step 254
 
-**Summary:** Recorded Chalkie Single-Lesson Experiment 14 (BE3 U8 Content Connection / P.E. pp.134–135, *What Is a Calorie?*): preferred-path non-grammar transfer PASS AFTER LIGHT TEACHER REVIEW. Documented optional Ask Chalkie as post-generation teacher-review aid only. Docs only — D018 and 4-decisions untouched.
+**Summary:** Recorded Chalkie Single-Lesson Experiment 14 (BE3 U8 Content Connection / P.E. pp.134â135, *What Is a Calorie?*): preferred-path non-grammar transfer PASS AFTER LIGHT TEACHER REVIEW. Documented optional Ask Chalkie as post-generation teacher-review aid only. Docs only â D018 and 4-decisions untouched.
 
 **Files touched:**
 - `docs/phase-5/chalkie-single-lesson-experiment-14-results-v0.1.md` (created)
-- `docs/phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md` (updated — cross-link + optional Ask Chalkie step)
+- `docs/phase-5/chalkie-single-lesson-experiments-11-13-results-v0.1.md` (updated â cross-link + optional Ask Chalkie step)
 - `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated to V1.3)
-- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated — related link)
+- `docs/phase-5/chalkie-provisional-handoff-template-v0.1.md` (updated â related link)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
@@ -4349,7 +4349,7 @@
 
 ### Step 255
 
-**Summary:** Drafted BE3 SB Unit 8 Chalkie production-pilot plan from canonical page evidence: six legitimate two-page spreads mapped; Exp 10/11–13/14 linked; first recommended untested production spread = Vocabulary/Song pp.128–129. No generation authorized; D018 and 4-decisions untouched.
+**Summary:** Drafted BE3 SB Unit 8 Chalkie production-pilot plan from canonical page evidence: six legitimate two-page spreads mapped; Exp 10/11â13/14 linked; first recommended untested production spread = Vocabulary/Song pp.128â129. No generation authorized; D018 and 4-decisions untouched.
 
 **Files touched:**
 - `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (created)
@@ -4363,7 +4363,7 @@
 
 ### Step 256
 
-**Summary:** Attempted BE3 U8 two-lesson SB→WB handoff; stopped after proving no verified canonical/SS pairing for SB pp.128–129 (WB 104–105 exist as content only). Added non-heuristic `resolveVerifiedSbWbCompanion`, kept series unavailable for BE3, documented the gap. No AI/API, no generation, D018/4-decisions untouched.
+**Summary:** Attempted BE3 U8 two-lesson SBâWB handoff; stopped after proving no verified canonical/SS pairing for SB pp.128â129 (WB 104â105 exist as content only). Added non-heuristic `resolveVerifiedSbWbCompanion`, kept series unavailable for BE3, documented the gap. No AI/API, no generation, D018/4-decisions untouched.
 
 **Files touched:**
 - `app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts` (created)
@@ -4382,7 +4382,7 @@
 
 ### Step 257
 
-**Summary:** Content-reviewed and **ACCEPTED** one curated BE3 U8 SB→WB pairing (SB pp.128–129 → WB pp.104–105) based on shared vocab/Did…?/song-consolidation evidence—not pagination. Resolver recognises the curated relationship; unmapped spreads stay unpaired; series handoff UI deferred to the next microstep.
+**Summary:** Content-reviewed and **ACCEPTED** one curated BE3 U8 SBâWB pairing (SB pp.128â129 â WB pp.104â105) based on shared vocab/Didâ¦?/song-consolidation evidenceânot pagination. Resolver recognises the curated relationship; unmapped spreads stay unpaired; series handoff UI deferred to the next microstep.
 
 **Files touched:**
 - `app/src/features/chalkie/verifiedSbWbCompanions.ts` (created)
@@ -4402,7 +4402,7 @@
 
 ### Step 258
 
-**Summary:** Updated teacher-choice Step 2 (Prior learning): heading **Add Prior Skills**; removed “Choose only what helps this lesson.”; replaced separate custom-language section with a first-grid “Add a prior skill” card (title / frame / purpose, then selectable); simplified all cards to title + language frame + Purpose (no Caution).
+**Summary:** Updated teacher-choice Step 2 (Prior learning): heading **Add Prior Skills**; removed âChoose only what helps this lesson.â; replaced separate custom-language section with a first-grid âAdd a prior skillâ card (title / frame / purpose, then selectable); simplified all cards to title + language frame + Purpose (no Caution).
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4444,7 +4444,7 @@
 
 ### Step 261
 
-**Summary:** Made the Step 2 “Add a prior skill” card expandable and collapsed by default so its height matches other skill cards; expanded body temporarily shows “future instructions to come here” (form inputs deferred).
+**Summary:** Made the Step 2 âAdd a prior skillâ card expandable and collapsed by default so its height matches other skill cards; expanded body temporarily shows âfuture instructions to come hereâ (form inputs deferred).
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4457,7 +4457,7 @@
 
 ### Step 262
 
-**Summary:** Corrected Step 2 layout: “Add a prior skill” is its own two-column section above the suggestion grid (left inputs restored; right hard-coded “future instructions to come here”); Preference and other skill cards stay in the grid below.
+**Summary:** Corrected Step 2 layout: âAdd a prior skillâ is its own two-column section above the suggestion grid (left inputs restored; right hard-coded âfuture instructions to come hereâ); Preference and other skill cards stay in the grid below.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4470,7 +4470,7 @@
 
 ### Step 263
 
-**Summary:** Made the Step 2 “Add a prior skill” two-column block collapsed by default (header-height only) and expandable on click; expanded view keeps left inputs + right instructions placeholder above the suggestion cards.
+**Summary:** Made the Step 2 âAdd a prior skillâ two-column block collapsed by default (header-height only) and expandable on click; expanded view keeps left inputs + right instructions placeholder above the suggestion cards.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4518,7 +4518,7 @@
 
 ### Step 266
 
-**Summary:** Removed Step 2 empty-state copy (“No prior learning selected”, continue-without / use-no-prior-learning prompts); footer selection text shows only when something is selected.
+**Summary:** Removed Step 2 empty-state copy (âNo prior learning selectedâ, continue-without / use-no-prior-learning prompts); footer selection text shows only when something is selected.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4592,7 +4592,7 @@
 
 ### Step 272
 
-**Summary:** Removed the Step 3 footer line “No Chalkie prompt has been prepared yet.”
+**Summary:** Removed the Step 3 footer line âNo Chalkie prompt has been prepared yet.â
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4604,7 +4604,7 @@
 
 ### Step 273
 
-**Summary:** Removed the Step 3 review-screen “Copy title” button next to the lesson title (handoff-screen title copy control kept).
+**Summary:** Removed the Step 3 review-screen âCopy titleâ button next to the lesson title (handoff-screen title copy control kept).
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4629,7 +4629,7 @@
 
 ### Step 275
 
-**Summary:** Added a “Lesson Outlines” header above the series Lesson 1/2 cards so they align vertically with “Detailed Chalkie prompt” on the left.
+**Summary:** Added a âLesson Outlinesâ header above the series Lesson 1/2 cards so they align vertically with âDetailed Chalkie promptâ on the left.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4642,7 +4642,7 @@
 
 ### Step 276
 
-**Summary:** Removed the visible `Ref: …` stable-lesson-reference line from Step 3 review and Chalkie prompt-preview title sections.
+**Summary:** Removed the visible `Ref: â¦` stable-lesson-reference line from Step 3 review and Chalkie prompt-preview title sections.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4654,7 +4654,7 @@
 
 ### Step 277
 
-**Summary:** Removed the prompt-preview footer note “Prepared locally from verified curriculum evidence… No AI generation was used.”
+**Summary:** Removed the prompt-preview footer note âPrepared locally from verified curriculum evidenceâ¦ No AI generation was used.â
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4667,7 +4667,7 @@
 
 ### Step 278
 
-**Summary:** Wrapped Step 3 “Current lesson requirements” and “Selected prior learning” content in opaque white cards matching the prior-skill card chrome.
+**Summary:** Wrapped Step 3 âCurrent lesson requirementsâ and âSelected prior learningâ content in opaque white cards matching the prior-skill card chrome.
 
 **Files touched:**
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -4691,7 +4691,7 @@
 
 ### Step 280
 
-**Summary:** Built the local two-lesson SB→WB Chalkie handoff for the accepted BE3 U8 opener pair only (SB 128–129 → WB 104–105): six copyables from verified evidence, series enabled for that relationship, unmapped spreads and BE2 fixture unchanged.
+**Summary:** Built the local two-lesson SBâWB Chalkie handoff for the accepted BE3 U8 opener pair only (SB 128â129 â WB 104â105): six copyables from verified evidence, series enabled for that relationship, unmapped spreads and BE2 fixture unchanged.
 
 **Files touched:**
 - `app/src/features/chalkie/buildBe3U08OpenerSbWbSeriesHandoff.ts` (created)
@@ -4713,7 +4713,7 @@
 
 ### Step 281
 
-**Summary:** Documented the first successful BE3 U8 SB→WB two-lesson production pilot (SB 128–129 → WB 104–105) as PASS AFTER LIGHT TEACHER REVIEW; recorded one Chalkie-generation short-answer correction; no app/handoff/D018 changes; further generation not authorized.
+**Summary:** Documented the first successful BE3 U8 SBâWB two-lesson production pilot (SB 128â129 â WB 104â105) as PASS AFTER LIGHT TEACHER REVIEW; recorded one Chalkie-generation short-answer correction; no app/handoff/D018 changes; further generation not authorized.
 
 **Files touched:**
 - `docs/phase-5/chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md` (created)
@@ -4732,7 +4732,7 @@
 
 ### Step 282
 
-**Summary:** Content-reviewed candidate BE3 U8 SB pp.130–131 → WB pp.106–107 and **REJECTED** it: WB p.106 matches *An Unhealthy Dinner*, but p.107 is Language in Action. No mapping or code change; opener pair preserved.
+**Summary:** Content-reviewed candidate BE3 U8 SB pp.130â131 â WB pp.106â107 and **REJECTED** it: WB p.106 matches *An Unhealthy Dinner*, but p.107 is Language in Action. No mapping or code change; opener pair preserved.
 
 **Files touched:**
 - `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
@@ -4747,7 +4747,7 @@
 
 ### Step 283
 
-**Summary:** Added BE3 U8 SB→WB component map (logical components, not equal page counts) and **ACCEPTED** asymmetric curated companion SB pp.130–131 → WB p.106 only; series packaging left off; focused resolver/series tests updated so story companion resolves without enabling opener series.
+**Summary:** Added BE3 U8 SBâWB component map (logical components, not equal page counts) and **ACCEPTED** asymmetric curated companion SB pp.130â131 â WB p.106 only; series packaging left off; focused resolver/series tests updated so story companion resolves without enabling opener series.
 
 **Files touched:**
 - `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (created)
@@ -4757,6 +4757,30 @@
 - `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
 - `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
 - `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 284
+
+**Summary:** Enabled the asymmetric BE3 U8 story two-lesson series handoff for SB pp.130-131 to WB p.106 only (`be3_sb_wb_rel_u08_story_sb130-131_wb106`), with six local copyables; preserved opener/BE2/unmapped behaviour; WB p.107 kept out of package scope.
+
+**Files touched:**
+- `app/src/features/chalkie/buildBe3U08StorySbWbSeriesHandoff.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (created)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)

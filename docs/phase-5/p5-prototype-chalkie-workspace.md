@@ -16,7 +16,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Series / book / unit navigation and R2-backed PDF viewing (same authorized pathway as Validation).
 - **Unit Summary** and **Visible Pages Summary** derived from Phase 1 canonical or batch JSON only.
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary).
-- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, or (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105 with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). First production Chalkie series run for that BE3 pair: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)); further generation not authorized. No other BE3 series mappings.
+- Packaging choices: **Single lesson** from the resolved visible pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the accepted asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). First production Chalkie series run (opener): **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)); story series handoff is local-only until a production pilot is authorized. No other BE3 series mappings.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected book/unit + open PDF pages.
 
@@ -25,7 +25,7 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 - Loading Phase 2–4 experiment markdown into the app / inventing interpretation.
 - Calling or exposing the dormant OpenAI lesson-draft endpoint from the current handoff UI.
 - Persisting generated drafts, creating slides, or submitting to the Chalkie product.
-- Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the one accepted BE3 U8 opener SB→WB pair.
+- Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two accepted BE3 U8 curated SB→WB pairs (opener; asymmetric story).
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
 

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 283
+**Last updated:** Step 284
 
 
 
@@ -454,11 +454,13 @@
 
 - [x] **Candidate SB 130–131 → WB 106–107 content-reviewed and REJECTED** — WB p.107 is Language in Action, not story consolidation.
 
-- [x] **BE3 U8 SB→WB component map** — [`phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md); then story **ACCEPTED** as SB 130–131 → WB **p.106 only** (series off).
+- [x] **BE3 U8 SB→WB component map** — [`phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md); then story **ACCEPTED** as SB 130–131 → WB **p.106 only**.
+
+- [x] **BE3 U8 story asymmetric series handoff** — six local copyables for SB 130–131 → WB p.106 only; opener/BE2 unchanged; WB p.107 absent from package; unmapped spreads stay unpaired.
 
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** owner-gated Single Lesson for SB 130–131, or approve a story series-handoff step, or content-review next component-map row — do not bulk-approve; do not generate without authorization.
+- [ ] **Next microstep:** owner-gated story series production pilot in Chalkie (SB 130–131 → WB p.106), or content-review next component-map row — do not bulk-approve; do not generate without authorization.
 
 
 

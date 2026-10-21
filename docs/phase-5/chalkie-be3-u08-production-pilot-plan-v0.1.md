@@ -65,7 +65,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | Pages | Section / type | Topic or best label | Teaching focus (local) | Words/models | Activities | Prior | Handoff | Experimental history | Pilot status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
-| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected; series handoff **not** enabled — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | Companion recorded; Single Lesson or separate series-handoff approval next |
+| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** + asymmetric **series handoff enabled** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | Local series handoff ready; Chalkie generation not yet authorized |
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; Exp 13 preferred combined-input result | **No immediate repeat** |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14** strong non-grammar transfer | **No immediate repeat** |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10** Lesson Series operational pilot: raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW | **No immediate repeat** (already teacher-reviewed; different series mode) |
@@ -98,7 +98,7 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 ### Later eligible (after first pilot)
 
-1. **pp.130–131** Story / Reading — curated companion to **WB p.106 only** (series package off). Ready as Single Lesson, or owner may later approve a story series handoff.  
+1. **pp.130–131** Story / Reading — curated companion + asymmetric series handoff to **WB p.106 only** (local six copyables). Owner may authorize a story series production pilot in Chalkie.  
 2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab; natural mid/late-unit production candidate.
 
 ### Wait / out of this two-page pilot wave
@@ -149,7 +149,8 @@ Local two-lesson handoff (six copyables) is **built** for this pair only via `bu
 
 **Next owner action (choose one):**
 
-1. Authorize (or decline) a **single-lesson** Chalkie generation for **pp. 130–131** (*An Unhealthy Dinner*) or **pp. 138–139**; or  
-2. Authorize content review of a **different** explicit SB→WB candidate (not 130–131→106–107) — do not broaden pairing rules.
+1. Authorize (or decline) a **story series** Chalkie production pilot for **SB pp. 130–131 → WB p.106** (*An Unhealthy Dinner*); or  
+2. Authorize content review of a **different** explicit SB→WB candidate (not 130–131→106–107) — do not broaden pairing rules; or  
+3. Authorize a **single-lesson** generation for **pp. 138–139** (*Strange Sports*).
 
 Until explicitly authorized, **do not generate**.

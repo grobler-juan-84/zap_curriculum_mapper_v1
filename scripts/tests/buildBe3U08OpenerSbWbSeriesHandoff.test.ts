@@ -222,26 +222,8 @@ test('L1 uses SB scope and L2 uses WB scope', () => {
   assert.match(handoff.detailedHandoff, /Live Right!/)
 })
 
-test('non-opener BE3 spreads do not enable the opener series package', () => {
+test('unmapped BE3 spreads do not enable any BE3 series package', () => {
   const wb = loadJson(BE3_WB_PATH)
-
-  const story = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [130, 131],
-    unitNumber: 8,
-    workbookCanonical: wb,
-  })
-  assert.equal(story.supportsTwoLessonSeries, false)
-  assert.equal(
-    story.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_story_sb130-131_wb106',
-  )
-  assert.deepEqual(story.workbookCompanion?.workbookPrintedPages, [106])
-  assert.equal(story.seriesLessonTitle, null)
 
   for (const pages of [
     [132, 133],
@@ -271,6 +253,7 @@ test('non-opener BE3 spreads do not enable the opener series package', () => {
     })
     assert.doesNotMatch(prompt, /TWO-LESSON series/)
     assert.doesNotMatch(prompt, /Workbook printed pages 104–105/)
+    assert.doesNotMatch(prompt, /Workbook printed page 106/)
   }
 })
 

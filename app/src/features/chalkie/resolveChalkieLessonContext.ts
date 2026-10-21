@@ -34,6 +34,11 @@ import {
   isBe3U08OpenerSeriesCompanion,
 } from './buildBe3U08OpenerSbWbSeriesHandoff'
 import {
+  BE3_U08_STORY_SERIES_STABLE_REF,
+  BE3_U08_STORY_SERIES_TITLE,
+  isBe3U08StorySeriesCompanion,
+} from './buildBe3U08StorySbWbSeriesHandoff'
+import {
   resolveVerifiedSbWbCompanion,
   type VerifiedSbWbCompanion,
 } from './resolveVerifiedSbWbCompanion'
@@ -442,6 +447,18 @@ export function resolveChalkieLessonContext(input: {
     studentBookPrintedPages: sortedVisible,
   })
   const be3OpenerSeries = isBe3U08OpenerSeriesCompanion(workbookCompanion)
+  const be3StorySeries = isBe3U08StorySeriesCompanion(workbookCompanion)
+  const be3Series = be3OpenerSeries || be3StorySeries
+  const seriesLessonTitle = be3OpenerSeries
+    ? BE3_U08_OPENER_SERIES_TITLE
+    : be3StorySeries
+      ? BE3_U08_STORY_SERIES_TITLE
+      : null
+  const stableSeriesReference = be3OpenerSeries
+    ? BE3_U08_OPENER_SERIES_STABLE_REF
+    : be3StorySeries
+      ? BE3_U08_STORY_SERIES_STABLE_REF
+      : null
 
   return {
     ...base,
@@ -463,14 +480,14 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    // Series packaging only for the one accepted BE3 U8 opener curated relationship.
-    supportsTwoLessonSeries: be3OpenerSeries,
+    // Series packaging only for accepted BE3 U8 curated relationships (opener or story).
+    supportsTwoLessonSeries: be3Series,
     workbookCompanion,
     priorLearningSuggestions,
     singleLessonTitle: naming.teacherFacingTitle,
-    seriesLessonTitle: be3OpenerSeries ? BE3_U08_OPENER_SERIES_TITLE : null,
+    seriesLessonTitle,
     stableLessonReference: naming.stableLessonReference,
-    stableSeriesReference: be3OpenerSeries ? BE3_U08_OPENER_SERIES_STABLE_REF : null,
+    stableSeriesReference,
     scopeMessage: null,
     hasVerifiedPageEvidence: true,
     evidenceUnavailableMessage: null,
