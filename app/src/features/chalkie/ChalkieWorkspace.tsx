@@ -17,6 +17,7 @@ import {
   exactPdfPagesForPrinted,
   pdfForPrinted,
 } from '../validation/pdfPageMap'
+import { chalkieCompanionRendererProps } from '../validation/pdfRendererSpread'
 import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
 import {
   hasBookIntelligenceOverview,
@@ -225,6 +226,17 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       verifiedCompanion.workbookPrintedPages,
     )
   }, [workbookSummary?.pages, verifiedCompanion?.workbookPrintedPages])
+
+  const pdfRendererProps = useMemo(
+    () =>
+      chalkieCompanionRendererProps({
+        mode: pdfViewMode,
+        sbPdfPages: sbTargetPdfPages,
+        wbPdfPages: wbTargetPdfPages,
+        pendingSbRestore: Boolean(pendingSbRestorePages?.length),
+      }),
+    [pdfViewMode, sbTargetPdfPages, wbTargetPdfPages, pendingSbRestorePages],
+  )
 
   const handleVisiblePrintedPagesChange = useCallback(
     (pages: number[]) => {
@@ -829,10 +841,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
                   : undefined
               }
               jumpRequest={pdfJumpRequest}
-              navigationLocked={pdfViewMode === 'workbook'}
-              allowedPdfPages={
-                pdfViewMode === 'workbook' ? wbTargetPdfPages : null
-              }
+              navigationLocked={pdfRendererProps.navigationLocked}
+              allowedPdfPages={pdfRendererProps.allowedPdfPages}
             />
           </div>
 

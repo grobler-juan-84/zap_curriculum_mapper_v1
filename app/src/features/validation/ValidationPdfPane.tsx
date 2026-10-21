@@ -4,6 +4,7 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import { type PageMap, pdfForPrinted, printedForPdf } from './pdfPageMap'
+import { resolvePdfRendererSpread } from './pdfRendererSpread'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -53,8 +54,7 @@ interface ValidationPdfPaneProps {
   allowedPrintedPages?: number[] | null
   /**
    * When set, show only these physical PDF indices (already resolved from source
-   * `pdf_page`). Takes precedence over `allowedPrintedPages`. Single-page locks
-   * render one page; do not invent a facing page.
+   * `pdf_page`). Takes precedence over `allowedPrintedPages`.
    */
   allowedPdfPages?: number[] | null
 }
@@ -90,33 +90,40 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   const printedLabel = (pdfIndex: number): number => printedForPdf(pageMap, pdfIndex) ?? pdfIndex
 
-  const lockedPdfIndices = useMemo(() => {
-    if (!numPages) return null
-    const fromPdf = allowedPdfPages?.filter((n) => Number.isFinite(n)) ?? []
-    const raw =
-      fromPdf.length > 0
-        ? fromPdf
-        : allowedPrintedPages?.length
-          ? allowedPrintedPages.map((printed) => pdfForPrinted(pageMap, printed))
-          : []
-    if (!raw.length) return null
-    const unique = [
-      ...new Set(
-        raw.filter((n) => Number.isFinite(n)).map((n) => clampPage(n, numPages)),
-      ),
-    ].sort((a, b) => a - b)
-    return unique.length > 0 ? unique : null
-  }, [allowedPdfPages, allowedPrintedPages, pageMap, numPages])
+  /** Host-resolved physical PDF indices, or printed→pdf via pageMap as fallback. */
+  const resolvedAllowedPdfPages = useMemo(() => {
+    if (allowedPdfPages?.length) {
+      return allowedPdfPages.filter((n) => Number.isFinite(n) && n >= 1)
+    }
+    if (!allowedPrintedPages?.length) return null
+    return allowedPrintedPages.map((printed) => pdfForPrinted(pageMap, printed))
+  }, [allowedPdfPages, allowedPrintedPages, pageMap])
 
-  // Keep pairStart aligned with locked companion pages so a pdfUrl reset to page 1
-  // cannot leave the viewer on the cover while labels still show the mapping.
+  const spread = useMemo(
+    () =>
+      resolvePdfRendererSpread({
+        numPages,
+        pairStart,
+        allowedPdfPages: resolvedAllowedPdfPages,
+      }),
+    [numPages, pairStart, resolvedAllowedPdfPages],
+  )
+
+  const leftPage = spread.leftPdfPage
+  const rightPage = spread.rightPdfPage
+  const pagesLocked = Boolean(resolvedAllowedPdfPages?.length)
+  const canPrev = !navigationLocked && !pagesLocked && pairStart > 1
+  const canNext = !navigationLocked && !pagesLocked && pairStart < numPages
+
+  // Align pairStart with forced mapped pages (keeps jump label honest).
   useEffect(() => {
-    if (!lockedPdfIndices?.length || !numPages) return
-    const start = lockedPdfIndices[0]!
+    if (!resolvedAllowedPdfPages?.length || !numPages) return
+    const start = resolvedAllowedPdfPages.find((n) => n >= 1 && n <= numPages)
+    if (start == null) return
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
     setRangeReportReady(true)
-  }, [lockedPdfIndices, numPages, pageMap])
+  }, [resolvedAllowedPdfPages, numPages, pageMap])
 
   useEffect(() => {
     setNumPages(0)
@@ -127,11 +134,11 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }, [pdfUrl])
 
   // Jump when the host changes unit (or page map arrives). Keep the Document
-  // mounted across unit changes — remounting via React `key` breaks Prev/Next.
-  // When `initialPageEnd` is set, skip jumping if the view already overlaps the
-  // unit range (PDF-driven unit sync must not yank the reader back to page 1).
+  // mounted across unit changes within the same PDF — remount only when pdfUrl
+  // changes (see Document `key` below).
   useEffect(() => {
     if (!numPages) return
+    if (resolvedAllowedPdfPages?.length) return
     if (initialPage == null || !Number.isFinite(initialPage)) {
       setRangeReportReady(true)
       return
@@ -152,42 +159,35 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
     setRangeReportReady(true)
-  }, [initialPage, initialPageEnd, numPages, pageMap])
+  }, [initialPage, initialPageEnd, numPages, pageMap, resolvedAllowedPdfPages])
 
-  // Host-driven jump (e.g. View Student Book restore) — always applies once loaded.
+  // Host-driven jump (e.g. View Student Book restore) — always applies once loaded
+  // unless mapped pages are forcing the visible pair.
   useEffect(() => {
     if (!numPages || !jumpRequest) return
+    if (resolvedAllowedPdfPages?.length) return
     if (!Number.isFinite(jumpRequest.pdfPage)) return
     const start = clampPage(jumpRequest.pdfPage, numPages)
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
     setRangeReportReady(true)
-  }, [jumpRequest, numPages, pageMap])
-
-  const leftPage = lockedPdfIndices?.[0] ?? pairStart
-  const rightPage = lockedPdfIndices
-    ? lockedPdfIndices.length > 1
-      ? lockedPdfIndices[1]
-      : null
-    : pairStart + 1 <= numPages
-      ? pairStart + 1
-      : null
-  const canPrev = !navigationLocked && !lockedPdfIndices && pairStart > 1
-  const canNext = !navigationLocked && !lockedPdfIndices && pairStart < numPages
+  }, [jumpRequest, numPages, pageMap, resolvedAllowedPdfPages])
 
   useEffect(() => {
     if (!numPages || !onVisibleRangeChange || !rangeReportReady) return
+    if (leftPage == null) return
     onVisibleRangeChange({
       pdfStart: leftPage,
       pdfEnd: rightPage ?? leftPage,
     })
   }, [leftPage, rightPage, numPages, onVisibleRangeChange, rangeReportReady])
 
-  const leftPrinted = printedForPdf(pageMap, leftPage)
-  const rightPrinted = rightPage ? printedForPdf(pageMap, rightPage) : null
+  const leftPrinted = leftPage != null ? printedForPdf(pageMap, leftPage) : null
+  const rightPrinted = rightPage != null ? printedForPdf(pageMap, rightPage) : null
 
   useEffect(() => {
     if (!onVisiblePrintedPagesChange || !numPages || !rangeReportReady) return
+    if (leftPage == null) return
     const pages: number[] = []
     const left = printedForPdf(pageMap, leftPage)
     if (left != null) pages.push(left)
@@ -207,7 +207,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   ])
 
   const pdfLabel = useMemo(() => {
-    if (!numPages) return '—'
+    if (!numPages || leftPage == null) return '—'
     if (rightPage) return `${leftPage}–${rightPage} of ${numPages}`
     return `${leftPage} of ${numPages}`
   }, [leftPage, rightPage, numPages])
@@ -227,7 +227,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
       : null
 
   const goPrev = () => {
-    if (navigationLocked || lockedPdfIndices) return
+    if (navigationLocked || pagesLocked) return
     setPairStart((current) => {
       const next = clampPage(current - 2, numPages)
       setJumpValue(String(printedLabel(next)))
@@ -236,7 +236,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }
 
   const goNext = () => {
-    if (navigationLocked || lockedPdfIndices) return
+    if (navigationLocked || pagesLocked) return
     setPairStart((current) => {
       const next = clampPage(current + 2, numPages)
       setJumpValue(String(printedLabel(next)))
@@ -245,13 +245,15 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }
 
   const jumpToPage = () => {
-    if (navigationLocked || lockedPdfIndices) return
+    if (navigationLocked || pagesLocked) return
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
     const start = clampPage(pdfForPrinted(pageMap, parsed), numPages)
     setPairStart(start)
     setJumpValue(String(printedLabel(start)))
   }
+
+  const showMappedOnlyBadge = navigationLocked || pagesLocked
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-md border border-slate-300 bg-white shadow-xs">
@@ -312,7 +314,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
             >
               <ChevronRight className="h-3.5 w-3.5" />
             </button>
-            {navigationLocked || lockedPdfIndices ? (
+            {showMappedOnlyBadge ? (
               <span className="ml-1 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[9px] font-semibold text-amber-900">
                 Mapped pages only
               </span>
@@ -361,6 +363,9 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
               </div>
             ) : (
               <Document
+                // Remount when the source file changes so numPages/onLoadSuccess
+                // always belong to the active SB or WB PDF (not a stale document).
+                key={pdfUrl}
                 file={pdfUrl}
                 loading={
                   <div className="flex h-full items-center justify-center text-sm text-slate-500">
@@ -370,34 +375,41 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
                 onLoadSuccess={({ numPages: nextNumPages }) => {
                   setNumPages(nextNumPages)
                   setDocError(null)
-                  setPairStart((current) => clampPage(current, nextNumPages))
                 }}
                 onLoadError={(error) => {
                   setDocError(error.message || 'Could not load PDF.')
                 }}
                 className="flex flex-1 items-start justify-center gap-2 p-2"
               >
-                <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
-                  <Page
-                    pageNumber={leftPage}
-                    width={360}
-                    renderAnnotationLayer={false}
-                    renderTextLayer={false}
-                  />
-                </div>
-                {rightPage ? (
-                  <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
-                    <Page
-                      pageNumber={rightPage}
-                      width={360}
-                      renderAnnotationLayer={false}
-                      renderTextLayer={false}
-                    />
+                {spread.awaitingDocument || leftPage == null ? (
+                  <div className="flex h-[480px] w-full items-center justify-center text-sm text-slate-500">
+                    Loading pages…
                   </div>
                 ) : (
-                  <div className="flex h-[480px] w-[360px] items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 text-xs text-slate-400">
-                    End of document
-                  </div>
+                  <>
+                    <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
+                      <Page
+                        pageNumber={leftPage}
+                        width={360}
+                        renderAnnotationLayer={false}
+                        renderTextLayer={false}
+                      />
+                    </div>
+                    {rightPage ? (
+                      <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
+                        <Page
+                          pageNumber={rightPage}
+                          width={360}
+                          renderAnnotationLayer={false}
+                          renderTextLayer={false}
+                        />
+                      </div>
+                    ) : spread.showingEndOfDocument ? (
+                      <div className="flex h-[480px] w-[360px] items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 text-xs text-slate-400">
+                        End of document
+                      </div>
+                    ) : null}
+                  </>
                 )}
               </Document>
             )}

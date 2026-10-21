@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 299
+**Last updated:** Step 300
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -16,9 +16,7 @@
 
 - **D017** / **D018** / **D019** / **D020** / **D021** LOCKED.
 
-- **D021 UI slice:** Chalkie SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored.
-
-- **SB/WB viewer restore + PDF binding:** frozen SB spread restored; viewer uses verified source `pdf_page` (SB 128–129 → PDF 126–127; WB 104–105 → PDF 104–105).
+- **D021 UI + PDF renderer:** SB-led Workspace; companion toggle; verified `pdf_page` pairs forced into the pane (SB 126–127 / WB 104–105); Document remounts on source URL change.
 
 - BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
 
@@ -30,6 +28,7 @@
 
 ## Next
 
+- Owner visual recheck: SB 128–129 → WB 104–105 → SB 128–129 (both pages each view).
 - Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
 - Keep Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 

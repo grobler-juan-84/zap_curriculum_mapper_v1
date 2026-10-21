@@ -5060,3 +5060,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 300
+
+**Summary:** Fixed ValidationPdfPane render pipeline for companion spreads: resolve exact left/right PDF pages without clamp-collapse; force both mapped pages into the renderer; remount Document on `pdfUrl` change; SB restore force-displays PDF 126–127. Added spread regression tests that fail on second-page End-of-document. F021/F022 preserved.
+
+**Files touched:**
+- `app/src/features/validation/pdfRendererSpread.ts` (created)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/pdfRendererSpread.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

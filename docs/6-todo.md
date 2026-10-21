@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 299
+**Last updated:** Step 300
 
 
 
@@ -493,6 +493,10 @@
 - [x] **View Student Book restore** — full frozen SB spread + controls + companion/WB summary after Workbook round trip.
 
 - [x] **PDF binding** — companion SB/WB views use verified `pdf_page` (not printed-as-pdf); remount-to-cover bug removed.
+
+- [x] **PDF renderer spread** — force both mapped PDF pages into ValidationPdfPane; Document remount on pdfUrl; regression for second-page EOD.
+
+- [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — expands View Workbook coverage; no new handoff/Chalkie without separate approval.
 

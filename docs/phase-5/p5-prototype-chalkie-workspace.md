@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.18  
+**Version:** 2.19  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -20,7 +20,7 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 
 Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain.
 
-**Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states. **View Student Book** restores the frozen SB spread (e.g. pp.128–129), not a one-page PDF report — companion toggle, WB summary, and normal PDF controls return with that spread. PDF rendering uses verified source `pdf_page` (e.g. SB printed 128–129 → PDF 126–127; WB printed 104–105 → PDF 104–105), never printed-as-pdf.
+**Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states. **View Student Book** restores the frozen SB spread (e.g. pp.128–129), not a one-page PDF report — companion toggle, WB summary, and normal PDF controls return with that spread. PDF rendering uses verified source `pdf_page` (e.g. SB printed 128–129 → PDF 126–127; WB printed 104–105 → PDF 104–105), never printed-as-pdf. The pane paints the exact allowed PDF page pair (both pages); Document remounts on source URL change so SB↔WB cannot stick on cover/`End of document`.
 
 **In scope:**
 
@@ -225,3 +225,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-21 | D021 UI slice: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored. |
 | 2026-10-21 | Fix View Student Book restore: reinstate frozen SB spread (e.g. 128–129), PDF controls, companion toggle/WB summary; ignore one-page PDF overwrites during restore. |
 | 2026-10-21 | Fix PDF binding: render verified `pdf_page` for SB/WB companion views (remove remount-to-cover bug; SB 128–129 → PDF 126–127). |
+| 2026-10-21 | Fix renderer spread: force both mapped PDF pages; no clamp-collapse; Document `key={pdfUrl}`; SB restore force-displays 126–127. |
