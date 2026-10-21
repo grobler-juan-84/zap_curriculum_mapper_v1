@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar / Culture **ACCEPTED** (docs) · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar / Culture / Writing **ACCEPTED** (docs) · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -190,25 +190,56 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 8. Workspace consequence
+## 8. Accepted — SB p.140 → WB p.115 (Writing, 1→1)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Writing · *Combining Sentences with and, but, or*. Workbook consolidates that conjunction-writing work. Valid **1→1** component relationship. No handoff built; no app wiring; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book p.140 | Workbook p.115 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p140` | `bep_3_wb_p115` | — |
+| Component / type | Writing · `writing` · *Combining Sentences with and, but, or* | Writing · `writing` · *Combining Sentences with and, but, or* | Yes |
+| Target language | Coordinating conjunctions *and / but / or* to join sentences | Same *and / but / or* joining clauses | Yes |
+| Activity purpose | Gap-fill + listen check; join sentence pairs; read and choose; write three healthy-habit sentences using each conjunction once | Circle *and/but/or*; complete clauses from a box; paragraph cloze with *or/but/and* | Yes — consolidates writing |
+| Page-count shape | 1 SB page | 1 WB page | Valid (component map 1→1) |
+| Scope / excluded | — | Culture 113–114 and Phonics 116 out of scope | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · p.140 |
+| WB | `big_english_3_wb` · p.115 |
+| Stable reference | `be3-sb-wb-u08-p140-wb115` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+| Recommended future packaging | **single lesson likely** (1→1 writing pair; not assumed as a two-lesson series) |
+
+---
+
+## 9. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
 | SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
 | SB 132–133 · 134–135 · 136–137 · 138–139 | WB 107–108 · 109–110 · 111–112 · 113–114 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
+| SB 140 companion | WB 115 · **docs-mapped ACCEPTED** (1→1); resolver/series **not** enabled |
 | Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 9. Next microstep
+## 10. Next microstep
 
-Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Writing SB 140 ↔ WB 115, 1→1) — do not build handoffs or authorize Chalkie without a separate step.
+Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Phonics SB 141 ↔ WB 116, 1→1) — do not build handoffs or authorize Chalkie without a separate step.
 
 ---
 
-## 10. Boundaries
+## 11. Boundaries
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  
