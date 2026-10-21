@@ -4729,3 +4729,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 282
+
+**Summary:** Content-reviewed candidate BE3 U8 SB pp.130–131 → WB pp.106–107 and **REJECTED** it: WB p.106 matches *An Unhealthy Dinner*, but p.107 is Language in Action. No mapping or code change; opener pair preserved.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
