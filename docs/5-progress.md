@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 284
+**Last updated:** Step 285
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,17 +22,17 @@
 
 - **BE3 U8 component map** recorded (logical components, not equal page counts).
 
-- **Story companion ACCEPTED** + asymmetric **series handoff enabled:** SB 130–131 → WB **p.106 only** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); six local copyables; WB p.107 out of scope. 106–107 pair remains rejected.
+- **Story SB→WB handoff ACCEPTED FOR PROVISIONAL USE:** SB 130–131 → WB **p.106 only** (local asymmetric six copyables). No further Story Chalkie experiments now; no Story Chalkie export or classroom-validation claim.
 
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
 ## In progress
 
-- Story series local handoff is ready; Chalkie generation for that route is not yet authorized.
+- Next focus: evidence-backed component-map content review for remaining Unit 8 candidates (not more Story Chalkie testing).
 
 ## Next
 
-- Owner-gated story series production pilot in Chalkie, or next component-map content review — do not bulk-approve the map.
+- Content-review the next component-map row (e.g. LiA SB 132–133 ↔ WB 107–108) — do not bulk-approve.
 - Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now.
 
 ## Blocked

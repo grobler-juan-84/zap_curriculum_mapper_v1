@@ -4788,3 +4788,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 285
+
+**Summary:** Recorded BE3 U8 Story SB-to-WB handoff (SB 130-131 to WB p.106 only) as ACCEPTED FOR PROVISIONAL USE — local workflow only; no further Story Chalkie experiments; no Story export or classroom-validation claim.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -65,7 +65,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | Pages | Section / type | Topic or best label | Teaching focus (local) | Words/models | Activities | Prior | Handoff | Experimental history | Pilot status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
-| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** + asymmetric **series handoff enabled** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | Local series handoff ready; Chalkie generation not yet authorized |
+| **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** + asymmetric series handoff **ACCEPTED FOR PROVISIONAL USE** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | **Done (local handoff)** — provisional use; no Story Chalkie export claimed; no further Story Chalkie experiments now |
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; Exp 13 preferred combined-input result | **No immediate repeat** |
 | **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14** strong non-grammar transfer | **No immediate repeat** |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10** Lesson Series operational pilot: raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW | **No immediate repeat** (already teacher-reviewed; different series mode) |
@@ -96,10 +96,14 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **Outcome:** first SB→WB two-lesson production pilot — **PASS AFTER LIGHT TEACHER REVIEW**. See [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). Further generation not authorized by that record.
 
-### Later eligible (after first pilot)
+### Story handoff closed for Chalkie testing (local provisional)
 
-1. **pp.130–131** Story / Reading — curated companion + asymmetric series handoff to **WB p.106 only** (local six copyables). Owner may authorize a story series production pilot in Chalkie.  
-2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab; natural mid/late-unit production candidate.
+**pp.130–131** Story / Reading → WB **p.106 only**: local asymmetric series handoff **ACCEPTED FOR PROVISIONAL USE**. No further Story Chalkie experiments required now. Does **not** claim a Chalkie export or classroom validation for this route.
+
+### Later eligible (evidence / mapping first)
+
+1. Next **component-map content review** (e.g. Language in Action SB 132–133 ↔ WB 107–108) — evidence-backed pairing, not more Chalkie testing.  
+2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab if a later Single Lesson path is separately authorized.
 
 ### Wait / out of this two-page pilot wave
 
@@ -137,20 +141,16 @@ No new rubric. No D018 re-score.
 
 ## 8. SB→WB series note
 
-Content review **ACCEPTED** one curated pairing: SB pp.128–129 → WB pp.104–105 (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`). See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
+**Opener:** Content review **ACCEPTED** SB pp.128–129 → WB pp.104–105 (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`). Local six copyables via `buildBe3U08OpenerSbWbSeriesHandoff.ts`. Production pilot **PASS AFTER LIGHT TEACHER REVIEW** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). No further opener generation authorized by that record.
 
-Local two-lesson handoff (six copyables) is **built** for this pair only via `buildBe3U08OpenerSbWbSeriesHandoff.ts`. Unmapped BE3 spreads still have no series.
+**Story:** Content review **ACCEPTED** SB pp.130–131 → WB **p.106 only** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`). Local asymmetric six copyables via `buildBe3U08StorySbWbSeriesHandoff.ts`. Handoff **ACCEPTED FOR PROVISIONAL USE** (2026-10-21) — local workflow only; **no** Story Chalkie export or classroom-validation claim; **no** further Story Chalkie experiments now. See [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md).
 
-**Production pilot results (2026-10-21):** first successful SB→WB two-lesson run — **PASS AFTER LIGHT TEACHER REVIEW**. Exports: L1 30 PDF pages · L2 31 PDF pages. One contained Chalkie-generation short-answer fix (`Yes, did / No, didn't.` → `Yes, he/she did. / No, he/she didn't.`). Full record: [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md). **No further generation authorized by that record.**
+Unmapped BE3 spreads still have no series. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action (choose one):**
+**Next owner action:** content-review the next **evidence-backed** component-map candidate (e.g. Language in Action SB 132–133 ↔ WB 107–108) — do not bulk-approve the map; do not run further Story Chalkie experiments now.
 
-1. Authorize (or decline) a **story series** Chalkie production pilot for **SB pp. 130–131 → WB p.106** (*An Unhealthy Dinner*); or  
-2. Authorize content review of a **different** explicit SB→WB candidate (not 130–131→106–107) — do not broaden pairing rules; or  
-3. Authorize a **single-lesson** generation for **pp. 138–139** (*Strange Sports*).
-
-Until explicitly authorized, **do not generate**.
+Until explicitly authorized for a *different* route, **do not generate**.

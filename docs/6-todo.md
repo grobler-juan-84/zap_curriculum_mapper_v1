@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 284
+**Last updated:** Step 285
 
 
 
@@ -458,9 +458,11 @@
 
 - [x] **BE3 U8 story asymmetric series handoff** — six local copyables for SB 130–131 → WB p.106 only; opener/BE2 unchanged; WB p.107 absent from package; unmapped spreads stay unpaired.
 
+- [x] **Story handoff ACCEPTED FOR PROVISIONAL USE** — local workflow only; no further Story Chalkie experiments; no Story export/classroom-validation claim ([`phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)).
+
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** owner-gated story series production pilot in Chalkie (SB 130–131 → WB p.106), or content-review next component-map row — do not bulk-approve; do not generate without authorization.
+- [ ] **Next microstep:** content-review next evidence-backed component-map candidate (e.g. LiA SB 132–133 ↔ WB 107–108) — do not bulk-approve; do not run further Story Chalkie experiments.
 
 
 
