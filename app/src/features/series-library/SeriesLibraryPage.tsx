@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { bookIntelligencePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import { chalkieWorkspacePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { curriculumService } from '../../services/curriculumService'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { SeriesLibrary } from './SeriesLibrary'
@@ -51,13 +51,13 @@ export function SeriesLibraryPage() {
         selectBook(bookUuid)
         navigate('/app/validation')
       }}
-      onOpenBookIntelligence={(catalogBookId) => {
+      onOpenChalkieWorkspace={(catalogBookId) => {
         const match = curriculumService.getBookByCatalogId(catalogBookId)
         if (match) {
           selectSeries(match.series.id)
           selectBook(match.book.id)
         }
-        navigate(bookIntelligencePath(catalogBookId))
+        navigate(chalkieWorkspacePath())
       }}
       onBackToCurriculum={() => navigate('/app/curriculum')}
     />

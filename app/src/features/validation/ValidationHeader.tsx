@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Brain, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowLeft, ChevronLeft, ChevronRight, FileCode } from 'lucide-react'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BookFileBatch } from '../../types/validation'
 
@@ -13,8 +13,8 @@ interface ValidationHeaderProps {
   currentIndex: number
   /** True when picker units are sliced from one canonical_json file. */
   fromCanonical?: boolean
-  /** When set, show return link to Book Intelligence for this book/unit. */
-  bookIntelligenceHref?: string | null
+  /** When set, show link to Chalkie Workspace (Unit Intelligence) for this book/unit. */
+  chalkieWorkspaceHref?: string | null
   onPrev: () => void
   onNext: () => void
   onSelectBatch: (batchId: string) => void
@@ -37,7 +37,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   currentBatch,
   currentIndex,
   fromCanonical = false,
-  bookIntelligenceHref = null,
+  chalkieWorkspaceHref = null,
   onPrev,
   onNext,
   onSelectBatch,
@@ -62,15 +62,15 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           <span className="hidden sm:inline">Series</span>
         </button>
 
-        {bookIntelligenceHref ? (
+        {chalkieWorkspaceHref ? (
           <Link
-            to={bookIntelligenceHref}
-            className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-violet-700 transition-colors hover:bg-violet-50 hover:text-violet-900"
-            title="Back to Book Intelligence for this book and unit"
+            to={chalkieWorkspaceHref}
+            className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-50 hover:text-indigo-900"
+            title="Open Chalkie Workspace for this book and unit (Unit Intelligence)"
           >
-            <Brain className="h-3.5 w-3.5" />
-            <span className="hidden lg:inline">Back to Book Intelligence</span>
-            <span className="hidden sm:inline lg:hidden">Book Intelligence</span>
+            <FileCode className="h-3.5 w-3.5" />
+            <span className="hidden lg:inline">Open Chalkie Workspace</span>
+            <span className="hidden sm:inline lg:hidden">Chalkie</span>
           </Link>
         ) : null}
 

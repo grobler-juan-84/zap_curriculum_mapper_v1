@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch } from '../../types/validation'
 import {
@@ -59,6 +60,27 @@ function buildCanonicalUnitNav(
   })
 }
 
+function pickBatchIdForUnit(
+  batches: BookFileBatch[],
+  unitNumber: string | null,
+): string {
+  if (!unitNumber) return batches[0]?.id ?? ''
+  const match =
+    batches.find((batch) => batch.unitNumber === unitNumber) ??
+    findBatchForUnitNumber(batches, unitNumber)
+  return match?.id ?? batches[0]?.id ?? ''
+}
+
+function unitNumberFromBatch(batch: BookFileBatch | null): string | null {
+  if (!batch) return null
+  if (batch.unitNumber) return batch.unitNumber
+  const fromLabel = batch.label?.match(/Unit\s+(\d+)/i)?.[1]
+  if (fromLabel) return fromLabel
+  const fromPath = batch.storagePath.match(/unit[_-]?(\d+)/i)?.[1]
+  if (fromPath) return String(Number(fromPath))
+  return null
+}
+
 export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   seriesList,
   series,
@@ -67,6 +89,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   onSelectBook,
   onBackToBooks,
 }) => {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const requestedUnit = searchParams.get('unit')
+
   const [batches, setBatches] = useState<BookFileBatch[]>([])
   const [selectedBatchId, setSelectedBatchId] = useState('')
   const [batchesLoading, setBatchesLoading] = useState(true)
@@ -106,6 +131,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   )
   const currentBatch =
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
+  const currentUnitNumber = unitNumberFromBatch(currentBatch)
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
 
@@ -199,7 +225,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           setCanonicalRaw(raw)
           setFromCanonical(true)
           setBatches(nav)
-          setSelectedBatchId(nav[0]?.id ?? '')
+          setSelectedBatchId('')
           setBatchesLoading(false)
           setJsonLoading(false)
           return
@@ -209,7 +235,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         setFromCanonical(false)
         setCanonicalRaw(null)
         setBatches(unitBatches)
-        setSelectedBatchId(unitBatches[0]?.id ?? '')
+        setSelectedBatchId('')
         setBatchesLoading(false)
       } catch (err: unknown) {
         if (cancelled) return
@@ -224,6 +250,22 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       cancelled = true
     }
   }, [book.id])
+
+  // Apply `?unit=` (default first unit) once batches are ready — supports legacy BI redirects.
+  useEffect(() => {
+    if (batchesLoading || batches.length === 0) return
+    const nextId = pickBatchIdForUnit(batches, requestedUnit)
+    setSelectedBatchId((prev) => (prev === nextId ? prev : nextId))
+  }, [batchesLoading, batches, requestedUnit])
+
+  // Keep Chalkie `?unit=` aligned with the selected unit for deep links / Validation round-trips.
+  useEffect(() => {
+    if (!selectedBatchId || !currentUnitNumber) return
+    if (searchParams.get('unit') === currentUnitNumber) return
+    const next = new URLSearchParams(searchParams)
+    next.set('unit', currentUnitNumber)
+    setSearchParams(next, { replace: true })
+  }, [selectedBatchId, currentUnitNumber, searchParams, setSearchParams])
 
   // Phase 2 Book Intelligence — read-only unit arc; never blocks Chalkie prep.
   useEffect(() => {

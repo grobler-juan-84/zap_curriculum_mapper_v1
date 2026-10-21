@@ -9,7 +9,8 @@ interface SeriesLibraryProps {
   series: CurriculumSeries
   onSelectBook: (bookUuid: string) => void
   onValidateBook?: (bookUuid: string) => void
-  onOpenBookIntelligence?: (catalogBookId: string) => void
+  /** Opens Chalkie Workspace (Unit Intelligence when BI overview is registered). */
+  onOpenChalkieWorkspace?: (catalogBookId: string) => void
   onBackToCurriculum: () => void
 }
 
@@ -17,7 +18,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   series,
   onSelectBook,
   onValidateBook,
-  onOpenBookIntelligence,
+  onOpenChalkieWorkspace,
   onBackToCurriculum,
 }) => {
   const coverUrls = useCoverImageUrls(series.books.map((book) => book.coverPath))
@@ -27,7 +28,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   ]
   const anyBookHasBi = series.books.some(
     (book) =>
-      Boolean(onOpenBookIntelligence) &&
+      Boolean(onOpenChalkieWorkspace) &&
       hasBookIntelligenceOverview(book.catalogBookId),
   )
 
@@ -50,7 +51,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
               </h2>
               <p className="text-xs text-slate-500">
                 {anyBookHasBi
-                  ? 'Books loaded from Supabase for this series. Open Book Intelligence when available; Workspace remains secondary.'
+                  ? 'Books loaded from Supabase for this series. Open Chalkie Workspace for Unit Intelligence when Phase 2 BI is available; Book Workspace remains secondary.'
                   : 'Books loaded from Supabase for this series. Choose one to open its workspace.'}
               </p>
             </div>
@@ -69,16 +70,16 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                 const hasInteractiveSpreads = book.pageSpreads.length > 0
                 const isFeatured = book.catalogBookId === 'beehive_1_sb'
                 const catalogBookId = book.catalogBookId
-                const showBookIntelligence =
-                  Boolean(onOpenBookIntelligence) &&
+                const showChalkiePrimary =
+                  Boolean(onOpenChalkieWorkspace) &&
                   hasBookIntelligenceOverview(catalogBookId)
                 const coverSrc = book.coverPath
                   ? coverUrls[book.coverPath]
                   : book.coverImage
 
                 function openPrimary() {
-                  if (showBookIntelligence && catalogBookId) {
-                    onOpenBookIntelligence?.(catalogBookId)
+                  if (showChalkiePrimary && catalogBookId) {
+                    onOpenChalkieWorkspace?.(catalogBookId)
                     return
                   }
                   onSelectBook(book.id)
@@ -148,18 +149,18 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                             Validate
                           </button>
                         ) : null}
-                        {showBookIntelligence && catalogBookId ? (
+                        {showChalkiePrimary && catalogBookId ? (
                           <>
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation()
-                                onOpenBookIntelligence?.(catalogBookId)
+                                onOpenChalkieWorkspace?.(catalogBookId)
                               }}
-                              className="flex items-center gap-1 text-xs font-bold text-violet-700 hover:text-violet-900"
-                              title="Open Book Intelligence overview"
+                              className="flex items-center gap-1 text-xs font-bold text-indigo-700 hover:text-indigo-900"
+                              title="Open Chalkie Workspace (Unit Intelligence when available)"
                             >
-                              <span>Open Book Intelligence</span>
+                              <span>Open Chalkie Workspace</span>
                               <ArrowRight className="h-3.5 w-3.5" />
                             </button>
                             <button

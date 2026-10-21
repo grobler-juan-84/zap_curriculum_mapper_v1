@@ -14,7 +14,10 @@ export type BookIntelligenceStorageArtifact = {
 
 export const BOOK_INTELLIGENCE_STORAGE_BUCKET = 'book-datasets'
 
-/** Default overview when opening `/app/book-intelligence` with no catalog segment. */
+/**
+ * Default catalog book when a legacy `/app/book-intelligence` URL has no segment.
+ * Dedicated BI preview UI is retired; Chalkie Workspace Unit Intelligence is the teacher surface.
+ */
 export const DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID = 'big_english_3_sb'
 
 export const BOOK_INTELLIGENCE_STORAGE_ARTIFACTS: Record<
@@ -54,13 +57,25 @@ export function hasBookIntelligenceOverview(
   return getBookIntelligenceStorageArtifact(catalogBookId) !== null
 }
 
+/**
+ * Teacher-facing path for Book Intelligence content (Chalkie Workspace Unit Intelligence).
+ * Optional `unit` query is applied when Chalkie Workspace loads unit batches.
+ */
+export function chalkieWorkspacePath(unitNumber?: string | number | null): string {
+  if (unitNumber === undefined || unitNumber === null || unitNumber === '') {
+    return '/app/chalkie'
+  }
+  return `/app/chalkie?unit=${encodeURIComponent(String(unitNumber))}`
+}
+
+/**
+ * @deprecated Dedicated BI preview routes are retired. Prefer `chalkieWorkspacePath`.
+ * Kept as a compatibility alias that returns the Chalkie Workspace path (book selection
+ * is applied by the legacy-route redirect via workspace state).
+ */
 export function bookIntelligencePath(
-  catalogBookId: string,
+  _catalogBookId: string,
   unitNumber?: string | number,
 ): string {
-  const base = `/app/book-intelligence/${catalogBookId}`
-  if (unitNumber === undefined || unitNumber === null || unitNumber === '') {
-    return base
-  }
-  return `${base}?unit=${encodeURIComponent(String(unitNumber))}`
+  return chalkieWorkspacePath(unitNumber)
 }

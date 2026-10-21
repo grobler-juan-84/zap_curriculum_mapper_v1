@@ -247,16 +247,17 @@ Control / A / B experiment artifacts remain preserved for comparison history.
 
 **Result:** BE3 U1–9 **PASS** (`units=9`); `npm run typecheck` clean. Contract remains draft / not locked.
 
-### BE3 Units 1–9 Book Intelligence UI preview (2026-10-15)
+### BE3 Units 1–9 Book Intelligence UI preview (2026-10-15) — **dedicated UI RETIRED 2026-10-21**
 
-**Artifacts:**
-- Preview page: [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/)
-- Route: `/app/book-intelligence` (protected AppShell)
+**Artifacts (retained):**
+- Loaders / registry: [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/)
+- Teacher surface: **Chalkie Workspace → Unit Intelligence** ([`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md))
+- Legacy route: `/app/book-intelligence/:catalogBookId?unit=N` → redirect to `/app/chalkie?unit=N`
 - Storage: `book-datasets` → `big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json`
 
-**Controls:** Read-only UI sketch. Downloads Storage JSON, then `loadBookIntelligenceOverviewFromUnknown`. Loading/error states. Displays all 8 content fields per unit (incl. Writing + LO provenance). No `book_files` / schema / methodology changes.
+**Historical controls:** Read-only standalone preview (retired). Downloads Storage JSON, then `loadBookIntelligenceOverviewFromUnknown`.
 
-**Result:** Preview renders all nine A+B unit cards from Storage. Contract still **not locked**.
+**Result (historical):** Preview rendered all nine A+B units from Storage. **Current:** same JSON layer; teachers use Chalkie Unit Intelligence. Contract still **not locked**.
 
 ### BE3 U1–9 BI preview visual/content QA vs A+B overview (2026-10-15)
 

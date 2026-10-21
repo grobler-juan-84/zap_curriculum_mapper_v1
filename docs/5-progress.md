@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 294
+**Last updated:** Step 295
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -28,6 +28,8 @@
 
 - **Chalkie Workspace Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; does not alter handoff.
 
+- **Standalone Book Intelligence preview UI retired** — sidebar item removed; legacy routes redirect to Chalkie; JSON/loaders retained.
+
 ## In progress
 
 - Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
@@ -47,4 +49,4 @@
 
 - Active Git branch: `main`.
 
-- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → overlay when source evidence resolves.
+- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → overlay when source evidence resolves. Unit Intelligence is the teacher home for Phase 2 BI.

@@ -11,7 +11,7 @@ import {
   validationService,
 } from '../../services/validationService'
 import {
-  bookIntelligencePath,
+  chalkieWorkspacePath,
   hasBookIntelligenceOverview,
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { ValidationHeader } from './ValidationHeader'
@@ -124,12 +124,12 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
     batches.find((batch) => batch.id === selectedBatchId) ?? null
   const currentUnitNumber = unitNumberFromBatch(currentBatch)
 
-  const bookIntelligenceHref =
-    hasBookIntelligenceOverview(book.catalogBookId) &&
-    book.catalogBookId &&
-    currentUnitNumber
-      ? bookIntelligencePath(book.catalogBookId, currentUnitNumber)
-      : null
+  const chalkieWorkspaceHref =
+    hasBookIntelligenceOverview(book.catalogBookId) && currentUnitNumber
+      ? chalkieWorkspacePath(currentUnitNumber)
+      : hasBookIntelligenceOverview(book.catalogBookId)
+        ? chalkieWorkspacePath()
+        : null
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
 
@@ -441,7 +441,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
         currentBatch={currentBatch}
         currentIndex={currentIndex}
         fromCanonical={fromCanonical}
-        bookIntelligenceHref={bookIntelligenceHref}
+        chalkieWorkspaceHref={chalkieWorkspaceHref}
         onPrev={handlePrev}
         onNext={handleNext}
         onSelectBatch={(id) => {

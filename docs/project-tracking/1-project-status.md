@@ -1,12 +1,12 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 294
+**Last synced:** Step 295
 
 ## One-line state
 
-- On **`main`** (consolidated: BI + Validation + Chalkie Workspace).
-- Chalkie left panel now includes read-only **Unit Intelligence** (Phase 2 BI). BE3 U8 map review COMPLETE.
+- On **`main`** (consolidated: BI data layer + Validation + Chalkie Workspace).
+- Standalone Book Intelligence preview retired; teachers use Chalkie **Unit Intelligence**.
 - Phase 3 remains parked (D020). F022 stays future-required.
 
 ## Branch

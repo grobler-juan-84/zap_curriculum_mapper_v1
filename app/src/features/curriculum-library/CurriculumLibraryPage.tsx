@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import {
-  bookIntelligencePath,
+  chalkieWorkspacePath,
   hasBookIntelligenceOverview,
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../shell/WorkspaceProvider'
@@ -64,7 +64,7 @@ export function CurriculumLibraryPage() {
             selectSeries(match.series.id)
             selectBook(match.book.id)
           }
-          navigate(bookIntelligencePath(catalogBookId))
+          navigate(chalkieWorkspacePath())
           return
         }
         selectBook(bookUuid)

@@ -4953,3 +4953,35 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 295
+
+**Summary:** Retired the standalone Book Intelligence preview UI and sidebar item. Legacy `/app/book-intelligence…` routes redirect to Chalkie Workspace (preserving `?unit=` when present). BI JSON/loaders/contract retained for Unit Intelligence. Library/Validation links retargeted to Chalkie.
+
+**Files touched:**
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceRedirect.tsx` (created)
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
+- `app/src/features/book-intelligence/BookIntelligencePreviewPage.tsx` (deleted)
+- `app/src/features/book-intelligence/BookIntelligenceUnitPreview.tsx` (deleted)
+- `app/src/features/book-intelligence/resolvePdfInitialPage.ts` (deleted)
+- `app/src/features/book-intelligence/syncUnitFromPdfPages.ts` (deleted)
+- `app/src/features/book-intelligence/phase1EvidenceLink.ts` (deleted)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/features/curriculum-library/CurriculumLibraryPage.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `scripts/tests/chalkieWorkspacePath.test.ts` (created)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/phase-2/phase-2-experiment-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

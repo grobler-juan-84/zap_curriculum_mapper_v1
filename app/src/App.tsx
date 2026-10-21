@@ -9,7 +9,7 @@ import { CurriculumLibraryPage } from './features/curriculum-library/CurriculumL
 import { LandingPage } from './features/landing/LandingPage'
 import { SeriesLibraryPage } from './features/series-library/SeriesLibraryPage'
 import { AppShell } from './features/shell/AppShell'
-import { BookIntelligencePreviewPage } from './features/book-intelligence/BookIntelligencePreviewPage'
+import { BookIntelligenceRedirect } from './features/book-intelligence/BookIntelligenceRedirect'
 import { ChalkiePage } from './features/chalkie/ChalkiePage'
 import { ValidationPage } from './features/validation/ValidationPage'
 
@@ -37,11 +37,11 @@ export default function App() {
         <Route path="validation" element={<ValidationPage />} />
         <Route
           path="book-intelligence"
-          element={<BookIntelligencePreviewPage />}
+          element={<BookIntelligenceRedirect />}
         />
         <Route
           path="book-intelligence/:catalogBookId"
-          element={<BookIntelligencePreviewPage />}
+          element={<BookIntelligenceRedirect />}
         />
         <Route path="chalkie" element={<ChalkiePage />} />
       </Route>

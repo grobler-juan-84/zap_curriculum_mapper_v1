@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 294
+**Last updated:** Step 295
 
 
 
@@ -483,6 +483,8 @@
 - [x] **Provisional two-lesson-first packaging policy** recorded (docs only; Phase 6 §1A; Chalkie-specific; not locked; no generation authorized).
 
 - [x] **Chalkie Workspace Unit Intelligence** accordion — read-only Phase 2 BI for selected book/unit; honest empty state; does not alter handoff.
+
+- [x] **Retire standalone Book Intelligence preview UI** — sidebar removed; legacy `/app/book-intelligence…` redirects to Chalkie; JSON/loaders retained.
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — no new handoff/Chalkie without separate approval.
 

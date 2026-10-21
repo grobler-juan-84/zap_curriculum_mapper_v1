@@ -1,13 +1,15 @@
 # Book Intelligence UI Data Contract (v1 draft)
 
-**Date:** 2026-10-15  
-**Status:** DRAFT / EXPERIMENTAL — **not locked**; documentation only  
+**Date:** 2026-10-15 (UI surface note 2026-10-21)  
+**Status:** DRAFT / EXPERIMENTAL — **not locked**; documentation only · **dedicated preview UI RETIRED**  
 **Version:** 0.1-draft  
 **Decision context:** D017 Progressive Curriculum Intelligence; D006 hybrid storage; D009 naming  
-**Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md)  
+**Related:** [`experiments/be3-u01-ab-implementation-compatibility-d017-v1.md`](./experiments/be3-u01-ab-implementation-compatibility-d017-v1.md), [`experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md`](./experiments/be3-sb-u01-u09-book-overview-d017-exp-ab.md), [`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md)  
 **Purpose:** Define the UI-facing data contract for Book Intelligence unit overviews, supporting **`eight_column_baseline`** and **`nine_column_ab`**, including field names, types, unit identity, and JSON structure.
 
-**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. BE2 + BE3 BI companions load from Storage via the Series Library registry (no Postgres). Contract remains draft.
+**Teacher-facing surface (2026-10-21):** JSON remains a **Phase 2 interpretation layer** (Storage + loaders + this contract). The standalone `/app/book-intelligence` preview is **retired**. Teachers read Unit Intelligence inside **Chalkie Workspace**. Legacy BI URLs redirect to `/app/chalkie` (with `?unit=` when present).
+
+**Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. BE2 + BE3 BI companions load from Storage via the registry (no Postgres). Contract remains draft.
 
 ---
 
@@ -218,7 +220,7 @@ Implemented as read-only loader/validator plus a local BE3 Unit 1 preview route.
 | Parse / validate / map | [`../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/parseBookIntelligenceOverview.ts) |
 | Load from JSON text | [`../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts`](../../app/src/lib/bookIntelligence/loadBookIntelligenceOverview.ts) |
 | CLI file check | [`../../scripts/validate_book_intelligence_json.mjs`](../../scripts/validate_book_intelligence_json.mjs) |
-| BE3 U1–9 preview (Storage) | `/app/book-intelligence/big_english_3_sb?unit=N` · split layout (fields left / source PDF right, Validation pane reuse) · Series Library card action · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) |
+| Teacher surface (retired preview) | **Chalkie Workspace → Unit Intelligence** (`/app/chalkie?unit=N`) · Storage loader + registry preserved · legacy `/app/book-intelligence/:catalogBookId?unit=N` redirects · [`../../app/src/features/book-intelligence/`](../../app/src/features/book-intelligence/) (loaders/registry) + [`../../app/src/features/chalkie/chalkieUnitIntelligence.ts`](../../app/src/features/chalkie/chalkieUnitIntelligence.ts) |
 
 ```bash
 node scripts/validate_book_intelligence_json.mjs
@@ -306,9 +308,9 @@ It does **not**:
 | BE2-SB Units 1–9 v2 eight-column (local) | [`../../data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json`](../../data/phase2/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json) |
 | BE2-SB Units 1–9 v2 eight-column (Storage) | `book-datasets` → `big-english/big_english_2_sb/interpretations/be2-sb-u01-u09-book-intelligence-v2-eight-column-v0.1-draft.json` |
 
-BE3 content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; Storage companion integrity-verified; preview loads from Storage via draft-contract loader (no Postgres registration).
+BE3 content mirrors the preferred A+B Markdown Units 1–9 rows. Validated by TS loader + CLI; Storage companion integrity-verified; Chalkie Unit Intelligence loads from Storage via draft-contract loader (no Postgres registration).
 
-BE2 content is a faithful cell-level port of [`experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v2.md) (`column_set: eight_column_baseline`; `unit_id` = Phase 1 `bep2_unit_0N`; no Writing). Uploaded to Storage; Series Library → Book Intelligence registered for `big_english_2_sb` (no Postgres / `book_files`).
+BE2 content is a faithful cell-level port of [`experiments/be2-sb-u01-u09-book-overview-d017-v2.md`](./experiments/be2-sb-u01-u09-book-overview-d017-v2.md) (`column_set: eight_column_baseline`; `unit_id` = Phase 1 `bep2_unit_0N`; no Writing). Uploaded to Storage; registry entry for `big_english_2_sb` (no Postgres / `book_files`).
 
 ---
 
@@ -336,3 +338,4 @@ BE2 content is a faithful cell-level port of [`experiments/be2-sb-u01-u09-book-o
 | 2026-10-15 | Generalized contract/loader for `eight_column_baseline` + `nine_column_ab`; Writing required only for nine-column; column-set-driven UI fields; dual-set automated tests. No BE2 JSON/Storage/DB. |
 | 2026-10-15 | Linked BE2-SB U1–9 v2 eight-column local JSON artifact (`bep2_unit_*`); no Storage/UI/DB. |
 | 2026-10-15 | BE2 BI JSON uploaded to Storage; Library → BI registry entry for `big_english_2_sb`; no DB. |
+| 2026-10-21 | Dedicated BI preview UI retired; JSON/loaders/contract retained; teacher surface = Chalkie Unit Intelligence; legacy routes redirect. |
