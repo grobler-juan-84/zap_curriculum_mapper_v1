@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 287
+**Last updated:** Step 288
 
 
 
@@ -464,9 +464,11 @@
 
 - [x] **CLIL P.E. SB 134–135 → WB 109–110 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`; no handoff; not wired in app.
 
+- [x] **Grammar SB 136–137 → WB 111–112 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; no handoff; not wired in app.
+
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** wire one docs-accepted companion (LiA or CLIL P.E.) in app, or content-review Grammar SB 136–137 ↔ WB 111–112 — no handoff/Chalkie without separate approval.
+- [ ] **Next microstep:** wire one docs-accepted companion in app, or content-review Culture Connection SB 138–139 ↔ WB 113–114 — no handoff/Chalkie without separate approval.
 
 
 

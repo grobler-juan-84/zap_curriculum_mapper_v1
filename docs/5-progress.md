@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 287
+**Last updated:** Step 288
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,19 +24,17 @@
 
 - **Story SB→WB handoff ACCEPTED FOR PROVISIONAL USE:** SB 130–131 → WB **p.106 only**.
 
-- **LiA companion ACCEPTED (docs only):** SB 132–133 → WB 107–108.
-
-- **CLIL P.E. companion ACCEPTED (docs only):** SB 134–135 → WB 109–110 (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`).
+- **Docs-only ACCEPTED companions:** LiA 132–133→107–108; CLIL P.E. 134–135→109–110; Grammar 136–137→111–112.
 
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
 ## In progress
 
-- Evidence-backed Unit 8 component mapping continues; LiA and CLIL P.E. are docs-recorded but not code-wired.
+- Evidence-backed Unit 8 component mapping continues; several companions docs-recorded but not code-wired.
 
 ## Next
 
-- Wire one docs-accepted companion in app, or content-review Grammar SB 136–137 ↔ WB 111–112.
+- Wire one docs-accepted companion in app, or content-review Culture Connection SB 138–139 ↔ WB 113–114.
 - Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now.
 
 ## Blocked

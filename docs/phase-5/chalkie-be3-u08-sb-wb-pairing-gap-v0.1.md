@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA 132–133→107–108 **ACCEPTED** (docs) · Content Connection/P.E. 134–135→109–110 **ACCEPTED** (docs) · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar **ACCEPTED** (docs) · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -132,7 +132,36 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 6. Workspace consequence
+## 6. Accepted — SB pp.136–137 → WB pp.111–112 (Grammar)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Grammar · past simple regular (*-ed* spelling) + irregular forms. Workbook consolidates that morphology and extends with past questions/negatives on the **same** past-simple strand (not a different grammar topic). Distinct from LiA communicative *Did…?* practice on 132–133 / 107–108. No handoff built; no app wiring; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book pp.136–137 | Workbook pp.111–112 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p136`, `bep3_sb_p137` | `bep_3_wb_p111`, `bep_3_wb_p112` | — |
+| Component / type | Grammar · `grammar` | Grammar · `grammar` | Yes |
+| Target language / models | Regular past (*played/walked/stayed*; spelling rules) + irregular (*went/saw/came*); yesterday speaking frames | Regular spelling chart (*climbed/tried/changed/dropped*); irregular base→past; *didn't* negatives; *Did…?* / *was/were* Q&A | Yes — same past-simple strand |
+| Activity purpose | Listen/read; classify regular *-ed*; complete past narrative; match irregulars; tell about yesterday | Classify regulars; write irregulars; narrative cloze; complete *Did…?* Q&A; write negatives | Yes — consolidates + extends Grammar |
+| Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
+| Scope / excluded | — | LiA 107–108 and CLIL 109–110 out of scope | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · pp.136–137 |
+| WB | `big_english_3_wb` · pp.111–112 |
+| Stable reference | `be3-sb-wb-u08-p136-137-wb111-112` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+
+---
+
+## 7. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
@@ -140,18 +169,19 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
 | SB 132–133 companion | WB 107–108 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
 | SB 134–135 companion | WB 109–110 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
+| SB 136–137 companion | WB 111–112 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
 | Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 7. Next microstep
+## 8. Next microstep
 
-Owner-gated: wire one docs-accepted companion (LiA or CLIL P.E.) in app code, **or** content-review the next map row (e.g. Grammar SB 136–137 ↔ WB 111–112) — do not build handoffs or authorize Chalkie without a separate step.
+Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Culture Connection SB 138–139 ↔ WB 113–114) — do not build handoffs or authorize Chalkie without a separate step.
 
 ---
 
-## 8. Boundaries
+## 9. Boundaries
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  
