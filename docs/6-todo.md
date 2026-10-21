@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 290
+**Last updated:** Step 291
 
 
 
@@ -470,9 +470,11 @@
 
 - [x] **Writing SB 140 → WB 115 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; packaging: single lesson likely; no handoff; not wired in app.
 
+- [x] **Phonics SB 141 → WB 116 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; packaging: single lesson likely; no handoff; not wired in app.
+
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** wire one docs-accepted companion in app, or content-review Phonics SB 141 ↔ WB 116 (1→1) — no handoff/Chalkie without separate approval.
+- [ ] **Next microstep:** wire one docs-accepted companion in app, or content-review Values SB 142 (expected SB-only) / Review SB 143 ↔ WB 117 — no handoff/Chalkie without separate approval.
 
 
 

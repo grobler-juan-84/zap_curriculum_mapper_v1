@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 290
+**Last updated:** Step 291
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,17 +24,17 @@
 
 - **Story SB→WB handoff ACCEPTED FOR PROVISIONAL USE:** SB 130–131 → WB **p.106 only**.
 
-- **Docs-only ACCEPTED companions:** LiA; CLIL P.E.; Grammar; Culture; Writing SB 140→WB 115 (1→1; packaging: single lesson likely).
+- **Docs-only ACCEPTED companions:** LiA through Phonics (Writing + Phonics = 1→1; packaging: single lesson likely).
 
 - **Prior-learning Step 2 UI** updated (Add Prior Skills + teacher-created first card).
 
 ## In progress
 
-- Evidence-backed Unit 8 component mapping; remaining candidates: Phonics 141↔116, Values (SB-only), Review 143↔117.
+- Evidence-backed Unit 8 component mapping; remaining: Values (expected SB-only) and Review 143↔117.
 
 ## Next
 
-- Wire one docs-accepted companion in app, or content-review Phonics SB 141 ↔ WB 116 (1→1).
+- Wire one docs-accepted companion in app, or content-review Values SB 142 / Review SB 143 ↔ WB 117.
 - Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now.
 
 ## Blocked

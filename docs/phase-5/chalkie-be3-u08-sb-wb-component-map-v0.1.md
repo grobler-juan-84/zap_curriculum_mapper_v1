@@ -52,7 +52,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | Grammar | 136–137 | 111–112 | **Curated (docs)** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; handoff not built |
 | Culture Connection / Reading | 138–139 | 113–114 | **Curated (docs)** — `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`; handoff not built |
 | Writing | 140 | 115 | **Curated (docs)** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; 1→1; packaging: single lesson likely; handoff not built |
-| Phonics | 141 | 116 | Candidate only |
+| Phonics | 141 | 116 | **Curated (docs)** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; 1→1; packaging: single lesson likely; handoff not built |
 | Values | 142 | — | **SB-only** expected (0 WB pages) |
 | Review | 143 | 117 | Candidate only |
 
@@ -69,8 +69,9 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | SB 136–137 → WB 111–112 (Grammar) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` |
 | SB 138–139 → WB 113–114 (Culture) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` |
 | SB 140 → WB 115 (Writing, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; packaging: single lesson likely) | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
+| SB 141 → WB 116 (Phonics, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; packaging: single lesson likely) | `be3_sb_wb_rel_u08_phonics_sb141_wb116` |
 
-Story series packaging remains enabled for the story companion only. LiA, CLIL P.E., Grammar, Culture, and Writing mappings are docs-recorded only — **not** wired in app code; **no** series handoffs.
+Story series packaging remains enabled for the story companion only. LiA through Phonics mappings are docs-recorded only — **not** wired in app code; **no** series handoffs.
 
 ---
 

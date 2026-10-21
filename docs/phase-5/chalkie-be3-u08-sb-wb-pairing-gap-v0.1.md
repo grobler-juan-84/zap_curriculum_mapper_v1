@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA / CLIL P.E. / Grammar / Culture / Writing **ACCEPTED** (docs) · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA through Phonics **ACCEPTED** (docs) · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -220,26 +220,55 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 9. Workspace consequence
+## 9. Accepted — SB p.141 → WB p.116 (Phonics, 1→1)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Phonics · *all, au, aw*. Workbook consolidates that sound/spelling set (shared items include *ball, haul, draw, tall, yawn, claw, Paul, wall*) and the related chant. Valid **1→1** component relationship. No handoff built; no app wiring; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book p.141 | Workbook p.116 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p141` | `bep_3_wb_p116` | — |
+| Component / type | Phonics · `phonics` · *all, au, aw* | Phonics · `phonics` · *all, au, aw* | Yes |
+| Sound/spelling target | *all / au / aw* (*ball, haul, draw*; blend *small, call, tall, yawn, claw, wall, law, Paul*) | Same *all / au / aw*; target words *ball, tall, haul, draw, claw, yawn* | Yes |
+| Activity purpose | Listen/read/repeat; listen/find/say; blend; read aloud + chant | Circle *all/au/aw*; underline in sentences; connect letters and write; listen and write chant gaps | Yes — consolidates phonics |
+| Page-count shape | 1 SB page | 1 WB page | Valid (component map 1→1) |
+| Scope / excluded | — | Writing 115 and Values 142 / Review 117 out of scope | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_phonics_sb141_wb116` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · p.141 |
+| WB | `big_english_3_wb` · p.116 |
+| Stable reference | `be3-sb-wb-u08-p141-wb116` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+| Recommended future packaging | **single lesson likely** (1→1 phonics pair; not assumed as a two-lesson series) |
+
+---
+
+## 10. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
 | SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
-| SB 132–133 · 134–135 · 136–137 · 138–139 | WB 107–108 · 109–110 · 111–112 · 113–114 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
-| SB 140 companion | WB 115 · **docs-mapped ACCEPTED** (1→1); resolver/series **not** enabled |
-| Other BE3 U8 spreads | No companion / no series unless separately reviewed |
+| SB 132–133 · 134–135 · 136–137 · 138–139 · 140 · 141 | WB 107–108 · 109–110 · 111–112 · 113–114 · 115 · 116 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
+| Other BE3 U8 spreads | No companion / no series unless separately reviewed (Values = expected SB-only) |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 10. Next microstep
+## 11. Next microstep
 
-Owner-gated: wire one docs-accepted companion in app code, **or** content-review the next map row (e.g. Phonics SB 141 ↔ WB 116, 1→1) — do not build handoffs or authorize Chalkie without a separate step.
+Owner-gated: wire one docs-accepted companion in app code, **or** content-review Values SB 142 (expected SB-only, 0 WB) / Review SB 143 ↔ WB 117 — do not build handoffs or authorize Chalkie without a separate step.
 
 ---
 
-## 11. Boundaries
+## 12. Boundaries
 
 - No general automatic SB→WB pairing rule.  
 - No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  
