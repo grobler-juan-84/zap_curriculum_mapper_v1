@@ -48,3 +48,32 @@ export function pdfForPrinted(map: PageMap, printed: number): number {
   const near = nearestBy(map, printed, 'printed')
   return printed + (near.pdf - near.printed)
 }
+
+/**
+ * Resolve physical PDF indices for printed pages using exact source `pdf_page` values.
+ * Does **not** treat printed numbers as PDF indices. Returns null if any printed
+ * page lacks a verified pdf_page in the provided page records.
+ */
+export function exactPdfPagesForPrinted(
+  pages: Array<{ printedPage?: number | null; pdfPage?: number | null }>,
+  printedPages: number[],
+): number[] | null {
+  const wanted = [
+    ...new Set(printedPages.filter((n) => Number.isFinite(n))),
+  ].sort((a, b) => a - b)
+  if (!wanted.length) return null
+
+  const byPrinted = new Map<number, number>()
+  for (const page of pages) {
+    if (typeof page.printedPage !== 'number' || typeof page.pdfPage !== 'number') continue
+    if (!byPrinted.has(page.printedPage)) byPrinted.set(page.printedPage, page.pdfPage)
+  }
+
+  const out: number[] = []
+  for (const printed of wanted) {
+    const pdf = byPrinted.get(printed)
+    if (pdf == null) return null
+    out.push(pdf)
+  }
+  return out
+}

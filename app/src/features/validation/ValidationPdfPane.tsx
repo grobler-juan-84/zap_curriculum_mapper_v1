@@ -47,10 +47,16 @@ interface ValidationPdfPaneProps {
    */
   navigationLocked?: boolean
   /**
-   * When set, show only these printed pages (exact mapped companion pages).
-   * Single-page companions render one page; do not invent a facing page.
+   * When set, show only these printed pages (mapped via `pageMap` → pdf indices).
+   * Prefer `allowedPdfPages` when verified source `pdf_page` values are available.
    */
   allowedPrintedPages?: number[] | null
+  /**
+   * When set, show only these physical PDF indices (already resolved from source
+   * `pdf_page`). Takes precedence over `allowedPrintedPages`. Single-page locks
+   * render one page; do not invent a facing page.
+   */
+  allowedPdfPages?: number[] | null
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
@@ -73,6 +79,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   jumpRequest = null,
   navigationLocked = false,
   allowedPrintedPages = null,
+  allowedPdfPages = null,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
@@ -84,14 +91,32 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const printedLabel = (pdfIndex: number): number => printedForPdf(pageMap, pdfIndex) ?? pdfIndex
 
   const lockedPdfIndices = useMemo(() => {
-    if (!allowedPrintedPages?.length || !numPages) return null
-    const indices = allowedPrintedPages
-      .map((printed) => pdfForPrinted(pageMap, printed))
-      .filter((n) => Number.isFinite(n))
-      .map((n) => clampPage(n, numPages))
-    const unique = [...new Set(indices)].sort((a, b) => a - b)
+    if (!numPages) return null
+    const fromPdf = allowedPdfPages?.filter((n) => Number.isFinite(n)) ?? []
+    const raw =
+      fromPdf.length > 0
+        ? fromPdf
+        : allowedPrintedPages?.length
+          ? allowedPrintedPages.map((printed) => pdfForPrinted(pageMap, printed))
+          : []
+    if (!raw.length) return null
+    const unique = [
+      ...new Set(
+        raw.filter((n) => Number.isFinite(n)).map((n) => clampPage(n, numPages)),
+      ),
+    ].sort((a, b) => a - b)
     return unique.length > 0 ? unique : null
-  }, [allowedPrintedPages, pageMap, numPages])
+  }, [allowedPdfPages, allowedPrintedPages, pageMap, numPages])
+
+  // Keep pairStart aligned with locked companion pages so a pdfUrl reset to page 1
+  // cannot leave the viewer on the cover while labels still show the mapping.
+  useEffect(() => {
+    if (!lockedPdfIndices?.length || !numPages) return
+    const start = lockedPdfIndices[0]!
+    setPairStart(start)
+    setJumpValue(String(printedForPdf(pageMap, start) ?? start))
+    setRangeReportReady(true)
+  }, [lockedPdfIndices, numPages, pageMap])
 
   useEffect(() => {
     setNumPages(0)

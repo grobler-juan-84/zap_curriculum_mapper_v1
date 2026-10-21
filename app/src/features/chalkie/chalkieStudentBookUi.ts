@@ -4,10 +4,27 @@
  */
 
 import type { Book } from '../../types/curriculum'
+import { exactPdfPagesForPrinted } from '../validation/pdfPageMap'
 import {
   resolveVerifiedSbWbCompanion,
   type VerifiedSbWbCompanion,
 } from './resolveVerifiedSbWbCompanion'
+
+export type SourcePagePdfRef = {
+  printedPage?: number | null
+  pdfPage?: number | null
+}
+
+/**
+ * Resolve the physical PDF indices the viewer must render for a printed-page
+ * spread. Uses exact source `pdf_page` only — never treats printed as PDF index.
+ */
+export function resolveViewerPdfPagesForPrinted(
+  sourcePages: SourcePagePdfRef[],
+  printedPages: number[],
+): number[] | null {
+  return exactPdfPagesForPrinted(sourcePages, printedPages)
+}
 
 /** True when the catalog book is a Student Book (not Workbook / TG). */
 export function isStudentBook(book: Book): boolean {

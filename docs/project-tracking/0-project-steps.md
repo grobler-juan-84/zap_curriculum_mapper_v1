@@ -5041,3 +5041,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 299
+
+**Summary:** Fixed SB/WB PDF-page binding: viewer targets verified source `pdf_page` (SB printed 128–129 → PDF 126–127; WB printed 104–105 → PDF 104–105), removed remount-to-cover path, and lock WB to exact PDF indices. Regression tests assert rendered PDF identifiers for the known opener mapping. F021/F022 preserved.
+
+**Files touched:**
+- `app/src/features/validation/pdfPageMap.ts` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/chalkie/chalkieStudentBookUi.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/chalkieStudentBookUi.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

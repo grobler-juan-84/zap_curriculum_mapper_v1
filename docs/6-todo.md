@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 298
+**Last updated:** Step 299
 
 
 
@@ -491,6 +491,8 @@
 - [x] **D021 UI slice** — SB-only book dropdown; View Workbook toggle (mapped pages, nav locked); SB/WB summaries; prepare SB-anchored.
 
 - [x] **View Student Book restore** — full frozen SB spread + controls + companion/WB summary after Workbook round trip.
+
+- [x] **PDF binding** — companion SB/WB views use verified `pdf_page` (not printed-as-pdf); remount-to-cover bug removed.
 
 - [ ] **Next microstep:** wire one or more docs-accepted Unit 8 companions into app curated data (smallest safe batch) — expands View Workbook coverage; no new handoff/Chalkie without separate approval.
 

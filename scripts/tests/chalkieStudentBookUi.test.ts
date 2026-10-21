@@ -3,7 +3,10 @@
  * Run: npx tsx --test scripts/tests/chalkieStudentBookUi.test.ts
  */
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import path from 'node:path'
 import test from 'node:test'
+import { fileURLToPath } from 'node:url'
 
 import {
   enterWorkbookPdfView,
@@ -11,11 +14,29 @@ import {
   isStudentBook,
   lessonAnchorPrintedPages,
   resolveCompanionForSbPages,
+  resolveViewerPdfPagesForPrinted,
   restoreStudentBookPdfView,
   shouldApplyVisiblePagesFromPdf,
   studentBookDisplayTitle,
 } from '../../app/src/features/chalkie/chalkieStudentBookUi.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+const BE3_SB_PATH = path.join(ROOT, 'data/phase1/big_english_3_sb/canonical/v1.json')
+const BE3_WB_PATH = path.join(ROOT, 'data/phase1/big_english_3_wb/canonical/v1.json')
+
+function sourcePagesFromCanonical(filePath: string): Array<{
+  printedPage: number | null
+  pdfPage: number | null
+}> {
+  const raw = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
+    pages?: Array<{ printed_page?: unknown; pdf_page?: unknown }>
+  }
+  return (raw.pages ?? []).map((page) => ({
+    printedPage: typeof page.printed_page === 'number' ? page.printed_page : null,
+    pdfPage: typeof page.pdf_page === 'number' ? page.pdf_page : null,
+  }))
+}
 
 function bookStub(overrides: Partial<Book> & Pick<Book, 'id' | 'title' | 'type'>): Book {
   return {
@@ -158,5 +179,65 @@ test('SB 128–129 → Workbook → Student Book restores full spread + companio
       reportedPages: [128, 129],
     }),
     true,
+  )
+})
+
+test('BE3 U8 opener resolves verified pdf_page targets for SB and WB (not printed-as-pdf)', () => {
+  assert.ok(fs.existsSync(BE3_SB_PATH), 'BE3 SB canonical required')
+  assert.ok(fs.existsSync(BE3_WB_PATH), 'BE3 WB canonical required')
+
+  const sbPages = sourcePagesFromCanonical(BE3_SB_PATH)
+  const wbPages = sourcePagesFromCanonical(BE3_WB_PATH)
+
+  const sbPrinted = [128, 129]
+  const wbPrinted = [104, 105]
+
+  const sbPdfPages = resolveViewerPdfPagesForPrinted(sbPages, sbPrinted)
+  const wbPdfPages = resolveViewerPdfPagesForPrinted(wbPages, wbPrinted)
+
+  // Verified Phase 1 source values (printed ≠ pdf for SB front-matter offset).
+  assert.deepEqual(sbPdfPages, [126, 127])
+  assert.deepEqual(wbPdfPages, [104, 105])
+
+  // Must not silently treat printed numbers as PDF indices for SB.
+  assert.notDeepEqual(sbPdfPages, sbPrinted)
+
+  const companion = resolveCompanionForSbPages({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookPrintedPages: sbPrinted,
+  })
+  assert.ok(companion)
+  assert.deepEqual(companion?.workbookPrintedPages, wbPrinted)
+
+  // Full round trip: SB pdf targets → WB pdf targets → restored SB pdf targets.
+  const entered = enterWorkbookPdfView(sbPrinted)
+  const restored = restoreStudentBookPdfView({
+    frozenSbPrintedPages: entered.frozenSbPrintedPages,
+    sbVisiblePrintedPages: [128],
+  })
+  assert.deepEqual(
+    resolveViewerPdfPagesForPrinted(sbPages, restored.pendingRestorePrintedPages),
+    [126, 127],
+  )
+  assert.deepEqual(
+    resolveViewerPdfPagesForPrinted(wbPages, companion!.workbookPrintedPages),
+    [104, 105],
+  )
+})
+
+test('exact pdf_page resolver returns null when printed pages are missing from source', () => {
+  assert.equal(
+    resolveViewerPdfPagesForPrinted(
+      [{ printedPage: 128, pdfPage: 126 }],
+      [128, 129],
+    ),
+    null,
+  )
+  assert.equal(
+    resolveViewerPdfPagesForPrinted(
+      [{ printedPage: 128, pdfPage: null }],
+      [128],
+    ),
+    null,
   )
 })
