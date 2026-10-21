@@ -4821,3 +4821,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 287
+
+**Summary:** Content-reviewed BE3 U8 Content Connection / P.E. SB pp.134-135 against WB pp.109-110 and ACCEPTED it as a docs-only curated mapping (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`); no handoff, no app code, no Chalkie generation.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

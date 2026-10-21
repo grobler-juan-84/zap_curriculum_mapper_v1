@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA SB 132–133 → WB 107–108 **ACCEPTED** (docs mapping only; no handoff) · 106–107 pair **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA 132–133→107–108 **ACCEPTED** (docs) · Content Connection/P.E. 134–135→109–110 **ACCEPTED** (docs) · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -102,27 +102,58 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 5. Workspace consequence
+## 5. Accepted — SB pp.134–135 → WB pp.109–110 (Content Connection / P.E.)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Content Connection / P.E. (*What Is a Calorie?*). Workbook consolidates calorie / energy / activity content-words and CLIL reading practice; not a different strand. No handoff built; no app wiring; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book pp.134–135 | Workbook pp.109–110 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* | Unit 8 *Healthy Living* | Yes |
+| Page IDs | `bep3_sb_p134`, `bep3_sb_p135` | `bep_3_wb_p109`, `bep_3_wb_p110` | — |
+| Component / type | Content Connection \| P.E. · `clil_pe` / `clil_pe_project` · *What Is a Calorie?* | Content Connection · `clil_pe` · *P.E. \| Content Connection* | Yes |
+| Target vocabulary | *active, activities, body, burn, calorie, in shape, measure, put on weight, rest* | *calorie, measure, put on weight, active, energy* (+ cloze: *activities, watching TV*) | Yes — shared CLIL set |
+| Target language | Content-word reading; comprehension Qs about calories, weight, exercise | Cloze + listen/circle + match on calorie/energy/active ideas | Yes |
+| Activity purpose | Predict; listen/read article; answer; good/bad body chart; partner talk; Exercise Chart project | Complete calorie text; check with audio; match ideas; activity diagram; Think Big healthy choices | Yes — consolidates CLIL P.E. |
+| Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
+| Scope / excluded | — | LiA 107–108 and Grammar 111–112 out of scope | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · pp.134–135 |
+| WB | `big_english_3_wb` · pp.109–110 |
+| Stable reference | `be3-sb-wb-u08-p134-135-wb109-110` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+
+---
+
+## 6. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
 | SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
-| SB 132–133 companion | WB 107–108 · **docs-mapped ACCEPTED**; resolver/series handoff **not** enabled |
+| SB 132–133 companion | WB 107–108 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
+| SB 134–135 companion | WB 109–110 · **docs-mapped ACCEPTED**; resolver/series **not** enabled |
 | Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 6. Next microstep
+## 7. Next microstep
 
-Owner-gated: wire the LiA curated companion in app code (smallest safe resolver entry), **or** content-review the next component-map row (e.g. Content Connection SB 134–135 ↔ WB 109–110) — do not build a LiA series handoff or authorize Chalkie without a separate step.
+Owner-gated: wire one docs-accepted companion (LiA or CLIL P.E.) in app code, **or** content-review the next map row (e.g. Grammar SB 136–137 ↔ WB 111–112) — do not build handoffs or authorize Chalkie without a separate step.
 
 ---
 
-## 7. Boundaries
+## 8. Boundaries
 
 - No general automatic SB→WB pairing rule.  
-- No AI/API / Chalkie generation authorized by this LiA verdict.  
+- No AI/API / Chalkie generation authorized by these docs-only ACCEPTED mappings.  
 - No D018 / `4-decisions.md` changes.  
-- This ACCEPTED mapping is a **documentation** record only until a separate code step adds it to the curated companion table.
+- Docs ACCEPTED mappings are **documentation** only until a separate code step adds them to the curated companion table.

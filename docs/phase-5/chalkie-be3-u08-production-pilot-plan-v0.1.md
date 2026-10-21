@@ -67,7 +67,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | **128–129** | Vocabulary + Song / Vocabulary (`vocabulary` · `song_vocabulary`) | Healthy and unhealthy activities · Live Right! | Learn and use the phrases for Healthy and unhealthy activities; then Did…? short answers | Yes (8 dedicated) | Yes (5) | None (unit opener) | Ready | **SB→WB series pilot COMPLETE** — [`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md) | **Done (SB→WB series)** — PASS AFTER LIGHT TEACHER REVIEW |
 | **130–131** | Story + Reading (`story` · `reading_comprehension`) | An Unhealthy Dinner | Listen/read story; understand why the dinner was unhealthy | No dedicated/current models | Thin (2) | Yes (p.128) | Ready | Companion **ACCEPTED** SB→WB **p.106 only** + asymmetric series handoff **ACCEPTED FOR PROVISIONAL USE** (`be3_sb_wb_rel_u08_story_sb130-131_wb106`); 106–107 pair rejected — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) · [`chalkie-be3-u08-sb-wb-component-map-v0.1.md`](./chalkie-be3-u08-sb-wb-component-map-v0.1.md) | **Done (local handoff)** — provisional use; no Story Chalkie export claimed; no further Story Chalkie experiments now |
 | **132–133** | Language in Action (`grammar_practice`) | Asking About Yesterday / Did…? practice | Ask and answer about past activities using Did…? and short answers | Yes (5 activity models) | Yes (5) | Yes (p.128) | Ready | **Exp 11–13**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
-| **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14** strong non-grammar transfer | **No immediate repeat** |
+| **134–135** | Content Connection \| P.E. (`clil_pe` · `clil_pe_project`) | What Is a Calorie? | Read about calories / healthy activity; good vs bad for the body | Yes (9 dedicated) | Yes (6) | Yes (p.128) | Ready | **Exp 14**; SB→WB companion **ACCEPTED** docs-only (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10** Lesson Series operational pilot: raw CONDITIONAL FAIL → PASS AFTER TEACHER REVIEW | **No immediate repeat** (already teacher-reviewed; different series mode) |
 | **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | **None documented** | Eligible later in the unit sequence |
 | **140** | Writing \| Combining Sentences… (`writing`) | Combining Sentences with and, but, or | *(null from local focus lanes)* | No dedicated | Yes (4) | Yes | Ready (single page) | None | **Wait** — single-page; not a two-page spread |
@@ -104,9 +104,13 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **pp.132–133** Language in Action → WB **107–108**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). Not wired in app; no series handoff; no Chalkie generation. Exp 11–13 Single Lesson history remains **no immediate Chalkie repeat**.
 
+### CLIL P.E. companion recorded (docs only)
+
+**pp.134–135** Content Connection / P.E. → WB **109–110**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`). Not wired in app; no series handoff; no Chalkie generation. Exp 14 Single Lesson history remains **no immediate Chalkie repeat**.
+
 ### Later eligible (evidence / mapping first)
 
-1. Next **component-map content review** (e.g. Content Connection SB 134–135 ↔ WB 109–110), **or** owner-gated wire of the LiA curated companion in app code.  
+1. Next **component-map content review** (e.g. Grammar SB 136–137 ↔ WB 111–112), **or** owner-gated wire of a docs-accepted companion (LiA or CLIL P.E.) in app code.  
 2. **pp.138–139** Culture *Strange Sports* — ready with dedicated vocab if a later Single Lesson path is separately authorized.
 
 ### Wait / out of this two-page pilot wave
@@ -151,12 +155,14 @@ No new rubric. No D018 re-score.
 
 **Language in Action:** Content review **ACCEPTED** SB pp.132–133 → WB pp.107–108 (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
 
+**Content Connection / P.E.:** Content review **ACCEPTED** SB pp.134–135 → WB pp.109–110 (`be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`). Docs mapping only — **not** in curated companion code; **no** series handoff; **no** Chalkie generation.
+
 Unmapped BE3 spreads still have no series. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action (choose one):** wire the LiA curated companion in app code (smallest safe resolver entry), **or** content-review the next component-map candidate (e.g. Content Connection SB 134–135 ↔ WB 109–110). Do not build a LiA handoff or authorize Chalkie without a separate step.
+**Next owner action (choose one):** wire one docs-accepted companion (LiA or CLIL P.E.) in app code, **or** content-review the next map candidate (e.g. Grammar SB 136–137 ↔ WB 111–112). Do not build handoffs or authorize Chalkie without a separate step.
 
 Until explicitly authorized for a *different* route, **do not generate**.
