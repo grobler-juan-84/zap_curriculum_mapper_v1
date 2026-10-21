@@ -129,13 +129,14 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     setRangeReportReady(true)
   }, [initialPage, initialPageEnd, numPages, pageMap])
 
-  // Host-driven jump (e.g. "Go to unit opening pages") — always applies.
+  // Host-driven jump (e.g. View Student Book restore) — always applies once loaded.
   useEffect(() => {
     if (!numPages || !jumpRequest) return
     if (!Number.isFinite(jumpRequest.pdfPage)) return
     const start = clampPage(jumpRequest.pdfPage, numPages)
     setPairStart(start)
     setJumpValue(String(printedForPdf(pageMap, start) ?? start))
+    setRangeReportReady(true)
   }, [jumpRequest, numPages, pageMap])
 
   const leftPage = lockedPdfIndices?.[0] ?? pairStart

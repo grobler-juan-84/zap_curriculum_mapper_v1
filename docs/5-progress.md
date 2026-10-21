@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 297
+**Last updated:** Step 298
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -17,6 +17,8 @@
 - **D017** / **D018** / **D019** / **D020** / **D021** LOCKED.
 
 - **D021 UI slice:** Chalkie SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored.
+
+- **View Student Book restore fix:** frozen SB spread (e.g. 128–129) restored in full; companion toggle, WB summary, and PDF controls return after Workbook view.
 
 - BE3 U8 component-map content review COMPLETE; opener + story series in app; other companions docs-only.
 

@@ -62,3 +62,67 @@ export function lessonAnchorPrintedPages(input: {
   }
   return input.sbVisiblePrintedPages
 }
+
+function normalizePrintedPages(pages: number[]): number[] {
+  return [...new Set(pages.filter((n) => Number.isFinite(n)))].sort((a, b) => a - b)
+}
+
+function printedPagesEqual(a: number[], b: number[]): boolean {
+  const left = normalizePrintedPages(a)
+  const right = normalizePrintedPages(b)
+  if (left.length !== right.length) return false
+  return left.every((page, index) => page === right[index])
+}
+
+export type PdfSourceViewMode = 'student_book' | 'workbook'
+
+/** Enter Workbook PDF view: freeze the exact SB spread for restore + lesson identity. */
+export function enterWorkbookPdfView(sbPrintedPages: number[]): {
+  pdfViewMode: 'workbook'
+  frozenSbPrintedPages: number[]
+} {
+  return {
+    pdfViewMode: 'workbook',
+    frozenSbPrintedPages: normalizePrintedPages(sbPrintedPages),
+  }
+}
+
+/**
+ * Leave Workbook PDF view: restore the saved SB spread, never derive pages from
+ * the Workbook viewer or a one-page PDF report.
+ */
+export function restoreStudentBookPdfView(input: {
+  frozenSbPrintedPages: number[] | null
+  sbVisiblePrintedPages: number[]
+}): {
+  pdfViewMode: 'student_book'
+  frozenSbPrintedPages: null
+  sbVisiblePrintedPages: number[]
+  pendingRestorePrintedPages: number[]
+} {
+  const restored = normalizePrintedPages(
+    input.frozenSbPrintedPages?.length
+      ? input.frozenSbPrintedPages
+      : input.sbVisiblePrintedPages,
+  )
+  return {
+    pdfViewMode: 'student_book',
+    frozenSbPrintedPages: null,
+    sbVisiblePrintedPages: restored,
+    pendingRestorePrintedPages: restored,
+  }
+}
+
+/**
+ * While a Student Book restore is pending, ignore incomplete PDF visible-page
+ * reports (e.g. only p.128) so the companion toggle / WB summary stay intact.
+ * Accept once the PDF reports the full restored spread.
+ */
+export function shouldApplyVisiblePagesFromPdf(input: {
+  pendingRestorePrintedPages: number[] | null
+  reportedPages: number[]
+}): boolean {
+  const pending = input.pendingRestorePrintedPages
+  if (!pending?.length) return true
+  return printedPagesEqual(pending, input.reportedPages)
+}

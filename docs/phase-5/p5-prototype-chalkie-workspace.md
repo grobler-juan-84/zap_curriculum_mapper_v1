@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.16  
+**Version:** 2.17  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -20,7 +20,7 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 
 Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain.
 
-**Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states.
+**Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states. **View Student Book** restores the frozen SB spread (e.g. pp.128–129), not a one-page PDF report — companion toggle, WB summary, and normal PDF controls return with that spread.
 
 **In scope:**
 
@@ -223,3 +223,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-21 | Unit Intelligence supersedes standalone Book Intelligence preview; sidebar BI item removed; legacy `/app/book-intelligence…` redirects to Chalkie (`?unit=` preserved when present). |
 | 2026-10-21 | Cross-linked **D021** Student Book–first lesson preparation (LOCKED); no UI enforcement yet. |
 | 2026-10-21 | D021 UI slice: SB-only book dropdown; View Workbook toggle for verified companions; SB/WB page summaries; prepare stays SB-anchored. |
+| 2026-10-21 | Fix View Student Book restore: reinstate frozen SB spread (e.g. 128–129), PDF controls, companion toggle/WB summary; ignore one-page PDF overwrites during restore. |

@@ -19,9 +19,12 @@ import {
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { loadBookIntelligenceFromStorage } from '../book-intelligence/loadBookIntelligenceFromStorage'
 import {
+  enterWorkbookPdfView,
   isStudentBook,
   lessonAnchorPrintedPages,
   resolveCompanionForSbPages,
+  restoreStudentBookPdfView,
+  shouldApplyVisiblePagesFromPdf,
   studentBookDisplayTitle,
 } from './chalkieStudentBookUi'
 import { ChalkieLeftPanel } from './ChalkieLeftPanel'
@@ -123,6 +126,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const [frozenSbPrintedPages, setFrozenSbPrintedPages] = useState<number[] | null>(
     null,
   )
+  /** Full SB spread awaiting PDF confirmation after View Student Book. */
+  const [pendingSbRestorePages, setPendingSbRestorePages] = useState<number[] | null>(
+    null,
+  )
 
   const [workbookSummary, setWorkbookSummary] = useState<BatchJsonSummary | null>(null)
   const [wbPdfUrl, setWbPdfUrl] = useState<string | null>(null)
@@ -193,10 +200,25 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     [book.catalogBookId, anchorSbPages, fromCanonical, canonicalRaw, summary?.raw],
   )
 
-  const handleVisiblePrintedPagesChange = useCallback((pages: number[]) => {
-    // Only Student Book view updates lesson-anchor pages (D021).
-    setSbVisiblePrintedPages(pages)
-  }, [])
+  const handleVisiblePrintedPagesChange = useCallback(
+    (pages: number[]) => {
+      // Only Student Book view updates lesson-anchor pages (D021).
+      // During restore, ignore one-page / partial reports that would drop the companion.
+      if (
+        !shouldApplyVisiblePagesFromPdf({
+          pendingRestorePrintedPages: pendingSbRestorePages,
+          reportedPages: pages,
+        })
+      ) {
+        return
+      }
+      if (pendingSbRestorePages?.length) {
+        setPendingSbRestorePages(null)
+      }
+      setSbVisiblePrintedPages(pages)
+    },
+    [pendingSbRestorePages],
+  )
 
   const liveLessonContext = useMemo(
     () =>
@@ -231,20 +253,35 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const handleTogglePdfSource = useCallback(() => {
     if (pdfViewMode === 'student_book') {
-      setFrozenSbPrintedPages([...sbVisiblePrintedPages])
-      setPdfViewMode('workbook')
+      if (!verifiedCompanion) return
+      const next = enterWorkbookPdfView(sbVisiblePrintedPages)
+      setFrozenSbPrintedPages(next.frozenSbPrintedPages)
+      setPendingSbRestorePages(null)
+      setPdfViewMode(next.pdfViewMode)
       return
     }
-    const restore = frozenSbPrintedPages ?? sbVisiblePrintedPages
-    setFrozenSbPrintedPages(null)
-    setPdfViewMode('student_book')
-    if (restore[0] != null) {
+    // Restore the exact frozen SB spread — do not derive from Workbook/PDF state.
+    const next = restoreStudentBookPdfView({
+      frozenSbPrintedPages,
+      sbVisiblePrintedPages,
+    })
+    setSbVisiblePrintedPages(next.sbVisiblePrintedPages)
+    setFrozenSbPrintedPages(next.frozenSbPrintedPages)
+    setPendingSbRestorePages(next.pendingRestorePrintedPages)
+    setPdfViewMode(next.pdfViewMode)
+    if (next.pendingRestorePrintedPages[0] != null) {
       setPdfJumpRequest((prev) => ({
-        pdfPage: pdfForPrinted(pageMap, restore[0]),
+        pdfPage: pdfForPrinted(pageMap, next.pendingRestorePrintedPages[0]!),
         requestId: (prev?.requestId ?? 0) + 1,
       }))
     }
-  }, [pdfViewMode, sbVisiblePrintedPages, frozenSbPrintedPages, pageMap])
+  }, [
+    pdfViewMode,
+    sbVisiblePrintedPages,
+    frozenSbPrintedPages,
+    pageMap,
+    verifiedCompanion,
+  ])
 
   const handleCloseTeacherChoice = useCallback(() => {
     setTeacherChoiceOpen(false)
@@ -254,6 +291,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const handleJumpToUnitOpening = useCallback(() => {
     setPdfViewMode('student_book')
     setFrozenSbPrintedPages(null)
+    setPendingSbRestorePages(null)
     const printed = scopeGuard?.unitOpeningPrintedPage ?? liveLessonContext.unitOpeningPrintedPage
     if (printed == null) return
     const pdfPage = pdfForPrinted(pageMap, printed)
@@ -275,15 +313,24 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   useEffect(() => {
     setPdfViewMode('student_book')
     setFrozenSbPrintedPages(null)
+    setPendingSbRestorePages(null)
   }, [selectedBatchId, book.id])
 
   // Leave Workbook view if the mapped companion no longer applies.
   useEffect(() => {
     if (!verifiedCompanion && pdfViewMode === 'workbook') {
-      setPdfViewMode('student_book')
-      setFrozenSbPrintedPages(null)
+      const next = restoreStudentBookPdfView({
+        frozenSbPrintedPages,
+        sbVisiblePrintedPages,
+      })
+      setSbVisiblePrintedPages(next.sbVisiblePrintedPages)
+      setFrozenSbPrintedPages(next.frozenSbPrintedPages)
+      setPendingSbRestorePages(
+        next.pendingRestorePrintedPages.length ? next.pendingRestorePrintedPages : null,
+      )
+      setPdfViewMode(next.pdfViewMode)
     }
-  }, [verifiedCompanion, pdfViewMode])
+  }, [verifiedCompanion, pdfViewMode, frozenSbPrintedPages, sbVisiblePrintedPages])
 
   useEffect(() => {
     let cancelled = false
@@ -297,6 +344,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setSbVisiblePrintedPages([])
     setPdfViewMode('student_book')
     setFrozenSbPrintedPages(null)
+    setPendingSbRestorePages(null)
     setTeacherChoiceOpen(false)
     setActiveLesson(null)
     setScopeGuard(null)
@@ -583,6 +631,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const handleSelectBatch = useCallback((batchId: string) => {
     setPdfViewMode('student_book')
     setFrozenSbPrintedPages(null)
+    setPendingSbRestorePages(null)
     setSelectedBatchId(batchId)
   }, [])
 
@@ -721,6 +770,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         >
           <div className="min-h-0 flex-1 overflow-hidden bg-slate-200/60 p-2">
             <ValidationPdfPane
+              // Remount on source switch so WB lock / pairStart / jump state cannot leak.
+              key={pdfViewMode === 'workbook' ? 'pdf-workbook' : 'pdf-student-book'}
               pdfUrl={pdfViewMode === 'workbook' ? wbPdfUrl : pdfUrl}
               loading={
                 pdfViewMode === 'workbook' ? wbPdfLoading || pdfLoading : pdfLoading
@@ -739,7 +790,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
                         verifiedCompanion.workbookPrintedPages[0] ?? 1,
                       )
                     : null
-                  : pdfInitialPage
+                  : pendingSbRestorePages?.[0] != null
+                    ? pdfForPrinted(pageMap, pendingSbRestorePages[0])
+                    : pdfInitialPage
               }
               pageMap={pdfViewMode === 'workbook' ? wbPageMap : pageMap}
               onVisiblePrintedPagesChange={
