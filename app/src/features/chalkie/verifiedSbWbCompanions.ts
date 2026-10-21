@@ -119,9 +119,42 @@ export const BE3_U08_SB132_133_WB107_108: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Content Connection / P.E. → WB Content Connection.
+ *
+ * Accepted after content review (*What Is a Calorie?* CLIL strand). Resolver-wired only:
+ * no series handoff builder and no Chalkie generation authorized for this mapping.
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p134-135-wb109-110`.
+ */
+export const BE3_U08_CLIL_PE_STABLE_REF = 'be3-sb-wb-u08-p134-135-wb109-110'
+
+export const BE3_U08_SB134_135_WB109_110: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p134', 'bep3_sb_p135'],
+  studentBookPrintedPages: [134, 135],
+  workbookPageIds: ['bep_3_wb_p109', 'bep_3_wb_p110'],
+  workbookPrintedPages: [109, 110],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook pp.109–110 consolidate Student Book Content Connection / P.E. *What Is a Calorie?* (pp.134–135): shared calorie/energy/activity CLIL vocabulary and reading practice. LiA 107–108 and Grammar 111–112 are out of scope.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB pp.134–135: Content Connection | P.E. · clil_pe / clil_pe_project · What Is a Calorie?',
+    'WB pp.109–110: Content Connection · clil_pe; cloze/listen/match on calorie/energy/active ideas.',
+    'Shared CLIL vocab includes calorie, measure, put on weight, active, energy / activities.',
+    'Explicitly excluded: WB LiA 107–108 and Grammar 111–112.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
   BE3_U08_SB130_131_WB106,
   BE3_U08_SB132_133_WB107_108,
+  BE3_U08_SB134_135_WB109_110,
 ]

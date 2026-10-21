@@ -48,7 +48,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | Vocabulary & Song | 128–129 | 104–105 | **Curated** — `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` (+ series handoff / pilot) |
 | Story | 130–131 | **106 only** | Count asymmetry (2→1) is expected. Candidate WB 106–107 **rejected** as a pair (p.107 is LiA). Series handoff **ACCEPTED FOR PROVISIONAL USE** (local six copyables; WB p.106 only; no Chalkie export claimed). |
 | Language in Action | 132–133 | 107–108 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`; handoff **not** built; Chalkie **not** authorized |
-| Content Connection / P.E. | 134–135 | 109–110 | **Curated (docs)** — `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`; handoff not built |
+| Content Connection / P.E. | 134–135 | 109–110 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`; handoff **not** built; Chalkie **not** authorized |
 | Grammar | 136–137 | 111–112 | **Curated (docs)** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; handoff not built |
 | Culture Connection / Reading | 138–139 | 113–114 | **Curated (docs)** — `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`; handoff not built |
 | Writing | 140 | 115 | **Curated (docs)** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; 1→1 relationship valid; generation default follows provisional two-lesson-first policy (L1 SB → L2 WB); handoff not built |
@@ -65,7 +65,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | SB 130–131 → WB **106 only** | Companion **ACCEPTED**; local handoff **ACCEPTED FOR PROVISIONAL USE** (2026-10-21) | `be3_sb_wb_rel_u08_story_sb130-131_wb106` |
 | SB 130–131 → WB 106–107 | **REJECTED** (earlier) | — |
 | SB 132–133 → WB 107–108 (LiA) | **ACCEPTED** + **resolver-wired** (2026-10-21); handoff not built; Chalkie not authorized | `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` |
-| SB 134–135 → WB 109–110 (CLIL P.E.) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` |
+| SB 134–135 → WB 109–110 (CLIL P.E.) | **ACCEPTED** + **resolver-wired** (2026-10-21); handoff not built; Chalkie not authorized | `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` |
 | SB 136–137 → WB 111–112 (Grammar) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` |
 | SB 138–139 → WB 113–114 (Culture) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` |
 | SB 140 → WB 115 (Writing, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; 1→1 valid; generation prefers two-lesson-first) | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
@@ -73,7 +73,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | SB 143 → WB 117 (Review, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; 1→1 valid; generation prefers two-lesson-first) | `be3_sb_wb_rel_u08_review_sb143_wb117` |
 | SB 142 Values | **SB-ONLY CONFIRMED** (no WB Values page) | — |
 
-Unit 8 component-map content review is **complete**. Story series packaging remains enabled for the story companion only. LiA is **resolver-wired** (View Workbook only); handoff **not** built. Remaining docs-accepted companions (CLIL, Grammar, Phonics, Review, …) are **not** wired; **no** new series handoffs.
+Unit 8 component-map content review is **complete**. Story series packaging remains enabled for the story companion only. LiA and CLIL/P.E. are **resolver-wired** (View Workbook only); handoffs **not** built. Remaining docs-accepted companions (Grammar, Phonics, Review, …) are **not** wired; **no** new series handoffs.
 
 **Packaging note (2026-10-21):** earlier “single lesson likely” labels on 1→1 rows described page-relationship compactness only. The provisional **two-lesson-first** Chalkie generation policy is recorded in [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A and does not reopen mapping verdicts.
 

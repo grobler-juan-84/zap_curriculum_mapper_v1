@@ -5130,3 +5130,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 304
+
+**Summary:** Wired BE3 U8 Content Connection / P.E. companion into curated resolver (SB 134–135 → WB 109–110; relationship `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`; stable ref `be3-sb-wb-u08-p134-135-wb109-110`). Resolver-wired only — no series handoff / no Chalkie. Opener, story, and LiA unchanged. Focused tests + typecheck. Docs: docs-accepted + resolver-wired. F021/F022 preserved unstaged.
+
+**Files touched:**
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

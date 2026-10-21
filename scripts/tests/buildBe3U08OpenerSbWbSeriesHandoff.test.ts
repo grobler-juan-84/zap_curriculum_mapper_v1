@@ -244,10 +244,26 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
   assert.equal(lia.seriesLessonTitle, null)
   assert.equal(lia.stableSeriesReference, null)
 
-  for (const pages of [
-    [134, 135],
-    [136, 137],
-  ]) {
+  // CLIL/P.E. is resolver-wired but has no series handoff.
+  const clil = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [134, 135],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(clil.supportsTwoLessonSeries, false)
+  assert.equal(
+    clil.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
+  )
+  assert.equal(clil.seriesLessonTitle, null)
+  assert.equal(clil.stableSeriesReference, null)
+
+  for (const pages of [[136, 137]]) {
     const lesson = resolveChalkieLessonContext({
       book: bookStub({
         catalogBookId: 'big_english_3_sb',
