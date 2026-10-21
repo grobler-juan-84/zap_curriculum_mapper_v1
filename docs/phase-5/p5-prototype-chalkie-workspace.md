@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.14  
+**Version:** 2.15  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -15,6 +15,10 @@ First teacher-facing **UI slice** for Phase 5 lesson packaging: browse the textb
 **Chalkie Workspace is a Chalkie-specific handoff adapter, not the project’s curriculum or lesson-planning source of truth.** Its copyables deliberately use the workflow Chalkie currently responds to best. The durable layer is the verified source evidence, SB→WB component mappings, teacher-selected prior learning, scope, and future neutral lesson package.
 
 If another generator later becomes more suitable, add a parallel workspace (for example, MagicSchool Workspace or Canva Workspace) that translates the same package for that platform. Do **not** rename or replace Chalkie Workspace, rebuild the curriculum mapping, or hardwire every lesson prompt again. This is an architectural boundary and future direction, not authorization to build another integration now. See [F021](../7-future.md).
+
+### Student Book–first preparation ([D021](../4-decisions.md) — LOCKED)
+
+Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain. **D021 does not authorize immediate UI/code changes** to enforce this picker behaviour yet.
 
 **In scope:**
 
@@ -214,3 +218,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-21 | Cross-linked provisional two-lesson-first packaging policy (§1A in Phase 6 Chalkie workflow); UI series gates unchanged; no generation authorized. |
 | 2026-10-21 | Left-panel **Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; honest empty state; does not affect handoff. |
 | 2026-10-21 | Unit Intelligence supersedes standalone Book Intelligence preview; sidebar BI item removed; legacy `/app/book-intelligence…` redirects to Chalkie (`?unit=` preserved when present). |
+| 2026-10-21 | Cross-linked **D021** Student Book–first lesson preparation (LOCKED); no UI enforcement yet. |

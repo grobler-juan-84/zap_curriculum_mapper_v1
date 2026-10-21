@@ -4985,3 +4985,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 296
+
+**Summary:** Locked **D021** Student Book–first lesson preparation: teachers start from SB unit/component; WB attaches only via verified companions; no WB-origin Single Lesson as the standard path; no immediate UI/code authorization. Cross-linked from Chalkie Workspace and Phase 6 workflow docs. F021/F022 preserved.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

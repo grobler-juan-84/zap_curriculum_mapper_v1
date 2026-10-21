@@ -55,6 +55,7 @@
 | D018 | Five-iteration Chalkie prompt validation | 2026-10-15 | LOCKED |
 | D019 | Book Intelligence MVP UI path validated (BE2 + BE3) | 2026-10-15 | LOCKED |
 | D020 | Phase 3 Vertical Mapping parked as later priority; cross-book prior-learning reuse | 2026-10-19 | LOCKED |
+| D021 | Student Book–first lesson preparation | 2026-10-21 | LOCKED |
 
 ---
 
@@ -382,6 +383,49 @@ A particularly important eventual use case is **early units in a new book** (non
 
 ---
 
+### D021 — Student Book–first lesson preparation
+
+**Date:** 2026-10-21  
+**Status:** LOCKED  
+**Decision:** For the **standard teacher-facing lesson-preparation workflow**, preparation starts from the **Student Book only**.
+
+1. Teachers choose the Student Book unit and the SB lesson/component they are teaching.
+2. Teachers may view the corresponding Workbook at any time.
+3. Teachers do **not** create a separate Single Lesson from a Workbook page.
+4. Teachers are **not** asked to choose whether to generate from the Student Book or the Workbook.
+
+When an **explicit, human-verified** SB→WB component mapping exists:
+
+- the system may include the Workbook as consolidation/practice in the prepared package;
+- the teacher may inspect the mapped Workbook pages;
+- the system keeps the evidence distinction clear: **SB = introduction/support**; **WB = consolidation/practice**.
+
+When **no** verified Workbook companion exists:
+
+- prepare the lesson from Student Book evidence only;
+- do **not** guess a Workbook match;
+- do **not** expose a Workbook-origin lesson-generation path as a workaround.
+
+This supports an **almost-one-button** teacher experience: teachers choose **what they are teaching**, not which internal source-book database should drive the lesson.
+
+**Reason:** Keep the teacher workflow simple and teaching-centred; avoid forcing an SB vs WB generation choice; use verified companions only as under-the-hood consolidation when available.  
+**Alternatives rejected:** Asking teachers to pick SB or WB as the generation origin; Workbook-origin Single Lesson as a standard path; guessing WB pairs when none are verified; requiring every lesson to include a Workbook; deleting WB data or mappings.  
+**Implications:** Future Chalkie Workspace / packaging UI must treat Student Book selection as the standard entry. Workbook PDFs, Phase 1 WB evidence, and curated SB→WB maps remain; WB may attach only via verified companions. Aligns with the provisional two-lesson-first packaging preference (Lesson 1 SB → Lesson 2 WB when mapped) in [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md) §1A without locking that packaging preference. Does **not** authorize immediate UI/code work. Admin/advanced workflows remain out of scope unless separately approved. Does **not** change D018 experiment design or reopen prior handoff results.  
+**Supersedes:** —  
+**Compatibility:** Complements D001 (evidence separation), D018 (retained downstream), and curated SB→WB mapping practice; does not rewrite F021/F022.
+
+**Boundary (mandatory):**
+
+- Does **not** delete Workbook data, source PDFs, or mapping work.
+- Workbook remains viewable and usable under the hood.
+- Does **not** authorize immediate UI/code implementation.
+- Does **not** require every lesson to use a Workbook.
+- Any future admin/advanced workflow is out of scope unless separately approved.
+
+**Teacher-surface links:** [`phase-5/p5-prototype-chalkie-workspace.md`](./phase-5/p5-prototype-chalkie-workspace.md) · [`phase-6/chalkie-interface-and-generation-workflow.md`](./phase-6/chalkie-interface-and-generation-workflow.md)
+
+---
+
 ## Change log
 
 | Date | Change |
@@ -409,4 +453,5 @@ A particularly important eventual use case is **early units in a new book** (non
 | 2026-10-16 | D018 operational note — cross-reference Chalkie interface/generation workflow V1 for settings recording; decision substance unchanged. |
 | 2026-10-16 | D018 owner override — one-time experimental authorization to proceed to V2 despite V1 below formal Pass; rubric and decision design unchanged. |
 | 2026-10-19 | Added D020 — Phase 3 Vertical Mapping parked as later priority (not a Phase 2-sufficiency gate); eventual cross-book prior-learning reuse for teacher choice; amends D015/D017 park wording. |
+| 2026-10-21 | Added D021 — Student Book–first lesson preparation for the standard teacher workflow; WB via verified companions only; no immediate UI/code authorization. |
 

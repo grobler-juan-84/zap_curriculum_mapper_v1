@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.5
+**Version:** V1.6
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -12,24 +12,27 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 
 **Architecture boundary:** this workflow is intentionally Chalkie-specific. It is the current adapter from a shared evidence-backed lesson package to Chalkie’s title, prompt, outline, vocabulary, and review flow. It must not become the only way the project stores curriculum intent. A future platform may need a different handoff template, but should reuse the same verified evidence, component mappings, teacher choices, and neutral lesson package. See [F021](../7-future.md).
 
+**Teacher workflow lock ([D021](../4-decisions.md)):** standard lesson preparation is **Student Book–first**. Teachers choose the SB unit/component they are teaching; they are not asked to pick SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice; unverified pairs must not be guessed. Workbook remains viewable. This decision does **not** by itself authorize UI/code changes.
+
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
 
 ## 1A. Provisional two-lesson-first packaging policy
 
 **Status:** **PROVISIONAL — DOCUMENTED / NOT LOCKED** (internal Chalkie generation preference only; not a methodology lock, schema change, D018 change, or app authorization)
 
-**Recorded:** 2026-10-21 · owner direction for the internal lesson-generation workflow
+**Recorded:** 2026-10-21 · owner direction for the internal lesson-generation workflow  
+**Aligned with:** [D021](../4-decisions.md) Student Book–first preparation (LOCKED) — SB entry; WB only via verified companion
 
 This section records how the project currently prefers to **shape Chalkie generation**. It does **not** authorize new handoffs, Chalkie runs, or app wiring. It does **not** change verified SB→WB component relationships, teacher choices, or the future platform-neutral lesson-package direction ([F021](../7-future.md)).
 
 1. **Default generation shape — two lessons first.** Prefer **two** Chalkie lessons as the internal default format. Current evidence shows Chalkie generally produces more usable pacing, scaffolding, and visual variety across **two ~25-slide lessons** than in one compressed 25-slide lesson.
 
-2. **When a Workbook companion is verified.** Use the natural evidence-backed split:
+2. **When a Workbook companion is verified.** Use the natural evidence-backed split (D021):
    - **Lesson 1** = Student Book introduction / support;
    - **Lesson 2** = Workbook consolidation / practice.
-   Do **not** imply every page-count shape must be 2→2. Verified **2→1** and **1→1** component relationships remain valid; the two-lesson split still follows SB then WB when both sides exist.
+   Do **not** imply every page-count shape must be 2→2. Verified **2→1** and **1→1** component relationships remain valid; the two-lesson split still follows SB then WB when both sides exist. Do **not** offer Workbook-origin Single Lesson as the standard path.
 
-3. **When no Workbook companion exists.** Two lessons may still be used **honestly from the Student Book component alone**:
+3. **When no Workbook companion exists.** Two lessons may still be used **honestly from the Student Book component alone** (D021):
    - **Lesson 1** = introduce / support the verified current-page content;
    - **Lesson 2** = practise, apply, and complete real book work.
    Never invent or imply Workbook evidence.

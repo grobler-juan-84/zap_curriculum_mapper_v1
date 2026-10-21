@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 295
+**Last updated:** Step 296
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -14,7 +14,7 @@
 
 - **Phase 1** PAUSED at 14/18 COMPLETE (D015).
 
-- **D017** / **D018** / **D019** / **D020** LOCKED (BI methodologies provisional; Phase 3 parked as later priority).
+- **D017** / **D018** / **D019** / **D020** / **D021** LOCKED (D021 = Student Book–first lesson preparation).
 
 - Chalkie Exp 11–14 preferred Single Lesson path recorded; BE3 U8 production-pilot plan drafted.
 
@@ -26,18 +26,17 @@
 
 - **Provisional two-lesson-first packaging policy** recorded (docs only; Chalkie-specific; not locked).
 
-- **Chalkie Workspace Unit Intelligence** accordion: read-only Phase 2 BI for selected book/unit; does not alter handoff.
-
-- **Standalone Book Intelligence preview UI retired** — sidebar item removed; legacy routes redirect to Chalkie; JSON/loaders retained.
+- **Chalkie Workspace Unit Intelligence** accordion: read-only Phase 2 BI; standalone BI preview retired.
 
 ## In progress
 
 - Docs-accepted Unit 8 companions (except opener/story) are not yet wired in app code.
+- D021 is locked; UI enforcement of SB-first picker is **not** authorized yet.
 
 ## Next
 
-- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch).
-- Keep Phase 3 / F005 parked (D020). F022 remains future-required, not now. No automatic generation.
+- Wire one or more docs-accepted Unit 8 companions into `verifiedSbWbCompanions.ts` (smallest safe batch) — under-the-hood WB attach for D021.
+- Keep Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation. No SB-first UI until separately authorized.
 
 ## Blocked
 
@@ -49,4 +48,4 @@
 
 - Active Git branch: `main`.
 
-- Entry: `/app/chalkie` → **Prepare Chalkie prompt** → overlay when source evidence resolves. Unit Intelligence is the teacher home for Phase 2 BI.
+- Entry: `/app/chalkie` → **Prepare Chalkie prompt**. Standard teacher path is Student Book–first (D021).

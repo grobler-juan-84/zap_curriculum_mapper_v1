@@ -24,7 +24,7 @@ This is **not** another prompt-format experiment. It asks whether the existing l
 
 **Beauty in Simplicity:** no new scores, automation layers, or methodology gates. Teacher review remains required. Optional **Ask Chalkie** stays post-generation only.
 
-**Packaging preference (docs only, 2026-10-21):** provisional **two-lesson-first** Chalkie generation policy — prefer two lessons; with a verified WB companion use L1 = SB / L2 = WB; without a companion, two honest SB-only lessons are allowed. See [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A. This plan’s coverage table and “single lesson likely” historical notes do not override that preference, and do **not** authorize generation.
+**Packaging preference (docs only, 2026-10-21):** provisional **two-lesson-first** Chalkie generation policy — prefer two lessons; with a verified WB companion use L1 = SB / L2 = WB; without a companion, two honest SB-only lessons are allowed. See [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A. Aligned with locked **[D021](../4-decisions.md)** (Student Book–first preparation; no WB-origin Single Lesson as the standard path). This plan’s coverage table does not override those preferences, and does **not** authorize generation.
 
 **This document does not authorize generation.**
 

@@ -33,7 +33,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; **immediate emphasis: horizontal mapping**; Phase 3 Vertical Mapping later priority (D020) for cross-book prior-learning reuse; D018/Chalkie downstream; D017/D019 provisional. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked as later priority (D020) — teacher-facing cross-book reuse, not Phase-2-gated; D018 downstream. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D020**: Phase 3 Vertical Mapping parked as later priority (not Phase-2-gated); cross-book prior-learning reuse for teacher choice; D017/D019 BI methodologies remain provisional. | 1.0 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D021**: Student Book–first lesson preparation (LOCKED); D020 Phase 3 later priority; D017/D019 BI methodologies remain provisional. | 1.0 | ACTIVE |
 | [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked). Horizontal mapping is the current in-progress priority. | 1.0 | ACTIVE |
 | [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; Exp 10 closed (PASS AFTER TEACHER REVIEW); identify next project question. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority (D020); D018 / Lesson Series parked downstream (not cancelled); full Chalkie productization later. | 1.0 | ACTIVE |
@@ -168,7 +168,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: Unit Summary + Visible Pages + Unit Intelligence (teacher home for Phase 2 BI; standalone BI preview retired); local handoff; provisional two-lesson-first policy. OpenAI lesson-draft path kept dormant off-UI. Not a product lock. | 2.14 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI prototype notes for `/app/chalkie`: Unit Summary + Visible Pages + Unit Intelligence; **D021** Student Book–first (LOCKED, UI not yet enforced); local handoff; provisional two-lesson-first policy. OpenAI path dormant. Not a product lock. | 2.15 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
@@ -202,7 +202,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.5): provisional two-lesson-first packaging policy (§1A); Single Lesson Exp 11–14 evidence retained; first BE3 SB→WB Lesson Series production pilot recorded. Not a product or schema lock. | V1.5 | ACTIVE |
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.6): **D021** Student Book–first lock; provisional two-lesson-first packaging (§1A); Exp 11–14 + SB→WB pilot retained. Not a product or schema lock. | V1.6 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
