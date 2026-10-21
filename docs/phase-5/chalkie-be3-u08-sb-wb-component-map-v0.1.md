@@ -47,7 +47,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | --- | --- | --- | --- |
 | Vocabulary & Song | 128–129 | 104–105 | **Curated** — `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` (+ series handoff / pilot) |
 | Story | 130–131 | **106 only** | Count asymmetry (2→1) is expected. Candidate WB 106–107 **rejected** as a pair (p.107 is LiA). Series handoff **ACCEPTED FOR PROVISIONAL USE** (local six copyables; WB p.106 only; no Chalkie export claimed). |
-| Language in Action | 132–133 | 107–108 | Candidate only — not content-verified in this doc |
+| Language in Action | 132–133 | 107–108 | **Curated (docs)** — `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`; handoff not built |
 | Content Connection / Reading | 134–135 | 109–110 | Candidate only |
 | Grammar | 136–137 | 111–112 | Candidate only |
 | Culture Connection / Reading | 138–139 | 113–114 | Candidate only |
@@ -64,8 +64,9 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | --- | --- | --- |
 | SB 130–131 → WB **106 only** | Companion **ACCEPTED**; local handoff **ACCEPTED FOR PROVISIONAL USE** (2026-10-21) | `be3_sb_wb_rel_u08_story_sb130-131_wb106` |
 | SB 130–131 → WB 106–107 | **REJECTED** (earlier) | — |
+| SB 132–133 → WB 107–108 (LiA) | **ACCEPTED** (content review 2026-10-21; docs mapping only) | `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` |
 
-Series packaging / six copyables for the story companion: **enabled** for `be3_sb_wb_rel_u08_story_sb130-131_wb106` only (`buildBe3U08StorySbWbSeriesHandoff.ts`). WB p.107 remains out of package scope. Further Story Chalkie experiments are **not** required now; this verdict accepts the local handoff/workflow only — it does **not** claim a Chalkie export was generated or classroom-validated.
+Story series packaging remains enabled for the story companion only. LiA mapping is recorded here and in the pairing gap; it is **not** wired in app code and has **no** series handoff.
 
 ---
 

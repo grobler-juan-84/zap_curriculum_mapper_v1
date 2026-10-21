@@ -4805,3 +4805,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 286
+
+**Summary:** Content-reviewed BE3 U8 Language in Action SB pp.132-133 against WB pp.107-108 and ACCEPTED it as a docs-only curated mapping (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`); no handoff, no app code, no Chalkie generation.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

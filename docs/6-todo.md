@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 285
+**Last updated:** Step 286
 
 
 
@@ -460,9 +460,11 @@
 
 - [x] **Story handoff ACCEPTED FOR PROVISIONAL USE** — local workflow only; no further Story Chalkie experiments; no Story export/classroom-validation claim ([`phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)).
 
+- [x] **LiA SB 132–133 → WB 107–108 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` · ref `be3-sb-wb-u08-p132-133-wb107-108`; no handoff; not wired in app.
+
 - [x] **Prior-learning Step 2 UI** — heading **Add Prior Skills**; first card is teacher-created “Add a prior skill” (title / frame / purpose); cards show title + frame + Purpose only (no Caution).
 
-- [ ] **Next microstep:** content-review next evidence-backed component-map candidate (e.g. LiA SB 132–133 ↔ WB 107–108) — do not bulk-approve; do not run further Story Chalkie experiments.
+- [ ] **Next microstep:** wire LiA curated companion in app (smallest safe resolver entry), or content-review next map row (e.g. Content Connection SB 134–135 ↔ WB 109–110) — no LiA handoff/Chalkie without separate approval.
 
 
 

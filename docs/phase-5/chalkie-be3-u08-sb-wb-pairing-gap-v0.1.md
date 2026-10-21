@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** (SB 130–131 → WB **p.106 only**) · 106–107 pair **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA SB 132–133 → WB 107–108 **ACCEPTED** (docs mapping only; no handoff) · 106–107 pair **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -73,25 +73,56 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ---
 
-## 4. Workspace consequence
+## 4. Accepted — SB pp.132–133 → WB pp.107–108 (Language in Action)
+
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Language in Action component. Workbook consolidates SB *Did…?* / *did–didn't* short-answer practice; not a different strand. No handoff built; no Chalkie generation authorized.
+
+### Evidence table
+
+| Lens | Student Book pp.132–133 | Workbook pp.107–108 | Aligns? |
+| --- | --- | --- | --- |
+| Unit identity | Unit 8 *Healthy Living* (`big_english_3_sb_unit_08`) | Unit 8 *Healthy Living* (`big_english_3_wb_unit_08`) | Yes |
+| Page IDs | `bep3_sb_p132`, `bep3_sb_p133` | `bep_3_wb_p107`, `bep_3_wb_p108` | — |
+| Component / type | Language in Action · `grammar_practice` | Language in Action · `language_in_action` | Yes |
+| Target language / models | *Did you have breakfast? / No, I didn't.* · *Did he get enough sleep? / Yes, he did.* (past simple *Did…?* + short answers) | Act 8 *did/didn't* dialogues; Act 10 *Did he get enough sleep?* → *Yes/No, he/she did/didn't* | Yes |
+| Activity purpose | Present/practise *Did…?* ask–answer (Acts 8–12: listen/look, match phrases, complete dialogs, scramble questions, read and match) | Consolidate LiA: weekend listen/stick (Act 7); *did/didn't* dialogs (Act 8); picture past phrases (Act 9) feeding *Did…?* answers (Act 10) | Yes — consolidates LiA |
+| Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
+| Scope / excluded | — | **WB p.106 Story** out of scope (story companion). No later Grammar/CLIL pages. | — |
+
+### Exact mapping (docs record only — not wired in app code)
+
+| Field | Value |
+| --- | --- |
+| Relationship ID | `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` |
+| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| SB | `big_english_3_sb` · pp.132–133 |
+| WB | `big_english_3_wb` · pp.107–108 |
+| Stable reference | `be3-sb-wb-u08-p132-133-wb107-108` |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+
+---
+
+## 5. Workspace consequence
 
 | Behaviour | Status |
 | --- | --- |
 | SB 128–129 companion | WB 104–105 · series **on** (opener handoff + production pilot) |
-| SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** (no story Chalkie export claimed) |
+| SB 130–131 companion | WB **106 only** · series **on** · handoff **ACCEPTED FOR PROVISIONAL USE** |
+| SB 132–133 companion | WB 107–108 · **docs-mapped ACCEPTED**; resolver/series handoff **not** enabled |
 | Other BE3 U8 spreads | No companion / no series unless separately reviewed |
 | Automatic pairing rule | **None** |
 
 ---
 
-## 5. Next microstep
+## 6. Next microstep
 
-Content-review the next **evidence-backed** component-map candidate (e.g. Language in Action SB 132–133 ↔ WB 107–108) — do not bulk-approve the map; do not run further Story Chalkie experiments now.
+Owner-gated: wire the LiA curated companion in app code (smallest safe resolver entry), **or** content-review the next component-map row (e.g. Content Connection SB 134–135 ↔ WB 109–110) — do not build a LiA series handoff or authorize Chalkie without a separate step.
 
 ---
 
-## 6. Boundaries
+## 7. Boundaries
 
 - No general automatic SB→WB pairing rule.  
-- No AI/API / Chalkie generation authorized by this story verdict.  
-- No D018 / `4-decisions.md` changes.
+- No AI/API / Chalkie generation authorized by this LiA verdict.  
+- No D018 / `4-decisions.md` changes.  
+- This ACCEPTED mapping is a **documentation** record only until a separate code step adds it to the curated companion table.
