@@ -22,7 +22,7 @@ import {
   createWbActivityHandoffSelection,
   setWbActivityCardSelected,
 } from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
-import { renderBe3U08StoryNeutralPackageToChalkieShadow } from '../../app/src/features/chalkie/renderBe3U08StoryNeutralPackageToChalkieShadow.ts'
+import { renderChalkieFromNeutralPackage } from '../../app/src/features/chalkie/renderChalkieFromNeutralPackage.ts'
 import { resolveVerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
@@ -168,8 +168,7 @@ function assertNoWb107(output: Record<string, string>): void {
 
 test('all-selected neutral Story package exactly matches five accepted outputs', () => {
   const { lessonPackage } = storyPackage()
-  const shadow =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
   const accepted = buildBe3U08StorySbWbSeriesHandoff()
 
   assert.deepEqual(shadow, {
@@ -182,7 +181,7 @@ test('all-selected neutral Story package exactly matches five accepted outputs',
 })
 
 test('all five Story artifacts preserve WB106-only scope with no WB107 leakage', () => {
-  const shadow = renderBe3U08StoryNeutralPackageToChalkieShadow(
+  const shadow = renderChalkieFromNeutralPackage(
     storyPackage().lessonPackage,
   )
 
@@ -203,8 +202,7 @@ test('excluding one SB Story activity removes its evidence without reconstructio
   const { lessonPackage } = storyPackage({
     excludedSbCardId: activity6.id,
   })
-  const shadow =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
 
   assert.doesNotMatch(
     shadow.detailedHandoff,
@@ -227,8 +225,7 @@ test('excluding WB106 Activity 5 removes its evidence, language, and attribution
   const { lessonPackage } = storyPackage({
     excludedWbCardId: activity5.id,
   })
-  const shadow =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
   const serialized = JSON.stringify(shadow)
 
   assert.doesNotMatch(serialized, /\[WB p\.106\] Activity 5/)
@@ -253,8 +250,7 @@ test('partial Workbook selection remains WB106-only without a facing-page artifa
   const { lessonPackage } = storyPackage({
     excludedWbCardId: activity6.id,
   })
-  const shadow =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
   const serialized = JSON.stringify(shadow)
 
   assert.deepEqual(lessonPackage.lesson2.scope.printedPages, [106])
@@ -266,8 +262,7 @@ test('partial Workbook selection remains WB106-only without a facing-page artifa
 
 test('zero-selected Story lessons remain explicit without fallback or substitution', () => {
   const { lessonPackage } = storyPackage({ zeroSb: true, zeroWb: true })
-  const shadow =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
 
   assert.match(
     shadow.detailedHandoff,
@@ -334,9 +329,7 @@ test('Story prior support preserves provenance and explicit lesson targets', () 
     ],
   })
   const handoff =
-    renderBe3U08StoryNeutralPackageToChalkieShadow(
-      lessonPackage,
-    ).detailedHandoff
+    renderChalkieFromNeutralPackage(lessonPackage).detailedHandoff
 
   assert.match(
     handoff,

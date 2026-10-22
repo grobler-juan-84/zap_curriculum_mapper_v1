@@ -22,7 +22,7 @@ import {
   createWbActivityHandoffSelection,
   setWbActivityCardSelected,
 } from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
-import { renderBe3U08OpenerNeutralPackageToChalkieShadow } from '../../app/src/features/chalkie/renderBe3U08OpenerNeutralPackageToChalkieShadow.ts'
+import { renderChalkieFromNeutralPackage } from '../../app/src/features/chalkie/renderChalkieFromNeutralPackage.ts'
 import { resolveVerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
@@ -131,8 +131,7 @@ function allSelectedPackage() {
 
 test('all-selected neutral Opener package exactly matches five accepted outputs', () => {
   const { lessonPackage } = allSelectedPackage()
-  const shadow =
-    renderBe3U08OpenerNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
   const accepted = buildBe3U08OpenerSbWbSeriesHandoff()
 
   assert.deepEqual(shadow, {
@@ -176,8 +175,7 @@ test('excluded SB and WB activities stay absent from shadow output', () => {
       }),
     ),
   })
-  const shadow =
-    renderBe3U08OpenerNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
   const serialized = JSON.stringify(shadow)
 
   assert.doesNotMatch(
@@ -204,8 +202,7 @@ test('zero-selected lessons render honest existing empty states without fallback
       selectedCardIds: [],
     }),
   })
-  const shadow =
-    renderBe3U08OpenerNeutralPackageToChalkieShadow(lessonPackage)
+  const shadow = renderChalkieFromNeutralPackage(lessonPackage)
 
   assert.match(
     shadow.detailedHandoff,
@@ -281,9 +278,7 @@ test('prior support retains provenance and explicit lesson targeting', () => {
     ],
   })
   const handoff =
-    renderBe3U08OpenerNeutralPackageToChalkieShadow(
-      lessonPackage,
-    ).detailedHandoff
+    renderChalkieFromNeutralPackage(lessonPackage).detailedHandoff
 
   assert.match(handoff, /\[PRIOR\] \[Lesson 1\] Earlier Unit 8 frame/)
   assert.match(handoff, /\[HM\] \[Lesson 2\] Earlier-unit short answer/)

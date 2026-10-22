@@ -5522,3 +5522,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 324
+
+**Summary:** Added a small test-only Chalkie dispatcher for the parity-proved Opener and Story neutral packages. Shared parity and selection-safety tests now route through exact relationship dispatch, while unsupported relationships fail with a typed error and no fallback; production UI/output remains unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (created)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (created)
+- `scripts/tests/renderBe3U08OpenerNeutralPackageToChalkieShadow.test.ts` (updated)
+- `scripts/tests/renderBe3U08StoryNeutralPackageToChalkieShadow.test.ts` (updated)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

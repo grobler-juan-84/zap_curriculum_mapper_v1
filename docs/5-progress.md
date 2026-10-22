@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 323
+**Last updated:** Step 324
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -30,15 +30,17 @@
 
 - **Story shadow-renderer parity (audit v0.4):** proved in tests only for asymmetric SB pp.130–131 → WB p.106. Five all-selected artifacts match exactly; WB p.107 never appears; exclusions, zero-selection, and targeted support remain honest. Production UI/output is unchanged.
 
+- **Shared test-only Chalkie dispatcher (audit v0.5):** supports only the parity-proved Opener and Story relationships. Unsupported relationships throw a typed error with no fallback; production UI/output remains unchanged.
+
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Owner review of both Opener and Story shadow-renderer parity proofs.
+- Owner review of the shared test-only dispatcher boundary.
 
 ## Next
 
-- Separately decide whether a shared test-only renderer/dispatcher extraction is warranted before any production migration.
+- Separately choose whether to design a production migration plan or first audit one additional accepted component.
 - Do not migrate UI or production Chalkie renderers automatically.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

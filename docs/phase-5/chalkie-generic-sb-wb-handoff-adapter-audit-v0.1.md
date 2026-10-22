@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + Opener/Story test-only parity
-**Version:** 0.4
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + test-only parity dispatch
+**Version:** 0.5
 **Date:** 2026-10-22  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** The existing handoff builders remain the production renderers and are unchanged.
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** **Test-only shared Chalkie dispatcher supports the parity-proved Opener and Story packages only; no UI or production migration.** The existing handoff builders remain the production renderers and are unchanged.
 
 The core separation is:
 
@@ -285,4 +285,11 @@ The separately authorized **asymmetric Story test-only shadow-renderer parity sl
 5. Optional support preserves `[PRIOR]`, `[HM]`, or `[TEACHER-ADDED · UNVERIFIED]` provenance plus explicit Lesson 1 / Lesson 2 targets.
 6. The Opener proof, both bespoke builders, and all production UI/output remain unchanged.
 
-**Smallest next step:** owner-review both parity proofs. If accepted, separately decide whether a test-only shared renderer/dispatcher extraction is warranted before any production migration.
+The separately authorized **test-only shared dispatcher** is now implemented:
+
+1. `renderChalkieFromNeutralPackage.ts` dispatches by exact verified relationship ID to the existing Opener or Story shadow renderer.
+2. Both parity and selection-safety test suites now enter through the dispatcher.
+3. Unsupported relationships throw typed `UnsupportedNeutralPackageRendererError`; there is no generic fallback or partial output.
+4. The dispatcher has no production call site and does not broaden renderer eligibility.
+
+**Smallest next step:** owner-review the shared test-only boundary. If accepted, separately choose whether to design a production migration plan or first audit one additional accepted component; do not wire the dispatcher into production automatically.

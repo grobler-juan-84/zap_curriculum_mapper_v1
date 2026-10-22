@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 323
+**Last updated:** Step 324
 
 
 
@@ -544,9 +544,11 @@
 
 - [x] **Story test-only shadow-renderer parity:** all-selected five-artifact output matches exactly for SB 130–131 → WB 106 only; no WB107 leakage; partial/zero and targeted support stay honest; no UI/production migration.
 
+- [x] **Shared test-only Chalkie dispatcher:** exact relationship dispatch for parity-proved Opener/Story packages only; typed unsupported error and no fallback; no production call site.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next project question (choose separately):** owner-review both parity proofs, then decide whether to authorize a shared test-only renderer/dispatcher extraction, a series handoff for an already-wired companion, the next book/unit companion set, or another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [ ] **Next project question (choose separately):** owner-review the shared dispatcher boundary, then decide whether to design a production migration plan, audit one additional accepted component, start the next book/unit companion set, or choose another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 
