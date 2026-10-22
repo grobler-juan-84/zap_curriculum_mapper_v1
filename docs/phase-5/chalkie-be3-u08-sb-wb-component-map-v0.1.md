@@ -52,7 +52,7 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | Grammar | 136–137 | 111–112 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; handoff **not** built; Chalkie **not** authorized |
 | Culture Connection / Reading | 138–139 | 113–114 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`; handoff **not** built; Chalkie **not** authorized |
 | Writing | 140 | 115 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
-| Phonics | 141 | 116 | **Curated (docs)** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; 1→1 relationship valid; generation default follows provisional two-lesson-first policy (L1 SB → L2 WB); handoff not built |
+| Phonics | 141 | 116 | **docs-accepted + resolver-wired** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
 | Values | 142 | — | **SB-ONLY CONFIRMED** — no WB Values page in Unit 8; not a mapping failure; if generated, two SB-only lessons may still apply (no invented WB) |
 | Review | 143 | 117 | **Curated (docs)** — `be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`; 1→1 relationship valid; generation default follows provisional two-lesson-first policy (L1 SB → L2 WB); handoff not built |
 
@@ -69,11 +69,11 @@ Printed ranges below are the working Unit 8 layout used for candidate identifica
 | SB 136–137 → WB 111–112 (Grammar) | **ACCEPTED** + **resolver-wired** (2026-10-22); handoff not built; Chalkie not authorized | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` |
 | SB 138–139 → WB 113–114 (Culture) | **ACCEPTED** + **resolver-wired** (2026-10-22); handoff not built; Chalkie not authorized | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` |
 | SB 140 → WB 115 (Writing, 1→1) | **ACCEPTED** + **resolver-wired** (2026-10-22); handoff not built; Chalkie not authorized; 1→1 single lesson likely | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
-| SB 141 → WB 116 (Phonics, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; 1→1 valid; generation prefers two-lesson-first) | `be3_sb_wb_rel_u08_phonics_sb141_wb116` |
+| SB 141 → WB 116 (Phonics, 1→1) | **ACCEPTED** + **resolver-wired** (2026-10-22); handoff not built; Chalkie not authorized; 1→1 single lesson likely | `be3_sb_wb_rel_u08_phonics_sb141_wb116` |
 | SB 143 → WB 117 (Review, 1→1) | **ACCEPTED** (content review 2026-10-21; docs mapping only; 1→1 valid; generation prefers two-lesson-first) | `be3_sb_wb_rel_u08_review_sb143_wb117` |
 | SB 142 Values | **SB-ONLY CONFIRMED** (no WB Values page) | — |
 
-Unit 8 component-map content review is **complete**. Story series packaging remains enabled for the story companion only. LiA, CLIL/P.E., Grammar, Culture, and Writing are **resolver-wired** (View Workbook only); handoffs **not** built. Remaining docs-accepted companions (Phonics, Review, …) are **not** wired; **no** new series handoffs.
+Unit 8 component-map content review is **complete**. Story series packaging remains enabled for the story companion only. LiA, CLIL/P.E., Grammar, Culture, Writing, and Phonics are **resolver-wired** (View Workbook only); handoffs **not** built. Remaining docs-accepted companion (Review) is **not** wired; **no** new series handoffs.
 
 **Packaging note (2026-10-21):** earlier “single lesson likely” labels on 1→1 rows described page-relationship compactness only. The provisional **two-lesson-first** Chalkie generation policy is recorded in [`../phase-6/chalkie-interface-and-generation-workflow.md`](../phase-6/chalkie-interface-and-generation-workflow.md) §1A and does not reopen mapping verdicts.
 

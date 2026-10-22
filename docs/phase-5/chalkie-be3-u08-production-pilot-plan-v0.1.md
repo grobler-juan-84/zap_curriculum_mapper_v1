@@ -73,7 +73,7 @@ Legend for readiness columns (from local resolve on the full unit summary):
 | **136–137** | Grammar (`grammar`) | Regular/irregular past about yesterday | Use regular and irregular past-tense verbs about yesterday | Yes (17 activity models) | Yes (5) | Yes (p.128, p.134) | Ready | **Exp 10**; SB→WB companion **docs-accepted + resolver-wired** (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Resolver-wired (View Workbook); handoff/Chalkie **not** authorized |
 | **138–139** | Culture Connection \| Around the World (`culture` · `culture_activities`) | Strange Sports | Read Strange Sports; talk about the ideas | Yes (9 dedicated) | Yes (4) | Yes (p.128, p.134) | Ready | SB→WB companion **docs-accepted + resolver-wired** (`be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`) — [`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md) | Resolver-wired (View Workbook); handoff/Chalkie **not** authorized |
 | **140** | Writing \| Combining Sentences… (`writing`) | Combining Sentences with and, but, or | *(null from local focus lanes)* | No dedicated | Yes (4) | Yes | Ready (single page) | SB→WB companion **docs-accepted + resolver-wired** 1→1 (`be3_sb_wb_rel_u08_writing_sb140_wb115`); **single lesson likely** | Resolver-wired (View Workbook); handoff/Chalkie **not** authorized |
-| **141** | Phonics \| all, au, aw (`phonics`) | all, au, aw | *(null)* | Yes (3) | Yes (4) | Yes | Ready (single page) | SB→WB companion **ACCEPTED** docs-only 1→1 (`be3_sb_wb_rel_u08_phonics_sb141_wb116`); generation prefers two-lesson-first (L1 SB → L2 WB) | Companion recorded (docs); handoff/Chalkie **not** authorized |
+| **141** | Phonics \| all, au, aw (`phonics`) | all, au, aw | *(null)* | Yes (3) | Yes (4) | Yes | Ready (single page) | SB→WB companion **docs-accepted + resolver-wired** 1→1 (`be3_sb_wb_rel_u08_phonics_sb141_wb116`); **single lesson likely** | Resolver-wired (View Workbook); handoff/Chalkie **not** authorized |
 | **142** | Values \| Get exercise. (`values_project`) | Get exercise. | *(null)* | No dedicated | Yes (3) | Yes | Ready (single page) | **SB-ONLY CONFIRMED** — no WB Values page; two SB-only lessons allowed if generated | **SB-only** — no companion expected |
 | **143** | Review (`review_self_assessment`) | Review / self-assessment Unit 8 | Practise regular and irregular past forms (local) | Yes (6 models) | Yes (3) | Yes | Ready (single page) | SB→WB companion **ACCEPTED** docs-only 1→1 (`be3_sb_wb_rel_u08_review_sb143_wb117`); generation prefers two-lesson-first (L1 SB → L2 WB) | Companion recorded (docs); handoff/Chalkie **not** authorized |
 
@@ -122,9 +122,9 @@ Stable refs: `be3-sb-u08-p128-129` · series `be3-sb-wb-u08-p128-129-wb104-105`
 
 **p.140** Writing → WB **p.115**: companion **ACCEPTED** and **resolver-wired** (`be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`). Enables **View Workbook** on exact SB page only. Packaging: **1→1 single lesson likely**. No series handoff; no Chalkie generation.
 
-### Phonics companion recorded (docs only, 1→1)
+### Phonics companion — docs-accepted + resolver-wired (1→1)
 
-**p.141** Phonics → WB **p.116**: companion **ACCEPTED** (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). Recommended future packaging: **single lesson likely**. Not wired in app; no handoff; no Chalkie generation.
+**p.141** Phonics → WB **p.116**: companion **ACCEPTED** and **resolver-wired** (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). Enables **View Workbook** on exact SB page only. Packaging: **1→1 single lesson likely**. No series handoff; no Chalkie generation.
 
 ### Review companion recorded (docs only, 1→1)
 
@@ -188,18 +188,18 @@ No new rubric. No D018 re-score.
 
 **Writing:** Content review **ACCEPTED** SB p.140 → WB p.115 (`be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`). **docs-accepted + resolver-wired**; **1→1 single lesson likely** — **no** series handoff; **no** Chalkie generation.
 
-**Phonics:** Content review **ACCEPTED** SB p.141 → WB p.116 (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). Docs mapping only (1→1); recommended packaging **single lesson likely**; **not** in curated companion code; **no** handoff; **no** Chalkie generation.
+**Phonics:** Content review **ACCEPTED** SB p.141 → WB p.116 (`be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`). **docs-accepted + resolver-wired**; **1→1 single lesson likely** — **no** series handoff; **no** Chalkie generation.
 
 **Review:** Content review **ACCEPTED** SB p.143 → WB p.117 (`be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`). Docs mapping only (1→1); packaging **single lesson likely**; **not** in curated companion code; **no** handoff; **no** Chalkie generation.
 
 **Values:** **SB-ONLY CONFIRMED** for SB p.142 (*Get exercise.*) — no WB Values page; no companion expected.
 
-BE3 series packaging remains opener + story only. LiA, CLIL/P.E., Grammar, Culture, and Writing are resolver-wired (View Workbook) without series. Other docs-accepted companions remain unwired. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
+BE3 series packaging remains opener + story only. LiA, CLIL/P.E., Grammar, Culture, Writing, and Phonics are resolver-wired (View Workbook) without series. Other docs-accepted companions remain unwired. Preferred Chalkie use (if later authorized elsewhere): detailed handoff + appended concise outline + scoped vocabulary + teacher review as final safeguard.
 
 ---
 
 ## 9. Next owner action
 
-**Next owner action:** wire Phonics (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — resolver wiring alone does not unlock packaging/generation. Unit 8 component-map content review is **complete**.
+**Next owner action:** wire Review (or separately authorize a series handoff for an already-wired companion) — resolver wiring alone does not unlock packaging/generation. Unit 8 component-map content review is **complete**.
 
 Until explicitly authorized for a *different* route, **do not generate**.

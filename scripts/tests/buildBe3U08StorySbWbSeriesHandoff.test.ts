@@ -368,6 +368,28 @@ test('story series is unavailable for Writing SB p.140 (resolver companion only)
   assert.equal(lesson.stableSeriesReference, null)
 })
 
+test('story series is unavailable for Phonics SB p.141 (resolver companion only)', () => {
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [141],
+    unitNumber: 8,
+    workbookCanonical: loadJson(BE3_WB_PATH),
+  })
+
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [116])
+  assert.equal(lesson.seriesLessonTitle, null)
+  assert.equal(lesson.stableSeriesReference, null)
+})
+
 test('existing BE3 opener series continues unchanged beside story series', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({

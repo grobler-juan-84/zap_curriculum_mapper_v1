@@ -5214,3 +5214,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 308
+
+**Summary:** Wired BE3 U8 Phonics companion into curated resolver (SB p.141 → WB p.116; `be3_sb_wb_rel_u08_phonics_sb141_wb116`; ref `be3-sb-wb-u08-p141-wb116`). 1→1 resolver-only; no series/Chalkie. Writing and prior companions unchanged. Focused tests + typecheck. Docs: docs-accepted + resolver-wired; 1→1 single lesson likely. F021/F022 preserved unstaged.
+
+**Files touched:**
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

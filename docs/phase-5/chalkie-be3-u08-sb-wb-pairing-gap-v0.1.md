@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture + Writing **docs-accepted + resolver-wired** (handoff/Chalkie not authorized; Writing 1→1 single lesson likely) · Phonics through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture + Writing + Phonics **docs-accepted + resolver-wired** (handoff/Chalkie not authorized; Writing/Phonics 1→1 single lesson likely) · Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -237,7 +237,9 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 9. Accepted — SB p.141 → WB p.116 (Phonics, 1→1)
 
-**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Phonics · *all, au, aw*. Workbook consolidates that sound/spelling set (shared items include *ball, haul, draw, tall, yawn, claw, Paul, wall*) and the related chant. Valid **1→1** component relationship. No handoff built; no app wiring; no Chalkie generation authorized.
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Phonics · *all, au, aw*. Workbook consolidates that sound/spelling set (shared items include *ball, haul, draw, tall, yawn, claw, Paul, wall*) and the related chant. Valid **1→1** component relationship.
+
+**Status:** **docs-accepted + resolver-wired**; handoff **not** built; Chalkie generation **not** authorized; **1→1 single lesson likely**.
 
 ### Evidence table
 
@@ -251,17 +253,18 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Page-count shape | 1 SB page | 1 WB page | Valid (component map 1→1) |
 | Scope / excluded | — | Writing 115 and Values 142 / Review 117 out of scope | — |
 
-### Exact mapping (docs record only — not wired in app code)
+### Exact mapping
 
 | Field | Value |
 | --- | --- |
 | Relationship ID | `be3_sb_wb_rel_u08_phonics_sb141_wb116` |
-| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| Type | `workbook_practice_for` · `human_verified` (**in** `verifiedSbWbCompanions.ts`) |
 | SB | `big_english_3_sb` · p.141 |
 | WB | `big_english_3_wb` · p.116 |
-| Stable reference | `be3-sb-wb-u08-p141-wb116` |
+| Stable reference | `be3-sb-wb-u08-p141-wb116` (`BE3_U08_PHONICS_STABLE_REF`) |
+| Runtime | Resolver enables **View Workbook** on exact SB p.141 only (WB p.116) |
 | Series handoff / Chalkie | **Not built** · **not authorized** |
-| Recommended future packaging | **single lesson likely** (1→1 phonics pair; not assumed as a two-lesson series) |
+| Packaging | **1→1 single lesson likely** (not a two-lesson series) |
 
 ---
 
@@ -319,7 +322,8 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | SB 136–137 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 138–139 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 140 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
-| SB 141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
+| SB 141 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
+| SB 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
 | SB 142 Values | **SB-only — no companion expected** |
 | Automatic pairing rule | **None** |
 
@@ -327,7 +331,7 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 13. Next microstep
 
-LiA, CLIL/P.E., Grammar, Culture, and Writing are resolver-wired. Next owner-gated option: wire Phonics (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
+LiA, CLIL/P.E., Grammar, Culture, Writing, and Phonics are resolver-wired. Next owner-gated option: wire Review (or separately authorize a series handoff for an already-wired companion) — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
 
 ---
 

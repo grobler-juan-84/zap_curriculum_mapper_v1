@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.26  
+**Version:** 2.27  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -29,7 +29,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - **Unit Summary**, **SB Pages Summary** (primary lesson source), optional **WB Pages Summary** (verified companion only), and **Unit Intelligence**.
 - **Unit Intelligence** — **implemented** read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); disclaimer *Phase 2 interpretation / planning support — not current-page source evidence.*; AI-inferred Learning Outcomes badge preserved; honest unavailable copy when BI is missing; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) remains design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
-- Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA SB 132–133 → WB 107–108, CLIL/P.E. SB 134–135 → WB 109–110, Grammar SB 136–137 → WB 111–112, Culture SB 138–139 → WB 113–114, and Writing SB p.140 → WB p.115 are **docs-accepted + resolver-wired** (View Workbook only; Writing 1→1 single lesson likely); **no** series handoff; **no** Chalkie generation.
+- Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA SB 132–133 → WB 107–108, CLIL/P.E. SB 134–135 → WB 109–110, Grammar SB 136–137 → WB 111–112, Culture SB 138–139 → WB 113–114, Writing SB p.140 → WB p.115, and Phonics SB p.141 → WB p.116 are **docs-accepted + resolver-wired** (View Workbook only; Writing/Phonics 1→1 single lesson likely); **no** series handoff; **no** Chalkie generation.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
 
@@ -39,7 +39,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - Loading arbitrary Phase 2–4 experiment markdown into the app / inventing interpretation beyond the registered Book Intelligence Storage overview.
 - Calling or exposing the dormant OpenAI lesson-draft endpoint from the current handoff UI.
 - Persisting generated drafts, creating slides, or submitting to the Chalkie product.
-- Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two BE3 U8 series pairs (opener; asymmetric story). LiA / CLIL / Grammar / Culture / Writing companion wiring alone does not unlock series packaging.
+- Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two BE3 U8 series pairs (opener; asymmetric story). LiA / CLIL / Grammar / Culture / Writing / Phonics companion wiring alone does not unlock series packaging.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
 
@@ -232,3 +232,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-22 | BE3 U8 Grammar companion resolver-wired (SB 136–137 → WB 111–112); handoff not built; Chalkie not authorized. |
 | 2026-10-22 | BE3 U8 Culture companion resolver-wired (SB 138–139 → WB 113–114); handoff not built; Chalkie not authorized. |
 | 2026-10-22 | BE3 U8 Writing companion resolver-wired (SB p.140 → WB p.115; 1→1); handoff not built; Chalkie not authorized. |
+| 2026-10-22 | BE3 U8 Phonics companion resolver-wired (SB p.141 → WB p.116; 1→1); handoff not built; Chalkie not authorized. |

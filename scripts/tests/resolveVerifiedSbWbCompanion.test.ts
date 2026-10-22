@@ -17,6 +17,7 @@ import {
   BE3_U08_CULTURE_STABLE_REF,
   BE3_U08_GRAMMAR_STABLE_REF,
   BE3_U08_LIA_STABLE_REF,
+  BE3_U08_PHONICS_STABLE_REF,
   BE3_U08_WRITING_STABLE_REF,
 } from '../../app/src/features/chalkie/verifiedSbWbCompanions.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
@@ -375,10 +376,38 @@ test('BE3 SB p.140 resolves to curated Writing WB p.115 companion', () => {
   assert.ok(!result.companion?.workbookPrintedPages.includes(116))
 })
 
+test('BE3 SB p.141 resolves to curated Phonics WB p.116 companion', () => {
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wb,
+    studentBookPrintedPages: [141],
+  })
+
+  assert.ok(result.companion)
+  assert.equal(result.gapReason, null)
+  assert.equal(result.companion?.source, 'curated_verified')
+  assert.equal(
+    result.companion?.relationshipId,
+    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  )
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [141])
+  assert.deepEqual(result.companion?.workbookPrintedPages, [116])
+  assert.deepEqual(result.companion?.studentBookPageIds, ['bep3_sb_p141'])
+  assert.deepEqual(result.companion?.workbookPageIds, ['bep_3_wb_p116'])
+  assert.equal(BE3_U08_PHONICS_STABLE_REF, 'be3-sb-wb-u08-p141-wb116')
+  // Must not bleed into Writing or Review WB pages.
+  assert.ok(!result.companion?.workbookPrintedPages.includes(115))
+  assert.ok(!result.companion?.workbookPrintedPages.includes(117))
+})
+
 test('unmapped BE3 spreads still do not receive guessed Workbook companions', () => {
   const sb = loadJson(BE3_SB_PATH)
   const wb = loadJson(BE3_WB_PATH)
-  for (const pages of [[141], [140, 141], [142], [143]]) {
+  for (const pages of [[142], [143], [140, 141], [142, 143]]) {
     const result = resolveVerifiedSbWbCompanion({
       studentBookCatalogId: 'big_english_3_sb',
       studentBookCanonical: sb,
@@ -393,7 +422,7 @@ test('unmapped BE3 spreads still do not receive guessed Workbook companions', ()
     assert.ok(result.gapReason)
     assert.notEqual(
       result.companion?.relationshipId,
-      'be3_sb_wb_rel_u08_writing_sb140_wb115',
+      'be3_sb_wb_rel_u08_phonics_sb141_wb116',
     )
   }
 })
@@ -403,15 +432,15 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p141', printed_page: 141 },
       { page_id: 'bep3_sb_p142', printed_page: 142 },
+      { page_id: 'bep3_sb_p143', printed_page: 143 },
     ],
     relationships: [
       {
         relationship_id: 'fake_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p141',
+        source_entity_id: 'bep3_sb_p142',
         target_entity_id: null,
         verification_status: 'human_verified',
       },
@@ -420,7 +449,6 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p116', printed_page: 116 },
       { page_id: 'bep_3_wb_p117', printed_page: 117 },
     ],
     relationships: [],
@@ -430,7 +458,7 @@ test('incomplete workbook_practice_for relationship is rejected', () => {
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [141, 142],
+    studentBookPrintedPages: [142, 143],
   })
   assert.equal(result.companion, null)
   assert.equal(result.gapReason, 'relationship_target_incomplete')
@@ -440,16 +468,16 @@ test('partial canonical cross-book relationship does not invent full-spread comp
   const sb = {
     book_id: 'big_english_3_sb',
     pages: [
-      { page_id: 'bep3_sb_p141', printed_page: 141 },
       { page_id: 'bep3_sb_p142', printed_page: 142 },
+      { page_id: 'bep3_sb_p143', printed_page: 143 },
     ],
     relationships: [
       {
         relationship_id: 'ok_rel',
         book_id: 'big_english_3_sb',
         relationship_type: 'workbook_practice_for',
-        source_entity_id: 'bep3_sb_p141',
-        target_entity_id: 'bep_3_wb_p116',
+        source_entity_id: 'bep3_sb_p143',
+        target_entity_id: 'bep_3_wb_p117',
         target_book_id: 'big_english_3_wb',
         verification_status: 'human_verified',
       },
@@ -458,7 +486,6 @@ test('partial canonical cross-book relationship does not invent full-spread comp
   const wb = {
     book_id: 'big_english_3_wb',
     pages: [
-      { page_id: 'bep_3_wb_p116', printed_page: 116 },
       { page_id: 'bep_3_wb_p117', printed_page: 117 },
     ],
     relationships: [],
@@ -468,7 +495,7 @@ test('partial canonical cross-book relationship does not invent full-spread comp
     studentBookCatalogId: 'big_english_3_sb',
     studentBookCanonical: sb,
     workbookCanonical: wb,
-    studentBookPrintedPages: [141, 142],
+    studentBookPrintedPages: [142, 143],
   })
 
   assert.equal(result.companion, null)
@@ -698,6 +725,32 @@ test('BE3 Writing companion resolves without enabling series handoff packaging',
   assert.equal(lesson.seriesLessonTitle, null)
   assert.equal(lesson.stableSeriesReference, null)
   assert.equal(BE3_U08_WRITING_STABLE_REF, 'be3-sb-wb-u08-p140-wb115')
+})
+
+test('BE3 Phonics companion resolves without enabling series handoff packaging', () => {
+  const wb = loadJson(BE3_WB_PATH)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [141],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.workbookCompanion)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [116])
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.seriesLessonTitle, null)
+  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(BE3_U08_PHONICS_STABLE_REF, 'be3-sb-wb-u08-p141-wb116')
 })
 
 test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {

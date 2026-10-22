@@ -323,7 +323,27 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
   assert.equal(writing.seriesLessonTitle, null)
   assert.equal(writing.stableSeriesReference, null)
 
-  for (const pages of [[141]]) {
+  // Phonics is resolver-wired (1→1) but has no series handoff.
+  const phonics = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [141],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(phonics.supportsTwoLessonSeries, false)
+  assert.equal(
+    phonics.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  )
+  assert.deepEqual(phonics.workbookCompanion?.workbookPrintedPages, [116])
+  assert.equal(phonics.seriesLessonTitle, null)
+  assert.equal(phonics.stableSeriesReference, null)
+
+  for (const pages of [[142], [143]]) {
     const lesson = resolveChalkieLessonContext({
       book: bookStub({
         catalogBookId: 'big_english_3_sb',
@@ -338,7 +358,7 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     assert.equal(lesson.workbookCompanion, null, `pages ${pages.join('-')}`)
     assert.notEqual(
       lesson.workbookCompanion?.relationshipId,
-      'be3_sb_wb_rel_u08_writing_sb140_wb115',
+      'be3_sb_wb_rel_u08_phonics_sb141_wb116',
     )
     assert.equal(lesson.seriesLessonTitle, null)
     assert.equal(lesson.stableSeriesReference, null)

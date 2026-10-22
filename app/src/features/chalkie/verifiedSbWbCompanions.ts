@@ -248,6 +248,40 @@ export const BE3_U08_SB140_WB115: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Phonics → WB Phonics (1→1).
+ *
+ * Accepted after content review (*all, au, aw*). Resolver-wired only:
+ * no series handoff builder and no Chalkie generation authorized for this mapping.
+ * Packaging note: 1→1 single lesson likely (not a two-lesson series).
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p141-wb116`.
+ */
+export const BE3_U08_PHONICS_STABLE_REF = 'be3-sb-wb-u08-p141-wb116'
+
+export const BE3_U08_SB141_WB116: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p141'],
+  studentBookPrintedPages: [141],
+  workbookPageIds: ['bep_3_wb_p116'],
+  workbookPrintedPages: [116],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook p.116 consolidates Student Book Phonics *all, au, aw* (p.141): shared sound/spelling set and related chant practice. Writing 115 and Review 117 are out of scope. Valid 1→1 component pairing.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB p.141: Phonics · phonics · all, au, aw.',
+    'WB p.116: Phonics · phonics · same all/au/aw circle/underline/connect/chant gaps.',
+    'Shared items include ball, haul, draw, tall, yawn, claw, Paul, wall.',
+    'Page-count shape: 1 SB → 1 WB (component map 1→1).',
+    'Explicitly excluded: WB Writing 115 and Review 117.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
@@ -257,4 +291,5 @@ export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbComp
   BE3_U08_SB136_137_WB111_112,
   BE3_U08_SB138_139_WB113_114,
   BE3_U08_SB140_WB115,
+  BE3_U08_SB141_WB116,
 ]
