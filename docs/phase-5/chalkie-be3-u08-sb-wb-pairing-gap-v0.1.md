@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture + Writing + Phonics **docs-accepted + resolver-wired** (handoff/Chalkie not authorized; Writing/Phonics 1→1 single lesson likely) · Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture + Writing + Phonics + Review **docs-accepted + resolver-wired** (handoff/Chalkie not authorized; Writing/Phonics/Review 1→1 single lesson likely) · Values **SB-only confirmed; no Workbook companion expected** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -270,7 +270,9 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 10. Accepted — SB p.143 → WB p.117 (Review, 1→1)
 
-**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Review. Workbook consolidates SB *Did…?* / *did–didn't* and past-form review (Acts 31–32) and adds gerund-as-subject practice (Act 33) still on the Review page — not a different component. Valid **1→1**. No handoff; no app wiring; no Chalkie generation.
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Review. Workbook consolidates SB *Did…?* / *did–didn't* and past-form review (Acts 31–32) and adds gerund-as-subject practice (Act 33) still on the Review page — not a different component. Valid **1→1**.
+
+**Status:** **docs-accepted + resolver-wired**; handoff **not** built; Chalkie generation **not** authorized; **1→1 single lesson likely**.
 
 ### Evidence table
 
@@ -284,31 +286,33 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Page-count shape | 1 SB page | 1 WB page | Valid |
 | Scope / excluded | — | Phonics 116; Values has no WB page | — |
 
-### Exact mapping (docs record only)
+### Exact mapping
 
 | Field | Value |
 | --- | --- |
 | Relationship ID | `be3_sb_wb_rel_u08_review_sb143_wb117` |
-| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** in `verifiedSbWbCompanions.ts`) |
+| Type | `workbook_practice_for` · `human_verified` (**in** `verifiedSbWbCompanions.ts`) |
 | SB | `big_english_3_sb` · p.143 |
 | WB | `big_english_3_wb` · p.117 |
-| Stable reference | `be3-sb-wb-u08-p143-wb117` |
-| Recommended future packaging | **single lesson likely** |
+| Stable reference | `be3-sb-wb-u08-p143-wb117` (`BE3_U08_REVIEW_STABLE_REF`) |
+| Runtime | Resolver enables **View Workbook** on exact SB p.143 only (WB p.117) |
+| Series handoff / Chalkie | **Not built** · **not authorized** |
+| Packaging | **1→1 single lesson likely** (not a two-lesson series) |
 
 ---
 
-## 11. Values — SB p.142 only (**SB-ONLY CONFIRMED**)
+## 11. Values — SB p.142 only
 
-**SB-ONLY CONFIRMED** (2026-10-21). Not a missing pairing and not a mapping failure.
+**SB-only confirmed; no Workbook companion expected** (2026-10-21). Not a missing pairing and not a mapping failure. Resolver returns **no** companion; **no** View Workbook for this page.
 
 | Field | Value |
 | --- | --- |
 | Page | SB `bep3_sb_p142` · printed p.142 |
 | Component | Values \| *Get exercise.* · `values_project` · `human_verified` |
 | Purpose | Identify healthy vs unhealthy activities; tell partner to do healthy things; invent/teach an outdoor game |
-| Workbook Values page in U8 | **None** — WB Unit 8 pages 104–117 have no Values section (`values`-like pages in WB: none) |
-| Recommended status | **SB-only component — no companion expected** |
-| Relationship ID | — (no mapping) |
+| Workbook Values page in U8 | **None** — WB Unit 8 pages 104–117 have no Values section |
+| Status | **SB-only confirmed; no Workbook companion expected** |
+| Relationship ID | — (no mapping; do not invent a fallback) |
 
 ---
 
@@ -323,15 +327,15 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | SB 138–139 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 140 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
 | SB 141 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
-| SB 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
-| SB 142 Values | **SB-only — no companion expected** |
+| SB 143 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
+| SB 142 Values | **SB-only confirmed; no Workbook companion expected** |
 | Automatic pairing rule | **None** |
 
 ---
 
 ## 13. Next microstep
 
-LiA, CLIL/P.E., Grammar, Culture, Writing, and Phonics are resolver-wired. Next owner-gated option: wire Review (or separately authorize a series handoff for an already-wired companion) — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
+All docs-accepted Unit 8 SB→WB companions that have a Workbook target are now resolver-wired (opener + story series; LiA–Review View Workbook only). Values remains SB-only. Next owner-gated option: separately authorize a series handoff for an already-wired companion, or move to another book/unit — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
 
 ---
 

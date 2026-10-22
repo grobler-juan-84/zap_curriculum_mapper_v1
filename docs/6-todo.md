@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 308
+**Last updated:** Step 309
 
 
 
@@ -472,9 +472,9 @@
 
 - [x] **Phonics SB 141 → WB 116 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; later resolver-wired (View Workbook only; 1→1 single lesson likely).
 
-- [x] **Review SB 143 → WB 117 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`; packaging: single lesson likely.
+- [x] **Review SB 143 → WB 117 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_review_sb143_wb117` · ref `be3-sb-wb-u08-p143-wb117`; later resolver-wired (View Workbook only; 1→1 single lesson likely).
 
-- [x] **Values SB 142 SB-ONLY CONFIRMED** — no WB Values page; no companion expected (not a mapping failure).
+- [x] **Values SB 142 SB-only confirmed; no Workbook companion expected** — no WB Values page; not a mapping failure; no View Workbook.
 
 - [x] **BE3 U8 component-map content review COMPLETE**.
 
@@ -512,11 +512,13 @@
 
 - [x] **BE3 U8 Phonics companion resolver-wired** — SB p.141 → WB p.116 (1→1); View Workbook only; handoff not built; Chalkie not authorized; single lesson likely.
 
+- [x] **BE3 U8 Review companion resolver-wired** — SB p.143 → WB p.117 (1→1); View Workbook only; handoff not built; Chalkie not authorized; single lesson likely. Values p.142 remains SB-only.
+
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next microstep:** wire Review (or separately authorize a series handoff for an already-wired companion) — not both by default; no Chalkie without explicit approval.
+- [ ] **Next microstep:** separately authorize a series handoff for an already-wired companion, **or** start the next book/unit companion set — no Chalkie without explicit approval.
 
 
 

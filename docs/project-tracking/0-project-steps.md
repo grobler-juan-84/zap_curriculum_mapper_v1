@@ -5235,3 +5235,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 309
+
+**Summary:** Wired BE3 U8 Review companion into curated resolver (SB p.143 → WB p.117; `be3_sb_wb_rel_u08_review_sb143_wb117`; ref `be3-sb-wb-u08-p143-wb117`). 1→1 resolver-only; no series/Chalkie. Values p.142 remains SB-only confirmed (no companion / no View Workbook). All prior Unit 8 mappings unchanged. Focused tests + typecheck. Docs updated. F021/F022 preserved unstaged.
+
+**Files touched:**
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

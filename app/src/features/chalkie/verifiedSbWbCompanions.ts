@@ -282,6 +282,40 @@ export const BE3_U08_SB141_WB116: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Review → WB Review (1→1).
+ *
+ * Accepted after content review (Did…? / past-form review + gerund-as-subject on same Review page).
+ * Resolver-wired only: no series handoff builder and no Chalkie generation authorized.
+ * Packaging note: 1→1 single lesson likely (not a two-lesson series).
+ * Values SB p.142 remains intentionally SB-only (no Workbook companion).
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p143-wb117`.
+ */
+export const BE3_U08_REVIEW_STABLE_REF = 'be3-sb-wb-u08-p143-wb117'
+
+export const BE3_U08_SB143_WB117: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_review_sb143_wb117',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p143'],
+  studentBookPrintedPages: [143],
+  workbookPageIds: ['bep_3_wb_p117'],
+  workbookPrintedPages: [117],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook p.117 consolidates Student Book Review (p.143): shared Did…? / did–didn\'t and past-form review, with WB gerund-as-subject practice still on the same Review page. Phonics 116 is out of scope. Values SB p.142 has no WB companion. Valid 1→1 component pairing.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB p.143: Review · review_self_assessment; Did…? choice, survey, regular/irregular past.',
+    'WB p.117: Review · review; circle verbs, healthy-living cloze, gerund subjects on same Review page.',
+    'Page-count shape: 1 SB → 1 WB (component map 1→1).',
+    'Explicitly excluded: WB Phonics 116; Values SB p.142 is SB-only (no WB Values page).',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
@@ -292,4 +326,5 @@ export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbComp
   BE3_U08_SB138_139_WB113_114,
   BE3_U08_SB140_WB115,
   BE3_U08_SB141_WB116,
+  BE3_U08_SB143_WB117,
 ]

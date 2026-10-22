@@ -343,36 +343,51 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
   assert.equal(phonics.seriesLessonTitle, null)
   assert.equal(phonics.stableSeriesReference, null)
 
-  for (const pages of [[142], [143]]) {
-    const lesson = resolveChalkieLessonContext({
-      book: bookStub({
-        catalogBookId: 'big_english_3_sb',
-        title: 'Big English 3 Student Book',
-      }),
-      summary: be3Unit8SbSummary(),
-      visiblePrintedPages: pages,
-      unitNumber: 8,
-      workbookCanonical: wb,
-    })
-    assert.equal(lesson.supportsTwoLessonSeries, false, `pages ${pages.join('-')}`)
-    assert.equal(lesson.workbookCompanion, null, `pages ${pages.join('-')}`)
-    assert.notEqual(
-      lesson.workbookCompanion?.relationshipId,
-      'be3_sb_wb_rel_u08_phonics_sb141_wb116',
-    )
-    assert.equal(lesson.seriesLessonTitle, null)
-    assert.equal(lesson.stableSeriesReference, null)
+  // Review is resolver-wired (1→1) but has no series handoff.
+  const review = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [143],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(review.supportsTwoLessonSeries, false)
+  assert.equal(
+    review.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_review_sb143_wb117',
+  )
+  assert.deepEqual(review.workbookCompanion?.workbookPrintedPages, [117])
+  assert.equal(review.seriesLessonTitle, null)
+  assert.equal(review.stableSeriesReference, null)
 
-    const prompt = buildChalkiePromptPreview({
-      lesson,
-      packageShape: 'series',
-      selectedSuggestions: [],
-      teacherAdditions: [],
-    })
-    assert.doesNotMatch(prompt, /TWO-LESSON series/)
-    assert.doesNotMatch(prompt, /Workbook printed pages 104–105/)
-    assert.doesNotMatch(prompt, /Workbook printed page 106/)
-  }
+  // Values p.142 remains intentionally SB-only.
+  const values = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [142],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(values.supportsTwoLessonSeries, false)
+  assert.equal(values.workbookCompanion, null)
+  assert.equal(values.seriesLessonTitle, null)
+  assert.equal(values.stableSeriesReference, null)
+
+  const valuesPrompt = buildChalkiePromptPreview({
+    lesson: values,
+    packageShape: 'series',
+    selectedSuggestions: [],
+    teacherAdditions: [],
+  })
+  assert.doesNotMatch(valuesPrompt, /TWO-LESSON series/)
+  assert.doesNotMatch(valuesPrompt, /Workbook printed pages 104–105/)
+  assert.doesNotMatch(valuesPrompt, /Workbook printed page 106/)
 })
 
 test('existing BE2 fixture series titles and packaging remain unchanged', () => {

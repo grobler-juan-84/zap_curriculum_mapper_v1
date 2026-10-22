@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 308
+**Last updated:** Step 309
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -18,17 +18,17 @@
 
 - **D021** SB-led Chalkie Workspace with optional mapped Workbook view.
 
-- **BE3 U8 companions in resolver:** opener (series); story asymmetric (series provisional); **LiA**, **CLIL/P.E.**, **Grammar**, **Culture**, **Writing**, and **Phonics p.141 → p.116** resolver-wired (1→1; no handoff / no Chalkie).
+- **BE3 U8 companions in resolver:** opener (series); story asymmetric (series provisional); **LiA through Review** resolver-wired (Writing/Phonics/Review 1→1; no handoff / no Chalkie). **Values p.142** SB-only confirmed; no Workbook companion expected.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Remaining docs-accepted Unit 8 companion (Review) not yet resolver-wired.
+- Unit 8 WB-targeted companion wiring complete. Optional: series handoff authorization for already-wired companions (owner-gated).
 
 ## Next
 
-- Wire Review (SB p.143 → WB p.117) **or** separately authorize a series handoff for an already-wired companion (not implied by resolver wiring).
+- Separately authorize a series handoff for an already-wired companion, **or** move to another book/unit — resolver wiring alone does not unlock packaging/generation.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
