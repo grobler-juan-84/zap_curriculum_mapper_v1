@@ -8,6 +8,12 @@ import {
   type TeacherChoiceSuggestion,
 } from './teacherChoiceSuggestions'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
+import {
+  hasNoSelectedSbActivities,
+  hasSbActivityExclusions,
+  type SbActivityHandoffSelection,
+  type SelectedSbActivityEvidence,
+} from './chalkieActivitySelection'
 
 export type { ChalkieOutlineActivity }
 
@@ -55,6 +61,24 @@ function activityOutlineStep(activity: ChalkieOutlineActivity): string {
   return `[SB] ${numberLabel}: ${base}${audioNote}`
 }
 
+function selectedActivityOutlineStep(
+  activity: SelectedSbActivityEvidence,
+): string {
+  const numberLabel =
+    activity.activityNumber != null
+      ? `Activity ${activity.activityNumber}`
+      : 'Activity'
+  const instruction = activity.verifiedWording.replace(/\s+/g, ' ').trim()
+  const base = /[.!?]$/.test(instruction) ? instruction : `${instruction}.`
+  const audioNote = activity.audioDependency
+    ? ` Use the official book audio${activity.sourceDependencyNote ? ` (${activity.sourceDependencyNote})` : ''}.`
+    : ''
+  const languageNote = activity.languageFrame
+    ? ` Model: ${activity.languageFrame}`
+    : ''
+  return `[SB] ${numberLabel}: ${base}${audioNote}${languageNote}`
+}
+
 function supplementaryClosingStep(lesson: ChalkieLessonContext): string {
   const focus = (lesson.teachingFocus ?? '').toLowerCase()
   const languageBlob = lesson.languageExamples.map((item) => item.example).join(' ').toLowerCase()
@@ -71,8 +95,9 @@ function supplementaryClosingStep(lesson: ChalkieLessonContext): string {
 export function buildChalkieConciseOutline(input: {
   lesson: ChalkieLessonContext
   selectedSuggestions: TeacherChoiceSuggestion[]
+  activitySelection?: SbActivityHandoffSelection
 }): string {
-  const { lesson, selectedSuggestions } = input
+  const { lesson, selectedSuggestions, activitySelection } = input
   const lines: string[] = [
     'Concise teacher-controlled outline',
     'Short teaching sequence for the current Student Book pages. Keep book-working time; do not expand into a slide-by-slide script.',
@@ -86,19 +111,33 @@ export function buildChalkieConciseOutline(input: {
     step += 1
   }
 
-  const activities = [...lesson.outlineActivities].sort((a, b) => {
-    if (a.printedPage !== b.printedPage) return a.printedPage - b.printedPage
-    const an = a.activityNumber ?? Number.POSITIVE_INFINITY
-    const bn = b.activityNumber ?? Number.POSITIVE_INFINITY
-    return an - bn
-  })
+  if (activitySelection && hasSbActivityExclusions(activitySelection)) {
+    if (hasNoSelectedSbActivities(activitySelection)) {
+      lines.push(
+        `${step}. [SB] No current Student Book activities were selected. Do not reconstruct unselected page activities.`,
+      )
+      step += 1
+    } else {
+      for (const activity of activitySelection.selectedEvidence) {
+        lines.push(`${step}. ${selectedActivityOutlineStep(activity)}`)
+        step += 1
+      }
+    }
+  } else {
+    const activities = [...lesson.outlineActivities].sort((a, b) => {
+      if (a.printedPage !== b.printedPage) return a.printedPage - b.printedPage
+      const an = a.activityNumber ?? Number.POSITIVE_INFINITY
+      const bn = b.activityNumber ?? Number.POSITIVE_INFINITY
+      return an - bn
+    })
 
-  for (const activity of activities) {
-    lines.push(`${step}. ${activityOutlineStep(activity)}`)
-    step += 1
+    for (const activity of activities) {
+      lines.push(`${step}. ${activityOutlineStep(activity)}`)
+      step += 1
+    }
+
+    lines.push(`${step}. ${supplementaryClosingStep(lesson)}`)
   }
-
-  lines.push(`${step}. ${supplementaryClosingStep(lesson)}`)
   lines.push('')
   return lines.join('\n')
 }

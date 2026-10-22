@@ -38,9 +38,14 @@ import {
 } from './teacherChoiceSuggestions'
 import {
   buildSbActivityPageColumns,
+  createSbActivityHandoffSelection,
   createDefaultSbActivitySelection,
+  hasSbActivityExclusions,
+  selectedSbActivityLanguage,
+  selectedSbActivityVocabulary,
   sbActivitySelectionStatus,
   setSbActivityCardSelected,
+  type SbActivityHandoffSelection,
   type SbActivityCard,
   type SbActivityPreviewKind,
   type SbActivitySelectionState,
@@ -61,17 +66,20 @@ function buildBe3U08SeriesHandoffForCompanion(
   companion: { relationshipId?: string | null } | null | undefined,
   selectedSuggestions: TeacherChoiceSuggestion[],
   teacherAdditions: TeacherAddedLanguageInput[],
+  activitySelection: SbActivityHandoffSelection,
 ): Be3U08SeriesHandoff | null {
   if (isBe3U08OpenerSeriesCompanion(companion)) {
     return buildBe3U08OpenerSbWbSeriesHandoff({
       selectedSuggestions,
       teacherAdditions,
+      activitySelection,
     })
   }
   if (isBe3U08StorySeriesCompanion(companion)) {
     return buildBe3U08StorySbWbSeriesHandoff({
       selectedSuggestions,
       teacherAdditions,
+      activitySelection,
     })
   }
   return null
@@ -356,6 +364,22 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     () => sbActivitySelectionStatus(activityCards, effectiveActivitySelection),
     [activityCards, effectiveActivitySelection],
   )
+  const handoffActivitySelection = useMemo(
+    () =>
+      createSbActivityHandoffSelection(
+        activityCards,
+        effectiveActivitySelection,
+      ),
+    [activityCards, effectiveActivitySelection],
+  )
+  const selectedActivityVocabulary = useMemo(
+    () => selectedSbActivityVocabulary(handoffActivitySelection),
+    [handoffActivitySelection],
+  )
+  const selectedActivityLanguage = useMemo(
+    () => selectedSbActivityLanguage(handoffActivitySelection),
+    [handoffActivitySelection],
+  )
 
   if (!open || !lesson) return null
 
@@ -371,6 +395,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
   const isSeriesPreview = showPromptPreview && effectiveLessonShape === 'series'
   const isBe3SeriesPreview = isSeriesPreview && be3SeriesHandoff != null
+  const selectionHasExclusions = hasSbActivityExclusions(handoffActivitySelection)
   const seriesLesson1Pages =
     lesson.workbookCompanion?.studentBookPrintedPages?.join('–') ?? '128–129'
   const seriesLesson2Pages =
@@ -421,6 +446,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       packageShape: effectiveLessonShape,
       selectedSuggestions,
       teacherAdditions: selectedTeacherAdditions,
+      activitySelection: handoffActivitySelection,
     })
     const useBe3Series =
       effectiveLessonShape === 'series' &&
@@ -430,6 +456,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           lesson.workbookCompanion,
           selectedSuggestions,
           selectedTeacherAdditions,
+          handoffActivitySelection,
         )
       : null
     const outline = useBe3Series
@@ -437,10 +464,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       : buildChalkieConciseOutline({
           lesson,
           selectedSuggestions,
+          activitySelection: handoffActivitySelection,
         })
     const suggested = useBe3Series
       ? { copyText: '', isEmpty: true }
-      : buildSuggestedChalkieVocabulary(lesson)
+      : buildSuggestedChalkieVocabulary(lesson, handoffActivitySelection)
     setPromptPreview(assembled)
     setBe3SeriesHandoff(be3Handoff)
     setConciseOutline(outline)
@@ -501,7 +529,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleCopyLesson1Outline = async () => {
-    const text = be3SeriesHandoff?.lesson1Outline ?? BE2_U08_SERIES_LESSON1_OUTLINE_COPY
+    const text =
+      be3SeriesHandoff?.lesson1Outline ??
+      (selectionHasExclusions
+        ? conciseOutline
+        : BE2_U08_SERIES_LESSON1_OUTLINE_COPY)
     try {
       await navigator.clipboard.writeText(text)
       setLesson1OutlineCopyStatus('copied')
@@ -755,8 +787,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   ) : null}
 
                   <p className="text-xs leading-relaxed text-slate-500">
-                    Activity selection is saved for this session. Current Chalkie handoff content is
-                    unchanged until the next implementation step.
+                    Selected activities will be included in this local handoff.
                   </p>
                 </div>
               </section>
@@ -1086,33 +1117,49 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </div>
 
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
-                <section className="space-y-4" aria-label="Current lesson requirements">
-                  <h3 className="text-sm font-medium text-slate-800">Current lesson requirements</h3>
+                <section className="space-y-4" aria-label="Selected current activities">
+                  <h3 className="text-sm font-medium text-slate-800">Selected current activities</h3>
                   <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
                     <div className="space-y-1 text-sm leading-relaxed text-slate-600">
                       <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
                       <p>{lesson.unitLine}</p>
-                      <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
-                      {lesson.lessonTopic ? (
-                        <p>
-                          <span className="font-medium text-slate-700">Lesson topic:</span>{' '}
-                          {lesson.lessonTopic}
-                        </p>
-                      ) : null}
-                      <p>Page sections: {lesson.currentFocus}</p>
-                      {lesson.teachingFocus ? (
-                        <p>
-                          <span className="font-medium text-slate-700">Teaching focus:</span>{' '}
-                          {lesson.teachingFocus}
-                        </p>
-                      ) : null}
+                      <p>Source scope: {lesson.visiblePageRangeLabel}</p>
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-slate-800">Current words and models</h4>
-                      {lesson.vocabulary.length > 0 ? (
+                      <h4 className="text-sm font-medium text-slate-800">
+                        Included Student Book activities
+                      </h4>
+                      {handoffActivitySelection.selectedEvidence.length > 0 ? (
+                        <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
+                          {handoffActivitySelection.selectedEvidence.map((activity) => (
+                            <li key={activity.cardId}>
+                              <span className="font-medium text-slate-800">
+                                [SB p.{activity.printedPage}]
+                                {activity.activityNumber
+                                  ? ` · Activity ${activity.activityNumber}`
+                                  : ''}
+                              </span>
+                              {' — '}
+                              {activity.verifiedWording}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-sm text-slate-500">
+                          No current Student Book activities are selected. Prior learning remains
+                          separate and does not replace current-page content.
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium text-slate-800">
+                        Selected activity words and models
+                      </h4>
+                      {selectedActivityVocabulary.length > 0 ? (
                         <ul className="flex flex-wrap gap-2">
-                          {lesson.vocabulary.map((term) => (
+                          {selectedActivityVocabulary.map((term) => (
                             <li
                               key={term}
                               className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
@@ -1123,41 +1170,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         </ul>
                       ) : (
                         <p className="text-sm text-slate-500">
-                          No dedicated vocabulary rows or activity-derived models listed for this
-                          lesson.
+                          No words or models are safely attributable to the selected activities.
                         </p>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-slate-800">Current language</h4>
-                      {lesson.languageExamples.length > 0 ? (
+                      <h4 className="text-sm font-medium text-slate-800">
+                        Selected activity language
+                      </h4>
+                      {selectedActivityLanguage.length > 0 ? (
                         <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
-                          {lesson.languageExamples.map((item) => (
-                            <li key={`${item.label ?? ''}:${item.example}`}>
-                              {item.label ? (
-                                <>
-                                  <span className="font-medium text-slate-800">{item.label}:</span>{' '}
-                                  <span>{item.example}</span>
-                                </>
-                              ) : (
-                                item.example
-                              )}
-                            </li>
+                          {selectedActivityLanguage.map((language) => (
+                            <li key={language}>{language}</li>
                           ))}
                         </ul>
                       ) : (
                         <p className="text-sm text-slate-500">
-                          No dedicated language rows or activity language frames listed for this
-                          lesson.
+                          No language is safely attributable to the selected activities.
                         </p>
                       )}
-                      {lesson.clarification ? (
-                        <p className="pt-1 text-sm leading-relaxed text-slate-600">
-                          <span className="font-medium text-slate-700">Note:</span>{' '}
-                          {lesson.clarification}
-                        </p>
-                      ) : null}
                     </div>
                   </div>
                 </section>
@@ -1405,19 +1437,27 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         Lesson 1 — Student Book pp. 128–129
                       </h4>
                       <p className="mt-2 text-sm text-slate-500">Source: Student Book pp. 128–129</p>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                        Focus: introduce and practise wild-animal vocabulary through the page
-                        spread, song context, and the current-unit preference/ability model.
-                      </p>
-                      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
-                        <li>Animal vocabulary</li>
-                        <li>To the Zoo!</li>
-                        <li>Do you like cheetahs? Yes, I do! Cheetahs can run.</li>
-                        <li>
-                          Visible page activities: listen/look/say, find/say, game, song/listen,
-                          true/false, ask/answer
-                        </li>
-                      </ul>
+                      {selectionHasExclusions ? (
+                        <pre className="mt-3 whitespace-pre-wrap font-sans text-sm leading-relaxed text-slate-600">
+                          {conciseOutline}
+                        </pre>
+                      ) : (
+                        <>
+                          <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                            Focus: introduce and practise wild-animal vocabulary through the page
+                            spread, song context, and the current-unit preference/ability model.
+                          </p>
+                          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
+                            <li>Animal vocabulary</li>
+                            <li>To the Zoo!</li>
+                            <li>Do you like cheetahs? Yes, I do! Cheetahs can run.</li>
+                            <li>
+                              Visible page activities: listen/look/say, find/say, game,
+                              song/listen, true/false, ask/answer
+                            </li>
+                          </ul>
+                        </>
+                      )}
                       {lesson1OutlineCopyStatus === 'failed' ? (
                         <p className="mt-2 text-sm text-slate-500">
                           Copying was unavailable. Select the outline text and copy it manually.
@@ -1461,7 +1501,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       </p>
                       <p className="text-sm leading-relaxed text-slate-700">
                         <span className="font-medium text-slate-800">Lesson 1 vocabulary:</span>{' '}
-                        {BE2_U08_SERIES_LESSON1_VOCAB}
+                        {selectionHasExclusions
+                          ? selectedActivityVocabulary.join(', ') ||
+                            'No selected Student Book activity vocabulary is safely attributable.'
+                          : BE2_U08_SERIES_LESSON1_VOCAB}
                       </p>
                       <p className="text-sm leading-relaxed text-slate-700">
                         <span className="font-medium text-slate-800">Lesson 2 vocabulary:</span>{' '}

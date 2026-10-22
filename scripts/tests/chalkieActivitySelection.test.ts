@@ -11,7 +11,10 @@ import { fileURLToPath } from 'node:url'
 import {
   buildSbActivityCards,
   buildSbActivityPageColumns,
+  createSbActivityHandoffSelection,
   createDefaultSbActivitySelection,
+  selectedSbActivityLanguage,
+  selectedSbActivityVocabulary,
   sbActivitySelectionStatus,
   selectedSbActivityEvidence,
   setSbActivityCardSelected,
@@ -33,12 +36,6 @@ const OVERLAY_PATH = path.join(
   ROOT,
   'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx',
 )
-const HANDOFF_BUILDER_PATHS = [
-  'app/src/features/chalkie/buildChalkiePromptPreview.ts',
-  'app/src/features/chalkie/buildChalkieConciseOutline.ts',
-  'app/src/features/chalkie/buildSuggestedChalkieVocabulary.ts',
-].map((relativePath) => path.join(ROOT, relativePath))
-
 function asArray(value: unknown): unknown[] {
   return Array.isArray(value) ? value : []
 }
@@ -250,7 +247,7 @@ test('activity exclusions persist through Current Lesson to Prior Learning and B
   )
 })
 
-test('overlay exposes honest activity selection feedback without wiring handoff builders', () => {
+test('overlay exposes honest activity selection feedback and local handoff propagation', () => {
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
   const step1Start = overlaySource.indexOf('{step === 1 ? (')
   const step2Start = overlaySource.indexOf('{step === 2 ? (')
@@ -283,14 +280,36 @@ test('overlay exposes honest activity selection feedback without wiring handoff 
   )
   assert.match(
     overlaySource,
-    /Activity selection is saved for this session\. Current Chalkie handoff content is/,
+    /Selected activities will be included in this local handoff\./,
   )
   assert.match(overlaySource, /No safe verified preview is available for this activity\./)
-  assert.ok(!overlaySource.includes('selectedSbActivityEvidence('))
+  assert.match(overlaySource, /createSbActivityHandoffSelection/)
+  assert.match(overlaySource, /activitySelection: handoffActivitySelection/)
+})
 
-  for (const builderPath of HANDOFF_BUILDER_PATHS) {
-    const builderSource = fs.readFileSync(builderPath, 'utf8')
-    assert.ok(!builderSource.includes('chalkieActivitySelection'))
-    assert.ok(!builderSource.includes('selectedSbActivityEvidence'))
-  }
+test('selected evidence accessors apply page-complete vocabulary and language boundaries', () => {
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const allSelectedState = createDefaultSbActivitySelection(cards)
+  const allSelected = createSbActivityHandoffSelection(cards, allSelectedState)
+  assert.ok(selectedSbActivityVocabulary(allSelected).includes('have a big breakfast'))
+  assert.ok(selectedSbActivityLanguage(allSelected).length > 0)
+
+  const p128Activity = cards.find((card) => card.printedPage === 128)
+  assert.ok(p128Activity)
+  const partial = createSbActivityHandoffSelection(
+    cards,
+    setSbActivityCardSelected({
+      cards,
+      state: allSelectedState,
+      cardId: p128Activity.id,
+      selected: false,
+    }),
+  )
+  assert.equal(
+    selectedSbActivityVocabulary(partial).includes('have a big breakfast'),
+    false,
+  )
 })

@@ -12,6 +12,14 @@ import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
 } from './teacherChoicePrototypeContent'
+import {
+  hasNoSelectedSbActivities,
+  hasSbActivityExclusions,
+  selectedSbActivityLanguage,
+  selectedSbActivityPromptLines,
+  selectedSbActivityVocabulary,
+  type SbActivityHandoffSelection,
+} from './chalkieActivitySelection'
 
 export type TeacherAddedLanguageInput = {
   title: string
@@ -197,16 +205,100 @@ function buildBe2U08SeriesLessonPrompt(input: {
   ].join('\n')
 }
 
+function buildBe2U08SelectionAwareSeriesPrompt(input: {
+  lesson: ChalkieLessonContext
+  selectedSuggestions: TeacherChoiceSuggestion[]
+  teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection: SbActivityHandoffSelection
+}): string {
+  const priorLines = buildPriorLearningBlock(input)
+  const activityLines = selectedSbActivityPromptLines(input.activitySelection)
+  const selectedVocabulary = selectedSbActivityVocabulary(input.activitySelection)
+  const selectedLanguage = selectedSbActivityLanguage(input.activitySelection)
+  const noActivities = hasNoSelectedSbActivities(input.activitySelection)
+
+  return [
+    'Create a short, picture-led TWO-LESSON series to SUPPORT Big English 2 Unit 8 using ONLY these source pages:',
+    '- Lesson 1: Student Book printed pages 128–129',
+    '- Lesson 2: Workbook printed pages 104–105',
+    '',
+    'Do not teach later Unit 8 pages, including habitats, grammar, phonics, culture, values, or review.',
+    'Do not replace the textbook or workbook.',
+    'Do not invent publisher audio scripts or missing true/false item text.',
+    'Workbook pages 104–105 are verified source evidence for this series; they may not be the PDF currently open in the workspace.',
+    '',
+    'SOURCE LABELS:',
+    '- [SB] = selected Student Book activity evidence from pages 128–129 only',
+    '- [WB] = Workbook evidence from pages 104–105 only',
+    '- [HM] = teacher-selected prior learning from earlier units in the same book',
+    '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
+    '',
+    'A. SERIES SCOPE',
+    '',
+    'Lesson 1 — Student Book pp. 128–129',
+    'Use only the selected Student Book activities below.',
+    ...activityLines,
+    '',
+    selectedVocabulary.length
+      ? `Selected Lesson 1 words/models: ${selectedVocabulary.join(', ')}.`
+      : 'Selected Lesson 1 words/models: none safely attributable to the selected activities.',
+    selectedLanguage.length
+      ? `Selected Lesson 1 language: ${selectedLanguage.join(' | ')}`
+      : 'Selected Lesson 1 language: none safely attributable to the selected activities.',
+    '',
+    'Lesson 2 — Workbook pp. 104–105',
+    'Purpose: use the matching workbook evidence for animal naming/matching, song-related writing, and a short zoo-animal response.',
+    '',
+    '[WB p.104] Naming / matching practice (Look and write. / Look and match.).',
+    '[WB p.104–105] Song-related listening/writing practice tied to the unit song strand.',
+    '[WB p.105] Response prompt: What animals do you like seeing at the zoo?',
+    `- Lesson 2 vocabulary: ${BE2_U08_SERIES_LESSON2_VOCAB}`,
+    '',
+    'B. TEACHER-SELECTED PRIOR LEARNING',
+    '',
+    ...priorLines,
+    '',
+    'C. TEACHING GUIDANCE',
+    '',
+    '- Keep Lesson 1 on Student Book pp. 128–129 and Lesson 2 on Workbook pp. 104–105.',
+    noActivities
+      ? '- Lesson 1: no current Student Book activities were selected; do not recreate them from page context.'
+      : '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.',
+    '- Lesson 2: keep the existing workbook naming/matching, song-related writing, and short zoo-animal response scope unchanged.',
+    '- Prior learning remains separate support and does not replace unselected current-page content.',
+    '- Keep both lessons concise and classroom-usable.',
+    '',
+    'D. HARD BOUNDARIES',
+    '',
+    '- Stay on Student Book pages 128–129 and Workbook pages 104–105 only.',
+    '- Do not use or reconstruct unselected Student Book activities.',
+    '- Do not change Workbook scope or infer Workbook activity selection.',
+    '- Do not invent publisher audio scripts or unknown exercise items.',
+  ].join('\n')
+}
+
 function buildDynamicSingleLessonPrompt(input: {
   lesson: ChalkieLessonContext
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): string {
   const { lesson } = input
   const priorLines = buildPriorLearningBlock(input)
   const pageList = lesson.visiblePrintedPages.join(', ')
+  const selectionSensitive =
+    input.activitySelection != null &&
+    hasSbActivityExclusions(input.activitySelection)
+  const selectedWords = input.activitySelection
+    ? selectedSbActivityVocabulary(input.activitySelection)
+    : lesson.vocabulary
+  const selectedLanguage = input.activitySelection
+    ? selectedSbActivityLanguage(input.activitySelection)
+    : lesson.languageExamples.map((item) => item.example)
   const wordsHeading =
-    lesson.hasDedicatedVocabulary && !lesson.hasActivityDerivedModels
+    selectionSensitive
+      ? 'Selected activity words and models:'
+      : lesson.hasDedicatedVocabulary && !lesson.hasActivityDerivedModels
       ? 'Verified words and models (dedicated vocabulary rows):'
       : lesson.hasActivityDerivedModels && !lesson.hasDedicatedVocabulary
         ? 'Verified words and models (from activity items; not dedicated vocabulary rows):'
@@ -214,45 +306,67 @@ function buildDynamicSingleLessonPrompt(input: {
           ? 'Verified words and models:'
           : 'Verified words and models:'
   const wordsLines =
-    lesson.vocabulary.length > 0
-      ? [`${wordsHeading} ${lesson.vocabulary.join(', ')}.`]
+    selectedWords.length > 0
+      ? [`${wordsHeading} ${selectedWords.join(', ')}.`]
       : [
-          'Verified words and models: none — no dedicated vocabulary rows and no safely extractable activity-item models for these pages.',
+          selectionSensitive
+            ? 'Selected activity words and models: none safely attributable to the selected activities.'
+            : 'Verified words and models: none — no dedicated vocabulary rows and no safely extractable activity-item models for these pages.',
         ]
   const languageLines =
-    lesson.languageExamples.length > 0
-      ? lesson.languageExamples.map((item) =>
-          item.label ? `- ${item.label}: ${item.example}` : `- ${item.example}`,
-        )
+    selectedLanguage.length > 0
+      ? selectedLanguage.map((value) => `- ${value}`)
       : [
-          '- No dedicated language rows or verified activity language frames for these pages.',
+          selectionSensitive
+            ? '- No language is safely attributable to the selected activities.'
+            : '- No dedicated language rows or verified activity language frames for these pages.',
         ]
   const languageHeading =
-    lesson.hasActivityLanguageFrames && !lesson.hasDedicatedLanguage
-      ? 'Verified activity language:'
-      : 'Verified activity language:'
+    selectionSensitive ? 'Selected activity language:' : 'Verified activity language:'
   const activityLines =
-    lesson.activityLines.length > 0
+    selectionSensitive && input.activitySelection
+      ? selectedSbActivityPromptLines(input.activitySelection)
+      : lesson.activityLines.length > 0
       ? lesson.activityLines.map((line) => `- ${line}`)
       : ['- No verified activities for these visible pages.']
   const pageLabelLines =
-    lesson.pageLabels.length > 0
+    selectionSensitive
+      ? lesson.visiblePrintedPages.map(
+          (printedPage) => `- [SB p.${printedPage}] selected-activity source scope`,
+        )
+      : lesson.pageLabels.length > 0
       ? lesson.pageLabels.map((line) => `- ${line}`)
       : [`- ${lesson.visiblePageRangeLabel}`]
   const unitContext =
-    lesson.unitContextNote != null
+    !selectionSensitive && lesson.unitContextNote != null
       ? ['', 'Unit context (do not treat as visible-page evidence):', lesson.unitContextNote]
       : []
-  const lessonTopicBlock = lesson.lessonTopic
+  const lessonTopicBlock = lesson.lessonTopic && !selectionSensitive
     ? ['Lesson topic (verified page/component title — not a teaching aim):', lesson.lessonTopic, '']
     : []
   const teachingFocusBlock = lesson.teachingFocus
-    ? [
+    ? selectionSensitive
+      ? []
+      : [
         'Teaching focus (planning summary derived from verified evidence — not a publisher quotation):',
         lesson.teachingFocus,
         '',
       ]
     : []
+  const noSelectionGuidance =
+    selectionSensitive &&
+    input.activitySelection &&
+    hasNoSelectedSbActivities(input.activitySelection)
+      ? [
+          '- No current Student Book activities were selected; do not recreate, infer, or substitute unselected page activities.',
+          '- Prior learning remains optional support and must not be treated as replacement current-page content.',
+        ]
+      : selectionSensitive
+        ? [
+            '- Use only the selected Student Book activities listed in current-page evidence.',
+            '- Do not reconstruct excluded activities from page labels, topic, or general page context.',
+          ]
+        : []
 
   return [
     `Create a short, picture-led slide lesson to SUPPORT ${lesson.bookLabel} ${lesson.unitLine}, printed pages ${pageList} ONLY.`,
@@ -291,6 +405,7 @@ function buildDynamicSingleLessonPrompt(input: {
     'C. TEACHING GUIDANCE',
     '',
     '- Stay on the listed printed pages only.',
+    ...noSelectionGuidance,
     '- Use selected [PRIOR] / [HM] language only where it fits naturally.',
     '- Treat selected language as available support, not as a requirement to force into every activity.',
     '- Do not present [PRIOR] / [HM] combinations or teacher-added language as publisher wording.',
@@ -302,6 +417,9 @@ function buildDynamicSingleLessonPrompt(input: {
     'D. HARD BOUNDARIES',
     '',
     `- Stay on printed pages ${pageList} only.`,
+    ...(selectionSensitive
+      ? ['- Do not use or reconstruct unselected Student Book activities.']
+      : []),
     '- Do not invent publisher audio scripts or unknown exercise items.',
     '- Do not claim teacher-added language is publisher evidence.',
     '- Do not present unit-level context as if it were evidence from the visible pages.',
@@ -323,24 +441,38 @@ export function buildChalkiePromptPreview(input: {
   packageShape?: LessonPackageShape
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): string {
   if (input.packageShape === 'series') {
     if (!input.lesson.supportsTwoLessonSeries) {
       return buildDynamicSingleLessonPrompt(input)
     }
     if (input.lesson.isBe2U08PrototypeRoute) {
+      if (
+        input.activitySelection &&
+        hasSbActivityExclusions(input.activitySelection)
+      ) {
+        return buildBe2U08SelectionAwareSeriesPrompt({
+          lesson: input.lesson,
+          selectedSuggestions: input.selectedSuggestions,
+          teacherAdditions: input.teacherAdditions,
+          activitySelection: input.activitySelection,
+        })
+      }
       return buildBe2U08SeriesLessonPrompt(input)
     }
     if (isBe3U08OpenerSeriesCompanion(input.lesson.workbookCompanion)) {
       return buildBe3U08OpenerSbWbSeriesHandoff({
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
+        activitySelection: input.activitySelection,
       }).detailedHandoff
     }
     if (isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion)) {
       return buildBe3U08StorySbWbSeriesHandoff({
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
+        activitySelection: input.activitySelection,
       }).detailedHandoff
     }
     // Refuse silent fixture fallback — degrade to dynamic single if series unsupported.
@@ -348,6 +480,12 @@ export function buildChalkiePromptPreview(input: {
   }
 
   if (input.lesson.isBe2U08PrototypeRoute) {
+    if (
+      input.activitySelection &&
+      hasSbActivityExclusions(input.activitySelection)
+    ) {
+      return buildDynamicSingleLessonPrompt(input)
+    }
     return buildBe2U08SingleLessonPrompt(input)
   }
 

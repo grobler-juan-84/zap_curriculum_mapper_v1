@@ -5346,3 +5346,30 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 315
+
+**Summary:** Propagated deterministic Student Book activity selection through local Chalkie prompts, concise outlines, suggested vocabulary, activity language/models, selection-sensitive focus, and supported-series Lesson 1. Added strict no-fallback and all-unselected behavior while preserving Workbook Lesson 2, then aligned focused tests and Activity Selection documentation.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieActivitySelection.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/buildChalkieConciseOutline.ts` (updated)
+- `app/src/features/chalkie/buildSuggestedChalkieVocabulary.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08OpenerSbWbSeriesHandoff.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08StorySbWbSeriesHandoff.ts` (updated)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `scripts/tests/buildChalkieConciseOutline.test.ts` (updated)
+- `scripts/tests/buildSuggestedChalkieVocabulary.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-current-activity-selection-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

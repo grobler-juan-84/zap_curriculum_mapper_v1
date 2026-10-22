@@ -8,6 +8,14 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
 import type { TeacherAddedLanguageInput } from './buildChalkiePromptPreview'
 import { BE3_U08_SB128_129_WB104_105 } from './verifiedSbWbCompanions'
+import {
+  hasNoSelectedSbActivities,
+  hasSbActivityExclusions,
+  selectedSbActivityLanguage,
+  selectedSbActivityPromptLines,
+  selectedSbActivityVocabulary,
+  type SbActivityHandoffSelection,
+} from './chalkieActivitySelection'
 
 export const BE3_U08_OPENER_SERIES_RELATIONSHIP_ID =
   BE3_U08_SB128_129_WB104_105.relationshipId
@@ -92,7 +100,17 @@ function buildPriorLearningBlock(input: {
 function buildDetailedHandoff(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): string {
+  if (
+    input.activitySelection &&
+    hasSbActivityExclusions(input.activitySelection)
+  ) {
+    return buildSelectionAwareDetailedHandoff({
+      ...input,
+      activitySelection: input.activitySelection,
+    })
+  }
   const priorLines = buildPriorLearningBlock(input)
 
   return [
@@ -171,6 +189,82 @@ function buildDetailedHandoff(input: {
   ].join('\n')
 }
 
+function buildSelectionAwareDetailedHandoff(input: {
+  selectedSuggestions: TeacherChoiceSuggestion[]
+  teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection: SbActivityHandoffSelection
+}): string {
+  const priorLines = buildPriorLearningBlock(input)
+  const activityLines = selectedSbActivityPromptLines(input.activitySelection)
+  const vocabulary = selectedSbActivityVocabulary(input.activitySelection)
+  const language = selectedSbActivityLanguage(input.activitySelection)
+  const noActivities = hasNoSelectedSbActivities(input.activitySelection)
+
+  return [
+    'Create a short, picture-led TWO-LESSON series to SUPPORT Big English 3 Unit 8 using ONLY these source pages:',
+    '- Lesson 1: Student Book printed pages 128–129',
+    '- Lesson 2: Workbook printed pages 104–105',
+    '',
+    'Do not replace the textbook or workbook.',
+    'Do not invent publisher audio scripts, song lyrics, or missing exercise text.',
+    'Workbook pages 104–105 are verified source evidence for this series; they may not be the PDF currently open in the workspace.',
+    'Treat Lesson 2 as consolidation/practice of the Student Book opener — not a second copy of Lesson 1.',
+    '',
+    'SOURCE LABELS:',
+    '- [SB] = selected Student Book activity evidence from pages 128–129 only',
+    '- [WB] = Workbook evidence from pages 104–105 only',
+    '- [PRIOR] = teacher-selected prior learning from earlier pages in the same unit',
+    '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
+    '',
+    'A. SERIES SCOPE',
+    '',
+    'Lesson 1 — Student Book pp. 128–129',
+    'Use only the selected Student Book activities below.',
+    ...activityLines,
+    '',
+    vocabulary.length
+      ? `Selected Lesson 1 words/models: ${vocabulary.join(', ')}.`
+      : 'Selected Lesson 1 words/models: none safely attributable to the selected activities.',
+    language.length
+      ? `Selected Lesson 1 language: ${language.join(' | ')}`
+      : 'Selected Lesson 1 language: none safely attributable to the selected activities.',
+    '',
+    'Lesson 2 — Workbook pp. 104–105',
+    'Purpose: consolidate the opener strand with past/contrast healthy-activity writing, personal Did you…? responses, and Live Right! song listen/write practice.',
+    '',
+    '[WB p.104] Unit 8 Healthy Living · unit opener vocabulary',
+    `[WB p.104] Target vocabulary (past/contrast forms): ${BE3_U08_OPENER_LESSON2_VOCAB}.`,
+    '[WB p.104] Activity 1: Write. Use activities from the box. Then check (✓) the healthy ones.',
+    '[WB p.104] Activity 2: Read and circle for you. (Includes How do you feel today? and Did you…? Yes/No items.)',
+    '',
+    '[WB p.105] Song practice · Live Right!',
+    '[WB p.105] Activity 3: Listen and write. (Audio track 153 required. Word box: any, Did, enough, good, too, you.)',
+    "[WB p.105] Activity 4: Read and ✓ for you. Then answer with Yes, I did or No, I didn't.",
+    `- Lesson 2 vocabulary: ${BE3_U08_OPENER_LESSON2_VOCAB}`,
+    '',
+    'B. TEACHER-SELECTED PRIOR LEARNING',
+    '',
+    ...priorLines,
+    '',
+    'C. TEACHING GUIDANCE',
+    '',
+    '- Keep Lesson 1 on Student Book pp. 128–129 and Lesson 2 on Workbook pp. 104–105.',
+    noActivities
+      ? '- Lesson 1: no current Student Book activities were selected; do not recreate them from page context.'
+      : '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.',
+    '- Lesson 2: keep the existing Workbook consolidation/practice scope unchanged.',
+    '- Prior learning remains separate support and does not replace unselected current-page content.',
+    '- Keep both lessons concise and classroom-usable.',
+    '',
+    'D. HARD BOUNDARIES',
+    '',
+    '- Stay on Student Book pages 128–129 and Workbook pages 104–105 only.',
+    '- Do not use or reconstruct unselected Student Book activities.',
+    '- Do not change Workbook scope, vocabulary, outline, or infer Workbook activity selection.',
+    '- Do not invent publisher audio scripts, song lyrics, or unknown exercise items.',
+  ].join('\n')
+}
+
 export const BE3_U08_OPENER_LESSON1_OUTLINE = [
   'Concise teacher-controlled outline — Lesson 1',
   'Short teaching sequence for Student Book pp. 128–129 only. Keep book-working time; do not expand into a slide-by-slide script.',
@@ -196,13 +290,51 @@ export const BE3_U08_OPENER_LESSON2_OUTLINE = [
   '',
 ].join('\n')
 
+function buildSelectionAwareLesson1Outline(
+  selection: SbActivityHandoffSelection,
+): string {
+  const lines = [
+    'Concise teacher-controlled outline — Lesson 1',
+    'Short teaching sequence for Student Book pp. 128–129 only. Use only selected activities; do not reconstruct excluded activities.',
+    '',
+  ]
+  if (hasNoSelectedSbActivities(selection)) {
+    lines.push(
+      '1. [SB] No current Student Book activities were selected. Teacher must review the source selection before adding current-page work.',
+    )
+  } else {
+    selection.selectedEvidence.forEach((activity, index) => {
+      const number = activity.activityNumber
+        ? `Activity ${activity.activityNumber}`
+        : 'Activity'
+      const audio = activity.audioDependency
+        ? ` Use the official book audio${activity.sourceDependencyNote ? ` (${activity.sourceDependencyNote})` : ''}.`
+        : ''
+      const language = activity.languageFrame
+        ? ` Model: ${activity.languageFrame}`
+        : ''
+      lines.push(
+        `${index + 1}. [SB] ${number}: ${activity.verifiedWording}${audio}${language}`,
+      )
+    })
+  }
+  lines.push('')
+  return lines.join('\n')
+}
+
 /**
  * Build the six local series copyables for the accepted BE3 U8 opener pair only.
  */
 export function buildBe3U08OpenerSbWbSeriesHandoff(input?: {
   selectedSuggestions?: TeacherChoiceSuggestion[]
   teacherAdditions?: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): Be3U08OpenerSeriesHandoff {
+  const selectionOverride =
+    input?.activitySelection &&
+    hasSbActivityExclusions(input.activitySelection)
+      ? input.activitySelection
+      : null
   return {
     relationshipId: BE3_U08_OPENER_SERIES_RELATIONSHIP_ID,
     seriesTitle: BE3_U08_OPENER_SERIES_TITLE,
@@ -210,9 +342,14 @@ export function buildBe3U08OpenerSbWbSeriesHandoff(input?: {
     detailedHandoff: buildDetailedHandoff({
       selectedSuggestions: input?.selectedSuggestions ?? [],
       teacherAdditions: input?.teacherAdditions ?? [],
+      activitySelection: input?.activitySelection,
     }),
-    lesson1Outline: BE3_U08_OPENER_LESSON1_OUTLINE,
-    lesson1Vocabulary: BE3_U08_OPENER_LESSON1_VOCAB,
+    lesson1Outline: selectionOverride
+      ? buildSelectionAwareLesson1Outline(selectionOverride)
+      : BE3_U08_OPENER_LESSON1_OUTLINE,
+    lesson1Vocabulary: selectionOverride
+      ? selectedSbActivityVocabulary(selectionOverride).join(', ')
+      : BE3_U08_OPENER_LESSON1_VOCAB,
     lesson2Outline: BE3_U08_OPENER_LESSON2_OUTLINE,
     lesson2Vocabulary: BE3_U08_OPENER_LESSON2_VOCAB,
   }

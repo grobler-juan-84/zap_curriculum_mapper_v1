@@ -1,7 +1,6 @@
 /**
  * Deterministic, SB-only current-activity model and selection helpers.
  *
- * This module is intentionally not wired to the UI or handoff builders yet.
  * Callers must pass the resolved active lesson pages, not the PDF-facing pair.
  */
 import type { BatchJsonSummary } from '../../types/validation'
@@ -51,7 +50,11 @@ export type SelectedSbActivityEvidence = {
   readonly activityNumber: string | null
   readonly verifiedWording: string
   readonly activityType: string | null
+  readonly prompt: string | null
+  readonly expectedAnswer: string | null
   readonly languageFrame: string | null
+  readonly audioDependency: boolean
+  readonly sourceDependencyNote: string | null
   readonly items: readonly SbActivityEvidenceItem[]
   readonly references: SbActivityEvidenceReference
 }
@@ -64,6 +67,11 @@ export type SbActivityCard = {
   readonly activityNumber: string | null
   readonly verifiedWording: string
   readonly preview: SbActivityPreview
+  /** Conservative item-level models directly linked to this activity. */
+  readonly activityLinkedModels: readonly string[]
+  /** Page-attributed evidence, usable only when every eligible card on the page remains selected. */
+  readonly pageDedicatedVocabulary: readonly string[]
+  readonly pageDedicatedLanguage: readonly string[]
   readonly references: SbActivityEvidenceReference
   readonly evidence: SelectedSbActivityEvidence
 }
@@ -82,6 +90,11 @@ export type SbActivitySelectionStatus = {
 export type SbActivityPageColumn = {
   readonly printedPage: number
   readonly cards: readonly SbActivityCard[]
+}
+
+export type SbActivityHandoffSelection = {
+  readonly allCards: readonly SbActivityCard[]
+  readonly selectedEvidence: readonly SelectedSbActivityEvidence[]
 }
 
 function asRecord(value: unknown): UnknownRecord {
@@ -146,16 +159,10 @@ function evidenceItems(activity: UnknownRecord): SbActivityEvidenceItem[] {
   })
 }
 
-function buildPreview(activity: UnknownRecord): SbActivityPreview {
-  const languageFrame = asString(activity.language_frame)
-  if (languageFrame) {
-    const frames = splitLanguageFrames(languageFrame).slice(0, 2)
-    if (frames.length) return { kind: 'language_model', values: frames }
-  }
-
+function activityItemModels(activity: UnknownRecord): string[] {
   const activityType =
     asString(activity.activity_type) ?? asString(activity.type)
-  const models = unique(
+  return unique(
     asArray(activity.items)
       .map((raw) =>
         extractActivityItemModel(asRecord(raw), {
@@ -164,6 +171,16 @@ function buildPreview(activity: UnknownRecord): SbActivityPreview {
       )
       .filter((value): value is string => value !== null),
   ).slice(0, 4)
+}
+
+function buildPreview(activity: UnknownRecord): SbActivityPreview {
+  const languageFrame = asString(activity.language_frame)
+  if (languageFrame) {
+    const frames = splitLanguageFrames(languageFrame).slice(0, 2)
+    if (frames.length) return { kind: 'language_model', values: frames }
+  }
+
+  const models = activityItemModels(activity)
   if (models.length) {
     return { kind: 'activity_item_model', values: models }
   }
@@ -199,6 +216,55 @@ function pageIdToPrintedPage(summary: BatchJsonSummary): Map<string, number> {
   return result
 }
 
+function pageAttributedEvidence(
+  summary: BatchJsonSummary,
+  pageMap: ReadonlyMap<string, number>,
+): Map<number, { vocabulary: string[]; language: string[] }> {
+  const result = new Map<number, { vocabulary: string[]; language: string[] }>()
+
+  const pageNumber = (record: UnknownRecord): number | null => {
+    const pageId = asString(record.page_id)
+    return (
+      asFiniteNumber(record.printed_page) ??
+      (pageId ? (pageMap.get(pageId) ?? null) : null)
+    )
+  }
+  const entryFor = (printedPage: number) => {
+    const existing = result.get(printedPage)
+    if (existing) return existing
+    const created = { vocabulary: [] as string[], language: [] as string[] }
+    result.set(printedPage, created)
+    return created
+  }
+
+  for (const raw of asArray(asRecord(summary.raw).vocabulary)) {
+    const record = asRecord(raw)
+    if (asString(record.verification_status) !== 'human_verified') continue
+    const printedPage = pageNumber(record)
+    const term = asString(record.term)
+    if (printedPage == null || !term) continue
+    const values = entryFor(printedPage).vocabulary
+    if (!values.includes(term)) values.push(term)
+  }
+
+  for (const raw of asArray(asRecord(summary.raw).language)) {
+    const record = asRecord(raw)
+    if (asString(record.verification_status) !== 'human_verified') continue
+    const printedPage = pageNumber(record)
+    if (printedPage == null) continue
+    const prompt = asString(record.prompt)
+    const response = asString(record.response)
+    const fullText = asString(record.full_text)
+    const value =
+      prompt && response ? `${prompt} / ${response}` : prompt ?? response ?? fullText
+    if (!value) continue
+    const values = entryFor(printedPage).language
+    if (!values.includes(value)) values.push(value)
+  }
+
+  return result
+}
+
 function compareCards(left: SbActivityCard, right: SbActivityCard): number {
   if (left.printedPage !== right.printedPage) {
     return left.printedPage - right.printedPage
@@ -226,6 +292,7 @@ export function buildSbActivityCards(input: {
     input.activeLessonPrintedPages.filter(Number.isFinite).map(Math.floor),
   )
   const pageMap = pageIdToPrintedPage(input.summary)
+  const pageEvidence = pageAttributedEvidence(input.summary, pageMap)
   const cards: SbActivityCard[] = []
   const seenCardIds = new Set<string>()
 
@@ -269,10 +336,15 @@ export function buildSbActivityCards(input: {
       verifiedWording,
       activityType:
         asString(activity.activity_type) ?? asString(activity.type),
+      prompt: asString(activity.prompt),
+      expectedAnswer: asString(activity.expected_answer),
       languageFrame: asString(activity.language_frame),
+      audioDependency: activity.audio_dependency === true,
+      sourceDependencyNote: asString(activity.source_dependency_note),
       items: evidenceItems(activity),
       references,
     }
+    const attributed = pageEvidence.get(printedPage)
 
     cards.push({
       id: cardId,
@@ -282,6 +354,9 @@ export function buildSbActivityCards(input: {
       activityNumber,
       verifiedWording,
       preview: buildPreview(activity),
+      activityLinkedModels: activityItemModels(activity),
+      pageDedicatedVocabulary: attributed?.vocabulary ?? [],
+      pageDedicatedLanguage: attributed?.language ?? [],
       references,
       evidence,
     })
@@ -346,8 +421,8 @@ export function setSbActivityCardSelected(input: {
 }
 
 /**
- * Future handoff boundary: return evidence only for currently selected, known
- * cards, in deterministic card order. Not consumed by existing builders yet.
+ * Return evidence only for currently selected, known cards, in deterministic
+ * card order.
  */
 export function selectedSbActivityEvidence(
   cards: readonly SbActivityCard[],
@@ -357,6 +432,141 @@ export function selectedSbActivityEvidence(
   return cards
     .filter((card) => selectedIds.has(card.id))
     .map((card) => card.evidence)
+}
+
+export function createSbActivityHandoffSelection(
+  cards: readonly SbActivityCard[],
+  state: SbActivitySelectionState,
+): SbActivityHandoffSelection {
+  return {
+    allCards: cards,
+    selectedEvidence: selectedSbActivityEvidence(cards, state),
+  }
+}
+
+export function hasSbActivityExclusions(
+  selection: SbActivityHandoffSelection,
+): boolean {
+  return selection.selectedEvidence.length < selection.allCards.length
+}
+
+export function hasNoSelectedSbActivities(
+  selection: SbActivityHandoffSelection,
+): boolean {
+  return selection.selectedEvidence.length === 0
+}
+
+function selectedCardIds(selection: SbActivityHandoffSelection): Set<string> {
+  return new Set(selection.selectedEvidence.map((evidence) => evidence.cardId))
+}
+
+function fullySelectedPageNumbers(
+  selection: SbActivityHandoffSelection,
+): Set<number> {
+  const selectedIds = selectedCardIds(selection)
+  const pages = new Set(selection.allCards.map((card) => card.printedPage))
+  return new Set(
+    [...pages].filter((printedPage) => {
+      const pageCards = selection.allCards.filter(
+        (card) => card.printedPage === printedPage,
+      )
+      return (
+        pageCards.length > 0 &&
+        pageCards.every((card) => selectedIds.has(card.id))
+      )
+    }),
+  )
+}
+
+/** Conservative vocabulary/model payload for selected activities only. */
+export function selectedSbActivityVocabulary(
+  selection: SbActivityHandoffSelection,
+): string[] {
+  const selectedIds = selectedCardIds(selection)
+  const completePages = fullySelectedPageNumbers(selection)
+  const values: string[] = []
+
+  for (const card of selection.allCards) {
+    if (completePages.has(card.printedPage)) {
+      for (const value of card.pageDedicatedVocabulary) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+    if (selectedIds.has(card.id)) {
+      for (const value of card.activityLinkedModels) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+  }
+
+  return values
+}
+
+/** Page language is retained only when that page is fully selected. */
+export function selectedSbActivityLanguage(
+  selection: SbActivityHandoffSelection,
+): string[] {
+  const selectedIds = selectedCardIds(selection)
+  const completePages = fullySelectedPageNumbers(selection)
+  const values: string[] = []
+
+  for (const card of selection.allCards) {
+    if (completePages.has(card.printedPage)) {
+      for (const value of card.pageDedicatedLanguage) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+    if (!selectedIds.has(card.id) || !card.evidence.languageFrame) continue
+    for (const value of splitLanguageFrames(card.evidence.languageFrame)) {
+      if (!values.includes(value)) values.push(value)
+    }
+  }
+
+  return values
+}
+
+export function selectedSbActivityPromptLines(
+  selection: SbActivityHandoffSelection,
+): string[] {
+  if (hasNoSelectedSbActivities(selection)) {
+    return [
+      '- No current Student Book activities were selected.',
+      '- Do not reconstruct or infer content from unselected page activities.',
+    ]
+  }
+
+  const lines: string[] = []
+  for (const evidence of selection.selectedEvidence) {
+    const activityLabel = evidence.activityNumber
+      ? `Activity ${evidence.activityNumber}`
+      : 'Activity'
+    lines.push(
+      `- [SB p.${evidence.printedPage}] ${activityLabel}: ${evidence.verifiedWording}`,
+    )
+    if (evidence.prompt && evidence.prompt !== evidence.verifiedWording) {
+      lines.push(`  Task evidence: ${evidence.prompt}`)
+    }
+    if (evidence.expectedAnswer) {
+      lines.push(`  Answer evidence: ${evidence.expectedAnswer}`)
+    }
+    for (const item of evidence.items) {
+      const itemLabel = item.itemNumber ? `Item ${item.itemNumber}` : 'Item'
+      if (item.prompt) lines.push(`  ${itemLabel} task: ${item.prompt}`)
+      if (item.expectedAnswer) {
+        lines.push(`  ${itemLabel} answer evidence: ${item.expectedAnswer}`)
+      }
+    }
+    if (evidence.languageFrame) {
+      lines.push(`  Language: ${evidence.languageFrame}`)
+    }
+    if (evidence.audioDependency) {
+      const sourceNote = evidence.sourceDependencyNote
+        ? ` (${evidence.sourceDependencyNote})`
+        : ''
+      lines.push(`  Use the official book audio${sourceNote}.`)
+    }
+  }
+  return lines
 }
 
 export function sbActivitySelectionStatus(

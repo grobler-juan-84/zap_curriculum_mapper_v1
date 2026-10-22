@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.33  
+**Version:** 2.34  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -31,7 +31,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - **Unit Summary**, **SB Pages Summary** (primary lesson source), optional **WB Pages Summary** (verified companion only), and **Unit Intelligence**.
 - **Unit Intelligence** — **implemented** read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); disclaimer *Phase 2 interpretation / planning support — not current-page source evidence.*; AI-inferred Learning Outcomes badge preserved; honest unavailable copy when BI is missing; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) remains design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
-- **Current Activity Selection is partially implemented:** **SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.** Current Lesson uses a compact book/unit line and wide book-spread picker: true two-page scopes have separate page surfaces and a subtle gutter; one-page scopes have one centered panel. Cards begin selected, use checkbox-only controls, and preserve exclusions across Back/Continue. See [`chalkie-current-activity-selection-contract-v0.1.md`](./chalkie-current-activity-selection-contract-v0.1.md).
+- **Current Activity Selection is partially implemented:** **SB activity selection now propagates through local Chalkie handoff artifacts. Workbook cards and Workbook selection remain unimplemented.** Current Lesson uses a compact book/unit line and wide book-spread picker. Checked cards drive selected-only prompt evidence, outline steps, suggested vocabulary, language/models, and selection-sensitive focus without page-level fallback leakage. See [`chalkie-current-activity-selection-contract-v0.1.md`](./chalkie-current-activity-selection-contract-v0.1.md).
 - Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA through Review companions are **docs-accepted + resolver-wired** (View Workbook only; Writing/Phonics/Review 1→1 single lesson likely); Values SB p.142 is **SB-only confirmed; no Workbook companion expected**; **no** series handoff; **no** Chalkie generation.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
@@ -45,7 +45,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two BE3 U8 series pairs (opener; asymmetric story). Resolver-wired companions alone do not unlock series packaging.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
-- Workbook activity cards and filtering selected activities into handoff builders.
+- Workbook activity cards, Workbook selection state, and Workbook selection propagation.
 
 ---
 
@@ -59,7 +59,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 | Left panel | Unit Summary + SB Pages Summary + optional WB Pages Summary + Unit Intelligence |
 | WB toggle | **View Workbook** / **View Student Book** when curated companion matches the active lesson scope (exact two-page spread, or one-page Go target); PDF nav locked on mapped WB pages only |
 | Active page | Go / Prev / Next sets active lesson page; facing-pair Go keeps both PDF pages visible while scoping companion + handoff to the target page |
-| Activity selection | Compact Current Lesson context + wide SB book-spread picker; page-correct one/two-panel layout; session-only checkbox state and feedback. No Workbook cards or handoff propagation |
+| Activity selection | Compact Current Lesson context + wide SB book-spread picker; page-correct one/two-panel layout; session checkbox state drives selected-only local handoff artifacts. No Workbook cards or selection |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
 | Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
@@ -80,14 +80,14 @@ The PDF is the **page-scope selector**, not the normal content extractor. For no
 
 | Overlay screen | What the teacher sees | Immediate source | Underlying source / exception |
 |---|---|---|---|
-| **Step 1 — Current lesson** | Compact selected book/unit identity, short instruction, selection count, and verified SB activity cards in a page-spread layout | `ChalkieLessonContext` identity plus `chalkieActivitySelection.ts` cards built from the selected unit summary and resolved active lesson pages | Activity cards use only human-verified SB activity rows and preserve source wording/previews. The longer lesson metadata, words/models, language, focus, and provenance summary is not rendered on Step 1; the underlying resolved context and all handoff builders remain unchanged. |
+| **Step 1 — Current lesson** | Compact selected book/unit identity, short instruction, selection count, and verified SB activity cards in a page-spread layout | `ChalkieLessonContext` identity plus `chalkieActivitySelection.ts` cards built from the selected unit summary and resolved active lesson pages | Activity cards use only human-verified SB activity rows and preserve source wording/previews. Selection persists for the modal session and feeds the local handoff. |
 | **Step 2 — What might be useful to reuse?** | Prior-learning cards plus **Add language of your own** (frame, optional note, Add) on one screen; selected-count in the footer | `lesson.priorLearningSuggestions` + overlay `selectedIds` / `teacherAdditions` | BE2 U8: curated `[HM]` cards. Other ready routes: same-unit earlier-page `[PRIOR]` vocabulary bundles. Custom language is teacher-entered, labelled unverified, session-only. The old separate “What do you choose?” confirmation step is removed. |
-| **Step 3 — What will support this lesson?** | Lesson title, package choice, current lesson recap, selected prior learning, teacher additions, and guidance; then four separate copyable handoff items: title, detailed prompt, concise outline, suggested Chalkie vocabulary | Resolved context plus Step 2 session state | Suggested vocabulary uses current-page words/models only (not PRIOR/HM/teacher-added). Empty state when none exist. Detailed prompt and outline unchanged. |
-| **Prompt preview / handoff** | Copy-ready title, detailed prompt, concise outline, suggested vocabulary; optional small `Ref:` line for tracking | `buildChalkieLessonNaming.ts`, `buildChalkiePromptPreview.ts`, `buildChalkieConciseOutline.ts`, `buildSuggestedChalkieVocabulary.ts` | Teacher-facing title uses `{series} {SB\|WB} Unit {NN} {page ref} — {unit title} — {short focus}` (e.g. BE3 SB Unit 08 pp. 132–133 — Healthy Living — Asking About Yesterday). Stable ref e.g. `be3-sb-u08-p132-133` is tracking-only (not copied). Optional `-l01` / `-l02` may be appended later for multi-lesson spreads. Detailed prompt keeps full book/unit/page wording. |
+| **Step 3 — What will support this lesson?** | Lesson title, package choice, selected-current-activity recap, selected prior learning, teacher additions, and guidance; then four separate copyable handoff items | Resolved context plus current SB selection and Step 2 session state | Current activity recap, words/models, and language are selection-aware. Prior learning stays separate and does not replace excluded current activity evidence. |
+| **Prompt preview / handoff** | Copy-ready title, detailed prompt, concise outline, suggested vocabulary; optional small `Ref:` line for tracking | `buildChalkieLessonNaming.ts`, `buildChalkiePromptPreview.ts`, `buildChalkieConciseOutline.ts`, `buildSuggestedChalkieVocabulary.ts` | Title and source page scope remain stable. Detailed prompt, outline, vocabulary, and activity-derived evidence use selected SB activities only; partial pages have no page-level fallback. Supported series preserve Workbook Lesson 2 unchanged. |
 
 ### Resolved current-lesson context mapping
 
-The resolver still provides these fields for Step 3 and the unchanged local handoff. Except for compact book/unit identity, they are no longer presented as a summary wall on Step 1.
+The resolver still provides these fields as source context. Except for compact book/unit identity, they are no longer presented as a summary wall on Step 1; selection-sensitive handoff fields are rebuilt conservatively from selected activity evidence.
 
 | Context field | Normal route | BE2 U8 prototype route |
 |---|---|---|
@@ -121,10 +121,10 @@ The overlay performs no new curriculum fetches after **Prepare Chalkie prompt**.
 | Stage | Compilation action | Result used by the next stage |
 |---|---|---|
 | **Before Step 1** | `ChalkieWorkspace.tsx` loads/slices the selected unit JSON; `ValidationPdfPane` reports visible printed pages; `resolveChalkieLessonContext.ts` validates scope and compiles page-matched evidence. | A single `ChalkieLessonContext`, or a guard message instead of the overlay. |
-| **Step 1** | Renders compact book/unit identity plus a wide verified SB activity spread. Every eligible card starts included; checkbox changes stay in overlay session state across Back/Continue. | The teacher reviews and temporarily curates current SB activities without a competing metadata wall. A visible notice states that current handoff content is unchanged in this slice. |
+| **Step 1** | Renders compact book/unit identity plus a wide verified SB activity spread. Every eligible card starts included; checkbox changes stay in overlay session state across Back/Continue. | The teacher reviews current SB activities. A visible notice states that selected activities will be included in the local handoff. |
 | **Step 2** | Renders suggestion cards and custom-language controls together. | `selectedIds` + `teacherAdditions` in overlay session state; footer shows selection counts. |
-| **Step 3** | Re-renders current lesson context and Step 2 local state; package choice (`single` or BE2 U8 `series`); then local prompt preview. | Confirmation of inputs; still not a persisted generated lesson. |
-| **Prompt preview / handoff** | Local builders compose title, detailed prompt, concise outline, and suggested vocabulary from the resolved context + selections. | Four copyable local artifacts. The OpenAI lesson-draft path is dormant and not called. |
+| **Step 3** | Re-renders selected current activity evidence and Step 2 local state; package choice (`single` or supported `series`); then local prompt preview. | Confirmation of selected inputs; still not a persisted generated lesson. |
+| **Prompt preview / handoff** | Local builders compose title plus selected-only detailed prompt, concise outline, and suggested vocabulary. | Four copyable local artifacts. No excluded activity can return via page-level focus, outline, vocabulary, language, or bespoke series fallback. |
 
 ### Future API-backed prior-learning cards — proposed, not implemented or locked
 
@@ -188,7 +188,7 @@ Never use `VITE_OPENAI_API_KEY`.
 - Activity labels prefer `title` → `activity_title` → `instruction`; activity-rich spreads (e.g. BE3 U8 Grammar pp. 136–137) can open the teacher-choice flow with activity-derived words/models, language frames, and a derived teaching-focus planning summary. The prompt is still a generic dynamic single-lesson assembly — not Experiment 10. Gap analysis: [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
 - Act 20 chart category dumps (comma-separated answer lists) are intentionally not shown as word models — only safely shaped item pairs are extracted.
 - Local handoff remains fully deterministic and copyable (title, detailed prompt, concise outline, suggested vocabulary). The OpenAI lesson-draft UI is removed; the server path stays dormant and unused.
-- SB activity exclusions are session-only and do not yet alter title, detailed prompt, concise outline, suggested vocabulary, or any series handoff.
+- SB activity exclusions are session-only state but now alter detailed prompt, concise outline, suggested vocabulary, activity-derived language/models, and supported series Lesson 1. Title/page scope stays visible; Workbook Lesson 2 remains unchanged.
 - Two-lesson series uses Workbook pp. 104–105 as packaging source evidence; those pages may not be the PDF open in the workspace viewer.
 - Curated BE2 U8 fixture (prior-learning cards + SB→WB series) applies only to the exact route `big_english_2_sb` Unit 8 with visible pages **128–129**. Horizontal suggestions remain fixture-only for that route.
 - Other in-unit spreads use Phase 1 visible-page evidence only (single-lesson path); missing page evidence blocks generation honestly.

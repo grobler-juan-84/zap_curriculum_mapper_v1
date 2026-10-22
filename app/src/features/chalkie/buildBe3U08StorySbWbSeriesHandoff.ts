@@ -9,6 +9,14 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
 import type { TeacherAddedLanguageInput } from './buildChalkiePromptPreview'
 import { BE3_U08_SB130_131_WB106 } from './verifiedSbWbCompanions'
+import {
+  hasNoSelectedSbActivities,
+  hasSbActivityExclusions,
+  selectedSbActivityLanguage,
+  selectedSbActivityPromptLines,
+  selectedSbActivityVocabulary,
+  type SbActivityHandoffSelection,
+} from './chalkieActivitySelection'
 
 export const BE3_U08_STORY_SERIES_RELATIONSHIP_ID =
   BE3_U08_SB130_131_WB106.relationshipId
@@ -84,7 +92,17 @@ function buildPriorLearningBlock(input: {
 function buildDetailedHandoff(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): string {
+  if (
+    input.activitySelection &&
+    hasSbActivityExclusions(input.activitySelection)
+  ) {
+    return buildSelectionAwareDetailedHandoff({
+      ...input,
+      activitySelection: input.activitySelection,
+    })
+  }
   const priorLines = buildPriorLearningBlock(input)
 
   return [
@@ -165,6 +183,81 @@ function buildDetailedHandoff(input: {
   ].join('\n')
 }
 
+function buildSelectionAwareDetailedHandoff(input: {
+  selectedSuggestions: TeacherChoiceSuggestion[]
+  teacherAdditions: TeacherAddedLanguageInput[]
+  activitySelection: SbActivityHandoffSelection
+}): string {
+  const priorLines = buildPriorLearningBlock(input)
+  const activityLines = selectedSbActivityPromptLines(input.activitySelection)
+  const vocabulary = selectedSbActivityVocabulary(input.activitySelection)
+  const language = selectedSbActivityLanguage(input.activitySelection)
+  const noActivities = hasNoSelectedSbActivities(input.activitySelection)
+
+  return [
+    'Create a short, picture-led TWO-LESSON series to SUPPORT Big English 3 Unit 8 using ONLY these source pages:',
+    '- Lesson 1: Student Book printed pages 130–131',
+    '- Lesson 2: Workbook printed page 106 only',
+    '',
+    'Do not expand Workbook scope beyond printed page 106.',
+    'Do not replace the textbook or workbook.',
+    'Do not invent publisher audio scripts or missing story/exercise text.',
+    'Workbook page 106 is verified source evidence for this series; it may not be the PDF currently open in the workspace.',
+    '',
+    'SOURCE LABELS:',
+    '- [SB] = selected Student Book activity evidence from pages 130–131 only',
+    '- [WB] = Workbook evidence from page 106 only',
+    '- [PRIOR] = teacher-selected prior learning from earlier pages in the same unit',
+    '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
+    '',
+    'A. SERIES SCOPE',
+    '',
+    'Lesson 1 — Student Book pp. 130–131',
+    'Use only the selected Student Book activities below.',
+    ...activityLines,
+    '',
+    vocabulary.length
+      ? `Selected Lesson 1 words/models: ${vocabulary.join(', ')}.`
+      : 'Selected Lesson 1 words/models: none safely attributable to the selected activities.',
+    language.length
+      ? `Selected Lesson 1 language: ${language.join(' | ')}`
+      : 'Selected Lesson 1 language: none safely attributable to the selected activities.',
+    '',
+    'Lesson 2 — Workbook p. 106 only',
+    'Purpose: consolidate the story strand with Did Amy…? Yes/No she did short answers, personal dinner reflection, and Think Big healthy/unhealthy categorisation.',
+    '',
+    '[WB p.106] Unit 8 Healthy Living · Story',
+    '[WB p.106] Notes: Story title: An Unhealthy Dinner',
+    `[WB p.106] Target vocabulary: ${BE3_U08_STORY_LESSON2_VOCAB}.`,
+    "[WB p.106] Activity 5: Read and answer. Write Yes, she did or No, she didn’t. (Did Amy eat a burger and fries…? / Did she eat fried food? / Did she drink a large glass of water? / Did she eat a healthy dinner?)",
+    '[WB p.106] Language model: Did Amy…? → Yes, she did. / No, she didn’t.',
+    '[WB p.106] Activity 6: What did you eat for dinner yesterday? Was it healthy? Draw, write, and circle.',
+    '[WB p.106] Think Big: Healthy or unhealthy? Draw. (fries, lettuce, tomatoes, bottle of cola, burger, water)',
+    `- Lesson 2 vocabulary: ${BE3_U08_STORY_LESSON2_VOCAB}`,
+    '',
+    'B. TEACHER-SELECTED PRIOR LEARNING',
+    '',
+    ...priorLines,
+    '',
+    'C. TEACHING GUIDANCE',
+    '',
+    '- Keep Lesson 1 on Student Book pp. 130–131 and Lesson 2 on Workbook p. 106 only.',
+    noActivities
+      ? '- Lesson 1: no current Student Book activities were selected; do not recreate them from page context.'
+      : '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.',
+    '- Lesson 2: keep the existing Workbook consolidation/practice scope unchanged.',
+    '- Prior learning remains separate support and does not replace unselected current-page content.',
+    '- Keep both lessons concise and classroom-usable.',
+    '',
+    'D. HARD BOUNDARIES',
+    '',
+    '- Stay on Student Book pages 130–131 and Workbook page 106 only.',
+    '- Do not use or reconstruct unselected Student Book activities.',
+    '- Do not change Workbook scope, vocabulary, outline, or infer Workbook activity selection.',
+    '- Do not invent publisher audio scripts or unknown exercise items.',
+  ].join('\n')
+}
+
 export const BE3_U08_STORY_LESSON1_OUTLINE = [
   'Concise teacher-controlled outline — Lesson 1',
   'Short teaching sequence for Student Book pp. 130–131 only (Story / Reading · An Unhealthy Dinner). Keep book-working time; do not expand into a slide-by-slide script.',
@@ -187,13 +280,51 @@ export const BE3_U08_STORY_LESSON2_OUTLINE = [
   '',
 ].join('\n')
 
+function buildSelectionAwareLesson1Outline(
+  selection: SbActivityHandoffSelection,
+): string {
+  const lines = [
+    'Concise teacher-controlled outline — Lesson 1',
+    'Short teaching sequence for Student Book pp. 130–131 only. Use only selected activities; do not reconstruct excluded activities.',
+    '',
+  ]
+  if (hasNoSelectedSbActivities(selection)) {
+    lines.push(
+      '1. [SB] No current Student Book activities were selected. Teacher must review the source selection before adding current-page work.',
+    )
+  } else {
+    selection.selectedEvidence.forEach((activity, index) => {
+      const number = activity.activityNumber
+        ? `Activity ${activity.activityNumber}`
+        : 'Activity'
+      const audio = activity.audioDependency
+        ? ` Use the official book audio${activity.sourceDependencyNote ? ` (${activity.sourceDependencyNote})` : ''}.`
+        : ''
+      const answer = activity.expectedAnswer
+        ? ` Answer evidence: ${activity.expectedAnswer}`
+        : ''
+      lines.push(
+        `${index + 1}. [SB] ${number}: ${activity.verifiedWording}${audio}${answer}`,
+      )
+    })
+  }
+  lines.push('')
+  return lines.join('\n')
+}
+
 /**
  * Build the six local series copyables for the accepted BE3 U8 story pair only.
  */
 export function buildBe3U08StorySbWbSeriesHandoff(input?: {
   selectedSuggestions?: TeacherChoiceSuggestion[]
   teacherAdditions?: TeacherAddedLanguageInput[]
+  activitySelection?: SbActivityHandoffSelection
 }): Be3U08StorySeriesHandoff {
+  const selectionOverride =
+    input?.activitySelection &&
+    hasSbActivityExclusions(input.activitySelection)
+      ? input.activitySelection
+      : null
   return {
     relationshipId: BE3_U08_STORY_SERIES_RELATIONSHIP_ID,
     seriesTitle: BE3_U08_STORY_SERIES_TITLE,
@@ -201,9 +332,14 @@ export function buildBe3U08StorySbWbSeriesHandoff(input?: {
     detailedHandoff: buildDetailedHandoff({
       selectedSuggestions: input?.selectedSuggestions ?? [],
       teacherAdditions: input?.teacherAdditions ?? [],
+      activitySelection: input?.activitySelection,
     }),
-    lesson1Outline: BE3_U08_STORY_LESSON1_OUTLINE,
-    lesson1Vocabulary: BE3_U08_STORY_LESSON1_VOCAB,
+    lesson1Outline: selectionOverride
+      ? buildSelectionAwareLesson1Outline(selectionOverride)
+      : BE3_U08_STORY_LESSON1_OUTLINE,
+    lesson1Vocabulary: selectionOverride
+      ? selectedSbActivityVocabulary(selectionOverride).join(', ')
+      : BE3_U08_STORY_LESSON1_VOCAB,
     lesson2Outline: BE3_U08_STORY_LESSON2_OUTLINE,
     lesson2Vocabulary: BE3_U08_STORY_LESSON2_VOCAB,
   }

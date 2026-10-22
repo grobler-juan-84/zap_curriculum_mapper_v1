@@ -11,6 +11,12 @@ import { fileURLToPath } from 'node:url'
 import { buildChalkieConciseOutline } from '../../app/src/features/chalkie/buildChalkieConciseOutline.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
 import { buildSuggestedChalkieVocabulary } from '../../app/src/features/chalkie/buildSuggestedChalkieVocabulary.ts'
+import {
+  buildSbActivityCards,
+  createDefaultSbActivitySelection,
+  createSbActivityHandoffSelection,
+  setSbActivityCardSelected,
+} from '../../app/src/features/chalkie/chalkieActivitySelection.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
@@ -212,6 +218,59 @@ test('copy payload matches displayed vocabulary text', () => {
     suggested.copyText,
     'do any exercise, drink lots of water, have a healthy lunch, get enough sleep, ride my bike',
   )
+})
+
+test('page vocabulary remains only while every eligible activity on that page is selected', () => {
+  const summary = be3Unit8Summary()
+  const lesson = resolveBe3U08([128, 129])
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const allSelected = createSbActivityHandoffSelection(
+    cards,
+    createDefaultSbActivitySelection(cards),
+  )
+  const withAllSelected = buildSuggestedChalkieVocabulary(
+    lesson,
+    allSelected,
+  )
+  assert.match(withAllSelected.copyText, /have a big breakfast/)
+  assert.match(withAllSelected.copyText, /get enough sleep/)
+
+  const p128Activity = cards.find((card) => card.printedPage === 128)
+  assert.ok(p128Activity)
+  const partialPage = createSbActivityHandoffSelection(
+    cards,
+    setSbActivityCardSelected({
+      cards,
+      state: createDefaultSbActivitySelection(cards),
+      cardId: p128Activity.id,
+      selected: false,
+    }),
+  )
+  const afterExclusion = buildSuggestedChalkieVocabulary(
+    lesson,
+    partialPage,
+  )
+  assert.doesNotMatch(afterExclusion.copyText, /have a big breakfast/)
+  assert.doesNotMatch(afterExclusion.copyText, /get 10 hours of sleep/)
+})
+
+test('all current activities excluded produces honest empty suggested vocabulary', () => {
+  const summary = be3Unit8Summary()
+  const lesson = resolveBe3U08([128, 129])
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const suggested = buildSuggestedChalkieVocabulary(
+    lesson,
+    createSbActivityHandoffSelection(cards, { selectedCardIds: [] }),
+  )
+  assert.equal(suggested.isEmpty, true)
+  assert.deepEqual(suggested.terms, [])
+  assert.equal(suggested.copyText, '')
 })
 
 test('lesson without current words/models shows honest empty state', () => {

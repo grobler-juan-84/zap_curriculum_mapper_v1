@@ -4,6 +4,10 @@
  * Local only; no API.
  */
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
+import {
+  selectedSbActivityVocabulary,
+  type SbActivityHandoffSelection,
+} from './chalkieActivitySelection'
 
 export type SuggestedChalkieVocabulary = {
   /** Deduped current-page terms in source order. */
@@ -19,9 +23,13 @@ export type SuggestedChalkieVocabulary = {
  */
 export function buildSuggestedChalkieVocabulary(
   lesson: Pick<ChalkieLessonContext, 'vocabulary'>,
+  activitySelection?: SbActivityHandoffSelection,
 ): SuggestedChalkieVocabulary {
   const terms: string[] = []
-  for (const raw of lesson.vocabulary) {
+  const sourceTerms = activitySelection
+    ? selectedSbActivityVocabulary(activitySelection)
+    : lesson.vocabulary
+  for (const raw of sourceTerms) {
     const term = typeof raw === 'string' ? raw.trim() : ''
     if (!term) continue
     if (terms.includes(term)) continue

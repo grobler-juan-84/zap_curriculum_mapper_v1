@@ -10,6 +10,12 @@ import { fileURLToPath } from 'node:url'
 
 import { buildChalkieConciseOutline } from '../../app/src/features/chalkie/buildChalkieConciseOutline.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
+import {
+  buildSbActivityCards,
+  createDefaultSbActivitySelection,
+  createSbActivityHandoffSelection,
+  setSbActivityCardSelected,
+} from '../../app/src/features/chalkie/chalkieActivitySelection.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
 import {
   BE2_U08_PROTOTYPE_FOCUS,
@@ -251,6 +257,119 @@ test('detailed prompt remains unchanged by outline builder', () => {
   })
   assert.match(outline, /Concise teacher-controlled outline/)
   assert.notEqual(outline, promptA)
+})
+
+test('excluding BE3 p.129 Activity 4 removes its prompt, answer, audio, and outline without affecting neighbours', () => {
+  const summary = be3Unit8Summary()
+  const lesson = resolveBe3U08([128, 129])
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const activity4 = cards.find(
+    (card) => card.references.activityId === 'bep3_sb_act_08_04',
+  )
+  assert.ok(activity4)
+  const selection = createSbActivityHandoffSelection(
+    cards,
+    setSbActivityCardSelected({
+      cards,
+      state: createDefaultSbActivitySelection(cards),
+      cardId: activity4.id,
+      selected: false,
+    }),
+  )
+  const prompt = buildChalkiePromptPreview({
+    lesson,
+    packageShape: 'single',
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    activitySelection: selection,
+  })
+  const outline = buildChalkieConciseOutline({
+    lesson,
+    selectedSuggestions: [],
+    activitySelection: selection,
+  })
+
+  assert.doesNotMatch(prompt, /Listen and sing\. How does Zach feel today\?/)
+  assert.doesNotMatch(prompt, /I feel awful today\. \/ He feels awful\./)
+  assert.doesNotMatch(prompt, /\b(?:151|152)\b/)
+  assert.doesNotMatch(prompt, /Live Right!/)
+  assert.doesNotMatch(prompt, /Teaching focus/)
+  assert.doesNotMatch(prompt, /Unit context/)
+  assert.doesNotMatch(outline, /Activity 4:/)
+  assert.match(prompt, /Activity 5: Look at 1\. Ask and answer\./)
+  assert.match(outline, /Activity 5:/)
+  assert.match(prompt, /Activity 1:/)
+  assert.doesNotMatch(outline, /\[SUPPLEMENTARY\]/)
+})
+
+test('all-selected SB state preserves the existing single-lesson handoff artifacts', () => {
+  const summary = be3Unit8Summary()
+  const lesson = resolveBe3U08([128, 129])
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const selection = createSbActivityHandoffSelection(
+    cards,
+    createDefaultSbActivitySelection(cards),
+  )
+  const input = {
+    lesson,
+    packageShape: 'single' as const,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+  }
+
+  assert.equal(
+    buildChalkiePromptPreview({ ...input, activitySelection: selection }),
+    buildChalkiePromptPreview(input),
+  )
+  assert.equal(
+    buildChalkieConciseOutline({
+      lesson,
+      selectedSuggestions: [],
+      activitySelection: selection,
+    }),
+    buildChalkieConciseOutline({
+      lesson,
+      selectedSuggestions: [],
+    }),
+  )
+})
+
+test('all SB activities excluded yields explicit empty output with no page fallback', () => {
+  const summary = be3Unit8Summary()
+  const lesson = resolveBe3U08([128, 129])
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const selection = createSbActivityHandoffSelection(cards, {
+    selectedCardIds: [],
+  })
+  const prompt = buildChalkiePromptPreview({
+    lesson,
+    packageShape: 'single',
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    activitySelection: selection,
+  })
+  const outline = buildChalkieConciseOutline({
+    lesson,
+    selectedSuggestions: [],
+    activitySelection: selection,
+  })
+
+  assert.match(prompt, /No current Student Book activities were selected/)
+  assert.match(prompt, /Prior learning remains optional support/)
+  assert.doesNotMatch(prompt, /\[SB p\.128\] Activity/)
+  assert.doesNotMatch(prompt, /\[SB p\.129\] Activity/)
+  assert.doesNotMatch(prompt, /Teaching focus/)
+  assert.match(outline, /No current Student Book activities were selected/)
+  assert.doesNotMatch(outline, /Activity [1-5]:/)
 })
 
 test('BE2 curated detailed prompt behaviour remains intact', () => {

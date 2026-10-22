@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 314
+**Last updated:** Step 315
 
 
 
@@ -524,9 +524,13 @@
 
 - [x] **Activity Selection visual refinement:** compact lesson identity + wide SB spread surface; subtle two-page gutter; centered one-page panel; compact checkbox-only cards; summary wall removed.
 
-- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two-page spread + exclusion persistence; p.140 one-page panel only; final prompt unchanged.
+- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two-page spread + exclusion persistence; p.140 one-page panel only.
 
-- [ ] **Owner-gated next Activity Selection slice:** propagate selected SB activity evidence through detailed prompt, concise outline, suggested vocabulary, and derived current-page content without fallback leakage; keep Workbook cards separate.
+- [x] **SB Activity Selection propagation:** selected evidence now drives detailed prompt, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1 with no page-level fallback leakage; Workbook Lesson 2 unchanged.
+
+- [ ] **Owner manual propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return; Workbook output remains unchanged.
+
+- [ ] **Owner-gated next Activity Selection slice:** add verified Workbook activity-card model/UI with asymmetric companion layouts; keep Workbook propagation separate.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
