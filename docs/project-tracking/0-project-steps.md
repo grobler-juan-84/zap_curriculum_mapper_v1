@@ -5468,3 +5468,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 321
+
+**Summary:** Implemented a read-only neutral SB→WB lesson-package assembler for the accepted BE3 Unit 8 Opener and Story pairs only. Added exact-scope selected evidence, conservative page attribution, explicit partial/zero states and boundaries, and lesson-targeted prior support without changing existing Chalkie UI or rendering.
+
+**Files touched:**
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (created)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

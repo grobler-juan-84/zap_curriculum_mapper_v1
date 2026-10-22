@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.38  
+**Version:** 2.39  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -32,6 +32,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - **Unit Intelligence** — **implemented** read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); disclaimer *Phase 2 interpretation / planning support — not current-page source evidence.*; AI-inferred Learning Outcomes badge preserved; honest unavailable copy when BI is missing; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) remains design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
 - **Current Activity Selection is IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** SB and verified Workbook activities appear as teacher-selectable cards (all selected by default). Selected SB evidence drives the detailed handoff, outline, vocabulary, language/models, and selection-sensitive focus; selected WB evidence drives applicable Workbook / Lesson 2 content. Unchecked activities cannot return through fallback reconstruction. Open-book layouts and Back/Continue persistence are owner-accepted on BE3 U8 opener SB 128–129 ↔ WB 104–105. Does not authorize Chalkie generation or claim classroom validation. See [`chalkie-current-activity-selection-contract-v0.1.md`](./chalkie-current-activity-selection-contract-v0.1.md).
+- **Neutral package boundary:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** The read-only package contains exact verified scopes, selected evidence, per-lesson intent/evidence states, boundaries, and explicitly targeted prior support. Existing Chalkie titles, prompts, outlines, vocabulary output, and modal routing remain unchanged. See [`chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md`](./chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md).
 - Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA through Review companions are **docs-accepted + resolver-wired** (View Workbook only; Writing/Phonics/Review 1→1 single lesson likely); Values SB p.142 is **SB-only confirmed; no Workbook companion expected**; **no** series handoff; **no** Chalkie generation.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
@@ -175,9 +176,10 @@ Never use `VITE_OPENAI_API_KEY`.
 
 ## What remains pending
 
-1. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md) (next coding slice: richer activity evidence, not Exp 10 fixture).
-2. Optional: teacher page-range picker beyond the current PDF spread.
-3. OpenAI lesson-draft endpoint remains dormant on disk; decide later whether to revive for prompt/question help, harden, or park permanently.
+1. Owner review of the bounded Opener/Story neutral package shape before any separately authorized shadow renderer or production migration.
+2. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
+3. Optional: teacher page-range picker beyond the current PDF spread.
+4. OpenAI lesson-draft endpoint remains dormant on disk; decide later whether to revive for prompt/question help, harden, or park permanently.
 
 ---
 
@@ -252,3 +254,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-22 | Corrected one-page Activity Selection visuals to preserve the open-book spread: even pages stay left, odd pages stay right, and the facing panel is a muted non-content placeholder. No selection or handoff behavior changed. |
 | 2026-10-22 | Propagated selected Workbook evidence into the accepted opener/Story local series handoffs: selected-only detailed prompt and Lesson 2 artifacts, conservative full-page vocabulary/language attribution, explicit zero-selection state, and no fallback reconstruction. |
 | 2026-10-22 | Owner manually accepted Activity Selection for the provisional local handoff workflow (open-book layout, selected-only SB/WB propagation, BE3 U8 opener persistence `4 of 5` / `3 of 4`); no Chalkie generation authorized; Activity Selection feature work paused. |
+| 2026-10-22 | Implemented a read-only neutral lesson-package assembler for the accepted Opener and Story pairs only, including exact scope, selected evidence, conservative attribution, empty states, boundaries, and targeted prior support. No UI or renderer migrated. |

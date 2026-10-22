@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 320
+**Last updated:** Step 321
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,18 +24,18 @@
 
 - **Activity Selection contract v0.9:** **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** Teacher-selectable SB/WB cards (all selected by default); selected-only SB and WB handoff propagation; open-book layouts; BE3 U8 opener persistence accepted (`4 of 5` SB / `3 of 4` WB after Back). Does not authorize Chalkie generation or claim classroom validation.
 
-- **Generic SB→WB adapter audit v0.1:** design-only comparison of the accepted opener and Story builders. Defines the minimum neutral package boundary, explicit per-lesson targeting for `[PRIOR]` / `[HM]` / teacher-added support, legitimate variable fields, and Chalkie-specific rendering boundary. No adapter implementation or generation is authorized.
+- **Neutral SB→WB package assembler (audit v0.2):** implemented read-only for the accepted BE3 U8 Opener and Story pairs only. It packages exact scopes, selected-only activity/vocabulary/language/audio evidence, explicit selection states and boundaries, and lesson-targeted `[PRIOR]` / `[HM]` / teacher-added support; existing Chalkie UI and rendering are unchanged.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- None for Activity Selection. Feature work is paused.
+- Owner review of the bounded neutral package contract and assembled Opener/Story shapes.
 
 ## Next
 
-- Pause Activity Selection feature work. The next project question must be chosen separately; do not automatically add a new curation feature.
-- If separately authorized later, the smallest generic-adapter slice is a read-only neutral package assembler plus opener/Story contract tests, with no UI wiring or production-builder replacement.
+- Review the neutral Opener/Story package shape before separately deciding whether to run a test-only shadow-renderer parity check.
+- Do not migrate UI or production Chalkie renderers automatically.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 

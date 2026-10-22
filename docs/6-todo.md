@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 320
+**Last updated:** Step 321
 
 
 
@@ -538,9 +538,11 @@
 
 - [x] **Generic two-lesson SB→WB adapter audit:** compare accepted BE3 opener/Story builders; define neutral package fields, explicit per-lesson prior-support targeting, platform-specific rendering boundary, gaps, and non-goals. Design only; no adapter or generation authorized.
 
+- [x] **Bounded neutral package assembler:** read-only exact-scope packages for accepted BE3 U8 Opener and Story only; selected evidence, conservative attribution, explicit empty states/boundaries, and lesson-targeted prior support; no UI or renderer migration.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next project question (choose separately):** consider authorizing only the audit's read-only neutral package assembler + opener/Story contract tests, separately authorize a series handoff for an already-wired companion, start the next book/unit companion set, or choose another direction. No generic adapter wiring, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [ ] **Next project question (choose separately):** owner-review the assembled Opener/Story package shape, then decide whether to authorize a test-only shadow-renderer parity check, a series handoff for an already-wired companion, the next book/unit companion set, or another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 

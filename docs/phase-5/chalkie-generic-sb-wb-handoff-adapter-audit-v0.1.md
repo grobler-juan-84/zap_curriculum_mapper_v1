@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / DESIGN ONLY — implementation not authorized  
-**Version:** 0.1  
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler only  
+**Version:** 0.2  
 **Date:** 2026-10-22  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -14,9 +14,9 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 - **Opener:** SB pp.128–129 → WB pp.104–105
 - **Story:** SB pp.130–131 → WB p.106
 
-The goal is to identify the smallest reusable, data-driven structure that could later assemble either handoff without embedding component-specific evidence in a new builder.
+The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-This is a **design/audit artifact only**. It does not create a generic adapter, replace either accepted builder, alter verified mappings, authorize Chalkie generation, or claim that the project already has a platform-neutral lesson package.
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. The existing handoff builders remain the production renderers and are unchanged.
 
 The core separation is:
 
@@ -222,17 +222,17 @@ The future design must support these without new component-specific builder fork
 
 The neutral side is durable evidence and teacher intent. The right side is an adapter. A future MagicSchool or Canva workspace should consume the neutral side and produce its own prompt, outline, structured fields, or export without re-resolving companions or recreating activity selection.
 
-This audit does not authorize those adapters or claim that the neutral package already exists.
+This bounded assembler does not authorize those adapters or claim broader component/platform support.
 
 ---
 
 ## 7. Known exceptions and gaps
 
-1. **No neutral package type exists yet.** Current accepted behavior is encoded directly in two Chalkie-specific builders.
+1. **The neutral package is bounded to two accepted pairs.** Opener and Story are implemented; no other resolver-wired relationship is eligible.
 2. **All-selected and partial-selection paths differ.** Baseline paths use curated prose; partial paths use selected evidence helpers. A generic package should normalize both before rendering while preserving accepted all-selected output.
 3. **Purpose is not canonical evidence.** It needs a reviewed planning source or explicit teacher confirmation; it must not be guessed from a component label.
-4. **Prior support lacks lesson targeting.** Existing series inputs are shared across the series, and bespoke outlines omit targeted prior/support steps.
-5. **Provenance defaults are inconsistent.** Generic input should require `PRIOR` versus `HM` explicitly.
+4. **Production rendering still lacks lesson-targeted support consumption.** The neutral package preserves explicit targets, but existing series inputs remain shared across the series and bespoke outlines omit targeted prior/support steps.
+5. **Production provenance defaults remain inconsistent.** The neutral package requires explicit provenance, but existing renderers have not migrated.
 6. **Supplementary closing steps are bespoke.** They are adapter/teacher policy, not publisher activity evidence.
 7. **Only two BE3 series are accepted exemplars.** They demonstrate 2→2 vocabulary/song and 2→1 Story, but not LiA, CLIL, grammar, culture, writing, phonics, review, 1→1, or another publisher.
 8. **Resolver-wired does not mean handoff-approved.** Existing LiA–Review mappings must not automatically unlock generic series packaging.
@@ -243,7 +243,7 @@ This audit does not authorize those adapters or claim that the neutral package a
 
 ## 8. Explicit non-goals
 
-- Implementing or wiring a generic adapter.
+- Implementing or wiring a generic platform renderer.
 - Replacing or refactoring the accepted opener/Story builders.
 - Adding a new component-specific handoff.
 - Changing Activity Selection UI, state, or propagation.
@@ -255,17 +255,17 @@ This audit does not authorize those adapters or claim that the neutral package a
 
 ---
 
-## 9. Recommended smallest next implementation slice
+## 9. Implemented slice and smallest next step
 
-If separately authorized, create a **read-only neutral package assembler and contract tests only**:
+The separately authorized **read-only neutral package assembler and contract tests** are now implemented:
 
 1. Define the minimal neutral package/input types described in §3.
 2. Adapt the existing verified resolver plus selected SB/WB evidence into that package for the opener and Story fixtures.
 3. Require explicit provenance and lesson targets for optional support records.
 4. Assert exact scope, ordering, conservative attribution, partial/zero-selection states, and no WB107 leakage.
-5. Do **not** wire the package into the UI or replace either production builder yet.
-6. Compare the assembled neutral package against both accepted bespoke outputs before authorizing any Chalkie renderer migration.
+5. The package is not wired into the UI and does not replace either production builder.
+6. Existing focused selection, resolver, and handoff tests remain green.
 
-This is smaller and safer than building a generic Chalkie renderer first: it proves the reusable data boundary without changing accepted handoff output.
+This proves the reusable data boundary without changing accepted handoff output.
 
-Until that slice is explicitly authorized, keep both bespoke builders unchanged.
+**Smallest next step:** owner-review the assembled Opener and Story package shape and decide whether the contract is sufficient. Only after separate approval should a test-only/shadow renderer parity slice be considered; keep both bespoke builders and all UI routing unchanged until then.
