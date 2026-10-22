@@ -50,6 +50,15 @@ import {
   type SbActivityPreviewKind,
   type SbActivitySelectionState,
 } from './chalkieActivitySelection'
+import {
+  buildWbActivityPagePanels,
+  createDefaultWbActivitySelection,
+  setWbActivityCardSelected,
+  wbActivitySelectionStatus,
+  type WbActivityCard,
+  type WbActivityPreviewKind,
+  type WbActivitySelectionState,
+} from './chalkieWorkbookActivitySelection'
 
 type Be3U08SeriesHandoff = Be3U08OpenerSeriesHandoff | Be3U08StorySeriesHandoff
 
@@ -98,7 +107,9 @@ function PriorSkillCardHeading({ label }: { label: string }) {
   )
 }
 
-function activityPreviewLabel(kind: SbActivityPreviewKind): string {
+function activityPreviewLabel(
+  kind: SbActivityPreviewKind | WbActivityPreviewKind,
+): string {
   if (kind === 'language_model' || kind === 'activity_item_model') {
     return 'Language'
   }
@@ -115,6 +126,7 @@ interface TeacherChoiceFlowOverlayProps {
   onClose: () => void
   lesson: ChalkieLessonContext | null
   activityCards: readonly SbActivityCard[]
+  workbookActivityCards: readonly WbActivityCard[]
 }
 
 type CopyFeedback = 'idle' | 'copied' | 'failed'
@@ -221,6 +233,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   onClose,
   lesson,
   activityCards,
+  workbookActivityCards,
 }) => {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
@@ -263,6 +276,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
   const [activitySelection, setActivitySelection] =
     useState<SbActivitySelectionState | null>(null)
+  const [workbookActivitySelection, setWorkbookActivitySelection] =
+    useState<WbActivitySelectionState | null>(null)
 
   useEffect(() => {
     if (!open) {
@@ -289,11 +304,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setBe3SeriesHandoff(null)
       setLessonShape('single')
       setActivitySelection(null)
+      setWorkbookActivitySelection(null)
       return
     }
 
     setLessonShape('single')
     setActivitySelection(createDefaultSbActivitySelection(activityCards))
+    // Keep null as the default sentinel so asynchronously loaded verified WB
+    // cards still begin selected without resetting the rest of the modal.
+    setWorkbookActivitySelection(null)
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -363,6 +382,28 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const activitySelectionStatus = useMemo(
     () => sbActivitySelectionStatus(activityCards, effectiveActivitySelection),
     [activityCards, effectiveActivitySelection],
+  )
+  const effectiveWorkbookActivitySelection = useMemo(
+    () =>
+      workbookActivitySelection ??
+      createDefaultWbActivitySelection(workbookActivityCards),
+    [workbookActivityCards, workbookActivitySelection],
+  )
+  const workbookActivityPagePanels = useMemo(
+    () =>
+      buildWbActivityPagePanels({
+        cards: workbookActivityCards,
+        companion: lesson?.workbookCompanion ?? null,
+      }),
+    [workbookActivityCards, lesson?.workbookCompanion],
+  )
+  const workbookActivitySelectionStatus = useMemo(
+    () =>
+      wbActivitySelectionStatus(
+        workbookActivityCards,
+        effectiveWorkbookActivitySelection,
+      ),
+    [workbookActivityCards, effectiveWorkbookActivitySelection],
   )
   const handoffActivitySelection = useMemo(
     () =>
@@ -591,6 +632,21 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     )
   }
 
+  const handleWorkbookActivitySelectionChange = (
+    cardId: string,
+    selected: boolean,
+  ) => {
+    setWorkbookActivitySelection((current) =>
+      setWbActivityCardSelected({
+        cards: workbookActivityCards,
+        state:
+          current ?? createDefaultWbActivitySelection(workbookActivityCards),
+        cardId,
+        selected,
+      }),
+    )
+  }
+
   const handleAddPriorSkill = () => {
     if (!canAddPriorSkill) return
     const id = `teacher-added-${Date.now()}-${teacherAdditions.length + 1}`
@@ -791,6 +847,157 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </p>
                 </div>
               </section>
+
+              {lesson.workbookCompanion &&
+              workbookActivityPagePanels.length > 0 ? (
+                <section
+                  className="space-y-3 pt-2"
+                  aria-label="Workbook activities"
+                  data-wb-activity-section
+                >
+                  <div
+                    className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
+                    data-wb-activity-spread
+                    data-page-count={workbookActivityPagePanels.length}
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-2 px-2 pb-2 pt-0.5 sm:px-3">
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-800">
+                          Workbook activities
+                        </h3>
+                        <p className="mt-0.5 text-xs text-slate-500">
+                          Verified Workbook companion for this lesson
+                        </p>
+                      </div>
+                      <p
+                        className="text-sm font-medium text-slate-600"
+                        aria-live="polite"
+                      >
+                        {workbookActivitySelectionStatus.selectedCount} of{' '}
+                        {workbookActivitySelectionStatus.totalCount} selected
+                      </p>
+                    </div>
+
+                    <div className="relative">
+                      {workbookActivityPagePanels.length > 1 ? (
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
+                        />
+                      ) : null}
+                      <div
+                        className={`grid grid-cols-1 gap-3 md:gap-5 ${
+                          workbookActivityPagePanels.length > 1
+                            ? 'md:grid-cols-2'
+                            : 'md:max-w-[46rem]'
+                        }`}
+                      >
+                        {workbookActivityPagePanels.map((panel) => (
+                          <div
+                            key={panel.pageId}
+                            className="min-w-0 rounded-xl border border-slate-200 bg-[#fffefb] p-3 shadow-sm sm:p-4"
+                            data-wb-activity-page={panel.printedPage}
+                          >
+                            <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
+                              Workbook · p.{panel.printedPage}
+                            </h4>
+                            {panel.cards.length > 0 ? (
+                              <ul className="space-y-2.5">
+                                {panel.cards.map((card) => {
+                                  const checkboxId = `workbook-activity-${card.id}`
+                                  const detailsId = `${checkboxId}-details`
+                                  const checked =
+                                    effectiveWorkbookActivitySelection.selectedCardIds.includes(
+                                      card.id,
+                                    )
+                                  return (
+                                    <li
+                                      key={card.id}
+                                      className={`rounded-lg border p-3 transition-colors ${
+                                        checked
+                                          ? 'border-indigo-200 bg-indigo-50/55 shadow-xs'
+                                          : 'border-slate-200 bg-slate-50/75'
+                                      }`}
+                                    >
+                                      <div className="flex gap-2.5">
+                                        <input
+                                          id={checkboxId}
+                                          type="checkbox"
+                                          checked={checked}
+                                          onChange={(event) =>
+                                            handleWorkbookActivitySelectionChange(
+                                              card.id,
+                                              event.target.checked,
+                                            )
+                                          }
+                                          aria-label={`Select ${card.activityNumber ? `Activity ${card.activityNumber}` : 'activity'} on Workbook page ${card.printedPage}`}
+                                          aria-describedby={detailsId}
+                                          className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                        />
+                                        <div
+                                          id={detailsId}
+                                          className="min-w-0 flex-1 space-y-1"
+                                        >
+                                          <p className="text-[11px] font-medium text-slate-500">
+                                            [WB p.{card.printedPage}]
+                                            {card.activityNumber
+                                              ? ` · Activity ${card.activityNumber}`
+                                              : ''}
+                                          </p>
+                                          <p className="text-sm font-semibold leading-snug text-slate-900">
+                                            {card.verifiedWording}
+                                          </p>
+                                          {card.preview.kind === 'empty' ? (
+                                            <p className="text-xs leading-relaxed text-slate-500">
+                                              No safe verified preview is available for this
+                                              activity.
+                                            </p>
+                                          ) : (
+                                            <div className="space-y-0.5 pt-0.5">
+                                              <p className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                                                {activityPreviewLabel(card.preview.kind)}
+                                              </p>
+                                              <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
+                                                {card.preview.values.map((value) => (
+                                                  <li key={value}>{value}</li>
+                                                ))}
+                                              </ul>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                            ) : (
+                              <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
+                                No human-verified Workbook activity cards are available for this
+                                mapped page.
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 px-1">
+                    {workbookActivitySelectionStatus.hasNoSelectedWorkbookActivities ? (
+                      <p
+                        role="status"
+                        className="rounded-md border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs leading-relaxed text-amber-900"
+                      >
+                        No Workbook activities are selected for this session.
+                      </p>
+                    ) : null}
+                    <p className="text-xs leading-relaxed text-slate-500">
+                      Workbook activity selection is saved for this session. Current Chalkie
+                      handoff content is unchanged until a later implementation step.
+                    </p>
+                  </div>
+                </section>
+              ) : null}
             </div>
           ) : null}
 

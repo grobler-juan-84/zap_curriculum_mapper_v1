@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 315
+**Last updated:** Step 316
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -26,16 +26,18 @@
 
 - **SB handoff propagation:** selected activities now control detailed prompt evidence, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1. Partial/empty selections cannot fall back to broad page content; Workbook Lesson 2 remains unchanged.
 
+- **Workbook activity selection UI:** exact verified companions now show `human_verified` WB activity cards beneath the SB spread. WB cards default selected, keep separate session state across Back/Continue, and render exact two-page / left-aligned one-page / no-companion shapes.
+
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Activity Selection is **ACTIVE / PARTIALLY IMPLEMENTED**. SB UI and local handoff propagation are implemented; Workbook cards and Workbook selection are not.
+- Activity Selection is **ACTIVE / PARTIALLY IMPLEMENTED**. SB selection propagates into the local handoff; WB cards and session-only selection are implemented, but WB propagation is not.
 
 ## Next
 
 - Owner manually checks BE3 U8 pp.128–129 exclusion/restore propagation and unchanged Workbook output, plus p.140 one-page layout.
-- Next bounded slice: verified Workbook activity-card model/UI with asymmetric layouts; Workbook propagation remains separate.
+- Next bounded slice: propagate selected WB evidence into Workbook handoff output without changing verified companion scope or SB behavior.
 - Otherwise, separately authorize a series handoff for an already-wired companion, or move to another book/unit.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

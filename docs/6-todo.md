@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 315
+**Last updated:** Step 316
 
 
 
@@ -530,7 +530,11 @@
 
 - [ ] **Owner manual propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return; Workbook output remains unchanged.
 
-- [ ] **Owner-gated next Activity Selection slice:** add verified Workbook activity-card model/UI with asymmetric companion layouts; keep Workbook propagation separate.
+- [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact 2-page / left-aligned 1-page / no-companion layouts; no handoff propagation.
+
+- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two panels; SB130–131 → WB106 only; p.140 → WB115 only; p.142 no section; WB toggle persists across Forward/Back and leaves final handoff unchanged.
+
+- [ ] **Owner-gated next Activity Selection slice:** propagate selected Workbook evidence into WB handoff output; preserve current SB propagation and exact companion scope.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 

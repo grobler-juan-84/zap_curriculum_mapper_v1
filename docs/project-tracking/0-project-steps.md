@@ -5373,3 +5373,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 316
+
+**Summary:** Added verified Workbook activity cards and separate session-only selection beneath the Student Book spread. Workbook panels now follow the exact resolved companion shape while all existing Chalkie handoff output remains unchanged by Workbook checkbox choices.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieWorkbookActivitySelection.ts` (created)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (created)
+- `docs/phase-5/chalkie-current-activity-selection-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
