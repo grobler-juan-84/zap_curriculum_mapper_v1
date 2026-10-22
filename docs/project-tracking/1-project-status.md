@@ -1,7 +1,7 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)  
-**Last synced:** Step 324
+**Last synced:** Step 325
 
 ## One-line state
 
@@ -11,6 +11,7 @@
 - Opener neutral-package → Chalkie parity is proved in tests for five artifacts; production routing/output remains on the unchanged bespoke builder.
 - Asymmetric Story neutral-package → Chalkie parity is proved in tests for SB 130–131 → WB 106 only; no WB107 leakage; production remains unchanged.
 - Shared test-only dispatch supports only the two proved relationships and fails unsupported relationships explicitly; production remains unchanged.
+- Docs-only Opener-first production migration plan is drafted and **not authorized** for production wiring.
 - Phase 3 parked (D020). F021/F022 preserved.
 
 ## Branch
@@ -19,4 +20,4 @@ On branch `main`.
 
 ## Suggested next prompt
 
-**Suggestion:** Review the shared test-only boundary, then separately choose between a production-migration design audit or one additional component audit. Do not migrate production rendering automatically.
+**Suggestion:** Owner-review the Opener-only canary proposal in `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md`. If accepted, separately authorize a code canary that keeps the live bespoke path as rollback; otherwise leave production routing unchanged.

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 324
+**Last updated:** Step 325
 
 
 
@@ -546,9 +546,11 @@
 
 - [x] **Shared test-only Chalkie dispatcher:** exact relationship dispatch for parity-proved Opener/Story packages only; typed unsupported error and no fallback; no production call site.
 
+- [x] **Docs-only Opener canary migration plan:** draft `chalkie-neutral-package-production-migration-plan-v0.1.md` with parity gates, mismatch diagnostics, bespoke rollback, and Story-after-Opener progression; explicitly not authorized for production wiring.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next project question (choose separately):** owner-review the shared dispatcher boundary, then decide whether to design a production migration plan, audit one additional accepted component, start the next book/unit companion set, or choose another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [ ] **Owner review of Opener canary plan:** accept, reject, or revise the docs-only migration plan before any code canary. No production wiring, Story canary, bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 

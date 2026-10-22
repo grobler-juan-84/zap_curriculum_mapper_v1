@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 324
+**Last updated:** Step 325
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -32,22 +32,25 @@
 
 - **Shared test-only Chalkie dispatcher (audit v0.5):** supports only the parity-proved Opener and Story relationships. Unsupported relationships throw a typed error with no fallback; production UI/output remains unchanged.
 
+- **Production migration plan (docs only, audit v0.6):** Opener-first canary plan drafted with parity gates, artifact-only mismatch diagnostics, and bespoke rollback. Status is `DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`. No production routing change.
+
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Owner review of the shared test-only dispatcher boundary.
+- Owner review of the Opener-only canary proposal in the migration plan.
 
 ## Next
 
-- Separately choose whether to design a production migration plan or first audit one additional accepted component.
-- Do not migrate UI or production Chalkie renderers automatically.
+- If the owner accepts the plan, separately authorize a code canary for Opener only with live bespoke rollback; otherwise leave production routing unchanged.
+- Do not enable Story canary, bulk migration, or automatic generic rendering.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked
 
 - Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
+- Soft: production canary wiring is blocked until explicit owner authorization of the Opener-only plan.
 
 ---
 

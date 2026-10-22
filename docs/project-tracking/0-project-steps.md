@@ -5542,3 +5542,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 325
+
+**Summary:** Drafted a docs-only Opener-first production migration plan for the neutral package → shared Chalkie dispatcher path, with parity gates, artifact-only mismatch diagnostics, and bespoke rollback. Status remains not authorized for production wiring; no app code changed.
+
+**Files touched:**
+- `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md` (created)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
