@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.7
+**Version:** V1.8
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -15,6 +15,8 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 **Teacher workflow lock ([D021](../4-decisions.md)):** standard lesson preparation is **Student Book–first**. Teachers choose the SB unit/component they are teaching; they are not asked to pick SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice; unverified pairs must not be guessed. Workbook remains viewable.
 
 **Chalkie Workspace UI (2026-10-21):** Student Books only in the teacher book dropdown (display name without “Student Book”); optional **View Workbook** shows exact mapped WB pages with PDF navigation locked; prepare prompt remains SB-anchored. See [`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md).
+
+**Local activity-selection design (2026-10-22; not implemented):** before prior-learning selection, the teacher will eventually keep or exclude verified current-page activity cards. The intended sequence is verified SB/WB/SS evidence → verified activity-level page evidence → teacher current-activity selection → optional teacher prior-learning selection → local platform-adapter handoff → Chalkie draft → teacher review. Only selected current activities may feed handoff artifacts; `[PRIOR]` / `[HM]`, teacher-added unverified support, and Phase 2 Unit Intelligence remain distinct. See [`../phase-5/chalkie-current-activity-selection-contract-v0.1.md`](../phase-5/chalkie-current-activity-selection-contract-v0.1.md). This is a neutral lesson-package boundary, not authorization for UI, schema, builder, or generation work.
 
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
 

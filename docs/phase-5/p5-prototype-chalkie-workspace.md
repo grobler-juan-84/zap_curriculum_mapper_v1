@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.29  
+**Version:** 2.30  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -31,6 +31,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - **Unit Summary**, **SB Pages Summary** (primary lesson source), optional **WB Pages Summary** (verified companion only), and **Unit Intelligence**.
 - **Unit Intelligence** — **implemented** read-only Phase 2 Book Intelligence overview for the selected book/unit (Storage-backed loader when registered); disclaimer *Phase 2 interpretation / planning support — not current-page source evidence.*; AI-inferred Learning Outcomes badge preserved; honest unavailable copy when BI is missing; does not alter handoff/context. **This is the teacher-facing home for Book Intelligence content** — the dedicated `/app/book-intelligence` preview UI is retired (legacy URLs redirect here). Broader left-pane IA (Horizontal Mapping, School Notes, Future Suggestions) remains design-only: [`teacher-intelligence-left-pane-contract-v0.1.md`](./teacher-intelligence-left-pane-contract-v0.1.md).
 - **Prepare Chalkie prompt** launch into a focused three-step teacher-choice overlay ending in a local four-artifact handoff (title, detailed prompt, concise outline, suggested vocabulary) — always SB-anchored.
+- **Current Activity Selection is design-only / not implemented:** a future Current Lesson step will show verified activity-level cards, selected by default, for explicit teacher inclusion/exclusion before prior-learning selection. See [`chalkie-current-activity-selection-contract-v0.1.md`](./chalkie-current-activity-selection-contract-v0.1.md).
 - Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA through Review companions are **docs-accepted + resolver-wired** (View Workbook only; Writing/Phonics/Review 1→1 single lesson likely); Values SB p.142 is **SB-only confirmed; no Workbook companion expected**; **no** series handoff; **no** Chalkie generation.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
@@ -44,6 +45,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - Arbitrary configurable series packaging beyond the agreed BE2 U8 fixture and the two BE3 U8 series pairs (opener; asymmetric story). Resolver-wired companions alone do not unlock series packaging.
 - Validation status writes or ops tooling.
 - Book Workspace mock Teacher AI / `chalkie-prompt` quick action.
+- Activity-card UI, selection state, activity-selection schema, and filtering selected activities into handoff builders.
 
 ---
 
@@ -57,6 +59,7 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 | Left panel | Unit Summary + SB Pages Summary + optional WB Pages Summary + Unit Intelligence |
 | WB toggle | **View Workbook** / **View Student Book** when curated companion matches the active lesson scope (exact two-page spread, or one-page Go target); PDF nav locked on mapped WB pages only |
 | Active page | Go / Prev / Next sets active lesson page; facing-pair Go keeps both PDF pages visible while scoping companion + handoff to the target page |
+| Activity selection | **Not implemented.** Contract only: verified SB cards first, optional verified-companion WB cards below; teacher selection occurs before prior learning |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
 | Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
@@ -238,3 +241,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-22 | BE3 U8 Phonics companion resolver-wired (SB p.141 → WB p.116; 1→1); handoff not built; Chalkie not authorized. |
 | 2026-10-22 | BE3 U8 Review companion resolver-wired (SB p.143 → WB p.117; 1→1); Values p.142 remains SB-only; handoff not built; Chalkie not authorized. |
 | 2026-10-22 | Active lesson page scope: one-page components inside a two-page PDF spread (140/141, 142/143) resolve companion + prepare from Go target; true two-page mappings unchanged. |
+| 2026-10-22 | Added Activity Selection contract v0.1 (active design only): verified current-page cards, teacher keep/exclude before prior learning, exclusion must propagate through all handoff artifacts; no UI/schema/builder change. |

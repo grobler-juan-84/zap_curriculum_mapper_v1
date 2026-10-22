@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 310
+**Last updated:** Step 311
 
 
 
@@ -515,6 +515,10 @@
 - [x] **BE3 U8 Review companion resolver-wired** — SB p.143 → WB p.117 (1→1); View Workbook only; handoff not built; Chalkie not authorized; single lesson likely. Values p.142 remains SB-only.
 
 - [x] **Active lesson page scope for one-page components in two-page PDF spreads** — Go target scopes companion + Prepare (140/141, 142/143); true two-page mappings unchanged; no composite mappings.
+
+- [x] **Activity Selection contract v0.1** — design-only current-page SB/WB activity cards; teacher inclusion/exclusion before prior learning; strict handoff filtering; no implementation.
+
+- [ ] **Owner-gated smallest Activity Selection implementation:** SB-only read-only activity-card model + deterministic default selection/exclusion state + exclusion-propagation tests; do not add WB cards or alter handoff UI without a separate authorization.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
