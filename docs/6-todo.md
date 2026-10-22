@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 319
+**Last updated:** Step 320
 
 
 
@@ -536,9 +536,11 @@
 
 - [x] **Pause Activity Selection feature work.** The next project question must be chosen separately; do not automatically add a new curation feature.
 
+- [x] **Generic two-lesson SB→WB adapter audit:** compare accepted BE3 opener/Story builders; define neutral package fields, explicit per-lesson prior-support targeting, platform-specific rendering boundary, gaps, and non-goals. Design only; no adapter or generation authorized.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next project question (choose separately):** separately authorize a series handoff for an already-wired companion, start the next book/unit companion set, or another owner-chosen direction — no Chalkie generation and no new Activity Selection feature without explicit approval.
+- [ ] **Next project question (choose separately):** consider authorizing only the audit's read-only neutral package assembler + opener/Story contract tests, separately authorize a series handoff for an already-wired companion, start the next book/unit companion set, or choose another direction. No generic adapter wiring, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 

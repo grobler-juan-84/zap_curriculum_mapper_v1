@@ -5454,3 +5454,17 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 320
+
+**Summary:** Added a design-only audit for a future generic two-lesson SB→WB handoff adapter. Compared the accepted BE3 opener and Story builders, proposed a neutral selected-evidence and explicitly targeted prior-support contract, separated Chalkie rendering concerns, and recommended a read-only package-assembler proof as the smallest possible follow-up.
+
+**Files touched:**
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
