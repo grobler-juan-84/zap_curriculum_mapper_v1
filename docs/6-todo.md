@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 304
+**Last updated:** Step 305
 
 
 
@@ -464,7 +464,7 @@
 
 - [x] **CLIL P.E. SB 134–135 → WB 109–110 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110` · ref `be3-sb-wb-u08-p134-135-wb109-110`; later resolver-wired (View Workbook only).
 
-- [x] **Grammar SB 136–137 → WB 111–112 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; no handoff; not wired in app.
+- [x] **Grammar SB 136–137 → WB 111–112 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` · ref `be3-sb-wb-u08-p136-137-wb111-112`; later resolver-wired (View Workbook only).
 
 - [x] **Culture SB 138–139 → WB 113–114 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`; no handoff; not wired in app.
 
@@ -504,11 +504,13 @@
 
 - [x] **BE3 U8 CLIL/P.E. companion resolver-wired** — SB 134–135 → WB 109–110; View Workbook only; handoff not built; Chalkie not authorized.
 
+- [x] **BE3 U8 Grammar companion resolver-wired** — SB 136–137 → WB 111–112; View Workbook only; handoff not built; Chalkie not authorized.
+
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next microstep:** wire Grammar (or another docs-accepted Unit 8 companion) **or** separately authorize a series handoff for an already-wired companion — not both by default; no Chalkie without explicit approval.
+- [ ] **Next microstep:** wire Culture (or another docs-accepted Unit 8 companion) **or** separately authorize a series handoff for an already-wired companion — not both by default; no Chalkie without explicit approval.
 
 
 

@@ -151,10 +151,43 @@ export const BE3_U08_SB134_135_WB109_110: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Grammar → WB Grammar.
+ *
+ * Accepted after content review (past simple regular *-ed* + irregulars). Resolver-wired only:
+ * no series handoff builder and no Chalkie generation authorized for this mapping.
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p136-137-wb111-112`.
+ */
+export const BE3_U08_GRAMMAR_STABLE_REF = 'be3-sb-wb-u08-p136-137-wb111-112'
+
+export const BE3_U08_SB136_137_WB111_112: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p136', 'bep3_sb_p137'],
+  studentBookPrintedPages: [136, 137],
+  workbookPageIds: ['bep_3_wb_p111', 'bep_3_wb_p112'],
+  workbookPrintedPages: [111, 112],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook pp.111–112 consolidate Student Book Grammar (pp.136–137): shared past-simple regular *-ed* spelling and irregular forms strand, with WB extending questions/negatives on the same topic. LiA 107–108 and CLIL 109–110 are out of scope.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB pp.136–137: Grammar · grammar; regular *-ed* classify/narrative + irregular match + yesterday speaking.',
+    'WB pp.111–112: Grammar · grammar; regulars chart, irregulars write, narrative cloze, Did…?/negatives.',
+    'Distinct from LiA communicative Did…? practice (132–133 / 107–108).',
+    'Explicitly excluded: WB LiA 107–108 and CLIL 109–110.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
   BE3_U08_SB130_131_WB106,
   BE3_U08_SB132_133_WB107_108,
   BE3_U08_SB134_135_WB109_110,
+  BE3_U08_SB136_137_WB111_112,
 ]

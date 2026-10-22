@@ -14,6 +14,7 @@ import {
 } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
 import {
   BE3_U08_CLIL_PE_STABLE_REF,
+  BE3_U08_GRAMMAR_STABLE_REF,
   BE3_U08_LIA_STABLE_REF,
 } from '../../app/src/features/chalkie/verifiedSbWbCompanions.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
@@ -276,11 +277,44 @@ test('BE3 SB pp.134–135 resolves to curated CLIL/P.E. WB pp.109–110 companio
   assert.ok(!result.companion?.workbookPrintedPages.includes(111))
 })
 
+test('BE3 SB pp.136–137 resolves to curated Grammar WB pp.111–112 companion', () => {
+  const sb = loadJson(BE3_SB_PATH)
+  const wb = loadJson(BE3_WB_PATH)
+  const result = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sb,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wb,
+    studentBookPrintedPages: [136, 137],
+  })
+
+  assert.ok(result.companion)
+  assert.equal(result.gapReason, null)
+  assert.equal(result.companion?.source, 'curated_verified')
+  assert.equal(
+    result.companion?.relationshipId,
+    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  )
+  assert.deepEqual(result.companion?.studentBookPrintedPages, [136, 137])
+  assert.deepEqual(result.companion?.workbookPrintedPages, [111, 112])
+  assert.deepEqual(result.companion?.studentBookPageIds, [
+    'bep3_sb_p136',
+    'bep3_sb_p137',
+  ])
+  assert.deepEqual(result.companion?.workbookPageIds, [
+    'bep_3_wb_p111',
+    'bep_3_wb_p112',
+  ])
+  assert.equal(BE3_U08_GRAMMAR_STABLE_REF, 'be3-sb-wb-u08-p136-137-wb111-112')
+  // Must not bleed into CLIL or Culture WB pages.
+  assert.ok(!result.companion?.workbookPrintedPages.includes(109))
+  assert.ok(!result.companion?.workbookPrintedPages.includes(113))
+})
+
 test('unmapped BE3 spreads still do not receive guessed Workbook companions', () => {
   const sb = loadJson(BE3_SB_PATH)
   const wb = loadJson(BE3_WB_PATH)
   for (const pages of [
-    [136, 137],
     [138, 139],
     [140, 141],
   ]) {
@@ -298,7 +332,7 @@ test('unmapped BE3 spreads still do not receive guessed Workbook companions', ()
     assert.ok(result.gapReason)
     assert.notEqual(
       result.companion?.relationshipId,
-      'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
+      'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
     )
   }
 })
@@ -525,6 +559,32 @@ test('BE3 CLIL/P.E. companion resolves without enabling series handoff packaging
   assert.equal(lesson.seriesLessonTitle, null)
   assert.equal(lesson.stableSeriesReference, null)
   assert.equal(BE3_U08_CLIL_PE_STABLE_REF, 'be3-sb-wb-u08-p134-135-wb109-110')
+})
+
+test('BE3 Grammar companion resolves without enabling series handoff packaging', () => {
+  const wb = loadJson(BE3_WB_PATH)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [136, 137],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.ok(lesson.workbookCompanion)
+  assert.equal(
+    lesson.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  )
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [111, 112])
+  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.seriesLessonTitle, null)
+  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(BE3_U08_GRAMMAR_STABLE_REF, 'be3-sb-wb-u08-p136-137-wb111-112')
 })
 
 test('single-lesson BE3 opener path remains ready; series is optional (regression)', () => {
