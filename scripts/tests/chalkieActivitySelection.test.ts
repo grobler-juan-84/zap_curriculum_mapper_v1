@@ -81,6 +81,8 @@ test('BE3 U8 pp.128–129 render two populated SB page panels in source-page ord
   assert.equal(cards.length, 5)
   assert.deepEqual([...new Set(cards.map((card) => card.printedPage))], [128, 129])
   assert.deepEqual(columns.map((column) => column.printedPage), [128, 129])
+  assert.deepEqual(columns.map((column) => column.includedInLessonScope), [true, true])
+  assert.deepEqual(columns.map((column) => column.position), ['left', 'right'])
   assert.equal(columns[0]?.cards.length, 3)
   assert.equal(columns[1]?.cards.length, 2)
   assert.ok(columns[0]?.cards.every((card) => card.printedPage === 128))
@@ -192,7 +194,56 @@ test('deselecting all cards reports no selected current activities', () => {
   })
 })
 
-test('active p.140 inside visible 140–141 excludes all p.141 activities', () => {
+test('one-page SB scopes retain physical left/right slots with a quiet facing placeholder', () => {
+  const cases = [
+    {
+      activePage: 140,
+      spreadPages: [140, 141],
+      included: [true, false],
+    },
+    {
+      activePage: 141,
+      spreadPages: [140, 141],
+      included: [false, true],
+    },
+    {
+      activePage: 142,
+      spreadPages: [142, 143],
+      included: [true, false],
+    },
+    {
+      activePage: 143,
+      spreadPages: [142, 143],
+      included: [false, true],
+    },
+  ] as const
+
+  for (const fixture of cases) {
+    const cards = buildSbActivityCards({
+      summary,
+      activeLessonPrintedPages: [fixture.activePage],
+    })
+    const columns = buildSbActivityPageColumns(cards, [fixture.activePage])
+
+    assert.deepEqual(
+      columns.map((column) => column.printedPage),
+      fixture.spreadPages,
+    )
+    assert.deepEqual(
+      columns.map((column) => column.includedInLessonScope),
+      fixture.included,
+    )
+    assert.deepEqual(columns.map((column) => column.position), ['left', 'right'])
+    assert.ok(
+      columns
+        .filter((column) => !column.includedInLessonScope)
+        .every((column) => column.cards.length === 0),
+    )
+    assert.ok(cards.every((card) => card.printedPage === fixture.activePage))
+  }
+})
+
+test('active p.140 inside visible 140–141 excludes all p.141 activity evidence', () => {
   const activeScope = resolveActiveLessonScope({
     studentBookCatalogId: 'big_english_3_sb',
     visiblePrintedPages: [140, 141],
@@ -210,8 +261,11 @@ test('active p.140 inside visible 140–141 excludes all p.141 activities', () =
   )
 
   assert.ok(cards.length > 0)
-  assert.deepEqual(columns.map((column) => column.printedPage), [140])
+  assert.deepEqual(columns.map((column) => column.printedPage), [140, 141])
   assert.deepEqual(columns[0]?.cards, cards)
+  assert.equal(columns[0]?.includedInLessonScope, true)
+  assert.equal(columns[1]?.includedInLessonScope, false)
+  assert.deepEqual(columns[1]?.cards, [])
   assert.ok(cards.every((card) => card.printedPage === 140))
   assert.ok(cards.every((card) => card.pageId === 'bep3_sb_p140'))
   assert.ok(cards.some((card) => card.references.activityId === 'bep3_sb_act_08_31'))
@@ -267,6 +321,9 @@ test('overlay exposes honest activity selection feedback and local handoff propa
   assert.match(overlaySource, /\[SB p\.\{card\.printedPage\}\]/)
   assert.match(step1Source, /activityPageColumns\.length > 1/)
   assert.match(step1Source, /left-1\/2/)
+  assert.match(step1Source, /md:grid-cols-2/)
+  assert.match(step1Source, /data-sb-facing-placeholder/)
+  assert.match(step1Source, /Not included in this lesson scope\./)
   assert.match(step1Source, /max-w-\[80rem\]/)
   assert.match(step1Source, /selected/)
   assert.ok(!step1Source.includes('>Include<'))

@@ -56,9 +56,16 @@ export type WbActivitySelectionStatus = {
 }
 
 export type WbActivityPagePanel = {
+  readonly pageId: string | null
+  readonly printedPage: number | null
+  readonly cards: readonly WbActivityCard[]
+  readonly includedInLessonScope: boolean
+  readonly position: 'left' | 'right'
+}
+
+type VerifiedCompanionPage = {
   readonly pageId: string
   readonly printedPage: number
-  readonly cards: readonly WbActivityCard[]
 }
 
 function asRecord(value: unknown): UnknownRecord {
@@ -167,7 +174,7 @@ function buildPreview(activity: UnknownRecord): WbActivityPreview {
 
 function verifiedCompanionPages(
   companion: VerifiedSbWbCompanion | null,
-): WbActivityPagePanel[] {
+): VerifiedCompanionPage[] {
   if (!companion?.workbookPageIds?.length) return []
   if (
     companion.workbookPageIds.length !== companion.workbookPrintedPages.length
@@ -178,7 +185,6 @@ function verifiedCompanionPages(
   return companion.workbookPageIds.map((pageId, index) => ({
     pageId,
     printedPage: companion.workbookPrintedPages[index]!,
-    cards: [],
   }))
 }
 
@@ -260,14 +266,42 @@ export function buildWbActivityCards(input: {
   return cards.sort(compareCards)
 }
 
-/** Preserve the exact verified companion page shape, including empty real pages. */
+/**
+ * Render the verified companion as a physical two-page spread. A missing
+ * facing page is a visual-only placeholder and never enters card selection.
+ */
 export function buildWbActivityPagePanels(input: {
   cards: readonly WbActivityCard[]
   companion: VerifiedSbWbCompanion | null
 }): WbActivityPagePanel[] {
-  return verifiedCompanionPages(input.companion).map((page) => ({
+  const verifiedPages = verifiedCompanionPages(input.companion)
+  if (verifiedPages.length === 0) return []
+
+  if (verifiedPages.length === 1) {
+    const page = verifiedPages[0]!
+    const realPanel: WbActivityPagePanel = {
+      ...page,
+      cards: input.cards.filter((card) => card.pageId === page.pageId),
+      includedInLessonScope: true,
+      position: page.printedPage % 2 === 0 ? 'left' : 'right',
+    }
+    const placeholder: WbActivityPagePanel = {
+      pageId: null,
+      printedPage: null,
+      cards: [],
+      includedInLessonScope: false,
+      position: realPanel.position === 'left' ? 'right' : 'left',
+    }
+    return realPanel.position === 'left'
+      ? [realPanel, placeholder]
+      : [placeholder, realPanel]
+  }
+
+  return verifiedPages.slice(0, 2).map((page, index) => ({
     ...page,
     cards: input.cards.filter((card) => card.pageId === page.pageId),
+    includedInLessonScope: true,
+    position: index === 0 ? 'left' : 'right',
   }))
 }
 

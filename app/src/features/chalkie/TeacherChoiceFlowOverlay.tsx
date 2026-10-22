@@ -740,23 +740,39 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
                       />
                     ) : null}
-                    <div
-                      className={`grid grid-cols-1 gap-3 md:gap-5 ${
-                        activityPageColumns.length > 1
-                          ? 'md:grid-cols-2'
-                          : 'md:mx-auto md:max-w-[46rem]'
-                      }`}
-                    >
+                    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
                       {activityPageColumns.map((column) => (
                         <div
                           key={column.printedPage}
-                          className="min-w-0 rounded-xl border border-slate-200 bg-[#fffefb] p-3 shadow-sm sm:p-4"
-                          data-sb-activity-page={column.printedPage}
+                          className={`min-w-0 rounded-xl border p-3 sm:p-4 ${
+                            column.includedInLessonScope
+                              ? 'border-slate-200 bg-[#fffefb] shadow-sm'
+                              : 'border-slate-200/70 bg-slate-100/55'
+                          }`}
+                          data-sb-activity-page={
+                            column.includedInLessonScope
+                              ? column.printedPage
+                              : undefined
+                          }
+                          data-sb-facing-placeholder={
+                            column.includedInLessonScope
+                              ? undefined
+                              : column.position
+                          }
                         >
-                          <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
-                            Student Book · p.{column.printedPage}
-                          </h4>
-                          {column.cards.length > 0 ? (
+                          {column.includedInLessonScope ? (
+                            <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
+                              Student Book · p.{column.printedPage}
+                            </h4>
+                          ) : (
+                            <div className="flex min-h-[10rem] items-center justify-center px-4 py-8 text-center">
+                              <p className="max-w-xs text-xs leading-relaxed text-slate-400">
+                                Not included in this lesson scope.
+                              </p>
+                            </div>
+                          )}
+                          {column.includedInLessonScope &&
+                          column.cards.length > 0 ? (
                             <ul className="space-y-2.5">
                               {column.cards.map((card) => {
                                 const checkboxId = `current-activity-${card.id}`
@@ -819,12 +835,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                 )
                               })}
                             </ul>
-                          ) : (
+                          ) : column.includedInLessonScope ? (
                             <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
                               No human-verified Student Book activity cards are available for this
                               page.
                             </p>
-                          )}
+                          ) : null}
                         </div>
                       ))}
                     </div>
@@ -885,23 +901,39 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
                         />
                       ) : null}
-                      <div
-                        className={`grid grid-cols-1 gap-3 md:gap-5 ${
-                          workbookActivityPagePanels.length > 1
-                            ? 'md:grid-cols-2'
-                            : 'md:max-w-[46rem]'
-                        }`}
-                      >
+                      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
                         {workbookActivityPagePanels.map((panel) => (
                           <div
-                            key={panel.pageId}
-                            className="min-w-0 rounded-xl border border-slate-200 bg-[#fffefb] p-3 shadow-sm sm:p-4"
-                            data-wb-activity-page={panel.printedPage}
+                            key={panel.pageId ?? `placeholder-${panel.position}`}
+                            className={`min-w-0 rounded-xl border p-3 sm:p-4 ${
+                              panel.includedInLessonScope
+                                ? 'border-slate-200 bg-[#fffefb] shadow-sm'
+                                : 'border-slate-200/70 bg-slate-100/55'
+                            }`}
+                            data-wb-activity-page={
+                              panel.includedInLessonScope
+                                ? panel.printedPage ?? undefined
+                                : undefined
+                            }
+                            data-wb-facing-placeholder={
+                              panel.includedInLessonScope
+                                ? undefined
+                                : panel.position
+                            }
                           >
-                            <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
-                              Workbook · p.{panel.printedPage}
-                            </h4>
-                            {panel.cards.length > 0 ? (
+                            {panel.includedInLessonScope ? (
+                              <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
+                                Workbook · p.{panel.printedPage}
+                              </h4>
+                            ) : (
+                              <div className="flex min-h-[10rem] items-center justify-center px-4 py-8 text-center">
+                                <p className="max-w-xs text-xs leading-relaxed text-slate-400">
+                                  No verified Workbook content for this lesson.
+                                </p>
+                              </div>
+                            )}
+                            {panel.includedInLessonScope &&
+                            panel.cards.length > 0 ? (
                               <ul className="space-y-2.5">
                                 {panel.cards.map((card) => {
                                   const checkboxId = `workbook-activity-${card.id}`
@@ -970,12 +1002,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                   )
                                 })}
                               </ul>
-                            ) : (
+                            ) : panel.includedInLessonScope ? (
                               <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
                                 No human-verified Workbook activity cards are available for this
                                 mapped page.
                               </p>
-                            )}
+                            ) : null}
                           </div>
                         ))}
                       </div>

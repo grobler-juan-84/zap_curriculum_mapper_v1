@@ -90,6 +90,8 @@ export type SbActivitySelectionStatus = {
 export type SbActivityPageColumn = {
   readonly printedPage: number
   readonly cards: readonly SbActivityCard[]
+  readonly includedInLessonScope: boolean
+  readonly position: 'left' | 'right'
 }
 
 export type SbActivityHandoffSelection = {
@@ -372,23 +374,35 @@ export function createDefaultSbActivitySelection(
   return { selectedCardIds: cards.map((card) => card.id) }
 }
 
-/**
- * Keep the active lesson's page order and expose empty columns honestly when
- * an active page has no eligible verified activity rows.
- */
+/** Render every lesson scope as a physical two-page spread. */
 export function buildSbActivityPageColumns(
   cards: readonly SbActivityCard[],
   activeLessonPrintedPages: readonly number[],
 ): SbActivityPageColumn[] {
-  return unique(
+  const activePages = unique(
     activeLessonPrintedPages
       .filter(Number.isFinite)
       .map((printedPage) => String(Math.floor(printedPage))),
-  ).map((printedPage) => {
-    const pageNumber = Number(printedPage)
+  ).map(Number)
+
+  if (activePages.length === 0) return []
+
+  const spreadPages =
+    activePages.length === 1
+      ? activePages[0]! % 2 === 0
+        ? [activePages[0]!, activePages[0]! + 1]
+        : [activePages[0]! - 1, activePages[0]!]
+      : activePages.slice(0, 2)
+  const activePageSet = new Set(activePages)
+
+  return spreadPages.map((pageNumber, index) => {
     return {
       printedPage: pageNumber,
-      cards: cards.filter((card) => card.printedPage === pageNumber),
+      cards: activePageSet.has(pageNumber)
+        ? cards.filter((card) => card.printedPage === pageNumber)
+        : [],
+      includedInLessonScope: activePageSet.has(pageNumber),
+      position: index === 0 ? 'left' : 'right',
     }
   })
 }

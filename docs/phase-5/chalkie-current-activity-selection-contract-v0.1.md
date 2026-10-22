@@ -1,7 +1,7 @@
 # Chalkie Current Activity Selection Contract
 
 **Status:** ACTIVE / PARTIALLY IMPLEMENTED  
-**Version:** 0.6  
+**Version:** 0.7  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
@@ -35,9 +35,11 @@ On the **Current Lesson** step:
 - Show one compact selected-book/unit identity line and one short selection instruction; do not repeat the full lesson metadata, words/models, language, teaching-focus, or provenance summary above the cards.
 - Show Student Book activity cards first.
 - When an exact verified companion resolves, show a separate **Workbook activities** section beneath the SB spread with its own count and source note.
-- For a genuine two-page SB lesson scope, use two page panels with a subtle central gutter:
+- Always present a displayed SB or WB section as two equal page panels with a subtle central gutter.
+- For a genuine two-page SB lesson scope, both panels contain their real scoped activity cards:
   - SB left-page activities | SB right-page activities
-- For a one-page active lesson scope, show only that active page's cards, even when the PDF viewer keeps a two-page spread visible.
+- For a one-page active lesson scope, keep the active page in its physical position (even printed page on the left; odd printed page on the right) and render the facing panel as a quiet visual placeholder.
+- A placeholder contains no activity evidence, cards, checkboxes, vocabulary, or selection state. Its message is **Not included in this lesson scope.**
 - Use most of the modal width while retaining approximately 24–32px desktop content padding.
 - Keep the footer unchanged and the final activity cards scrollable above it.
 
@@ -117,16 +119,17 @@ This supports human verification; it does not replace it. Cards do not make sour
 
 ### Workbook layout constraint — implemented
 
-The Workbook activity section uses the verified companion's actual page shape:
+The Workbook activity section preserves the verified companion's actual page position inside an open-book spread:
 
 - a two-page SB component may map to only one Workbook page, as with Story;
 - a component may have no Workbook companion, as with Values;
-- render only Workbook pages present in the verified companion relationship;
-- never render an empty placeholder Workbook page merely to imitate an SB spread.
+- render cards only for Workbook pages present in the verified companion relationship;
+- when one verified WB page is mapped, retain its physical left/right slot and render the facing panel as a quiet, non-selectable visual placeholder with **No verified Workbook content for this lesson.**
+- never populate a facing placeholder from an adjacent Workbook page.
 
 The implementation does not infer mappings, broaden the resolver, or change any verified SB→WB relationship.
 
-## 7. Acceptance cases for later implementation
+## 7. Acceptance cases
 
 ### 7.1 True SB two-page spread
 
@@ -134,15 +137,15 @@ Given a verified two-page SB lesson component with activities on both pages, the
 
 ### 7.2 SB→WB paired component
 
-Given an active SB lesson scope with a verified WB companion, a Workbook section appears below the SB picker and renders only the mapped Workbook page panel(s). A 2→1 Story mapping renders one left-aligned WB panel, not a fake second page; a Values component with no companion renders no Workbook section. Source labels remain distinct. Workbook choices are session-only and do not feed the handoff yet.
+Given an active SB lesson scope with a verified WB companion, a Workbook section appears below the SB picker. A 2→1 Story mapping renders WB p.106 in the left slot and a quiet right placeholder; it never renders WB p.107 activity content. A one-page odd-numbered companion renders in the right slot with a left placeholder. Values has no companion and renders no Workbook section. Source labels remain distinct. Workbook choices are session-only and do not feed the handoff yet.
 
 ### 7.3 One-page active scope inside a visible two-page PDF spread
 
-Given BE3 U8 Writing p.140 active while pp.140–141 remain visible, show only `[SB p.140]` activity cards and, through the verified companion, only `[WB p.115]` cards. Do not show p.141 Phonics or WB p.116 activity cards, and do not create a composite lesson scope.
+Given BE3 U8 Writing p.140 active while pp.140–141 remain visible, show `[SB p.140]` activity cards in the left panel and a quiet p.141-facing placeholder on the right. Its verified WB p.115 companion appears in the right panel with a quiet left placeholder. Do not show p.141 Phonics or WB p.116 activity cards, and do not create a composite lesson scope.
 
 ### 7.4 SB-only page
 
-Given BE3 U8 Values p.142 active, show only `[SB p.142]` activity cards. Do not render a Workbook section or infer a companion from adjacent Review p.143.
+Given BE3 U8 Values p.142 active, show `[SB p.142]` activity cards in the left panel and a quiet p.143-facing placeholder on the right. Do not render a Workbook section or infer a companion from adjacent Review p.143.
 
 ### 7.5 Activity without safely extractable language
 
@@ -165,7 +168,7 @@ The bounded SB propagation and Workbook visual/session-state slices are complete
 - a selected-evidence accessor plus exclusion tests;
 - Current Lesson SB activity cards grouped under their actual active page(s);
 - compact book/unit context followed by a wide, book-spread-style picker;
-- one-page scopes render one centered page panel, while true two-page scopes render two panels with a subtle gutter;
+- every displayed SB/WB section renders an open-book two-panel spread with a subtle gutter; one-page scopes retain physical left/right position and use a visual-only facing placeholder;
 - checkbox-only inclusion controls, selection count, honest preview/record empty states, and an all-unselected warning;
 - session-only selection preserved across Current Lesson → Prior Learning → Back;
 - explicit notice that selected activities feed the local handoff;
@@ -174,7 +177,7 @@ The bounded SB propagation and Workbook visual/session-state slices are complete
 - selected-only SB Lesson 1 in supported series, with Workbook Lesson 2 unchanged.
 - verified Workbook cards gated by the resolver's exact companion page IDs and `human_verified` activity rows;
 - separate WB card IDs, state, count, all-unselected feedback, and stale-ID rejection;
-- WB two-page companions render two panels with a gutter; 2→1 and 1→1 companions render one left-aligned panel with no placeholder; no-companion lessons render no WB section;
+- WB two-page companions render two real panels with a gutter; 2→1 and 1→1 companions retain the verified page's physical slot plus a non-content facing placeholder; no-companion lessons render no WB section;
 - Workbook selection persists through Current Lesson → Prior Learning → Back;
 - Workbook selection does not alter any local Chalkie handoff artifact.
 

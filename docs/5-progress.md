@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 316
+**Last updated:** Step 317
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,11 +22,11 @@
 
 - **Active lesson page scope:** one-page components inside a two-page PDF reading spread (e.g. p.140 / p.141) resolve companion + Prepare from the Go / page-control active page; true two-page mappings unchanged.
 
-- **Activity Selection contract v0.5:** Current Lesson is activity-first, with compact verified SB cards, deterministic session selection, selection feedback, and Back/Continue persistence.
+- **Activity Selection contract v0.7:** Current Lesson is activity-first, with compact verified SB/WB cards, deterministic separate session selection, selection feedback, and Back/Continue persistence.
 
 - **SB handoff propagation:** selected activities now control detailed prompt evidence, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1. Partial/empty selections cannot fall back to broad page content; Workbook Lesson 2 remains unchanged.
 
-- **Workbook activity selection UI:** exact verified companions now show `human_verified` WB activity cards beneath the SB spread. WB cards default selected, keep separate session state across Back/Continue, and render exact two-page / left-aligned one-page / no-companion shapes.
+- **Open-book Activity Selection layout:** every displayed SB/WB section keeps two equal page slots and a centre gutter. One-page scopes retain even-left / odd-right physical position with a muted, non-selectable facing placeholder; no-companion lessons still render no WB section.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
@@ -36,7 +36,7 @@
 
 ## Next
 
-- Owner manually checks BE3 U8 pp.128–129 exclusion/restore propagation and unchanged Workbook output, plus p.140 one-page layout.
+- Owner manually checks BE3 U8 pp.128–129 unchanged two-real-page layout; SB p.140–143 physical slots/placeholders; Story WB p.106 left + placeholder; unchanged selection/handoff behavior.
 - Next bounded slice: propagate selected WB evidence into Workbook handoff output without changing verified companion scope or SB behavior.
 - Otherwise, separately authorize a series handoff for an already-wired companion, or move to another book/unit.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.

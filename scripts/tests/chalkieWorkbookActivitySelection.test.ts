@@ -147,6 +147,11 @@ test('opener SB128–129 resolves WB104–105 cards in two exact page panels', (
     panels.map((panel) => panel.cards.length),
     [2, 2],
   )
+  assert.deepEqual(
+    panels.map((panel) => panel.includedInLessonScope),
+    [true, true],
+  )
+  assert.deepEqual(panels.map((panel) => panel.position), ['left', 'right'])
   assert.ok(cards.every((card) => card.source === 'WB'))
   assert.ok(cards.every((card) => card.id.startsWith('wb-activity:')))
   assert.ok(
@@ -158,21 +163,34 @@ test('opener SB128–129 resolves WB104–105 cards in two exact page panels', (
   )
 })
 
-test('Story SB130–131 resolves WB106 only, never p107 or a second panel', () => {
+test('Story SB130–131 keeps WB106 left with a non-content right placeholder', () => {
   const { companion, cards } = cardsFor([130, 131])
   const panels = buildWbActivityPagePanels({ cards, companion })
 
-  assert.deepEqual(panels.map((panel) => panel.printedPage), [106])
+  assert.deepEqual(panels.map((panel) => panel.printedPage), [106, null])
+  assert.deepEqual(
+    panels.map((panel) => panel.includedInLessonScope),
+    [true, false],
+  )
+  assert.deepEqual(panels.map((panel) => panel.position), ['left', 'right'])
+  assert.ok(panels[0]?.cards.length)
+  assert.deepEqual(panels[1]?.cards, [])
   assert.ok(cards.length > 0)
   assert.ok(cards.every((card) => card.printedPage === 106))
   assert.equal(cards.some((card) => card.printedPage === 107), false)
 })
 
-test('Writing p.140 resolves WB115 only', () => {
+test('Writing p.140 keeps WB115 right with a non-content left placeholder', () => {
   const { companion, cards } = cardsFor([140])
   const panels = buildWbActivityPagePanels({ cards, companion })
 
-  assert.deepEqual(panels.map((panel) => panel.printedPage), [115])
+  assert.deepEqual(panels.map((panel) => panel.printedPage), [null, 115])
+  assert.deepEqual(
+    panels.map((panel) => panel.includedInLessonScope),
+    [false, true],
+  )
+  assert.deepEqual(panels.map((panel) => panel.position), ['left', 'right'])
+  assert.deepEqual(panels[0]?.cards, [])
   assert.equal(cards.length, 3)
   assert.ok(cards.every((card) => card.pageId === 'bep_3_wb_p115'))
 })
@@ -339,6 +357,9 @@ test('overlay renders evidence-shaped Workbook UI and keeps WB state out of hand
   assert.match(step1Source, /Workbook · p\.\{panel\.printedPage\}/)
   assert.match(step1Source, /\[WB p\.\{card\.printedPage\}\]/)
   assert.match(step1Source, /workbookActivityPagePanels\.length > 1/)
+  assert.match(step1Source, /data-wb-facing-placeholder/)
+  assert.match(step1Source, /No verified Workbook content for this lesson\./)
+  assert.match(step1Source, /lesson\.workbookCompanion &&/)
   assert.match(step1Source, /Workbook activity selection is saved for this session\./)
   assert.match(step1Source, /Current Chalkie\s+handoff content is unchanged until a later implementation step\./)
   assert.ok(!handoffSource.includes('workbookActivitySelection'))

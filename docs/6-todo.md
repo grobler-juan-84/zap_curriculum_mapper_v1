@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 316
+**Last updated:** Step 317
 
 
 
@@ -522,17 +522,19 @@
 
 - [x] **Activity Selection UI slice:** SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.
 
-- [x] **Activity Selection visual refinement:** compact lesson identity + wide SB spread surface; subtle two-page gutter; centered one-page panel; compact checkbox-only cards; summary wall removed.
+- [x] **Activity Selection visual refinement:** compact lesson identity + wide SB spread surface; subtle two-page gutter; compact checkbox-only cards; summary wall removed.
 
-- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two-page spread + exclusion persistence; p.140 one-page panel only.
+- [x] **Open-book one-page visual correction:** every displayed SB/WB section keeps two page slots; scoped even pages stay left, odd pages stay right, and the facing panel is a quiet non-content placeholder.
+
+- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two real panels + exclusion persistence; p.140–143 correct physical slots and quiet facing placeholders.
 
 - [x] **SB Activity Selection propagation:** selected evidence now drives detailed prompt, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1 with no page-level fallback leakage; Workbook Lesson 2 unchanged.
 
 - [ ] **Owner manual propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return; Workbook output remains unchanged.
 
-- [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact 2-page / left-aligned 1-page / no-companion layouts; no handoff propagation.
+- [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact two-real-page / one-real-plus-facing-placeholder / no-companion layouts; no handoff propagation.
 
-- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two panels; SB130–131 → WB106 only; p.140 → WB115 only; p.142 no section; WB toggle persists across Forward/Back and leaves final handoff unchanged.
+- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two real panels; SB130–131 → WB106 left + quiet right placeholder; p.140 → WB115 right + quiet left placeholder; p.142 no section; WB toggle persists across Forward/Back and leaves final handoff unchanged.
 
 - [ ] **Owner-gated next Activity Selection slice:** propagate selected Workbook evidence into WB handoff output; preserve current SB propagation and exact companion scope.
 
