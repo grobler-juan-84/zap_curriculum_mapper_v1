@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar **docs-accepted + resolver-wired** (handoff/Chalkie not authorized) · Culture through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture **docs-accepted + resolver-wired** (handoff/Chalkie not authorized) · Writing through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -172,7 +172,9 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 7. Accepted — SB pp.138–139 → WB pp.113–114 (Culture Connection)
 
-**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Culture Connection / Around the World · *Strange Sports* (Octopush, Footvolley, Pumpkin Regatta). Workbook consolidates that culture reading strand; not a different topic. No handoff built; no app wiring; no Chalkie generation authorized.
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Culture Connection / Around the World · *Strange Sports* (Octopush, Footvolley, Pumpkin Regatta). Workbook consolidates that culture reading strand; not a different topic.
+
+**Status:** **docs-accepted + resolver-wired**; handoff **not** built; Chalkie generation **not** authorized.
 
 ### Evidence table
 
@@ -186,15 +188,16 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Page-count shape | 2 SB pages | 2 WB pages | Valid (component map 2→2) |
 | Scope / excluded | — | Grammar 111–112 and Writing 115 out of scope | — |
 
-### Exact mapping (docs record only — not wired in app code)
+### Exact mapping
 
 | Field | Value |
 | --- | --- |
 | Relationship ID | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` |
-| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| Type | `workbook_practice_for` · `human_verified` (**in** `verifiedSbWbCompanions.ts`) |
 | SB | `big_english_3_sb` · pp.138–139 |
 | WB | `big_english_3_wb` · pp.113–114 |
-| Stable reference | `be3-sb-wb-u08-p138-139-wb113-114` |
+| Stable reference | `be3-sb-wb-u08-p138-139-wb113-114` (`BE3_U08_CULTURE_STABLE_REF`) |
+| Runtime | Resolver enables **View Workbook** on exact SB 138–139 only (WB 113–114) |
 | Series handoff / Chalkie | **Not built** · **not authorized** |
 
 ---
@@ -311,7 +314,8 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | SB 132–133 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 134–135 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 136–137 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
-| SB 138–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
+| SB 138–139 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
+| SB 140–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
 | SB 142 Values | **SB-only — no companion expected** |
 | Automatic pairing rule | **None** |
 
@@ -319,7 +323,7 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 13. Next microstep
 
-LiA, CLIL/P.E., and Grammar are resolver-wired. Next owner-gated option: wire Culture (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
+LiA, CLIL/P.E., Grammar, and Culture are resolver-wired. Next owner-gated option: wire Writing (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
 
 ---
 

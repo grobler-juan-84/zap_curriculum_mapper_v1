@@ -5172,3 +5172,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 306
+
+**Summary:** Wired BE3 U8 Culture Connection companion into curated resolver (SB 138–139 → WB 113–114; relationship `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`; stable ref `be3-sb-wb-u08-p138-139-wb113-114`). Resolver-wired only — no series handoff / no Chalkie. Prior companions unchanged. Focused tests + typecheck. Docs: docs-accepted + resolver-wired. F021/F022 preserved unstaged.
+
+**Files touched:**
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-sb-wb-component-map-v0.1.md` (updated)
+- `docs/phase-5/chalkie-be3-u08-production-pilot-plan-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

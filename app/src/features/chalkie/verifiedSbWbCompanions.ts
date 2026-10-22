@@ -183,6 +183,38 @@ export const BE3_U08_SB136_137_WB111_112: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Culture Connection / Around the World → WB Culture Connection.
+ *
+ * Accepted after content review (*Strange Sports*). Resolver-wired only:
+ * no series handoff builder and no Chalkie generation authorized for this mapping.
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p138-139-wb113-114`.
+ */
+export const BE3_U08_CULTURE_STABLE_REF = 'be3-sb-wb-u08-p138-139-wb113-114'
+
+export const BE3_U08_SB138_139_WB113_114: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p138', 'bep3_sb_p139'],
+  studentBookPrintedPages: [138, 139],
+  workbookPageIds: ['bep_3_wb_p113', 'bep_3_wb_p114'],
+  workbookPrintedPages: [113, 114],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook pp.113–114 consolidate Student Book Culture Connection / Around the World *Strange Sports* (pp.138–139): shared unusual-sports reading strand (Octopush, Footvolley, Pumpkin Regatta). Grammar 111–112 and Writing 115 are out of scope.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB pp.138–139: Culture Connection | Around the World · culture / culture_activities · Strange Sports.',
+    'WB pp.113–114: Culture Connection · culture_connection · Around the World; match/listen/T-F/Think Big invent a sport.',
+    'Shared sports strand: octopush, footvolley, pumpkin regatta / contest, net, regatta, rowing, team.',
+    'Explicitly excluded: WB Grammar 111–112 and Writing 115.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
@@ -190,4 +222,5 @@ export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbComp
   BE3_U08_SB132_133_WB107_108,
   BE3_U08_SB134_135_WB109_110,
   BE3_U08_SB136_137_WB111_112,
+  BE3_U08_SB138_139_WB113_114,
 ]

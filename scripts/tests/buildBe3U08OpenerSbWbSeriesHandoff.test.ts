@@ -283,7 +283,27 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
   assert.equal(grammar.seriesLessonTitle, null)
   assert.equal(grammar.stableSeriesReference, null)
 
-  for (const pages of [[138, 139]]) {
+  // Culture is resolver-wired but has no series handoff.
+  const culture = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary: be3Unit8SbSummary(),
+    visiblePrintedPages: [138, 139],
+    unitNumber: 8,
+    workbookCanonical: wb,
+  })
+  assert.equal(culture.supportsTwoLessonSeries, false)
+  assert.equal(
+    culture.workbookCompanion?.relationshipId,
+    'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
+  )
+  assert.deepEqual(culture.workbookCompanion?.workbookPrintedPages, [113, 114])
+  assert.equal(culture.seriesLessonTitle, null)
+  assert.equal(culture.stableSeriesReference, null)
+
+  for (const pages of [[140], [141]]) {
     const lesson = resolveChalkieLessonContext({
       book: bookStub({
         catalogBookId: 'big_english_3_sb',
