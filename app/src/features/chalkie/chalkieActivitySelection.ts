@@ -79,6 +79,11 @@ export type SbActivitySelectionStatus = {
   readonly hasNoSelectedCurrentActivities: boolean
 }
 
+export type SbActivityPageColumn = {
+  readonly printedPage: number
+  readonly cards: readonly SbActivityCard[]
+}
+
 function asRecord(value: unknown): UnknownRecord {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
     ? (value as UnknownRecord)
@@ -290,6 +295,27 @@ export function createDefaultSbActivitySelection(
   cards: readonly SbActivityCard[],
 ): SbActivitySelectionState {
   return { selectedCardIds: cards.map((card) => card.id) }
+}
+
+/**
+ * Keep the active lesson's page order and expose empty columns honestly when
+ * an active page has no eligible verified activity rows.
+ */
+export function buildSbActivityPageColumns(
+  cards: readonly SbActivityCard[],
+  activeLessonPrintedPages: readonly number[],
+): SbActivityPageColumn[] {
+  return unique(
+    activeLessonPrintedPages
+      .filter(Number.isFinite)
+      .map((printedPage) => String(Math.floor(printedPage))),
+  ).map((printedPage) => {
+    const pageNumber = Number(printedPage)
+    return {
+      printedPage: pageNumber,
+      cards: cards.filter((card) => card.printedPage === pageNumber),
+    }
+  })
 }
 
 /**

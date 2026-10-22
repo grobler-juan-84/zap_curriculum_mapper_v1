@@ -39,6 +39,7 @@ import {
   resolveChalkieLessonContext,
   type ChalkieLessonContext,
 } from './resolveChalkieLessonContext'
+import { buildSbActivityCards } from './chalkieActivitySelection'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -324,6 +325,15 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
       }),
     [book, summary, lessonScopePages, currentBatch?.unitNumber],
+  )
+
+  const activeLessonActivityCards = useMemo(
+    () =>
+      buildSbActivityCards({
+        summary,
+        activeLessonPrintedPages: activeLesson?.visiblePrintedPages ?? [],
+      }),
+    [summary, activeLesson],
   )
 
   const handlePreparePrompt = useCallback(() => {
@@ -1019,6 +1029,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         open={teacherChoiceOpen && activeLesson != null}
         onClose={handleCloseTeacherChoice}
         lesson={activeLesson}
+        activityCards={activeLessonActivityCards}
       />
     </div>
   )

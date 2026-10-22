@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 312
+**Last updated:** Step 313
 
 
 
@@ -520,7 +520,11 @@
 
 - [x] **First bounded Activity Selection implementation:** SB-only read-only activity-card model + deterministic default selection/exclusion state + selected-evidence accessor + exclusion tests; visible UI and current handoff unchanged.
 
-- [ ] **Owner-gated next Activity Selection slice:** render SB-only cards and checkboxes in Current Lesson using the implemented model/state; no Workbook cards or handoff propagation.
+- [x] **Activity Selection UI slice:** SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.
+
+- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.132–133 page columns + exclusion persistence; p.140 only; final prompt unchanged.
+
+- [ ] **Owner-gated next Activity Selection slice:** propagate selected SB activity evidence through detailed prompt, concise outline, suggested vocabulary, and derived current-page content without fallback leakage; keep Workbook cards separate.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 

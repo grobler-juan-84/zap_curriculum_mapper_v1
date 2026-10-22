@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.9
+**Version:** V1.10
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, and 2026-10-21, from user-supplied screenshots and generation/export experience
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -16,7 +16,7 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 
 **Chalkie Workspace UI (2026-10-21):** Student Books only in the teacher book dropdown (display name without “Student Book”); optional **View Workbook** shows exact mapped WB pages with PDF navigation locked; prepare prompt remains SB-anchored. See [`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md).
 
-**Local activity-selection design (2026-10-22; partially implemented):** before prior-learning selection, the teacher will eventually keep or exclude verified current-page activity cards. The intended sequence is verified SB/WB/SS evidence → verified activity-level page evidence → teacher current-activity selection → optional teacher prior-learning selection → local platform-adapter handoff → Chalkie draft → teacher review. The SB-only activity model and deterministic selection state are implemented; UI cards, Workbook cards, and handoff propagation are not. Existing prompt, outline, vocabulary, and Chalkie outputs remain unchanged. `[PRIOR]` / `[HM]`, teacher-added unverified support, and Phase 2 Unit Intelligence remain distinct. See [`../phase-5/chalkie-current-activity-selection-contract-v0.1.md`](../phase-5/chalkie-current-activity-selection-contract-v0.1.md). This is a neutral lesson-package boundary, not authorization for the remaining UI, Workbook, builder, or generation work.
+**Local activity selection (2026-10-22; partially implemented):** before prior-learning selection, the teacher can inspect and include/exclude verified current-page Student Book activity cards. **SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.** Cards are grouped under the actual active SB page(s), begin selected, preserve exclusions across Back/Continue while the modal remains open, and show honest preview/record empty states. The screen explicitly says current Chalkie handoff content remains unchanged. Existing prompt, outline, vocabulary, and Chalkie outputs are therefore unchanged. `[PRIOR]` / `[HM]`, teacher-added unverified support, and Phase 2 Unit Intelligence remain distinct. See [`../phase-5/chalkie-current-activity-selection-contract-v0.1.md`](../phase-5/chalkie-current-activity-selection-contract-v0.1.md). This is a neutral lesson-package boundary, not authorization for Workbook cards, builder propagation, or generation work.
 
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
 

@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 312
+**Last updated:** Step 313
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,17 +22,18 @@
 
 - **Active lesson page scope:** one-page components inside a two-page PDF reading spread (e.g. p.140 / p.141) resolve companion + Prepare from the Go / page-control active page; true two-page mappings unchanged.
 
-- **Activity Selection contract v0.2:** SB-only verified activity-card model + deterministic default selection/exclusion state + selected-evidence accessor implemented and tested. UI cards, Workbook cards, and handoff propagation are not implemented.
+- **Activity Selection contract v0.3:** SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented. Current Lesson now has active-page columns, default-selected checkboxes, selection feedback, honest empty states, and Back/Continue persistence.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Activity Selection is **ACTIVE DESIGN / PARTIALLY IMPLEMENTED**. Visible UI and current handoff output remain unchanged.
+- Activity Selection is **ACTIVE / PARTIALLY IMPLEMENTED**. SB selection is visible and session-only; current handoff output remains unchanged.
 
 ## Next
 
-- If explicitly authorized, render SB-only Current Lesson activity cards and checkbox state from the implemented model; keep Workbook cards and handoff propagation out of that slice.
+- Owner manually checks BE3 U8 pp.132–133 and p.140 card placement/navigation persistence.
+- Next bounded slice: propagate selected SB evidence through all local handoff artifacts without reintroducing excluded evidence; keep Workbook cards separate.
 - Otherwise, separately authorize a series handoff for an already-wired companion, or move to another book/unit.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

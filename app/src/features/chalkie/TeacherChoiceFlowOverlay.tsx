@@ -36,6 +36,15 @@ import {
   splitPriorSkillCardTitle,
   type TeacherChoiceSuggestion,
 } from './teacherChoiceSuggestions'
+import {
+  buildSbActivityPageColumns,
+  createDefaultSbActivitySelection,
+  sbActivitySelectionStatus,
+  setSbActivityCardSelected,
+  type SbActivityCard,
+  type SbActivityPreviewKind,
+  type SbActivitySelectionState,
+} from './chalkieActivitySelection'
 
 type Be3U08SeriesHandoff = Be3U08OpenerSeriesHandoff | Be3U08StorySeriesHandoff
 
@@ -81,10 +90,18 @@ function PriorSkillCardHeading({ label }: { label: string }) {
   )
 }
 
+function activityPreviewLabel(kind: SbActivityPreviewKind): string {
+  if (kind === 'language_model') return 'Verified language'
+  if (kind === 'activity_item_model') return 'Verified model'
+  if (kind === 'expected_answer') return 'Verified answer evidence'
+  return 'Verified task evidence'
+}
+
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
   onClose: () => void
   lesson: ChalkieLessonContext | null
+  activityCards: readonly SbActivityCard[]
 }
 
 type CopyFeedback = 'idle' | 'copied' | 'failed'
@@ -190,6 +207,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   open,
   onClose,
   lesson,
+  activityCards,
 }) => {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
@@ -230,6 +248,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     null,
   )
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
+  const [activitySelection, setActivitySelection] =
+    useState<SbActivitySelectionState | null>(null)
 
   useEffect(() => {
     if (!open) {
@@ -255,10 +275,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setLesson2VocabCopyStatus('idle')
       setBe3SeriesHandoff(null)
       setLessonShape('single')
+      setActivitySelection(null)
       return
     }
 
     setLessonShape('single')
+    setActivitySelection(createDefaultSbActivitySelection(activityCards))
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -297,7 +319,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [open, onClose])
+  }, [open, onClose, activityCards])
 
   const priorLearningSuggestions = lesson?.priorLearningSuggestions ?? []
 
@@ -309,6 +331,25 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const selectedTeacherAdditions = useMemo(
     () => teacherAdditions.filter((item) => selectedIds.includes(item.id)),
     [teacherAdditions, selectedIds],
+  )
+
+  const effectiveActivitySelection = useMemo(
+    () => activitySelection ?? createDefaultSbActivitySelection(activityCards),
+    [activityCards, activitySelection],
+  )
+
+  const activityPageColumns = useMemo(
+    () =>
+      buildSbActivityPageColumns(
+        activityCards,
+        lesson?.visiblePrintedPages ?? [],
+      ),
+    [activityCards, lesson?.visiblePrintedPages],
+  )
+
+  const activitySelectionStatus = useMemo(
+    () => sbActivitySelectionStatus(activityCards, effectiveActivitySelection),
+    [activityCards, effectiveActivitySelection],
   )
 
   if (!open || !lesson) return null
@@ -502,6 +543,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSelectedIds((prev) => toggleSelectedSuggestionId(prev, id))
   }
 
+  const handleActivitySelectionChange = (cardId: string, selected: boolean) => {
+    setActivitySelection((current) =>
+      setSbActivityCardSelected({
+        cards: activityCards,
+        state: current ?? createDefaultSbActivitySelection(activityCards),
+        cardId,
+        selected,
+      }),
+    )
+  }
+
   const handleAddPriorSkill = () => {
     if (!canAddPriorSkill) return
     const id = `teacher-added-${Date.now()}-${teacherAdditions.length + 1}`
@@ -650,6 +702,126 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     <span className="font-medium text-slate-700">Note:</span> {lesson.clarification}
                   </p>
                 ) : null}
+              </section>
+
+              <section className="space-y-3" aria-label="Current Student Book activities">
+                <div className="flex flex-wrap items-end justify-between gap-2">
+                  <h3 className="text-sm font-medium text-slate-800">
+                    Current Student Book activities
+                  </h3>
+                  <p className="text-sm text-slate-600" aria-live="polite">
+                    {activitySelectionStatus.selectedCount} of{' '}
+                    {activitySelectionStatus.totalCount} current activities included
+                  </p>
+                </div>
+
+                <div
+                  className={`grid grid-cols-1 gap-4 ${
+                    activityPageColumns.length > 1 ? 'md:grid-cols-2' : ''
+                  }`}
+                >
+                  {activityPageColumns.map((column) => (
+                    <div
+                      key={column.printedPage}
+                      className="space-y-2.5"
+                      data-sb-activity-page={column.printedPage}
+                    >
+                      <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-600">
+                        Student Book p. {column.printedPage}
+                      </h4>
+                      {column.cards.length > 0 ? (
+                        <ul className="space-y-2.5">
+                          {column.cards.map((card) => {
+                            const checkboxId = `current-activity-${card.id}`
+                            const detailsId = `${checkboxId}-details`
+                            const checked =
+                              effectiveActivitySelection.selectedCardIds.includes(card.id)
+                            return (
+                              <li
+                                key={card.id}
+                                className={`rounded-lg border bg-white p-3 transition-colors ${
+                                  checked
+                                    ? 'border-indigo-200'
+                                    : 'border-slate-200 opacity-75'
+                                }`}
+                              >
+                                <div className="flex gap-3">
+                                  <div className="flex shrink-0 items-start gap-1.5 pt-0.5">
+                                    <input
+                                      id={checkboxId}
+                                      type="checkbox"
+                                      checked={checked}
+                                      onChange={(event) =>
+                                        handleActivitySelectionChange(
+                                          card.id,
+                                          event.target.checked,
+                                        )
+                                      }
+                                      aria-describedby={detailsId}
+                                      className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <label
+                                      htmlFor={checkboxId}
+                                      className="text-xs font-medium text-slate-600"
+                                    >
+                                      Include
+                                    </label>
+                                  </div>
+                                  <div id={detailsId} className="min-w-0 flex-1 space-y-1.5">
+                                    <p className="text-xs font-medium text-slate-500">
+                                      [SB p.{card.printedPage}]
+                                      {card.activityNumber
+                                        ? ` · Activity ${card.activityNumber}`
+                                        : ''}
+                                    </p>
+                                    <p className="text-sm font-medium leading-snug text-slate-900">
+                                      {card.verifiedWording}
+                                    </p>
+                                    {card.preview.kind === 'empty' ? (
+                                      <p className="text-xs leading-relaxed text-slate-500">
+                                        No safe verified preview is available for this activity.
+                                      </p>
+                                    ) : (
+                                      <div className="space-y-1">
+                                        <p className="text-xs font-medium text-slate-500">
+                                          {activityPreviewLabel(card.preview.kind)}
+                                        </p>
+                                        <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
+                                          {card.preview.values.map((value) => (
+                                            <li key={value}>{value}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      ) : (
+                        <p className="rounded-lg border border-dashed border-slate-300 bg-white/70 p-3 text-xs leading-relaxed text-slate-500">
+                          No human-verified Student Book activity cards are available for this page.
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {activitySelectionStatus.hasNoSelectedCurrentActivities ? (
+                  <p
+                    role="status"
+                    className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm leading-relaxed text-amber-900"
+                  >
+                    No current Student Book activities are selected. A later handoff would contain
+                    no selected current-page activities.
+                  </p>
+                ) : null}
+
+                <p className="text-xs leading-relaxed text-slate-500">
+                  Activity selection is saved for this session. Current Chalkie handoff content is
+                  unchanged until the next implementation step.
+                </p>
               </section>
             </div>
           ) : null}

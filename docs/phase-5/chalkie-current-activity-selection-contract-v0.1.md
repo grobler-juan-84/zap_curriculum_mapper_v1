@@ -1,18 +1,18 @@
 # Chalkie Current Activity Selection Contract
 
-**Status:** ACTIVE DESIGN / PARTIALLY IMPLEMENTED  
-**Version:** 0.2  
+**Status:** ACTIVE / PARTIALLY IMPLEMENTED  
+**Version:** 0.3  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
 
 ## Purpose
 
-The Chalkie Workspace **Current Lesson** step will eventually show verified current-page activity cards. Teachers will be able to keep or exclude specific activities before the local Chalkie handoff is assembled.
+The Chalkie Workspace **Current Lesson** step shows verified current-page Student Book activity cards. Teachers can keep or exclude specific activities in the current modal session before moving to prior learning.
 
 This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence.
 
-**Implementation status:** **SB activity model + deterministic selection state implemented; UI cards, Workbook cards, and handoff propagation not yet implemented.** The implemented helper is local and UI-independent; existing handoff builders do not consume its selected-evidence accessor.
+**Implementation status:** **SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.** The Current Lesson screen now renders the implemented SB model in active-page columns, defaults every card to included, preserves exclusions across Back/Continue while the modal stays open, and shows selection/empty feedback. Existing handoff builders still do not consume the selected-evidence accessor.
 
 ## 1. Placement in the workflow
 
@@ -54,10 +54,11 @@ Do not invent a polished teaching summary when source evidence is incomplete. An
 - Select all eligible current-page activity cards by default.
 - A checkbox controls inclusion.
 - Clicking elsewhere on a card may later reveal details, but must not silently change selection.
-- Excluding a card means: **do not include this activity as source content in the local handoff.**
+- After the later propagation slice, excluding a card will mean: **do not include this activity as source content in the local handoff.** In the current UI-only slice, exclusion changes visible session state only.
 - Exclusion does not remove, alter, or condemn the textbook activity.
 - A teacher may exclude a weak song, low-value activity, or unsuitable material and reinforce useful language through separately selected prior learning.
-- If all current activities are deselected, show a simple warning: **The handoff will contain no selected current-page activities.**
+- During the current session-only slice, if all current activities are deselected, show: **No current Student Book activities are selected. A later handoff would contain no selected current-page activities.**
+- Until handoff propagation is implemented, show plainly that activity selection is session-only and current Chalkie handoff content is unchanged.
 - Do not automatically select replacement prior learning.
 - Do not infer that students have mastered excluded or prior material.
 
@@ -65,7 +66,7 @@ Selections are explicit teacher choices. No AI ranking, recommendation, or autom
 
 ## 4. Effects on the local handoff
 
-Only selected current activities may feed:
+In the later handoff-propagation slice, only selected current activities may feed:
 
 - the detailed platform handoff;
 - the concise teacher-controlled outline;
@@ -126,11 +127,11 @@ Given a verified activity record with a source label and title/instruction but n
 
 ### 7.6 All activities deselected
 
-Given that the teacher deselects every eligible current activity, show the no-current-activities warning. The local handoff contains no current-page activity evidence, language/models, scoped vocabulary, teaching focus, or outline content derived from those activities. Do not select prior learning automatically; any prior learning remains a separate explicit teacher choice.
+Given that the teacher deselects every eligible current activity, show the no-current-activities warning. In the current UI-only slice, the existing handoff remains unchanged and the notice says so. After separately authorized propagation, the local handoff must contain no current-page activity evidence, language/models, scoped vocabulary, teaching focus, or outline content derived from those activities. Do not select prior learning automatically; any prior learning remains a separate explicit teacher choice.
 
 ## Implementation gate
 
-The first bounded implementation slice is complete:
+The first two bounded implementation slices are complete:
 
 - read-only Student Book activity-card data from `human_verified` activity rows only;
 - active-lesson-page scoping;
@@ -139,7 +140,11 @@ The first bounded implementation slice is complete:
 - all eligible cards selected by default;
 - deterministic include/exclude helpers that reject stale IDs;
 - a selected-evidence accessor plus exclusion tests;
-- no UI or handoff-builder wiring.
+- Current Lesson SB activity cards grouped under their actual active page(s);
+- one-page scopes render one page column, while true two-page scopes render two;
+- checkbox-only inclusion controls, selection count, honest preview/record empty states, and an all-unselected warning;
+- session-only selection preserved across Current Lesson → Prior Learning → Back;
+- explicit notice that current handoff content is unchanged.
 
-The next smallest implementation slice is **SB-only Current Lesson card rendering and checkbox state backed by this model**, with no Workbook cards and no handoff propagation. Workbook cards and handoff-builder consumption require later, separately bounded work.
+The next smallest implementation slice is **propagate selected SB activity evidence through every local handoff artifact without broad page-level fallbacks reintroducing excluded content**. Workbook cards remain a later, separately bounded slice.
 
