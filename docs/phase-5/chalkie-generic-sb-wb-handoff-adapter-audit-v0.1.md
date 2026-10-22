@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + Opener test-only parity
-**Version:** 0.3
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + Opener/Story test-only parity
+**Version:** 0.4
 **Date:** 2026-10-22  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** Story rendering is not implemented. The existing handoff builders remain the production renderers and are unchanged.
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** The existing handoff builders remain the production renderers and are unchanged.
 
 The core separation is:
 
@@ -229,7 +229,7 @@ This bounded assembler does not authorize those adapters or claim broader compon
 ## 7. Known exceptions and gaps
 
 1. **The neutral package is bounded to two accepted pairs.** Opener and Story are implemented; no other resolver-wired relationship is eligible.
-2. **All-selected and partial-selection paths differ.** The test-only Opener shadow renderer preserves the accepted all-selected prose exactly and renders partial/zero states only from neutral selected evidence. Production still uses the bespoke builder.
+2. **All-selected and partial-selection paths differ.** The test-only Opener and Story shadow renderers preserve accepted all-selected prose exactly and render partial/zero states only from neutral selected evidence. Production still uses the bespoke builders.
 3. **Purpose is not canonical evidence.** It needs a reviewed planning source or explicit teacher confirmation; it must not be guessed from a component label.
 4. **Production rendering still lacks lesson-targeted support consumption.** The neutral package preserves explicit targets, but existing series inputs remain shared across the series and bespoke outlines omit targeted prior/support steps.
 5. **Production provenance defaults remain inconsistent.** The neutral package requires explicit provenance, but existing renderers have not migrated.
@@ -276,4 +276,13 @@ The separately authorized **Opener test-only shadow-renderer parity slice** is a
 4. Optional `[PRIOR]`, `[HM]`, and `[TEACHER-ADDED · UNVERIFIED]` support preserves explicit Lesson 1 / Lesson 2 targeting.
 5. The renderer is imported only by focused tests; production UI, preview, copy actions, routing, and bespoke builders remain unchanged.
 
-**Smallest next step:** owner-review the Opener parity proof. If accepted, separately authorize the equivalent Story test-only parity slice; do not migrate either renderer into production UI/output yet.
+The separately authorized **asymmetric Story test-only shadow-renderer parity slice** is now implemented:
+
+1. `renderBe3U08StoryNeutralPackageToChalkieShadow.ts` accepts only the exact accepted Story package: SB pp.130–131 → WB p.106.
+2. Its all-selected detailed handoff, Lesson 1 outline/vocabulary, and Lesson 2 outline/vocabulary match the established bespoke Story builder byte-for-byte.
+3. Every artifact remains WB p.106-only; WB p.107 and facing-page placeholder content are absent.
+4. Partial/zero rendering consumes only package-selected evidence, preserves the honest no-dedicated-SB-vocabulary state, and never substitutes opener or adjacent-page content.
+5. Optional support preserves `[PRIOR]`, `[HM]`, or `[TEACHER-ADDED · UNVERIFIED]` provenance plus explicit Lesson 1 / Lesson 2 targets.
+6. The Opener proof, both bespoke builders, and all production UI/output remain unchanged.
+
+**Smallest next step:** owner-review both parity proofs. If accepted, separately decide whether a test-only shared renderer/dispatcher extraction is warranted before any production migration.

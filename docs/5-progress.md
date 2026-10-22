@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 322
+**Last updated:** Step 323
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -28,15 +28,17 @@
 
 - **Opener shadow-renderer parity (audit v0.3):** proved in tests only for the accepted BE3 U8 Opener package. Five all-selected artifacts match the bespoke builder exactly; exclusions and zero-selection remain package-selected-only. Production UI/output is unchanged.
 
+- **Story shadow-renderer parity (audit v0.4):** proved in tests only for asymmetric SB pp.130–131 → WB p.106. Five all-selected artifacts match exactly; WB p.107 never appears; exclusions, zero-selection, and targeted support remain honest. Production UI/output is unchanged.
+
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Owner review of the Opener shadow-renderer parity proof.
+- Owner review of both Opener and Story shadow-renderer parity proofs.
 
 ## Next
 
-- If the Opener proof is accepted, separately decide whether to authorize the equivalent Story test-only parity slice.
+- Separately decide whether a shared test-only renderer/dispatcher extraction is warranted before any production migration.
 - Do not migrate UI or production Chalkie renderers automatically.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

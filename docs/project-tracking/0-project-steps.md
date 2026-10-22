@@ -5504,3 +5504,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 323
+
+**Summary:** Proved test-only Chalkie renderer parity for the accepted asymmetric BE3 Unit 8 Story neutral package. All five all-selected artifacts match exactly for SB pp.130–131 → WB p.106, with no WB p.107 leakage and honest exclusion, zero-selection, and targeted-support behavior; production UI/output is unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/renderBe3U08StoryNeutralPackageToChalkieShadow.ts` (created)
+- `scripts/tests/renderBe3U08StoryNeutralPackageToChalkieShadow.test.ts` (created)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

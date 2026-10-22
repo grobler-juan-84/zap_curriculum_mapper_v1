@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 322
+**Last updated:** Step 323
 
 
 
@@ -542,9 +542,11 @@
 
 - [x] **Opener test-only shadow-renderer parity:** all-selected detailed handoff and L1/L2 outline/vocabulary outputs match the accepted bespoke builder exactly; partial/zero exclusions stay honest; no UI/production migration.
 
+- [x] **Story test-only shadow-renderer parity:** all-selected five-artifact output matches exactly for SB 130–131 → WB 106 only; no WB107 leakage; partial/zero and targeted support stay honest; no UI/production migration.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next project question (choose separately):** owner-review the Opener parity proof, then decide whether to authorize the equivalent Story test-only parity slice, a series handoff for an already-wired companion, the next book/unit companion set, or another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [ ] **Next project question (choose separately):** owner-review both parity proofs, then decide whether to authorize a shared test-only renderer/dispatcher extraction, a series handoff for an already-wired companion, the next book/unit companion set, or another direction. No UI/production-renderer migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 
