@@ -215,6 +215,39 @@ export const BE3_U08_SB138_139_WB113_114: CuratedVerifiedSbWbCompanion = {
   ],
 }
 
+/**
+ * BE3 SB Unit 8 Writing → WB Writing (1→1).
+ *
+ * Accepted after content review (*Combining Sentences with and, but, or*). Resolver-wired only:
+ * no series handoff builder and no Chalkie generation authorized for this mapping.
+ * Packaging note: 1→1 single lesson likely (not a two-lesson series).
+ * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p140-wb115`.
+ */
+export const BE3_U08_WRITING_STABLE_REF = 'be3-sb-wb-u08-p140-wb115'
+
+export const BE3_U08_SB140_WB115: CuratedVerifiedSbWbCompanion = {
+  relationshipId: 'be3_sb_wb_rel_u08_writing_sb140_wb115',
+  relationshipType: 'workbook_practice_for',
+  verificationStatus: 'human_verified',
+  studentBookCatalogId: 'big_english_3_sb',
+  workbookCatalogId: 'big_english_3_wb',
+  studentBookPageIds: ['bep3_sb_p140'],
+  studentBookPrintedPages: [140],
+  workbookPageIds: ['bep_3_wb_p115'],
+  workbookPrintedPages: [115],
+  unitNumber: 8,
+  unitTitle: 'Healthy Living',
+  verificationRationale:
+    'Workbook p.115 consolidates Student Book Writing *Combining Sentences with and, but, or* (p.140): shared coordinating-conjunction writing strand. Culture 113–114 and Phonics 116 are out of scope. Valid 1→1 component pairing.',
+  supportingEvidence: [
+    'Unit identity: both Unit 8 Healthy Living (human_verified).',
+    'SB p.140: Writing · writing · Combining Sentences with and, but, or.',
+    'WB p.115: Writing · writing · same and/but/or joining work.',
+    'Page-count shape: 1 SB → 1 WB (component map 1→1).',
+    'Explicitly excluded: WB Culture 113–114 and Phonics 116.',
+  ],
+}
+
 /** All curated companions recognised by the resolver. Add entries one reviewed pair at a time. */
 export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbCompanion[] = [
   BE3_U08_SB128_129_WB104_105,
@@ -223,4 +256,5 @@ export const CURATED_VERIFIED_SB_WB_COMPANIONS: readonly CuratedVerifiedSbWbComp
   BE3_U08_SB134_135_WB109_110,
   BE3_U08_SB136_137_WB111_112,
   BE3_U08_SB138_139_WB113_114,
+  BE3_U08_SB140_WB115,
 ]

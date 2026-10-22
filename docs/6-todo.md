@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 306
+**Last updated:** Step 307
 
 
 
@@ -468,7 +468,7 @@
 
 - [x] **Culture SB 138–139 → WB 113–114 ACCEPTED (docs mapping)** — `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114` · ref `be3-sb-wb-u08-p138-139-wb113-114`; later resolver-wired (View Workbook only).
 
-- [x] **Writing SB 140 → WB 115 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; packaging: single lesson likely; no handoff; not wired in app.
+- [x] **Writing SB 140 → WB 115 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_writing_sb140_wb115` · ref `be3-sb-wb-u08-p140-wb115`; later resolver-wired (View Workbook only; 1→1 single lesson likely).
 
 - [x] **Phonics SB 141 → WB 116 ACCEPTED (docs mapping, 1→1)** — `be3_sb_wb_rel_u08_phonics_sb141_wb116` · ref `be3-sb-wb-u08-p141-wb116`; packaging: single lesson likely; no handoff; not wired in app.
 
@@ -508,11 +508,13 @@
 
 - [x] **BE3 U8 Culture companion resolver-wired** — SB 138–139 → WB 113–114; View Workbook only; handoff not built; Chalkie not authorized.
 
+- [x] **BE3 U8 Writing companion resolver-wired** — SB p.140 → WB p.115 (1→1); View Workbook only; handoff not built; Chalkie not authorized; single lesson likely.
+
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next microstep:** wire Writing (or another docs-accepted Unit 8 companion) **or** separately authorize a series handoff for an already-wired companion — not both by default; no Chalkie without explicit approval.
+- [ ] **Next microstep:** wire Phonics (or another docs-accepted Unit 8 companion) **or** separately authorize a series handoff for an already-wired companion — not both by default; no Chalkie without explicit approval.
 
 
 

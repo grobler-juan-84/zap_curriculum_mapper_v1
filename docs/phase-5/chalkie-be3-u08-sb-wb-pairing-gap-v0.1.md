@@ -1,6 +1,6 @@
 # BE3 Unit 8 — Student Book → Workbook pairing (v0.1)
 
-**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture **docs-accepted + resolver-wired** (handoff/Chalkie not authorized) · Writing through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
+**Status:** Opener **ACCEPTED** (+ series pilot) · Story handoff **ACCEPTED FOR PROVISIONAL USE** · LiA + CLIL/P.E. + Grammar + Culture + Writing **docs-accepted + resolver-wired** (handoff/Chalkie not authorized; Writing 1→1 single lesson likely) · Phonics through Review **ACCEPTED** (docs) · Values **SB-ONLY CONFIRMED** · 106–107 **REJECTED**  
 **Date:** 2026-10-20 (updates through 2026-10-21)  
 **Scope:** Big English 3 · Unit 8 *Healthy Living* · curated SB↔WB reviews one pair at a time
 
@@ -204,7 +204,9 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 8. Accepted — SB p.140 → WB p.115 (Writing, 1→1)
 
-**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Writing · *Combining Sentences with and, but, or*. Workbook consolidates that conjunction-writing work. Valid **1→1** component relationship. No handoff built; no app wiring; no Chalkie generation authorized.
+**ACCEPTED** after source review (2026-10-21). Same Unit 8 *Healthy Living* · Writing · *Combining Sentences with and, but, or*. Workbook consolidates that conjunction-writing work. Valid **1→1** component relationship.
+
+**Status:** **docs-accepted + resolver-wired**; handoff **not** built; Chalkie generation **not** authorized; **1→1 single lesson likely**.
 
 ### Evidence table
 
@@ -218,17 +220,18 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | Page-count shape | 1 SB page | 1 WB page | Valid (component map 1→1) |
 | Scope / excluded | — | Culture 113–114 and Phonics 116 out of scope | — |
 
-### Exact mapping (docs record only — not wired in app code)
+### Exact mapping
 
 | Field | Value |
 | --- | --- |
 | Relationship ID | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
-| Type | `workbook_practice_for` · `human_verified` (docs-recorded; **not** yet in `verifiedSbWbCompanions.ts`) |
+| Type | `workbook_practice_for` · `human_verified` (**in** `verifiedSbWbCompanions.ts`) |
 | SB | `big_english_3_sb` · p.140 |
 | WB | `big_english_3_wb` · p.115 |
-| Stable reference | `be3-sb-wb-u08-p140-wb115` |
+| Stable reference | `be3-sb-wb-u08-p140-wb115` (`BE3_U08_WRITING_STABLE_REF`) |
+| Runtime | Resolver enables **View Workbook** on exact SB p.140 only (WB p.115) |
 | Series handoff / Chalkie | **Not built** · **not authorized** |
-| Recommended future packaging | **single lesson likely** (1→1 writing pair; not assumed as a two-lesson series) |
+| Packaging | **1→1 single lesson likely** (not a two-lesson series) |
 
 ---
 
@@ -315,7 +318,8 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 | SB 134–135 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 136–137 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
 | SB 138–139 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized |
-| SB 140–141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
+| SB 140 | **docs-accepted + resolver-wired**; handoff **not** built; Chalkie **not** authorized; **1→1 single lesson likely** |
+| SB 141 · 143 | Docs-mapped **ACCEPTED**; resolver/series **not** enabled |
 | SB 142 Values | **SB-only — no companion expected** |
 | Automatic pairing rule | **None** |
 
@@ -323,7 +327,7 @@ Chalkie itself cannot be controlled beyond that preferred workflow; acceptance h
 
 ## 13. Next microstep
 
-LiA, CLIL/P.E., Grammar, and Culture are resolver-wired. Next owner-gated option: wire Writing (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
+LiA, CLIL/P.E., Grammar, Culture, and Writing are resolver-wired. Next owner-gated option: wire Phonics (or another docs-accepted companion) **or** separately authorize a series handoff for an already-wired companion — do not treat resolver wiring as handoff/Chalkie authorization. Unit 8 component-map content review is **complete**.
 
 ---
 
