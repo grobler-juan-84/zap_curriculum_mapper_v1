@@ -5559,3 +5559,30 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 326
+
+**Summary:** Implemented the Opener-only guarded neutral-package production canary (default off). Exact five-artifact parity serves neutral output; mismatch or failure serves bespoke with a bounded developer diagnostic; Story and all other relationships remain on bespoke builders.
+
+**Files touched:**
+- `app/src/features/chalkie/be3U08OpenerNeutralCanary.ts` (created)
+- `app/src/features/chalkie/renderBe3U08OpenerNeutralPackageToChalkieShadow.ts` (updated)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `scripts/tests/be3U08OpenerNeutralCanary.test.ts` (created)
+- `scripts/tests/renderBe3U08OpenerNeutralPackageToChalkieShadow.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `.env.example` (updated)
+- `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md` (updated)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

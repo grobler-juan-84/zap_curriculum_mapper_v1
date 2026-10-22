@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 325
+**Last updated:** Step 326
 
 
 
@@ -548,9 +548,11 @@
 
 - [x] **Docs-only Opener canary migration plan:** draft `chalkie-neutral-package-production-migration-plan-v0.1.md` with parity gates, mismatch diagnostics, bespoke rollback, and Story-after-Opener progression; explicitly not authorized for production wiring.
 
+- [x] **Opener-only guarded canary:** `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` default off; exact five-artifact compare; bespoke fallback + developer diagnostic on mismatch; Story remains bespoke.
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Owner review of Opener canary plan:** accept, reject, or revise the docs-only migration plan before any code canary. No production wiring, Story canary, bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [ ] **Local Opener canary review:** enable the flag in `app/.env.local`, exercise selection/prior paths, confirm mismatch diagnostics, then keep default-off for normal use unless separately deciding next. No Story canary, bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 

@@ -1,6 +1,6 @@
 # Chalkie — Interface & Generation Workflow
 
-**Version:** V1.21
+**Version:** V1.22
 **Status:** ACTIVE / EVOLVING (observed UI reference; not a product or schema lock)  
 **Observed:** 2026-10-16, 2026-10-20, 2026-10-21, and 2026-10-22, from user-supplied screenshots, generation/export experience, and Activity Selection manual acceptance
 **Suggested repository location:** `docs/phase-6/chalkie-interface-and-generation-workflow.md`  
@@ -24,9 +24,9 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 
 **Asymmetric Story shadow proof (2026-10-22):** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** The five all-selected artifacts match the bespoke Story builder exactly. Partial/zero states remain selected-evidence-only, no WB p.107 or facing-page content is rendered, and targeted optional support keeps visible provenance. Production routing remains on the unchanged bespoke builder.
 
-**Shared test-only dispatch (2026-10-22):** **Test-only shared Chalkie dispatcher supports the parity-proved Opener and Story packages only; no UI or production migration.** It routes exact verified relationship IDs to the existing shadow renderers and throws a typed unsupported-renderer error for every other relationship. Current UI, preview, copy actions, and bespoke production routing do not call it.
+**Shared dispatch (2026-10-22):** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** It routes exact verified relationship IDs to the existing shadow renderers and throws a typed unsupported-renderer error for every other relationship.
 
-**Production migration plan (2026-10-22; docs only):** **Opener-first canary migration plan drafted; not authorized for production wiring.** Proposed first canary is only `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`, with the live bespoke path as immediate rollback and Story deferred until Opener is stable. See [`../phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md`](../phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md).
+**Opener-only guarded canary (2026-10-22):** **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Flag `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (set `true` in `app/.env.local`, restart dev). When enabled for Opener only, compares five artifacts exactly and serves neutral output on parity; otherwise serves bespoke and emits a developer diagnostic. No teacher-facing canary UI. See [`../phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md`](../phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md).
 
 **Evidence labels:** **Observed** = visible in screenshots; **User-confirmed** = reported from direct use; **Recommended** = proposed working practice; **Unverified** = needs testing. Chalkie may change its UI.
 

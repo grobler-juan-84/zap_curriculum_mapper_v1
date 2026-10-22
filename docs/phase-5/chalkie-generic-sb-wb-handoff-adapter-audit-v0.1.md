@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + test-only parity dispatch; production migration plan drafted (not authorized)
-**Version:** 0.6
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + shared dispatch; Opener-only guarded canary implemented (default off)
+**Version:** 0.7
 **Date:** 2026-10-22  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** **Test-only shared Chalkie dispatcher supports the parity-proved Opener and Story packages only; no UI or production migration.** The existing handoff builders remain the production renderers and are unchanged. **A docs-only Opener-first production migration plan is drafted and not authorized for production wiring** — see [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener and Story shadow-renderer parity proved.** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Flag: `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
 
 The core separation is:
 
@@ -292,6 +292,6 @@ The separately authorized **test-only shared dispatcher** is now implemented:
 3. Unsupported relationships throw typed `UnsupportedNeutralPackageRendererError`; there is no generic fallback or partial output.
 4. The dispatcher has no production call site and does not broaden renderer eligibility.
 
-**Docs-only production migration plan (v0.1):** [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md) proposes a cautious Opener-only canary with parity gates, artifact-only mismatch diagnostics, bespoke rollback, and Story-after-Opener progression. Status remains `DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`. This audit does not authorize a code canary.
+**Opener-only guarded canary (v0.2 plan):** [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md) — implemented with `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke and emits a bounded developer diagnostic. Story is not canaried.
 
-**Smallest next step:** owner review of the Opener-only canary proposal in the migration plan. If accepted, separately authorize a code canary slice that keeps the live bespoke Opener path as immediate rollback; if not accepted, leave production routing unchanged. Do not wire the dispatcher into production automatically.
+**Smallest next step:** locally enable the Opener canary flag and review evidence; do not authorize a Story canary or bulk migration automatically.

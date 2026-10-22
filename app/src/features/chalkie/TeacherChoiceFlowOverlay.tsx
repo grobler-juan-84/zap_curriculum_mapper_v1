@@ -1,11 +1,12 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, Copy } from 'lucide-react'
+import { buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary } from './be3U08OpenerNeutralCanary'
 import {
-  buildBe3U08OpenerSbWbSeriesHandoff,
   isBe3U08OpenerSeriesCompanion,
   type Be3U08OpenerSeriesHandoff,
 } from './buildBe3U08OpenerSbWbSeriesHandoff'
+import type { VerifiedSbWbCompanion } from './resolveVerifiedSbWbCompanion'
 import {
   buildBe3U08StorySbWbSeriesHandoff,
   isBe3U08StorySeriesCompanion,
@@ -74,19 +75,20 @@ function isBe3U08SeriesCompanion(
 }
 
 function buildBe3U08SeriesHandoffForCompanion(
-  companion: { relationshipId?: string | null } | null | undefined,
+  companion: VerifiedSbWbCompanion | null | undefined,
   selectedSuggestions: TeacherChoiceSuggestion[],
   teacherAdditions: TeacherAddedLanguageInput[],
   activitySelection: SbActivityHandoffSelection,
   workbookActivitySelection: WbActivityHandoffSelection,
 ): Be3U08SeriesHandoff | null {
-  if (isBe3U08OpenerSeriesCompanion(companion)) {
-    return buildBe3U08OpenerSbWbSeriesHandoff({
+  if (isBe3U08OpenerSeriesCompanion(companion) && companion) {
+    return buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary({
+      companion,
       selectedSuggestions,
       teacherAdditions,
       activitySelection,
       workbookActivitySelection,
-    })
+    }).handoff
   }
   if (isBe3U08StorySeriesCompanion(companion)) {
     return buildBe3U08StorySbWbSeriesHandoff({

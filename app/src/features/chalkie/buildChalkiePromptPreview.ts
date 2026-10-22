@@ -1,9 +1,7 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
-import {
-  buildBe3U08OpenerSbWbSeriesHandoff,
-  isBe3U08OpenerSeriesCompanion,
-} from './buildBe3U08OpenerSbWbSeriesHandoff'
+import { buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary } from './be3U08OpenerNeutralCanary'
+import { isBe3U08OpenerSeriesCompanion } from './buildBe3U08OpenerSbWbSeriesHandoff'
 import {
   buildBe3U08StorySbWbSeriesHandoff,
   isBe3U08StorySeriesCompanion,
@@ -463,13 +461,17 @@ export function buildChalkiePromptPreview(input: {
       }
       return buildBe2U08SeriesLessonPrompt(input)
     }
-    if (isBe3U08OpenerSeriesCompanion(input.lesson.workbookCompanion)) {
-      return buildBe3U08OpenerSbWbSeriesHandoff({
+    if (
+      isBe3U08OpenerSeriesCompanion(input.lesson.workbookCompanion) &&
+      input.lesson.workbookCompanion
+    ) {
+      return buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary({
+        companion: input.lesson.workbookCompanion,
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
         activitySelection: input.activitySelection,
         workbookActivitySelection: input.workbookActivitySelection,
-      }).detailedHandoff
+      }).handoff.detailedHandoff
     }
     if (isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion)) {
       return buildBe3U08StorySbWbSeriesHandoff({

@@ -1,17 +1,15 @@
 # Neutral Package → Shared Chalkie Dispatcher Production Migration Plan
 
-**Status:** DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING  
-**Version:** 0.1  
+**Status:** ACTIVE — Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke  
+**Version:** 0.2  
 **Date:** 2026-10-22  
-**Scope:** Cautious canary plan for moving the parity-proved Opener relationship from bespoke production builders onto the test-only neutral package → shared Chalkie dispatcher path
+**Scope:** Cautious Opener-only canary for moving the parity-proved Opener relationship onto the neutral package → shared Chalkie dispatcher path when explicitly enabled
 
 ---
 
 ## 1. Purpose and status
 
-**Status:** `DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`
-
-This document defines a cautious canary migration for the already-proved neutral lesson-package architecture. It does **not** authorize any production wiring, feature flag, routing change, UI change, or generation change.
+**Status:** Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.
 
 **Goal:** replace duplicated platform-specific assembly safely, without changing teacher-facing output.
 
@@ -19,166 +17,129 @@ The durable path is:
 
 1. assemble a neutral selected-evidence package;
 2. render that package through a small Chalkie-specific dispatcher;
-3. keep the live bespoke builders available as immediate rollback until parity is proven under production-like conditions.
+3. keep the live bespoke builders available as immediate rollback.
 
-This plan preserves the accepted teacher experience: same title, detailed handoff, Lesson 1/2 outlines, Lesson 1/2 vocabulary, activity cards, selection flow, and copy actions.
+This plan preserves the accepted teacher experience: same title, detailed handoff, Lesson 1/2 outlines, Lesson 1/2 vocabulary, activity cards, selection flow, and copy actions. There is no teacher-facing canary indicator.
 
 ---
 
 ## 2. Current proven boundary
 
-Already implemented and test-proved:
-
 | Layer | Status | Notes |
 |---|---|---|
 | Neutral package assembler | Implemented for Opener and Story only | Exact verified scopes, selected-only evidence, partial/zero states, boundaries, and targeted prior support |
-| Test-only shared dispatcher | Implemented | `renderChalkieFromNeutralPackage` routes by exact relationship ID |
-| Opener shadow renderer | Exact parity proved in tests | SB pp.128–129 → WB pp.104–105 (2→2) |
-| Story shadow renderer | Exact parity proved in tests | SB pp.130–131 → WB p.106 only (2→1); no WB p.107 leakage |
-| Production path | Unchanged | Live UI still uses the accepted bespoke Opener and Story builders |
+| Shared Chalkie dispatcher | Implemented | `renderChalkieFromNeutralPackage` routes by exact relationship ID |
+| Opener shadow renderer | Exact parity proved; used by canary when enabled | SB pp.128–129 → WB pp.104–105 (2→2) |
+| Story shadow renderer | Exact parity proved in tests only | SB pp.130–131 → WB p.106 only (2→1); no production canary |
+| Production path (default) | Bespoke builders | Canary flag defaults OFF |
+| Opener production canary | Implemented; opt-in | `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` |
 
-Exact tested relationships:
+Exact relationships:
 
-- **Opener:** relationship `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` · package reference `be3-sb-wb-u08-p128-129-wb104-105` · shape **2 SB pages → 2 WB pages**
-- **Story:** relationship `be3_sb_wb_rel_u08_story_sb130-131_wb106` · package reference `be3-sb-wb-u08-p130-131-wb106` · shape **2 SB pages → 1 WB page**
-
-Unsupported relationships must not be guessed. The dispatcher already throws a typed unsupported error for any other relationship, including resolver-wired companions such as LiA.
+- **Opener (canary-eligible):** `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` · package `be3-sb-wb-u08-p128-129-wb104-105` · **2→2**
+- **Story (bespoke only):** `be3_sb_wb_rel_u08_story_sb130-131_wb106` · package `be3-sb-wb-u08-p130-131-wb106` · **2→1**
 
 See [`chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md`](./chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md).
 
 ---
 
-## 3. Canary proposal
+## 3. Canary implementation
 
-**Proposed first canary only:** the accepted Opener relationship  
-`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`  
-(SB pp.128–129 → WB pp.104–105).
+**First canary only:** Opener relationship `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`.
 
-Story remains on the bespoke production path until Opener is stable under the progression gates below.
+### Feature flag
 
-### Routing concept
+- Name: `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`
+- Default: **OFF** (unset / `false` / `0`)
+- Enable locally: set `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY=true` in `app/.env.local` (preferred) or document via root `.env.example`, then restart `npm run dev` in `app/`
+- Disable: remove the variable or set it to `false` / `0`, then restart
+- No teacher-facing controls or UI wording
 
-- Introduce an explicit isolated canary route or feature flag that can enable the neutral-package dispatcher for Opener only.
-- Keep the live bespoke Opener builder as the default and as the immediate rollback path.
-- Do not change teacher-facing surfaces:
-  - title;
-  - detailed prompt;
-  - Lesson 1/2 outlines;
-  - Lesson 1/2 vocabulary;
-  - activity cards;
-  - selection flow;
-  - copy actions.
+### Runtime behaviour
 
-### Explicit non-authorization
+When the flag is **off**: always serve bespoke Opener output; do not run neutral assembly/rendering.
 
-This section proposes a design only. No flag, route, shadow comparison, or production call site may be added until the owner authorization named in §9 is recorded.
+When the flag is **on** for Opener:
 
----
+1. build the existing bespoke Opener output;
+2. build the neutral package from the same selected SB/WB evidence and prior-support inputs;
+3. render via the shared dispatcher;
+4. compare the five artifacts exactly;
+5. on exact parity → serve the neutral-rendered artifacts;
+6. on mismatch / unsupported / renderer or package error → serve bespoke and emit a developer-visible diagnostic.
 
-## 4. Required parity gates before enabling any canary
-
-All gates must pass for Opener before any production canary is enabled. Exact equality against the current accepted bespoke output is the standard unless a narrowly justified formatting-only difference is separately accepted in writing.
-
-1. **All-selected exact parity** for the five Chalkie artifacts:
-   - detailed two-lesson handoff;
-   - Lesson 1 concise outline;
-   - Lesson 1 vocabulary;
-   - Lesson 2 concise outline;
-   - Lesson 2 vocabulary.
-2. **SB exclusion propagation** — unchecked Student Book activities remain absent from the detailed handoff and Lesson 1 outline/vocabulary/language paths.
-3. **WB exclusion propagation** — unchecked Workbook activities remain absent from the detailed handoff and Lesson 2 outline/vocabulary/language/audio paths.
-4. **Partial-page vocabulary/language behaviour** — page-attributed vocabulary/language survive only when every eligible activity on that page remains selected.
-5. **Zero-selection honest state** — zero SB or zero WB selection keeps the series structure valid and emits explicit empty states without reconstructing content or substituting the other book.
-6. **Prior-support provenance and targeting** — `[PRIOR]`, `[HM]`, and `[TEACHER-ADDED · UNVERIFIED]` retain visible provenance and explicit Lesson 1 / Lesson 2 targets.
-7. **Exact-scope protection** — no leakage outside SB 128–129 / WB 104–105 for the Opener canary; Story remains out of canary scope until separately authorized.
-8. **No regression to the normal existing handoff path** — with the canary flag off, production output remains byte-identical to today’s bespoke builders.
+Story and every other relationship continue to call their bespoke builders only.
 
 ---
 
-## 5. Runtime safety / observability concept
+## 4. Required parity gates (enforced by canary)
 
-If a canary is later authorized, comparison and diagnostics must stay developer-facing and narrow.
+Compared artifacts:
 
-### Compare only produced artifacts
+1. detailed two-lesson handoff;
+2. Lesson 1 concise outline;
+3. Lesson 1 vocabulary;
+4. Lesson 2 concise outline;
+5. Lesson 2 vocabulary.
 
-Compare the five rendered Chalkie artifacts only:
+Gates covered by focused tests:
 
-- detailed handoff;
-- Lesson 1 outline;
-- Lesson 1 vocabulary;
-- Lesson 2 outline;
-- Lesson 2 vocabulary.
+- all-selected exact parity;
+- SB / WB exclusion propagation;
+- partial-page vocabulary/language behaviour;
+- zero-selection honest states;
+- prior-support provenance plus explicit Lesson 1 / Lesson 2 targeting on the neutral package;
+- exact SB/WB scope (no leakage);
+- flag-off path unchanged (bespoke only).
 
-Do **not** compare or store unnecessary teacher identity, learner data, session notes, or free-text teacher additions beyond what is already required to assemble the lesson package for the comparison itself.
+---
 
-### Safe mismatch response
+## 5. Runtime safety / observability
 
-If the canary dispatcher output differs from the bespoke baseline:
-
-1. continue serving the bespoke-builder output to the teacher;
-2. record a developer-visible diagnostic that names the relationship, which artifact mismatched, and that the canary was not surfaced;
-3. do **not** hide the mismatch behind a silent fallback that pretends the canary succeeded;
-4. do **not** show a teacher-facing error for a canary mismatch while the bespoke path remains healthy.
-
-### Rollback in plain language
-
-Rollback means turning the Opener canary flag/route off so the existing bespoke Opener builder is again the only production path. No data migration, no UI redesign, and no Story involvement are required for rollback.
+- Compare only the five produced artifacts — not teacher identity or learner data.
+- Safe mismatch response: continue with bespoke output; `console.warn` a concise diagnostic naming the relationship ID and which artifact(s) failed or differed.
+- No silent fallback that pretends the canary succeeded.
+- Do not log full prompts, teacher-added content, or source activity text.
+- **Rollback:** unset / disable `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` and restart the app so only the bespoke Opener builder runs.
 
 ---
 
 ## 6. Progression gates
 
-No bulk migration. Progression is relationship-specific and owner-gated.
-
-1. **Canary Opener only** after §4 gates and §9 authorization.
-2. **Review evidence** from the Opener canary: exact matches, mismatch diagnostics, selection/zero-selection behaviour, and rollback drills.
-3. **Story canary only after Opener is stable.** Story must preserve asymmetric SB pp.130–131 → WB p.106 only and prove no WB p.107 leakage again under the same gates.
-4. **Additional component renderers only after an explicit relationship-specific parity slice.** Resolver-wired companions such as LiA, CLIL, Grammar, Culture, Writing, Phonics, or Review do not become eligible merely because a companion exists.
-5. **No bulk migration** of every Unit 8 relationship, every book, or every platform renderer.
+1. ~~Canary Opener~~ — implemented (default off).
+2. Review local evidence with the flag enabled (parity, mismatch diagnostics, selection/zero-selection, rollback).
+3. Story canary only after Opener is stable under real use — **not authorized**.
+4. Additional component renderers only after an explicit relationship-specific parity slice.
+5. No bulk migration.
 
 ---
 
 ## 7. Prior-learning protection
 
-Optional support remains separate from current-page evidence in every migration step:
-
-- `[PRIOR]` — earlier pages in the same unit;
-- `[HM]` — earlier units in the same book;
-- `[TEACHER-ADDED · UNVERIFIED]` — teacher-authored support.
-
-Safety rules that must survive canary and later progression:
-
-- optional support only; never compulsory lesson content;
-- retain provenance labels and explicit Lesson 1 / Lesson 2 targeting;
-- never replace, recreate, or silently restore excluded SB/WB activities;
-- never reconstruct activity wording, answers, vocabulary, language, or models from unit context;
-- may appear only where they fit naturally and only for the targeted lesson(s).
+- `[PRIOR]`, `[HM]`, and `[TEACHER-ADDED · UNVERIFIED]` stay separate from current-page evidence.
+- Neutral package retains provenance and explicit Lesson 1 / Lesson 2 targets.
+- Excluded SB/WB activities cannot be restored through the canary path.
 
 ---
 
-## 8. Non-goals
+## 8. Non-goals (still)
 
-This plan does **not**:
-
-- authorize or implement automatic generic rendering for every relationship;
-- change Chalkie generation, Topic/Refine/Theme workflow, or classroom export behaviour;
-- redesign the Chalkie Workspace UI, activity cards, selection flow, or copy actions;
-- claim classroom validation;
-- change the meaning of the neutral source package or Book Intelligence;
-- rewrite canonical data, verified SB→WB mappings, D018, or `docs/4-decisions.md`;
-- migrate Story, LiA, or any other companion in the first canary.
+- No automatic generic renderer for every relationship.
+- No Chalkie generation change.
+- No UI redesign or teacher-facing canary indicator.
+- No claim of classroom validation.
+- No Story or other Unit 8 relationship canary.
+- No changes to Book Intelligence meaning or canonical data.
 
 ---
 
-## 9. Decision required
+## 9. Authorization record
 
-Before any code canary slice may begin, the owner must explicitly authorize a production canary implementation for the Opener relationship only, naming at least:
+Owner-authorized Opener-only code canary (this implementation slice):
 
-1. the exact relationship ID `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`;
-2. that the live bespoke Opener path remains the immediate rollback;
-3. that teacher-facing output must remain unchanged;
-4. that Story and all other relationships remain out of scope until separately authorized.
+1. relationship `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`;
+2. live bespoke Opener path remains immediate rollback (flag default off + mismatch fallback);
+3. teacher-facing output unchanged when flag off, and unchanged in content when flag on and parity holds;
+4. Story and all other relationships remain bespoke until separately authorized.
 
-**This document does not authorize implementation.** It is a planning artifact only. No feature flag, production call site, UI route, or runtime comparison may be added until that owner authorization is recorded.
-
-**Smallest next step after this plan:** owner review of the Opener-only canary proposal. If accepted, separately authorize a code canary slice that preserves the bespoke rollback path; if not accepted, leave production routing unchanged and choose another project question.
+**Smallest next step:** locally enable the Opener canary flag, exercise all-selected / exclusion / zero-selection / prior-support paths, confirm diagnostics on a forced mismatch if desired, then either keep the flag off in normal use or separately authorize a Story canary design — do not bulk-migrate.

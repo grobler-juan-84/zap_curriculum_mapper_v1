@@ -1,7 +1,9 @@
 /**
- * Test-only dispatcher for the two parity-proved neutral SB→WB packages.
+ * Shared Chalkie dispatcher for the two parity-proved neutral SB→WB packages.
  *
- * Deliberately not imported by production UI, preview, copy, or routing code.
+ * Production UI may call this only through the Opener-only guarded canary
+ * (`be3U08OpenerNeutralCanary.ts`, default off). Story and other relationships
+ * remain on bespoke builders.
  */
 import type { NeutralSbWbLessonPackage } from './buildNeutralSbWbLessonPackage'
 import { renderBe3U08OpenerNeutralPackageToChalkieShadow } from './renderBe3U08OpenerNeutralPackageToChalkieShadow'

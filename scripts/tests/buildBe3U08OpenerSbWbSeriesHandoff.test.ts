@@ -626,5 +626,7 @@ test('BE3 series handoff and overlay stay local (no OpenAI)', () => {
   assert.ok(!handoffSource.includes('/api/chalkie/generate'))
   assert.ok(!handoffSource.toLowerCase().includes('openai'))
   assert.ok(!overlaySource.includes('chalkieLessonDraftService'))
-  assert.ok(overlaySource.includes('buildBe3U08OpenerSbWbSeriesHandoff'))
+  assert.ok(
+    overlaySource.includes('buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary'),
+  )
 })

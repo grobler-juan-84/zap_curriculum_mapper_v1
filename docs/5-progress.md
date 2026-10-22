@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 325
+**Last updated:** Step 326
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,35 +22,32 @@
 
 - **Active lesson page scope:** one-page components inside a two-page PDF reading spread (e.g. p.140 / p.141) resolve companion + Prepare from the Go / page-control active page; true two-page mappings unchanged.
 
-- **Activity Selection contract v0.9:** **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** Teacher-selectable SB/WB cards (all selected by default); selected-only SB and WB handoff propagation; open-book layouts; BE3 U8 opener persistence accepted (`4 of 5` SB / `3 of 4` WB after Back). Does not authorize Chalkie generation or claim classroom validation.
+- **Activity Selection contract v0.9:** **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.**
 
-- **Neutral SB→WB package assembler:** implemented read-only for the accepted BE3 U8 Opener and Story pairs only. It packages exact scopes, selected-only activity/vocabulary/language/audio evidence, explicit selection states and boundaries, and lesson-targeted `[PRIOR]` / `[HM]` / teacher-added support; existing Chalkie UI and rendering are unchanged.
+- **Neutral SB→WB package assembler** for accepted BE3 U8 Opener and Story pairs only.
 
-- **Opener shadow-renderer parity (audit v0.3):** proved in tests only for the accepted BE3 U8 Opener package. Five all-selected artifacts match the bespoke builder exactly; exclusions and zero-selection remain package-selected-only. Production UI/output is unchanged.
+- **Opener and Story shadow-renderer parity** proved in tests (Story asymmetric WB p.106 only).
 
-- **Story shadow-renderer parity (audit v0.4):** proved in tests only for asymmetric SB pp.130–131 → WB p.106. Five all-selected artifacts match exactly; WB p.107 never appears; exclusions, zero-selection, and targeted support remain honest. Production UI/output is unchanged.
+- **Shared Chalkie dispatcher** for the two parity-proved relationships; unsupported relationships throw a typed error.
 
-- **Shared test-only Chalkie dispatcher (audit v0.5):** supports only the parity-proved Opener and Story relationships. Unsupported relationships throw a typed error with no fallback; production UI/output remains unchanged.
-
-- **Production migration plan (docs only, audit v0.6):** Opener-first canary plan drafted with parity gates, artifact-only mismatch diagnostics, and bespoke rollback. Status is `DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`. No production routing change.
+- **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Flag: `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Owner review of the Opener-only canary proposal in the migration plan.
+- Local review of the Opener canary with the flag explicitly enabled.
 
 ## Next
 
-- If the owner accepts the plan, separately authorize a code canary for Opener only with live bespoke rollback; otherwise leave production routing unchanged.
-- Do not enable Story canary, bulk migration, or automatic generic rendering.
+- Exercise Opener canary locally (all-selected, exclusions, zero-selection, prior support, forced mismatch diagnostic).
+- Do not authorize Story canary or bulk migration without a separate decision.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked
 
 - Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
-- Soft: production canary wiring is blocked until explicit owner authorization of the Opener-only plan.
 
 ---
 
