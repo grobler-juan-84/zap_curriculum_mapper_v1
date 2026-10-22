@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 309
+**Last updated:** Step 310
 
 
 
@@ -514,7 +514,11 @@
 
 - [x] **BE3 U8 Review companion resolver-wired** — SB p.143 → WB p.117 (1→1); View Workbook only; handoff not built; Chalkie not authorized; single lesson likely. Values p.142 remains SB-only.
 
+- [x] **Active lesson page scope for one-page components in two-page PDF spreads** — Go target scopes companion + Prepare (140/141, 142/143); true two-page mappings unchanged; no composite mappings.
+
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
+
+- [ ] **Owner check:** on BE3 U8 pp.140–141 / 142–143, confirm Go p.140→WB 115, Go p.141→WB 116, Go p.142 no companion, Go p.143→WB 117; Culture 138–139 still paired.
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 

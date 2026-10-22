@@ -13,13 +13,16 @@ import {
   filterStudentBooksForTeacherDropdown,
   isStudentBook,
   lessonAnchorPrintedPages,
+  resolveActiveLessonScope,
   resolveCompanionForSbPages,
   resolveViewerPdfPagesForPrinted,
   restoreStudentBookPdfView,
   shouldApplyVisiblePagesFromPdf,
   studentBookDisplayTitle,
 } from '../../app/src/features/chalkie/chalkieStudentBookUi.ts'
+import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
+import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const BE3_SB_PATH = path.join(ROOT, 'data/phase1/big_english_3_sb/canonical/v1.json')
@@ -87,7 +90,7 @@ test('teacher dropdown excludes Workbooks', () => {
   assert.equal(isStudentBook(books[1]!), false)
 })
 
-test('mapped BE3 U8 opener resolves companion; unmapped pages do not', () => {
+test('mapped BE3 U8 opener resolves companion; Values p.142 does not', () => {
   const mapped = resolveCompanionForSbPages({
     studentBookCatalogId: 'big_english_3_sb',
     studentBookPrintedPages: [128, 129],
@@ -96,11 +99,151 @@ test('mapped BE3 U8 opener resolves companion; unmapped pages do not', () => {
   assert.equal(mapped?.relationshipId, 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105')
   assert.deepEqual(mapped?.workbookPrintedPages, [104, 105])
 
-  const unmapped = resolveCompanionForSbPages({
+  const valuesOnly = resolveCompanionForSbPages({
     studentBookCatalogId: 'big_english_3_sb',
-    studentBookPrintedPages: [140],
+    studentBookPrintedPages: [142],
   })
-  assert.equal(unmapped, null)
+  assert.equal(valuesOnly, null)
+})
+
+function be3U08SummaryStub(): BatchJsonSummary {
+  return {
+    catalogBookId: 'big_english_3_sb',
+    units: [
+      {
+        unitNumber: '8',
+        title: 'Unit 8',
+        printedPageStart: 128,
+        printedPageEnd: 143,
+      },
+    ],
+    vocabulary: [],
+    language: [],
+    activities: [],
+    pages: [],
+    raw: null,
+  }
+}
+
+test('active p.140 on visible 140–141 resolves Writing → WB 115; handoff scope is p.140 only', () => {
+  const scope = resolveActiveLessonScope({
+    studentBookCatalogId: 'big_english_3_sb',
+    visiblePrintedPages: [140, 141],
+    activePrintedPage: 140,
+  })
+  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.deepEqual(scope.lessonPrintedPages, [140])
+  assert.deepEqual(scope.visiblePrintedPages, [140, 141])
+  assert.ok(scope.companion)
+  assert.equal(scope.companion?.relationshipId, 'be3_sb_wb_rel_u08_writing_sb140_wb115')
+  assert.deepEqual(scope.companion?.workbookPrintedPages, [115])
+
+  const handoff = resolveChalkieLessonContext({
+    book: bookStub({
+      id: 'be3-sb',
+      title: 'Big English 3 Student Book',
+      type: 'Student Book',
+      catalogBookId: 'big_english_3_sb',
+    }),
+    summary: be3U08SummaryStub(),
+    visiblePrintedPages: scope.lessonPrintedPages,
+    unitNumber: '8',
+  })
+  assert.deepEqual(handoff.visiblePrintedPages, [140])
+  assert.notDeepEqual(handoff.visiblePrintedPages, [140, 141])
+})
+
+test('active p.141 on visible 140–141 resolves Phonics → WB 116; handoff scope is p.141 only', () => {
+  const scope = resolveActiveLessonScope({
+    studentBookCatalogId: 'big_english_3_sb',
+    visiblePrintedPages: [140, 141],
+    activePrintedPage: 141,
+  })
+  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.deepEqual(scope.lessonPrintedPages, [141])
+  assert.ok(scope.companion)
+  assert.equal(scope.companion?.relationshipId, 'be3_sb_wb_rel_u08_phonics_sb141_wb116')
+  assert.deepEqual(scope.companion?.workbookPrintedPages, [116])
+
+  const handoff = resolveChalkieLessonContext({
+    book: bookStub({
+      id: 'be3-sb',
+      title: 'Big English 3 Student Book',
+      type: 'Student Book',
+      catalogBookId: 'big_english_3_sb',
+    }),
+    summary: be3U08SummaryStub(),
+    visiblePrintedPages: scope.lessonPrintedPages,
+    unitNumber: '8',
+  })
+  assert.deepEqual(handoff.visiblePrintedPages, [141])
+})
+
+test('active p.142 on visible 142–143 has no companion; lesson scope is p.142 only', () => {
+  const scope = resolveActiveLessonScope({
+    studentBookCatalogId: 'big_english_3_sb',
+    visiblePrintedPages: [142, 143],
+    activePrintedPage: 142,
+  })
+  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.deepEqual(scope.lessonPrintedPages, [142])
+  assert.equal(scope.companion, null)
+})
+
+test('active p.143 on visible 142–143 resolves Review → WB 117; handoff scope is p.143 only', () => {
+  const scope = resolveActiveLessonScope({
+    studentBookCatalogId: 'big_english_3_sb',
+    visiblePrintedPages: [142, 143],
+    activePrintedPage: 143,
+  })
+  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.deepEqual(scope.lessonPrintedPages, [143])
+  assert.ok(scope.companion)
+  assert.equal(scope.companion?.relationshipId, 'be3_sb_wb_rel_u08_review_sb143_wb117')
+  assert.deepEqual(scope.companion?.workbookPrintedPages, [117])
+})
+
+test('Culture pp.138–139 and paired two-page mappings stay exact-spread (unchanged)', () => {
+  const paired = [
+    { sb: [128, 129], wb: [104, 105], id: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105' },
+    { sb: [130, 131], wb: [106], id: 'be3_sb_wb_rel_u08_story_sb130-131_wb106' },
+    { sb: [132, 133], wb: [107, 108], id: 'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108' },
+    { sb: [134, 135], wb: [109, 110], id: 'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110' },
+    { sb: [136, 137], wb: [111, 112], id: 'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112' },
+    { sb: [138, 139], wb: [113, 114], id: 'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114' },
+  ] as const
+
+  for (const row of paired) {
+    const withActiveLeft = resolveActiveLessonScope({
+      studentBookCatalogId: 'big_english_3_sb',
+      visiblePrintedPages: [...row.sb],
+      activePrintedPage: row.sb[0],
+    })
+    assert.equal(withActiveLeft.scopeSource, 'exact_visible_spread')
+    assert.deepEqual(withActiveLeft.lessonPrintedPages, [...row.sb])
+    assert.ok(withActiveLeft.companion)
+    assert.equal(withActiveLeft.companion?.relationshipId, row.id)
+    assert.deepEqual(withActiveLeft.companion?.workbookPrintedPages, [...row.wb])
+
+    // Active right page must not shrink a true two-page component to one page.
+    const withActiveRight = resolveActiveLessonScope({
+      studentBookCatalogId: 'big_english_3_sb',
+      visiblePrintedPages: [...row.sb],
+      activePrintedPage: row.sb[1],
+    })
+    assert.equal(withActiveRight.scopeSource, 'exact_visible_spread')
+    assert.deepEqual(withActiveRight.lessonPrintedPages, [...row.sb])
+    assert.equal(withActiveRight.companion?.relationshipId, row.id)
+  }
+
+  // Visible two-page reading pair without exact mapping must not invent a composite.
+  const composite140141 = resolveActiveLessonScope({
+    studentBookCatalogId: 'big_english_3_sb',
+    visiblePrintedPages: [140, 141],
+    activePrintedPage: null,
+  })
+  assert.equal(composite140141.companion, null)
+  assert.equal(composite140141.scopeSource, 'none')
 })
 
 test('lesson anchor stays on frozen SB pages during Workbook view', () => {

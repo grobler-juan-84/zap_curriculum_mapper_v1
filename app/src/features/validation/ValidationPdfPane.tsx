@@ -39,6 +39,11 @@ interface ValidationPdfPaneProps {
   /** Called when the visible spread’s printed page numbers change (Chalkie Workspace). */
   onVisiblePrintedPagesChange?: (printedPages: number[]) => void
   /**
+   * Printed page selected via Go / Prev / Next (lesson scope for one-page components).
+   * May differ from the left page when Go targets the right page of a facing pair.
+   */
+  onActivePrintedPageChange?: (printedPage: number) => void
+  /**
    * Explicit one-shot navigation request (1-based PDF index).
    * Increments `requestId` to force a jump even when the target page is unchanged.
    */
@@ -76,6 +81,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   pageMap = EMPTY_PAGE_MAP,
   onVisibleRangeChange,
   onVisiblePrintedPagesChange,
+  onActivePrintedPageChange,
   jumpRequest = null,
   navigationLocked = false,
   allowedPrintedPages = null,
@@ -230,7 +236,9 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     if (navigationLocked || pagesLocked) return
     setPairStart((current) => {
       const next = clampPage(current - 2, numPages)
-      setJumpValue(String(printedLabel(next)))
+      const printed = printedLabel(next)
+      setJumpValue(String(printed))
+      onActivePrintedPageChange?.(printed)
       return next
     })
   }
@@ -239,18 +247,31 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
     if (navigationLocked || pagesLocked) return
     setPairStart((current) => {
       const next = clampPage(current + 2, numPages)
-      setJumpValue(String(printedLabel(next)))
+      const printed = printedLabel(next)
+      setJumpValue(String(printed))
+      onActivePrintedPageChange?.(printed)
       return next
     })
   }
 
+  /**
+   * Go to a printed page: keep a consecutive facing pair visible for reading when
+   * the target is the right-hand page, and report the Go target as the active
+   * lesson page (one-page components on a two-page PDF spread).
+   */
   const jumpToPage = () => {
     if (navigationLocked || pagesLocked) return
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
-    const start = clampPage(pdfForPrinted(pageMap, parsed), numPages)
+    const targetPdf = pdfForPrinted(pageMap, parsed)
+    const prevPdf = pdfForPrinted(pageMap, parsed - 1)
+    // If target is the right page of a consecutive PDF pair, start at the left.
+    const startPdf =
+      prevPdf != null && targetPdf === prevPdf + 1 ? prevPdf : targetPdf
+    const start = clampPage(startPdf, numPages)
     setPairStart(start)
-    setJumpValue(String(printedLabel(start)))
+    setJumpValue(String(parsed))
+    onActivePrintedPageChange?.(parsed)
   }
 
   const showMappedOnlyBadge = navigationLocked || pagesLocked

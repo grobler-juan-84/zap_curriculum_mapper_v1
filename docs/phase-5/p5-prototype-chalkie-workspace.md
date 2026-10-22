@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.28  
+**Version:** 2.29  
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -21,6 +21,8 @@ If another generator later becomes more suitable, add a parallel workspace (for 
 Standard teacher workflow starts from the **Student Book** unit/component. Teachers may view the Workbook; they do **not** create a separate Workbook-origin Single Lesson, and they are not asked to choose SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice with a clear SB/WB evidence split; unverified pairs must not be guessed. Workbook data and mappings remain.
 
 **Implemented UI slice (2026-10-21):** teacher book dropdown is Student Books only (display e.g. `Big English 3`); optional **View Workbook** / **View Student Book** toggle when a verified companion exists (mapped pages only; PDF nav locked); left panel **SB Pages Summary** + conditional **WB Pages Summary**; prepare prompt stays SB-anchored in both viewer states. **View Student Book** restores the frozen SB spread (e.g. pp.128–129), not a one-page PDF report — companion toggle, WB summary, and normal PDF controls return with that spread. PDF rendering uses verified source `pdf_page` (e.g. SB printed 128–129 → PDF 126–127; WB printed 104–105 → PDF 104–105), never printed-as-pdf. The pane paints the exact allowed PDF page pair (both pages); Document remounts on source URL change so SB↔WB cannot stick on cover/`End of document`.
+
+**Active lesson page (2026-10-22):** when a two-page PDF reading spread contains one-page components (e.g. Writing p.140 + Phonics p.141), companion lookup and Prepare Chalkie prompt use the **Go / page-control active page** as lesson scope — not both visible pages as a composite. True two-page curated mappings (e.g. Culture pp.138–139) still match the full visible spread. UI shows `Active lesson page: p.N` (or `Active lesson pages: pp.A–B` for exact two-page matches) and, when a companion exists, `Verified Workbook companion available for the current lesson page.` View Workbook opens only the mapped WB page(s).
 
 **In scope:**
 
@@ -53,7 +55,8 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 | Header | Reuses `ValidationHeader` with verification status badge hidden |
 | PDF | Reuses `ValidationPdfPane`; optional callback lifts visible **printed** page numbers to the workspace |
 | Left panel | Unit Summary + SB Pages Summary + optional WB Pages Summary + Unit Intelligence |
-| WB toggle | **View Workbook** / **View Student Book** when curated companion matches visible SB pages; PDF nav locked on mapped WB pages only |
+| WB toggle | **View Workbook** / **View Student Book** when curated companion matches the active lesson scope (exact two-page spread, or one-page Go target); PDF nav locked on mapped WB pages only |
+| Active page | Go / Prev / Next sets active lesson page; facing-pair Go keeps both PDF pages visible while scoping companion + handoff to the target page |
 | Bottom panel | Calm **Prepare Chalkie prompt** action + helper text (no generated output yet) |
 | Overlay | Teacher-choice Steps 1–3 + local handoff only (title, detailed prompt, concise outline, suggested vocabulary) |
 | Context resolver | `resolveChalkieLessonContext` — book/unit/visible pages → one context; blocks launch when pages are outside the unit or lack page evidence |
@@ -234,3 +237,4 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-22 | BE3 U8 Writing companion resolver-wired (SB p.140 → WB p.115; 1→1); handoff not built; Chalkie not authorized. |
 | 2026-10-22 | BE3 U8 Phonics companion resolver-wired (SB p.141 → WB p.116; 1→1); handoff not built; Chalkie not authorized. |
 | 2026-10-22 | BE3 U8 Review companion resolver-wired (SB p.143 → WB p.117; 1→1); Values p.142 remains SB-only; handoff not built; Chalkie not authorized. |
+| 2026-10-22 | Active lesson page scope: one-page components inside a two-page PDF spread (140/141, 142/143) resolve companion + prepare from Go target; true two-page mappings unchanged. |

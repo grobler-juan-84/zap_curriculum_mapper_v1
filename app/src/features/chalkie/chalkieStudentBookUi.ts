@@ -65,6 +65,77 @@ export function resolveCompanionForSbPages(input: {
   return companion
 }
 
+export type ActiveLessonScopeSource =
+  | 'exact_visible_spread'
+  | 'active_one_page'
+  | 'none'
+
+/**
+ * Lesson scope for companion + handoff when the PDF may show a two-page reading
+ * spread that contains one-page components (e.g. Writing p.140 + Phonics p.141).
+ *
+ * Order:
+ * 1) Exact curated match on the full visible spread (true two-page components).
+ * 2) Else the Go / page-control active printed page alone (one-page components).
+ * Never invents composite mappings or guesses among visible pages.
+ */
+export function resolveActiveLessonScope(input: {
+  studentBookCatalogId: string | null | undefined
+  visiblePrintedPages: number[]
+  activePrintedPage: number | null
+  studentBookCanonical?: Record<string, unknown> | null
+}): {
+  lessonPrintedPages: number[]
+  visiblePrintedPages: number[]
+  activePrintedPage: number | null
+  companion: VerifiedSbWbCompanion | null
+  scopeSource: ActiveLessonScopeSource
+} {
+  const visible = normalizePrintedPages(input.visiblePrintedPages)
+  const active =
+    input.activePrintedPage != null && Number.isFinite(input.activePrintedPage)
+      ? Math.floor(input.activePrintedPage)
+      : null
+
+  const spreadCompanion = resolveCompanionForSbPages({
+    studentBookCatalogId: input.studentBookCatalogId,
+    studentBookPrintedPages: visible,
+    studentBookCanonical: input.studentBookCanonical,
+  })
+  if (spreadCompanion) {
+    return {
+      lessonPrintedPages: [...spreadCompanion.studentBookPrintedPages],
+      visiblePrintedPages: visible,
+      activePrintedPage: active,
+      companion: spreadCompanion,
+      scopeSource: 'exact_visible_spread',
+    }
+  }
+
+  if (active != null) {
+    const onePageCompanion = resolveCompanionForSbPages({
+      studentBookCatalogId: input.studentBookCatalogId,
+      studentBookPrintedPages: [active],
+      studentBookCanonical: input.studentBookCanonical,
+    })
+    return {
+      lessonPrintedPages: [active],
+      visiblePrintedPages: visible,
+      activePrintedPage: active,
+      companion: onePageCompanion,
+      scopeSource: 'active_one_page',
+    }
+  }
+
+  return {
+    lessonPrintedPages: visible,
+    visiblePrintedPages: visible,
+    activePrintedPage: null,
+    companion: null,
+    scopeSource: 'none',
+  }
+}
+
 /**
  * SB pages that anchor lesson prep / handoff while the PDF may show Workbook.
  * When Workbook view is active, keep the frozen SB pages — never swap identity to WB.
