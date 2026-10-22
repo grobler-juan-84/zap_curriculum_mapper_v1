@@ -1,7 +1,7 @@
 # Chalkie Current Activity Selection Contract
 
-**Status:** ACTIVE / PARTIALLY IMPLEMENTED  
-**Version:** 0.7  
+**Status:** ACTIVE / IMPLEMENTED  
+**Version:** 0.8  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
@@ -12,7 +12,7 @@ The Chalkie Workspace **Current Lesson** step shows verified current-page Studen
 
 This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence.
 
-**Implementation status:** **SB activity selection propagates into the local handoff. Workbook activity cards and session-only Workbook selection are implemented, but Workbook selection propagation is not yet implemented.** Current Lesson uses a compact lesson-identity line and separate evidence-shaped SB and WB book surfaces. Both models default every eligible card to selected and preserve checkbox state across Back/Continue while the modal stays open. Only SB selection controls the detailed prompt, concise outline, suggested vocabulary, selection-derived language/models, and selection-sensitive teaching focus.
+**Implementation status:** **SB and Workbook activity selection propagate into the applicable local handoff. Workbook selection remains session-only and is not saved to canonical data.** Current Lesson uses a compact lesson-identity line and separate evidence-shaped SB and WB book surfaces. Both models default every eligible card to selected and preserve checkbox state across Back/Continue while the modal stays open. Selected WB evidence controls Workbook-bearing detailed prompts, Lesson 2 concise outlines, suggested vocabulary, language/models, and selection-sensitive activity lists for the two accepted BE3 series handoffs.
 
 ## 1. Placement in the workflow
 
@@ -63,7 +63,7 @@ Do not invent a polished teaching summary when source evidence is incomplete. An
 - If all current activities are deselected, show: **No current Student Book activities are selected. A later handoff would contain no selected current-page activities.**
 - State plainly: **Selected activities will be included in this local handoff.**
 - Workbook cards have separate session-only selection state and count. If all eligible WB cards are unchecked, show a quiet Workbook-specific warning.
-- State plainly below the Workbook section: **Workbook activity selection is saved for this session. Current Chalkie handoff content is unchanged until a later implementation step.**
+- State plainly below the Workbook section: **Workbook activity selection is saved for this session and is used where the current local handoff includes Workbook content.**
 - Do not automatically select replacement prior learning.
 - Do not infer that students have mastered excluded or prior material.
 
@@ -89,7 +89,7 @@ Excluded activity content must not reappear through a generic page-level summary
 - Once a page is partially selected, do not use page-level vocabulary or language as fallback evidence.
 - If safe attribution is unavailable, emit the existing honest empty state rather than guessing.
 
-For a current SB→WB two-lesson series, SB selection controls Lesson 1 only. Workbook card selection is deliberately not passed to prompt, outline, vocabulary, title, or series-handoff builders; Workbook Lesson 2 remains unchanged until a separately authorized propagation slice.
+For a supported SB→WB two-lesson series, SB selection controls Lesson 1 and WB selection controls Lesson 2. Workbook page-level vocabulary/language may remain only when every eligible activity on that Workbook page is selected. If no WB activities are selected, preserve the valid two-lesson package and emit an explicit **no Workbook activities selected** state; do not reconstruct Workbook work or substitute Student Book content into Lesson 2. Title, stable reference, companion scope, and packaging stay unchanged.
 
 ## 5. Evidence quality and manual verification
 
@@ -137,7 +137,7 @@ Given a verified two-page SB lesson component with activities on both pages, the
 
 ### 7.2 SB→WB paired component
 
-Given an active SB lesson scope with a verified WB companion, a Workbook section appears below the SB picker. A 2→1 Story mapping renders WB p.106 in the left slot and a quiet right placeholder; it never renders WB p.107 activity content. A one-page odd-numbered companion renders in the right slot with a left placeholder. Values has no companion and renders no Workbook section. Source labels remain distinct. Workbook choices are session-only and do not feed the handoff yet.
+Given an active SB lesson scope with a verified WB companion, a Workbook section appears below the SB picker. A 2→1 Story mapping renders WB p.106 in the left slot and a quiet right placeholder; it never renders WB p.107 activity content. A one-page odd-numbered companion renders in the right slot with a left placeholder. Values has no companion and renders no Workbook section. Source labels remain distinct. Workbook choices remain session-only but feed Workbook-bearing local handoff artifacts for supported series.
 
 ### 7.3 One-page active scope inside a visible two-page PDF spread
 
@@ -157,7 +157,7 @@ Given that the teacher deselects every eligible current activity, show the no-cu
 
 ## Implementation gate
 
-The bounded SB propagation and Workbook visual/session-state slices are complete:
+The bounded SB and Workbook propagation slices are complete:
 
 - read-only Student Book activity-card data from `human_verified` activity rows only;
 - active-lesson-page scoping;
@@ -174,12 +174,15 @@ The bounded SB propagation and Workbook visual/session-state slices are complete
 - explicit notice that selected activities feed the local handoff;
 - selected-only detailed prompt, concise outline, suggested vocabulary, language/models, and selection-sensitive focus;
 - no page-level fallback leakage, including an honest all-unselected state;
-- selected-only SB Lesson 1 in supported series, with Workbook Lesson 2 unchanged.
+- selected-only SB Lesson 1 and Workbook Lesson 2 in supported series;
 - verified Workbook cards gated by the resolver's exact companion page IDs and `human_verified` activity rows;
 - separate WB card IDs, state, count, all-unselected feedback, and stale-ID rejection;
 - WB two-page companions render two real panels with a gutter; 2→1 and 1→1 companions retain the verified page's physical slot plus a non-content facing placeholder; no-companion lessons render no WB section;
 - Workbook selection persists through Current Lesson → Prior Learning → Back;
-- Workbook selection does not alter any local Chalkie handoff artifact.
+- selected-only Workbook detailed prompt evidence, Lesson 2 outline, vocabulary, language/models, and activity lists for the accepted opener and Story series;
+- conservative Workbook page attribution: page-level vocabulary/language survives only while every eligible activity on that page remains selected;
+- explicit zero-selected Workbook state with no fallback, reconstruction, or Student Book substitution;
+- all-selected Workbook output preserves the accepted baseline; no-companion single-SB handoffs are unaffected.
 
-The next smallest implementation slice is separately authorized **Workbook selection propagation**, with strict selected-only WB evidence and no regression to the existing SB propagation or verified companion scope.
+The next smallest step is the owner manual propagation check: exclude WB105 Activity 3 and one WB106 activity, verify selected neighbours remain and excluded evidence cannot return, then verify the zero-selected Workbook state. Any neutral-package extraction remains a separate future slice.
 

@@ -25,6 +25,7 @@ import {
   buildWbActivityCards,
   buildWbActivityPagePanels,
   createDefaultWbActivitySelection,
+  createWbActivityHandoffSelection,
   setWbActivityCardSelected,
   wbActivitySelectionStatus,
   type WbActivitySelectionState,
@@ -272,7 +273,7 @@ test('Workbook selection survives Continue to Prior Learning and Back', () => {
   )
 })
 
-test('Workbook selection cannot alter prompt, outlines, vocabulary, title, or series handoff', () => {
+test('Workbook selection propagates only into Workbook-bearing series artifacts', () => {
   const book: Book = {
     id: 'book-uuid-test',
     seriesId: 'series-uuid-test',
@@ -314,14 +315,27 @@ test('Workbook selection cannot alter prompt, outlines, vocabulary, title, or se
     cardId: wbCards[0]!.id,
     selected: false,
   })
+  const workbookSelectionBefore = createWbActivityHandoffSelection(
+    wbCards,
+    wbBefore,
+  )
+  const workbookSelectionAfter = createWbActivityHandoffSelection(
+    wbCards,
+    wbAfter,
+  )
 
-  const outputSnapshot = () => ({
+  const outputSnapshot = (
+    workbookActivitySelection: ReturnType<
+      typeof createWbActivityHandoffSelection
+    >,
+  ) => ({
     prompt: buildChalkiePromptPreview({
       lesson,
       packageShape: 'series',
       selectedSuggestions: [],
       teacherAdditions: [],
       activitySelection: sbSelection,
+      workbookActivitySelection,
     }),
     outline: buildChalkieConciseOutline({
       lesson,
@@ -334,16 +348,76 @@ test('Workbook selection cannot alter prompt, outlines, vocabulary, title, or se
       selectedSuggestions: [],
       teacherAdditions: [],
       activitySelection: sbSelection,
+      workbookActivitySelection,
     }),
   })
 
-  const before = outputSnapshot()
+  const before = outputSnapshot(workbookSelectionBefore)
   assert.notDeepEqual(wbBefore, wbAfter)
-  const after = outputSnapshot()
-  assert.deepEqual(after, before)
+  const after = outputSnapshot(workbookSelectionAfter)
+  assert.notEqual(after.prompt, before.prompt)
+  assert.notDeepEqual(after.seriesHandoff, before.seriesHandoff)
+  assert.equal(after.outline, before.outline)
+  assert.deepEqual(after.vocabulary, before.vocabulary)
+  assert.equal(after.title, before.title)
 })
 
-test('overlay renders evidence-shaped Workbook UI and keeps WB state out of handoff calls', () => {
+test('no-companion Student Book handoff is unaffected by Workbook selection', () => {
+  const book: Book = {
+    id: 'book-uuid-test',
+    seriesId: 'series-uuid-test',
+    catalogBookId: 'big_english_3_sb',
+    title: 'Big English 3 Student Book',
+    level: '3',
+    audience: 'Primary',
+    totalUnits: 9,
+    type: 'Student Book',
+    colorScheme: {
+      primary: '#000000',
+      accent: '#333333',
+      badgeBg: '#eeeeee',
+      badgeText: '#111111',
+    },
+    pageSpreads: [],
+  }
+  const lesson = resolveChalkieLessonContext({
+    book,
+    summary: sbSummary,
+    visiblePrintedPages: [142],
+    unitNumber: 8,
+    workbookCanonical: wbCanonical,
+  })
+  assert.equal(lesson.status, 'ready')
+  assert.equal(lesson.workbookCompanion, null)
+  const sbCards = buildSbActivityCards({
+    summary: sbSummary,
+    activeLessonPrintedPages: [142],
+  })
+  const activitySelection = createSbActivityHandoffSelection(
+    sbCards,
+    createDefaultSbActivitySelection(sbCards),
+  )
+  const input = {
+    lesson,
+    packageShape: 'single' as const,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    activitySelection,
+  }
+
+  assert.equal(
+    buildChalkiePromptPreview({
+      ...input,
+      workbookActivitySelection: createWbActivityHandoffSelection(
+        [],
+        createDefaultWbActivitySelection([]),
+      ),
+    }),
+    buildChalkiePromptPreview(input),
+  )
+})
+
+test('overlay renders evidence-shaped Workbook UI and passes WB state into handoff calls', () => {
   const source = fs.readFileSync(OVERLAY_PATH, 'utf8')
   const step1Start = source.indexOf('{step === 1 ? (')
   const step2Start = source.indexOf('{step === 2 ? (')
@@ -360,8 +434,8 @@ test('overlay renders evidence-shaped Workbook UI and keeps WB state out of hand
   assert.match(step1Source, /data-wb-facing-placeholder/)
   assert.match(step1Source, /No verified Workbook content for this lesson\./)
   assert.match(step1Source, /lesson\.workbookCompanion &&/)
-  assert.match(step1Source, /Workbook activity selection is saved for this session\./)
-  assert.match(step1Source, /Current Chalkie\s+handoff content is unchanged until a later implementation step\./)
-  assert.ok(!handoffSource.includes('workbookActivitySelection'))
-  assert.ok(!handoffSource.includes('effectiveWorkbookActivitySelection'))
+  assert.match(step1Source, /Workbook activity selection is saved for this session/)
+  assert.match(step1Source, /current local handoff includes Workbook content/)
+  assert.match(handoffSource, /workbookActivitySelection: handoffWorkbookActivitySelection/)
+  assert.match(handoffSource, /handoffWorkbookActivitySelection/)
 })

@@ -20,6 +20,7 @@ import {
   selectedSbActivityVocabulary,
   type SbActivityHandoffSelection,
 } from './chalkieActivitySelection'
+import type { WbActivityHandoffSelection } from './chalkieWorkbookActivitySelection'
 
 export type TeacherAddedLanguageInput = {
   title: string
@@ -442,6 +443,7 @@ export function buildChalkiePromptPreview(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
   activitySelection?: SbActivityHandoffSelection
+  workbookActivitySelection?: WbActivityHandoffSelection
 }): string {
   if (input.packageShape === 'series') {
     if (!input.lesson.supportsTwoLessonSeries) {
@@ -466,6 +468,7 @@ export function buildChalkiePromptPreview(input: {
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
         activitySelection: input.activitySelection,
+        workbookActivitySelection: input.workbookActivitySelection,
       }).detailedHandoff
     }
     if (isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion)) {
@@ -473,6 +476,7 @@ export function buildChalkiePromptPreview(input: {
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
         activitySelection: input.activitySelection,
+        workbookActivitySelection: input.workbookActivitySelection,
       }).detailedHandoff
     }
     // Refuse silent fixture fallback — degrade to dynamic single if series unsupported.

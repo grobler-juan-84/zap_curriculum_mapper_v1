@@ -23,7 +23,14 @@ import {
   createSbActivityHandoffSelection,
   setSbActivityCardSelected,
 } from '../../app/src/features/chalkie/chalkieActivitySelection.ts'
+import {
+  buildWbActivityCards,
+  createDefaultWbActivitySelection,
+  createWbActivityHandoffSelection,
+  setWbActivityCardSelected,
+} from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
+import { resolveVerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
 import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
@@ -159,6 +166,34 @@ function be3Unit8SbSummary(): BatchJsonSummary {
   }
 }
 
+function be3WbSummary(): BatchJsonSummary {
+  const raw = loadJson(BE3_WB_PATH)
+  return {
+    catalogBookId: 'big_english_3_wb',
+    units: [],
+    vocabulary: [],
+    language: [],
+    activities: [],
+    pages: [],
+    raw,
+  }
+}
+
+function openerWbCards() {
+  const companion = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: loadJson(BE3_SB_PATH),
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: loadJson(BE3_WB_PATH),
+    studentBookPrintedPages: [128, 129],
+  }).companion
+  assert.ok(companion)
+  return buildWbActivityCards({
+    summary: be3WbSummary(),
+    companion,
+  })
+}
+
 test('accepted BE3 opener pair enables series and yields six non-empty copyables', () => {
   assert.ok(fs.existsSync(BE3_SB_PATH))
   assert.ok(fs.existsSync(BE3_WB_PATH))
@@ -226,6 +261,71 @@ test('L1 uses SB scope and L2 uses WB scope', () => {
   assert.match(handoff.detailedHandoff, /\[SB p\.128\]/)
   assert.match(handoff.detailedHandoff, /\[WB p\.104\]/)
   assert.match(handoff.detailedHandoff, /Live Right!/)
+})
+
+test('all-selected opener Workbook cards preserve the accepted handoff', () => {
+  const cards = openerWbCards()
+  const selection = createWbActivityHandoffSelection(
+    cards,
+    createDefaultWbActivitySelection(cards),
+  )
+
+  assert.deepEqual(
+    buildBe3U08OpenerSbWbSeriesHandoff({
+      workbookActivitySelection: selection,
+    }),
+    buildBe3U08OpenerSbWbSeriesHandoff(),
+  )
+})
+
+test('excluding WB105 Activity 3 removes its song/audio evidence without affecting selected neighbours', () => {
+  const cards = openerWbCards()
+  const activity3 = cards.find((card) => card.activityNumber === '3')
+  assert.ok(activity3)
+  const selection = createWbActivityHandoffSelection(
+    cards,
+    setWbActivityCardSelected({
+      cards,
+      state: createDefaultWbActivitySelection(cards),
+      cardId: activity3.id,
+      selected: false,
+    }),
+  )
+  const handoff = buildBe3U08OpenerSbWbSeriesHandoff({
+    workbookActivitySelection: selection,
+  })
+
+  assert.doesNotMatch(handoff.detailedHandoff, /\[WB p\.105\] Activity 3/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Listen and write/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Track 153|Audio track 153/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Song practice · Live Right!/)
+  assert.doesNotMatch(handoff.lesson2Outline, /Activity 3|Listen and write|Track 153/)
+  assert.doesNotMatch(handoff.lesson2Vocabulary, /\benough\b/)
+  assert.match(handoff.detailedHandoff, /\[WB p\.104\] Activity 1/)
+  assert.match(handoff.detailedHandoff, /\[WB p\.104\] Activity 2/)
+  assert.match(handoff.detailedHandoff, /\[WB p\.105\] Activity 4/)
+  assert.match(handoff.detailedHandoff, /Yes, I did\. \| No, I didn't\./)
+  assert.match(handoff.lesson2Outline, /Activity 4/)
+  assert.match(handoff.lesson2Vocabulary, /ate a healthy breakfast/)
+})
+
+test('zero selected opener Workbook activities keeps Lesson 2 valid without fallback', () => {
+  const cards = openerWbCards()
+  const selection = createWbActivityHandoffSelection(cards, {
+    selectedCardIds: [],
+  })
+  const handoff = buildBe3U08OpenerSbWbSeriesHandoff({
+    workbookActivitySelection: selection,
+  })
+
+  assert.match(handoff.detailedHandoff, /No Workbook activities were selected/)
+  assert.match(handoff.detailedHandoff, /do not reconstruct or infer content/i)
+  assert.doesNotMatch(handoff.detailedHandoff, /\[WB p\.10[45]\] Activity/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Live Right! song listen\/write/)
+  assert.match(handoff.lesson2Outline, /No Workbook activities were selected/)
+  assert.equal(handoff.lesson2Vocabulary, 'No Workbook activities selected.')
+  assert.equal(handoff.seriesTitle, BE3_U08_OPENER_SERIES_TITLE)
+  assert.equal(handoff.stableSeriesReference, BE3_U08_OPENER_SERIES_STABLE_REF)
 })
 
 test('SB activity exclusions propagate through opener Lesson 1 while Workbook Lesson 2 stays unchanged', () => {

@@ -22,7 +22,14 @@ import {
   buildBe3U08StorySbWbSeriesHandoff,
 } from '../../app/src/features/chalkie/buildBe3U08StorySbWbSeriesHandoff.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
+import {
+  buildWbActivityCards,
+  createDefaultWbActivitySelection,
+  createWbActivityHandoffSelection,
+  setWbActivityCardSelected,
+} from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
+import { resolveVerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
 import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
@@ -158,6 +165,30 @@ function assertNoWb107(text: string, label: string) {
   assert.doesNotMatch(text, /\b107\b/, `${label} must not mention WB p.107`)
 }
 
+function storyWbCards() {
+  const workbookCanonical = loadJson(BE3_WB_PATH)
+  const companion = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: loadJson(BE3_SB_PATH),
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical,
+    studentBookPrintedPages: [130, 131],
+  }).companion
+  assert.ok(companion)
+  return buildWbActivityCards({
+    summary: {
+      catalogBookId: 'big_english_3_wb',
+      units: [],
+      vocabulary: [],
+      language: [],
+      activities: [],
+      pages: [],
+      raw: workbookCanonical,
+    },
+    companion,
+  })
+}
+
 test('accepted BE3 story pair enables asymmetric series and yields six non-empty copyables', () => {
   assert.ok(fs.existsSync(BE3_SB_PATH))
   assert.ok(fs.existsSync(BE3_WB_PATH))
@@ -246,6 +277,56 @@ test('story L1 is SB 130–131 only; L2 is WB 106 only; WB 107 absent everywhere
 
   assert.match(handoff.detailedHandoff, /Workbook printed page 106 only/)
   assert.doesNotMatch(handoff.detailedHandoff, /106–107/)
+})
+
+test('all-selected Story Workbook cards preserve the accepted handoff', () => {
+  const cards = storyWbCards()
+  const selection = createWbActivityHandoffSelection(
+    cards,
+    createDefaultWbActivitySelection(cards),
+  )
+
+  assert.deepEqual(
+    buildBe3U08StorySbWbSeriesHandoff({
+      workbookActivitySelection: selection,
+    }),
+    buildBe3U08StorySbWbSeriesHandoff(),
+  )
+})
+
+test('excluding one WB106 Story activity cannot leak through the bespoke handoff', () => {
+  const cards = storyWbCards()
+  const activity5 = cards.find((card) => card.activityNumber === '5')
+  assert.ok(activity5)
+  const selection = createWbActivityHandoffSelection(
+    cards,
+    setWbActivityCardSelected({
+      cards,
+      state: createDefaultWbActivitySelection(cards),
+      cardId: activity5.id,
+      selected: false,
+    }),
+  )
+  const handoff = buildBe3U08StorySbWbSeriesHandoff({
+    workbookActivitySelection: selection,
+  })
+
+  assert.doesNotMatch(handoff.detailedHandoff, /\[WB p\.106\] Activity 5/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Did Amy eat a burger and fries/)
+  assert.doesNotMatch(handoff.detailedHandoff, /Yes, she did\. \| No, she didn't\./)
+  assert.doesNotMatch(handoff.lesson2Outline, /Activity 5|Did Amy/)
+  assert.doesNotMatch(handoff.lesson2Vocabulary, /\bunhealthy\b/)
+  assert.match(handoff.detailedHandoff, /\[WB p\.106\] Activity 6/)
+  assert.match(handoff.detailedHandoff, /\[WB p\.106\] Activity THINK BIG/)
+  assert.match(handoff.lesson2Outline, /Activity 6/)
+  assert.match(handoff.lesson2Outline, /Activity THINK BIG/)
+  for (const text of [
+    handoff.detailedHandoff,
+    handoff.lesson2Outline,
+    handoff.lesson2Vocabulary,
+  ]) {
+    assertNoWb107(text, 'selection-aware Story output')
+  }
 })
 
 test('story series is unavailable for LiA SB pp.132–133 (resolver companion only)', () => {

@@ -52,10 +52,12 @@ import {
 } from './chalkieActivitySelection'
 import {
   buildWbActivityPagePanels,
+  createWbActivityHandoffSelection,
   createDefaultWbActivitySelection,
   setWbActivityCardSelected,
   wbActivitySelectionStatus,
   type WbActivityCard,
+  type WbActivityHandoffSelection,
   type WbActivityPreviewKind,
   type WbActivitySelectionState,
 } from './chalkieWorkbookActivitySelection'
@@ -76,12 +78,14 @@ function buildBe3U08SeriesHandoffForCompanion(
   selectedSuggestions: TeacherChoiceSuggestion[],
   teacherAdditions: TeacherAddedLanguageInput[],
   activitySelection: SbActivityHandoffSelection,
+  workbookActivitySelection: WbActivityHandoffSelection,
 ): Be3U08SeriesHandoff | null {
   if (isBe3U08OpenerSeriesCompanion(companion)) {
     return buildBe3U08OpenerSbWbSeriesHandoff({
       selectedSuggestions,
       teacherAdditions,
       activitySelection,
+      workbookActivitySelection,
     })
   }
   if (isBe3U08StorySeriesCompanion(companion)) {
@@ -89,6 +93,7 @@ function buildBe3U08SeriesHandoffForCompanion(
       selectedSuggestions,
       teacherAdditions,
       activitySelection,
+      workbookActivitySelection,
     })
   }
   return null
@@ -405,6 +410,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       ),
     [workbookActivityCards, effectiveWorkbookActivitySelection],
   )
+  const handoffWorkbookActivitySelection = useMemo(
+    () =>
+      createWbActivityHandoffSelection(
+        workbookActivityCards,
+        effectiveWorkbookActivitySelection,
+      ),
+    [workbookActivityCards, effectiveWorkbookActivitySelection],
+  )
   const handoffActivitySelection = useMemo(
     () =>
       createSbActivityHandoffSelection(
@@ -488,6 +501,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       selectedSuggestions,
       teacherAdditions: selectedTeacherAdditions,
       activitySelection: handoffActivitySelection,
+      workbookActivitySelection: handoffWorkbookActivitySelection,
     })
     const useBe3Series =
       effectiveLessonShape === 'series' &&
@@ -498,6 +512,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           selectedSuggestions,
           selectedTeacherAdditions,
           handoffActivitySelection,
+          handoffWorkbookActivitySelection,
         )
       : null
     const outline = useBe3Series
@@ -1024,8 +1039,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       </p>
                     ) : null}
                     <p className="text-xs leading-relaxed text-slate-500">
-                      Workbook activity selection is saved for this session. Current Chalkie
-                      handoff content is unchanged until a later implementation step.
+                      Workbook activity selection is saved for this session and is used where the
+                      current local handoff includes Workbook content.
                     </p>
                   </div>
                 </section>

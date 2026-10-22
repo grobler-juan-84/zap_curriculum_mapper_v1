@@ -5414,3 +5414,27 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 318
+
+**Summary:** Propagated selected verified Workbook activities into the accepted BE3 opener and Story local handoffs. Partial and zero Workbook selections now prevent fallback leakage while all-selected output, SB selection behavior, companion scope, and packaging remain stable.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieWorkbookActivitySelection.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08OpenerSbWbSeriesHandoff.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08StorySbWbSeriesHandoff.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `docs/phase-5/chalkie-current-activity-selection-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

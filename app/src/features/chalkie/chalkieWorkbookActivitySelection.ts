@@ -2,7 +2,8 @@
  * Verified Workbook activity cards and session-only selection helpers.
  *
  * This model is intentionally separate from the Student Book handoff model.
- * Workbook selections are UI state only and must not feed any handoff builder.
+ * A bounded handoff-selection view propagates checked evidence without
+ * persisting the session state or broadening verified companion scope.
  */
 import type { BatchJsonSummary } from '../../types/validation'
 import {
@@ -34,6 +35,29 @@ export type WbActivityEvidenceReference = {
   readonly verificationStatus: 'human_verified'
 }
 
+export type WbActivityEvidenceItem = {
+  readonly itemNumber: string | null
+  readonly prompt: string | null
+  readonly expectedAnswer: string | null
+}
+
+export type SelectedWbActivityEvidence = {
+  readonly cardId: string
+  readonly source: 'WB'
+  readonly pageId: string
+  readonly printedPage: number
+  readonly activityNumber: string | null
+  readonly verifiedWording: string
+  readonly activityType: string | null
+  readonly prompt: string | null
+  readonly expectedAnswer: string | null
+  readonly languageFrame: string | null
+  readonly audioDependency: boolean
+  readonly sourceDependencyNote: string | null
+  readonly items: readonly WbActivityEvidenceItem[]
+  readonly references: readonly WbActivityEvidenceReference[]
+}
+
 export type WbActivityCard = {
   readonly id: string
   readonly source: 'WB'
@@ -42,7 +66,11 @@ export type WbActivityCard = {
   readonly activityNumber: string | null
   readonly verifiedWording: string
   readonly preview: WbActivityPreview
+  readonly activityLinkedModels: readonly string[]
+  readonly pageDedicatedVocabulary: readonly string[]
+  readonly pageDedicatedLanguage: readonly string[]
   readonly references: readonly WbActivityEvidenceReference[]
+  readonly evidence: SelectedWbActivityEvidence
 }
 
 export type WbActivitySelectionState = {
@@ -53,6 +81,11 @@ export type WbActivitySelectionStatus = {
   readonly selectedCount: number
   readonly totalCount: number
   readonly hasNoSelectedWorkbookActivities: boolean
+}
+
+export type WbActivityHandoffSelection = {
+  readonly allCards: readonly WbActivityCard[]
+  readonly selectedEvidence: readonly SelectedWbActivityEvidence[]
 }
 
 export type WbActivityPagePanel = {
@@ -115,6 +148,17 @@ function safeShortValues(values: readonly (string | null)[]): string[] {
   return result
 }
 
+function evidenceItems(activity: UnknownRecord): WbActivityEvidenceItem[] {
+  return asArray(activity.items).map((raw) => {
+    const item = asRecord(raw)
+    return {
+      itemNumber: asString(item.item_number),
+      prompt: asString(item.prompt),
+      expectedAnswer: asString(item.expected_answer),
+    }
+  })
+}
+
 function activityItemModels(activity: UnknownRecord): string[] {
   const activityType =
     asString(activity.activity_type) ?? asString(activity.type)
@@ -172,6 +216,65 @@ function buildPreview(activity: UnknownRecord): WbActivityPreview {
   return { kind: 'empty', values: [] }
 }
 
+function pageIdToPrintedPage(summary: BatchJsonSummary): Map<string, number> {
+  const result = new Map<string, number>()
+  for (const raw of asArray(asRecord(summary.raw).pages)) {
+    const page = asRecord(raw)
+    const pageId = asString(page.page_id)
+    const printedPage = asFiniteNumber(page.printed_page)
+    if (pageId && printedPage != null) result.set(pageId, printedPage)
+  }
+  return result
+}
+
+function pageAttributedEvidence(
+  summary: BatchJsonSummary,
+  pageMap: ReadonlyMap<string, number>,
+): Map<number, { vocabulary: string[]; language: string[] }> {
+  const result = new Map<number, { vocabulary: string[]; language: string[] }>()
+  const pageNumber = (record: UnknownRecord): number | null => {
+    const pageId = asString(record.page_id)
+    return (
+      asFiniteNumber(record.printed_page) ??
+      (pageId ? (pageMap.get(pageId) ?? null) : null)
+    )
+  }
+  const entryFor = (printedPage: number) => {
+    const existing = result.get(printedPage)
+    if (existing) return existing
+    const created = { vocabulary: [] as string[], language: [] as string[] }
+    result.set(printedPage, created)
+    return created
+  }
+
+  for (const raw of asArray(asRecord(summary.raw).vocabulary)) {
+    const record = asRecord(raw)
+    if (asString(record.verification_status) !== 'human_verified') continue
+    const printedPage = pageNumber(record)
+    const term = asString(record.term)
+    if (printedPage == null || !term) continue
+    const values = entryFor(printedPage).vocabulary
+    if (!values.includes(term)) values.push(term)
+  }
+
+  for (const raw of asArray(asRecord(summary.raw).language)) {
+    const record = asRecord(raw)
+    if (asString(record.verification_status) !== 'human_verified') continue
+    const printedPage = pageNumber(record)
+    if (printedPage == null) continue
+    const prompt = asString(record.prompt)
+    const response = asString(record.response)
+    const fullText = asString(record.full_text)
+    const value =
+      prompt && response ? `${prompt} / ${response}` : prompt ?? response ?? fullText
+    if (!value) continue
+    const values = entryFor(printedPage).language
+    if (!values.includes(value)) values.push(value)
+  }
+
+  return result
+}
+
 function verifiedCompanionPages(
   companion: VerifiedSbWbCompanion | null,
 ): VerifiedCompanionPage[] {
@@ -216,6 +319,8 @@ export function buildWbActivityCards(input: {
   const pageById = new Map(
     companionPages.map((page) => [page.pageId, page.printedPage]),
   )
+  const canonicalPageMap = pageIdToPrintedPage(input.summary)
+  const pageEvidence = pageAttributedEvidence(input.summary, canonicalPageMap)
   const cards: WbActivityCard[] = []
   const seenCardIds = new Set<string>()
 
@@ -241,25 +346,50 @@ export function buildWbActivityCards(input: {
     if (seenCardIds.has(cardId)) continue
     seenCardIds.add(cardId)
 
+    const activityNumber = asActivityNumber(
+      activity.activity_number ?? activity.number,
+    )
+    const references: readonly WbActivityEvidenceReference[] = [
+      {
+        activityId,
+        bookId: asString(activity.book_id),
+        unitId: asString(activity.unit_id),
+        pageId,
+        verificationStatus: 'human_verified',
+      },
+    ]
+    const evidence: SelectedWbActivityEvidence = {
+      cardId,
+      source: 'WB',
+      pageId,
+      printedPage: mappedPrintedPage,
+      activityNumber,
+      verifiedWording,
+      activityType:
+        asString(activity.activity_type) ?? asString(activity.type),
+      prompt: asString(activity.prompt),
+      expectedAnswer: asString(activity.expected_answer),
+      languageFrame: asString(activity.language_frame),
+      audioDependency: activity.audio_dependency === true,
+      sourceDependencyNote: asString(activity.source_dependency_note),
+      items: evidenceItems(activity),
+      references,
+    }
+    const attributed = pageEvidence.get(mappedPrintedPage)
+
     cards.push({
       id: cardId,
       source: 'WB',
       pageId,
       printedPage: mappedPrintedPage,
-      activityNumber: asActivityNumber(
-        activity.activity_number ?? activity.number,
-      ),
+      activityNumber,
       verifiedWording,
       preview: buildPreview(activity),
-      references: [
-        {
-          activityId,
-          bookId: asString(activity.book_id),
-          unitId: asString(activity.unit_id),
-          pageId,
-          verificationStatus: 'human_verified',
-        },
-      ],
+      activityLinkedModels: activityItemModels(activity),
+      pageDedicatedVocabulary: attributed?.vocabulary ?? [],
+      pageDedicatedLanguage: attributed?.language ?? [],
+      references,
+      evidence,
     })
   }
 
@@ -336,6 +466,151 @@ export function setWbActivityCardSelected(input: {
       .map((card) => card.id)
       .filter((id) => selectedIds.has(id)),
   }
+}
+
+export function selectedWbActivityEvidence(
+  cards: readonly WbActivityCard[],
+  state: WbActivitySelectionState,
+): SelectedWbActivityEvidence[] {
+  const selectedIds = new Set(state.selectedCardIds)
+  return cards
+    .filter((card) => selectedIds.has(card.id))
+    .map((card) => card.evidence)
+}
+
+export function createWbActivityHandoffSelection(
+  cards: readonly WbActivityCard[],
+  state: WbActivitySelectionState,
+): WbActivityHandoffSelection {
+  return {
+    allCards: cards,
+    selectedEvidence: selectedWbActivityEvidence(cards, state),
+  }
+}
+
+export function hasWbActivityExclusions(
+  selection: WbActivityHandoffSelection,
+): boolean {
+  return selection.selectedEvidence.length < selection.allCards.length
+}
+
+export function hasNoSelectedWbActivities(
+  selection: WbActivityHandoffSelection,
+): boolean {
+  return selection.selectedEvidence.length === 0
+}
+
+function selectedCardIds(
+  selection: WbActivityHandoffSelection,
+): Set<string> {
+  return new Set(selection.selectedEvidence.map((evidence) => evidence.cardId))
+}
+
+function fullySelectedPageNumbers(
+  selection: WbActivityHandoffSelection,
+): Set<number> {
+  const selectedIds = selectedCardIds(selection)
+  const pages = new Set(selection.allCards.map((card) => card.printedPage))
+  return new Set(
+    [...pages].filter((printedPage) => {
+      const pageCards = selection.allCards.filter(
+        (card) => card.printedPage === printedPage,
+      )
+      return (
+        pageCards.length > 0 &&
+        pageCards.every((card) => selectedIds.has(card.id))
+      )
+    }),
+  )
+}
+
+export function selectedWbActivityVocabulary(
+  selection: WbActivityHandoffSelection,
+): string[] {
+  const selectedIds = selectedCardIds(selection)
+  const completePages = fullySelectedPageNumbers(selection)
+  const values: string[] = []
+
+  for (const card of selection.allCards) {
+    if (completePages.has(card.printedPage)) {
+      for (const value of card.pageDedicatedVocabulary) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+    if (selectedIds.has(card.id)) {
+      for (const value of card.activityLinkedModels) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+  }
+
+  return values
+}
+
+export function selectedWbActivityLanguage(
+  selection: WbActivityHandoffSelection,
+): string[] {
+  const selectedIds = selectedCardIds(selection)
+  const completePages = fullySelectedPageNumbers(selection)
+  const values: string[] = []
+
+  for (const card of selection.allCards) {
+    if (completePages.has(card.printedPage)) {
+      for (const value of card.pageDedicatedLanguage) {
+        if (!values.includes(value)) values.push(value)
+      }
+    }
+    if (!selectedIds.has(card.id) || !card.evidence.languageFrame) continue
+    for (const value of splitLanguageFrames(card.evidence.languageFrame)) {
+      if (!values.includes(value)) values.push(value)
+    }
+  }
+
+  return values
+}
+
+export function selectedWbActivityPromptLines(
+  selection: WbActivityHandoffSelection,
+): string[] {
+  if (hasNoSelectedWbActivities(selection)) {
+    return [
+      '- No Workbook activities were selected.',
+      '- Do not reconstruct or infer content from unselected Workbook activities.',
+    ]
+  }
+
+  const lines: string[] = []
+  for (const evidence of selection.selectedEvidence) {
+    const activityLabel = evidence.activityNumber
+      ? `Activity ${evidence.activityNumber}`
+      : 'Activity'
+    lines.push(
+      `- [WB p.${evidence.printedPage}] ${activityLabel}: ${evidence.verifiedWording}`,
+    )
+    if (evidence.prompt && evidence.prompt !== evidence.verifiedWording) {
+      lines.push(`  Task evidence: ${evidence.prompt}`)
+    }
+    if (evidence.expectedAnswer) {
+      lines.push(`  Answer evidence: ${evidence.expectedAnswer}`)
+    }
+    for (const item of evidence.items) {
+      const itemLabel = item.itemNumber ? `Item ${item.itemNumber}` : 'Item'
+      if (item.prompt) lines.push(`  ${itemLabel} task: ${item.prompt}`)
+      if (item.expectedAnswer) {
+        lines.push(`  ${itemLabel} answer evidence: ${item.expectedAnswer}`)
+      }
+    }
+    if (evidence.languageFrame) {
+      lines.push(`  Language: ${evidence.languageFrame}`)
+    }
+    if (evidence.audioDependency) {
+      const sourceNote = evidence.sourceDependencyNote
+        ? ` (${evidence.sourceDependencyNote})`
+        : ''
+      lines.push(`  Use the official book audio${sourceNote}.`)
+    }
+  }
+  return lines
 }
 
 export function wbActivitySelectionStatus(

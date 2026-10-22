@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 317
+**Last updated:** Step 318
 
 
 
@@ -528,15 +528,17 @@
 
 - [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two real panels + exclusion persistence; p.140–143 correct physical slots and quiet facing placeholders.
 
-- [x] **SB Activity Selection propagation:** selected evidence now drives detailed prompt, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1 with no page-level fallback leakage; Workbook Lesson 2 unchanged.
+- [x] **SB Activity Selection propagation:** selected evidence drives detailed prompt, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1 with no page-level fallback leakage.
 
-- [ ] **Owner manual propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return; Workbook output remains unchanged.
+- [ ] **Owner manual SB propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return.
 
-- [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact two-real-page / one-real-plus-facing-placeholder / no-companion layouts; no handoff propagation.
+- [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact two-real-page / one-real-plus-facing-placeholder / no-companion layouts.
 
-- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two real panels; SB130–131 → WB106 left + quiet right placeholder; p.140 → WB115 right + quiet left placeholder; p.142 no section; WB toggle persists across Forward/Back and leaves final handoff unchanged.
+- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two real panels; SB130–131 → WB106 left + quiet right placeholder; p.140 → WB115 right + quiet left placeholder; p.142 no section; WB toggle persists across Forward/Back.
 
-- [ ] **Owner-gated next Activity Selection slice:** propagate selected Workbook evidence into WB handoff output; preserve current SB propagation and exact companion scope.
+- [x] **Workbook Activity Selection propagation:** selected evidence now drives accepted opener/Story detailed prompts and Lesson 2 outline/vocabulary/language/activity output; partial pages lose page-level fallback; zero selection stays valid and explicit; SB behavior and exact companion scope are unchanged.
+
+- [ ] **Owner manual Workbook propagation check:** opener — exclude WB105 Activity 3 and verify its song/audio/listen-write plus page-attributed `enough` disappear while WB104 and Activity 4 remain; Story — exclude one WB106 activity and verify no bespoke fallback or WB107 leakage; also verify all-selected equivalence and zero-selected explicit Lesson 2.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 

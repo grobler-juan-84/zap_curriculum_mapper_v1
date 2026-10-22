@@ -16,6 +16,14 @@ import {
   selectedSbActivityVocabulary,
   type SbActivityHandoffSelection,
 } from './chalkieActivitySelection'
+import {
+  hasNoSelectedWbActivities,
+  hasWbActivityExclusions,
+  selectedWbActivityLanguage,
+  selectedWbActivityPromptLines,
+  selectedWbActivityVocabulary,
+  type WbActivityHandoffSelection,
+} from './chalkieWorkbookActivitySelection'
 
 export const BE3_U08_OPENER_SERIES_RELATIONSHIP_ID =
   BE3_U08_SB128_129_WB104_105.relationshipId
@@ -101,15 +109,15 @@ function buildDetailedHandoff(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
   activitySelection?: SbActivityHandoffSelection
+  workbookActivitySelection?: WbActivityHandoffSelection
 }): string {
   if (
-    input.activitySelection &&
-    hasSbActivityExclusions(input.activitySelection)
+    (input.activitySelection &&
+      hasSbActivityExclusions(input.activitySelection)) ||
+    (input.workbookActivitySelection &&
+      hasWbActivityExclusions(input.workbookActivitySelection))
   ) {
-    return buildSelectionAwareDetailedHandoff({
-      ...input,
-      activitySelection: input.activitySelection,
-    })
+    return buildSelectionAwareDetailedHandoff(input)
   }
   const priorLines = buildPriorLearningBlock(input)
 
@@ -192,13 +200,55 @@ function buildDetailedHandoff(input: {
 function buildSelectionAwareDetailedHandoff(input: {
   selectedSuggestions: TeacherChoiceSuggestion[]
   teacherAdditions: TeacherAddedLanguageInput[]
-  activitySelection: SbActivityHandoffSelection
+  activitySelection?: SbActivityHandoffSelection
+  workbookActivitySelection?: WbActivityHandoffSelection
 }): string {
   const priorLines = buildPriorLearningBlock(input)
-  const activityLines = selectedSbActivityPromptLines(input.activitySelection)
-  const vocabulary = selectedSbActivityVocabulary(input.activitySelection)
-  const language = selectedSbActivityLanguage(input.activitySelection)
-  const noActivities = hasNoSelectedSbActivities(input.activitySelection)
+  const sbSelectionSensitive =
+    input.activitySelection != null &&
+    hasSbActivityExclusions(input.activitySelection)
+  const wbSelectionSensitive =
+    input.workbookActivitySelection != null &&
+    hasWbActivityExclusions(input.workbookActivitySelection)
+  const sbActivityLines = sbSelectionSensitive
+    ? selectedSbActivityPromptLines(input.activitySelection!)
+    : [
+        '[SB p.128] Activities: Listen, look, and say. / Listen, find, and say. / Play a game.',
+        '[SB p.129] Activity: Listen and sing. How does Zach feel today?',
+        '[SB p.129] Activity: Look at 1. Ask and answer.',
+        "[SB p.129] Required model: Did he eat breakfast? / No, he didn't. | Did she ride her bike? / Yes, she did.",
+      ]
+  const sbVocabulary = sbSelectionSensitive
+    ? selectedSbActivityVocabulary(input.activitySelection!)
+    : BE3_U08_OPENER_LESSON1_VOCAB.split(', ')
+  const sbLanguage = sbSelectionSensitive
+    ? selectedSbActivityLanguage(input.activitySelection!)
+    : [
+        "Did he eat breakfast? / No, he didn't.",
+        'Did she ride her bike? / Yes, she did.',
+      ]
+  const wbActivityLines = wbSelectionSensitive
+    ? selectedWbActivityPromptLines(input.workbookActivitySelection!)
+    : [
+        '[WB p.104] Unit 8 Healthy Living · unit opener vocabulary',
+        `[WB p.104] Target vocabulary (past/contrast forms): ${BE3_U08_OPENER_LESSON2_VOCAB}.`,
+        '[WB p.104] Activity 1: Write. Use activities from the box. Then check (✓) the healthy ones.',
+        '[WB p.104] Activity 2: Read and circle for you. (Includes How do you feel today? and Did you…? Yes/No items.)',
+        '[WB p.105] Song practice · Live Right!',
+        '[WB p.105] Activity 3: Listen and write. (Audio track 153 required. Word box: any, Did, enough, good, too, you.)',
+        "[WB p.105] Activity 4: Read and ✓ for you. Then answer with Yes, I did or No, I didn't.",
+      ]
+  const wbVocabulary = wbSelectionSensitive
+    ? selectedWbActivityVocabulary(input.workbookActivitySelection!)
+    : BE3_U08_OPENER_LESSON2_VOCAB.split(', ')
+  const wbLanguage = wbSelectionSensitive
+    ? selectedWbActivityLanguage(input.workbookActivitySelection!)
+    : ["Yes, I did. / No, I didn't."]
+  const noSbActivities =
+    sbSelectionSensitive && hasNoSelectedSbActivities(input.activitySelection!)
+  const noWbActivities =
+    wbSelectionSensitive &&
+    hasNoSelectedWbActivities(input.workbookActivitySelection!)
 
   return [
     'Create a short, picture-led TWO-LESSON series to SUPPORT Big English 3 Unit 8 using ONLY these source pages:',
@@ -212,35 +262,37 @@ function buildSelectionAwareDetailedHandoff(input: {
     '',
     'SOURCE LABELS:',
     '- [SB] = selected Student Book activity evidence from pages 128–129 only',
-    '- [WB] = Workbook evidence from pages 104–105 only',
+    '- [WB] = selected Workbook activity evidence from pages 104–105 only',
     '- [PRIOR] = teacher-selected prior learning from earlier pages in the same unit',
     '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
     '',
     'A. SERIES SCOPE',
     '',
     'Lesson 1 — Student Book pp. 128–129',
-    'Use only the selected Student Book activities below.',
-    ...activityLines,
+    sbSelectionSensitive
+      ? 'Use only the selected Student Book activities below.'
+      : 'Use the verified Student Book opener activities below.',
+    ...sbActivityLines,
     '',
-    vocabulary.length
-      ? `Selected Lesson 1 words/models: ${vocabulary.join(', ')}.`
+    sbVocabulary.length
+      ? `Selected Lesson 1 words/models: ${sbVocabulary.join(', ')}.`
       : 'Selected Lesson 1 words/models: none safely attributable to the selected activities.',
-    language.length
-      ? `Selected Lesson 1 language: ${language.join(' | ')}`
+    sbLanguage.length
+      ? `Selected Lesson 1 language: ${sbLanguage.join(' | ')}`
       : 'Selected Lesson 1 language: none safely attributable to the selected activities.',
     '',
     'Lesson 2 — Workbook pp. 104–105',
-    'Purpose: consolidate the opener strand with past/contrast healthy-activity writing, personal Did you…? responses, and Live Right! song listen/write practice.',
+    wbSelectionSensitive
+      ? 'Use only the selected Workbook activities below. Do not reconstruct excluded Workbook activities.'
+      : 'Purpose: consolidate the opener strand with past/contrast healthy-activity writing, personal Did you…? responses, and Live Right! song listen/write practice.',
+    ...wbActivityLines,
     '',
-    '[WB p.104] Unit 8 Healthy Living · unit opener vocabulary',
-    `[WB p.104] Target vocabulary (past/contrast forms): ${BE3_U08_OPENER_LESSON2_VOCAB}.`,
-    '[WB p.104] Activity 1: Write. Use activities from the box. Then check (✓) the healthy ones.',
-    '[WB p.104] Activity 2: Read and circle for you. (Includes How do you feel today? and Did you…? Yes/No items.)',
-    '',
-    '[WB p.105] Song practice · Live Right!',
-    '[WB p.105] Activity 3: Listen and write. (Audio track 153 required. Word box: any, Did, enough, good, too, you.)',
-    "[WB p.105] Activity 4: Read and ✓ for you. Then answer with Yes, I did or No, I didn't.",
-    `- Lesson 2 vocabulary: ${BE3_U08_OPENER_LESSON2_VOCAB}`,
+    wbVocabulary.length
+      ? `Selected Lesson 2 words/models: ${wbVocabulary.join(', ')}.`
+      : 'Selected Lesson 2 words/models: none safely attributable to the selected Workbook activities.',
+    wbLanguage.length
+      ? `Selected Lesson 2 language: ${wbLanguage.join(' | ')}`
+      : 'Selected Lesson 2 language: none safely attributable to the selected Workbook activities.',
     '',
     'B. TEACHER-SELECTED PRIOR LEARNING',
     '',
@@ -249,10 +301,16 @@ function buildSelectionAwareDetailedHandoff(input: {
     'C. TEACHING GUIDANCE',
     '',
     '- Keep Lesson 1 on Student Book pp. 128–129 and Lesson 2 on Workbook pp. 104–105.',
-    noActivities
+    noSbActivities
       ? '- Lesson 1: no current Student Book activities were selected; do not recreate them from page context.'
-      : '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.',
-    '- Lesson 2: keep the existing Workbook consolidation/practice scope unchanged.',
+      : sbSelectionSensitive
+        ? '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.'
+        : '- Lesson 1: use the verified Student Book activities listed above.',
+    noWbActivities
+      ? '- Lesson 2: no Workbook activities were selected; keep the lesson slot valid but do not recreate or substitute Workbook teaching content.'
+      : wbSelectionSensitive
+        ? '- Lesson 2: use only the selected Workbook activities listed above; do not reconstruct excluded activities.'
+        : '- Lesson 2: use the verified Workbook consolidation/practice activities listed above.',
     '- Prior learning remains separate support and does not replace unselected current-page content.',
     '- Keep both lessons concise and classroom-usable.',
     '',
@@ -260,7 +318,7 @@ function buildSelectionAwareDetailedHandoff(input: {
     '',
     '- Stay on Student Book pages 128–129 and Workbook pages 104–105 only.',
     '- Do not use or reconstruct unselected Student Book activities.',
-    '- Do not change Workbook scope, vocabulary, outline, or infer Workbook activity selection.',
+    '- Do not use or reconstruct unselected Workbook activities.',
     '- Do not invent publisher audio scripts, song lyrics, or unknown exercise items.',
   ].join('\n')
 }
@@ -322,6 +380,38 @@ function buildSelectionAwareLesson1Outline(
   return lines.join('\n')
 }
 
+function buildSelectionAwareLesson2Outline(
+  selection: WbActivityHandoffSelection,
+): string {
+  const lines = [
+    'Concise teacher-controlled outline — Lesson 2',
+    'Short teaching sequence for Workbook pp. 104–105 only. Use only selected activities; do not reconstruct excluded activities.',
+    '',
+  ]
+  if (hasNoSelectedWbActivities(selection)) {
+    lines.push(
+      '1. [WB] No Workbook activities were selected. Keep the Lesson 2 slot valid without adding or substituting Workbook teaching content.',
+    )
+  } else {
+    selection.selectedEvidence.forEach((activity, index) => {
+      const number = activity.activityNumber
+        ? `Activity ${activity.activityNumber}`
+        : 'Activity'
+      const audio = activity.audioDependency
+        ? ` Use the official book audio${activity.sourceDependencyNote ? ` (${activity.sourceDependencyNote})` : ''}.`
+        : ''
+      const language = activity.languageFrame
+        ? ` Model: ${activity.languageFrame}`
+        : ''
+      lines.push(
+        `${index + 1}. [WB] ${number}: ${activity.verifiedWording}${audio}${language}`,
+      )
+    })
+  }
+  lines.push('')
+  return lines.join('\n')
+}
+
 /**
  * Build the six local series copyables for the accepted BE3 U8 opener pair only.
  */
@@ -329,11 +419,17 @@ export function buildBe3U08OpenerSbWbSeriesHandoff(input?: {
   selectedSuggestions?: TeacherChoiceSuggestion[]
   teacherAdditions?: TeacherAddedLanguageInput[]
   activitySelection?: SbActivityHandoffSelection
+  workbookActivitySelection?: WbActivityHandoffSelection
 }): Be3U08OpenerSeriesHandoff {
   const selectionOverride =
     input?.activitySelection &&
     hasSbActivityExclusions(input.activitySelection)
       ? input.activitySelection
+      : null
+  const workbookSelectionOverride =
+    input?.workbookActivitySelection &&
+    hasWbActivityExclusions(input.workbookActivitySelection)
+      ? input.workbookActivitySelection
       : null
   return {
     relationshipId: BE3_U08_OPENER_SERIES_RELATIONSHIP_ID,
@@ -343,6 +439,7 @@ export function buildBe3U08OpenerSbWbSeriesHandoff(input?: {
       selectedSuggestions: input?.selectedSuggestions ?? [],
       teacherAdditions: input?.teacherAdditions ?? [],
       activitySelection: input?.activitySelection,
+      workbookActivitySelection: input?.workbookActivitySelection,
     }),
     lesson1Outline: selectionOverride
       ? buildSelectionAwareLesson1Outline(selectionOverride)
@@ -350,8 +447,15 @@ export function buildBe3U08OpenerSbWbSeriesHandoff(input?: {
     lesson1Vocabulary: selectionOverride
       ? selectedSbActivityVocabulary(selectionOverride).join(', ')
       : BE3_U08_OPENER_LESSON1_VOCAB,
-    lesson2Outline: BE3_U08_OPENER_LESSON2_OUTLINE,
-    lesson2Vocabulary: BE3_U08_OPENER_LESSON2_VOCAB,
+    lesson2Outline: workbookSelectionOverride
+      ? buildSelectionAwareLesson2Outline(workbookSelectionOverride)
+      : BE3_U08_OPENER_LESSON2_OUTLINE,
+    lesson2Vocabulary: workbookSelectionOverride
+      ? hasNoSelectedWbActivities(workbookSelectionOverride)
+        ? 'No Workbook activities selected.'
+        : selectedWbActivityVocabulary(workbookSelectionOverride).join(', ') ||
+          'No Workbook words or models are safely attributable to the selected activities.'
+      : BE3_U08_OPENER_LESSON2_VOCAB,
   }
 }
 
