@@ -1,8 +1,8 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + shared dispatch; Opener-only guarded canary implemented (default off)
-**Version:** 0.7
-**Date:** 2026-10-22  
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + shared dispatch; Opener canary accepted; Story canary IMPLEMENTED / AWAITING OWNER MANUAL CHECK
+**Version:** 1.0
+**Date:** 2026-10-23  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
 ---
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener and Story shadow-renderer parity proved.** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Flag: `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener and Story shadow-renderer parity proved.** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** **Opener canary status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Flag remains owner-controlled (`VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`; default off; rollback = unset/false + restart). **Story canary status:** `IMPLEMENTED / AWAITING OWNER MANUAL CHECK` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` only (SB pp.130–131 → WB p.106 only; WB p.107 forbidden). Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). See [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md). No Chalkie generation or classroom-validation claim. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
 
 The core separation is:
 
@@ -229,7 +229,7 @@ This bounded assembler does not authorize those adapters or claim broader compon
 ## 7. Known exceptions and gaps
 
 1. **The neutral package is bounded to two accepted pairs.** Opener and Story are implemented; no other resolver-wired relationship is eligible.
-2. **All-selected and partial-selection paths differ.** The test-only Opener and Story shadow renderers preserve accepted all-selected prose exactly and render partial/zero states only from neutral selected evidence. Production still uses the bespoke builders.
+2. **All-selected and partial-selection paths differ.** The Opener and Story shadow renderers preserve accepted all-selected prose exactly and render partial/zero states only from neutral selected evidence. Default production remains bespoke; the limited Opener canary (when enabled) may serve neutral output after exact five-artifact parity.
 3. **Purpose is not canonical evidence.** It needs a reviewed planning source or explicit teacher confirmation; it must not be guessed from a component label.
 4. **Production rendering still lacks lesson-targeted support consumption.** The neutral package preserves explicit targets, but existing series inputs remain shared across the series and bespoke outlines omit targeted prior/support steps.
 5. **Production provenance defaults remain inconsistent.** The neutral package requires explicit provenance, but existing renderers have not migrated.
@@ -292,6 +292,8 @@ The separately authorized **test-only shared dispatcher** is now implemented:
 3. Unsupported relationships throw typed `UnsupportedNeutralPackageRendererError`; there is no generic fallback or partial output.
 4. The dispatcher has no production call site and does not broaden renderer eligibility.
 
-**Opener-only guarded canary (v0.2 plan):** [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md) — implemented with `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke and emits a bounded developer diagnostic. Story is not canaried.
+**Opener canary (v0.3 plan):** [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md) — status `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`. Flag `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off; owner-controlled). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke and emits a bounded developer diagnostic. Manual review confirmed all-selected normality, selection persistence, and honest exclusion of SB p.129 Activity 4 and WB p.105 Activity 3 with no reconstruction.
 
-**Smallest next step:** locally enable the Opener canary flag and review evidence; do not authorize a Story canary or bulk migration automatically.
+**Story canary:** [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — status `IMPLEMENTED / AWAITING OWNER MANUAL CHECK`. Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke with a bounded developer diagnostic. WB p.107 must never appear. Not manually accepted yet.
+
+**Smallest next step:** owner enables the Story flag locally and completes the manual check; do not mark manually accepted until that passes.

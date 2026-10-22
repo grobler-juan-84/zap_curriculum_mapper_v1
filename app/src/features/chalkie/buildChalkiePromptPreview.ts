@@ -1,11 +1,9 @@
 import type { TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 import { buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary } from './be3U08OpenerNeutralCanary'
+import { buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary } from './be3U08StoryNeutralCanary'
 import { isBe3U08OpenerSeriesCompanion } from './buildBe3U08OpenerSbWbSeriesHandoff'
-import {
-  buildBe3U08StorySbWbSeriesHandoff,
-  isBe3U08StorySeriesCompanion,
-} from './buildBe3U08StorySbWbSeriesHandoff'
+import { isBe3U08StorySeriesCompanion } from './buildBe3U08StorySbWbSeriesHandoff'
 import {
   BE2_U08_SERIES_LESSON_TITLE,
   BE2_U08_SINGLE_LESSON_TITLE,
@@ -473,13 +471,17 @@ export function buildChalkiePromptPreview(input: {
         workbookActivitySelection: input.workbookActivitySelection,
       }).handoff.detailedHandoff
     }
-    if (isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion)) {
-      return buildBe3U08StorySbWbSeriesHandoff({
+    if (
+      isBe3U08StorySeriesCompanion(input.lesson.workbookCompanion) &&
+      input.lesson.workbookCompanion
+    ) {
+      return buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary({
+        companion: input.lesson.workbookCompanion,
         selectedSuggestions: input.selectedSuggestions,
         teacherAdditions: input.teacherAdditions,
         activitySelection: input.activitySelection,
         workbookActivitySelection: input.workbookActivitySelection,
-      }).detailedHandoff
+      }).handoff.detailedHandoff
     }
     // Refuse silent fixture fallback — degrade to dynamic single if series unsupported.
     return buildDynamicSingleLessonPrompt(input)

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 326
+**Last updated:** Step 329
 
 
 
@@ -550,9 +550,15 @@
 
 - [x] **Opener-only guarded canary:** `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` default off; exact five-artifact compare; bespoke fallback + developer diagnostic on mismatch; Story remains bespoke.
 
+- [x] **Local Opener canary manual review:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Flag enabled; all-selected normal; selection persistence; SB p.129 Act 4 / WB p.105 Act 3 exclusions honest with no reconstruction. No Chalkie generation or classroom-validation claim. See [`phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md`](./phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md).
+
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Local Opener canary review:** enable the flag in `app/.env.local`, exercise selection/prior paths, confirm mismatch diagnostics, then keep default-off for normal use unless separately deciding next. No Story canary, bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [x] **Draft Story canary proposal (docs only):** [`phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — later authorized and implemented.
+
+- [x] **Story-only guarded canary implemented:** `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` default off; exact five-artifact compare; bespoke fallback + developer diagnostic on mismatch; WB p.106-only; Opener canary unchanged. Status: **IMPLEMENTED / AWAITING OWNER MANUAL CHECK**.
+
+- [ ] **Owner manual check of Story canary** — enable flag in `app/.env.local`, restart, verify all-selected / SB+WB exclusions / zero-selection / no WB p.107; do not mark manually accepted until that passes. No bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
 
 
 

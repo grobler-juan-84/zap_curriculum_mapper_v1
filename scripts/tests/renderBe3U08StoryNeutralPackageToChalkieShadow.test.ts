@@ -331,14 +331,38 @@ test('Story prior support preserves provenance and explicit lesson targets', () 
   const handoff =
     renderChalkieFromNeutralPackage(lessonPackage).detailedHandoff
 
+  // Rendered prior block matches accepted bespoke wording; lesson targets stay on the package.
   assert.match(
     handoff,
-    /\[PRIOR\] \[Lesson 1\] Earlier Unit 8 healthy-living frame/,
+    /\[PRIOR\] Earlier Unit 8 healthy-living frame \(BE3 SB Unit 8 p\.128\): Did you eat breakfast\?/,
   )
-  assert.match(handoff, /\[HM\] \[Lesson 2\] Earlier-unit short answer/)
   assert.match(
     handoff,
-    /\[TEACHER-ADDED · UNVERIFIED\] \[Lessons 1 and 2\] Class reminder/,
+    /\[HM\] Earlier-unit short answer \(BE3 SB Unit 7\): No, she did not\./,
+  )
+  assert.match(
+    handoff,
+    /\[TEACHER-ADDED · UNVERIFIED\] Class reminder: Answer in a full sentence\./,
+  )
+  assert.deepEqual(
+    lessonPackage.priorSupport.map((record) => ({
+      id: record.id,
+      provenance: record.provenance,
+      targetLessons: [...record.targetLessons],
+    })),
+    [
+      {
+        id: 'prior-opener-l1',
+        provenance: '[PRIOR]',
+        targetLessons: ['lesson1'],
+      },
+      { id: 'hm-l2', provenance: '[HM]', targetLessons: ['lesson2'] },
+      {
+        id: 'teacher-both',
+        provenance: '[TEACHER-ADDED · UNVERIFIED]',
+        targetLessons: ['lesson1', 'lesson2'],
+      },
+    ],
   )
   assert.doesNotMatch(handoff, /Workbook (?:printed )?page 107|106–107/)
 })

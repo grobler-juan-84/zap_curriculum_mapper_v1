@@ -514,7 +514,7 @@ test('forced renderer mismatch serves bespoke and emits bounded diagnostic', () 
   }
 })
 
-test('Story and other relationships remain on bespoke builders', () => {
+test('Opener canary module stays Opener-only; Story uses its own canary wrapper', () => {
   const story = storyFixture()
   const storyHandoff = buildBe3U08StorySbWbSeriesHandoff({
     activitySelection: createSbActivityHandoffSelection(
@@ -553,9 +553,12 @@ test('Story and other relationships remain on bespoke builders', () => {
 
   assert.ok(canarySource.includes('BE3_U08_OPENER_SERIES_RELATIONSHIP_ID'))
   assert.doesNotMatch(canarySource, /story_sb130-131/)
-  assert.ok(overlaySource.includes('buildBe3U08StorySbWbSeriesHandoff'))
   assert.ok(
     overlaySource.includes('buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary'),
   )
+  assert.ok(
+    overlaySource.includes('buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary'),
+  )
   assert.ok(!storyBuilderSource.includes('be3U08OpenerNeutralCanary'))
+  assert.ok(!storyBuilderSource.includes('be3U08StoryNeutralCanary'))
 })

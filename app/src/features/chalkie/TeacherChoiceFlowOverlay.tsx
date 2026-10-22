@@ -2,13 +2,13 @@ import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, Copy } from 'lucide-react'
 import { buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary } from './be3U08OpenerNeutralCanary'
+import { buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary } from './be3U08StoryNeutralCanary'
 import {
   isBe3U08OpenerSeriesCompanion,
   type Be3U08OpenerSeriesHandoff,
 } from './buildBe3U08OpenerSbWbSeriesHandoff'
 import type { VerifiedSbWbCompanion } from './resolveVerifiedSbWbCompanion'
 import {
-  buildBe3U08StorySbWbSeriesHandoff,
   isBe3U08StorySeriesCompanion,
   type Be3U08StorySeriesHandoff,
 } from './buildBe3U08StorySbWbSeriesHandoff'
@@ -90,13 +90,14 @@ function buildBe3U08SeriesHandoffForCompanion(
       workbookActivitySelection,
     }).handoff
   }
-  if (isBe3U08StorySeriesCompanion(companion)) {
-    return buildBe3U08StorySbWbSeriesHandoff({
+  if (isBe3U08StorySeriesCompanion(companion) && companion) {
+    return buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary({
+      companion,
       selectedSuggestions,
       teacherAdditions,
       activitySelection,
       workbookActivitySelection,
-    })
+    }).handoff
   }
   return null
 }

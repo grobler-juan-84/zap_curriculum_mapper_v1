@@ -1,7 +1,7 @@
 # Phase 5 Prototype — Chalkie Workspace UI
 
 **Status:** ACTIVE  
-**Version:** 2.44
+**Version:** 2.47
 **Route:** `/app/chalkie` (protected)
 
 ---
@@ -36,7 +36,8 @@ Standard teacher workflow starts from the **Student Book** unit/component. Teach
 - **Test-only rendering proof:** **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** All-selected output matches the five accepted Opener artifacts exactly; partial/zero paths remain selected-evidence-only. The Opener renderer remains isolated.
 - **Asymmetric test-only rendering proof:** **Story shadow-renderer parity proved in tests only, including asymmetric SB pp.130–131 → WB p.106 scope; existing production handoff output remains unchanged; no UI migration.** All five accepted Story artifacts match exactly; partial/zero paths remain selected-evidence-only with no WB p.107 leakage.
 - **Shared dispatcher boundary:** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** Unsupported relationships raise an explicit typed error; no generic fallback output is produced.
-- **Opener-only guarded canary:** **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Enable with `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY=true` in `app/.env.local` (restart `npm run dev`). No teacher-facing canary UI. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
+- **Opener canary:** **`IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`** for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Owner-controlled via `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off; rollback = unset/false + restart). Manual review accepted all-selected normality, selection persistence, and honest exclusions (SB p.129 Act 4 / WB p.105 Act 3) with no reconstruction. No Chalkie generation or classroom-validation claim. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
+- **Story canary:** **`IMPLEMENTED / AWAITING OWNER MANUAL CHECK`** for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (SB pp.130–131 → WB p.106 only; WB p.107 must never appear). Owner-controlled via `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off; rollback = unset/false + restart). Not manually accepted yet. See [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md).
 - Packaging choices: **Single lesson** from the resolved SB pages, or **Two-lesson series** on (a) the curated BE2 U8 fixture, (b) the accepted BE3 U8 opener pair SB 128–129 → WB 104–105, or (c) the asymmetric BE3 U8 story pair SB 130–131 → WB **p.106 only** — each with six local copyables ([`chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md`](./chalkie-be3-u08-sb-wb-pairing-gap-v0.1.md)). Opener production Chalkie series: **PASS AFTER LIGHT TEACHER REVIEW** ([`chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md`](./chalkie-be3-u08-sb-wb-production-pilot-results-v0.1.md)). Story series local handoff: **ACCEPTED FOR PROVISIONAL USE** (no Story Chalkie export claimed; no further Story Chalkie experiments now). BE3 U8 LiA through Review companions are **docs-accepted + resolver-wired** (View Workbook only; Writing/Phonics/Review 1→1 single lesson likely); Values SB p.142 is **SB-only confirmed; no Workbook companion expected**; **no** series handoff; **no** Chalkie generation.
 - Fully local, deterministic handoff — no visible OpenAI / model-draft step.
 - **Dynamic source-context binding** + **page-scope guard**: lesson title, Step 1, and local handoff all use one resolved context from selected Student Book/unit + SB printed pages (frozen while inspecting WB).
@@ -180,7 +181,7 @@ Never use `VITE_OPENAI_API_KEY`.
 
 ## What remains pending
 
-1. Locally enable/review the Opener canary flag; Story canary or additional relationships require separate authorization.
+1. Owner enables `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY=true` and manually checks Story canary behaviour; do not mark manually accepted until that passes. Opener canary remains accepted and independent.
 2. Generic detailed-handoff depth — see gap audit [`chalkie-generic-detailed-handoff-gap-audit-v0.1.md`](./chalkie-generic-detailed-handoff-gap-audit-v0.1.md).
 3. Optional: teacher page-range picker beyond the current PDF spread.
 4. OpenAI lesson-draft endpoint remains dormant on disk; decide later whether to revive for prompt/question help, harden, or park permanently.
@@ -264,3 +265,6 @@ Never use `VITE_OPENAI_API_KEY`.
 | 2026-10-22 | Added one test-only shared dispatcher for the two parity-proved relationships; unsupported packages fail with a typed error and production routing remains unchanged. |
 | 2026-10-22 | Drafted a docs-only Opener-first production migration plan with parity gates, mismatch diagnostics, and bespoke rollback; not authorized for production wiring. |
 | 2026-10-22 | Implemented Opener-only guarded canary (default off) with exact five-artifact compare, bespoke fallback + developer diagnostic on mismatch; Story remains bespoke. |
+| 2026-10-22 | Recorded manual acceptance of the limited Opener canary (`IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`); Story remains bespoke; no Chalkie generation or classroom-validation claim. |
+| 2026-10-23 | Drafted docs-only Story neutral-canary proposal (`DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`); Story production remains bespoke; no implementation. |
+| 2026-10-23 | Implemented Story-only guarded canary (`IMPLEMENTED / AWAITING OWNER MANUAL CHECK`); default off; WB p.106-only; Opener canary unchanged. |

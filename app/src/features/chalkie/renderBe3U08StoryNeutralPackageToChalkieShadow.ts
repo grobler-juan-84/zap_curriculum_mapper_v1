@@ -1,11 +1,11 @@
 /**
- * Test-only Chalkie renderer for the accepted asymmetric BE3 Unit 8 Story package.
+ * Chalkie renderer for the accepted asymmetric BE3 Unit 8 Story package.
  *
- * This module is deliberately not wired into the UI or normal handoff flow.
- * It accepts SB pp.130–131 → WB p.106 only and never renders a facing page.
+ * Accepts SB pp.130–131 → WB p.106 only and never renders a facing page or WB p.107.
+ * Production may call this only through the Story-only guarded canary (default off).
  */
+import { BE3_U08_STORY_LESSON2_VOCAB } from './buildBe3U08StorySbWbSeriesHandoff'
 import type {
-  NeutralLessonId,
   NeutralLessonPackageLesson,
   NeutralPriorSupportRecord,
   NeutralSbWbLessonPackage,
@@ -125,34 +125,66 @@ function activityPromptLines(
   return lines
 }
 
-function lessonTargetLabel(targets: readonly NeutralLessonId[]): string {
-  return targets.length === 2
-    ? 'Lessons 1 and 2'
-    : targets[0] === 'lesson1'
-      ? 'Lesson 1'
-      : 'Lesson 2'
-}
-
 function priorSupportLines(
   records: readonly NeutralPriorSupportRecord[],
 ): string[] {
+  // Match accepted bespoke prior-block wording so production canary parity can hold.
+  // Explicit Lesson 1 / Lesson 2 targeting remains on NeutralPriorSupportRecord.targetLessons.
   if (records.length === 0) {
     return ['No verified prior learning was selected for this lesson.']
   }
 
+  const priorish = records.filter(
+    (record) => record.provenance !== '[TEACHER-ADDED · UNVERIFIED]',
+  )
+  const teacherAdded = records.filter(
+    (record) => record.provenance === '[TEACHER-ADDED · UNVERIFIED]',
+  )
   const lines: string[] = []
-  for (const record of records) {
-    const source =
-      record.sourceReference && record.evidenceReference
-        ? ` (${record.sourceReference}; ${record.evidenceReference})`
-        : ''
-    lines.push(
-      `${record.provenance} [${lessonTargetLabel(record.targetLessons)}] ${record.label}${source}: ${record.frame}`,
-    )
-    if (record.purpose) lines.push(`Purpose: ${record.purpose}`)
+
+  if (priorish.length === 0) {
+    lines.push('No verified prior learning was selected for this lesson.')
+  } else {
+    for (const record of priorish) {
+      const source = record.sourceReference?.trim()
+      lines.push(
+        source
+          ? `${record.provenance} ${record.label} (${source}): ${record.frame}`
+          : `${record.provenance} ${record.label}: ${record.frame}`,
+      )
+    }
   }
+
+  if (teacherAdded.length > 0) {
+    lines.push('')
+    for (const record of teacherAdded) {
+      const title = record.label.trim()
+      lines.push(
+        `[TEACHER-ADDED · UNVERIFIED] ${title ? `${title}: ` : ''}${record.frame}`,
+      )
+      if (record.purpose) lines.push(`Purpose: ${record.purpose}`)
+    }
+  }
+
   return lines
 }
+
+const ACCEPTED_SB_ACTIVITY_LINES = [
+  '[SB p.130] Activity 6: Listen and read. Did Amy eat a healthy dinner? (Audio track 154 required.)',
+  '[SB p.131] Activity 7: Read and choose.',
+]
+
+const ACCEPTED_WB_ACTIVITY_LINES = [
+  '[WB p.106] Unit 8 Healthy Living · Story',
+  '[WB p.106] Notes: Story title: An Unhealthy Dinner',
+  `[WB p.106] Target vocabulary: ${BE3_U08_STORY_LESSON2_VOCAB}.`,
+  "[WB p.106] Activity 5: Read and answer. Write Yes, she did or No, she didn’t. (Did Amy eat a burger and fries…? / Did she eat fried food? / Did she drink a large glass of water? / Did she eat a healthy dinner?)",
+  '[WB p.106] Language model: Did Amy…? → Yes, she did. / No, she didn’t.',
+  '[WB p.106] Activity 6: What did you eat for dinner yesterday? Was it healthy? Draw, write, and circle.',
+  '[WB p.106] Think Big: Healthy or unhealthy? Draw. (fries, lettuce, tomatoes, bottle of cola, burger, water)',
+]
+
+const ACCEPTED_WB_LANGUAGE = ['Did Amy…? / Yes, she did. / No, she didn’t.']
 
 function renderAcceptedAllSelectedDetailedHandoff(
   lessonPackage: NeutralSbWbLessonPackage,
@@ -240,8 +272,24 @@ function renderSelectionAwareDetailedHandoff(
 ): string {
   const lesson1 = lessonPackage.lesson1
   const lesson2 = lessonPackage.lesson2
+  const sbSelectionSensitive = lesson1.selection.status !== 'all_selected'
+  const wbSelectionSensitive = lesson2.selection.status !== 'all_selected'
   const noLesson1Activities = lesson1.selection.status === 'zero_selected'
   const noLesson2Activities = lesson2.selection.status === 'zero_selected'
+  const sbActivityLines = sbSelectionSensitive
+    ? activityPromptLines(lesson1)
+    : ACCEPTED_SB_ACTIVITY_LINES
+  const wbActivityLines = wbSelectionSensitive
+    ? activityPromptLines(lesson2)
+    : ACCEPTED_WB_ACTIVITY_LINES
+  const sbVocabulary = sbSelectionSensitive ? lesson1.vocabulary : []
+  const wbVocabulary = wbSelectionSensitive
+    ? lesson2.vocabulary
+    : BE3_U08_STORY_LESSON2_VOCAB.split(', ')
+  const sbLanguage = sbSelectionSensitive ? lesson1.languageModels : []
+  const wbLanguage = wbSelectionSensitive
+    ? lesson2.languageModels
+    : ACCEPTED_WB_LANGUAGE
 
   return [
     'Create a short, picture-led TWO-LESSON series to SUPPORT Big English 3 Unit 8 using ONLY these source pages:',
@@ -257,31 +305,34 @@ function renderSelectionAwareDetailedHandoff(
     '- [SB] = selected Student Book activity evidence from pages 130–131 only',
     '- [WB] = Workbook evidence from page 106 only',
     '- [PRIOR] = teacher-selected prior learning from earlier pages in the same unit',
-    '- [HM] = teacher-selected support from earlier units in the same book',
     '- [TEACHER-ADDED · UNVERIFIED] = teacher-directed language not currently verified as prior-book evidence',
     '',
     'A. SERIES SCOPE',
     '',
     'Lesson 1 — Student Book pp. 130–131',
-    'Use only the selected Student Book activities below.',
-    ...activityPromptLines(lesson1),
+    sbSelectionSensitive
+      ? 'Use only the selected Student Book activities below.'
+      : 'Use the verified Student Book Story / Reading activities below.',
+    ...sbActivityLines,
     '',
-    lesson1.vocabulary.length
-      ? `Selected Lesson 1 words/models: ${lesson1.vocabulary.join(', ')}.`
+    sbVocabulary.length
+      ? `Selected Lesson 1 words/models: ${sbVocabulary.join(', ')}.`
       : 'Selected Lesson 1 words/models: none safely attributable to the selected activities.',
-    lesson1.languageModels.length
-      ? `Selected Lesson 1 language: ${lesson1.languageModels.join(' | ')}`
+    sbLanguage.length
+      ? `Selected Lesson 1 language: ${sbLanguage.join(' | ')}`
       : 'Selected Lesson 1 language: none safely attributable to the selected activities.',
     '',
     'Lesson 2 — Workbook p. 106 only',
-    'Use only the selected Workbook activities below. Do not reconstruct excluded Workbook activities.',
-    ...activityPromptLines(lesson2),
+    wbSelectionSensitive
+      ? 'Use only the selected Workbook activities below. Do not reconstruct excluded Workbook activities.'
+      : 'Purpose: consolidate the story strand with Did Amy…? Yes/No she did short answers, personal dinner reflection, and Think Big healthy/unhealthy categorisation.',
+    ...wbActivityLines,
     '',
-    lesson2.vocabulary.length
-      ? `Selected Lesson 2 words/models: ${lesson2.vocabulary.join(', ')}.`
+    wbVocabulary.length
+      ? `Selected Lesson 2 words/models: ${wbVocabulary.join(', ')}.`
       : 'Selected Lesson 2 words/models: none safely attributable to the selected Workbook activities.',
-    lesson2.languageModels.length
-      ? `Selected Lesson 2 language: ${lesson2.languageModels.join(' | ')}`
+    wbLanguage.length
+      ? `Selected Lesson 2 language: ${wbLanguage.join(' | ')}`
       : 'Selected Lesson 2 language: none safely attributable to the selected Workbook activities.',
     '',
     'B. TEACHER-SELECTED PRIOR LEARNING',
@@ -293,10 +344,14 @@ function renderSelectionAwareDetailedHandoff(
     '- Keep Lesson 1 on Student Book pp. 130–131 and Lesson 2 on Workbook p. 106 only.',
     noLesson1Activities
       ? '- Lesson 1: no current Student Book activities were selected; do not recreate them from page context.'
-      : '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.',
+      : sbSelectionSensitive
+        ? '- Lesson 1: use only the selected Student Book activities listed above; do not reconstruct excluded activities.'
+        : '- Lesson 1: use the verified Student Book activities listed above.',
     noLesson2Activities
       ? '- Lesson 2: no Workbook activities were selected; keep the lesson slot valid but do not recreate or substitute Workbook teaching content.'
-      : '- Lesson 2: use only the selected Workbook activities listed above; do not reconstruct excluded activities.',
+      : wbSelectionSensitive
+        ? '- Lesson 2: use only the selected Workbook activities listed above; do not reconstruct excluded activities.'
+        : '- Lesson 2: use the verified Workbook consolidation/practice activities listed above.',
     '- Prior learning remains separate support and does not replace unselected current-page content.',
     '- Keep both lessons concise and classroom-usable.',
     '',

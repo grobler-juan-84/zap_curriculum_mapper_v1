@@ -5586,3 +5586,65 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 327
+
+**Summary:** Recorded documentation-only manual acceptance of the BE3 Unit 8 Opener neutral-package canary as `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only. Story remains bespoke; no Chalkie generation or classroom-validation claim; next step is a separate Story canary authorization decision.
+
+**Files touched:**
+- `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md` (updated)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 328
+
+**Summary:** Drafted a docs-only Story neutral-canary proposal for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (SB pp.130–131 → WB p.106 only) as `DRAFT / NOT AUTHORIZED FOR PRODUCTION WIRING`. No app code, flags, or routing changed; Opener Step 327 acceptance preserved.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md` (created)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 329
+
+**Summary:** Implemented the Story-only guarded neutral-package production canary (`VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY`, default off) for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only). Exact five-artifact parity serves neutral output; mismatch/error serves bespoke with a bounded diagnostic; Opener canary unchanged. Status: `IMPLEMENTED / AWAITING OWNER MANUAL CHECK`.
+
+**Files touched:**
+- `app/src/features/chalkie/be3U08StoryNeutralCanary.ts` (created)
+- `app/src/features/chalkie/renderBe3U08StoryNeutralPackageToChalkieShadow.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `scripts/tests/be3U08StoryNeutralCanary.test.ts` (created)
+- `scripts/tests/be3U08OpenerNeutralCanary.test.ts` (updated)
+- `scripts/tests/renderBe3U08StoryNeutralPackageToChalkieShadow.test.ts` (updated)
+- `.env.example` (updated)
+- `docs/phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md` (updated)
+- `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md` (updated)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

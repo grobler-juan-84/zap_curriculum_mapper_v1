@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 326
+**Last updated:** Step 329
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -30,24 +30,27 @@
 
 - **Shared Chalkie dispatcher** for the two parity-proved relationships; unsupported relationships throw a typed error.
 
-- **Opener-only guarded canary implemented; default off; bespoke fallback on mismatch; Story and all other relationships remain bespoke.** Flag: `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`.
+- **Opener canary:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only. Flag `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off).
+
+- **Story canary:** `IMPLEMENTED / AWAITING OWNER MANUAL CHECK` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (SB pp.130–131 → WB p.106 only; WB p.107 forbidden). Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). Not manually accepted yet.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Local review of the Opener canary with the flag explicitly enabled.
+- Owner manual check of the Story canary (flag explicitly enabled).
 
 ## Next
 
-- Exercise Opener canary locally (all-selected, exclusions, zero-selection, prior support, forced mismatch diagnostic).
-- Do not authorize Story canary or bulk migration without a separate decision.
+- Enable Story canary locally and verify all-selected / exclusions / zero-selection / no WB p.107 before any manual-acceptance mark.
+- Do not bulk-migrate additional relationships.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
 
 ## Blocked
 
 - Soft: Phase 2 closure, methodology/schema lock, Phase 3 unlock, and full prompt generation remain unauthorized without explicit owner approval.
+- Soft: Story canary not manually accepted until owner local check.
 
 ---
 

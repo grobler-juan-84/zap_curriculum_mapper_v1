@@ -168,12 +168,13 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-first context, verified companions, Unit Intelligence, and local handoff. Opener-only guarded canary implemented (default off); Story remains bespoke. | 2.44 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-first context, verified companions, Unit Intelligence, and local handoff. Opener canary accepted; Story canary IMPLEMENTED / AWAITING OWNER MANUAL CHECK. | 2.47 | ACTIVE |
 | [phase-5/chalkie-current-activity-selection-contract-v0.1.md](./phase-5/chalkie-current-activity-selection-contract-v0.1.md) | Activity Selection contract: IMPLEMENTED / MANUALLY ACCEPTED for local handoff curation (provisional). Selected-only SB/WB evidence; open-book layouts; BE3 U8 opener persistence accepted. | 0.9 | ACTIVE |
 | [phase-5/teacher-intelligence-left-pane-contract-v0.1.md](./phase-5/teacher-intelligence-left-pane-contract-v0.1.md) | Left-pane IA contract: Source Context + Teacher Intelligence; **Unit Intelligence implemented** in Chalkie; Horizontal Mapping / School Notes / Future Suggestions not built; F021–F022 boundary. | 0.1.1 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
-| [phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md](./phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md) | Audit and bounded implementation record for neutral Opener/Story packages, shared dispatch, and Opener-only guarded canary (default off; bespoke fallback). | 0.7 | ACTIVE |
-| [phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md](./phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md) | Opener-only guarded canary plan/record for neutral package → shared Chalkie dispatcher; default off; bespoke fallback on mismatch; Story remains bespoke. | 0.2 | ACTIVE |
+| [phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md](./phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md) | Audit and bounded implementation record for neutral Opener/Story packages, shared dispatch, Opener canary accepted, and Story canary awaiting owner manual check. | 1.0 | ACTIVE |
+| [phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md](./phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md) | Migration record: Opener canary manually accepted; Story canary IMPLEMENTED / AWAITING OWNER MANUAL CHECK; no generation/classroom claim. | 0.4 | ACTIVE |
+| [phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md](./phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) | Story canary for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only): IMPLEMENTED / AWAITING OWNER MANUAL CHECK; flag default off. | 0.2 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1-review.md) | Historical review of early BE2 U8 Chalkie teaching-brief experiment. | 1.0 | PARKED |
 | [phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-p128-129-chalkie-brief-v1.md) | Historical page-scoped Chalkie brief for BE2 U8 pp. 128–129 (pre-D018). Research only. | 1.0 | PARKED |
@@ -206,7 +207,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.22): **D021** SB-first; Opener-only guarded canary (default off); Story and others remain bespoke. | V1.22 | ACTIVE |
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.25): **D021** SB-first; Opener canary accepted; Story canary awaiting owner manual check; others remain bespoke. | V1.25 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
@@ -215,7 +216,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 129 | Current working docs, including index, operating trackers, Activity Selection and Teacher Intelligence contracts, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener canary migration plan (docs-only), horizontal-mapping emphasis, Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 130 | Current working docs, including index, operating trackers, Activity Selection and Teacher Intelligence contracts, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener canary migration plan (accepted), Story canary (awaiting owner manual check), horizontal-mapping emphasis, Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 
