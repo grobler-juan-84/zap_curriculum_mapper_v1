@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 313
+**Last updated:** Step 314
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,7 +22,7 @@
 
 - **Active lesson page scope:** one-page components inside a two-page PDF reading spread (e.g. p.140 / p.141) resolve companion + Prepare from the Go / page-control active page; true two-page mappings unchanged.
 
-- **Activity Selection contract v0.3:** SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented. Current Lesson now has active-page columns, default-selected checkboxes, selection feedback, honest empty states, and Back/Continue persistence.
+- **Activity Selection contract v0.4:** Current Lesson is activity-first: compact book/unit context, a wide SB spread with two page panels + gutter or one centered page panel, compact checkbox-only cards, selection feedback, honest empty states, and Back/Continue persistence.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
@@ -32,7 +32,7 @@
 
 ## Next
 
-- Owner manually checks BE3 U8 pp.132–133 and p.140 card placement/navigation persistence.
+- Owner manually checks BE3 U8 pp.128–129 and p.140 spread layout, card placement, navigation persistence, and unchanged prompt output.
 - Next bounded slice: propagate selected SB evidence through all local handoff artifacts without reintroducing excluded evidence; keep Workbook cards separate.
 - Otherwise, separately authorize a series handoff for an already-wired companion, or move to another book/unit.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.

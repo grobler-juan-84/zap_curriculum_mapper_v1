@@ -5328,3 +5328,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 314
+
+**Summary:** Refined Current Lesson into an activity-first Student Book picker: compact lesson context, a wide restrained book-spread surface, a subtle two-page gutter, a centered one-page layout, and denser checkbox-only cards. Preserved session selection and all handoff output, and documented future evidence-shaped asymmetric Workbook layouts without implementing them.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `docs/phase-5/chalkie-current-activity-selection-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

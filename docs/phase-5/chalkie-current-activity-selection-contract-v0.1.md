@@ -1,7 +1,7 @@
 # Chalkie Current Activity Selection Contract
 
 **Status:** ACTIVE / PARTIALLY IMPLEMENTED  
-**Version:** 0.3  
+**Version:** 0.4  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
@@ -12,7 +12,7 @@ The Chalkie Workspace **Current Lesson** step shows verified current-page Studen
 
 This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence.
 
-**Implementation status:** **SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.** The Current Lesson screen now renders the implemented SB model in active-page columns, defaults every card to included, preserves exclusions across Back/Continue while the modal stays open, and shows selection/empty feedback. Existing handoff builders still do not consume the selected-evidence accessor.
+**Implementation status:** **SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.** Current Lesson now uses a compact lesson-identity line and a wide, restrained book-spread picker instead of the prior metadata wall. The implemented SB model remains active-page scoped, defaults every card to included, preserves exclusions across Back/Continue while the modal stays open, and shows selection/empty feedback. Existing handoff builders still do not consume the selected-evidence accessor.
 
 ## 1. Placement in the workflow
 
@@ -32,13 +32,13 @@ Activity selection happens **before prior-learning selection**. Current-page sou
 
 On the **Current Lesson** step:
 
+- Show one compact selected-book/unit identity line and one short selection instruction; do not repeat the full lesson metadata, words/models, language, teaching-focus, or provenance summary above the cards.
 - Show Student Book activity cards first.
-- If a verified Workbook companion exists, show Workbook activity cards below the Student Book cards.
-- For each visible page pair, use two columns:
+- For a genuine two-page SB lesson scope, use two page panels with a subtle central gutter:
   - SB left-page activities | SB right-page activities
-  - WB left-page activities | WB right-page activities
 - For a one-page active lesson scope, show only that active page's cards, even when the PDF viewer keeps a two-page spread visible.
-- Show the Workbook section only when an evidence-backed companion is resolved for the active lesson scope.
+- Use most of the modal width while retaining approximately 24–32px desktop content padding.
+- Keep the footer unchanged and the final activity cards scrollable above it.
 
 Each activity card must contain only verified evidence:
 
@@ -103,6 +103,17 @@ This supports human verification; it does not replace it. Cards do not make sour
 - Unit Intelligence remains interpretation/planning support and must not populate current activity cards or bypass activity selection.
 - Workbook cards require a verified companion for the active lesson scope; no companion may be inferred from page proximity.
 
+### Future Workbook layout constraint — documentation only
+
+The future Workbook activity section must support asymmetric evidence-backed layouts:
+
+- a two-page SB component may map to only one Workbook page, as with Story;
+- a component may have no Workbook companion, as with Values;
+- render only Workbook pages present in the verified companion relationship;
+- never render an empty placeholder Workbook page merely to imitate an SB spread.
+
+This constraint does not authorize Workbook card implementation or change any verified SB→WB mapping.
+
 ## 7. Acceptance cases for later implementation
 
 ### 7.1 True SB two-page spread
@@ -111,7 +122,7 @@ Given a verified two-page SB lesson component with activities on both pages, the
 
 ### 7.2 SB→WB paired component
 
-Given an active SB lesson scope with a verified WB companion, SB activity cards appear first and WB cards appear below in their own page columns. Source labels remain distinct. Only selected SB and WB activities feed the handoff; WB evidence is never presented as SB evidence.
+Given an active SB lesson scope with a verified WB companion, a future Workbook section appears below the SB picker and renders only the mapped Workbook page panel(s). A 2→1 Story mapping renders one WB panel, not a fake second page; a Values component with no companion renders no Workbook section. Source labels remain distinct. Only selected SB and WB activities may feed the handoff after separately authorized propagation; WB evidence is never presented as SB evidence.
 
 ### 7.3 One-page active scope inside a visible two-page PDF spread
 
@@ -141,7 +152,8 @@ The first two bounded implementation slices are complete:
 - deterministic include/exclude helpers that reject stale IDs;
 - a selected-evidence accessor plus exclusion tests;
 - Current Lesson SB activity cards grouped under their actual active page(s);
-- one-page scopes render one page column, while true two-page scopes render two;
+- compact book/unit context followed by a wide, book-spread-style picker;
+- one-page scopes render one centered page panel, while true two-page scopes render two panels with a subtle gutter;
 - checkbox-only inclusion controls, selection count, honest preview/record empty states, and an all-unselected warning;
 - session-only selection preserved across Current Lesson → Prior Learning → Back;
 - explicit notice that current handoff content is unchanged.

@@ -91,10 +91,15 @@ function PriorSkillCardHeading({ label }: { label: string }) {
 }
 
 function activityPreviewLabel(kind: SbActivityPreviewKind): string {
-  if (kind === 'language_model') return 'Verified language'
-  if (kind === 'activity_item_model') return 'Verified model'
-  if (kind === 'expected_answer') return 'Verified answer evidence'
-  return 'Verified task evidence'
+  if (kind === 'language_model' || kind === 'activity_item_model') {
+    return 'Language'
+  }
+  if (kind === 'expected_answer') return 'Answer evidence'
+  return 'Task evidence'
+}
+
+function compactStudentBookLabel(bookLabel: string): string {
+  return bookLabel.replace(/\s+Student Book$/i, '').trim() || bookLabel
 }
 
 interface TeacherChoiceFlowOverlayProps {
@@ -595,233 +600,165 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           </button>
         </header>
 
-        <div className="min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/20 px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+        <div
+          className={`min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/20 ${
+            step === 1
+              ? 'px-4 py-5 sm:px-6 sm:py-6 lg:px-8'
+              : 'px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
+          }`}
+        >
           {step === 1 ? (
-            <div className="mx-auto w-full max-w-[46rem] space-y-7">
-              <div className="space-y-3">
+            <div className="mx-auto w-full max-w-[80rem] space-y-4">
+              <div className="space-y-1">
                 <h2
                   id={titleId}
-                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                  className="text-sm font-semibold text-slate-800"
                 >
-                  What are you teaching now?
+                  Current lesson
+                  <span className="mx-2 font-normal text-slate-400" aria-hidden="true">
+                    ·
+                  </span>
+                  {compactStudentBookLabel(lesson.bookLabel)}
+                  <span className="mx-2 font-normal text-slate-400" aria-hidden="true">
+                    ·
+                  </span>
+                  {lesson.unitLine}
                 </h2>
-                <div className="space-y-1 text-sm leading-relaxed text-slate-600">
-                  <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
-                  <p>{lesson.unitLine}</p>
-                  <p>Visible pages: {lesson.visiblePageRangeLabel}</p>
-                  {lesson.lessonTopic ? (
-                    <p>
-                      <span className="font-medium text-slate-800">Lesson topic:</span>{' '}
-                      {lesson.lessonTopic}
-                    </p>
-                  ) : null}
-                  <p>Page sections: {lesson.currentFocus}</p>
-                </div>
-                {lesson.teachingFocus ? (
-                  <div className="space-y-1 text-sm leading-relaxed text-slate-600">
-                    <p>
-                      <span className="font-medium text-slate-800">Teaching focus:</span>{' '}
-                      {lesson.teachingFocus}
-                    </p>
-                    <p className="text-slate-500">
-                      Planning summary derived from verified evidence — not a publisher quotation.
-                    </p>
-                  </div>
-                ) : null}
-                {lesson.unitContextNote ? (
-                  <p className="text-sm leading-relaxed text-slate-500">{lesson.unitContextNote}</p>
-                ) : null}
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Select the Student Book activities to include in this lesson.
+                </p>
               </div>
 
-              <section className="space-y-2.5" aria-label="Current words and models">
-                <h3 className="text-sm font-medium text-slate-800">Current words and models</h3>
-                {lesson.vocabulary.length > 0 ? (
-                  <>
-                    <ul className="flex flex-wrap gap-2">
-                      {lesson.vocabulary.map((term) => (
-                        <li
-                          key={term}
-                          className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
-                        >
-                          {term}
-                        </li>
-                      ))}
-                    </ul>
-                    {lesson.hasActivityDerivedModels && !lesson.hasDedicatedVocabulary ? (
-                      <p className="text-sm text-slate-500">
-                        From verified activity items (not dedicated vocabulary rows).
-                      </p>
-                    ) : null}
-                    {lesson.hasDedicatedVocabulary && lesson.hasActivityDerivedModels ? (
-                      <p className="text-sm text-slate-500">
-                        Includes dedicated vocabulary rows and activity-derived models.
-                      </p>
-                    ) : null}
-                  </>
-                ) : (
-                  <p className="text-sm text-slate-500">
-                    No dedicated vocabulary rows or safely extractable activity-derived models are
-                    available for these pages yet.
-                  </p>
-                )}
-              </section>
-
-              <section className="space-y-2.5" aria-label="Current language">
-                <h3 className="text-sm font-medium text-slate-800">Current language</h3>
-                {lesson.languageExamples.length > 0 ? (
-                  <>
-                    <ul className="space-y-2 text-sm leading-relaxed text-slate-700">
-                      {lesson.languageExamples.map((item) => (
-                        <li key={`${item.label ?? ''}:${item.example}`}>
-                          {item.label ? (
-                            <>
-                              <span className="font-medium text-slate-800">{item.label}:</span>{' '}
-                              <span>{item.example}</span>
-                            </>
-                          ) : (
-                            item.example
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                    {lesson.hasActivityLanguageFrames && !lesson.hasDedicatedLanguage ? (
-                      <p className="text-sm text-slate-500">
-                        No separate language entity is linked; verified activity language frames are
-                        shown.
-                      </p>
-                    ) : null}
-                  </>
-                ) : (
-                  <p className="text-sm text-slate-500">
-                    No dedicated language rows or verified activity language frames are available for
-                    these pages yet.
-                  </p>
-                )}
-                {lesson.clarification ? (
-                  <p className="pt-1 text-sm leading-relaxed text-slate-600">
-                    <span className="font-medium text-slate-700">Note:</span> {lesson.clarification}
-                  </p>
-                ) : null}
-              </section>
-
               <section className="space-y-3" aria-label="Current Student Book activities">
-                <div className="flex flex-wrap items-end justify-between gap-2">
-                  <h3 className="text-sm font-medium text-slate-800">
-                    Current Student Book activities
-                  </h3>
-                  <p className="text-sm text-slate-600" aria-live="polite">
-                    {activitySelectionStatus.selectedCount} of{' '}
-                    {activitySelectionStatus.totalCount} current activities included
-                  </p>
-                </div>
-
                 <div
-                  className={`grid grid-cols-1 gap-4 ${
-                    activityPageColumns.length > 1 ? 'md:grid-cols-2' : ''
-                  }`}
+                  className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
+                  data-sb-activity-spread
+                  data-page-count={activityPageColumns.length}
                 >
-                  {activityPageColumns.map((column) => (
+                  <div className="flex items-center justify-between gap-3 px-2 pb-2 pt-0.5 sm:px-3">
+                    <h3 className="text-sm font-semibold text-slate-800">
+                      Student Book activities
+                    </h3>
+                    <p className="text-sm font-medium text-slate-600" aria-live="polite">
+                      {activitySelectionStatus.selectedCount} of{' '}
+                      {activitySelectionStatus.totalCount} selected
+                    </p>
+                  </div>
+
+                  <div className="relative">
+                    {activityPageColumns.length > 1 ? (
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
+                      />
+                    ) : null}
                     <div
-                      key={column.printedPage}
-                      className="space-y-2.5"
-                      data-sb-activity-page={column.printedPage}
+                      className={`grid grid-cols-1 gap-3 md:gap-5 ${
+                        activityPageColumns.length > 1
+                          ? 'md:grid-cols-2'
+                          : 'md:mx-auto md:max-w-[46rem]'
+                      }`}
                     >
-                      <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                        Student Book p. {column.printedPage}
-                      </h4>
-                      {column.cards.length > 0 ? (
-                        <ul className="space-y-2.5">
-                          {column.cards.map((card) => {
-                            const checkboxId = `current-activity-${card.id}`
-                            const detailsId = `${checkboxId}-details`
-                            const checked =
-                              effectiveActivitySelection.selectedCardIds.includes(card.id)
-                            return (
-                              <li
-                                key={card.id}
-                                className={`rounded-lg border bg-white p-3 transition-colors ${
-                                  checked
-                                    ? 'border-indigo-200'
-                                    : 'border-slate-200 opacity-75'
-                                }`}
-                              >
-                                <div className="flex gap-3">
-                                  <div className="flex shrink-0 items-start gap-1.5 pt-0.5">
-                                    <input
-                                      id={checkboxId}
-                                      type="checkbox"
-                                      checked={checked}
-                                      onChange={(event) =>
-                                        handleActivitySelectionChange(
-                                          card.id,
-                                          event.target.checked,
-                                        )
-                                      }
-                                      aria-describedby={detailsId}
-                                      className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                                    />
-                                    <label
-                                      htmlFor={checkboxId}
-                                      className="text-xs font-medium text-slate-600"
-                                    >
-                                      Include
-                                    </label>
-                                  </div>
-                                  <div id={detailsId} className="min-w-0 flex-1 space-y-1.5">
-                                    <p className="text-xs font-medium text-slate-500">
-                                      [SB p.{card.printedPage}]
-                                      {card.activityNumber
-                                        ? ` · Activity ${card.activityNumber}`
-                                        : ''}
-                                    </p>
-                                    <p className="text-sm font-medium leading-snug text-slate-900">
-                                      {card.verifiedWording}
-                                    </p>
-                                    {card.preview.kind === 'empty' ? (
-                                      <p className="text-xs leading-relaxed text-slate-500">
-                                        No safe verified preview is available for this activity.
-                                      </p>
-                                    ) : (
-                                      <div className="space-y-1">
-                                        <p className="text-xs font-medium text-slate-500">
-                                          {activityPreviewLabel(card.preview.kind)}
+                      {activityPageColumns.map((column) => (
+                        <div
+                          key={column.printedPage}
+                          className="min-w-0 rounded-xl border border-slate-200 bg-[#fffefb] p-3 shadow-sm sm:p-4"
+                          data-sb-activity-page={column.printedPage}
+                        >
+                          <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
+                            Student Book · p.{column.printedPage}
+                          </h4>
+                          {column.cards.length > 0 ? (
+                            <ul className="space-y-2.5">
+                              {column.cards.map((card) => {
+                                const checkboxId = `current-activity-${card.id}`
+                                const detailsId = `${checkboxId}-details`
+                                const checked =
+                                  effectiveActivitySelection.selectedCardIds.includes(card.id)
+                                return (
+                                  <li
+                                    key={card.id}
+                                    className={`rounded-lg border p-3 transition-colors ${
+                                      checked
+                                        ? 'border-indigo-200 bg-indigo-50/55 shadow-xs'
+                                        : 'border-slate-200 bg-slate-50/75'
+                                    }`}
+                                  >
+                                    <div className="flex gap-2.5">
+                                      <input
+                                        id={checkboxId}
+                                        type="checkbox"
+                                        checked={checked}
+                                        onChange={(event) =>
+                                          handleActivitySelectionChange(
+                                            card.id,
+                                            event.target.checked,
+                                          )
+                                        }
+                                        aria-label={`Select ${card.activityNumber ? `Activity ${card.activityNumber}` : 'activity'} on Student Book page ${card.printedPage}`}
+                                        aria-describedby={detailsId}
+                                        className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                      />
+                                      <div id={detailsId} className="min-w-0 flex-1 space-y-1">
+                                        <p className="text-[11px] font-medium text-slate-500">
+                                          [SB p.{card.printedPage}]
+                                          {card.activityNumber
+                                            ? ` · Activity ${card.activityNumber}`
+                                            : ''}
                                         </p>
-                                        <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
-                                          {card.preview.values.map((value) => (
-                                            <li key={value}>{value}</li>
-                                          ))}
-                                        </ul>
+                                        <p className="text-sm font-semibold leading-snug text-slate-900">
+                                          {card.verifiedWording}
+                                        </p>
+                                        {card.preview.kind === 'empty' ? (
+                                          <p className="text-xs leading-relaxed text-slate-500">
+                                            No safe verified preview is available for this activity.
+                                          </p>
+                                        ) : (
+                                          <div className="space-y-0.5 pt-0.5">
+                                            <p className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                                              {activityPreviewLabel(card.preview.kind)}
+                                            </p>
+                                            <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
+                                              {card.preview.values.map((value) => (
+                                                <li key={value}>{value}</li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
                                       </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </li>
-                            )
-                          })}
-                        </ul>
-                      ) : (
-                        <p className="rounded-lg border border-dashed border-slate-300 bg-white/70 p-3 text-xs leading-relaxed text-slate-500">
-                          No human-verified Student Book activity cards are available for this page.
-                        </p>
-                      )}
+                                    </div>
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                          ) : (
+                            <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
+                              No human-verified Student Book activity cards are available for this
+                              page.
+                            </p>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
 
-                {activitySelectionStatus.hasNoSelectedCurrentActivities ? (
-                  <p
-                    role="status"
-                    className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm leading-relaxed text-amber-900"
-                  >
-                    No current Student Book activities are selected. A later handoff would contain
-                    no selected current-page activities.
-                  </p>
-                ) : null}
+                <div className="space-y-1.5 px-1">
+                  {activitySelectionStatus.hasNoSelectedCurrentActivities ? (
+                    <p
+                      role="status"
+                      className="rounded-md border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs leading-relaxed text-amber-900"
+                    >
+                      No current Student Book activities are selected. A later handoff would contain
+                      no selected current-page activities.
+                    </p>
+                  ) : null}
 
-                <p className="text-xs leading-relaxed text-slate-500">
-                  Activity selection is saved for this session. Current Chalkie handoff content is
-                  unchanged until the next implementation step.
-                </p>
+                  <p className="text-xs leading-relaxed text-slate-500">
+                    Activity selection is saved for this session. Current Chalkie handoff content is
+                    unchanged until the next implementation step.
+                  </p>
+                </div>
               </section>
             </div>
           ) : null}

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 313
+**Last updated:** Step 314
 
 
 
@@ -522,7 +522,9 @@
 
 - [x] **Activity Selection UI slice:** SB activity-card UI implemented with session-only selection; Workbook cards and handoff propagation not yet implemented.
 
-- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.132–133 page columns + exclusion persistence; p.140 only; final prompt unchanged.
+- [x] **Activity Selection visual refinement:** compact lesson identity + wide SB spread surface; subtle two-page gutter; centered one-page panel; compact checkbox-only cards; summary wall removed.
+
+- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two-page spread + exclusion persistence; p.140 one-page panel only; final prompt unchanged.
 
 - [ ] **Owner-gated next Activity Selection slice:** propagate selected SB activity evidence through detailed prompt, concise outline, suggested vocabulary, and derived current-page content without fallback leakage; keep Workbook cards separate.
 

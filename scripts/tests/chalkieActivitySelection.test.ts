@@ -74,36 +74,36 @@ function loadBe3Summary(): BatchJsonSummary {
 
 const summary = loadBe3Summary()
 
-test('SB cards contain only human-verified activities in the requested active scope', () => {
+test('BE3 U8 pp.128–129 render two populated SB page panels in source-page order', () => {
   const cards = buildSbActivityCards({
     summary,
-    activeLessonPrintedPages: [132, 133],
+    activeLessonPrintedPages: [128, 129],
   })
-  const columns = buildSbActivityPageColumns(cards, [132, 133])
+  const columns = buildSbActivityPageColumns(cards, [128, 129])
 
-  assert.ok(cards.length > 0)
-  assert.deepEqual([...new Set(cards.map((card) => card.printedPage))], [132, 133])
-  assert.deepEqual(columns.map((column) => column.printedPage), [132, 133])
-  assert.ok(columns[0]?.cards.length)
-  assert.ok(columns[1]?.cards.length)
-  assert.ok(columns[0]?.cards.every((card) => card.printedPage === 132))
-  assert.ok(columns[1]?.cards.every((card) => card.printedPage === 133))
+  assert.equal(cards.length, 5)
+  assert.deepEqual([...new Set(cards.map((card) => card.printedPage))], [128, 129])
+  assert.deepEqual(columns.map((column) => column.printedPage), [128, 129])
+  assert.equal(columns[0]?.cards.length, 3)
+  assert.equal(columns[1]?.cards.length, 2)
+  assert.ok(columns[0]?.cards.every((card) => card.printedPage === 128))
+  assert.ok(columns[1]?.cards.every((card) => card.printedPage === 129))
   assert.ok(cards.every((card) => card.source === 'SB'))
   assert.ok(cards.every((card) => card.references.verificationStatus === 'human_verified'))
   assert.ok(cards.every((card) => card.id.startsWith('sb-activity:')))
   assert.ok(cards.every((card) => card.references.activityId.length > 0))
   assert.ok(cards.every((card) => card.references.pageId === card.pageId))
-  assert.ok(cards.some((card) => card.preview.kind === 'language_model'))
   assert.equal(cards.some((card) => card.printedPage === 140), false)
 })
 
 test('every eligible SB activity card is selected by default', () => {
   const cards = buildSbActivityCards({
     summary,
-    activeLessonPrintedPages: [132, 133],
+    activeLessonPrintedPages: [128, 129],
   })
   const state = createDefaultSbActivitySelection(cards)
 
+  assert.equal(cards.length, 5)
   assert.deepEqual(state.selectedCardIds, cards.map((card) => card.id))
   assert.equal(selectedSbActivityEvidence(cards, state).length, cards.length)
   assert.deepEqual(sbActivitySelectionStatus(cards, state), {
@@ -252,11 +252,31 @@ test('activity exclusions persist through Current Lesson to Prior Learning and B
 
 test('overlay exposes honest activity selection feedback without wiring handoff builders', () => {
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
+  const step1Start = overlaySource.indexOf('{step === 1 ? (')
+  const step2Start = overlaySource.indexOf('{step === 2 ? (')
+  assert.ok(step1Start >= 0)
+  assert.ok(step2Start > step1Start)
+  const step1Source = overlaySource.slice(step1Start, step2Start)
 
   assert.match(overlaySource, /Current Student Book activities/)
-  assert.match(overlaySource, /Student Book p\. \{column\.printedPage\}/)
+  assert.match(step1Source, /Current lesson/)
+  assert.match(
+    step1Source,
+    /Select the Student Book activities to include in this lesson\./,
+  )
+  assert.match(step1Source, /data-sb-activity-spread/)
+  assert.match(step1Source, /data-page-count=\{activityPageColumns\.length\}/)
+  assert.match(step1Source, /Student Book · p\.\{column\.printedPage\}/)
   assert.match(overlaySource, /\[SB p\.\{card\.printedPage\}\]/)
-  assert.match(overlaySource, /current activities included/)
+  assert.match(step1Source, /activityPageColumns\.length > 1/)
+  assert.match(step1Source, /left-1\/2/)
+  assert.match(step1Source, /max-w-\[80rem\]/)
+  assert.match(step1Source, /selected/)
+  assert.ok(!step1Source.includes('>Include<'))
+  assert.ok(!step1Source.includes('Current words and models'))
+  assert.ok(!step1Source.includes('Current language'))
+  assert.ok(!step1Source.includes('Teaching focus:'))
+  assert.ok(!step1Source.includes('Visible pages:'))
   assert.match(
     overlaySource,
     /No current Student Book activities are selected\. A later handoff would contain/,
