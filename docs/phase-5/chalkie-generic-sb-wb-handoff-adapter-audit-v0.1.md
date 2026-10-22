@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler only  
-**Version:** 0.2  
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + Opener test-only parity
+**Version:** 0.3
 **Date:** 2026-10-22  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. The existing handoff builders remain the production renderers and are unchanged.
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only; no UI/rendering migration yet.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener shadow-renderer parity proved in tests only; existing production handoff output remains unchanged; no UI migration.** Story rendering is not implemented. The existing handoff builders remain the production renderers and are unchanged.
 
 The core separation is:
 
@@ -229,7 +229,7 @@ This bounded assembler does not authorize those adapters or claim broader compon
 ## 7. Known exceptions and gaps
 
 1. **The neutral package is bounded to two accepted pairs.** Opener and Story are implemented; no other resolver-wired relationship is eligible.
-2. **All-selected and partial-selection paths differ.** Baseline paths use curated prose; partial paths use selected evidence helpers. A generic package should normalize both before rendering while preserving accepted all-selected output.
+2. **All-selected and partial-selection paths differ.** The test-only Opener shadow renderer preserves the accepted all-selected prose exactly and renders partial/zero states only from neutral selected evidence. Production still uses the bespoke builder.
 3. **Purpose is not canonical evidence.** It needs a reviewed planning source or explicit teacher confirmation; it must not be guessed from a component label.
 4. **Production rendering still lacks lesson-targeted support consumption.** The neutral package preserves explicit targets, but existing series inputs remain shared across the series and bespoke outlines omit targeted prior/support steps.
 5. **Production provenance defaults remain inconsistent.** The neutral package requires explicit provenance, but existing renderers have not migrated.
@@ -243,7 +243,7 @@ This bounded assembler does not authorize those adapters or claim broader compon
 
 ## 8. Explicit non-goals
 
-- Implementing or wiring a generic platform renderer.
+- Wiring any neutral-package renderer into production UI/output.
 - Replacing or refactoring the accepted opener/Story builders.
 - Adding a new component-specific handoff.
 - Changing Activity Selection UI, state, or propagation.
@@ -268,4 +268,12 @@ The separately authorized **read-only neutral package assembler and contract tes
 
 This proves the reusable data boundary without changing accepted handoff output.
 
-**Smallest next step:** owner-review the assembled Opener and Story package shape and decide whether the contract is sufficient. Only after separate approval should a test-only/shadow renderer parity slice be considered; keep both bespoke builders and all UI routing unchanged until then.
+The separately authorized **Opener test-only shadow-renderer parity slice** is also implemented:
+
+1. `renderBe3U08OpenerNeutralPackageToChalkieShadow.ts` accepts only the exact accepted Opener neutral package.
+2. Its all-selected detailed handoff, Lesson 1 outline/vocabulary, and Lesson 2 outline/vocabulary match the established bespoke builder byte-for-byte.
+3. Partial and zero-selection rendering consumes only package-selected activity, vocabulary, language, and audio evidence; exclusions cannot return through the accepted all-selected template.
+4. Optional `[PRIOR]`, `[HM]`, and `[TEACHER-ADDED · UNVERIFIED]` support preserves explicit Lesson 1 / Lesson 2 targeting.
+5. The renderer is imported only by focused tests; production UI, preview, copy actions, routing, and bespoke builders remain unchanged.
+
+**Smallest next step:** owner-review the Opener parity proof. If accepted, separately authorize the equivalent Story test-only parity slice; do not migrate either renderer into production UI/output yet.

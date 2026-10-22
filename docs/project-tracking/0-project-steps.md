@@ -5486,3 +5486,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 322
+
+**Summary:** Proved test-only Chalkie renderer parity for the accepted BE3 Unit 8 Opener neutral package. All five all-selected artifacts match the bespoke builder exactly, while exclusions, zero-selection, and explicitly targeted prior support remain honest; production UI/output is unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/renderBe3U08OpenerNeutralPackageToChalkieShadow.ts` (created)
+- `scripts/tests/renderBe3U08OpenerNeutralPackageToChalkieShadow.test.ts` (created)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

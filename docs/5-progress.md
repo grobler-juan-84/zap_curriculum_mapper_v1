@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 321
+**Last updated:** Step 322
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -24,17 +24,19 @@
 
 - **Activity Selection contract v0.9:** **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** Teacher-selectable SB/WB cards (all selected by default); selected-only SB and WB handoff propagation; open-book layouts; BE3 U8 opener persistence accepted (`4 of 5` SB / `3 of 4` WB after Back). Does not authorize Chalkie generation or claim classroom validation.
 
-- **Neutral SB→WB package assembler (audit v0.2):** implemented read-only for the accepted BE3 U8 Opener and Story pairs only. It packages exact scopes, selected-only activity/vocabulary/language/audio evidence, explicit selection states and boundaries, and lesson-targeted `[PRIOR]` / `[HM]` / teacher-added support; existing Chalkie UI and rendering are unchanged.
+- **Neutral SB→WB package assembler:** implemented read-only for the accepted BE3 U8 Opener and Story pairs only. It packages exact scopes, selected-only activity/vocabulary/language/audio evidence, explicit selection states and boundaries, and lesson-targeted `[PRIOR]` / `[HM]` / teacher-added support; existing Chalkie UI and rendering are unchanged.
+
+- **Opener shadow-renderer parity (audit v0.3):** proved in tests only for the accepted BE3 U8 Opener package. Five all-selected artifacts match the bespoke builder exactly; exclusions and zero-selection remain package-selected-only. Production UI/output is unchanged.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Owner review of the bounded neutral package contract and assembled Opener/Story shapes.
+- Owner review of the Opener shadow-renderer parity proof.
 
 ## Next
 
-- Review the neutral Opener/Story package shape before separately deciding whether to run a test-only shadow-renderer parity check.
+- If the Opener proof is accepted, separately decide whether to authorize the equivalent Story test-only parity slice.
 - Do not migrate UI or production Chalkie renderers automatically.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.
