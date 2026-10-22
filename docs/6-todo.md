@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 311
+**Last updated:** Step 312
 
 
 
@@ -518,7 +518,9 @@
 
 - [x] **Activity Selection contract v0.1** — design-only current-page SB/WB activity cards; teacher inclusion/exclusion before prior learning; strict handoff filtering; no implementation.
 
-- [ ] **Owner-gated smallest Activity Selection implementation:** SB-only read-only activity-card model + deterministic default selection/exclusion state + exclusion-propagation tests; do not add WB cards or alter handoff UI without a separate authorization.
+- [x] **First bounded Activity Selection implementation:** SB-only read-only activity-card model + deterministic default selection/exclusion state + selected-evidence accessor + exclusion tests; visible UI and current handoff unchanged.
+
+- [ ] **Owner-gated next Activity Selection slice:** render SB-only cards and checkboxes in Current Lesson using the implemented model/state; no Workbook cards or handoff propagation.
 
 - [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
 

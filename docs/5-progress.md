@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 311
+**Last updated:** Step 312
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -22,17 +22,17 @@
 
 - **Active lesson page scope:** one-page components inside a two-page PDF reading spread (e.g. p.140 / p.141) resolve companion + Prepare from the Go / page-control active page; true two-page mappings unchanged.
 
-- **Activity Selection contract v0.1:** active design for verified current-page cards and teacher keep/exclude choices before prior learning; no UI, schema, resolver, handoff-builder, or canonical-data implementation yet.
+- **Activity Selection contract v0.2:** SB-only verified activity-card model + deterministic default selection/exclusion state + selected-evidence accessor implemented and tested. UI cards, Workbook cards, and handoff propagation are not implemented.
 
 - Teacher Intelligence left-pane contract: Unit Intelligence accordion implemented.
 
 ## In progress
 
-- Activity Selection is **ACTIVE DESIGN / NOT YET IMPLEMENTED**. Unit 8 WB-targeted companion wiring remains complete.
+- Activity Selection is **ACTIVE DESIGN / PARTIALLY IMPLEMENTED**. Visible UI and current handoff output remain unchanged.
 
 ## Next
 
-- If explicitly authorized, implement the smallest Activity Selection slice: an SB-only read-only activity-card model plus deterministic default selection/exclusion state and propagation tests; no WB cards or handoff UI yet.
+- If explicitly authorized, render SB-only Current Lesson activity cards and checkbox state from the implemented model; keep Workbook cards and handoff propagation out of that slice.
 - Otherwise, separately authorize a series handoff for an already-wired companion, or move to another book/unit.
 - Do not build Horizontal Mapping / School Notes / Future Suggestions yet.
 - Phase 3 / F005 parked (D020). F021/F022 preserved. No automatic generation.

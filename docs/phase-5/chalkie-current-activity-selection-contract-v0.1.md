@@ -1,7 +1,7 @@
 # Chalkie Current Activity Selection Contract
 
-**Status:** ACTIVE DESIGN / NOT YET IMPLEMENTED  
-**Version:** 0.1  
+**Status:** ACTIVE DESIGN / PARTIALLY IMPLEMENTED  
+**Version:** 0.2  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
@@ -10,7 +10,9 @@
 
 The Chalkie Workspace **Current Lesson** step will eventually show verified current-page activity cards. Teachers will be able to keep or exclude specific activities before the local Chalkie handoff is assembled.
 
-This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence. This contract defines intended behaviour only; it does not authorize UI, schema, resolver, handoff-builder, canonical-data, or Chalkie-generation changes.
+This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence.
+
+**Implementation status:** **SB activity model + deterministic selection state implemented; UI cards, Workbook cards, and handoff propagation not yet implemented.** The implemented helper is local and UI-independent; existing handoff builders do not consume its selected-evidence accessor.
 
 ## 1. Placement in the workflow
 
@@ -128,5 +130,16 @@ Given that the teacher deselects every eligible current activity, show the no-cu
 
 ## Implementation gate
 
-The smallest later implementation slice is a **read-only current-activity card model and deterministic selector for Student Book evidence only**, scoped to the active lesson pages, with default-selected checkboxes and exclusion-propagation tests. Workbook cards and handoff-builder consumption should follow only after that model preserves provenance and honest empty states.
+The first bounded implementation slice is complete:
+
+- read-only Student Book activity-card data from `human_verified` activity rows only;
+- active-lesson-page scoping;
+- stable IDs backed by original activity IDs;
+- safe evidence previews with an explicit empty state;
+- all eligible cards selected by default;
+- deterministic include/exclude helpers that reject stale IDs;
+- a selected-evidence accessor plus exclusion tests;
+- no UI or handoff-builder wiring.
+
+The next smallest implementation slice is **SB-only Current Lesson card rendering and checkbox state backed by this model**, with no Workbook cards and no handoff propagation. Workbook cards and handoff-builder consumption require later, separately bounded work.
 
