@@ -1,7 +1,7 @@
 # Chalkie Current Activity Selection Contract
 
-**Status:** ACTIVE / IMPLEMENTED  
-**Version:** 0.8  
+**Status:** IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow  
+**Version:** 0.9  
 **Scope:** Teacher curation of verified current-lesson activities before local handoff assembly
 
 ---
@@ -12,7 +12,7 @@ The Chalkie Workspace **Current Lesson** step shows verified current-page Studen
 
 This is a **teacher-curation layer**. It is not an AI decision, an evaluation of textbook quality, or an edit to the textbook or its canonical evidence.
 
-**Implementation status:** **SB and Workbook activity selection propagate into the applicable local handoff. Workbook selection remains session-only and is not saved to canonical data.** Current Lesson uses a compact lesson-identity line and separate evidence-shaped SB and WB book surfaces. Both models default every eligible card to selected and preserve checkbox state across Back/Continue while the modal stays open. Selected WB evidence controls Workbook-bearing detailed prompts, Lesson 2 concise outlines, suggested vocabulary, language/models, and selection-sensitive activity lists for the two accepted BE3 series handoffs.
+**Implementation / acceptance status:** **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** Activity Selection is implemented and accepted for the local Chalkie handoff workflow. Student Book and verified Workbook activities appear as teacher-selectable cards (all selected by default). Selected SB activities drive the detailed handoff, concise outline, vocabulary, language/models, and selection-sensitive focus. Selected Workbook activities drive the applicable Workbook / Lesson 2 handoff content. Unchecked activities do not return through page summaries, vocabulary, language, outlines, bespoke series builders, or fallback reconstruction. Zero selected Workbook activities produce an explicit honest empty Workbook / Lesson 2 state without substituting Student Book material or leaking an adjacent Workbook page. Workbook selection remains session-only and is not saved to canonical data. This acceptance does **not** authorize Chalkie generation and does **not** claim classroom validation.
 
 ## 1. Placement in the workflow
 
@@ -155,9 +155,9 @@ Given a verified activity record with a source label and title/instruction but n
 
 Given that the teacher deselects every eligible current activity, show the no-current-activities warning. The local handoff contains no current-page activity evidence, language/models, scoped vocabulary, teaching focus, or fabricated outline activity steps, and explicitly prohibits reconstruction from page context. Do not select prior learning automatically; any prior learning remains a separate explicit teacher choice.
 
-## Implementation gate
+## Implementation gate / manual acceptance
 
-The bounded SB and Workbook propagation slices are complete:
+The bounded SB and Workbook Activity Selection slices are **implemented and manually accepted** for the provisional local Chalkie handoff workflow:
 
 - read-only Student Book activity-card data from `human_verified` activity rows only;
 - active-lesson-page scoping;
@@ -184,5 +184,19 @@ The bounded SB and Workbook propagation slices are complete:
 - explicit zero-selected Workbook state with no fallback, reconstruction, or Student Book substitution;
 - all-selected Workbook output preserves the accepted baseline; no-companion single-SB handoffs are unaffected.
 
-The next smallest step is the owner manual propagation check: exclude WB105 Activity 3 and one WB106 activity, verify selected neighbours remain and excluded evidence cannot return, then verify the zero-selected Workbook state. Any neutral-package extraction remains a separate future slice.
+### Manual acceptance record (2026-10-22)
+
+Owner accepted the Activity Selection workflow for local handoff curation after verifying:
+
+- **Visual book-spread layout:** two-page scopes show two real page panels; one-page scopes retain their physical left/right slot with a quiet facing placeholder; no Workbook section appears when there is no verified Workbook companion.
+- **Selected-only propagation:** unchecked activities do not return through page summaries, vocabulary, language, outlines, bespoke series builders, or fallback reconstruction; zero selected Workbook activities produce an explicit honest empty Workbook / Lesson 2 state without SB substitution or adjacent-page leakage.
+- **Persistence on BE3 Unit 8 opener SB pp.128–129 ↔ WB pp.104–105:**
+  1. initially all 5 SB and 4 WB activities selected;
+  2. owner unchecked SB p.129 Activity 4 (`Listen and sing. How does Zach feel today?`) and WB p.105 Activity 3 (`Listen and write.`);
+  3. owner continued to Prior Learning, then returned with Back;
+  4. both exclusions persisted and counts remained `4 of 5` SB and `3 of 4` WB.
+
+This acceptance is **provisional** for the local handoff curation workflow only. It does not authorize Chalkie generation and does not claim classroom validation.
+
+**Next step:** Pause Activity Selection feature work. The next project question must be chosen separately; do not automatically add a new curation feature.
 

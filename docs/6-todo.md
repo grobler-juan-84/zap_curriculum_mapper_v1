@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 318
+**Last updated:** Step 319
 
 
 
@@ -526,27 +526,19 @@
 
 - [x] **Open-book one-page visual correction:** every displayed SB/WB section keeps two page slots; scoped even pages stay left, odd pages stay right, and the facing panel is a quiet non-content placeholder.
 
-- [ ] **Owner manual Activity Selection check:** BE3 U8 pp.128–129 two real panels + exclusion persistence; p.140–143 correct physical slots and quiet facing placeholders.
+- [x] **Owner manual Activity Selection acceptance:** layout, selected-only SB/WB propagation, and BE3 U8 opener persistence accepted (initially 5 SB + 4 WB; after excluding SB p.129 Activity 4 and WB p.105 Activity 3, Back restored `4 of 5` / `3 of 4`). Status: **IMPLEMENTED / MANUALLY ACCEPTED — local handoff curation; provisional workflow.** Does not authorize Chalkie generation or claim classroom validation.
 
 - [x] **SB Activity Selection propagation:** selected evidence drives detailed prompt, concise outline, suggested vocabulary, language/models, selection-sensitive focus, and supported-series SB Lesson 1 with no page-level fallback leakage.
 
-- [ ] **Owner manual SB propagation check:** on BE3 U8 pp.128–129, exclude p.129 Activity 4 and confirm its instruction, answer evidence, and SB song/audio references disappear while selected neighbours remain; reselect it and confirm return.
-
 - [x] **Workbook Activity Selection UI:** verified WB cards from exact companion page IDs; separate default-selected session state; exact two-real-page / one-real-plus-facing-placeholder / no-companion layouts.
 
-- [ ] **Owner manual Workbook Activity Selection check:** SB128–129 → WB104–105 two real panels; SB130–131 → WB106 left + quiet right placeholder; p.140 → WB115 right + quiet left placeholder; p.142 no section; WB toggle persists across Forward/Back.
+- [x] **Workbook Activity Selection propagation:** selected evidence drives accepted opener/Story detailed prompts and Lesson 2 outline/vocabulary/language/activity output; partial pages lose page-level fallback; zero selection stays valid and explicit; SB behavior and exact companion scope are unchanged.
 
-- [x] **Workbook Activity Selection propagation:** selected evidence now drives accepted opener/Story detailed prompts and Lesson 2 outline/vocabulary/language/activity output; partial pages lose page-level fallback; zero selection stays valid and explicit; SB behavior and exact companion scope are unchanged.
-
-- [ ] **Owner manual Workbook propagation check:** opener — exclude WB105 Activity 3 and verify its song/audio/listen-write plus page-attributed `enough` disappear while WB104 and Activity 4 remain; Story — exclude one WB106 activity and verify no bespoke fallback or WB107 leakage; also verify all-selected equivalence and zero-selected explicit Lesson 2.
-
-- [ ] **Owner visual recheck:** SB 128–129 → WB 104–105 → SB 128–129 (both pages visible each step).
-
-- [ ] **Owner check:** on BE3 U8 pp.140–141 / 142–143, confirm Go p.140→WB 115, Go p.141→WB 116, Go p.142 no companion, Go p.143→WB 117; Culture 138–139 still paired.
+- [x] **Pause Activity Selection feature work.** The next project question must be chosen separately; do not automatically add a new curation feature.
 
 - [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
 
-- [ ] **Next microstep:** separately authorize a series handoff for an already-wired companion, **or** start the next book/unit companion set — no Chalkie without explicit approval.
+- [ ] **Next project question (choose separately):** separately authorize a series handoff for an already-wired companion, start the next book/unit companion set, or another owner-chosen direction — no Chalkie generation and no new Activity Selection feature without explicit approval.
 
 
 

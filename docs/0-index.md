@@ -34,8 +34,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked as later priority (D020) — teacher-facing cross-book reuse, not Phase-2-gated; D018 downstream. | — | ACTIVE |
 | [4-decisions.md](./4-decisions.md) | Canonical decision log through **D021**: Student Book–first lesson preparation (LOCKED); D020 Phase 3 later priority; D017/D019 BI methodologies remain provisional. | 1.0 | ACTIVE |
-| [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked), including selected-only SB/WB activity propagation and owner proof checks. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks, including owner SB/WB propagation and visual checks. | 1.0 | ACTIVE |
+| [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked), including manually accepted Activity Selection for the provisional local handoff workflow. | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; Activity Selection feature work paused pending a separately chosen next project question. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority (D020); D018 / Lesson Series parked downstream (not cancelled); full Chalkie productization later. | 1.0 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -168,8 +168,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-first context, verified companions, Unit Intelligence, and local handoff. Separate session-only SB/WB choices propagate selected evidence while open-book layouts remain stable. | 2.37 | ACTIVE |
-| [phase-5/chalkie-current-activity-selection-contract-v0.1.md](./phase-5/chalkie-current-activity-selection-contract-v0.1.md) | Active teacher activity-curation contract. Selected-only SB/WB evidence propagates into applicable local handoffs with conservative page attribution, explicit empty states, and no fallback leakage. | 0.8 | ACTIVE |
+| [phase-5/p5-prototype-chalkie-workspace.md](./phase-5/p5-prototype-chalkie-workspace.md) | Chalkie Workspace UI: SB-first context, verified companions, Unit Intelligence, and local handoff. Activity Selection is implemented and manually accepted for provisional local handoff curation. | 2.38 | ACTIVE |
+| [phase-5/chalkie-current-activity-selection-contract-v0.1.md](./phase-5/chalkie-current-activity-selection-contract-v0.1.md) | Activity Selection contract: IMPLEMENTED / MANUALLY ACCEPTED for local handoff curation (provisional). Selected-only SB/WB evidence; open-book layouts; BE3 U8 opener persistence accepted. | 0.9 | ACTIVE |
 | [phase-5/teacher-intelligence-left-pane-contract-v0.1.md](./phase-5/teacher-intelligence-left-pane-contract-v0.1.md) | Left-pane IA contract: Source Context + Teacher Intelligence; **Unit Intelligence implemented** in Chalkie; Horizontal Mapping / School Notes / Future Suggestions not built; F021–F022 boundary. | 0.1.1 | ACTIVE |
 | [phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md](./phase-5/chalkie-generic-detailed-handoff-gap-audit-v0.1.md) | Audit of generic `/app/chalkie` prompt vs Experiment 10 detailed handoff; evidence-field map and smallest generic detailed-handoff slice. Audit only — not implementation or methodology lock. | 0.1 | ACTIVE |
 | [phase-5/p5-exp-be2-u08-chalkie-brief-v1.md](./phase-5/p5-exp-be2-u08-chalkie-brief-v1.md) | Historical early Chalkie teaching-brief experiment for BE2 U8 (pre-D018 series). Research only. | 1.0 | PARKED |
@@ -204,7 +204,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Doc | Summary | Version | Lifecycle |
 |---|---|---|---|
-| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.15): **D021** SB-first; selected SB/WB activities drive applicable local handoff lessons while selections remain session-only. | V1.15 | ACTIVE |
+| [phase-6/chalkie-interface-and-generation-workflow.md](./phase-6/chalkie-interface-and-generation-workflow.md) | Active Chalkie operational reference (V1.16): **D021** SB-first; Activity Selection manually accepted for provisional local handoff curation; feature work paused. | V1.16 | ACTIVE |
 | [phase-6/chalkie-ai-handover-specifications.md](./phase-6/chalkie-ai-handover-specifications.md) | Parked Phase 6 Chalkie handover/productization spec; D018 remains preserved downstream evidence (does not unlock this handover as production standard). | V1 | PARKED |
 
 ---
