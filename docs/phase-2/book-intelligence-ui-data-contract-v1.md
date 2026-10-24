@@ -11,6 +11,8 @@
 
 **Explicit non-actions (still):** No database migration, no `book_files` / `dataset_versions` registration, no methodology lock. BE2 + BE3 BI companions load from Storage via the registry (no Postgres). Contract remains draft.
 
+**NLP role ([D022](../4-decisions.md), 2026-10-25):** Filtered BI fields (`communicativeFunctions`, `learningOutcomes` + provenance) may attach to a Neutral Lesson Package as optional `curriculumInterpretation.bookIntelligence` via `toBiPlanningContext`. Unit vocab/grammar/CLIL/values/phonics/writing must **not** be copied into page evidence. **Do not expand BI JSON to additional books** until the BE3 U8 Opener vertical slice is owner-accepted.
+
 ---
 
 ## 1. Scope

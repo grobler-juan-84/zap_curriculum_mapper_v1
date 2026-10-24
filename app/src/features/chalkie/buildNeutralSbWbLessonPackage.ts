@@ -1,4 +1,9 @@
 import {
+  toBiPlanningContext,
+  type BiPlanningContext,
+} from '../../lib/bookIntelligence/toBiPlanningContext'
+import type { BookIntelligenceUnitOverview } from '../../types/bookIntelligence'
+import {
   hasNoSelectedSbActivities,
   selectedSbActivityLanguage,
   selectedSbActivityVocabulary,
@@ -20,6 +25,12 @@ import {
   BE3_U08_SB130_131_WB106,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
+
+export type { BiPlanningContext }
+
+export type NeutralCurriculumInterpretation = {
+  readonly bookIntelligence?: BiPlanningContext
+}
 
 export type NeutralLessonId = 'lesson1' | 'lesson2'
 
@@ -120,6 +131,8 @@ export type NeutralPackageBoundaries = {
   readonly priorSupportMayReplaceCurrentEvidence: false
   readonly inferAdjacentWorkbookPages: false
   readonly inventSourceContent: false
+  /** D022: BI planning context must never become page evidence. */
+  readonly bookIntelligenceMayBecomeSourceEvidence: false
   readonly excludedScopes: readonly NeutralExcludedScope[]
   readonly notes: readonly string[]
 }
@@ -146,6 +159,13 @@ export type NeutralSbWbLessonPackage = {
   readonly lesson1: NeutralLessonPackageLesson
   readonly lesson2: NeutralLessonPackageLesson
   readonly priorSupport: readonly NeutralPriorSupportRecord[]
+  /** Optional labelled planning context (D022). Absent when BI unavailable. */
+  readonly curriculumInterpretation?: NeutralCurriculumInterpretation
+  /**
+   * Reserved for future School Intelligence notes (parked).
+   * Not implemented — keep absent until authorized.
+   */
+  readonly schoolContext?: never
   readonly boundaries: NeutralPackageBoundaries
 }
 
@@ -445,11 +465,35 @@ function normalizePriorSupport(
   })
 }
 
+function resolveOpenerBookIntelligence(input: {
+  readonly componentKey: SupportedPackageConfig['componentKey']
+  readonly unitNumber: number
+  readonly studentBookCatalogId: string
+  readonly bookIntelligenceUnit?: BookIntelligenceUnitOverview | null
+  readonly biArtifactRef?: string | null
+}): BiPlanningContext | undefined {
+  // Vertical slice (D022 Phase 2): Opener only. Story and other pairs omit BI.
+  if (input.componentKey !== 'opener' || !input.bookIntelligenceUnit) {
+    return undefined
+  }
+  return (
+    toBiPlanningContext({
+      catalogBookId: input.studentBookCatalogId,
+      unit: input.bookIntelligenceUnit,
+      biArtifactRef: input.biArtifactRef,
+      expectedUnitNumber: input.unitNumber,
+    }) ?? undefined
+  )
+}
+
 export function buildNeutralSbWbLessonPackage(input: {
   readonly companion: VerifiedSbWbCompanion
   readonly sbSelection: SbActivityHandoffSelection
   readonly wbSelection: WbActivityHandoffSelection
   readonly priorSupport?: readonly NeutralPriorSupportInput[]
+  /** Optional BI unit overview — Opener packages only; never becomes page evidence. */
+  readonly bookIntelligenceUnit?: BookIntelligenceUnitOverview | null
+  readonly biArtifactRef?: string | null
 }): NeutralSbWbLessonPackage {
   const config = requireSupportedConfig(input.companion)
   const accepted = config.companion
@@ -469,6 +513,13 @@ export function buildNeutralSbWbLessonPackage(input: {
   const wbSelection = normalizeWbSelection(input.wbSelection, wbScope)
   const sbActivities = selectedActivities(sbSelection.selectedEvidence)
   const wbActivities = selectedActivities(wbSelection.selectedEvidence)
+  const bookIntelligence = resolveOpenerBookIntelligence({
+    componentKey: config.componentKey,
+    unitNumber: accepted.unitNumber,
+    studentBookCatalogId: accepted.studentBookCatalogId,
+    bookIntelligenceUnit: input.bookIntelligenceUnit,
+    biArtifactRef: input.biArtifactRef,
+  })
 
   return {
     identity: {
@@ -524,12 +575,16 @@ export function buildNeutralSbWbLessonPackage(input: {
         : null,
     },
     priorSupport: normalizePriorSupport(input.priorSupport ?? []),
+    ...(bookIntelligence
+      ? { curriculumInterpretation: { bookIntelligence } }
+      : {}),
     boundaries: {
       exactSourceScopeRequired: true,
       reconstructExcludedActivities: false,
       priorSupportMayReplaceCurrentEvidence: false,
       inferAdjacentWorkbookPages: false,
       inventSourceContent: false,
+      bookIntelligenceMayBecomeSourceEvidence: false,
       excludedScopes: config.excludedScopes.map((scope) => ({
         ...scope,
         printedPages: [...scope.printedPages],

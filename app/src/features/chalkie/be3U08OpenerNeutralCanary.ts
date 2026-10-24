@@ -6,6 +6,7 @@
  * exact five-artifact parity. Mismatch / failure always serves bespoke output and
  * emits a bounded developer diagnostic (no prompt or teacher/learner content).
  */
+import type { BookIntelligenceUnitOverview } from '../../types/bookIntelligence'
 import type { TeacherAddedLanguageInput } from './buildChalkiePromptPreview'
 import {
   buildBe3U08OpenerSbWbSeriesHandoff,
@@ -62,6 +63,9 @@ export type OpenerNeutralCanaryInput = {
   readonly teacherAdditions?: readonly TeacherAddedLanguageInput[]
   readonly activitySelection?: SbActivityHandoffSelection
   readonly workbookActivitySelection?: WbActivityHandoffSelection
+  /** Optional BI unit for NLP curriculumInterpretation (does not affect five-artifact parity). */
+  readonly bookIntelligenceUnit?: BookIntelligenceUnitOverview | null
+  readonly biArtifactRef?: string | null
   /** Test override. When omitted, reads the Vite env flag (default off). */
   readonly canaryEnabled?: boolean
   readonly buildBespoke?: typeof buildBe3U08OpenerSbWbSeriesHandoff
@@ -238,6 +242,8 @@ export function buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary(
         selectedSuggestions,
         teacherAdditions,
       }),
+      bookIntelligenceUnit: input.bookIntelligenceUnit,
+      biArtifactRef: input.biArtifactRef,
     })
   } catch {
     return serveBespoke(

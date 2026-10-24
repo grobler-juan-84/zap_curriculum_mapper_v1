@@ -1,7 +1,8 @@
 /**
- * Read-only Unit Intelligence view for Chalkie Workspace left panel.
+ * Unit Intelligence view for Chalkie Workspace left panel.
  * Reuses Phase 2 Book Intelligence documents — never Phase 1 source evidence.
- * Does not feed handoff builders, prior learning, packaging, or vocabulary.
+ * Does not mutate source scope, activity selection, page vocab/language, or prior pools.
+ * Filtered BI planning fields may attach to an NLP as optional curriculumInterpretation (D022).
  */
 
 import type {

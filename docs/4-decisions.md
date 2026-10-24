@@ -56,6 +56,7 @@
 | D019 | Book Intelligence MVP UI path validated (BE2 + BE3) | 2026-10-15 | LOCKED |
 | D020 | Phase 3 Vertical Mapping parked as later priority; cross-book prior-learning reuse | 2026-10-19 | LOCKED |
 | D021 | Student Book–first lesson preparation | 2026-10-21 | LOCKED |
+| D022 | Neutral Lesson Package is the durable handoff; BI is optional curriculum interpretation | 2026-10-25 | LOCKED |
 
 ---
 
@@ -346,8 +347,8 @@ D017 operating principle 6 remains in force.
 **Alternatives rejected:** Treating two-book acceptance as a methodology / schema / contract lock; forcing BE2 into nine-column Writing; declaring production-ready BI for the whole catalog; requiring `book_files` registration; reopening D017.  
 **Implications:** Progress and experiment status may treat BE2 and BE3 BI ↔ Validation MVP paths as **implementation-validated**. Further books, contract hardening, Storage formalization, and any methodology change remain owner-gated.  
 **Evidence:**  
-- BE3: [`phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md); [`phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md); `scripts/verify_bi_validation_e2e_acceptance.mjs`; `scripts/verify_bi_pdf_u1_u9_regression.mjs`  
-- BE2: [`phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md); `scripts/verify_be2_bi_validation_e2e_acceptance.mjs`; `scripts/verify_be2_bi_pdf_u1_u9_regression.mjs`  
+- BE3: [`phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-validation-e2e-acceptance-d017-v1.md); [`phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md`](./phase-2/experiments/be3-bi-pdf-navigation-regression-acceptance-d017-v1.md); archived scripts under `scripts/archive/bi-pdf-verifiers/`  
+- BE2: [`phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md`](./phase-2/experiments/be2-bi-e2e-acceptance-d017-v1.md); archived scripts under `scripts/archive/bi-pdf-verifiers/`  
 **Supersedes:** Prior D019 wording limited to BE3-SB only (same-day amendment).  
 **Compatibility:** Complements D017 (and its working approvals) and D018; does not rewrite either.
 
@@ -426,10 +427,35 @@ This supports an **almost-one-button** teacher experience: teachers choose **wha
 
 ---
 
+### D022 — Neutral Lesson Package is the durable handoff; BI is optional curriculum interpretation
+
+**Date:** 2026-10-25  
+**Status:** LOCKED  
+**Decision:** The durable lesson-preparation handoff is a **Neutral Lesson Package (NLP)** assembled from verified source evidence and teacher selections. Platform outputs (Chalkie, and later MagicSchool / Canva / others) are **adapters** over that package.
+
+Book Intelligence (BI) / Unit Intelligence may enter the NLP **only** as optional, provenance-labelled **`curriculum_interpretation`** planning context (for example communicative focus and suggested learning outcomes). BI must **never**:
+
+- overwrite or replace Phase 1 / verified SB/WB/SS page evidence;
+- set or expand printed-page scope;
+- populate activity selection, page-scoped vocabulary, or language models;
+- be labelled or treated as `[SB]` / `[WB]` / `[SS]` evidence.
+
+The NLP must assemble successfully when only verified source evidence (+ packaging / boundaries / optional teacher-selected prior support) is present. Partial availability of BI, Horizontal Mapping, School Intelligence, or Teacher Intelligence is honest and allowed.
+
+**Reason:** Chalkie is one of several possible generation platforms. Keeping evidence, interpretation, school context, and teacher context distinct makes the package robust and multi-adapter ready while preserving D001 evidence separation.  
+**Alternatives rejected:** Treating Chalkie prompts as the product spine; silently merging BI unit overviews into page evidence / vocab / scope; retiring BI entirely; requiring BI before an NLP can assemble; registering BI into Phase 1 canonical JSON or `dataset_versions` in this decision.  
+**Implications:** Bounded NLP assembler work is **active** for authorized pairs (see F021 revision). Multi-platform adapters beyond the current Chalkie path remain future. Left-pane Unit Intelligence remains a teacher judgement surface and may feed the NLP interpretation bag when assembled. Do not expand BI to new books until the Opener vertical slice proves adapter value. School Intelligence and Vertical Mapping stay parked (typed room only).  
+**Supersedes:** —  
+**Amends / clarifies:** F021 (bounded NLP active; multi-platform still future); left-pane Unit Intelligence boundary (interpretation attach allowed; source-evidence mutation still forbidden).  
+**Compatibility:** Preserves D001, D017, D019, D021; does not reopen D018 results or lock BI methodology/schema.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-25 | Added D022 — NLP is the durable handoff; BI optional `curriculum_interpretation` only; never page evidence. |
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |
 | 2026-10-06 | Added D005 — Supabase backend platform locked. |
 | 2026-10-07 | Added D006 — hybrid storage architecture locked; catalog migration created. |

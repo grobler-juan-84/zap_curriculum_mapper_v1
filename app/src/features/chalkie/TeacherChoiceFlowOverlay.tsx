@@ -69,6 +69,22 @@ import {
   type WbActivityPreviewKind,
   type WbActivitySelectionState,
 } from './chalkieWorkbookActivitySelection'
+import {
+  allocateSbOnlyTwoLessonActivities,
+  formatSbOnlyLessonActivityScope,
+} from './allocateSbOnlyTwoLessonActivities'
+import {
+  buildSbOnlyTwoLessonHandoff,
+  type SbOnlyTwoLessonHandoff,
+} from './buildSbOnlyTwoLessonHandoff'
+import { buildDetailedGeneralLessonPlan } from './buildDetailedGeneralLessonPlan'
+import { applyOpenerBiFramingToHandoff } from './chalkieBiFraming'
+import { getBookIntelligenceStorageArtifact } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import { toBiPlanningContext } from '../../lib/bookIntelligence/toBiPlanningContext'
+import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
+import { findBookIntelligenceUnit } from './chalkieUnitIntelligence'
+
+type PreparedOutputKind = 'chalkie' | 'lesson_plan'
 
 type Be3U08SeriesHandoff = Be3U08OpenerSeriesHandoff | Be3U08StorySeriesHandoff
 
@@ -81,21 +97,58 @@ function isBe3U08SeriesCompanion(
   )
 }
 
+function resolveOverlayBiInputs(input: {
+  lesson: ChalkieLessonContext
+  bookIntelligence: BookIntelligenceOverviewDocument | null
+}): {
+  unit: ReturnType<typeof findBookIntelligenceUnit>
+  planningContext: ReturnType<typeof toBiPlanningContext>
+  biArtifactRef: string | null
+} {
+  if (!input.bookIntelligence || !input.lesson.catalogBookId) {
+    return { unit: null, planningContext: null, biArtifactRef: null }
+  }
+  const unit = findBookIntelligenceUnit(
+    input.bookIntelligence,
+    input.lesson.unitNumber,
+  )
+  const artifact = getBookIntelligenceStorageArtifact(input.lesson.catalogBookId)
+  const biArtifactRef = artifact?.storagePath ?? null
+  const planningContext = unit
+    ? toBiPlanningContext({
+        catalogBookId: input.lesson.catalogBookId,
+        unit,
+        biArtifactRef,
+        expectedUnitNumber: input.lesson.unitNumber,
+      })
+    : null
+  return { unit, planningContext, biArtifactRef }
+}
+
 function buildBe3U08SeriesHandoffForCompanion(
   companion: VerifiedSbWbCompanion | null | undefined,
   selectedSuggestions: TeacherChoiceSuggestion[],
   teacherAdditions: TeacherAddedLanguageInput[],
   activitySelection: SbActivityHandoffSelection,
   workbookActivitySelection: WbActivityHandoffSelection,
+  biInputs?: {
+    unit: ReturnType<typeof findBookIntelligenceUnit>
+    planningContext: ReturnType<typeof toBiPlanningContext>
+    biArtifactRef: string | null
+  },
 ): Be3U08SeriesHandoff | null {
   if (isBe3U08OpenerSeriesCompanion(companion) && companion) {
-    return buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary({
+    const handoff = buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary({
       companion,
       selectedSuggestions,
       teacherAdditions,
       activitySelection,
       workbookActivitySelection,
+      bookIntelligenceUnit: biInputs?.unit ?? null,
+      biArtifactRef: biInputs?.biArtifactRef ?? null,
     }).handoff
+    // Phase 4: intentional Chalkie delta only when BI framing flag is on.
+    return applyOpenerBiFramingToHandoff(handoff, biInputs?.planningContext)
   }
   if (isBe3U08StorySeriesCompanion(companion) && companion) {
     return buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary({
@@ -142,6 +195,8 @@ interface TeacherChoiceFlowOverlayProps {
   lesson: ChalkieLessonContext | null
   activityCards: readonly SbActivityCard[]
   workbookActivityCards: readonly WbActivityCard[]
+  /** Optional loaded BI document for NLP interpretation attach (D022). */
+  bookIntelligence?: BookIntelligenceOverviewDocument | null
 }
 
 type CopyFeedback = 'idle' | 'copied' | 'failed'
@@ -181,13 +236,12 @@ function HandoffCopyIconButton(props: {
       disabled={disabled}
       title={label}
       aria-label={label}
-      className={`absolute right-1.5 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
-        disabled
-          ? 'cursor-not-allowed text-slate-300'
-          : copyStatus === 'copied'
-            ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-50'
-            : 'text-slate-500 hover:bg-white/80 hover:text-slate-800'
-      }`}
+      className={`absolute right-1.5 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors ${disabled
+        ? 'cursor-not-allowed text-slate-300'
+        : copyStatus === 'copied'
+          ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-50'
+          : 'text-slate-500 hover:bg-white/80 hover:text-slate-800'
+        }`}
     >
       {copyStatus === 'copied' ? (
         <Check className="h-4 w-4" aria-hidden="true" />
@@ -249,6 +303,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   lesson,
   activityCards,
   workbookActivityCards,
+  bookIntelligence = null,
 }) => {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
@@ -263,7 +318,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [newPurpose, setNewPurpose] = useState('')
   const [addPriorSkillExpanded, setAddPriorSkillExpanded] = useState(false)
   const [showPromptPreview, setShowPromptPreview] = useState(false)
+  const [preparedOutputKind, setPreparedOutputKind] =
+    useState<PreparedOutputKind | null>(null)
   const [promptPreview, setPromptPreview] = useState('')
+  const [lessonPlanPreview, setLessonPlanPreview] = useState('')
   const [conciseOutline, setConciseOutline] = useState('')
   const [suggestedVocabulary, setSuggestedVocabulary] = useState('')
   const [suggestedVocabularyEmpty, setSuggestedVocabularyEmpty] = useState(false)
@@ -290,6 +348,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [be3SeriesHandoff, setBe3SeriesHandoff] = useState<Be3U08SeriesHandoff | null>(
     null,
   )
+  const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
   const [activitySelection, setActivitySelection] =
     useState<SbActivitySelectionState | null>(null)
@@ -306,7 +365,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setNewPurpose('')
       setAddPriorSkillExpanded(false)
       setShowPromptPreview(false)
+      setPreparedOutputKind(null)
       setPromptPreview('')
+      setLessonPlanPreview('')
       setConciseOutline('')
       setSuggestedVocabulary('')
       setSuggestedVocabularyEmpty(false)
@@ -319,6 +380,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setLesson1VocabCopyStatus('idle')
       setLesson2VocabCopyStatus('idle')
       setBe3SeriesHandoff(null)
+      setSbOnlyHandoff(null)
       setLessonShape('single')
       setActivitySelection(null)
       setWorkbookActivitySelection(null)
@@ -395,6 +457,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       ),
     [activityCards, lesson?.visiblePrintedPages],
   )
+  /**
+   * Facing-page "Not included" placeholders only belong on verified SB→WB pair
+   * routes. Ordinary Student Book-only lessons show in-scope pages only.
+   */
+  const hasVerifiedWorkbookCompanion = Boolean(lesson?.workbookCompanion)
+  const visibleSbActivityPageColumns = useMemo(
+    () =>
+      hasVerifiedWorkbookCompanion
+        ? activityPageColumns
+        : activityPageColumns.filter((column) => column.includedInLessonScope),
+    [activityPageColumns, hasVerifiedWorkbookCompanion],
+  )
+  const sbActivityUsesTwoColumnLayout = visibleSbActivityPageColumns.length > 1
 
   const activitySelectionStatus = useMemo(
     () => sbActivitySelectionStatus(activityCards, effectiveActivitySelection),
@@ -459,13 +534,25 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const effectiveLessonShape: LessonPackageShape =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
-  const isSeriesPreview = showPromptPreview && effectiveLessonShape === 'series'
+  const isChalkiePreview =
+    showPromptPreview && preparedOutputKind === 'chalkie'
+  const isLessonPlanPreview =
+    showPromptPreview && preparedOutputKind === 'lesson_plan'
+  const isSeriesPreview = isChalkiePreview && effectiveLessonShape === 'series'
   const isBe3SeriesPreview = isSeriesPreview && be3SeriesHandoff != null
+  const isSbOnlySeriesPreview =
+    isSeriesPreview &&
+    lesson.twoLessonPackagingMode === 'sb_only' &&
+    sbOnlyHandoff != null
   const selectionHasExclusions = hasSbActivityExclusions(handoffActivitySelection)
   const seriesLesson1Pages =
     lesson.workbookCompanion?.studentBookPrintedPages?.join('–') ?? '128–129'
   const seriesLesson2Pages =
     lesson.workbookCompanion?.workbookPrintedPages?.join('–') ?? '104–105'
+  const sbOnlyAllocation =
+    lesson.twoLessonPackagingMode === 'sb_only'
+      ? allocateSbOnlyTwoLessonActivities(handoffActivitySelection.selectedEvidence)
+      : null
   const hasPriorLearningSuggestions = priorLearningSuggestions.length > 0
 
   const handleContinue = () => {
@@ -479,6 +566,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const handleBack = () => {
     if (showPromptPreview) {
       setShowPromptPreview(false)
+      setPreparedOutputKind(null)
       setCopyStatus('idle')
       return
     }
@@ -491,7 +579,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setTitleCopyStatus('idle')
     if (showPromptPreview) {
       setShowPromptPreview(false)
+      setPreparedOutputKind(null)
       setPromptPreview('')
+      setLessonPlanPreview('')
       setConciseOutline('')
       setSuggestedVocabulary('')
       setSuggestedVocabularyEmpty(false)
@@ -503,10 +593,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setLesson1VocabCopyStatus('idle')
       setLesson2VocabCopyStatus('idle')
       setBe3SeriesHandoff(null)
+      setSbOnlyHandoff(null)
     }
   }
 
-  const handleGeneratePromptPreview = () => {
+  const handlePrepareChalkiePrompt = () => {
     const assembled = buildChalkiePromptPreview({
       lesson,
       packageShape: effectiveLessonShape,
@@ -517,28 +608,47 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     })
     const useBe3Series =
       effectiveLessonShape === 'series' &&
+      lesson.twoLessonPackagingMode === 'sb_wb' &&
       isBe3U08SeriesCompanion(lesson.workbookCompanion)
+    const useSbOnlySeries =
+      effectiveLessonShape === 'series' &&
+      lesson.twoLessonPackagingMode === 'sb_only'
+    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
     const be3Handoff = useBe3Series
       ? buildBe3U08SeriesHandoffForCompanion(
-          lesson.workbookCompanion,
-          selectedSuggestions,
-          selectedTeacherAdditions,
-          handoffActivitySelection,
-          handoffWorkbookActivitySelection,
-        )
+        lesson.workbookCompanion,
+        selectedSuggestions,
+        selectedTeacherAdditions,
+        handoffActivitySelection,
+        handoffWorkbookActivitySelection,
+        biInputs,
+      )
       : null
-    const outline = useBe3Series
-      ? ''
-      : buildChalkieConciseOutline({
+    const sbOnly = useSbOnlySeries
+      ? buildSbOnlyTwoLessonHandoff({
+        lesson,
+        selectedSuggestions,
+        teacherAdditions: selectedTeacherAdditions,
+        activitySelection: handoffActivitySelection,
+      })
+      : null
+    const outline =
+      useBe3Series || useSbOnlySeries
+        ? ''
+        : buildChalkieConciseOutline({
           lesson,
           selectedSuggestions,
           activitySelection: handoffActivitySelection,
         })
-    const suggested = useBe3Series
-      ? { copyText: '', isEmpty: true }
-      : buildSuggestedChalkieVocabulary(lesson, handoffActivitySelection)
+    const suggested =
+      useBe3Series || useSbOnlySeries
+        ? { copyText: '', isEmpty: true }
+        : buildSuggestedChalkieVocabulary(lesson, handoffActivitySelection)
+    setPreparedOutputKind('chalkie')
     setPromptPreview(assembled)
+    setLessonPlanPreview('')
     setBe3SeriesHandoff(be3Handoff)
+    setSbOnlyHandoff(sbOnly)
     setConciseOutline(outline)
     setSuggestedVocabulary(suggested.copyText)
     setSuggestedVocabularyEmpty(suggested.isEmpty)
@@ -553,10 +663,43 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setLesson2VocabCopyStatus('idle')
   }
 
+  const handlePrepareDetailedLessonPlan = () => {
+    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
+    const plan = buildDetailedGeneralLessonPlan({
+      lesson,
+      packageShape: effectiveLessonShape,
+      selectedSuggestions,
+      teacherAdditions: selectedTeacherAdditions,
+      activitySelection: handoffActivitySelection,
+      workbookActivitySelection: handoffWorkbookActivitySelection,
+      bookIntelligenceUnit: biInputs.unit,
+      biArtifactRef: biInputs.biArtifactRef,
+    })
+    setPreparedOutputKind('lesson_plan')
+    setLessonPlanPreview(plan.detailedLessonPlan)
+    setPromptPreview('')
+    setBe3SeriesHandoff(null)
+    setSbOnlyHandoff(null)
+    setConciseOutline('')
+    setSuggestedVocabulary('')
+    setSuggestedVocabularyEmpty(true)
+    setShowPromptPreview(true)
+    setCopyStatus('idle')
+    setOutlineCopyStatus('idle')
+    setVocabularyCopyStatus('idle')
+    setTitleCopyStatus('idle')
+    setLesson1OutlineCopyStatus('idle')
+    setLesson2OutlineCopyStatus('idle')
+    setLesson1VocabCopyStatus('idle')
+    setLesson2VocabCopyStatus('idle')
+  }
+
   const handleCopyPrompt = async () => {
-    if (!promptPreview) return
+    const text =
+      preparedOutputKind === 'lesson_plan' ? lessonPlanPreview : promptPreview
+    if (!text) return
     try {
-      await navigator.clipboard.writeText(promptPreview)
+      await navigator.clipboard.writeText(text)
       setCopyStatus('copied')
       window.setTimeout(() => setCopyStatus('idle'), 2000)
     } catch {
@@ -716,11 +859,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         </header>
 
         <div
-          className={`min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/20 ${
-            step === 1
-              ? 'px-4 py-5 sm:px-6 sm:py-6 lg:px-8'
-              : 'px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
-          }`}
+          className={`min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/20 ${step === 1
+            ? 'px-4 py-5 sm:px-6 sm:py-6 lg:px-8'
+            : 'px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
+            }`}
         >
           {step === 1 ? (
             <div className="mx-auto w-full max-w-[80rem] space-y-4">
@@ -744,11 +886,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </p>
               </div>
 
-              <section className="space-y-3" aria-label="Current Student Book activities">
+              <section
+                className="space-y-3"
+                aria-label="Current Student Book activities"
+                data-sb-only-layout={hasVerifiedWorkbookCompanion ? undefined : 'true'}
+              >
                 <div
                   className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
                   data-sb-activity-spread
-                  data-page-count={activityPageColumns.length}
+                  data-page-count={visibleSbActivityPageColumns.length}
                 >
                   <div className="flex items-center justify-between gap-3 px-2 pb-2 pt-0.5 sm:px-3">
                     <h3 className="text-sm font-semibold text-slate-800">
@@ -761,21 +907,23 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   </div>
 
                   <div className="relative">
-                    {activityPageColumns.length > 1 ? (
+                    {sbActivityUsesTwoColumnLayout ? (
                       <div
                         aria-hidden="true"
                         className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
                       />
                     ) : null}
-                    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-                      {activityPageColumns.map((column) => (
+                    <div
+                      className={`grid grid-cols-1 gap-3 ${sbActivityUsesTwoColumnLayout ? 'md:grid-cols-2 md:gap-5' : ''
+                        }`}
+                    >
+                      {visibleSbActivityPageColumns.map((column) => (
                         <div
                           key={column.printedPage}
-                          className={`min-w-0 rounded-xl border p-3 sm:p-4 ${
-                            column.includedInLessonScope
-                              ? 'border-slate-200 bg-[#fffefb] shadow-sm'
-                              : 'border-slate-200/70 bg-slate-100/55'
-                          }`}
+                          className={`min-w-0 rounded-xl border p-3 sm:p-4 ${column.includedInLessonScope
+                            ? 'border-slate-200 bg-[#fffefb] shadow-sm'
+                            : 'border-slate-200/70 bg-slate-100/55'
+                            }`}
                           data-sb-activity-page={
                             column.includedInLessonScope
                               ? column.printedPage
@@ -799,7 +947,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                             </div>
                           )}
                           {column.includedInLessonScope &&
-                          column.cards.length > 0 ? (
+                            column.cards.length > 0 ? (
                             <ul className="space-y-2.5">
                               {column.cards.map((card) => {
                                 const checkboxId = `current-activity-${card.id}`
@@ -809,11 +957,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                 return (
                                   <li
                                     key={card.id}
-                                    className={`rounded-lg border p-3 transition-colors ${
-                                      checked
-                                        ? 'border-indigo-200 bg-indigo-50/55 shadow-xs'
-                                        : 'border-slate-200 bg-slate-50/75'
-                                    }`}
+                                    className={`rounded-lg border p-2 transition-colors ${checked
+                                      ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
+                                      : 'border-slate-200 bg-slate-50/75'
+                                      }`}
                                   >
                                     <div className="flex gap-2.5">
                                       <input
@@ -891,12 +1038,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </div>
               </section>
 
-              {lesson.workbookCompanion &&
-              workbookActivityPagePanels.length > 0 ? (
+              {hasVerifiedWorkbookCompanion &&
+                workbookActivityPagePanels.length > 0 ? (
                 <section
                   className="space-y-3 pt-2"
                   aria-label="Workbook activities"
                   data-wb-activity-section
+                  data-sb-wb-pair-layout="true"
                 >
                   <div
                     className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
@@ -932,11 +1080,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         {workbookActivityPagePanels.map((panel) => (
                           <div
                             key={panel.pageId ?? `placeholder-${panel.position}`}
-                            className={`min-w-0 rounded-xl border p-3 sm:p-4 ${
-                              panel.includedInLessonScope
-                                ? 'border-slate-200 bg-[#fffefb] shadow-sm'
-                                : 'border-slate-200/70 bg-slate-100/55'
-                            }`}
+                            className={`min-w-0 rounded-xl border p-3 sm:p-4 ${panel.includedInLessonScope
+                              ? 'border-slate-200 bg-[#fffefb] shadow-sm'
+                              : 'border-slate-200/70 bg-slate-100/55'
+                              }`}
                             data-wb-activity-page={
                               panel.includedInLessonScope
                                 ? panel.printedPage ?? undefined
@@ -960,7 +1107,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               </div>
                             )}
                             {panel.includedInLessonScope &&
-                            panel.cards.length > 0 ? (
+                              panel.cards.length > 0 ? (
                               <ul className="space-y-2.5">
                                 {panel.cards.map((card) => {
                                   const checkboxId = `workbook-activity-${card.id}`
@@ -972,11 +1119,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                   return (
                                     <li
                                       key={card.id}
-                                      className={`rounded-lg border p-3 transition-colors ${
-                                        checked
-                                          ? 'border-indigo-200 bg-indigo-50/55 shadow-xs'
-                                          : 'border-slate-200 bg-slate-50/75'
-                                      }`}
+                                      className={`rounded-lg border p-3 transition-colors ${checked
+                                        ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
+                                        : 'border-slate-200 bg-slate-50/75'
+                                        }`}
                                     >
                                       <div className="flex gap-2.5">
                                         <input
@@ -1182,11 +1328,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           type="button"
                           disabled={!canAddPriorSkill}
                           onClick={handleAddPriorSkill}
-                          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                            canAddPriorSkill
-                              ? 'bg-[#3766a3] text-white hover:bg-[#2f578c]'
-                              : 'cursor-not-allowed bg-slate-200 text-slate-500'
-                          }`}
+                          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${canAddPriorSkill
+                            ? 'bg-[#3766a3] text-white hover:bg-[#2f578c]'
+                            : 'cursor-not-allowed bg-slate-200 text-slate-500'
+                            }`}
                         >
                           Add prior skill
                         </button>
@@ -1214,11 +1359,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   return (
                     <li
                       key={item.id}
-                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
-                        checked
-                          ? 'border-indigo-200 bg-indigo-50'
-                          : 'border-dashed border-indigo-200/80 bg-white'
-                      }`}
+                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${checked
+                        ? 'border-indigo-200 bg-indigo-50'
+                        : 'border-dashed border-indigo-200/80 bg-white'
+                        }`}
                     >
                       <div className="flex h-full gap-3">
                         <input
@@ -1268,11 +1412,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   return (
                     <li
                       key={suggestion.id}
-                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${
-                        checked
-                          ? 'border-indigo-200 bg-indigo-50'
-                          : 'border-slate-200/80 bg-white'
-                      }`}
+                      className={`rounded-xl border p-4 transition-colors sm:p-5 ${checked
+                        ? 'border-indigo-200 bg-indigo-50'
+                        : 'border-slate-200/80 bg-white'
+                        }`}
                     >
                       <div className="flex h-full gap-3">
                         <input
@@ -1384,13 +1527,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         />
                         <span className="min-w-0 space-y-1">
                           <span className="block text-sm font-medium text-slate-900">
-                            Two-lesson series
+                            {lesson.twoLessonPackagingMode === 'sb_only'
+                              ? 'Two lessons from this Student Book spread'
+                              : 'Two-lesson series'}
                           </span>
                           <span className="block text-sm leading-relaxed text-slate-600">
-                            Separate introduction and practice across Student Book and Workbook
-                            pages.
+                            {lesson.twoLessonPackagingMode === 'sb_only'
+                              ? `Split the selected Student Book activities on ${lesson.visiblePageRangeLabel} into two short lessons.`
+                              : 'Separate introduction and practice across Student Book and Workbook pages.'}
                           </span>
-                          {effectiveLessonShape === 'series' ? (
+                          {effectiveLessonShape === 'series' &&
+                            lesson.twoLessonPackagingMode === 'sb_wb' ? (
                             <span
                               id="lesson-shape-series-note"
                               className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
@@ -1407,12 +1554,32 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               </span>
                             </span>
                           ) : null}
+                          {effectiveLessonShape === 'series' &&
+                            lesson.twoLessonPackagingMode === 'sb_only' &&
+                            sbOnlyAllocation ? (
+                            <span
+                              id="lesson-shape-series-note"
+                              className="mt-1 block space-y-0.5 text-sm leading-relaxed text-slate-500"
+                            >
+                              <span className="block">
+                                Lesson 1 — Student Book {lesson.visiblePageRangeLabel} ·{' '}
+                                {formatSbOnlyLessonActivityScope(sbOnlyAllocation.lesson1)}
+                              </span>
+                              <span className="block">
+                                Lesson 2 — Student Book {lesson.visiblePageRangeLabel} ·{' '}
+                                {formatSbOnlyLessonActivityScope(sbOnlyAllocation.lesson2)}
+                              </span>
+                              <span className="block pt-1">
+                                Both lessons use only this Student Book spread. No Workbook
+                                companion is implied.
+                              </span>
+                            </span>
+                          ) : null}
                         </span>
                       </label>
                     ) : (
                       <p className="text-sm leading-relaxed text-slate-500">
-                        A two-lesson Student Book → Workbook series is not available for this source
-                        route yet.
+                        A two-lesson packaging choice is not available for this source route yet.
                       </p>
                     )}
                   </div>
@@ -1581,12 +1748,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   id={titleId}
                   className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
                 >
-                  Chalkie prompt preview
+                  {isLessonPlanPreview
+                    ? 'Detailed general lesson plan'
+                    : 'Chalkie prompt preview'}
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
-                  {isSeriesPreview
-                    ? 'This prompt was assembled from the agreed Student Book and Workbook source pages plus your selected lesson inputs.'
-                    : 'This prompt was assembled from the visible book pages and your selected lesson inputs.'}
+                  {isLessonPlanPreview
+                    ? 'This lesson plan uses the same selected lesson, activities, prior learning, and package shape as the Chalkie prompt. It is assembled locally for classroom use.'
+                    : isSeriesPreview
+                      ? 'This prompt was assembled from the agreed Student Book and Workbook source pages plus your selected lesson inputs.'
+                      : 'This prompt was assembled from the visible book pages and your selected lesson inputs.'}
                 </p>
               </div>
 
@@ -1623,7 +1794,27 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 ) : null}
               </section>
 
-              {isBe3SeriesPreview && be3SeriesHandoff ? (
+              {isLessonPlanPreview ? (
+                <div className="mx-auto flex w-full max-w-4xl flex-col gap-2">
+                  <h3 className="text-sm font-medium text-slate-800">
+                    Copyable detailed lesson plan
+                  </h3>
+                  <HandoffCopyableBox
+                    id="chalkie-detailed-lesson-plan"
+                    value={lessonPlanPreview}
+                    rows={24}
+                    copyLabel="Copy lesson plan"
+                    copyStatus={copyStatus}
+                    onCopy={handleCopyPrompt}
+                    textareaClassName="min-h-[20rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                  />
+                  {copyStatus === 'failed' ? (
+                    <p className="text-sm text-slate-500">
+                      Copying was unavailable. Select the lesson plan text and copy it manually.
+                    </p>
+                  ) : null}
+                </div>
+              ) : isBe3SeriesPreview && be3SeriesHandoff ? (
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
                   <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
                     <h3 className="text-sm font-medium text-slate-800">
@@ -1707,6 +1898,59 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                     </div>
                   </aside>
                 </div>
+              ) : isSbOnlySeriesPreview && sbOnlyHandoff ? (
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+                  <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Detailed two-lesson Student Book handoff
+                    </h3>
+                    <HandoffCopyableBox
+                      id="chalkie-prompt-preview"
+                      value={promptPreview}
+                      rows={24}
+                      copyLabel="Copy detailed handoff"
+                      copyStatus={copyStatus}
+                      onCopy={handleCopyPrompt}
+                      className="flex-1"
+                      textareaClassName="min-h-[20rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                    />
+                    {copyStatus === 'failed' ? (
+                      <p className="text-sm text-slate-500">
+                        Copying was unavailable. Select the handoff text and copy it manually.
+                      </p>
+                    ) : null}
+                  </div>
+                  <aside className="flex min-w-0 flex-col gap-2 lg:col-span-5">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Two-lesson Student Book scopes
+                    </h3>
+                    <div className="flex min-w-0 flex-col gap-4">
+                      <section className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+                        <h4 className="text-sm font-medium text-slate-900">
+                          Lesson 1 — Student Book {sbOnlyHandoff.pageRangeLabel}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                          {sbOnlyHandoff.lesson1ActivityScope}
+                        </p>
+                        <p className="mt-2 text-sm text-slate-500">
+                          Source: Student Book {sbOnlyHandoff.pageRangeLabel} only
+                        </p>
+                      </section>
+                      <section className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+                        <h4 className="text-sm font-medium text-slate-900">
+                          Lesson 2 — Student Book {sbOnlyHandoff.pageRangeLabel}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                          {sbOnlyHandoff.lesson2ActivityScope}
+                        </p>
+                        <p className="mt-2 text-sm text-slate-500">
+                          Source: Student Book {sbOnlyHandoff.pageRangeLabel} only · no Workbook
+                          companion
+                        </p>
+                      </section>
+                    </div>
+                  </aside>
+                </div>
               ) : isSeriesPreview ? (
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
                   <div className="flex min-w-0 flex-col gap-2 lg:col-span-7">
@@ -1731,69 +1975,69 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   <aside className="flex min-w-0 flex-col gap-2 lg:col-span-5">
                     <h3 className="text-sm font-medium text-slate-800">Lesson Outlines</h3>
                     <div className="flex min-w-0 flex-col gap-4">
-                    <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
-                      <HandoffCopyIconButton
-                        copyLabel="Copy Lesson 1 outline"
-                        copyStatus={lesson1OutlineCopyStatus}
-                        onCopy={handleCopyLesson1Outline}
-                      />
-                      <h4 className="text-sm font-medium text-slate-900">
-                        Lesson 1 — Student Book pp. 128–129
-                      </h4>
-                      <p className="mt-2 text-sm text-slate-500">Source: Student Book pp. 128–129</p>
-                      {selectionHasExclusions ? (
-                        <pre className="mt-3 whitespace-pre-wrap font-sans text-sm leading-relaxed text-slate-600">
-                          {conciseOutline}
-                        </pre>
-                      ) : (
-                        <>
-                          <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                            Focus: introduce and practise wild-animal vocabulary through the page
-                            spread, song context, and the current-unit preference/ability model.
+                      <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
+                        <HandoffCopyIconButton
+                          copyLabel="Copy Lesson 1 outline"
+                          copyStatus={lesson1OutlineCopyStatus}
+                          onCopy={handleCopyLesson1Outline}
+                        />
+                        <h4 className="text-sm font-medium text-slate-900">
+                          Lesson 1 — Student Book pp. 128–129
+                        </h4>
+                        <p className="mt-2 text-sm text-slate-500">Source: Student Book pp. 128–129</p>
+                        {selectionHasExclusions ? (
+                          <pre className="mt-3 whitespace-pre-wrap font-sans text-sm leading-relaxed text-slate-600">
+                            {conciseOutline}
+                          </pre>
+                        ) : (
+                          <>
+                            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                              Focus: introduce and practise wild-animal vocabulary through the page
+                              spread, song context, and the current-unit preference/ability model.
+                            </p>
+                            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
+                              <li>Animal vocabulary</li>
+                              <li>To the Zoo!</li>
+                              <li>Do you like cheetahs? Yes, I do! Cheetahs can run.</li>
+                              <li>
+                                Visible page activities: listen/look/say, find/say, game,
+                                song/listen, true/false, ask/answer
+                              </li>
+                            </ul>
+                          </>
+                        )}
+                        {lesson1OutlineCopyStatus === 'failed' ? (
+                          <p className="mt-2 text-sm text-slate-500">
+                            Copying was unavailable. Select the outline text and copy it manually.
                           </p>
-                          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
-                            <li>Animal vocabulary</li>
-                            <li>To the Zoo!</li>
-                            <li>Do you like cheetahs? Yes, I do! Cheetahs can run.</li>
-                            <li>
-                              Visible page activities: listen/look/say, find/say, game,
-                              song/listen, true/false, ask/answer
-                            </li>
-                          </ul>
-                        </>
-                      )}
-                      {lesson1OutlineCopyStatus === 'failed' ? (
-                        <p className="mt-2 text-sm text-slate-500">
-                          Copying was unavailable. Select the outline text and copy it manually.
-                        </p>
-                      ) : null}
-                    </section>
+                        ) : null}
+                      </section>
 
-                    <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
-                      <HandoffCopyIconButton
-                        copyLabel="Copy Lesson 2 outline"
-                        copyStatus={lesson2OutlineCopyStatus}
-                        onCopy={handleCopyLesson2Outline}
-                      />
-                      <h4 className="text-sm font-medium text-slate-900">
-                        Lesson 2 — Workbook pp. 104–105
-                      </h4>
-                      <p className="mt-2 text-sm text-slate-500">Source: Workbook pp. 104–105</p>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                        Focus: use the matching workbook evidence for animal naming/matching,
-                        song-related writing, and a short zoo-animal response.
-                      </p>
-                      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
-                        <li>Animal naming/matching (Look and write / Look and match)</li>
-                        <li>Song-related listening/writing</li>
-                        <li>What animals do you like seeing at the zoo?</li>
-                      </ul>
-                      {lesson2OutlineCopyStatus === 'failed' ? (
-                        <p className="mt-2 text-sm text-slate-500">
-                          Copying was unavailable. Select the outline text and copy it manually.
+                      <section className="relative rounded-xl border border-slate-200 bg-white p-4 pr-11 sm:p-5 sm:pr-12">
+                        <HandoffCopyIconButton
+                          copyLabel="Copy Lesson 2 outline"
+                          copyStatus={lesson2OutlineCopyStatus}
+                          onCopy={handleCopyLesson2Outline}
+                        />
+                        <h4 className="text-sm font-medium text-slate-900">
+                          Lesson 2 — Workbook pp. 104–105
+                        </h4>
+                        <p className="mt-2 text-sm text-slate-500">Source: Workbook pp. 104–105</p>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                          Focus: use the matching workbook evidence for animal naming/matching,
+                          song-related writing, and a short zoo-animal response.
                         </p>
-                      ) : null}
-                    </section>
+                        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
+                          <li>Animal naming/matching (Look and write / Look and match)</li>
+                          <li>Song-related listening/writing</li>
+                          <li>What animals do you like seeing at the zoo?</li>
+                        </ul>
+                        {lesson2OutlineCopyStatus === 'failed' ? (
+                          <p className="mt-2 text-sm text-slate-500">
+                            Copying was unavailable. Select the outline text and copy it manually.
+                          </p>
+                        ) : null}
+                      </section>
                     </div>
 
                     <section className="space-y-2 border-t border-slate-100 pt-4">
@@ -1807,7 +2051,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         <span className="font-medium text-slate-800">Lesson 1 vocabulary:</span>{' '}
                         {selectionHasExclusions
                           ? selectedActivityVocabulary.join(', ') ||
-                            'No selected Student Book activity vocabulary is safely attributable.'
+                          'No selected Student Book activity vocabulary is safely attributable.'
                           : BE2_U08_SERIES_LESSON1_VOCAB}
                       </p>
                       <p className="text-sm leading-relaxed text-slate-700">
@@ -1869,41 +2113,41 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               ) : null}
 
               {!isBe3SeriesPreview ? (
-              <section
-                className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
-                aria-label="Suggested Chalkie vocabulary"
-              >
-                <div className="space-y-1">
-                  <h3 className="text-sm font-medium text-slate-800">
-                    Suggested Chalkie vocabulary
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-500">
-                    Current-page words/models suggested for Chalkie’s vocabulary field. Review
-                    before pasting.
-                  </p>
-                </div>
-                {suggestedVocabularyEmpty ? (
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    No verified current-page words or models are available for Chalkie’s vocabulary
-                    field on these pages.
-                  </p>
-                ) : (
-                  <HandoffCopyableBox
-                    id="chalkie-suggested-vocabulary"
-                    value={suggestedVocabulary}
-                    rows={3}
-                    copyLabel="Copy vocabulary"
-                    copyStatus={vocabularyCopyStatus}
-                    onCopy={handleCopyVocabulary}
-                    textareaClassName="min-h-[4.5rem] font-mono text-xs leading-relaxed sm:text-[13px]"
-                  />
-                )}
-                {vocabularyCopyStatus === 'failed' ? (
-                  <p className="text-sm text-slate-500">
-                    Copying was unavailable. Select the vocabulary text and copy it manually.
-                  </p>
-                ) : null}
-              </section>
+                <section
+                  className="mx-auto w-full max-w-4xl space-y-3 border-t border-slate-100 pt-5"
+                  aria-label="Suggested Chalkie vocabulary"
+                >
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Suggested Chalkie vocabulary
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-500">
+                      Current-page words/models suggested for Chalkie’s vocabulary field. Review
+                      before pasting.
+                    </p>
+                  </div>
+                  {suggestedVocabularyEmpty ? (
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      No verified current-page words or models are available for Chalkie’s vocabulary
+                      field on these pages.
+                    </p>
+                  ) : (
+                    <HandoffCopyableBox
+                      id="chalkie-suggested-vocabulary"
+                      value={suggestedVocabulary}
+                      rows={3}
+                      copyLabel="Copy vocabulary"
+                      copyStatus={vocabularyCopyStatus}
+                      onCopy={handleCopyVocabulary}
+                      textareaClassName="min-h-[4.5rem] font-mono text-xs leading-relaxed sm:text-[13px]"
+                    />
+                  )}
+                  {vocabularyCopyStatus === 'failed' ? (
+                    <p className="text-sm text-slate-500">
+                      Copying was unavailable. Select the vocabulary text and copy it manually.
+                    </p>
+                  ) : null}
+                </section>
               ) : null}
             </div>
           ) : null}
@@ -1952,14 +2196,23 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                   Back to workspace
                 </button>
               ) : (
-                <button
-                  ref={continueRef}
-                  type="button"
-                  onClick={handleGeneratePromptPreview}
-                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
-                >
-                  Generate Chalkie prompt
-                </button>
+                <>
+                  <button
+                    ref={continueRef}
+                    type="button"
+                    onClick={handlePrepareChalkiePrompt}
+                    className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
+                  >
+                    Prepare Chalkie prompt
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handlePrepareDetailedLessonPlan}
+                    className="rounded-md border border-[#3766a3] bg-white px-4 py-2 text-sm font-medium text-[#3766a3] transition-colors hover:bg-[#3766a3]/10"
+                  >
+                    Prepare lesson plan
+                  </button>
+                </>
               )}
             </div>
           </div>

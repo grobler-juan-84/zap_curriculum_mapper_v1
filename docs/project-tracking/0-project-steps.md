@@ -5648,3 +5648,435 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 330
+
+**Summary:** Recorded documentation-only manual acceptance of the BE3 Unit 8 Story neutral-package canary as `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only; WB p.107 excluded). Opener canary remains independent; no Chalkie generation or classroom-validation claim; further canaries paused.
+
+**Files touched:**
+- `docs/phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md` (updated)
+- `docs/phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md` (updated)
+- `docs/phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 331
+
+**Summary:** Created a docs-only Prior Learning / Horizontal Mapping design audit separating `[PRIOR]`, `[HM]`, and teacher-added support, with hard exclusion-safety rules and staged slices. Status `DRAFT / DESIGN ONLY — NOT AUTHORIZED FOR IMPLEMENTATION`; no app/UI code; F021/F022 preserved in `7-future.md`.
+
+**Files touched:**
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (created)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 332
+
+**Summary:** Implemented Prior Learning / Horizontal Mapping Slice 1 only: deterministic read-only same-unit `[PRIOR]` candidate model and builder, with existing Step 2 suggestion cards preserved via adapter. No Slice 2+ UI, `[HM]` retrieval, School Notes, or selection-behaviour change.
+
+**Files touched:**
+- `app/src/features/chalkie/priorLearningCandidate.ts` (created)
+- `app/src/features/chalkie/buildSameUnitPriorLearningCandidates.ts` (created)
+- `app/src/features/chalkie/deriveSameUnitEarlierVocabularySuggestions.ts` (updated)
+- `scripts/tests/buildSameUnitPriorLearningCandidates.test.ts` (created)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 333
+
+**Summary:** Implemented Prior Learning / Horizontal Mapping Slice 2 only: candidate-aware same-unit `[PRIOR]` suggestion surfacing on lesson context and Step 2 cards, with optional teacher selection that never auto-selects. No curated `[HM]`, School Notes, or AI suggestions.
+
+**Files touched:**
+- `app/src/features/chalkie/surfaceSameUnitPriorLearningSuggestions.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/surfaceSameUnitPriorLearningSuggestions.test.ts` (created)
+- `scripts/tests/resolveChalkieLessonContext.test.ts` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 334
+
+**Summary:** Created a docs-only Unit Learning Spine design record (author-curated core/support roles, BE3 U8 worked example, future `[PRIOR]` categories) with status `DRAFT / DESIGN ONLY — NOT AUTHORIZED FOR IMPLEMENTATION`. No app/UI code; `docs/7-future.md` and `docs/4-decisions.md` untouched.
+
+**Files touched:**
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (created)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 335
+
+**Summary:** Implemented the smallest safe read-only BE3 Unit 8 Unit Learning Spine data foundation (generic types + curated core/support components + focused tests). No Step 2, ranking, UI, handoff, or canary changes; ranking/UI integration remains not authorized.
+
+**Files touched:**
+- `app/src/features/chalkie/unitLearningSpine.ts` (created)
+- `app/src/features/chalkie/be3U08UnitLearningSpine.ts` (created)
+- `scripts/tests/be3U08UnitLearningSpine.test.ts` (created)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 336
+
+**Summary:** Added a narrow read-only Unit Learning Spine consumer (`listCoreUnitLearningSpineComponentIds`) that returns BE3 U8 core component IDs in declared order (or empty when no spine). Internal query only — no Step 2, ranking, UI, handoff, package, or canary changes.
+
+**Files touched:**
+- `app/src/features/chalkie/listCoreUnitLearningSpineComponentIds.ts` (created)
+- `scripts/tests/listCoreUnitLearningSpineComponentIds.test.ts` (created)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 337
+
+**Summary:** Added read-only Unit Learning Spine metadata enrichment on same-unit `[PRIOR]` candidates (`componentId` / `spineRole` only when printed pages uniquely match a declared spine component). Step 2 cards, order, selection, handoff, packages, and canaries unchanged; ranking/UI not authorized.
+
+**Files touched:**
+- `app/src/features/chalkie/attachUnitLearningSpineMetadata.ts` (created)
+- `app/src/features/chalkie/priorLearningCandidate.ts` (updated)
+- `app/src/features/chalkie/buildSameUnitPriorLearningCandidates.ts` (updated)
+- `scripts/tests/attachUnitLearningSpineMetadata.test.ts` (created)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 338
+
+**Summary:** Added narrow deterministic same-unit `[PRIOR]` ordering by Unit Learning Spine role (core → support → unclassified, stable within role). Cards remain optional and unchecked; no badges, filters, HM, or language/grammar builders.
+
+**Files touched:**
+- `app/src/features/chalkie/orderSameUnitPriorLearningCandidatesBySpineRole.ts` (created)
+- `app/src/features/chalkie/buildSameUnitPriorLearningCandidates.ts` (updated)
+- `app/src/features/chalkie/surfaceSameUnitPriorLearningSuggestions.ts` (updated)
+- `scripts/tests/orderSameUnitPriorLearningCandidatesBySpineRole.test.ts` (created)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 339
+
+**Summary:** Added read-only verified same-unit language/grammar `[PRIOR]` candidate foundation for BE3 Unit 8 (LiA Did…? frames + Grammar regular/irregular patterns). Not wired into Step 2, ordering merge, handoff, packages, or canaries.
+
+**Files touched:**
+- `app/src/features/chalkie/buildSameUnitLanguageGrammarPriorLearningCandidates.ts` (created)
+- `app/src/features/chalkie/priorLearningCandidate.ts` (updated)
+- `scripts/tests/buildSameUnitLanguageGrammarPriorLearningCandidates.test.ts` (created)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 340
+
+**Summary:** Surfaced verified BE3 Unit 8 Language in Action and Grammar same-unit `[PRIOR]` candidates on Step 2 via assemble + spine-aware ordering. Cards remain optional/unchecked; vocabulary and support cards retained; no badges, HM, School Notes, or AI.
+
+**Files touched:**
+- `app/src/features/chalkie/assembleSameUnitPriorLearningCandidates.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildSameUnitPriorLearningCandidates.ts` (updated)
+- `app/src/features/chalkie/buildSameUnitLanguageGrammarPriorLearningCandidates.ts` (updated)
+- `scripts/tests/assembleSameUnitPriorLearningCandidates.test.ts` (created)
+- `scripts/tests/buildSameUnitLanguageGrammarPriorLearningCandidates.test.ts` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 341
+
+**Summary:** Added light teacher-facing evidence-kind distinction on same-unit `[PRIOR]` Step 2 cards (`Vocabulary` / `Language in Action` / `Grammar` in provenance text). Selection, ordering, handoff, support cards, and BE2 fixtures unchanged; no badges or filters.
+
+**Files touched:**
+- `app/src/features/chalkie/priorLearningCandidate.ts` (updated)
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/priorLearningEvidenceKindDisplay.test.ts` (created)
+- `scripts/tests/assembleSameUnitPriorLearningCandidates.test.ts` (updated)
+- `scripts/tests/buildSameUnitPriorLearningCandidates.test.ts` (updated)
+- `scripts/tests/attachUnitLearningSpineMetadata.test.ts` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 342
+
+**Summary:** Implemented Prior Learning Slice 3 curated earlier-unit `[HM]` support (BE2 U8 opener verified bank). Same-unit `[PRIOR]` preserved; cards optional/unchecked; light `[HM]` provenance; PRIOR-then-HM merge with id/frame dedupe; no School Notes or AI.
+
+**Files touched:**
+- `app/src/features/chalkie/curatedHorizontalMappingEntries.ts` (created)
+- `app/src/features/chalkie/buildCuratedHorizontalMappingCandidates.ts` (created)
+- `app/src/features/chalkie/surfaceSameUnitPriorLearningSuggestions.ts` (updated)
+- `app/src/features/chalkie/priorLearningCandidate.ts` (updated)
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildCuratedHorizontalMappingCandidates.test.ts` (created)
+- `scripts/tests/assembleSameUnitPriorLearningCandidates.test.ts` (updated)
+- `scripts/tests/surfaceSameUnitPriorLearningSuggestions.test.ts` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 343
+
+**Summary:** Attempted verification-first curated `[HM]` coverage expansion. No second verified target lesson/unit exists in the repo (only BE2 U8 opener). Left product store/builder/UI unchanged; recorded audit §8a coverage gate + inventory tests.
+
+**Files touched:**
+- `scripts/tests/curatedHorizontalMappingCoverageInventory.test.ts` (created)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 345
+
+**Summary:** Strengthened session `[TEACHER-ADDED · UNVERIFIED]` prior-skill path: visible provenance on Step 2/3 cards, no auto-select on add, session-only guidance replacing the placeholder. Distinct from any future School Notes product; `[PRIOR]` / `[HM]` unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/priorLearningCandidate.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherAddedPriorSkillPath.test.ts` (created)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 346
+
+**Summary:** Defined a verification-ready authoring contract for additional curated `[HM]` target packs (docs + validator + focused gate tests). No second product `[HM]` route, School Notes, or runtime PRIOR/HM/teacher-added behavior changes.
+
+**Files touched:**
+- `docs/phase-5/curated-horizontal-mapping-pack-authoring-contract-v0.1.md` (created)
+- `app/src/features/chalkie/curatedHorizontalMappingPackAuthoringContract.ts` (created)
+- `scripts/tests/curatedHorizontalMappingPackAuthoringContract.test.ts` (created)
+- `scripts/tests/curatedHorizontalMappingCoverageInventory.test.ts` (updated)
+- `app/src/features/chalkie/curatedHorizontalMappingEntries.ts` (updated)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 348
+
+**Summary:** Reverted premature School Notes preparation only (§8b coverage gate, unlock-pack authoring contract/validator/tests, and related tracker framing). Retained shipped `[PRIOR]` evidence-kind display, curated `[HM]` Slice 3 + authoring contract, and session `[TEACHER-ADDED · UNVERIFIED]` behavior/tests.
+
+**Files touched:**
+- `docs/phase-5/school-notes-unlock-pack-authoring-contract-v0.1.md` (deleted)
+- `app/src/features/chalkie/schoolNotesUnlockPackAuthoringContract.ts` (deleted)
+- `scripts/tests/schoolNotesUnlockPackAuthoringContract.test.ts` (deleted)
+- `scripts/tests/schoolNotesSlice4CoverageGate.test.ts` (deleted)
+- `docs/phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 349
+
+**Summary:** Enabled generic Student-Book-only two-lesson packaging for every ready SB spread with verified page evidence (stable selected-activity mid-split; no WB companion required). Verified SB->WB series routes unchanged. BE3 U8 pp.132-133 acceptance covered by focused tests.
+
+**Files touched:**
+- `app/src/features/chalkie/allocateSbOnlyTwoLessonActivities.ts` (created)
+- `app/src/features/chalkie/buildSbOnlyTwoLessonHandoff.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/sbOnlyTwoLessonPackaging.test.ts` (created)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 350
+
+**Summary:** Added a Prepare detailed lesson plan output beside Prepare Chalkie prompt in the existing teacher-choice flow. The plan reuses the same selected evidence and package shape (single, SB-only two-lesson, or verified SB->WB) as a local copyable document without changing Chalkie handoff behavior.
+
+**Files touched:**
+- `app/src/features/chalkie/buildDetailedGeneralLessonPlan.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildDetailedGeneralLessonPlan.test.ts` (created)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 351
+
+**Summary:** Fixed Step 1 activity selection so ordinary Student Book-only lessons show one full-width Student Book activities list without an empty facing-page "Not included" panel. Verified SB->WB pair routes keep the two-source layout.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieSbOnlyActivityLayout.test.ts` (created)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 352
+
+**Summary:** Implemented D022 Neutral Lesson Package + Book Intelligence realignment: locked decision and revised F021/left-pane contracts; added filtered BI planning context into Opener NLP and detailed lesson plans; optional Chalkie BI framing flag (default off); archived unused BI PDF verifier scripts and deferred further BI book expansion.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated — D022)
+- `docs/7-future.md` (updated — F021/F022)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-2/book-intelligence-ui-data-contract-v1.md` (updated)
+- `docs/0-index.md` (updated)
+- `app/src/lib/bookIntelligence/toBiPlanningContext.ts` (created)
+- `app/src/lib/bookIntelligence/index.ts` (updated)
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/buildDetailedGeneralLessonPlan.ts` (updated)
+- `app/src/features/chalkie/chalkieBiFraming.ts` (created)
+- `app/src/features/chalkie/be3U08OpenerNeutralCanary.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/chalkieUnitIntelligence.ts` (updated)
+- `scripts/tests/toBiPlanningContext.test.ts` (created)
+- `scripts/tests/chalkieBiFraming.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/buildDetailedGeneralLessonPlan.test.ts` (updated)
+- `scripts/archive/bi-pdf-verifiers/` (created — moved unused BI PDF/e2e verifiers)
+- `.env.example` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

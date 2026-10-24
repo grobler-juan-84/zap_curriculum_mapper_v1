@@ -1040,6 +1040,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         lesson={activeLesson}
         activityCards={activeLessonActivityCards}
         workbookActivityCards={activeLessonWorkbookActivityCards}
+        bookIntelligence={bookIntelligence}
       />
     </div>
   )

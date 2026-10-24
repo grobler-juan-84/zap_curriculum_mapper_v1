@@ -386,3 +386,105 @@ test('assembler rejects resolver-wired relationships outside the two accepted pa
     /not enabled for relationship/,
   )
 })
+
+test('opener without BI still assembles and omits curriculumInterpretation', () => {
+  const input = allSelected([128, 129])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(
+    lessonPackage.boundaries.bookIntelligenceMayBecomeSourceEvidence,
+    false,
+  )
+})
+
+test('opener with matching BI attaches labelled curriculumInterpretation only', () => {
+  const input = allSelected([128, 129])
+  const baseline = buildNeutralSbWbLessonPackage(input)
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_08',
+      unitNumber: '8',
+      title: 'Healthy Living',
+      vocabulary: 'MUST-NOT-ENTER-VOCAB',
+      grammarStructures: 'MUST-NOT-ENTER-GRAMMAR',
+      communicativeFunctions: 'Talk about healthy and unhealthy activities.',
+      learningOutcomes: 'I can talk about healthy living.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'MUST-NOT-ENTER-CLIL',
+      values: 'MUST-NOT-ENTER-VALUES',
+      phonics: 'MUST-NOT-ENTER-PHONICS',
+      writing: 'MUST-NOT-ENTER-WRITING',
+    },
+    biArtifactRef:
+      'big-english/big_english_3_sb/interpretations/be3-sb-u01-u09-book-intelligence-ab-v0.1-draft.json',
+  })
+
+  assert.ok(lessonPackage.curriculumInterpretation?.bookIntelligence)
+  const bi = lessonPackage.curriculumInterpretation.bookIntelligence
+  assert.equal(bi.layer, 'phase2_interpretation')
+  assert.equal(
+    bi.communicativeFocus,
+    'Talk about healthy and unhealthy activities.',
+  )
+  assert.equal(bi.suggestedLearningOutcomes, 'I can talk about healthy living.')
+  assert.equal(bi.learningOutcomesProvenance, 'ai_inferred')
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities,
+    baseline.lesson1.selectedActivities,
+  )
+  assert.deepEqual(lessonPackage.lesson1.vocabulary, baseline.lesson1.vocabulary)
+  assert.deepEqual(
+    lessonPackage.lesson1.scope.printedPages,
+    baseline.lesson1.scope.printedPages,
+  )
+  const serialized = JSON.stringify(lessonPackage)
+  assert.doesNotMatch(serialized, /MUST-NOT-ENTER/)
+})
+
+test('opener omits BI when unit number mismatches package unit', () => {
+  const input = allSelected([128, 129])
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_07',
+      unitNumber: '7',
+      title: 'Other unit',
+      vocabulary: 'x',
+      grammarStructures: 'x',
+      communicativeFunctions: 'Wrong unit focus.',
+      learningOutcomes: 'Wrong unit LO.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'x',
+      values: 'x',
+      phonics: 'x',
+    },
+  })
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+})
+
+test('Story package ignores BI even when a unit overview is supplied', () => {
+  const input = allSelected([130, 131])
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_08',
+      unitNumber: '8',
+      title: 'Healthy Living',
+      vocabulary: 'x',
+      grammarStructures: 'x',
+      communicativeFunctions: 'Story must not attach BI in this slice.',
+      learningOutcomes: 'Story must not attach BI.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'x',
+      values: 'x',
+      phonics: 'x',
+    },
+  })
+  assert.equal(lessonPackage.identity.componentKey, 'story')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(
+    lessonPackage.boundaries.bookIntelligenceMayBecomeSourceEvidence,
+    false,
+  )
+})

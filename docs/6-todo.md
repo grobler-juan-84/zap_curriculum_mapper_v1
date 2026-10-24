@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 329
+**Last updated:** Step 352
 
 
 
@@ -552,13 +552,57 @@
 
 - [x] **Local Opener canary manual review:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Flag enabled; all-selected normal; selection persistence; SB p.129 Act 4 / WB p.105 Act 3 exclusions honest with no reconstruction. No Chalkie generation or classroom-validation claim. See [`phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md`](./phase-5/chalkie-neutral-package-production-migration-plan-v0.1.md).
 
-- [ ] **Hold:** do not implement Horizontal Mapping / School-Specific Notes / Future Suggestions UI yet.
-
 - [x] **Draft Story canary proposal (docs only):** [`phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — later authorized and implemented.
 
-- [x] **Story-only guarded canary implemented:** `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` default off; exact five-artifact compare; bespoke fallback + developer diagnostic on mismatch; WB p.106-only; Opener canary unchanged. Status: **IMPLEMENTED / AWAITING OWNER MANUAL CHECK**.
+- [x] **Story-only guarded canary implemented:** `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` default off; exact five-artifact compare; bespoke fallback + developer diagnostic on mismatch; WB p.106-only; Opener canary unchanged.
 
-- [ ] **Owner manual check of Story canary** — enable flag in `app/.env.local`, restart, verify all-selected / SB+WB exclusions / zero-selection / no WB p.107; do not mark manually accepted until that passes. No bulk migration, Chalkie generation, or new Activity Selection feature without explicit approval.
+- [x] **Owner manual check of Story canary:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (SB pp.130–131 → WB p.106 only; WB p.107 excluded). All-selected normal; SB Act 6 / WB Act 5 exclusions honest; zero-selection honest; Opener independent. See [`phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md).
+
+- [x] **Docs-only Prior Learning / Horizontal Mapping design audit:** [`phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md`](./phase-5/chalkie-prior-learning-horizontal-mapping-audit-v0.1.md).
+
+- [x] **Prior Learning Slice 1:** deterministic read-only same-unit `[PRIOR]` candidate model (`priorLearningCandidate.ts`, `buildSameUnitPriorLearningCandidates.ts`); Step 2 adapter preserved; focused tests green.
+
+- [x] **Prior Learning Slice 2:** candidate-aware same-unit suggestion surfacing (`surfaceSameUnitPriorLearningSuggestions` + resolver `sameUnitPriorLearningCandidates`); optional selection never auto-selects; light `[PRIOR]` provenance on Step 2 cards; focused tests green. Slice 3+ not authorized.
+
+- [x] **Docs-only Unit Learning Spine design:** [`phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md`](./phase-5/unit-learning-spine-and-prior-learning-ranking-design-v0.1.md).
+
+- [x] **BE3 U8 Unit Learning Spine data (read-only):** `unitLearningSpine.ts` + `be3U08UnitLearningSpine.ts` + focused tests. Core Vocab/LiA/Grammar + support/review entries; `human_verified`; not wired to Step 2. Ranking/UI/`[PRIOR]` integration **not authorized**.
+
+- [x] **Read-only spine core-ID consumer:** `listCoreUnitLearningSpineComponentIds` — BE3 U8 returns three core IDs in declared order; empty when no spine; no mutation; no UI/Step 2 effect.
+
+- [x] **Read-only `[PRIOR]` spine metadata:** `attachUnitLearningSpineMetadata` — optional `componentId` / `spineRole` on deterministic page-scope match only; Step 2 cards/order/selection unchanged; ranking/UI not authorized.
+
+- [x] **Narrow spine-role ordering:** `orderSameUnitPriorLearningCandidatesBySpineRole` — core → support → unclassified; stable within role; cards remain optional/unchecked; no badges/filters; BE2 fixture unchanged.
+
+- [x] **Read-only language/grammar `[PRIOR]` foundation:** `buildSameUnitLanguageGrammarPriorLearningCandidates` — verified BE3 U8 LiA + Grammar candidates.
+
+- [x] **Step 2 surfacing of language/grammar `[PRIOR]`:** `assembleSameUnitPriorLearningCandidates` merges vocab + LiA + Grammar; spine-aware order; optional/unchecked; BE2 fixture unchanged.
+
+- [x] **Light evidence-kind distinction on same-unit `[PRIOR]` cards:** plain provenance labels (`Vocabulary` / `Language in Action` / `Grammar`); no badges, filters, auto-select, or handoff changes; BE2 fixture unchanged.
+
+- [x] **Prior Learning Slice 3:** curated earlier-unit `[HM]` store + builder + Step 2 merge (PRIOR first); BE2 U8 opener verified bank; optional/unchecked; light `[HM]` provenance; focused tests green.
+
+- [x] **Curated `[HM]` coverage expansion gate (data-only):** scanned Phase 2 HM packs + store + `data/`; no second verified target lesson/unit; product store unchanged; inventory test + audit §8a recorded.
+
+- [x] **Strengthen session teacher-added path:** visible `[TEACHER-ADDED · UNVERIFIED]` provenance on Step 2/3; no auto-select on add; session-only guidance; focused tests green.
+
+- [x] **Curated `[HM]` pack authoring contract:** verification-ready checklist + validator/tests; checked-in entries must stay complete/exclusion-safe; incomplete packs rejected; no second product route.
+
+- [x] **Revert premature School Notes prep:** removed §8b coverage gate / unlock-pack docs, validators, and tests; School Notes not an active product track.
+
+- [x] **Generic SB-only two-lesson packaging:** ready SB spreads with verified page evidence offer Single lesson or Two lessons from this Student Book spread (stable activity mid-split; no WB/`[PRIOR]`/`[HM]` gate). Verified SB→WB routes unchanged. BE3 U8 pp.132–133 acceptance + focused tests green.
+
+- [x] **Detailed general lesson plan output:** final Step 3 offers Prepare Chalkie prompt or Prepare lesson plan from the same selections/package shape; local copyable plan; Chalkie handoff unchanged; focused tests green.
+
+- [x] **Step 1 SB-only layout polish:** ordinary SB-only lessons use one full-width Student Book activities list (no empty facing “Not included” panel); verified SB→WB pairs keep two-source UI.
+
+- [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
+
+- [x] **D022 NLP + BI realignment Phases 0–5:** decision + docs; `toBiPlanningContext`; Opener NLP `curriculumInterpretation`; detailed lesson plan BI section; optional Chalkie BI framing flag; archive unused BI PDF verifiers; stop BI book expansion pending owner accept.
+
+- [ ] **Owner review:** confirm BI planning-context value on BE3 U8 Opener detailed lesson plans (with/without BI present).
+
+- [ ] **Authorize next Prior Learning step only:** author a new verified curated `[HM]` target pack that passes the authoring contract. Do not implement School Notes or AI suggestions automatically.
 
 
 

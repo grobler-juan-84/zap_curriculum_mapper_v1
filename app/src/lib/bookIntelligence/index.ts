@@ -26,6 +26,11 @@ export {
 
 export { parseBookIntelligenceOverview } from './parseBookIntelligenceOverview'
 
+export {
+  toBiPlanningContext,
+  type BiPlanningContext,
+} from './toBiPlanningContext'
+
 export type {
   BookIntelligenceColumnSet,
   BookIntelligenceOverviewDocument,
