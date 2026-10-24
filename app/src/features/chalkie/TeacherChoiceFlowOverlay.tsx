@@ -38,6 +38,13 @@ import {
   type TeacherChoiceSuggestion,
 } from './teacherChoiceSuggestions'
 import {
+  formatCuratedHmProvenanceLine,
+  formatSameUnitPriorProvenanceLine,
+  formatTeacherAddedProvenanceLine,
+  priorLearningEvidenceKindDisplayLabel,
+} from './priorLearningCandidate'
+import { initialSelectedPriorLearningIds } from './surfaceSameUnitPriorLearningSuggestions'
+import {
   buildSbActivityPageColumns,
   createSbActivityHandoffSelection,
   createDefaultSbActivitySelection,
@@ -247,7 +254,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const dialogRef = useRef<HTMLDivElement>(null)
   const continueRef = useRef<HTMLButtonElement>(null)
   const [step, setStep] = useState(1)
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedIds, setSelectedIds] = useState<string[]>(() =>
+    initialSelectedPriorLearningIds(),
+  )
   const [teacherAdditions, setTeacherAdditions] = useState<TeacherAddedLanguage[]>([])
   const [newTitle, setNewTitle] = useState('')
   const [newFrame, setNewFrame] = useState('')
@@ -290,7 +299,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   useEffect(() => {
     if (!open) {
       setStep(1)
-      setSelectedIds([])
+      setSelectedIds(initialSelectedPriorLearningIds())
       setTeacherAdditions([])
       setNewTitle('')
       setNewFrame('')
@@ -672,7 +681,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       const next = appendTeacherAddedLanguage(prev, newTitle, newFrame, newPurpose, () => id)
       return next ?? prev
     })
-    setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]))
+    // Session teacher-added stays optional/unchecked — never auto-selected into handoff.
     setNewTitle('')
     setNewFrame('')
     setNewPurpose('')
@@ -1186,7 +1195,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
                     <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-4 sm:p-5">
                       <p className="text-sm leading-relaxed text-slate-700">
-                        future instructions to come here
+                        Session only. New skills stay unchecked until you select them. They are
+                        labelled [TEACHER-ADDED · UNVERIFIED] in the handoff and are not publisher
+                        evidence or School Notes.
                       </p>
                     </div>
                   </div>
@@ -1222,6 +1233,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           <label htmlFor={checkboxId} className="block text-sm text-slate-900">
                             <span className="font-bold">{item.title}</span>
                           </label>
+                          <p className="text-xs leading-relaxed text-slate-500">
+                            {formatTeacherAddedProvenanceLine()}
+                          </p>
                           <p className="text-[0.95rem] leading-relaxed text-slate-900">
                             {item.frame}
                           </p>
@@ -1238,6 +1252,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 {priorLearningSuggestions.map((suggestion) => {
                   const checked = selectedIds.includes(suggestion.id)
                   const checkboxId = `teacher-choice-${suggestion.id}`
+                  const priorCandidate = (
+                    lesson?.sameUnitPriorLearningCandidates ?? []
+                  ).find((candidate) => candidate.id === suggestion.id)
+                  const hmCandidate = (
+                    lesson?.curatedHorizontalMappingCandidates ?? []
+                  ).find((candidate) => candidate.id === suggestion.id)
+                  const isPrior =
+                    suggestion.provenanceTag === '[PRIOR]' ||
+                    priorCandidate?.sourceType === 'PRIOR'
+                  const isHm =
+                    !isPrior &&
+                    (suggestion.provenanceTag === '[HM]' ||
+                      hmCandidate?.sourceType === 'HM')
                   return (
                     <li
                       key={suggestion.id}
@@ -1260,6 +1287,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                           <label htmlFor={checkboxId} className="block text-sm text-slate-900">
                             <PriorSkillCardHeading label={suggestion.label} />
                           </label>
+                          {isPrior ? (
+                            <p className="text-xs leading-relaxed text-slate-500">
+                              {formatSameUnitPriorProvenanceLine({
+                                source: suggestion.source,
+                                evidenceKindLabel:
+                                  suggestion.evidenceKindLabel ??
+                                  priorLearningEvidenceKindDisplayLabel(
+                                    priorCandidate?.evidenceKind,
+                                  ),
+                                includeOptionalSupportNote: Boolean(priorCandidate),
+                              })}
+                            </p>
+                          ) : isHm ? (
+                            <p className="text-xs leading-relaxed text-slate-500">
+                              {formatCuratedHmProvenanceLine({
+                                source: suggestion.source,
+                                includeOptionalSupportNote: true,
+                              })}
+                            </p>
+                          ) : null}
                           <p className="text-[0.95rem] leading-relaxed text-slate-900">
                             {suggestion.frame}
                           </p>
@@ -1495,8 +1542,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                 <span className="font-medium text-slate-700">Purpose:</span>{' '}
                                 {item.purpose}
                               </p>
-                              <p className="text-sm font-medium text-slate-700">
-                                Teacher-added · unverified
+                              <p className="text-xs leading-relaxed text-slate-500">
+                                {formatTeacherAddedProvenanceLine()}
                               </p>
                             </li>
                           ))}

@@ -13,6 +13,11 @@ export type TeacherChoiceSuggestion = {
    * Same-unit earlier-page vocabulary uses `[PRIOR]`.
    */
   provenanceTag?: '[HM]' | '[PRIOR]'
+  /**
+   * Optional plain-text evidence-kind label for same-unit `[PRIOR]` cards
+   * (Vocabulary / Language in Action / Grammar). Display-only; not handoff.
+   */
+  evidenceKindLabel?: string
 }
 
 /** Card / prompt title: `Preference: Unit 07 pp.113-116` */
@@ -42,6 +47,7 @@ export function splitPriorSkillCardTitle(label: string): {
   return { skillName, bookSources }
 }
 
+/** Golden fixture for BE2 U8 opener curated `[HM]` cards (Slice 3 store must match). */
 export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
   {
     id: 'PL-19',
@@ -56,6 +62,7 @@ export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
     whyItMayHelp: 'It supports fuller preference exchanges with Unit 8 animal vocabulary.',
     caution: 'Keep positive and negative answers accurate.',
     evidenceNote: 'Previously used for food preferences in Unit 7 (SB pp.113/116).',
+    provenanceTag: '[HM]',
   },
   {
     id: 'PL-08',
@@ -71,6 +78,7 @@ export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
     caution: '“Me neither!” follows a negative statement only.',
     evidenceNote:
       'Previously used for agreement after positive or negative preference statements in Unit 2 (SB p.28).',
+    provenanceTag: '[HM]',
   },
   {
     id: 'PL-01',
@@ -85,6 +93,7 @@ export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
     whyItMayHelp: 'It supports talking about animal actions after ability language.',
     caution: 'Animal examples are teacher/mapper adaptations, not exact publisher wording.',
     evidenceNote: 'Previously used for singular present-continuous action descriptions in Unit 1 (SB pp.5/8).',
+    provenanceTag: '[HM]',
   },
   {
     id: 'PL-03',
@@ -95,5 +104,6 @@ export const BE2_U08_AI_SUGGESTIONS: TeacherChoiceSuggestion[] = [
     whyItMayHelp: 'It is useful when there is a clear animal picture or scene to count.',
     caution: 'Use only with countable plural animals and a visible count.',
     evidenceNote: 'Previously used for counting pictures and objects in Units 1 and 6 (SB p.9 evidenced for U1).',
+    provenanceTag: '[HM]',
   },
 ]

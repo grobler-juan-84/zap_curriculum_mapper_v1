@@ -181,7 +181,9 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   assert.ok(!overlaySource.includes('Your choices'))
   assert.ok(overlaySource.includes('Add Prior Skills'))
   assert.ok(overlaySource.includes('Add a prior skill'))
-  assert.ok(overlaySource.includes('future instructions to come here'))
+  assert.ok(!overlaySource.includes('future instructions to come here'))
+  assert.ok(overlaySource.includes('Session only. New skills stay unchecked'))
+  assert.ok(overlaySource.includes('formatTeacherAddedProvenanceLine'))
   assert.ok(overlaySource.includes('teacher-added-title'))
   assert.ok(overlaySource.includes('addPriorSkillExpanded'))
   assert.ok(overlaySource.includes('aria-expanded={addPriorSkillExpanded}'))
@@ -193,6 +195,11 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   assert.ok(!overlaySource.includes('Caution:'))
   assert.ok(overlaySource.includes('Purpose:'))
   assert.ok(overlaySource.includes('TEACHER_CHOICE_TOTAL_STEPS'))
+  assert.ok(
+    !/appendTeacherAddedLanguage[\s\S]{0,400}setSelectedIds\(\(prev\) => \(prev\.includes\(id\)/.test(
+      overlaySource,
+    ),
+  )
 })
 
 test('handoff overlay has no model-draft UI and does not call the OpenAI endpoint', () => {

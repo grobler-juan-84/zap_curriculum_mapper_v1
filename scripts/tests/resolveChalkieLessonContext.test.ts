@@ -434,6 +434,7 @@ test('exact BE2 Unit 8 fixture route is unchanged', () => {
   assert.equal(resolved.supportsTwoLessonSeries, true)
   assert.equal(resolved.currentFocus, BE2_U08_PROTOTYPE_FOCUS)
   assert.deepEqual(resolved.vocabulary, [...BE2_U08_VOCABULARY])
+  assert.deepEqual(resolved.sameUnitPriorLearningCandidates, [])
   assert.equal(resolved.priorLearningSuggestions.length, 4)
   assert.deepEqual(
     resolved.priorLearningSuggestions.map((item) => item.id),
@@ -444,7 +445,13 @@ test('exact BE2 Unit 8 fixture route is unchanged', () => {
 test('BE3 U8 pp.132–133 offers one earlier same-unit vocabulary bundle from p.128', () => {
   const resolved = resolveBe3WithUnitSummary([132, 133])
   assert.equal(resolved.status, 'ready')
+  assert.equal(resolved.sameUnitPriorLearningCandidates.length, 1)
+  assert.equal(resolved.sameUnitPriorLearningCandidates[0]!.sourceType, 'PRIOR')
   assert.equal(resolved.priorLearningSuggestions.length, 1)
+  assert.equal(
+    resolved.priorLearningSuggestions[0]!.id,
+    resolved.sameUnitPriorLearningCandidates[0]!.id,
+  )
   const suggestion = resolved.priorLearningSuggestions[0]
   assert.equal(
     suggestion.label,

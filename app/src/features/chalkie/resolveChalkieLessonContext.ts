@@ -22,11 +22,11 @@ import {
   isBe2U08PrototypePages,
   type TeacherChoiceLanguageExample,
 } from './teacherChoicePrototypeContent'
-import {
-  BE2_U08_AI_SUGGESTIONS,
-  type TeacherChoiceSuggestion,
-} from './teacherChoiceSuggestions'
-import { deriveSameUnitEarlierVocabularySuggestions } from './deriveSameUnitEarlierVocabularySuggestions'
+import { BE2_U08_AI_SUGGESTIONS, type TeacherChoiceSuggestion } from './teacherChoiceSuggestions'
+import { assembleSameUnitPriorLearningCandidates } from './assembleSameUnitPriorLearningCandidates'
+import { buildCuratedHorizontalMappingCandidates } from './buildCuratedHorizontalMappingCandidates'
+import type { PriorLearningCandidate } from './priorLearningCandidate'
+import { mergeStep2PriorLearningSuggestions } from './surfaceSameUnitPriorLearningSuggestions'
 import { buildChalkieLessonNaming } from './buildChalkieLessonNaming'
 import {
   BE3_U08_OPENER_SERIES_STABLE_REF,
@@ -91,6 +91,20 @@ export type ChalkieLessonContext = {
    * Null when no pairing exists — never filled by structural heuristics.
    */
   workbookCompanion: VerifiedSbWbCompanion | null
+  /**
+   * Slice 2: read-only same-unit `[PRIOR]` candidates (may be empty).
+   * Never auto-selected. Distinct from curated earlier-unit `[HM]`.
+   */
+  sameUnitPriorLearningCandidates: PriorLearningCandidate[]
+  /**
+   * Slice 3: read-only curated earlier-unit `[HM]` candidates (may be empty).
+   * Never auto-selected. Only where verified curated entries exist.
+   */
+  curatedHorizontalMappingCandidates: PriorLearningCandidate[]
+  /**
+   * Step 2 suggestion cards: same-unit `[PRIOR]` first, then curated `[HM]`.
+   * BE2 U8 opener uses the curated store (golden fixture must stay in sync).
+   */
   priorLearningSuggestions: TeacherChoiceSuggestion[]
   singleLessonTitle: string
   seriesLessonTitle: string | null
@@ -251,6 +265,8 @@ export function resolveChalkieLessonContext(input: {
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
+      sameUnitPriorLearningCandidates: [],
+      curatedHorizontalMappingCandidates: [],
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -278,6 +294,8 @@ export function resolveChalkieLessonContext(input: {
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
+      sameUnitPriorLearningCandidates: [],
+      curatedHorizontalMappingCandidates: [],
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -313,6 +331,8 @@ export function resolveChalkieLessonContext(input: {
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
+      sameUnitPriorLearningCandidates: [],
+      curatedHorizontalMappingCandidates: [],
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -329,6 +349,25 @@ export function resolveChalkieLessonContext(input: {
     isBe2 && unitNumber === 8 && isBe2U08PrototypePages(sortedVisible)
 
   if (isBe2U08PrototypeRoute) {
+    const curatedHorizontalMappingCandidates =
+      buildCuratedHorizontalMappingCandidates({
+        catalogBookId,
+        unitNumber: 8,
+        visiblePrintedPages: sortedVisible,
+      })
+    const curatedSuggestions = mergeStep2PriorLearningSuggestions({
+      sameUnitPriorCandidates: [],
+      curatedHmCandidates: curatedHorizontalMappingCandidates,
+    })
+    // Golden fixture remains the regression authority for card content/order.
+    const priorLearningSuggestions =
+      curatedSuggestions.length === BE2_U08_AI_SUGGESTIONS.length &&
+      curatedSuggestions.every(
+        (item, index) => item.id === BE2_U08_AI_SUGGESTIONS[index]?.id,
+      )
+        ? curatedSuggestions
+        : [...BE2_U08_AI_SUGGESTIONS]
+
     return {
       ...base,
       status: 'ready',
@@ -348,7 +387,10 @@ export function resolveChalkieLessonContext(input: {
       isBe2U08PrototypeRoute: true,
       supportsTwoLessonSeries: true,
       workbookCompanion: null,
-      priorLearningSuggestions: BE2_U08_AI_SUGGESTIONS,
+      // Same-unit PRIOR stays empty on the BE2 fixture route; curated HM drives Step 2.
+      sameUnitPriorLearningCandidates: [],
+      curatedHorizontalMappingCandidates,
+      priorLearningSuggestions,
       singleLessonTitle: BE2_U08_SINGLE_LESSON_TITLE,
       seriesLessonTitle: BE2_U08_SERIES_LESSON_TITLE,
       stableLessonReference: buildChalkieLessonNaming({
@@ -398,6 +440,8 @@ export function resolveChalkieLessonContext(input: {
       isBe2U08PrototypeRoute: false,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
+      sameUnitPriorLearningCandidates: [],
+      curatedHorizontalMappingCandidates: [],
       priorLearningSuggestions: [],
       singleLessonTitle: '',
       seriesLessonTitle: null,
@@ -416,14 +460,27 @@ export function resolveChalkieLessonContext(input: {
       ? visibleView!.pageLabels.join(' · ')
       : 'Review the visible lesson in the source PDF.'
 
-  const priorLearningSuggestions =
+  const sameUnitPriorLearningCandidates =
     input.summary && unitNumber != null
-      ? deriveSameUnitEarlierVocabularySuggestions({
+      ? assembleSameUnitPriorLearningCandidates({
           summary: input.summary,
           visiblePrintedPages: sortedVisible,
           unitNumber,
+          catalogBookId,
         })
       : []
+  const curatedHorizontalMappingCandidates =
+    unitNumber != null
+      ? buildCuratedHorizontalMappingCandidates({
+          catalogBookId,
+          unitNumber,
+          visiblePrintedPages: sortedVisible,
+        })
+      : []
+  const priorLearningSuggestions = mergeStep2PriorLearningSuggestions({
+    sameUnitPriorCandidates: sameUnitPriorLearningCandidates,
+    curatedHmCandidates: curatedHorizontalMappingCandidates,
+  })
 
   const naming = buildChalkieLessonNaming({
     catalogBookId,
@@ -483,6 +540,8 @@ export function resolveChalkieLessonContext(input: {
     // Series packaging only for accepted BE3 U8 curated relationships (opener or story).
     supportsTwoLessonSeries: be3Series,
     workbookCompanion,
+    sameUnitPriorLearningCandidates,
+    curatedHorizontalMappingCandidates,
     priorLearningSuggestions,
     singleLessonTitle: naming.teacherFacingTitle,
     seriesLessonTitle,
