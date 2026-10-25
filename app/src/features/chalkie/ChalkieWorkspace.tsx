@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch } from '../../types/validation'
@@ -39,8 +39,25 @@ import {
   resolveChalkieLessonContext,
   type ChalkieLessonContext,
 } from './resolveChalkieLessonContext'
-import { buildSbActivityCards } from './chalkieActivitySelection'
-import { buildWbActivityCards } from './chalkieWorkbookActivitySelection'
+import {
+  buildSbActivityCards,
+  createDefaultSbActivitySelection,
+  setSbActivityCardSelected,
+  type SbActivitySelectionState,
+} from './chalkieActivitySelection'
+import {
+  buildWbActivityCards,
+  createDefaultWbActivitySelection,
+  setWbActivityCardSelected,
+  type WbActivitySelectionState,
+} from './chalkieWorkbookActivitySelection'
+import { buildCurrentLessonContext } from './currentLessonContext'
+import {
+  activityCardIdsKey,
+  buildLessonActivitySelectionScopeKey,
+  reconcileSbActivitySelection,
+  reconcileWbActivitySelection,
+} from './lessonActivitySelection'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -159,6 +176,14 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
   const [activeLesson, setActiveLesson] = useState<ChalkieLessonContext | null>(null)
   const [scopeGuard, setScopeGuard] = useState<ChalkieLessonContext | null>(null)
+  /** Authoritative activity selection for left panel + Create-a-prompt. */
+  const [sbActivitySelection, setSbActivitySelection] =
+    useState<SbActivitySelectionState>(() => createDefaultSbActivitySelection([]))
+  const [wbActivitySelection, setWbActivitySelection] =
+    useState<WbActivitySelectionState>(() => createDefaultWbActivitySelection([]))
+  const selectionScopeKeyRef = useRef('')
+  const knownSbCardIdsRef = useRef<readonly string[]>([])
+  const knownWbCardIdsRef = useRef<readonly string[]>([])
   const [pdfJumpRequest, setPdfJumpRequest] = useState<{
     pdfPage: number
     requestId: number
@@ -328,6 +353,37 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     [book, summary, lessonScopePages, currentBatch?.unitNumber],
   )
 
+  /**
+   * Live curriculum context for the left panel — same verified activity builders
+   * the Create-a-prompt modal uses, scoped to the current PDF lesson pages.
+   */
+  const liveCurrentLesson = useMemo(
+    () =>
+      buildCurrentLessonContext({
+        summary,
+        sbPrintedPages: lessonScopePages,
+        workbookSummary,
+        workbookCompanion: verifiedCompanion,
+        bookIntelligence,
+        bookIntelligenceLoading,
+        unitNumber:
+          currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+      }),
+    [
+      summary,
+      lessonScopePages,
+      workbookSummary,
+      verifiedCompanion,
+      bookIntelligence,
+      bookIntelligenceLoading,
+      currentBatch?.unitNumber,
+    ],
+  )
+
+  /**
+   * Modal cards freeze to the prepared lesson scope so selection matches what
+   * the teacher confirmed at Create-a-prompt time (same builders as left panel).
+   */
   const activeLessonActivityCards = useMemo(
     () =>
       buildSbActivityCards({
@@ -343,6 +399,136 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         companion: activeLesson?.workbookCompanion ?? null,
       }),
     [workbookSummary, activeLesson],
+  )
+
+  const liveSbActivityCards = liveCurrentLesson.bookContent.sbActivities
+  const liveWbActivityCards = liveCurrentLesson.bookContent.wbActivities
+
+  /**
+   * While Create-a-prompt is open, selection stays keyed to the frozen prepared
+   * lesson so PDF navigation cannot leak a different scope into the handoff.
+   */
+  const selectionSbCards =
+    teacherChoiceOpen && activeLesson ? activeLessonActivityCards : liveSbActivityCards
+  const selectionWbCards =
+    teacherChoiceOpen && activeLesson
+      ? activeLessonWorkbookActivityCards
+      : liveWbActivityCards
+
+  const liveSelectionScopeKey = useMemo(
+    () =>
+      buildLessonActivitySelectionScopeKey({
+        catalogBookId: book.catalogBookId,
+        unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+        sbPrintedPages: lessonScopePages,
+        companionRelationshipId: verifiedCompanion?.relationshipId ?? null,
+      }),
+    [
+      book.catalogBookId,
+      currentBatch?.unitNumber,
+      summary?.units,
+      lessonScopePages,
+      verifiedCompanion?.relationshipId,
+    ],
+  )
+
+  const preparedSelectionScopeKey = useMemo(
+    () =>
+      activeLesson
+        ? buildLessonActivitySelectionScopeKey({
+            catalogBookId: activeLesson.catalogBookId,
+            unitNumber: activeLesson.unitNumber,
+            sbPrintedPages: activeLesson.visiblePrintedPages,
+            companionRelationshipId:
+              activeLesson.workbookCompanion?.relationshipId ?? null,
+          })
+        : '',
+    [activeLesson],
+  )
+
+  const activeSelectionScopeKey =
+    teacherChoiceOpen && activeLesson
+      ? preparedSelectionScopeKey
+      : liveSelectionScopeKey
+
+  const selectionSbCardIdsKey = activityCardIdsKey(selectionSbCards)
+  const selectionWbCardIdsKey = activityCardIdsKey(selectionWbCards)
+
+  useEffect(() => {
+    const scopeChanged = activeSelectionScopeKey !== selectionScopeKeyRef.current
+    if (scopeChanged) {
+      setSbActivitySelection(createDefaultSbActivitySelection(selectionSbCards))
+      setWbActivitySelection(createDefaultWbActivitySelection(selectionWbCards))
+      knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
+      knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
+      selectionScopeKeyRef.current = activeSelectionScopeKey
+      return
+    }
+
+    setSbActivitySelection((previous) => {
+      const next = reconcileSbActivitySelection({
+        cards: selectionSbCards,
+        previous,
+        previousCardIds: knownSbCardIdsRef.current,
+      })
+      knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
+      const nextIds = activityCardIdsKey(
+        next.selectedCardIds.map((id) => ({ id })),
+      )
+      const prevIds = activityCardIdsKey(
+        previous.selectedCardIds.map((id) => ({ id })),
+      )
+      return nextIds === prevIds ? previous : next
+    })
+    setWbActivitySelection((previous) => {
+      const next = reconcileWbActivitySelection({
+        cards: selectionWbCards,
+        previous,
+        previousCardIds: knownWbCardIdsRef.current,
+      })
+      knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
+      const nextIds = activityCardIdsKey(
+        next.selectedCardIds.map((id) => ({ id })),
+      )
+      const prevIds = activityCardIdsKey(
+        previous.selectedCardIds.map((id) => ({ id })),
+      )
+      return nextIds === prevIds ? previous : next
+    })
+  }, [
+    activeSelectionScopeKey,
+    selectionSbCardIdsKey,
+    selectionWbCardIdsKey,
+    selectionSbCards,
+    selectionWbCards,
+  ])
+
+  const handleSbActivitySelectionChange = useCallback(
+    (cardId: string, selected: boolean) => {
+      setSbActivitySelection((current) =>
+        setSbActivityCardSelected({
+          cards: selectionSbCards,
+          state: current,
+          cardId,
+          selected,
+        }),
+      )
+    },
+    [selectionSbCards],
+  )
+
+  const handleWbActivitySelectionChange = useCallback(
+    (cardId: string, selected: boolean) => {
+      setWbActivitySelection((current) =>
+        setWbActivityCardSelected({
+          cards: selectionWbCards,
+          state: current,
+          cardId,
+          selected,
+        }),
+      )
+    },
+    [selectionWbCards],
   )
 
   const handlePreparePrompt = useCallback(() => {
@@ -880,21 +1066,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
       <div id="chalkie-split-row" className="flex flex-1 overflow-hidden">
         <section
-          aria-label="Chalkie context summaries"
+          aria-label="Curriculum and intelligence"
           style={{ width: `${leftPaneWidthPercent}%` }}
           className="flex h-full shrink-0 flex-col overflow-hidden"
         >
           <ChalkieLeftPanel
             batch={currentBatch}
-            summary={summary}
-            sbPrintedPages={lessonScopePages}
             loading={batchesLoading || jsonLoading}
             error={jsonError}
-            bookIntelligence={bookIntelligence}
-            bookIntelligenceLoading={bookIntelligenceLoading}
-            workbookSummary={workbookSummary}
-            workbookPrintedPages={verifiedCompanion?.workbookPrintedPages ?? null}
-            companionRelationshipId={verifiedCompanion?.relationshipId ?? null}
+            currentLesson={summary ? liveCurrentLesson : null}
+            sbActivitySelection={sbActivitySelection}
+            wbActivitySelection={wbActivitySelection}
+            onSbActivitySelectionChange={handleSbActivitySelectionChange}
+            onWbActivitySelectionChange={handleWbActivitySelectionChange}
           />
         </section>
 
@@ -1041,6 +1225,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         activityCards={activeLessonActivityCards}
         workbookActivityCards={activeLessonWorkbookActivityCards}
         bookIntelligence={bookIntelligence}
+        sbActivitySelection={sbActivitySelection}
+        wbActivitySelection={wbActivitySelection}
+        onSbActivitySelectionChange={handleSbActivitySelectionChange}
+        onWbActivitySelectionChange={handleWbActivitySelectionChange}
       />
     </div>
   )

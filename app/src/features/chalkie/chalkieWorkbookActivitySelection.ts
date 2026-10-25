@@ -53,6 +53,8 @@ export type SelectedWbActivityEvidence = {
   readonly expectedAnswer: string | null
   readonly languageFrame: string | null
   readonly audioDependency: boolean
+  /** Present when the verified activity row sets visual_dependency. */
+  readonly visualDependency: boolean
   readonly sourceDependencyNote: string | null
   readonly items: readonly WbActivityEvidenceItem[]
   readonly references: readonly WbActivityEvidenceReference[]
@@ -371,6 +373,7 @@ export function buildWbActivityCards(input: {
       expectedAnswer: asString(activity.expected_answer),
       languageFrame: asString(activity.language_frame),
       audioDependency: activity.audio_dependency === true,
+      visualDependency: activity.visual_dependency === true,
       sourceDependencyNote: asString(activity.source_dependency_note),
       items: evidenceItems(activity),
       references,

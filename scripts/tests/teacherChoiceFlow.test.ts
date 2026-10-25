@@ -16,13 +16,20 @@ import {
 } from '../../app/src/features/chalkie/teacherChoicePrototypeContent.ts'
 import {
   REMOVED_TEACHER_CHOICE_SCREEN_TITLE,
-  TEACHER_CHOICE_TOTAL_STEPS,
+  TEACHER_CHOICE_MAX_STEPS,
+  TEACHER_CHOICE_STEPS_WITHOUT_WORKBOOK,
   advanceTeacherChoiceStep,
+  advanceTeacherChoiceStepId,
   appendTeacherAddedLanguage,
+  buildTeacherChoiceSteps,
   clearPriorLearningSelections,
   footerSelectionSummary,
+  includeTeacherChoiceWorkbookStep,
   retreatTeacherChoiceStep,
+  retreatTeacherChoiceStepId,
+  teacherChoiceStepIdAt,
   teacherChoiceStepName,
+  teacherChoiceTotalSteps,
   toggleSelectedSuggestionId,
 } from '../../app/src/features/chalkie/teacherChoiceFlow.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
@@ -166,15 +173,80 @@ function be3Unit8Summary(): BatchJsonSummary {
   }
 }
 
-test('teacher-choice flow is three steps without Your choices screen', () => {
-  assert.equal(TEACHER_CHOICE_TOTAL_STEPS, 3)
-  assert.equal(teacherChoiceStepName(1), 'Current lesson')
-  assert.equal(teacherChoiceStepName(2), 'Prior learning')
-  assert.equal(teacherChoiceStepName(3), 'Lesson inputs')
-  assert.equal(advanceTeacherChoiceStep(2), 3)
-  assert.equal(advanceTeacherChoiceStep(3), 3)
+test('teacher-choice flow is five steps with optional Workbook skip', () => {
+  assert.equal(TEACHER_CHOICE_MAX_STEPS, 5)
+  assert.equal(TEACHER_CHOICE_STEPS_WITHOUT_WORKBOOK, 4)
+  assert.equal(teacherChoiceTotalSteps(true), 5)
+  assert.equal(teacherChoiceTotalSteps(false), 4)
+  assert.deepEqual(buildTeacherChoiceSteps(true), [
+    'student_book',
+    'workbook',
+    'prior_skills',
+    'neutral_review',
+    'choose_output',
+  ])
+  assert.deepEqual(buildTeacherChoiceSteps(false), [
+    'student_book',
+    'prior_skills',
+    'neutral_review',
+    'choose_output',
+  ])
+  assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: true,
+      workbookActivityCardCount: 2,
+    }),
+    true,
+  )
+  assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: true,
+      workbookActivityCardCount: 0,
+    }),
+    false,
+  )
+  assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: false,
+      workbookActivityCardCount: 3,
+    }),
+    false,
+  )
+  assert.equal(
+    teacherChoiceStepName('student_book'),
+    'Review Student Book selection',
+  )
+  assert.equal(
+    teacherChoiceStepName('workbook'),
+    'Review Workbook selection',
+  )
+  assert.equal(teacherChoiceStepName('prior_skills'), 'Prior skills')
+  assert.equal(teacherChoiceStepName('neutral_review'), 'Review lesson package')
+  assert.equal(teacherChoiceStepName('choose_output'), 'Choose output')
+  assert.equal(teacherChoiceStepName(2, true), 'Review Workbook selection')
+  assert.equal(teacherChoiceStepName(2, false), 'Prior skills')
+  assert.equal(teacherChoiceStepIdAt(4, true), 'neutral_review')
+  assert.equal(teacherChoiceStepIdAt(4, false), 'choose_output')
+  assert.equal(advanceTeacherChoiceStep(2, 5), 3)
+  assert.equal(advanceTeacherChoiceStep(5, 5), 5)
   assert.equal(retreatTeacherChoiceStep(3), 2)
   assert.equal(retreatTeacherChoiceStep(1), 1)
+  assert.equal(
+    advanceTeacherChoiceStepId('student_book', true),
+    'workbook',
+  )
+  assert.equal(
+    advanceTeacherChoiceStepId('student_book', false),
+    'prior_skills',
+  )
+  assert.equal(
+    retreatTeacherChoiceStepId('prior_skills', true),
+    'workbook',
+  )
+  assert.equal(
+    retreatTeacherChoiceStepId('prior_skills', false),
+    'student_book',
+  )
 
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
   assert.ok(!overlaySource.includes(REMOVED_TEACHER_CHOICE_SCREEN_TITLE))
@@ -194,7 +266,14 @@ test('teacher-choice flow is three steps without Your choices screen', () => {
   assert.ok(!overlaySource.includes('Why it may help:'))
   assert.ok(!overlaySource.includes('Caution:'))
   assert.ok(overlaySource.includes('Purpose:'))
-  assert.ok(overlaySource.includes('TEACHER_CHOICE_TOTAL_STEPS'))
+  assert.ok(overlaySource.includes('includeTeacherChoiceWorkbookStep'))
+  assert.ok(overlaySource.includes('resolvedStepId === \'neutral_review\''))
+  assert.ok(overlaySource.includes('Review lesson package'))
+  assert.ok(overlaySource.includes('showChooseOutput'))
+  assert.ok(overlaySource.includes('showChalkiePackaging'))
+  assert.ok(overlaySource.includes('data-teacher-choice-fixed-height="true"'))
+  assert.ok(overlaySource.includes('h-[min(calc(78vh+120px),calc(52rem+120px))]'))
+  assert.ok(!overlaySource.includes('max-h-[92vh]'))
   assert.ok(
     !/appendTeacherAddedLanguage[\s\S]{0,400}setSelectedIds\(\(prev\) => \(prev\.includes\(id\)/.test(
       overlaySource,
@@ -272,12 +351,11 @@ test('combined prior-learning screen can select p.128 card and add custom langua
     '1 selected · 1 teacher-added',
   )
 
-  // Continue to lesson inputs, then back — selections remain in this session model.
-  let step = 2
-  step = advanceTeacherChoiceStep(step)
-  assert.equal(step, 3)
-  step = retreatTeacherChoiceStep(step)
-  assert.equal(step, 2)
+  // Continue past prior skills into neutral review, then back — selections remain.
+  let stepId = advanceTeacherChoiceStepId('prior_skills', false)
+  assert.equal(stepId, 'neutral_review')
+  stepId = retreatTeacherChoiceStepId(stepId, false)
+  assert.equal(stepId, 'prior_skills')
   assert.ok(selectedIds.includes(card.id))
   assert.equal(teacherAdditions[0]?.frame, 'What did you do yesterday?')
   assert.equal(teacherAdditions[0]?.title, 'Past habits')

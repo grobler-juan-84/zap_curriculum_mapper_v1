@@ -85,6 +85,14 @@ export type ChalkieLessonContext = {
   pageLabels: string[]
   /** Exact BE2 SB Unit 8 · pp. 128–129 curated prototype route. */
   isBe2U08PrototypeRoute: boolean
+  /**
+   * Two-lesson packaging availability for Step 3.
+   * - `sb_wb`: verified SB→WB series (BE2 fixture / accepted BE3 opener or story)
+   * - `sb_only`: generic Student-Book-only two-lesson split of the current spread
+   * - `null`: two-lesson packaging unavailable
+   */
+  twoLessonPackagingMode: 'sb_wb' | 'sb_only' | null
+  /** True when `twoLessonPackagingMode` is set. */
   supportsTwoLessonSeries: boolean
   /**
    * Verified SB→WB companion from explicit human-verified cross-book relationships only.
@@ -210,7 +218,8 @@ export function resolveChalkieLessonContext(input: {
   unitNumber?: number | string | null
   /**
    * Optional Workbook canonical JSON for verified SB→WB pairing only.
-   * When omitted or unpaired, two-lesson series stays unavailable (except BE2 U8 fixture).
+   * When omitted or unpaired, SB→WB series stays unavailable, but generic
+   * Student-Book-only two-lesson packaging may still be offered on ready routes.
    */
   workbookCanonical?: Record<string, unknown> | null
 }): ChalkieLessonContext {
@@ -263,6 +272,7 @@ export function resolveChalkieLessonContext(input: {
       activityLines: [],
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
+      twoLessonPackagingMode: null,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
       sameUnitPriorLearningCandidates: [],
@@ -292,6 +302,7 @@ export function resolveChalkieLessonContext(input: {
       activityLines: [],
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
+      twoLessonPackagingMode: null,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
       sameUnitPriorLearningCandidates: [],
@@ -329,6 +340,7 @@ export function resolveChalkieLessonContext(input: {
       activityLines: [],
       pageLabels: [],
       isBe2U08PrototypeRoute: false,
+      twoLessonPackagingMode: null,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
       sameUnitPriorLearningCandidates: [],
@@ -385,6 +397,7 @@ export function resolveChalkieLessonContext(input: {
       outlineActivities: [],
       pageLabels: [...BE2_U08_PROTOTYPE_PAGE_LABELS],
       isBe2U08PrototypeRoute: true,
+      twoLessonPackagingMode: 'sb_wb',
       supportsTwoLessonSeries: true,
       workbookCompanion: null,
       // Same-unit PRIOR stays empty on the BE2 fixture route; curated HM drives Step 2.
@@ -438,6 +451,7 @@ export function resolveChalkieLessonContext(input: {
       activityLines: [],
       pageLabels: visibleView?.pageLabels ?? [],
       isBe2U08PrototypeRoute: false,
+      twoLessonPackagingMode: null,
       supportsTwoLessonSeries: false,
       workbookCompanion: null,
       sameUnitPriorLearningCandidates: [],
@@ -537,8 +551,9 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    // Series packaging only for accepted BE3 U8 curated relationships (opener or story).
-    supportsTwoLessonSeries: be3Series,
+    // SB→WB series for accepted BE3 opener/story; otherwise generic SB-only two-lesson.
+    twoLessonPackagingMode: be3Series ? 'sb_wb' : 'sb_only',
+    supportsTwoLessonSeries: true,
     workbookCompanion,
     sameUnitPriorLearningCandidates,
     curatedHorizontalMappingCandidates,

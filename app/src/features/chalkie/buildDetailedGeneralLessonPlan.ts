@@ -539,7 +539,9 @@ export function buildDetailedGeneralLessonPlan(input: {
       ? 'series'
       : 'single'
   const title = lessonTitleForPackage(input.lesson, effectiveShape)
-  const shapeLabel = packageShapeLabel(input.lesson, effectiveShape)
+  const shapeLabel = input.packageShape == null
+    ? 'General lesson plan'
+    : packageShapeLabel(input.lesson, effectiveShape)
 
   if (effectiveShape === 'series') {
     if (input.lesson.twoLessonPackagingMode === 'sb_only') {

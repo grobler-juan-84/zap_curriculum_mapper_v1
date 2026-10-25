@@ -1,11 +1,11 @@
 # Teacher Intelligence left-pane contract v0.1
 
 **Status:** ACTIVE (design record)  
-**Version:** 0.1.6  
+**Version:** 0.1.8  
 **Date:** 2026-10-25  
 **Type:** Information-architecture contract  
 
-**Implementation status (2026-10-21):** **Unit Intelligence** accordion is implemented in Chalkie Workspace (`/app/chalkie` left panel). Future Suggestions remain **not implemented**. School-Specific Notes remain **not implemented** (design intent in §3 only — not an active product track; no coverage gate or unlock-pack contract).
+**Implementation status (2026-10-25):** Chalkie Workspace left panel renders **`CurrentLessonContext`** (`currentLessonContext.ts`) under **Curriculum & Intelligence**: top-level **Book Content** (Phase 1 verified source, blue) with nested category accordions — including selectable **Book Activities** / optional **Workbook Companion** from the same `human_verified` `SbActivityCard` / `WbActivityCard` builders as Create-a-prompt — and **Book Intelligence** (Phase 2 interpretation, purple/indigo) hosting Unit Intelligence. Activity selection is **workspace-owned and authoritative in the left panel**; Create-a-prompt reviews/adjusts the same shared SB/WB selection state. Future Suggestions remain **not implemented**. School-Specific Notes remain **not implemented** (design intent in §3 only — not an active product track; no coverage gate or unlock-pack contract). Horizontal Mapping accordion still not built in the left pane (Step 2 prior-learning flow remains separate).
 
 **Prior Learning / Horizontal Mapping (2026-10-24):** Slice 1–3 implemented on Step 2 (same-unit `[PRIOR]` + curated `[HM]` for BE2 U8 opener). Left-pane Horizontal Mapping accordion still not built. Audit: [`chalkie-prior-learning-horizontal-mapping-audit-v0.1.md`](./chalkie-prior-learning-horizontal-mapping-audit-v0.1.md).
 
@@ -55,9 +55,11 @@ TEACHER INTELLIGENCE
 | Role in handoff | **Required** input to any neutral package / platform handoff |
 | Empty state | Honest “no page evidence for this selection” — do not invent pages |
 
-In the current Chalkie prototype this maps to Unit Summary + **SB Pages Summary** (+ optional **WB Pages Summary** for a verified companion). Workbook viewing must not rewrite lesson identity to WB.
+In the current Chalkie prototype this maps to the **Book Content** accordion inside `CurrentLessonContext` (page-scoped objectives / vocabulary / language / focus via `buildVisiblePagesView`, plus verified activity cards via `buildSbActivityCards` / `buildWbActivityCards`, plus an optional nested **Workbook Companion**). Workbook viewing must not rewrite lesson identity to WB. Teachers select activities here before Prepare; Create-a-prompt must use the same builders, page scope, and shared selection state — not a thinner outline model or a second independent selection.
 
-### TEACHER INTELLIGENCE
+### TEACHER INTELLIGENCE / BOOK INTELLIGENCE
+
+UI label in the Chalkie left panel: **Book Intelligence** (Phase 2 only). Contract language below still uses Unit Intelligence as the planning-support layer name.
 
 #### 1. Unit Intelligence
 
@@ -150,7 +152,7 @@ Future only:  Suggestions after explicit teacher acceptance
 | [D022](../4-decisions.md) | NLP durable handoff; BI optional `curriculumInterpretation` only |
 | [F021](../7-future.md) | Neutral package + separate platform workspaces — this pane feeds the package, not a single vendor UI |
 | [F022](../7-future.md) | Horizontal Mapping candidates (Step 2 Slice 1–3; left-pane accordion not built) |
-| [Chalkie Workspace prototype](./p5-prototype-chalkie-workspace.md) | Current adapter UI; source summaries + **implemented** Unit Intelligence accordion |
+| [Chalkie Workspace prototype](./p5-prototype-chalkie-workspace.md) | Current adapter UI; `CurrentLessonContext` Book Content + **implemented** Book Intelligence (Unit Intelligence) accordion |
 | D018 / handoff builders | Unchanged by this contract record alone |
 
 ---
@@ -194,3 +196,4 @@ Optional later: wire more books into the BI Storage registry so Unit Intelligenc
 | 2026-10-21 | v0.1 design record created (IA contract only). |
 | 2026-10-21 | v0.1.1 — Unit Intelligence accordion marked implemented in Chalkie Workspace; other Teacher Intelligence sections still out of scope. |
 | 2026-10-24 | v0.1.5 — Linked Prior Learning Slice 1–3; School Notes remains design-only (premature §8b / unlock-pack prep removed). |
+| 2026-10-25 | v0.1.8 — Neutral `CurrentLessonContext`; Book Content activities share verified card builders with Create-a-prompt; left-panel accordion renamed **Book Intelligence**. |

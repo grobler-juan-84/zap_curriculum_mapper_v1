@@ -1,15 +1,15 @@
 # Neutral Package → Shared Chalkie Dispatcher Production Migration Plan
 
-**Status:** IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY (+ Story canary IMPLEMENTED / AWAITING OWNER MANUAL CHECK)  
-**Version:** 0.4  
+**Status:** LIMITED OPENER + LIMITED STORY CANARIES MANUALLY ACCEPTED  
+**Version:** 0.5  
 **Date:** 2026-10-23  
-**Scope:** Limited Opener canary (manually accepted) for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`. Limited Story canary (implemented; awaiting owner manual check) for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only). All other relationships remain bespoke.
+**Scope:** Limited Opener canary (manually accepted) for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`. Limited Story canary (manually accepted) for `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only). All other relationships remain bespoke.
 
 ---
 
 ## 1. Purpose and status
 
-**Status:** Opener `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`; Story `IMPLEMENTED / AWAITING OWNER MANUAL CHECK`
+**Status:** Opener `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`; Story `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY`
 
 **Goal:** replace duplicated platform-specific assembly safely, without changing teacher-facing output.
 
@@ -21,7 +21,7 @@ The durable path is:
 
 This plan preserves the accepted teacher experience: same title, detailed handoff, Lesson 1/2 outlines, Lesson 1/2 vocabulary, activity cards, selection flow, and copy actions. There is no teacher-facing canary indicator.
 
-**Opener acceptance covers the Opener canary only.** Story has a separate guarded canary (`IMPLEMENTED / AWAITING OWNER MANUAL CHECK`) — see [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md). Neither record claims a Chalkie generation result or classroom validation.
+**Opener and Story each have a limited, independently accepted canary.** Story record: [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY`. Neither record claims a Chalkie generation result or classroom validation.
 
 ---
 
@@ -35,12 +35,12 @@ This plan preserves the accepted teacher experience: same title, detailed handof
 | Story shadow renderer | Exact parity proved; used by Story canary when enabled | SB pp.130–131 → WB p.106 only (2→1); WB p.107 forbidden |
 | Production path (default) | Bespoke builders | Canary flags default OFF |
 | Opener production canary | **IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY** | Owner-controlled via `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` |
-| Story production canary | **IMPLEMENTED / AWAITING OWNER MANUAL CHECK** | Owner-controlled via `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` |
+| Story production canary | **IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY** | Owner-controlled via `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` |
 
 Exact relationships:
 
 - **Opener (limited canary accepted):** `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` · package `be3-sb-wb-u08-p128-129-wb104-105` · **2→2** · SB pp.128–129 → WB pp.104–105
-- **Story (limited canary implemented; awaiting manual check):** `be3_sb_wb_rel_u08_story_sb130-131_wb106` · package `be3-sb-wb-u08-p130-131-wb106` · **2→1** · SB pp.130–131 → WB p.106 only
+- **Story (limited canary accepted):** `be3_sb_wb_rel_u08_story_sb130-131_wb106` · package `be3-sb-wb-u08-p130-131-wb106` · **2→1** · SB pp.130–131 → WB p.106 only
 
 See [`chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md`](./chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md).
 
@@ -125,8 +125,8 @@ Recorded evidence:
 
 **Acceptance boundary:**
 
-- This accepts the **Opener canary only**
-- Story has a separate canary implementation awaiting owner manual check (not accepted here)
+- This section accepts the **Opener canary only** (historical Opener review)
+- Story manual acceptance is recorded separately in [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md)
 - The Opener canary remains owner-controlled through the local environment flag
 - Rollback remains: set the Opener flag to false / unset it, then restart the local app
 - This record does **not** claim a Chalkie generation or classroom-validation result
@@ -137,9 +137,9 @@ Recorded evidence:
 
 1. ~~Canary Opener~~ — implemented (default off).
 2. ~~Review local evidence with the flag enabled~~ — **manually accepted** (see §6).
-3. ~~Story canary implementation~~ — **IMPLEMENTED / AWAITING OWNER MANUAL CHECK** ([`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md)); not manually accepted yet.
+3. ~~Story canary~~ — **IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY** ([`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md)).
 4. Additional component renderers only after an explicit relationship-specific parity slice.
-5. No bulk migration.
+5. No bulk migration. Pause further canaries; choose the next project area deliberately.
 
 ---
 
@@ -157,22 +157,22 @@ Recorded evidence:
 - No Chalkie generation change.
 - No UI redesign or teacher-facing canary indicator.
 - No claim of classroom validation.
-- No automatic expansion beyond the two limited canaries (Opener accepted; Story awaiting manual check).
+- No automatic expansion beyond the two limited accepted canaries (Opener + Story).
 - No changes to Book Intelligence meaning or canonical data.
 
 ---
 
 ## 10. Authorization record
 
-Owner-authorized Opener-only code canary + **manual acceptance of limited Opener canary** (this documentation slice):
+Owner-authorized limited Opener canary (manually accepted) and limited Story canary (manually accepted):
 
-1. relationship `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only;
-2. live bespoke Opener path remains immediate rollback (flag default off + mismatch fallback; unset/false + restart);
-3. teacher-facing output unchanged when flag off, and unchanged in content when flag on and parity holds;
-4. Story canary is separately implemented and **awaiting owner manual check** — not accepted by this Opener record;
-5. no Chalkie generation or classroom-validation claim.
+1. Opener: `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` — `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`
+2. Story: `be3_sb_wb_rel_u08_story_sb130-131_wb106` (WB p.106 only; no WB p.107) — `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY`
+3. Each flag defaults OFF with bespoke rollback (unset/false + restart) and mismatch fallback
+4. No further relationships are canaried; no automatic expansion
+5. No Chalkie generation or classroom-validation claim; no claim that no console diagnostic occurred
 
 **Opener status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`  
-**Story status:** `IMPLEMENTED / AWAITING OWNER MANUAL CHECK` (see Story proposal)
+**Story status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY`
 
-**Smallest next step:** owner manually checks the Story canary with `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY=true`; do not mark Story manually accepted until that check passes.
+**Smallest next step:** pause further canaries and choose the next project area deliberately.

@@ -24,14 +24,17 @@ import {
 import { buildSuggestedChalkieVocabulary } from './buildSuggestedChalkieVocabulary'
 import type { ChalkieLessonContext } from './resolveChalkieLessonContext'
 import {
-  TEACHER_CHOICE_TOTAL_STEPS,
-  advanceTeacherChoiceStep,
+  advanceTeacherChoiceStepId,
   appendTeacherAddedLanguage,
   footerSelectionSummary,
-  retreatTeacherChoiceStep,
+  includeTeacherChoiceWorkbookStep,
+  retreatTeacherChoiceStepId,
+  teacherChoiceStepIndex,
   teacherChoiceStepName,
+  teacherChoiceTotalSteps,
   toggleSelectedSuggestionId,
   type TeacherAddedLanguage,
+  type TeacherChoiceStepId,
 } from './teacherChoiceFlow'
 import {
   splitPriorSkillCardTitle,
@@ -47,28 +50,28 @@ import { initialSelectedPriorLearningIds } from './surfaceSameUnitPriorLearningS
 import {
   buildSbActivityPageColumns,
   createSbActivityHandoffSelection,
-  createDefaultSbActivitySelection,
   hasSbActivityExclusions,
   selectedSbActivityLanguage,
   selectedSbActivityVocabulary,
   sbActivitySelectionStatus,
-  setSbActivityCardSelected,
   type SbActivityHandoffSelection,
   type SbActivityCard,
-  type SbActivityPreviewKind,
   type SbActivitySelectionState,
 } from './chalkieActivitySelection'
 import {
   buildWbActivityPagePanels,
   createWbActivityHandoffSelection,
-  createDefaultWbActivitySelection,
-  setWbActivityCardSelected,
   wbActivitySelectionStatus,
   type WbActivityCard,
   type WbActivityHandoffSelection,
-  type WbActivityPreviewKind,
   type WbActivitySelectionState,
 } from './chalkieWorkbookActivitySelection'
+import { ActivityEvidenceCard } from './ActivityEvidenceCard'
+import {
+  ActivityReviewBookPage,
+  ActivityReviewBookSpread,
+} from './ActivityReviewBookSpread'
+import { includedActivitiesCountLabel } from './lessonActivitySelection'
 import {
   allocateSbOnlyTwoLessonActivities,
   formatSbOnlyLessonActivityScope,
@@ -175,20 +178,6 @@ function PriorSkillCardHeading({ label }: { label: string }) {
   )
 }
 
-function activityPreviewLabel(
-  kind: SbActivityPreviewKind | WbActivityPreviewKind,
-): string {
-  if (kind === 'language_model' || kind === 'activity_item_model') {
-    return 'Language'
-  }
-  if (kind === 'expected_answer') return 'Answer evidence'
-  return 'Task evidence'
-}
-
-function compactStudentBookLabel(bookLabel: string): string {
-  return bookLabel.replace(/\s+Student Book$/i, '').trim() || bookLabel
-}
-
 interface TeacherChoiceFlowOverlayProps {
   open: boolean
   onClose: () => void
@@ -197,6 +186,11 @@ interface TeacherChoiceFlowOverlayProps {
   workbookActivityCards: readonly WbActivityCard[]
   /** Optional loaded BI document for NLP interpretation attach (D022). */
   bookIntelligence?: BookIntelligenceOverviewDocument | null
+  /** Shared workspace selection — same state as the left panel. */
+  sbActivitySelection: SbActivitySelectionState
+  wbActivitySelection: WbActivitySelectionState
+  onSbActivitySelectionChange: (cardId: string, selected: boolean) => void
+  onWbActivitySelectionChange: (cardId: string, selected: boolean) => void
 }
 
 type CopyFeedback = 'idle' | 'copied' | 'failed'
@@ -304,11 +298,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   activityCards,
   workbookActivityCards,
   bookIntelligence = null,
+  sbActivitySelection,
+  wbActivitySelection,
+  onSbActivitySelectionChange,
+  onWbActivitySelectionChange,
 }) => {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
   const continueRef = useRef<HTMLButtonElement>(null)
-  const [step, setStep] = useState(1)
+  const [stepId, setStepId] = useState<TeacherChoiceStepId>('student_book')
   const [selectedIds, setSelectedIds] = useState<string[]>(() =>
     initialSelectedPriorLearningIds(),
   )
@@ -318,6 +316,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [newPurpose, setNewPurpose] = useState('')
   const [addPriorSkillExpanded, setAddPriorSkillExpanded] = useState(false)
   const [showPromptPreview, setShowPromptPreview] = useState(false)
+  const [showChalkiePackaging, setShowChalkiePackaging] = useState(false)
   const [preparedOutputKind, setPreparedOutputKind] =
     useState<PreparedOutputKind | null>(null)
   const [promptPreview, setPromptPreview] = useState('')
@@ -350,14 +349,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
-  const [activitySelection, setActivitySelection] =
-    useState<SbActivitySelectionState | null>(null)
-  const [workbookActivitySelection, setWorkbookActivitySelection] =
-    useState<WbActivitySelectionState | null>(null)
 
   useEffect(() => {
     if (!open) {
-      setStep(1)
+      setStepId('student_book')
       setSelectedIds(initialSelectedPriorLearningIds())
       setTeacherAdditions([])
       setNewTitle('')
@@ -365,6 +360,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setNewPurpose('')
       setAddPriorSkillExpanded(false)
       setShowPromptPreview(false)
+      setShowChalkiePackaging(false)
       setPreparedOutputKind(null)
       setPromptPreview('')
       setLessonPlanPreview('')
@@ -382,16 +378,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setBe3SeriesHandoff(null)
       setSbOnlyHandoff(null)
       setLessonShape('single')
-      setActivitySelection(null)
-      setWorkbookActivitySelection(null)
       return
     }
 
+    setStepId('student_book')
     setLessonShape('single')
-    setActivitySelection(createDefaultSbActivitySelection(activityCards))
-    // Keep null as the default sentinel so asynchronously loaded verified WB
-    // cards still begin selected without resetting the rest of the modal.
-    setWorkbookActivitySelection(null)
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -430,7 +421,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [open, onClose, activityCards])
+  }, [open, onClose])
 
   const priorLearningSuggestions = lesson?.priorLearningSuggestions ?? []
 
@@ -442,11 +433,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const selectedTeacherAdditions = useMemo(
     () => teacherAdditions.filter((item) => selectedIds.includes(item.id)),
     [teacherAdditions, selectedIds],
-  )
-
-  const effectiveActivitySelection = useMemo(
-    () => activitySelection ?? createDefaultSbActivitySelection(activityCards),
-    [activityCards, activitySelection],
   )
 
   const activityPageColumns = useMemo(
@@ -472,14 +458,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const sbActivityUsesTwoColumnLayout = visibleSbActivityPageColumns.length > 1
 
   const activitySelectionStatus = useMemo(
-    () => sbActivitySelectionStatus(activityCards, effectiveActivitySelection),
-    [activityCards, effectiveActivitySelection],
-  )
-  const effectiveWorkbookActivitySelection = useMemo(
-    () =>
-      workbookActivitySelection ??
-      createDefaultWbActivitySelection(workbookActivityCards),
-    [workbookActivityCards, workbookActivitySelection],
+    () => sbActivitySelectionStatus(activityCards, sbActivitySelection),
+    [activityCards, sbActivitySelection],
   )
   const workbookActivityPagePanels = useMemo(
     () =>
@@ -491,27 +471,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const workbookActivitySelectionStatus = useMemo(
     () =>
-      wbActivitySelectionStatus(
-        workbookActivityCards,
-        effectiveWorkbookActivitySelection,
-      ),
-    [workbookActivityCards, effectiveWorkbookActivitySelection],
+      wbActivitySelectionStatus(workbookActivityCards, wbActivitySelection),
+    [workbookActivityCards, wbActivitySelection],
   )
   const handoffWorkbookActivitySelection = useMemo(
     () =>
       createWbActivityHandoffSelection(
         workbookActivityCards,
-        effectiveWorkbookActivitySelection,
+        wbActivitySelection,
       ),
-    [workbookActivityCards, effectiveWorkbookActivitySelection],
+    [workbookActivityCards, wbActivitySelection],
   )
   const handoffActivitySelection = useMemo(
-    () =>
-      createSbActivityHandoffSelection(
-        activityCards,
-        effectiveActivitySelection,
-      ),
-    [activityCards, effectiveActivitySelection],
+    () => createSbActivityHandoffSelection(activityCards, sbActivitySelection),
+    [activityCards, sbActivitySelection],
   )
   const selectedActivityVocabulary = useMemo(
     () => selectedSbActivityVocabulary(handoffActivitySelection),
@@ -524,7 +497,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   if (!open || !lesson) return null
 
-  const stepName = teacherChoiceStepName(step)
+  const includeWorkbookStep = includeTeacherChoiceWorkbookStep({
+    hasVerifiedWorkbookCompanion,
+    workbookActivityCardCount: workbookActivityCards.length,
+  })
+  const totalSteps = teacherChoiceTotalSteps(includeWorkbookStep)
+  const resolvedStepId =
+    stepId === 'workbook' && !includeWorkbookStep ? 'student_book' : stepId
+  const stepNumber = teacherChoiceStepIndex(resolvedStepId, includeWorkbookStep)
+  const stepName = teacherChoiceStepName(resolvedStepId)
   const selectedCount = selectedSuggestions.length
   const teacherAddedCount = selectedTeacherAdditions.length
   const canAddPriorSkill =
@@ -534,6 +515,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const effectiveLessonShape: LessonPackageShape =
     lessonShape === 'series' && lesson.supportsTwoLessonSeries ? 'series' : 'single'
   const activeLessonTitle = lessonTitleForPackage(lesson, effectiveLessonShape)
+  const neutralLessonTitle = lessonTitleForPackage(lesson, 'single')
   const isChalkiePreview =
     showPromptPreview && preparedOutputKind === 'chalkie'
   const isLessonPlanPreview =
@@ -549,18 +531,23 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     lesson.workbookCompanion?.studentBookPrintedPages?.join('–') ?? '128–129'
   const seriesLesson2Pages =
     lesson.workbookCompanion?.workbookPrintedPages?.join('–') ?? '104–105'
+  const workbookCompanionPageLabel =
+    lesson.workbookCompanion?.workbookPrintedPages?.join('–') ?? null
   const sbOnlyAllocation =
     lesson.twoLessonPackagingMode === 'sb_only'
       ? allocateSbOnlyTwoLessonActivities(handoffActivitySelection.selectedEvidence)
       : null
   const hasPriorLearningSuggestions = priorLearningSuggestions.length > 0
+  const showChooseOutput =
+    resolvedStepId === 'choose_output' &&
+    !showPromptPreview &&
+    !showChalkiePackaging
 
   const handleContinue = () => {
-    if (step < TEACHER_CHOICE_TOTAL_STEPS) {
-      setShowPromptPreview(false)
-      setCopyStatus('idle')
-      setStep(advanceTeacherChoiceStep(step))
-    }
+    if (resolvedStepId === 'choose_output') return
+    setShowPromptPreview(false)
+    setCopyStatus('idle')
+    setStepId(advanceTeacherChoiceStepId(resolvedStepId, includeWorkbookStep))
   }
 
   const handleBack = () => {
@@ -568,9 +555,18 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setShowPromptPreview(false)
       setPreparedOutputKind(null)
       setCopyStatus('idle')
+      if (preparedOutputKind === 'chalkie') {
+        setShowChalkiePackaging(true)
+      }
       return
     }
-    if (step > 1) setStep(retreatTeacherChoiceStep(step))
+    if (showChalkiePackaging) {
+      setShowChalkiePackaging(false)
+      return
+    }
+    if (resolvedStepId !== 'student_book') {
+      setStepId(retreatTeacherChoiceStepId(resolvedStepId, includeWorkbookStep))
+    }
   }
 
   const handlePackageShapeChange = (next: LessonPackageShape) => {
@@ -663,11 +659,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setLesson2VocabCopyStatus('idle')
   }
 
+  const handleChooseChalkie = () => {
+    setShowChalkiePackaging(true)
+  }
+
   const handlePrepareDetailedLessonPlan = () => {
     const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
     const plan = buildDetailedGeneralLessonPlan({
       lesson,
-      packageShape: effectiveLessonShape,
       selectedSuggestions,
       teacherAdditions: selectedTeacherAdditions,
       activitySelection: handoffActivitySelection,
@@ -684,6 +683,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSuggestedVocabulary('')
     setSuggestedVocabularyEmpty(true)
     setShowPromptPreview(true)
+    setShowChalkiePackaging(false)
     setCopyStatus('idle')
     setOutlineCopyStatus('idle')
     setVocabularyCopyStatus('idle')
@@ -791,32 +791,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSelectedIds((prev) => toggleSelectedSuggestionId(prev, id))
   }
 
-  const handleActivitySelectionChange = (cardId: string, selected: boolean) => {
-    setActivitySelection((current) =>
-      setSbActivityCardSelected({
-        cards: activityCards,
-        state: current ?? createDefaultSbActivitySelection(activityCards),
-        cardId,
-        selected,
-      }),
-    )
-  }
-
-  const handleWorkbookActivitySelectionChange = (
-    cardId: string,
-    selected: boolean,
-  ) => {
-    setWorkbookActivitySelection((current) =>
-      setWbActivityCardSelected({
-        cards: workbookActivityCards,
-        state:
-          current ?? createDefaultWbActivitySelection(workbookActivityCards),
-        cardId,
-        selected,
-      }),
-    )
-  }
-
   const handleAddPriorSkill = () => {
     if (!canAddPriorSkill) return
     const id = `teacher-added-${Date.now()}-${teacherAdditions.length + 1}`
@@ -831,18 +805,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-slate-900/45 p-3 sm:p-5 lg:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-3 sm:p-5 lg:p-8">
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="flex max-h-[92vh] w-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl sm:w-[min(80vw,1440px)]"
+        className="flex h-[min(calc(78vh+120px),calc(52rem+120px))] max-h-[calc(100vh-2.5rem)] w-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl sm:w-[min(80vw,1440px)]"
+        data-teacher-choice-fixed-height="true"
       >
         <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 bg-white px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="min-w-0">
             <p className="text-xs text-slate-500">
-              {step} of {TEACHER_CHOICE_TOTAL_STEPS}
+              Step {stepNumber} of {totalSteps}
               <span className="mx-2 text-slate-300" aria-hidden="true">
                 ·
               </span>
@@ -859,170 +834,83 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         </header>
 
         <div
-          className={`min-h-0 flex-1 overflow-y-auto bg-[#8bcfd9]/20 ${step === 1
-            ? 'px-4 py-5 sm:px-6 sm:py-6 lg:px-8'
-            : 'px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
-            }`}
+          className={`min-h-0 flex-1 bg-[#8bcfd9]/20 ${
+            resolvedStepId === 'student_book' || resolvedStepId === 'workbook'
+              ? 'flex flex-col overflow-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8'
+              : 'overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
+          }`}
+          data-teacher-choice-body={
+            resolvedStepId === 'student_book' || resolvedStepId === 'workbook'
+              ? 'activity-review'
+              : 'default'
+          }
         >
-          {step === 1 ? (
-            <div className="mx-auto w-full max-w-[80rem] space-y-4">
-              <div className="space-y-1">
-                <h2
-                  id={titleId}
-                  className="text-sm font-semibold text-slate-800"
-                >
-                  Current lesson
-                  <span className="mx-2 font-normal text-slate-400" aria-hidden="true">
-                    ·
-                  </span>
-                  {compactStudentBookLabel(lesson.bookLabel)}
-                  <span className="mx-2 font-normal text-slate-400" aria-hidden="true">
-                    ·
-                  </span>
-                  {lesson.unitLine}
-                </h2>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  Select the Student Book activities to include in this lesson.
-                </p>
-              </div>
-
+          {resolvedStepId === 'student_book' ? (
+            <div className="mx-auto flex h-full min-h-0 w-full max-w-[80rem] flex-col gap-3">
               <section
-                className="space-y-3"
-                aria-label="Current Student Book activities"
+                className="flex min-h-0 flex-1 flex-col gap-3"
+                aria-label="Review selected Student Book activities"
                 data-sb-only-layout={hasVerifiedWorkbookCompanion ? undefined : 'true'}
+                data-activity-selection-review="student_book"
               >
-                <div
-                  className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
-                  data-sb-activity-spread
-                  data-page-count={visibleSbActivityPageColumns.length}
+                <ActivityReviewBookSpread
+                  spreadAttr="data-sb-activity-spread"
+                  pageCount={visibleSbActivityPageColumns.length}
+                  title="Student Book activities"
+                  titleId={titleId}
+                  countLabel={includedActivitiesCountLabel(
+                    activitySelectionStatus.selectedCount,
+                    activitySelectionStatus.totalCount,
+                  )}
+                  showGutter={sbActivityUsesTwoColumnLayout}
+                  twoColumn={sbActivityUsesTwoColumnLayout}
                 >
-                  <div className="flex items-center justify-between gap-3 px-2 pb-2 pt-0.5 sm:px-3">
-                    <h3 className="text-sm font-semibold text-slate-800">
-                      Student Book activities
-                    </h3>
-                    <p className="text-sm font-medium text-slate-600" aria-live="polite">
-                      {activitySelectionStatus.selectedCount} of{' '}
-                      {activitySelectionStatus.totalCount} selected
-                    </p>
-                  </div>
-
-                  <div className="relative">
-                    {sbActivityUsesTwoColumnLayout ? (
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
-                      />
-                    ) : null}
-                    <div
-                      className={`grid grid-cols-1 gap-3 ${sbActivityUsesTwoColumnLayout ? 'md:grid-cols-2 md:gap-5' : ''
-                        }`}
+                  {visibleSbActivityPageColumns.map((column) => (
+                    <ActivityReviewBookPage
+                      key={column.printedPage}
+                      includedInLessonScope={column.includedInLessonScope}
+                      heading={
+                        column.includedInLessonScope
+                          ? `Student Book · p.${column.printedPage}`
+                          : null
+                      }
+                      placeholderText="Not included in this lesson scope."
+                      pageAttrName="data-sb-activity-page"
+                      pageAttrValue={column.printedPage}
+                      facingPlaceholderAttr="data-sb-facing-placeholder"
+                      facingPosition={column.position}
                     >
-                      {visibleSbActivityPageColumns.map((column) => (
-                        <div
-                          key={column.printedPage}
-                          className={`min-w-0 rounded-xl border p-3 sm:p-4 ${column.includedInLessonScope
-                            ? 'border-slate-200 bg-[#fffefb] shadow-sm'
-                            : 'border-slate-200/70 bg-slate-100/55'
-                            }`}
-                          data-sb-activity-page={
-                            column.includedInLessonScope
-                              ? column.printedPage
-                              : undefined
-                          }
-                          data-sb-facing-placeholder={
-                            column.includedInLessonScope
-                              ? undefined
-                              : column.position
-                          }
-                        >
-                          {column.includedInLessonScope ? (
-                            <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
-                              Student Book · p.{column.printedPage}
-                            </h4>
-                          ) : (
-                            <div className="flex min-h-[10rem] items-center justify-center px-4 py-8 text-center">
-                              <p className="max-w-xs text-xs leading-relaxed text-slate-400">
-                                Not included in this lesson scope.
-                              </p>
-                            </div>
-                          )}
-                          {column.includedInLessonScope &&
-                            column.cards.length > 0 ? (
-                            <ul className="space-y-2.5">
-                              {column.cards.map((card) => {
-                                const checkboxId = `current-activity-${card.id}`
-                                const detailsId = `${checkboxId}-details`
-                                const checked =
-                                  effectiveActivitySelection.selectedCardIds.includes(card.id)
-                                return (
-                                  <li
-                                    key={card.id}
-                                    className={`rounded-lg border p-2 transition-colors ${checked
-                                      ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
-                                      : 'border-slate-200 bg-slate-50/75'
-                                      }`}
-                                  >
-                                    <div className="flex gap-2.5">
-                                      <input
-                                        id={checkboxId}
-                                        type="checkbox"
-                                        checked={checked}
-                                        onChange={(event) =>
-                                          handleActivitySelectionChange(
-                                            card.id,
-                                            event.target.checked,
-                                          )
-                                        }
-                                        aria-label={`Select ${card.activityNumber ? `Activity ${card.activityNumber}` : 'activity'} on Student Book page ${card.printedPage}`}
-                                        aria-describedby={detailsId}
-                                        className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                                      />
-                                      <div id={detailsId} className="min-w-0 flex-1 space-y-1">
-                                        <p className="text-[11px] font-medium text-slate-500">
-                                          [SB p.{card.printedPage}]
-                                          {card.activityNumber
-                                            ? ` · Activity ${card.activityNumber}`
-                                            : ''}
-                                        </p>
-                                        <p className="text-sm font-semibold leading-snug text-slate-900">
-                                          {card.verifiedWording}
-                                        </p>
-                                        {card.preview.kind === 'empty' ? (
-                                          <p className="text-xs leading-relaxed text-slate-500">
-                                            No safe verified preview is available for this activity.
-                                          </p>
-                                        ) : (
-                                          <div className="space-y-0.5 pt-0.5">
-                                            <p className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
-                                              {activityPreviewLabel(card.preview.kind)}
-                                            </p>
-                                            <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
-                                              {card.preview.values.map((value) => (
-                                                <li key={value}>{value}</li>
-                                              ))}
-                                            </ul>
-                                          </div>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </li>
-                                )
-                              })}
-                            </ul>
-                          ) : column.includedInLessonScope ? (
-                            <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
-                              No human-verified Student Book activity cards are available for this
-                              page.
-                            </p>
-                          ) : null}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                      {column.cards.length > 0 ? (
+                        <ul className="space-y-2.5">
+                          {column.cards.map((card) => (
+                            <ActivityEvidenceCard
+                              key={card.id}
+                              card={card}
+                              pagePrefix="SB"
+                              compact
+                              layout="modal"
+                              selected={sbActivitySelection.selectedCardIds.includes(
+                                card.id,
+                              )}
+                              onSelectedChange={(selected) =>
+                                onSbActivitySelectionChange(card.id, selected)
+                              }
+                              checkboxId={`current-activity-${card.id}`}
+                            />
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
+                          No human-verified Student Book activity cards are available for this
+                          page.
+                        </p>
+                      )}
+                    </ActivityReviewBookPage>
+                  ))}
+                </ActivityReviewBookSpread>
 
-                <div className="space-y-1.5 px-1">
-                  {activitySelectionStatus.hasNoSelectedCurrentActivities ? (
+                {activitySelectionStatus.hasNoSelectedCurrentActivities ? (
+                  <div className="shrink-0 px-1">
                     <p
                       role="status"
                       className="rounded-md border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs leading-relaxed text-amber-900"
@@ -1030,183 +918,92 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       No current Student Book activities are selected. A later handoff would contain
                       no selected current-page activities.
                     </p>
-                  ) : null}
-
-                  <p className="text-xs leading-relaxed text-slate-500">
-                    Selected activities will be included in this local handoff.
-                  </p>
-                </div>
+                  </div>
+                ) : null}
               </section>
-
-              {hasVerifiedWorkbookCompanion &&
-                workbookActivityPagePanels.length > 0 ? (
-                <section
-                  className="space-y-3 pt-2"
-                  aria-label="Workbook activities"
-                  data-wb-activity-section
-                  data-sb-wb-pair-layout="true"
-                >
-                  <div
-                    className="rounded-2xl border border-slate-300/80 bg-slate-200/55 p-2 shadow-sm sm:p-3"
-                    data-wb-activity-spread
-                    data-page-count={workbookActivityPagePanels.length}
-                  >
-                    <div className="flex flex-wrap items-start justify-between gap-2 px-2 pb-2 pt-0.5 sm:px-3">
-                      <div>
-                        <h3 className="text-sm font-semibold text-slate-800">
-                          Workbook activities
-                        </h3>
-                        <p className="mt-0.5 text-xs text-slate-500">
-                          Verified Workbook companion for this lesson
-                        </p>
-                      </div>
-                      <p
-                        className="text-sm font-medium text-slate-600"
-                        aria-live="polite"
-                      >
-                        {workbookActivitySelectionStatus.selectedCount} of{' '}
-                        {workbookActivitySelectionStatus.totalCount} selected
-                      </p>
-                    </div>
-
-                    <div className="relative">
-                      {workbookActivityPagePanels.length > 1 ? (
-                        <div
-                          aria-hidden="true"
-                          className="pointer-events-none absolute inset-y-0 left-1/2 z-10 hidden w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-400/25 to-transparent md:block"
-                        />
-                      ) : null}
-                      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-                        {workbookActivityPagePanels.map((panel) => (
-                          <div
-                            key={panel.pageId ?? `placeholder-${panel.position}`}
-                            className={`min-w-0 rounded-xl border p-3 sm:p-4 ${panel.includedInLessonScope
-                              ? 'border-slate-200 bg-[#fffefb] shadow-sm'
-                              : 'border-slate-200/70 bg-slate-100/55'
-                              }`}
-                            data-wb-activity-page={
-                              panel.includedInLessonScope
-                                ? panel.printedPage ?? undefined
-                                : undefined
-                            }
-                            data-wb-facing-placeholder={
-                              panel.includedInLessonScope
-                                ? undefined
-                                : panel.position
-                            }
-                          >
-                            {panel.includedInLessonScope ? (
-                              <h4 className="mb-3 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-700">
-                                Workbook · p.{panel.printedPage}
-                              </h4>
-                            ) : (
-                              <div className="flex min-h-[10rem] items-center justify-center px-4 py-8 text-center">
-                                <p className="max-w-xs text-xs leading-relaxed text-slate-400">
-                                  No verified Workbook content for this lesson.
-                                </p>
-                              </div>
-                            )}
-                            {panel.includedInLessonScope &&
-                              panel.cards.length > 0 ? (
-                              <ul className="space-y-2.5">
-                                {panel.cards.map((card) => {
-                                  const checkboxId = `workbook-activity-${card.id}`
-                                  const detailsId = `${checkboxId}-details`
-                                  const checked =
-                                    effectiveWorkbookActivitySelection.selectedCardIds.includes(
-                                      card.id,
-                                    )
-                                  return (
-                                    <li
-                                      key={card.id}
-                                      className={`rounded-lg border p-3 transition-colors ${checked
-                                        ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
-                                        : 'border-slate-200 bg-slate-50/75'
-                                        }`}
-                                    >
-                                      <div className="flex gap-2.5">
-                                        <input
-                                          id={checkboxId}
-                                          type="checkbox"
-                                          checked={checked}
-                                          onChange={(event) =>
-                                            handleWorkbookActivitySelectionChange(
-                                              card.id,
-                                              event.target.checked,
-                                            )
-                                          }
-                                          aria-label={`Select ${card.activityNumber ? `Activity ${card.activityNumber}` : 'activity'} on Workbook page ${card.printedPage}`}
-                                          aria-describedby={detailsId}
-                                          className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                                        />
-                                        <div
-                                          id={detailsId}
-                                          className="min-w-0 flex-1 space-y-1"
-                                        >
-                                          <p className="text-[11px] font-medium text-slate-500">
-                                            [WB p.{card.printedPage}]
-                                            {card.activityNumber
-                                              ? ` · Activity ${card.activityNumber}`
-                                              : ''}
-                                          </p>
-                                          <p className="text-sm font-semibold leading-snug text-slate-900">
-                                            {card.verifiedWording}
-                                          </p>
-                                          {card.preview.kind === 'empty' ? (
-                                            <p className="text-xs leading-relaxed text-slate-500">
-                                              No safe verified preview is available for this
-                                              activity.
-                                            </p>
-                                          ) : (
-                                            <div className="space-y-0.5 pt-0.5">
-                                              <p className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
-                                                {activityPreviewLabel(card.preview.kind)}
-                                              </p>
-                                              <ul className="space-y-0.5 text-xs leading-relaxed text-slate-700">
-                                                {card.preview.values.map((value) => (
-                                                  <li key={value}>{value}</li>
-                                                ))}
-                                              </ul>
-                                            </div>
-                                          )}
-                                        </div>
-                                      </div>
-                                    </li>
-                                  )
-                                })}
-                              </ul>
-                            ) : panel.includedInLessonScope ? (
-                              <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
-                                No human-verified Workbook activity cards are available for this
-                                mapped page.
-                              </p>
-                            ) : null}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5 px-1">
-                    {workbookActivitySelectionStatus.hasNoSelectedWorkbookActivities ? (
-                      <p
-                        role="status"
-                        className="rounded-md border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs leading-relaxed text-amber-900"
-                      >
-                        No Workbook activities are selected for this session.
-                      </p>
-                    ) : null}
-                    <p className="text-xs leading-relaxed text-slate-500">
-                      Workbook activity selection is saved for this session and is used where the
-                      current local handoff includes Workbook content.
-                    </p>
-                  </div>
-                </section>
-              ) : null}
             </div>
           ) : null}
 
-          {step === 2 ? (
+          {resolvedStepId === 'workbook' && includeWorkbookStep ? (
+            <div className="mx-auto flex h-full min-h-0 w-full max-w-[80rem] flex-col gap-3">
+              <section
+                className="flex min-h-0 flex-1 flex-col gap-3"
+                aria-label="Review selected Workbook activities"
+                data-wb-activity-section
+                data-sb-wb-pair-layout="true"
+                data-activity-selection-review="workbook"
+              >
+                <ActivityReviewBookSpread
+                  spreadAttr="data-wb-activity-spread"
+                  pageCount={workbookActivityPagePanels.length}
+                  title="Verified Workbook companion for this lesson"
+                  titleId={titleId}
+                  countLabel={includedActivitiesCountLabel(
+                    workbookActivitySelectionStatus.selectedCount,
+                    workbookActivitySelectionStatus.totalCount,
+                  )}
+                  showGutter={workbookActivityPagePanels.length > 1}
+                  twoColumn={true}
+                >
+                  {workbookActivityPagePanels.map((panel) => (
+                    <ActivityReviewBookPage
+                      key={panel.pageId ?? `placeholder-${panel.position}`}
+                      includedInLessonScope={panel.includedInLessonScope}
+                      heading={
+                        panel.includedInLessonScope
+                          ? `Workbook · p.${panel.printedPage}`
+                          : null
+                      }
+                      placeholderText="No verified Workbook content for this lesson."
+                      pageAttrName="data-wb-activity-page"
+                      pageAttrValue={panel.printedPage ?? undefined}
+                      facingPlaceholderAttr="data-wb-facing-placeholder"
+                      facingPosition={panel.position}
+                    >
+                      {panel.cards.length > 0 ? (
+                        <ul className="space-y-2.5">
+                          {panel.cards.map((card) => (
+                            <ActivityEvidenceCard
+                              key={card.id}
+                              card={card}
+                              pagePrefix="WB"
+                              compact
+                              layout="modal"
+                              selected={wbActivitySelection.selectedCardIds.includes(
+                                card.id,
+                              )}
+                              onSelectedChange={(selected) =>
+                                onWbActivitySelectionChange(card.id, selected)
+                              }
+                              checkboxId={`workbook-activity-${card.id}`}
+                            />
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed text-slate-500">
+                          No human-verified Workbook activity cards are available for this
+                          mapped page.
+                        </p>
+                      )}
+                    </ActivityReviewBookPage>
+                  ))}
+                </ActivityReviewBookSpread>
+
+                {workbookActivitySelectionStatus.hasNoSelectedWorkbookActivities ? (
+                  <div className="shrink-0 px-1">
+                    <p
+                      role="status"
+                      className="rounded-md border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs leading-relaxed text-amber-900"
+                    >
+                      No Workbook activities are selected for this session.
+                    </p>
+                  </div>
+                ) : null}
+              </section>
+            </div>
+          ) : null}
+
+          {resolvedStepId === 'prior_skills' ? (
             <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
@@ -1466,17 +1263,221 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
             </div>
           ) : null}
 
-          {step === 3 && !showPromptPreview ? (
+          {resolvedStepId === 'neutral_review' &&
+          !showPromptPreview &&
+          !showChalkiePackaging ? (
             <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
                   id={titleId}
                   className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
                 >
-                  What will support this lesson?
+                  Review lesson package
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
-                  Review the current lesson and chosen prior learning before preparing a prompt.
+                  A calm summary of the selected Student Book activities
+                  {includeWorkbookStep ? ', Workbook activities,' : ''} and prior skills.
+                  You will choose the output format next.
+                </p>
+              </div>
+
+              <section className="max-w-3xl space-y-3" aria-label="Lesson focus">
+                <h3 className="text-sm font-medium text-slate-800">Lesson focus</h3>
+                <div className="space-y-2 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                  <p className="select-text text-sm leading-relaxed text-slate-800">
+                    {neutralLessonTitle}
+                  </p>
+                  {lesson.currentFocus ? (
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {lesson.currentFocus}
+                    </p>
+                  ) : null}
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    Source pages: Student Book {lesson.visiblePageRangeLabel}
+                    {includeWorkbookStep && workbookCompanionPageLabel
+                      ? ` · Workbook pp. ${workbookCompanionPageLabel}`
+                      : ''}
+                  </p>
+                  {includeWorkbookStep && lesson.workbookCompanion ? (
+                    <p className="text-sm leading-relaxed text-slate-500">
+                      Verified Workbook companion is available for this lesson.
+                    </p>
+                  ) : null}
+                </div>
+              </section>
+
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+                <section className="space-y-4" aria-label="Selected Student Book activities">
+                  <h3 className="text-sm font-medium text-slate-800">
+                    Selected Student Book activities
+                  </h3>
+                  <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                    <div className="space-y-1 text-sm leading-relaxed text-slate-600">
+                      <p className="font-medium text-slate-800">{lesson.bookLabel}</p>
+                      <p>{lesson.unitLine}</p>
+                      <p>Source scope: {lesson.visiblePageRangeLabel}</p>
+                    </div>
+                    {handoffActivitySelection.selectedEvidence.length > 0 ? (
+                      <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
+                        {handoffActivitySelection.selectedEvidence.map((activity) => (
+                          <li key={activity.cardId}>
+                            <span className="font-medium text-slate-800">
+                              [SB p.{activity.printedPage}]
+                              {activity.activityNumber
+                                ? ` · Activity ${activity.activityNumber}`
+                                : ''}
+                            </span>
+                            {' — '}
+                            {activity.verifiedWording}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-slate-500">
+                        No Student Book activities are selected.
+                      </p>
+                    )}
+                  </div>
+                </section>
+
+                <div className="space-y-8">
+                  {includeWorkbookStep ? (
+                    <section
+                      className="space-y-4"
+                      aria-label="Selected Workbook activities"
+                    >
+                      <h3 className="text-sm font-medium text-slate-800">
+                        Selected Workbook activities
+                      </h3>
+                      <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                        {handoffWorkbookActivitySelection.selectedEvidence.length > 0 ? (
+                          <ul className="space-y-1.5 text-sm leading-relaxed text-slate-700">
+                            {handoffWorkbookActivitySelection.selectedEvidence.map(
+                              (activity) => (
+                                <li key={activity.cardId}>
+                                  <span className="font-medium text-slate-800">
+                                    [WB p.{activity.printedPage}]
+                                    {activity.activityNumber
+                                      ? ` · Activity ${activity.activityNumber}`
+                                      : ''}
+                                  </span>
+                                  {' — '}
+                                  {activity.verifiedWording}
+                                </li>
+                              ),
+                            )}
+                          </ul>
+                        ) : (
+                          <p className="text-sm text-slate-500">
+                            No Workbook activities are selected.
+                          </p>
+                        )}
+                      </div>
+                    </section>
+                  ) : null}
+
+                  <section className="space-y-4" aria-label="Selected prior skills">
+                    <h3 className="text-sm font-medium text-slate-800">
+                      Selected prior skills
+                    </h3>
+                    <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
+                      {selectedSuggestions.length === 0 &&
+                      selectedTeacherAdditions.length === 0 ? (
+                        <p className="text-sm leading-relaxed text-slate-500">
+                          No prior skills were selected for this lesson.
+                        </p>
+                      ) : (
+                        <ul className="space-y-4">
+                          {selectedSuggestions.map((suggestion) => (
+                            <li key={suggestion.id} className="space-y-1.5">
+                              <div className="space-y-0.5">
+                                <p className="text-sm text-slate-900">
+                                  <PriorSkillCardHeading label={suggestion.label} />
+                                </p>
+                                <p className="text-xs text-slate-500">{suggestion.source}</p>
+                              </div>
+                              <p className="text-sm leading-relaxed text-slate-800">
+                                {suggestion.frame}
+                              </p>
+                            </li>
+                          ))}
+                          {selectedTeacherAdditions.map((item) => (
+                            <li key={item.id} className="space-y-1.5">
+                              <p className="text-sm font-bold text-slate-900">{item.title}</p>
+                              <p className="text-sm leading-relaxed text-slate-900">
+                                {item.frame}
+                              </p>
+                              <p className="text-sm leading-relaxed text-slate-600">
+                                <span className="font-medium text-slate-700">Purpose:</span>{' '}
+                                {item.purpose}
+                              </p>
+                              <p className="text-xs leading-relaxed text-slate-500">
+                                {formatTeacherAddedProvenanceLine()}
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {showChooseOutput ? (
+            <div className="mx-auto w-full max-w-4xl space-y-7">
+              <div className="space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  What would you like to create?
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Your lesson evidence and selected support are ready. Choose an output format.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={handleChooseChalkie}
+                  className="group rounded-xl border border-indigo-200 bg-white p-5 text-left shadow-xs transition hover:border-indigo-400 hover:bg-indigo-50/40 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                  <span className="mb-4 inline-flex rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white">Chalkie</span>
+                  <span className="block text-lg font-semibold text-slate-900">Chalkie prompt</span>
+                  <span className="mt-2 block text-sm leading-relaxed text-slate-600">
+                    Prepare a Chalkie-ready prompt. Choose its lesson packaging on the next screen.
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handlePrepareDetailedLessonPlan}
+                  className="group rounded-xl border border-slate-200 bg-white p-5 text-left shadow-xs transition hover:border-[#3766a3] hover:bg-sky-50/40 focus:outline-none focus:ring-2 focus:ring-[#3766a3]"
+                >
+                  <span className="mb-4 inline-flex rounded-lg bg-sky-100 px-3 py-1.5 text-sm font-semibold text-[#3766a3]">General</span>
+                  <span className="block text-lg font-semibold text-slate-900">Lesson plan</span>
+                  <span className="mt-2 block text-sm leading-relaxed text-slate-600">
+                    Create a detailed, platform-neutral lesson plan from the selected evidence.
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : null}
+
+          {resolvedStepId === 'choose_output' &&
+          !showPromptPreview &&
+          showChalkiePackaging ? (
+            <div className="space-y-8">
+              <div className="max-w-3xl space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  How should Chalkie package this lesson?
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Choose how Chalkie should package this already-reviewed lesson context.
                 </p>
               </div>
 
@@ -1488,8 +1489,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               </section>
 
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
-                <section className="space-y-4" aria-label="How should this be packaged?">
-                  <h3 className="text-sm font-medium text-slate-800">How should this be packaged?</h3>
+                <section className="space-y-4" aria-label="How should this Chalkie prompt be packaged?">
+                  <h3 className="text-sm font-medium text-slate-800">How should this Chalkie prompt be packaged?</h3>
                   <div className="space-y-3 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
                     <label className="flex cursor-pointer gap-3">
                       <input
@@ -1741,7 +1742,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
             </div>
           ) : null}
 
-          {step === 3 && showPromptPreview ? (
+          {resolvedStepId === 'choose_output' && showPromptPreview ? (
             <div className="flex w-full flex-col gap-5">
               <div className="space-y-3">
                 <h2
@@ -1754,7 +1755,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-600">
                   {isLessonPlanPreview
-                    ? 'This lesson plan uses the same selected lesson, activities, prior learning, and package shape as the Chalkie prompt. It is assembled locally for classroom use.'
+                    ? 'This platform-neutral lesson plan uses the selected lesson, activities, and prior learning. It is assembled locally for classroom use.'
                     : isSeriesPreview
                       ? 'This prompt was assembled from the agreed Student Book and Workbook source pages plus your selected lesson inputs.'
                       : 'This prompt was assembled from the visible book pages and your selected lesson inputs.'}
@@ -2156,12 +2157,17 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         <footer className="shrink-0 border-t border-slate-200/60 bg-[#8bcfd9] px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="min-w-[5.5rem] text-sm text-slate-500">
-              {(step === 2 || step === 3) && (selectedCount > 0 || teacherAddedCount > 0)
+              {(resolvedStepId === 'prior_skills' ||
+                resolvedStepId === 'neutral_review' ||
+                resolvedStepId === 'choose_output') &&
+              (selectedCount > 0 || teacherAddedCount > 0)
                 ? footerSelectionSummary(selectedCount, teacherAddedCount)
                 : null}
             </p>
             <div className="flex flex-wrap items-center justify-end gap-2">
-              {step > 1 || showPromptPreview ? (
+              {resolvedStepId !== 'student_book' ||
+              showPromptPreview ||
+              showChalkiePackaging ? (
                 <button
                   type="button"
                   onClick={handleBack}
@@ -2177,7 +2183,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
               >
                 Cancel
               </button>
-              {step < TEACHER_CHOICE_TOTAL_STEPS ? (
+              {resolvedStepId !== 'choose_output' ? (
                 <button
                   ref={continueRef}
                   type="button"
@@ -2195,25 +2201,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 >
                   Back to workspace
                 </button>
-              ) : (
-                <>
-                  <button
-                    ref={continueRef}
-                    type="button"
-                    onClick={handlePrepareChalkiePrompt}
-                    className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
-                  >
-                    Prepare Chalkie prompt
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handlePrepareDetailedLessonPlan}
-                    className="rounded-md border border-[#3766a3] bg-white px-4 py-2 text-sm font-medium text-[#3766a3] transition-colors hover:bg-[#3766a3]/10"
-                  >
-                    Prepare lesson plan
-                  </button>
-                </>
-              )}
+              ) : showChalkiePackaging ? (
+                <button
+                  ref={continueRef}
+                  type="button"
+                  onClick={handlePrepareChalkiePrompt}
+                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
+                >
+                  Prepare Chalkie prompt
+                </button>
+              ) : null}
             </div>
           </div>
         </footer>

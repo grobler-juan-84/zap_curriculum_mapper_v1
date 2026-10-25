@@ -1,71 +1,223 @@
-import React, { useMemo, useState } from 'react'
-import { BookMarked, BookOpen, Brain, ChevronDown, ChevronRight, Notebook } from 'lucide-react'
-import type { BatchJsonSummary, BookFileBatch } from '../../types/validation'
-import type { BookIntelligenceOverviewDocument } from '../../types/bookIntelligence'
-import { buildUnitSummaryView, buildVisiblePagesView } from './chalkieEvidence'
+import React, { useEffect, useId, useState } from 'react'
 import {
-  UNIT_INTELLIGENCE_DISCLAIMER,
-  buildChalkieUnitIntelligenceView,
-} from './chalkieUnitIntelligence'
+  BookOpen,
+  Brain,
+  ChevronDown,
+  ChevronRight,
+  ListChecks,
+  MessageSquareText,
+  Minus,
+  Notebook,
+  Plus,
+  SpellCheck2,
+  Target,
+} from 'lucide-react'
+import type { BookFileBatch } from '../../types/validation'
+import type { SbActivityCard } from './chalkieActivitySelection'
+import {
+  sbActivitySelectionStatus,
+  type SbActivitySelectionState,
+} from './chalkieActivitySelection'
+import type { WbActivityCard } from './chalkieWorkbookActivitySelection'
+import {
+  wbActivitySelectionStatus,
+  type WbActivitySelectionState,
+} from './chalkieWorkbookActivitySelection'
+import {
+  buildBookContentCollapsedSummary,
+  buildBookIntelligenceCollapsedSummary,
+  type CurrentLessonContext,
+} from './currentLessonContext'
+import { UNIT_INTELLIGENCE_DISCLAIMER } from './chalkieUnitIntelligence'
+import { ActivityEvidenceCard } from './ActivityEvidenceCard'
+import { includedActivitiesCountLabel } from './lessonActivitySelection'
 
 interface ChalkieLeftPanelProps {
   batch: BookFileBatch | null
-  summary: BatchJsonSummary | null
-  /** Selected Student Book printed pages (lesson identity — not WB viewer pages). */
-  sbPrintedPages: number[]
   loading: boolean
   error: string | null
-  bookIntelligence: BookIntelligenceOverviewDocument | null
-  bookIntelligenceLoading: boolean
-  /** Workbook summary for the verified companion only (null when none / not loaded). */
-  workbookSummary: BatchJsonSummary | null
-  /** Exact mapped WB printed pages when a verified companion exists. */
-  workbookPrintedPages: number[] | null
-  companionRelationshipId: string | null
+  /** Neutral current-lesson package for the live PDF page scope. */
+  currentLesson: CurrentLessonContext | null
+  /** Authoritative SB activity selection (workspace-owned). */
+  sbActivitySelection: SbActivitySelectionState
+  /** Authoritative WB activity selection (workspace-owned). */
+  wbActivitySelection: WbActivitySelectionState
+  onSbActivitySelectionChange: (cardId: string, selected: boolean) => void
+  onWbActivitySelectionChange: (cardId: string, selected: boolean) => void
 }
 
-function Section({
-  title,
-  icon: Icon,
-  defaultOpen = true,
-  children,
-}: {
+type NestedBookSectionId =
+  | 'objectives'
+  | 'vocabulary'
+  | 'language'
+  | 'grammar'
+  | 'activities'
+  | 'workbook'
+
+function objectiveItems(context: CurrentLessonContext): string[] {
+  const view = context.bookContent.pagesView
+  const items: string[] = []
+  if (view.lessonTopic?.trim()) items.push(view.lessonTopic.trim())
+  for (const label of view.pageLabels) {
+    const trimmed = label.trim()
+    if (trimmed && !items.includes(trimmed)) items.push(trimmed)
+  }
+  return items
+}
+
+function splitLanguageExchange(line: string): {
+  prompt: string
+  response: string | null
+} {
+  const slash = line.split(/\s+\/\s+/)
+  if (slash.length === 2 && slash[0]?.trim() && slash[1]?.trim()) {
+    return { prompt: slash[0].trim(), response: slash[1].trim() }
+  }
+  const arrow = line.split(/\s+→\s+/)
+  if (arrow.length === 2 && arrow[0]?.trim() && arrow[1]?.trim()) {
+    return { prompt: arrow[0].trim(), response: arrow[1].trim() }
+  }
+  return { prompt: line.trim(), response: null }
+}
+
+function TopLevelAccordion(props: {
+  id: string
   title: string
-  icon: React.ComponentType<{ className?: string }>
-  defaultOpen?: boolean
+  badge: string
+  summary: string
+  open: boolean
+  onToggle: () => void
+  tone: 'book' | 'intelligence'
   children: React.ReactNode
 }) {
-  const [open, setOpen] = useState(defaultOpen)
+  const { id, title, badge, summary, open, onToggle, tone, children } = props
+  const panelId = `${id}-panel`
+  const isBook = tone === 'book'
+  const shell = isBook
+    ? 'border-sky-200/90 bg-sky-50/40'
+    : 'border-violet-200/90 bg-violet-50/40'
+  const iconWrap = isBook
+    ? 'bg-sky-100 text-sky-700'
+    : 'bg-violet-100 text-violet-700'
+  const badgeClass = isBook
+    ? 'border-sky-200 bg-white text-sky-800'
+    : 'border-violet-200 bg-white text-violet-800'
+  const Icon = isBook ? BookOpen : Brain
+
   return (
-    <div className="border-b border-slate-100">
+    <section className={`overflow-hidden rounded-xl border ${shell}`}>
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-3 py-2 text-left hover:bg-slate-50"
+        id={id}
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className="flex w-full items-start gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-white/55"
       >
-        <span className="flex items-center gap-2 text-xs font-bold text-slate-800">
-          <Icon className="h-3.5 w-3.5 text-indigo-600" />
-          {title}
+        <span
+          className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${iconWrap}`}
+          aria-hidden="true"
+        >
+          <Icon className="h-3.5 w-3.5" />
         </span>
-        {open ? (
-          <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
-        ) : (
-          <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-        )}
+        <span className="min-w-0 flex-1 space-y-1">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold tracking-tight text-slate-900">
+              {title}
+            </span>
+            <span
+              className={`rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${badgeClass}`}
+            >
+              {badge}
+            </span>
+          </span>
+          {!open ? (
+            <span className="block text-[11px] leading-relaxed text-slate-600">
+              {summary}
+            </span>
+          ) : null}
+        </span>
+        <span className="mt-0.5 shrink-0 text-slate-400" aria-hidden="true">
+          {open ? (
+            <ChevronDown className="h-4 w-4" />
+          ) : (
+            <ChevronRight className="h-4 w-4" />
+          )}
+        </span>
       </button>
-      {open ? <div className="space-y-2 px-3 pb-3">{children}</div> : null}
+      {open ? (
+        <div
+          id={panelId}
+          role="region"
+          aria-labelledby={id}
+          className="border-t border-white/70 px-2.5 pb-2.5 pt-2"
+        >
+          {children}
+        </div>
+      ) : null}
+    </section>
+  )
+}
+
+function NestedAccordion(props: {
+  id: string
+  title: string
+  countLabel?: string | null
+  icon: React.ComponentType<{ className?: string }>
+  open: boolean
+  onToggle: () => void
+  children: React.ReactNode
+}) {
+  const { id, title, countLabel, icon: Icon, open, onToggle, children } = props
+  const panelId = `${id}-panel`
+  return (
+    <div className="overflow-hidden rounded-lg border border-slate-200/90 bg-white shadow-xs">
+      <button
+        type="button"
+        id={id}
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className="flex w-full items-center gap-2 px-2.5 py-2 text-left transition-colors hover:bg-slate-50"
+      >
+        <span
+          className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-50 text-sky-700"
+          aria-hidden="true"
+        >
+          <Icon className="h-3.5 w-3.5" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-xs font-semibold text-slate-800">{title}</span>
+          {countLabel ? (
+            <span className="block text-[11px] text-slate-500">{countLabel}</span>
+          ) : null}
+        </span>
+        <span
+          className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded border border-slate-200 text-slate-500"
+          aria-hidden="true"
+        >
+          {open ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
+        </span>
+      </button>
+      {open ? (
+        <div
+          id={panelId}
+          role="region"
+          aria-labelledby={id}
+          className="border-t border-slate-100 px-2.5 py-2"
+        >
+          {children}
+        </div>
+      ) : null}
     </div>
   )
 }
 
-function BulletList({ items, empty }: { items: string[]; empty: string }) {
-  if (items.length === 0) {
-    return <p className="text-xs text-slate-500">{empty}</p>
-  }
+function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-1 text-xs leading-relaxed text-slate-700">
-      {items.map((item, i) => (
-        <li key={i} className="list-inside list-disc">
+    <ul className="space-y-1.5 text-xs leading-relaxed text-slate-700">
+      {items.map((item) => (
+        <li key={item} className="list-inside list-disc">
           {item}
         </li>
       ))}
@@ -73,250 +225,444 @@ function BulletList({ items, empty }: { items: string[]; empty: string }) {
   )
 }
 
-function PagesSummaryBody({
-  rangeLabel,
-  view,
-}: {
-  rangeLabel: string | null
-  view: ReturnType<typeof buildVisiblePagesView>
-}) {
+function VocabularyChips({ terms }: { terms: string[] }) {
   return (
-    <>
-      {rangeLabel ? (
-        <p className="text-[11px] font-mono text-indigo-700">{rangeLabel}</p>
-      ) : null}
-      {view.emptyMessage ? (
-        <p className="text-xs text-slate-500">{view.emptyMessage}</p>
-      ) : (
-        <>
-          <BulletList
-            items={view.pageLabels}
-            empty="No page sections listed for this spread."
-          />
-          {view.vocabulary.length > 0 ? (
-            <div>
-              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                Vocabulary on spread
-              </p>
-              <p className="text-xs text-slate-800">{view.vocabulary.join(', ')}</p>
-            </div>
-          ) : null}
-          {view.languageLines.length > 0 ? (
-            <div>
-              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                Language on spread
-              </p>
-              <BulletList items={view.languageLines} empty="" />
-            </div>
-          ) : null}
-          {view.activityLines.length > 0 ? (
-            <div>
-              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                Activities on spread
-              </p>
-              <BulletList items={view.activityLines} empty="" />
-            </div>
-          ) : null}
-        </>
-      )}
-    </>
+    <ul className="flex flex-wrap gap-1.5" aria-label="Target vocabulary">
+      {terms.map((term) => (
+        <li
+          key={term}
+          className="rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-950"
+        >
+          {term}
+        </li>
+      ))}
+    </ul>
   )
 }
 
-function rangeLabelFor(pages: number[]): string | null {
-  if (pages.length === 0) return null
-  if (pages.length === 1) return `p. ${pages[0]}`
-  return `pp. ${pages[0]}–${pages[pages.length - 1]}`
+function LanguageFrameList({ lines }: { lines: string[] }) {
+  return (
+    <ul className="space-y-2" aria-label="Target language frames">
+      {lines.map((line) => {
+        const { prompt, response } = splitLanguageExchange(line)
+        return (
+          <li
+            key={line}
+            className="rounded-md border border-slate-200 bg-slate-50/80 px-2.5 py-2"
+          >
+            <p className="text-xs leading-relaxed text-slate-800">{prompt}</p>
+            {response ? (
+              <p className="mt-1 border-t border-slate-200/80 pt-1 text-xs leading-relaxed text-slate-600">
+                <span className="font-medium text-slate-500">Response:</span>{' '}
+                {response}
+              </p>
+            ) : null}
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+function VerifiedActivityList({
+  cards,
+  pagePrefix,
+  selectedCardIds,
+  onSelectedChange,
+  checkboxIdPrefix,
+}: {
+  cards: readonly (SbActivityCard | WbActivityCard)[]
+  pagePrefix: 'SB' | 'WB'
+  selectedCardIds: readonly string[]
+  onSelectedChange: (cardId: string, selected: boolean) => void
+  checkboxIdPrefix: string
+}) {
+  const selected = new Set(selectedCardIds)
+  return (
+    <ul className="space-y-2" aria-label="Book activities">
+      {cards.map((card) => (
+        <ActivityEvidenceCard
+          key={card.id}
+          card={card}
+          pagePrefix={pagePrefix}
+          selected={selected.has(card.id)}
+          onSelectedChange={(next) => onSelectedChange(card.id, next)}
+          checkboxId={`${checkboxIdPrefix}-${card.id}`}
+        />
+      ))}
+    </ul>
+  )
 }
 
 export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   batch,
-  summary,
-  sbPrintedPages,
   loading,
   error,
-  bookIntelligence,
-  bookIntelligenceLoading,
-  workbookSummary,
-  workbookPrintedPages,
-  companionRelationshipId,
+  currentLesson,
+  sbActivitySelection,
+  wbActivitySelection,
+  onSbActivitySelectionChange,
+  onWbActivitySelectionChange,
 }) => {
-  const unitView = useMemo(
-    () => (summary ? buildUnitSummaryView(summary) : null),
-    [summary],
-  )
-  const sbPagesView = useMemo(
-    () => buildVisiblePagesView(summary, sbPrintedPages),
-    [summary, sbPrintedPages],
-  )
-  const wbPagesView = useMemo(() => {
-    if (!workbookPrintedPages?.length) return null
-    return buildVisiblePagesView(workbookSummary, workbookPrintedPages)
-  }, [workbookSummary, workbookPrintedPages])
-  const unitIntelligence = useMemo(
-    () =>
-      buildChalkieUnitIntelligenceView({
-        loading: bookIntelligenceLoading,
-        document: bookIntelligence,
-        unitNumber: batch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
-      }),
-    [
-      bookIntelligenceLoading,
-      bookIntelligence,
-      batch?.unitNumber,
-      summary?.units,
-    ],
+  const baseId = useId()
+  const scopeBadge = currentLesson?.scope.rangeLabel ?? '—'
+  const panelContextKey = currentLesson
+    ? `${currentLesson.scope.sbPrintedPages.join(',')}|${
+        currentLesson.bookContent.workbookCompanion?.relationshipId ?? ''
+      }`
+    : 'empty'
+
+  const [bookOpen, setBookOpen] = useState(true)
+  const [intelligenceOpen, setIntelligenceOpen] = useState(false)
+  const [nestedOpen, setNestedOpen] = useState<Record<NestedBookSectionId, boolean>>(
+    {
+      objectives: false,
+      vocabulary: false,
+      language: false,
+      grammar: false,
+      activities: false,
+      workbook: false,
+    },
   )
 
-  const showWbSection = Boolean(companionRelationshipId && workbookPrintedPages?.length)
+  useEffect(() => {
+    setNestedOpen({
+      objectives: false,
+      vocabulary: false,
+      language: false,
+      grammar: false,
+      activities: false,
+      workbook: false,
+    })
+  }, [panelContextKey])
+
+  const toggleNested = (id: NestedBookSectionId) => {
+    setNestedOpen((current) => ({ ...current, [id]: !current[id] }))
+  }
+
+  const objectives = currentLesson ? objectiveItems(currentLesson) : []
+  const pagesView = currentLesson?.bookContent.pagesView
+  const vocabulary = pagesView
+    ? pagesView.dedicatedVocabulary.length
+      ? pagesView.dedicatedVocabulary
+      : pagesView.vocabulary
+    : []
+  const languageLines = pagesView?.languageLines ?? []
+  const grammarFocus = pagesView?.teachingFocus?.trim() || null
+  const sbActivities = currentLesson?.bookContent.sbActivities ?? []
+  const wbActivities = currentLesson?.bookContent.wbActivities ?? []
+  const showWbSection = Boolean(
+    currentLesson?.bookContent.workbookCompanion &&
+      currentLesson.bookContent.workbookPrintedPages?.length,
+  )
+  const sbSelectionStatus = sbActivitySelectionStatus(
+    sbActivities,
+    sbActivitySelection,
+  )
+  const wbSelectionStatus = wbActivitySelectionStatus(
+    wbActivities,
+    wbActivitySelection,
+  )
+
+  const bookSummary = currentLesson
+    ? buildBookContentCollapsedSummary(currentLesson.bookContent)
+    : ''
+  const intelligenceSummary = currentLesson
+    ? buildBookIntelligenceCollapsedSummary(currentLesson.bookIntelligence)
+    : ''
 
   return (
     <div className="flex h-full select-none flex-col border-r border-slate-200 bg-white">
-      <div className="flex h-11 shrink-0 items-center justify-between border-b border-slate-200 bg-slate-50 px-3">
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-indigo-600" />
-          <h2 className="text-xs font-bold tracking-tight text-slate-800 uppercase">
-            Chalkie context
+      <div className="flex h-11 shrink-0 items-center justify-between gap-2 border-b border-slate-200 bg-slate-50 px-3">
+        <div className="flex min-w-0 items-center gap-2">
+          <div className="h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+          <h2 className="truncate text-xs font-bold tracking-tight text-slate-800 uppercase">
+            Curriculum &amp; Intelligence
           </h2>
         </div>
-        <span className="max-w-[45%] truncate rounded border border-slate-200 bg-white px-2 py-0.5 font-mono text-[11px] text-slate-500">
-          {batch?.label ?? '—'}
+        <span className="shrink-0 rounded-full border border-slate-200 bg-white px-2 py-0.5 font-mono text-[11px] text-slate-600">
+          {scopeBadge}
         </span>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      <div className="min-h-0 flex-1 overflow-y-auto px-2.5 py-2.5">
         {loading ? (
-          <p className="p-4 text-sm text-slate-500">Loading unit evidence…</p>
+          <p className="p-2 text-sm text-slate-500">Loading unit evidence…</p>
         ) : error ? (
-          <div className="m-3 rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
+          <div className="rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
             {error}
           </div>
-        ) : !summary || !unitView ? (
-          <p className="p-4 text-sm text-slate-500">Select a unit to prepare a Chalkie prompt.</p>
+        ) : !currentLesson || !currentLesson.bookContent.unitView ? (
+          <p className="p-2 text-sm text-slate-500">
+            Select a unit to inspect curriculum evidence.
+          </p>
         ) : (
-          <>
-            <Section title="Unit Summary" icon={BookMarked} defaultOpen={false}>
-              <p className="text-xs font-semibold text-slate-900">{unitView.unitLabel}</p>
-              {unitView.pageRange ? (
-                <p className="text-[11px] text-slate-500">{unitView.pageRange}</p>
-              ) : null}
-              {unitView.theme ? (
-                <p className="text-xs text-slate-600">
-                  <span className="font-medium text-slate-500">Theme:</span> {unitView.theme}
+          <div className="space-y-2.5">
+            <TopLevelAccordion
+              id={`${baseId}-book-content`}
+              title="Book Content"
+              badge="Verified source"
+              summary={bookSummary}
+              open={bookOpen}
+              onToggle={() => setBookOpen((open) => !open)}
+              tone="book"
+            >
+              <div className="space-y-2">
+                <p className="px-0.5 text-[11px] leading-relaxed text-slate-500">
+                  Textbook-grounded evidence for {scopeBadge}
+                  {currentLesson.scope.unitLabel
+                    ? ` · ${currentLesson.scope.unitLabel}`
+                    : ''}
+                  {batch?.label ? ` · ${batch.label}` : ''}.
                 </p>
-              ) : null}
-              {unitView.learningFocus ? (
-                <p className="text-xs text-slate-700">
-                  <span className="font-medium text-slate-500">Focus:</span>{' '}
-                  {unitView.learningFocus}
-                </p>
-              ) : null}
-              {unitView.vocabularyPreview.length > 0 ? (
-                <div>
-                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                    Key vocabulary
-                  </p>
-                  <p className="text-xs leading-relaxed text-slate-800">
-                    {unitView.vocabularyPreview.join(', ')}
-                    {summary.vocabulary.length > unitView.vocabularyPreview.length
-                      ? ' …'
-                      : ''}
-                  </p>
-                </div>
-              ) : null}
-              {unitView.languagePreview.length > 0 ? (
-                <div>
-                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                    Language frames
-                  </p>
-                  <BulletList items={unitView.languagePreview} empty="" />
-                </div>
-              ) : null}
-              {unitView.activityPreview.length > 0 ? (
-                <div>
-                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                    Book activities
-                  </p>
-                  <BulletList items={unitView.activityPreview} empty="" />
-                </div>
-              ) : null}
-            </Section>
 
-            <Section title="SB Pages Summary" icon={BookOpen} defaultOpen={false}>
-              <p className="text-[11px] leading-relaxed text-slate-500">
-                Selected Student Book pages — primary lesson source.
-              </p>
-              <PagesSummaryBody
-                rangeLabel={rangeLabelFor(sbPrintedPages)}
-                view={sbPagesView}
-              />
-            </Section>
-
-            {showWbSection && workbookPrintedPages ? (
-              <Section title="WB Pages Summary" icon={Notebook} defaultOpen={false}>
-                <p className="text-[11px] leading-relaxed text-slate-500">
-                  Mapped Workbook consolidation/practice (verified companion). Separate from
-                  Student Book lesson identity.
-                </p>
-                {companionRelationshipId ? (
-                  <p className="font-mono text-[10px] text-slate-400">{companionRelationshipId}</p>
+                {objectives.length > 0 ? (
+                  <NestedAccordion
+                    id={`${baseId}-objectives`}
+                    title="Curriculum Objectives"
+                    countLabel={`${objectives.length} listed`}
+                    icon={Target}
+                    open={nestedOpen.objectives}
+                    onToggle={() => toggleNested('objectives')}
+                  >
+                    <BulletList items={objectives} />
+                  </NestedAccordion>
                 ) : null}
-                <PagesSummaryBody
-                  rangeLabel={rangeLabelFor(workbookPrintedPages)}
-                  view={
-                    wbPagesView ??
-                    buildVisiblePagesView(null, workbookPrintedPages)
-                  }
-                />
-              </Section>
-            ) : null}
 
-            <Section title="Unit Intelligence" icon={Brain} defaultOpen={false}>
-              <p className="rounded border border-amber-200 bg-amber-50 px-2 py-1.5 text-[11px] leading-relaxed text-amber-900">
-                {UNIT_INTELLIGENCE_DISCLAIMER}
-              </p>
-              {unitIntelligence.status === 'loading' ? (
-                <p className="text-xs text-slate-500">Loading Unit Intelligence…</p>
-              ) : unitIntelligence.status === 'unavailable' ? (
-                <p className="text-xs leading-relaxed text-slate-500">
-                  {unitIntelligence.message}
-                </p>
-              ) : (
-                <>
-                  <p className="text-xs font-semibold text-slate-900">
-                    Unit {unitIntelligence.unitNumber}: {unitIntelligence.title}
-                  </p>
-                  {unitIntelligence.pageRange ? (
-                    <p className="text-[11px] text-slate-500">
-                      {unitIntelligence.pageRange}
-                      {unitIntelligence.layer ? (
-                        <span className="text-slate-400"> · {unitIntelligence.layer}</span>
-                      ) : null}
+                {vocabulary.length > 0 ? (
+                  <NestedAccordion
+                    id={`${baseId}-vocabulary`}
+                    title="Target Vocabulary"
+                    countLabel={`${vocabulary.length} words/models`}
+                    icon={SpellCheck2}
+                    open={nestedOpen.vocabulary}
+                    onToggle={() => toggleNested('vocabulary')}
+                  >
+                    <VocabularyChips terms={[...vocabulary]} />
+                    {pagesView &&
+                    !pagesView.hasDedicatedVocabulary &&
+                    pagesView.hasActivityDerivedModels ? (
+                      <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
+                        Includes activity-derived models where dedicated vocabulary rows are
+                        absent.
+                      </p>
+                    ) : null}
+                  </NestedAccordion>
+                ) : null}
+
+                {languageLines.length > 0 ? (
+                  <NestedAccordion
+                    id={`${baseId}-language`}
+                    title="Target Language Frame"
+                    countLabel={
+                      languageLines.length === 1
+                        ? '1 frame'
+                        : `${languageLines.length} frames`
+                    }
+                    icon={MessageSquareText}
+                    open={nestedOpen.language}
+                    onToggle={() => toggleNested('language')}
+                  >
+                    <LanguageFrameList lines={[...languageLines]} />
+                  </NestedAccordion>
+                ) : null}
+
+                {grammarFocus ? (
+                  <NestedAccordion
+                    id={`${baseId}-grammar`}
+                    title="Grammar / Language Focus"
+                    countLabel="Planning summary"
+                    icon={ListChecks}
+                    open={nestedOpen.grammar}
+                    onToggle={() => toggleNested('grammar')}
+                  >
+                    <BulletList items={[grammarFocus]} />
+                    <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
+                      Derived from verified page metadata — not a publisher quotation.
                     </p>
-                  ) : unitIntelligence.layer ? (
-                    <p className="text-[11px] text-slate-400">{unitIntelligence.layer}</p>
-                  ) : null}
-                  <dl className="space-y-2">
-                    {unitIntelligence.fields.map((field) => (
-                      <div key={field.key}>
-                        <dt className="mb-0.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                          <span>{field.label}</span>
-                          {field.badge ? (
-                            <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold normal-case tracking-normal text-violet-800">
-                              {field.badge}
+                  </NestedAccordion>
+                ) : null}
+
+                {sbActivities.length > 0 ? (
+                  <NestedAccordion
+                    id={`${baseId}-activities`}
+                    title="Book Activities"
+                    countLabel={includedActivitiesCountLabel(
+                      sbSelectionStatus.selectedCount,
+                      sbSelectionStatus.totalCount,
+                    )}
+                    icon={Notebook}
+                    open={nestedOpen.activities}
+                    onToggle={() => toggleNested('activities')}
+                  >
+                    <div className="space-y-2">
+                      <p className="text-[11px] leading-relaxed text-slate-500">
+                        Choose which verified Student Book activities will be carried into
+                        prompt preparation. Deselected activities stay out of the neutral
+                        package.
+                      </p>
+                      <p
+                        className="text-[11px] font-medium text-slate-600"
+                        aria-live="polite"
+                      >
+                        {includedActivitiesCountLabel(
+                          sbSelectionStatus.selectedCount,
+                          sbSelectionStatus.totalCount,
+                        )}
+                      </p>
+                      <VerifiedActivityList
+                        cards={sbActivities}
+                        pagePrefix="SB"
+                        selectedCardIds={sbActivitySelection.selectedCardIds}
+                        onSelectedChange={onSbActivitySelectionChange}
+                        checkboxIdPrefix={`${baseId}-sb-activity`}
+                      />
+                    </div>
+                  </NestedAccordion>
+                ) : null}
+
+                {showWbSection ? (
+                  <NestedAccordion
+                    id={`${baseId}-workbook`}
+                    title="Workbook Companion"
+                    countLabel={
+                      wbActivities.length > 0
+                        ? includedActivitiesCountLabel(
+                            wbSelectionStatus.selectedCount,
+                            wbSelectionStatus.totalCount,
+                          )
+                        : currentLesson.bookContent.workbookPrintedPages
+                          ? `pp. ${currentLesson.bookContent.workbookPrintedPages.join('–')}`
+                          : null
+                    }
+                    icon={Notebook}
+                    open={nestedOpen.workbook}
+                    onToggle={() => toggleNested('workbook')}
+                  >
+                    <div className="space-y-2">
+                      <p className="text-[11px] leading-relaxed text-slate-500">
+                        Mapped Workbook consolidation/practice (verified companion). Separate
+                        from Student Book lesson identity. Selection here also controls what
+                        enters prompt preparation.
+                      </p>
+                      {currentLesson.bookContent.workbookCompanion?.relationshipId ? (
+                        <p className="font-mono text-[10px] text-slate-400">
+                          {
+                            currentLesson.bookContent.workbookCompanion
+                              .relationshipId
+                          }
+                        </p>
+                      ) : null}
+                      {wbActivities.length > 0 ? (
+                        <>
+                          <p
+                            className="text-[11px] font-medium text-slate-600"
+                            aria-live="polite"
+                          >
+                            {includedActivitiesCountLabel(
+                              wbSelectionStatus.selectedCount,
+                              wbSelectionStatus.totalCount,
+                            )}
+                          </p>
+                          <VerifiedActivityList
+                            cards={wbActivities}
+                            pagePrefix="WB"
+                            selectedCardIds={wbActivitySelection.selectedCardIds}
+                            onSelectedChange={onWbActivitySelectionChange}
+                            checkboxIdPrefix={`${baseId}-wb-activity`}
+                          />
+                        </>
+                      ) : (
+                        <p className="text-xs text-slate-500">
+                          No human-verified Workbook activity cards are available for this
+                          companion.
+                        </p>
+                      )}
+                    </div>
+                  </NestedAccordion>
+                ) : null}
+
+                {objectives.length === 0 &&
+                vocabulary.length === 0 &&
+                languageLines.length === 0 &&
+                !grammarFocus &&
+                sbActivities.length === 0 &&
+                !showWbSection ? (
+                  <p className="rounded-lg border border-dashed border-slate-200 bg-white px-3 py-2 text-xs leading-relaxed text-slate-500">
+                    {pagesView?.emptyMessage ??
+                      'No verified Student Book evidence is available for this page scope.'}
+                  </p>
+                ) : null}
+              </div>
+            </TopLevelAccordion>
+
+            <TopLevelAccordion
+              id={`${baseId}-book-intelligence`}
+              title="Book Intelligence"
+              badge="Teacher interpretation"
+              summary={intelligenceSummary}
+              open={intelligenceOpen}
+              onToggle={() => setIntelligenceOpen((open) => !open)}
+              tone="intelligence"
+            >
+              <div className="space-y-2.5">
+                <p className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1.5 text-[11px] leading-relaxed text-amber-900">
+                  {UNIT_INTELLIGENCE_DISCLAIMER}
+                </p>
+                {currentLesson.bookIntelligence.status === 'loading' ? (
+                  <p className="text-xs text-slate-500">Loading Book Intelligence…</p>
+                ) : currentLesson.bookIntelligence.status === 'unavailable' ? (
+                  <p className="text-xs leading-relaxed text-slate-500">
+                    {currentLesson.bookIntelligence.message}
+                  </p>
+                ) : (
+                  <>
+                    <div className="rounded-lg border border-violet-200/80 bg-white px-2.5 py-2">
+                      <p className="text-xs font-semibold text-slate-900">
+                        Unit {currentLesson.bookIntelligence.unitNumber}:{' '}
+                        {currentLesson.bookIntelligence.title}
+                      </p>
+                      {currentLesson.bookIntelligence.pageRange ? (
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          {currentLesson.bookIntelligence.pageRange}
+                          {currentLesson.bookIntelligence.layer ? (
+                            <span className="text-slate-400">
+                              {' '}
+                              · {currentLesson.bookIntelligence.layer}
                             </span>
                           ) : null}
-                        </dt>
-                        <dd className="text-xs leading-relaxed whitespace-pre-wrap text-slate-700">
-                          {field.value || '—'}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </>
-              )}
-            </Section>
-          </>
+                        </p>
+                      ) : currentLesson.bookIntelligence.layer ? (
+                        <p className="mt-0.5 text-[11px] text-slate-400">
+                          {currentLesson.bookIntelligence.layer}
+                        </p>
+                      ) : null}
+                    </div>
+                    <dl className="space-y-2">
+                      {currentLesson.bookIntelligence.fields.map((field) => (
+                        <div
+                          key={field.key}
+                          className="rounded-lg border border-violet-100 bg-white px-2.5 py-2"
+                        >
+                          <dt className="mb-0.5 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-violet-800/80">
+                            <span>{field.label}</span>
+                            {field.badge ? (
+                              <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold normal-case tracking-normal text-violet-800">
+                                {field.badge}
+                              </span>
+                            ) : null}
+                          </dt>
+                          <dd className="text-xs leading-relaxed whitespace-pre-wrap text-slate-700">
+                            {field.value || '—'}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </>
+                )}
+              </div>
+            </TopLevelAccordion>
+          </div>
         )}
       </div>
     </div>

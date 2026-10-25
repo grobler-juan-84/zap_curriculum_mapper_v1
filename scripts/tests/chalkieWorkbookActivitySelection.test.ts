@@ -419,23 +419,51 @@ test('no-companion Student Book handoff is unaffected by Workbook selection', ()
 
 test('overlay renders evidence-shaped Workbook UI and passes WB state into handoff calls', () => {
   const source = fs.readFileSync(OVERLAY_PATH, 'utf8')
-  const step1Start = source.indexOf('{step === 1 ? (')
-  const step2Start = source.indexOf('{step === 2 ? (')
-  const step1Source = source.slice(step1Start, step2Start)
-  const handoffStart = source.indexOf('const handleGeneratePromptPreview')
-  const handoffEnd = source.indexOf('const handleCopyPrompt')
+  const workbookStepStart = source.indexOf(
+    "{resolvedStepId === 'workbook' && includeWorkbookStep ? (",
+  )
+  const priorStepStart = source.indexOf(
+    "{resolvedStepId === 'prior_skills' ? (",
+  )
+  assert.ok(workbookStepStart >= 0)
+  assert.ok(priorStepStart > workbookStepStart)
+  const workbookStepSource = source.slice(workbookStepStart, priorStepStart)
+  const handoffStart = source.indexOf('const handlePrepareChalkiePrompt')
+  const handoffEnd = source.indexOf('const handleChooseChalkie')
   const handoffSource = source.slice(handoffStart, handoffEnd)
 
-  assert.match(step1Source, /data-wb-activity-section/)
-  assert.match(step1Source, /Verified Workbook companion for this lesson/)
-  assert.match(step1Source, /Workbook · p\.\{panel\.printedPage\}/)
-  assert.match(step1Source, /\[WB p\.\{card\.printedPage\}\]/)
-  assert.match(step1Source, /workbookActivityPagePanels\.length > 1/)
-  assert.match(step1Source, /data-wb-facing-placeholder/)
-  assert.match(step1Source, /No verified Workbook content for this lesson\./)
-  assert.match(step1Source, /lesson\.workbookCompanion &&/)
-  assert.match(step1Source, /Workbook activity selection is saved for this session/)
-  assert.match(step1Source, /current local handoff includes Workbook content/)
+  assert.match(workbookStepSource, /data-wb-activity-section/)
+  assert.match(workbookStepSource, /data-activity-selection-review="workbook"/)
+  assert.ok(!workbookStepSource.includes('Review Workbook companion selection'))
+  assert.ok(
+    !workbookStepSource.includes(
+      'Confirming Workbook activities already chosen',
+    ),
+  )
+  assert.match(workbookStepSource, /Verified Workbook companion for this lesson/)
+  assert.ok(!workbookStepSource.includes('Select Workbook activities'))
+  assert.ok(
+    !workbookStepSource.includes(
+      'Select verified Workbook companion activities to include with this lesson.',
+    ),
+  )
+  assert.ok(
+    !/<h3[\s\S]*?>\s*Workbook activities\s*<\/h3>/.test(workbookStepSource),
+  )
+  assert.match(workbookStepSource, /Workbook · p\.\$\{panel\.printedPage\}/)
+  assert.match(workbookStepSource, /ActivityEvidenceCard/)
+  assert.match(workbookStepSource, /layout="modal"/)
+  assert.match(workbookStepSource, /ActivityReviewBookSpread/)
+  assert.match(workbookStepSource, /workbookActivityPagePanels\.length/)
+  assert.match(workbookStepSource, /data-wb-facing-placeholder/)
+  assert.match(workbookStepSource, /No verified Workbook content for this lesson\./)
+  assert.match(workbookStepSource, /includeWorkbookStep/)
+  assert.ok(
+    !workbookStepSource.includes(
+      'Workbook activity selection is saved for this session',
+    ),
+  )
+  assert.match(source, /includeTeacherChoiceWorkbookStep/)
   assert.match(handoffSource, /workbookActivitySelection: handoffWorkbookActivitySelection/)
   assert.match(handoffSource, /handoffWorkbookActivitySelection/)
 })

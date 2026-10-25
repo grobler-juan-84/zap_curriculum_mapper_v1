@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 352
+**Last updated:** Step 364
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -26,6 +26,13 @@
 
 - **Prior Learning:** same-unit `[PRIOR]` + curated `[HM]` (BE2 U8 opener) + session `[TEACHER-ADDED · UNVERIFIED]`.
 
+- **Create-a-prompt modal:** five-page flow with optional WB skip; fixed-height shell; SB/WB chrome trimmed.
+
+- **Neutral `CurrentLessonContext`:** left panel Book Content + Book Intelligence from one assembler; shared verified activity cards with Create-a-prompt.
+
+- **Left-panel activity selection:** workspace-owned SB/WB selection is authoritative; Create-a-prompt opens as review of the same state; shared `ActivityEvidenceCard`; deselections cannot re-enter handoff.
+- **Modal open-book review layout:** equal-height SB/WB page panels fill the modal body; activity cards share a fixed `11.5rem` height with scrollable evidence; left panel stays unbounded; focused tests + typecheck green.
+
 - Unused BI PDF/e2e verifier scripts archived under `scripts/archive/bi-pdf-verifiers/`. No further BI book expansion until Opener slice is owner-accepted.
 
 ## In progress
@@ -34,9 +41,11 @@
 
 ## Next
 
+- Smoke-test Create-a-prompt + left-panel selection beside the PDF (defaults, deselect, scope change; rich vs sparse modal cards).
 - Accept or refine the Opener BI planning-context slice before expanding BI to other books/components.
 - Author a **new verified curated `[HM]` target pack** when ready (not School Notes).
 - Pause further canaries / bulk NLP migration until owner directs.
+- Relocate `currentLessonContext` + neutral builder cluster out of `features/chalkie/` only as a deliberate follow-up (F023 remainder).
 
 ## Blocked
 
@@ -49,4 +58,4 @@
 
 - Active Git branch: `main`.
 
-- Entry: `/app/chalkie` — Student Book–first (D021); NLP + optional BI interpretation (D022).
+- Entry: `/app/chalkie` — Student Book–first (D021); NLP + optional BI interpretation (D022); activity selection owned by the left-panel curriculum surface.

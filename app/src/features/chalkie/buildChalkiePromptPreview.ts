@@ -17,6 +17,7 @@ import {
   type SbActivityHandoffSelection,
 } from './chalkieActivitySelection'
 import type { WbActivityHandoffSelection } from './chalkieWorkbookActivitySelection'
+import { buildSbOnlyTwoLessonHandoff } from './buildSbOnlyTwoLessonHandoff'
 
 export type TeacherAddedLanguageInput = {
   title: string
@@ -429,9 +430,9 @@ function buildDynamicSingleLessonPrompt(input: {
  *
  * packageShape:
  * - single = visible SB pages only
- * - series = verified SB→WB package only:
- *   - BE2 U8 curated fixture, or
- *   - accepted BE3 U8 opener / story curated relationships
+ * - series =
+ *   - verified SB→WB package (BE2 fixture / accepted BE3 opener or story), or
+ *   - generic Student-Book-only two-lesson split of the current spread
  */
 export function buildChalkiePromptPreview(input: {
   lesson: ChalkieLessonContext
@@ -444,6 +445,14 @@ export function buildChalkiePromptPreview(input: {
   if (input.packageShape === 'series') {
     if (!input.lesson.supportsTwoLessonSeries) {
       return buildDynamicSingleLessonPrompt(input)
+    }
+    if (input.lesson.twoLessonPackagingMode === 'sb_only') {
+      return buildSbOnlyTwoLessonHandoff({
+        lesson: input.lesson,
+        selectedSuggestions: input.selectedSuggestions,
+        teacherAdditions: input.teacherAdditions,
+        activitySelection: input.activitySelection,
+      }).detailedHandoff
     }
     if (input.lesson.isBe2U08PrototypeRoute) {
       if (
@@ -483,7 +492,7 @@ export function buildChalkiePromptPreview(input: {
         workbookActivitySelection: input.workbookActivitySelection,
       }).handoff.detailedHandoff
     }
-    // Refuse silent fixture fallback — degrade to dynamic single if series unsupported.
+    // Refuse silent fixture fallback — degrade to dynamic single if SB→WB series unsupported.
     return buildDynamicSingleLessonPrompt(input)
   }
 
@@ -507,5 +516,6 @@ export function lessonTitleForPackage(
   if (packageShape === 'series' && lesson.seriesLessonTitle) {
     return lesson.seriesLessonTitle
   }
+  // Generic SB-only two-lesson keeps the same teacher-facing SB title.
   return lesson.singleLessonTitle
 }

@@ -303,27 +303,44 @@ test('activity exclusions persist through Current Lesson to Prior Learning and B
 
 test('overlay exposes honest activity selection feedback and local handoff propagation', () => {
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
-  const step1Start = overlaySource.indexOf('{step === 1 ? (')
-  const step2Start = overlaySource.indexOf('{step === 2 ? (')
-  assert.ok(step1Start >= 0)
-  assert.ok(step2Start > step1Start)
-  const step1Source = overlaySource.slice(step1Start, step2Start)
-
-  assert.match(overlaySource, /Current Student Book activities/)
-  assert.match(step1Source, /Current lesson/)
-  assert.match(
-    step1Source,
-    /Select the Student Book activities to include in this lesson\./,
+  const step1Start = overlaySource.indexOf(
+    "{resolvedStepId === 'student_book' ? (",
   )
-  assert.match(step1Source, /data-sb-activity-spread/)
-  assert.match(step1Source, /data-page-count=\{activityPageColumns\.length\}/)
-  assert.match(step1Source, /Student Book · p\.\{column\.printedPage\}/)
-  assert.match(overlaySource, /\[SB p\.\{card\.printedPage\}\]/)
-  assert.match(step1Source, /activityPageColumns\.length > 1/)
-  assert.match(step1Source, /left-1\/2/)
-  assert.match(step1Source, /md:grid-cols-2/)
+  const workbookStepStart = overlaySource.indexOf(
+    "{resolvedStepId === 'workbook' && includeWorkbookStep ? (",
+  )
+  assert.ok(step1Start >= 0)
+  assert.ok(workbookStepStart > step1Start)
+  const step1Source = overlaySource.slice(step1Start, workbookStepStart)
+
+  assert.match(overlaySource, /Review selected Student Book activities/)
+  assert.ok(!step1Source.includes('Review selected Book Content'))
+  assert.ok(
+    !step1Source.includes(
+      'Confirming the Student Book activities already chosen',
+    ),
+  )
+  assert.match(step1Source, /Student Book activities/)
+  assert.match(step1Source, /data-activity-selection-review="student_book"/)
+  assert.ok(!step1Source.includes('Select Student Book activities'))
+  assert.ok(
+    !step1Source.includes(
+      'Select the Student Book activities to include in this lesson.',
+    ),
+  )
+  assert.match(step1Source, /ActivityReviewBookSpread/)
+  assert.match(step1Source, /spreadAttr="data-sb-activity-spread"/)
+  assert.match(step1Source, /pageCount=\{visibleSbActivityPageColumns\.length\}/)
+  assert.match(step1Source, /Student Book · p\.\$\{column\.printedPage\}/)
+  assert.match(step1Source, /ActivityEvidenceCard/)
+  assert.match(step1Source, /layout="modal"/)
+  assert.match(step1Source, /sbActivityUsesTwoColumnLayout/)
   assert.match(step1Source, /data-sb-facing-placeholder/)
   assert.match(step1Source, /Not included in this lesson scope\./)
+  assert.match(step1Source, /data-sb-only-layout/)
+  assert.match(step1Source, /hasVerifiedWorkbookCompanion/)
+  assert.ok(!step1Source.includes('data-sb-wb-pair-layout'))
+  assert.ok(!step1Source.includes('data-wb-activity-section'))
   assert.match(step1Source, /max-w-\[80rem\]/)
   assert.match(step1Source, /selected/)
   assert.ok(!step1Source.includes('>Include<'))
@@ -335,13 +352,16 @@ test('overlay exposes honest activity selection feedback and local handoff propa
     overlaySource,
     /No current Student Book activities are selected\. A later handoff would contain/,
   )
-  assert.match(
-    overlaySource,
-    /Selected activities will be included in this local handoff\./,
+  assert.ok(
+    !overlaySource.includes(
+      'Selected activities will be included in this local handoff.',
+    ),
   )
-  assert.match(overlaySource, /No safe verified preview is available for this activity\./)
   assert.match(overlaySource, /createSbActivityHandoffSelection/)
   assert.match(overlaySource, /activitySelection: handoffActivitySelection/)
+  assert.match(overlaySource, /data-sb-wb-pair-layout/)
+  assert.match(overlaySource, /resolvedStepId === 'neutral_review'/)
+  assert.match(overlaySource, /showChooseOutput/)
 })
 
 test('selected evidence accessors apply page-complete vocabulary and language boundaries', () => {

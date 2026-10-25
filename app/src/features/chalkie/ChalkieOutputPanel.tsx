@@ -13,10 +13,10 @@ export const ChalkieOutputPanel: React.FC<ChalkieOutputPanelProps> = ({ onPrepar
           onClick={onPreparePrompt}
           className="inline-flex w-fit items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs transition-colors hover:bg-indigo-500"
         >
-          Prepare Chalkie prompt
+          Create a prompt
         </button>
         <p className="max-w-xl text-sm leading-relaxed text-slate-500">
-          Review the current lesson, choose any useful prior learning, then prepare a prompt.
+          Review the current lesson and any useful prior learning, then choose the output you need.
         </p>
       </div>
     </div>

@@ -206,6 +206,7 @@ test('accepted BE3 story pair enables asymmetric series and yields six non-empty
 
   assert.equal(lesson.status, 'ready')
   assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     BE3_U08_STORY_SERIES_RELATIONSHIP_ID,
@@ -329,7 +330,7 @@ test('excluding one WB106 Story activity cannot leak through the bespoke handoff
   }
 })
 
-test('story series is unavailable for LiA SB pp.132–133 (resolver companion only)', () => {
+test('story SB→WB series is not used for LiA SB pp.132–133 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -341,7 +342,8 @@ test('story series is unavailable for LiA SB pp.132–133 (resolver companion on
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
@@ -356,12 +358,13 @@ test('story series is unavailable for LiA SB pp.132–133 (resolver companion on
     selectedSuggestions: [],
     teacherAdditions: [],
   })
-  assert.doesNotMatch(prompt, /TWO-LESSON series/)
+  assert.match(prompt, /TWO-LESSON series/)
+  assert.match(prompt, /ONLY Student Book/)
   assert.doesNotMatch(prompt, /An Unhealthy Dinner/)
   assert.doesNotMatch(prompt, /Workbook printed page 106/)
 })
 
-test('story series is unavailable for CLIL/P.E. SB pp.134–135 (resolver companion only)', () => {
+test('story SB→WB series is not used for CLIL/P.E. SB pp.134–135 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -373,7 +376,8 @@ test('story series is unavailable for CLIL/P.E. SB pp.134–135 (resolver compan
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
@@ -383,7 +387,7 @@ test('story series is unavailable for CLIL/P.E. SB pp.134–135 (resolver compan
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Grammar SB pp.136–137 (resolver companion only)', () => {
+test('story SB→WB series is not used for Grammar SB pp.136–137 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -395,7 +399,8 @@ test('story series is unavailable for Grammar SB pp.136–137 (resolver companio
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
@@ -405,7 +410,7 @@ test('story series is unavailable for Grammar SB pp.136–137 (resolver companio
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Culture SB pp.138–139 (resolver companion only)', () => {
+test('story SB→WB series is not used for Culture SB pp.138–139 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -417,7 +422,8 @@ test('story series is unavailable for Culture SB pp.138–139 (resolver companio
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
@@ -427,7 +433,7 @@ test('story series is unavailable for Culture SB pp.138–139 (resolver companio
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Writing SB p.140 (resolver companion only)', () => {
+test('story SB→WB series is not used for Writing SB p.140 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -439,7 +445,8 @@ test('story series is unavailable for Writing SB p.140 (resolver companion only)
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_writing_sb140_wb115',
@@ -449,7 +456,7 @@ test('story series is unavailable for Writing SB p.140 (resolver companion only)
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Phonics SB p.141 (resolver companion only)', () => {
+test('story SB→WB series is not used for Phonics SB p.141 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -461,7 +468,8 @@ test('story series is unavailable for Phonics SB p.141 (resolver companion only)
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_phonics_sb141_wb116',
@@ -471,7 +479,7 @@ test('story series is unavailable for Phonics SB p.141 (resolver companion only)
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Review SB p.143 (resolver companion only)', () => {
+test('story SB→WB series is not used for Review SB p.143 (resolver companion only)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -483,7 +491,8 @@ test('story series is unavailable for Review SB p.143 (resolver companion only)'
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_review_sb143_wb117',
@@ -493,7 +502,7 @@ test('story series is unavailable for Review SB p.143 (resolver companion only)'
   assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story series is unavailable for Values SB p.142 (SB-only; no companion)', () => {
+test('story SB→WB series is not used for Values SB p.142 (SB-only; no companion)', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
@@ -505,7 +514,8 @@ test('story series is unavailable for Values SB p.142 (SB-only; no companion)', 
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
 
-  assert.equal(lesson.supportsTwoLessonSeries, false)
+  assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(lesson.workbookCompanion, null)
   assert.equal(lesson.seriesLessonTitle, null)
   assert.equal(lesson.stableSeriesReference, null)

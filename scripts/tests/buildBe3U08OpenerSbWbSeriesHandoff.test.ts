@@ -211,6 +211,7 @@ test('accepted BE3 opener pair enables series and yields six non-empty copyables
 
   assert.equal(lesson.status, 'ready')
   assert.equal(lesson.supportsTwoLessonSeries, true)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
   assert.equal(
     lesson.workbookCompanion?.relationshipId,
     BE3_U08_OPENER_SERIES_RELATIONSHIP_ID,
@@ -397,7 +398,7 @@ test('excluding every opener SB activity gives an honest no-selection state with
   assert.equal(handoff.lesson1Vocabulary, '')
 })
 
-test('non-series BE3 spreads do not enable opener/story series packages', () => {
+test('non-series BE3 spreads use SB-only two-lesson, not opener/story SB→WB', () => {
   const wb = loadJson(BE3_WB_PATH)
 
   // LiA is resolver-wired but has no series handoff.
@@ -411,7 +412,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(lia.supportsTwoLessonSeries, false)
+  assert.equal(lia.supportsTwoLessonSeries, true)
+  assert.equal(lia.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     lia.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
@@ -430,7 +432,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(clil.supportsTwoLessonSeries, false)
+  assert.equal(clil.supportsTwoLessonSeries, true)
+  assert.equal(clil.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     clil.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
@@ -449,7 +452,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(grammar.supportsTwoLessonSeries, false)
+  assert.equal(grammar.supportsTwoLessonSeries, true)
+  assert.equal(grammar.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     grammar.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
@@ -469,7 +473,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(culture.supportsTwoLessonSeries, false)
+  assert.equal(culture.supportsTwoLessonSeries, true)
+  assert.equal(culture.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     culture.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
@@ -489,7 +494,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(writing.supportsTwoLessonSeries, false)
+  assert.equal(writing.supportsTwoLessonSeries, true)
+  assert.equal(writing.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     writing.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_writing_sb140_wb115',
@@ -509,7 +515,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(phonics.supportsTwoLessonSeries, false)
+  assert.equal(phonics.supportsTwoLessonSeries, true)
+  assert.equal(phonics.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     phonics.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_phonics_sb141_wb116',
@@ -529,7 +536,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(review.supportsTwoLessonSeries, false)
+  assert.equal(review.supportsTwoLessonSeries, true)
+  assert.equal(review.twoLessonPackagingMode, 'sb_only')
   assert.equal(
     review.workbookCompanion?.relationshipId,
     'be3_sb_wb_rel_u08_review_sb143_wb117',
@@ -549,7 +557,8 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     unitNumber: 8,
     workbookCanonical: wb,
   })
-  assert.equal(values.supportsTwoLessonSeries, false)
+  assert.equal(values.supportsTwoLessonSeries, true)
+  assert.equal(values.twoLessonPackagingMode, 'sb_only')
   assert.equal(values.workbookCompanion, null)
   assert.equal(values.seriesLessonTitle, null)
   assert.equal(values.stableSeriesReference, null)
@@ -560,9 +569,11 @@ test('non-series BE3 spreads do not enable opener/story series packages', () => 
     selectedSuggestions: [],
     teacherAdditions: [],
   })
-  assert.doesNotMatch(valuesPrompt, /TWO-LESSON series/)
+  assert.match(valuesPrompt, /TWO-LESSON series/)
+  assert.match(valuesPrompt, /ONLY Student Book/)
   assert.doesNotMatch(valuesPrompt, /Workbook printed pages 104–105/)
   assert.doesNotMatch(valuesPrompt, /Workbook printed page 106/)
+  assert.doesNotMatch(valuesPrompt, /An Unhealthy Dinner/)
 })
 
 test('existing BE2 fixture series titles and packaging remain unchanged', () => {

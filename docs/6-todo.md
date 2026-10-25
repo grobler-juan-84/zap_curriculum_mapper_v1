@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 352
+**Last updated:** Step 362
 
 
 
@@ -592,13 +592,24 @@
 
 - [x] **Generic SB-only two-lesson packaging:** ready SB spreads with verified page evidence offer Single lesson or Two lessons from this Student Book spread (stable activity mid-split; no WB/`[PRIOR]`/`[HM]` gate). Verified SB→WB routes unchanged. BE3 U8 pp.132–133 acceptance + focused tests green.
 
-- [x] **Detailed general lesson plan output:** final Step 3 offers Prepare Chalkie prompt or Prepare lesson plan from the same selections/package shape; local copyable plan; Chalkie handoff unchanged; focused tests green.
+- [x] **Detailed general lesson plan output:** choose-output step offers Chalkie prompt or general lesson plan from the same selections; local copyable plan; Chalkie handoff unchanged; focused tests green.
 
 - [x] **Step 1 SB-only layout polish:** ordinary SB-only lessons use one full-width Student Book activities list (no empty facing “Not included” panel); verified SB→WB pairs keep two-source UI.
+
+- [x] **Create-a-prompt modal five-page flow:** SB activities → optional WB activities (skip + renumber when no verified set) → prior skills → neutral review → choose output; Chalkie packaging only after Chalkie; typecheck + focused tests green.
+
+- [x] **Left panel progressive disclosure:** Curriculum & Intelligence header; Book Content (blue, nested verified categories) + Teaching Intelligence (purple Unit Intelligence); no fake content; typecheck green.
+
+- [x] **Neutral current-lesson context:** `buildCurrentLessonContext` wires left-panel Book Content/Book Intelligence and Create-a-prompt to the same verified activity cards.
+- [x] **Left-panel activity selection (F023 selection slice):** workspace-owned SB/WB selection; left panel authoritative; overlay reviews shared state; shared `ActivityEvidenceCard`; relocation of `currentLessonContext.ts` remains parked under F023.
+
+- [x] **Modal activity-review open-book layout:** equal-height page panels + bounded scrollable activity cards (`layout="modal"`); left panel unchanged.
 
 - [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
 
 - [x] **D022 NLP + BI realignment Phases 0–5:** decision + docs; `toBiPlanningContext`; Opener NLP `curriculumInterpretation`; detailed lesson plan BI section; optional Chalkie BI framing flag; archive unused BI PDF verifiers; stop BI book expansion pending owner accept.
+
+- [ ] **Smoke-test Create-a-prompt path:** verified SB→WB lesson (5 of 5) and SB-only lesson (4 of 4); confirm selections persist and general lesson plan stays neutral.
 
 - [ ] **Owner review:** confirm BI planning-context value on BE3 U8 Opener detailed lesson plans (with/without BI present).
 

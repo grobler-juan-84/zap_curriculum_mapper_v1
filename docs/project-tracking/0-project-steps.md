@@ -6080,3 +6080,201 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 353
+
+**Summary:** Split the Create-a-prompt teacher-choice modal into a five-page flow (Student Book → optional Workbook → prior skills → neutral review → choose output). Workbook is skipped and progress renumbered when no verified companion/activity set exists; Chalkie single/two-lesson packaging opens only after choosing Chalkie; generation and fidelity rules unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 354
+
+**Summary:** Removed redundant Student Book step chrome from the Create-a-prompt modal: the “Select Student Book activities · book · unit” heading, the select-instruction line, and the “local handoff” caption. Kept the in-card “Student Book activities” title and empty-selection warning.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 355
+
+**Summary:** Locked the Create-a-prompt modal to a fixed shell height matched to the Review lesson package screen (`min(78vh, 52rem)`), so steps no longer grow/shrink with content; body scrolls when needed and the dialog is vertically centered.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 356
+
+**Summary:** Trimmed Workbook step chrome to match Student Book: removed the Select Workbook heading/instruction, the in-card “Workbook activities” title, and the session handoff caption. Kept the verified-companion line, selection count, and empty-selection warning.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 357
+
+**Summary:** Increased the fixed Create-a-prompt modal height by ~40px (+20px top and bottom) while keeping all steps on the same anchored shell size.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 358
+
+**Summary:** Increased the fixed Create-a-prompt modal height by another 80px (+40px top and bottom), for +120px total from the original Review-matched shell.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 359
+
+**Summary:** Reorganized the Chalkie left panel into Curriculum & Intelligence progressive disclosure: Book Content (verified/blue nested accordions for objectives, vocabulary, language, focus, activities, optional WB companion) and Teaching Intelligence (purple Unit Intelligence). No generation/schema/package changes; empty categories hidden; typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 360
+
+**Summary:** Shipped bounded neutral `CurrentLessonContext`: left panel Book Content/Book Intelligence and Create-a-prompt share verified activity card builders; Teaching Intelligence renamed Book Intelligence; selection stays modal-only. Focused tests + typecheck green; F023 parks selection-in-left-panel follow-up.
+
+**Files touched:**
+- `app/src/features/chalkie/currentLessonContext.ts` (created)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/chalkieActivitySelection.ts` (updated)
+- `app/src/features/chalkie/chalkieWorkbookActivitySelection.ts` (updated)
+- `scripts/tests/currentLessonContext.test.ts` (created)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 361
+
+**Summary:** Made left-panel Book Activities the authoritative activity-selection surface: workspace-owned SB/WB selection shared with Create-a-prompt review steps, shared `ActivityEvidenceCard`, scope-keyed reset/reconcile. Neutral module relocation remains parked under F023 (no half-neutral move). Focused tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `app/src/features/chalkie/lessonActivitySelection.ts` (created)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (created)
+- `app/src/features/chalkie/currentLessonContext.ts` (updated)
+- `scripts/tests/lessonActivitySelection.test.ts` (created)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/phase-5/teacher-intelligence-left-pane-contract-v0.1.md` (updated)
+- `docs/phase-5/p5-prototype-chalkie-workspace.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 362
+
+**Summary:** Bounded the Create-a-prompt SB/WB activity-review layout into an equal-height open-book shell: page lists scroll independently; modal activity cards share a fixed `11.5rem` height with sticky chrome and scrollable evidence. Left-panel cards stay unbounded. Focused layout tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/ActivityReviewBookSpread.tsx` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (created)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 363
+
+**Summary:** Presentation-only: hide the `Type: …` row on modal SB/WB activity-review cards while keeping `activityType` in the model and leaving the left-panel Type display unchanged. Focused tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 364
+
+**Summary:** Removed the redundant SB/WB review intro headings and copy from Create-a-prompt activity-review steps; dialog title id now sits on the book-spread heading. Focused tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ActivityReviewBookSpread.tsx` (updated)
+- `scripts/tests/chalkieActivitySelection.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+

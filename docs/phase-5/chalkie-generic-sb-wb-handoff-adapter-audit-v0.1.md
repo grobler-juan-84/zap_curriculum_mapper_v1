@@ -1,7 +1,7 @@
 # Generic Two-Lesson SB→WB Handoff Adapter Audit
 
-**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + shared dispatch; Opener canary accepted; Story canary IMPLEMENTED / AWAITING OWNER MANUAL CHECK
-**Version:** 1.0
+**Status:** ACTIVE / BOUNDED IMPLEMENTATION — neutral assembler + shared dispatch; Opener and Story limited canaries MANUALLY ACCEPTED
+**Version:** 1.1
 **Date:** 2026-10-23  
 **Scope:** Smallest reusable input structure for a future generic two-lesson handoff built from an exact verified Student Book → Workbook companion
 
@@ -16,7 +16,7 @@ This audit compares the two accepted bespoke BE3 Unit 8 local handoffs:
 
 The goal is to identify the smallest reusable, data-driven structure that can assemble either neutral package without embedding component-specific evidence in another platform renderer.
 
-**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener and Story shadow-renderer parity proved.** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** **Opener canary status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Flag remains owner-controlled (`VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`; default off; rollback = unset/false + restart). **Story canary status:** `IMPLEMENTED / AWAITING OWNER MANUAL CHECK` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` only (SB pp.130–131 → WB p.106 only; WB p.107 forbidden). Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). See [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md). No Chalkie generation or classroom-validation claim. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
+**Implementation status:** **neutral package assembler implemented for accepted Opener and Story pairs only.** `buildNeutralSbWbLessonPackage.ts` implements the bounded contract below from exact curated relationship data plus existing selected SB/WB evidence. It rejects other resolver-wired relationships. **Opener and Story shadow-renderer parity proved.** **Shared Chalkie dispatcher supports the parity-proved Opener and Story packages only.** **Opener canary status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY` for `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` only (SB pp.128–129 → WB pp.104–105). Flag remains owner-controlled (`VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY`; default off; rollback = unset/false + restart). **Story canary status:** `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY` for `be3_sb_wb_rel_u08_story_sb130-131_wb106` only (SB pp.130–131 → WB p.106 only; WB p.107 excluded). Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off; rollback = unset/false + restart). See [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md). No Chalkie generation or classroom-validation claim. See [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md).
 
 The core separation is:
 
@@ -294,6 +294,6 @@ The separately authorized **test-only shared dispatcher** is now implemented:
 
 **Opener canary (v0.3 plan):** [`chalkie-neutral-package-production-migration-plan-v0.1.md`](./chalkie-neutral-package-production-migration-plan-v0.1.md) — status `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER CANARY`. Flag `VITE_CHALKIE_BE3_U08_OPENER_NEUTRAL_CANARY` (default off; owner-controlled). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke and emits a bounded developer diagnostic. Manual review confirmed all-selected normality, selection persistence, and honest exclusion of SB p.129 Activity 4 and WB p.105 Activity 3 with no reconstruction.
 
-**Story canary:** [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — status `IMPLEMENTED / AWAITING OWNER MANUAL CHECK`. Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). Exact five-artifact parity serves neutral output; mismatch/failure serves bespoke with a bounded developer diagnostic. WB p.107 must never appear. Not manually accepted yet.
+**Story canary:** [`chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](./chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) — status `IMPLEMENTED / MANUALLY ACCEPTED — LIMITED STORY CANARY`. Flag `VITE_CHALKIE_BE3_U08_STORY_NEUTRAL_CANARY` (default off). Manual review confirmed all-selected normality, SB Activity 6 / WB Activity 5 exclusions, honest zero-selection, and no WB p.107 leakage; Opener canary remains independent.
 
-**Smallest next step:** owner enables the Story flag locally and completes the manual check; do not mark manually accepted until that passes.
+**Smallest next step:** pause further canaries and choose the next project area deliberately.
