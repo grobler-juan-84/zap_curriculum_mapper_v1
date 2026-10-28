@@ -6326,3 +6326,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 368
+
+**Summary:** Simplified the D023 BE3 U8 activity-enrichment POC by removing Optional Teaching Guidance from the active experiment (UI, selection state, package fields, and guidance sidecars). Five summary sidecars and Activity 3 insufficient-evidence honesty remain; guidance parked as F025. Focused tests, typecheck, and lint green.
+
+**Files touched:**
+- `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08ActivityEnrichmentPocPackage.ts` (updated)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

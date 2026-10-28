@@ -11,17 +11,12 @@ import { fileURLToPath } from 'node:url'
 import {
   BE3_U08_ACTIVITY_IDS,
   BE3_U08_ACTIVITY_SUMMARY_SIDECAR,
-  BE3_U08_TEACHING_GUIDANCE_SIDECAR,
   getBe3U08ActivitySummary,
-  getBe3U08TeachingGuidance,
   isBe3U08ActivityEnrichmentPocEnabled,
 } from '../../app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts'
 import {
   buildBe3U08ActivityEnrichmentPocPackage,
-  createDefaultBe3U08GuidanceSelection,
   isExactBe3U08ActivityEnrichmentPocScope,
-  reconcileBe3U08GuidanceSelection,
-  setBe3U08GuidanceSelected,
 } from '../../app/src/features/chalkie/buildBe3U08ActivityEnrichmentPocPackage.ts'
 import {
   buildSbActivityCards,
@@ -34,6 +29,22 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const BE3_CANONICAL_PATH = path.join(
   ROOT,
   'data/phase1/big_english_3_sb/canonical/v1.json',
+)
+const POC_SOURCE_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts',
+)
+const PACKAGE_SOURCE_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/buildBe3U08ActivityEnrichmentPocPackage.ts',
+)
+const CARD_SOURCE_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/ActivityEvidenceCard.tsx',
+)
+const OVERLAY_SOURCE_PATH = path.join(
+  ROOT,
+  'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx',
 )
 
 function asArray(value: unknown): unknown[] {
@@ -100,31 +111,31 @@ test('development flag is default-off and only explicit truthy values enable it'
   )
 })
 
-test('POC sidecars cover exactly the five verified activities and remain distinct', () => {
+test('POC covers exactly five verified activities; summaries stay separate from publisher evidence', () => {
   assert.deepEqual(
     BE3_U08_ACTIVITY_SUMMARY_SIDECAR.map(
       (record) => record.sourceEvidence.activityId,
     ),
     BE3_U08_ACTIVITY_IDS,
   )
-  assert.deepEqual(
-    BE3_U08_TEACHING_GUIDANCE_SIDECAR.map(
-      (record) => record.sourceEvidence.activityId,
-    ),
-    BE3_U08_ACTIVITY_IDS,
-  )
+  assert.equal(BE3_U08_ACTIVITY_SUMMARY_SIDECAR.length, 5)
   assert.ok(
     BE3_U08_ACTIVITY_SUMMARY_SIDECAR.every(
       (record) => record.recordType === 'teacher_friendly_summary',
     ),
   )
-  assert.ok(
-    BE3_U08_TEACHING_GUIDANCE_SIDECAR.every(
-      (record) => record.recordType === 'optional_teaching_guidance',
-    ),
-  )
   assert.equal(Object.isFrozen(BE3_U08_ACTIVITY_SUMMARY_SIDECAR), true)
-  assert.equal(Object.isFrozen(BE3_U08_TEACHING_GUIDANCE_SIDECAR), true)
+
+  const pocSource = fs.readFileSync(POC_SOURCE_PATH, 'utf8')
+  assert.ok(!pocSource.includes('optional_teaching_guidance'))
+  assert.ok(!pocSource.includes('BE3_U08_TEACHING_GUIDANCE_SIDECAR'))
+  assert.ok(!pocSource.includes('getBe3U08TeachingGuidance'))
+  assert.ok(!pocSource.includes('Be3U08TeachingGuidanceSidecarRecord'))
+
+  const packageSource = fs.readFileSync(PACKAGE_SOURCE_PATH, 'utf8')
+  assert.ok(!packageSource.includes('includeGuidance'))
+  assert.ok(!packageSource.includes('guidanceSelection'))
+  assert.ok(!packageSource.includes('Be3U08GuidanceSelectionState'))
 })
 
 test('exact scope accepts only the canonical five-card BE3 U8 pp.128-129 set', () => {
@@ -139,79 +150,21 @@ test('exact scope accepts only the canonical five-card BE3 U8 pp.128-129 set', (
   assert.equal(isExactBe3U08ActivityEnrichmentPocScope(cards.slice(0, 4)), false)
 })
 
-test('guidance is default-off, cannot outlive its activity, and cannot be selected for Activity 3', () => {
-  const { summary } = loadCanonical()
-  const cards = buildSbActivityCards({
-    summary,
-    activeLessonPrintedPages: [128, 129],
-  })
-  const activitySelection = createDefaultSbActivitySelection(cards)
-  const defaultGuidance = createDefaultBe3U08GuidanceSelection()
-  assert.deepEqual(defaultGuidance.selectedGuidanceActivityIds, [])
-
-  const activity1 = cards.find(
-    (card) => card.references.activityId === 'bep3_sb_act_08_01',
-  )
-  assert.ok(activity1)
-  const selectedGuidance = setBe3U08GuidanceSelected({
-    cards,
-    activitySelection,
-    guidanceSelection: defaultGuidance,
-    activityId: 'bep3_sb_act_08_01',
-    selected: true,
-  })
-  assert.deepEqual(selectedGuidance.selectedGuidanceActivityIds, [
-    'bep3_sb_act_08_01',
-  ])
-
-  const activity1Deselected = setSbActivityCardSelected({
-    cards,
-    state: activitySelection,
-    cardId: activity1.id,
-    selected: false,
-  })
-  assert.deepEqual(
-    reconcileBe3U08GuidanceSelection({
-      cards,
-      activitySelection: activity1Deselected,
-      guidanceSelection: selectedGuidance,
-    }).selectedGuidanceActivityIds,
-    [],
-  )
-
-  assert.deepEqual(
-    setBe3U08GuidanceSelected({
-      cards,
-      activitySelection,
-      guidanceSelection: defaultGuidance,
-      activityId: 'bep3_sb_act_08_03',
-      selected: true,
-    }).selectedGuidanceActivityIds,
-    [],
-  )
-})
-
-test('Activity 3 exposes insufficient evidence and withholds invented guidance', () => {
+test('Activity 3 remains explicitly marked as insufficient evidence', () => {
   const summary = getBe3U08ActivitySummary('bep3_sb_act_08_03')
-  const guidance = getBe3U08TeachingGuidance('bep3_sb_act_08_03')
 
   assert.ok(summary)
-  assert.ok(guidance)
   assert.equal(summary.evidenceSufficiency, 'insufficient')
   assert.match(summary.text, /only says “Play a game\.”/)
   assert.match(summary.text, /procedure is not available/)
-  assert.equal(guidance.availability, 'withheld_insufficient_evidence')
-  assert.equal(guidance.text, null)
-  assert.match(guidance.withheldReason ?? '', /does not describe the game procedure/)
 })
 
-test('experimental package reflects selections without mutating evidence or sidecars', () => {
+test('activity selection controls experimental package inclusion without mutating records', () => {
   const canonical = loadCanonical()
   const canonicalActivitiesBefore = JSON.stringify(
     canonicalPocActivities(canonical.raw),
   )
   const summariesBefore = JSON.stringify(BE3_U08_ACTIVITY_SUMMARY_SIDECAR)
-  const guidanceBefore = JSON.stringify(BE3_U08_TEACHING_GUIDANCE_SIDECAR)
   const cards = buildSbActivityCards({
     summary: canonical.summary,
     activeLessonPrintedPages: [128, 129],
@@ -229,18 +182,10 @@ test('experimental package reflects selections without mutating evidence or side
     cardId: activity2.id,
     selected: false,
   })
-  const guidanceSelection = setBe3U08GuidanceSelected({
-    cards,
-    activitySelection,
-    guidanceSelection: createDefaultBe3U08GuidanceSelection(),
-    activityId: 'bep3_sb_act_08_01',
-    selected: true,
-  })
 
   const lessonPackage = buildBe3U08ActivityEnrichmentPocPackage({
     cards,
     activitySelection,
-    guidanceSelection,
   })
 
   assert.ok(lessonPackage)
@@ -252,18 +197,29 @@ test('experimental package reflects selections without mutating evidence or side
     ),
     false,
   )
-  assert.deepEqual(
-    lessonPackage.activities
-      .filter((activity) => activity.selection.includeGuidance)
-      .map((activity) => activity.selection.activityId),
-    ['bep3_sb_act_08_01'],
+  assert.ok(
+    lessonPackage.activities.every(
+      (activity) =>
+        activity.selection.includeActivity === true &&
+        activity.publisherEvidenceReference.activityId ===
+          activity.selection.activityId &&
+        typeof activity.summary.text === 'string' &&
+        activity.summary.text.length > 0,
+    ),
   )
   assert.ok(
     lessonPackage.activities.every(
       (activity) =>
-        activity.selection.includeGuidance === (activity.guidance !== null),
+        !('includeGuidance' in activity.selection) &&
+        !('guidance' in activity),
     ),
   )
+
+  const activity3 = lessonPackage.activities.find(
+    (activity) => activity.selection.activityId === 'bep3_sb_act_08_03',
+  )
+  assert.ok(activity3)
+  assert.equal(activity3.summary.evidenceSufficiency, 'insufficient')
 
   assert.equal(JSON.stringify(cards), cardsBefore)
   assert.equal(
@@ -271,6 +227,27 @@ test('experimental package reflects selections without mutating evidence or side
     canonicalActivitiesBefore,
   )
   assert.equal(JSON.stringify(BE3_U08_ACTIVITY_SUMMARY_SIDECAR), summariesBefore)
-  assert.equal(JSON.stringify(BE3_U08_TEACHING_GUIDANCE_SIDECAR), guidanceBefore)
   assert.equal(fs.readFileSync(BE3_CANONICAL_PATH, 'utf8'), canonical.sourceText)
+})
+
+test('no Optional Teaching Guidance remains in enrichment-card or overlay POC wiring', () => {
+  const cardSource = fs.readFileSync(CARD_SOURCE_PATH, 'utf8')
+  assert.ok(!cardSource.includes('Optional teaching guidance'))
+  assert.ok(!cardSource.includes('data-enrichment-layer="guidance"'))
+  assert.ok(!cardSource.includes('data-enrichment-guidance-toggle'))
+  assert.ok(!cardSource.includes('Include guidance in experimental lesson package'))
+  assert.ok(!cardSource.includes('experimentalGuidance'))
+  assert.ok(!cardSource.includes('onGuidanceSelectedChange'))
+  assert.ok(!cardSource.includes('Be3U08TeachingGuidanceSidecarRecord'))
+  assert.ok(!cardSource.includes('Lightbulb'))
+
+  const overlaySource = fs.readFileSync(OVERLAY_SOURCE_PATH, 'utf8')
+  assert.ok(!overlaySource.includes('be3U08GuidanceSelection'))
+  assert.ok(!overlaySource.includes('getBe3U08TeachingGuidance'))
+  assert.ok(!overlaySource.includes('createDefaultBe3U08GuidanceSelection'))
+  assert.ok(!overlaySource.includes('setBe3U08GuidanceSelected'))
+  assert.ok(!overlaySource.includes('experimentalGuidance'))
+  assert.ok(!overlaySource.includes('includeGuidance'))
+  assert.ok(!overlaySource.includes('Guidance included'))
+  assert.ok(!overlaySource.includes('Guidance not included'))
 })

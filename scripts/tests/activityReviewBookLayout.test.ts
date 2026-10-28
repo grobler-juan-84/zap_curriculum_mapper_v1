@@ -49,24 +49,22 @@ test('modal review hides Type row; panel layout can still show it', () => {
   assert.match(cardSource, /evidence\.activityType/)
 })
 
-test('enrichment POC card keeps summary focus with lightbulb guidance; publisher evidence stays out of the card UI', () => {
+test('enrichment POC card keeps summary focus without Optional Teaching Guidance; publisher evidence stays out of the card UI', () => {
   const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
   assert.match(cardSource, /data-experimental-activity-enrichment/)
   assert.match(cardSource, /data-enrichment-layer="summary"/)
   assert.match(cardSource, /AI summary · experimental/)
-  assert.match(cardSource, /data-enrichment-layer="guidance"/)
-  assert.match(cardSource, /data-enrichment-guidance-toggle/)
-  assert.match(cardSource, /Lightbulb/)
-  assert.match(cardSource, /Optional teaching guidance/)
-  assert.match(cardSource, /AI suggestion/)
-  assert.match(cardSource, /Include guidance in experimental lesson package/)
+  assert.match(cardSource, /Insufficient evidence for a fuller summary/)
+  assert.match(cardSource, /\{summary\.text\}/)
+  assert.ok(!cardSource.includes('Optional teaching guidance'))
+  assert.ok(!cardSource.includes('data-enrichment-layer="guidance"'))
+  assert.ok(!cardSource.includes('data-enrichment-guidance-toggle'))
+  assert.ok(!cardSource.includes('Include guidance in experimental lesson package'))
+  assert.ok(!cardSource.includes('Lightbulb'))
   // Publisher evidence remains in builders/selection; not shown on enrichment cards.
   assert.ok(!cardSource.includes('data-enrichment-layer="publisher_evidence"'))
   assert.ok(!cardSource.includes('Original publisher evidence'))
   assert.ok(!cardSource.includes('data-enrichment-evidence-toggle'))
-  // Presentation-only labels; sidecar wording is rendered from summary.text / guidance.text.
-  assert.match(cardSource, /\{summary\.text\}/)
-  assert.match(cardSource, /\{guidance\.text\}/)
 })
 
 test('open-book spread keeps equal-height pages with independent list scroll', () => {

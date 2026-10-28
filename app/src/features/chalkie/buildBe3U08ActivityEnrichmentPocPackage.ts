@@ -3,13 +3,14 @@
  *
  * This is intentionally separate from the persistent sidecar records and from
  * every production package/generation route. Pure functions return new values;
- * they never mutate source cards, publisher evidence, summaries or guidance.
+ * they never mutate source cards, publisher evidence or summaries.
+ *
+ * Optional teaching guidance is not part of the active POC projection.
  */
 import {
   BE3_U08_ACTIVITY_IDS,
   BE3_U08_ACTIVITY_ENRICHMENT_POC_VERSION,
   getBe3U08ActivitySummary,
-  getBe3U08TeachingGuidance,
   isBe3U08ActivityId,
   type Be3U08ActivityId,
 } from './be3U08ActivityEnrichmentPoc'
@@ -17,11 +18,6 @@ import type {
   SbActivityCard,
   SbActivitySelectionState,
 } from './chalkieActivitySelection'
-
-export type Be3U08GuidanceSelectionState = {
-  /** Guidance is opt-in. Activity IDs are used because sidecars reference evidence IDs. */
-  readonly selectedGuidanceActivityIds: readonly Be3U08ActivityId[]
-}
 
 export type Be3U08ActivityEnrichmentPocPackage = {
   readonly packageType: 'experimental_neutral_lesson_package'
@@ -35,7 +31,6 @@ export type Be3U08ActivityEnrichmentPocPackage = {
     readonly selection: {
       readonly activityId: Be3U08ActivityId
       readonly includeActivity: true
-      readonly includeGuidance: boolean
     }
     readonly publisherEvidenceReference: {
       readonly activityId: Be3U08ActivityId
@@ -50,11 +45,6 @@ export type Be3U08ActivityEnrichmentPocPackage = {
       readonly evidenceSufficiency: 'sufficient' | 'insufficient'
       readonly reviewStatus: 'experimental_review_required'
     }
-    readonly guidance: {
-      readonly recordId: string
-      readonly text: string
-      readonly reviewStatus: 'experimental_review_required'
-    } | null
   }[]
 }
 
@@ -90,100 +80,26 @@ export function isExactBe3U08ActivityEnrichmentPocScope(
   return BE3_U08_ACTIVITY_IDS.every((activityId) => seen.has(activityId))
 }
 
-export function createDefaultBe3U08GuidanceSelection(): Be3U08GuidanceSelectionState {
-  return { selectedGuidanceActivityIds: [] }
-}
-
-export function reconcileBe3U08GuidanceSelection(input: {
-  readonly cards: readonly SbActivityCard[]
-  readonly activitySelection: SbActivitySelectionState
-  readonly guidanceSelection: Be3U08GuidanceSelectionState
-}): Be3U08GuidanceSelectionState {
-  if (!isExactBe3U08ActivityEnrichmentPocScope(input.cards)) {
-    return createDefaultBe3U08GuidanceSelection()
-  }
-
-  const selectedCardIds = new Set(input.activitySelection.selectedCardIds)
-  const eligibleActivityIds = new Set(
-    input.cards
-      .filter((card) => selectedCardIds.has(card.id))
-      .map((card) => card.references.activityId)
-      .filter((activityId): activityId is Be3U08ActivityId => {
-        const guidance = getBe3U08TeachingGuidance(activityId)
-        return guidance?.availability === 'available'
-      }),
-  )
-
-  return {
-    selectedGuidanceActivityIds: BE3_U08_ACTIVITY_IDS.filter(
-      (activityId) =>
-        input.guidanceSelection.selectedGuidanceActivityIds.includes(activityId) &&
-        eligibleActivityIds.has(activityId),
-    ),
-  }
-}
-
-export function setBe3U08GuidanceSelected(input: {
-  readonly cards: readonly SbActivityCard[]
-  readonly activitySelection: SbActivitySelectionState
-  readonly guidanceSelection: Be3U08GuidanceSelectionState
-  readonly activityId: string
-  readonly selected: boolean
-}): Be3U08GuidanceSelectionState {
-  const normalized = reconcileBe3U08GuidanceSelection(input)
-  if (!isBe3U08ActivityId(input.activityId)) return normalized
-
-  const card = input.cards.find(
-    (candidate) => candidate.references.activityId === input.activityId,
-  )
-  const guidance = getBe3U08TeachingGuidance(input.activityId)
-  const activitySelected =
-    card != null && input.activitySelection.selectedCardIds.includes(card.id)
-  if (!activitySelected || guidance?.availability !== 'available') return normalized
-
-  const selectedIds = new Set(normalized.selectedGuidanceActivityIds)
-  if (input.selected) selectedIds.add(input.activityId)
-  else selectedIds.delete(input.activityId)
-
-  return {
-    selectedGuidanceActivityIds: BE3_U08_ACTIVITY_IDS.filter((activityId) =>
-      selectedIds.has(activityId),
-    ),
-  }
-}
-
 export function buildBe3U08ActivityEnrichmentPocPackage(input: {
   readonly cards: readonly SbActivityCard[]
   readonly activitySelection: SbActivitySelectionState
-  readonly guidanceSelection: Be3U08GuidanceSelectionState
 }): Be3U08ActivityEnrichmentPocPackage | null {
   if (!isExactBe3U08ActivityEnrichmentPocScope(input.cards)) return null
 
-  const guidanceSelection = reconcileBe3U08GuidanceSelection(input)
   const selectedCardIds = new Set(input.activitySelection.selectedCardIds)
-  const selectedGuidanceIds = new Set(
-    guidanceSelection.selectedGuidanceActivityIds,
-  )
 
   const activities = input.cards.flatMap((card) => {
     const activityId = card.references.activityId
     if (!selectedCardIds.has(card.id) || !isBe3U08ActivityId(activityId)) return []
 
     const summary = getBe3U08ActivitySummary(activityId)
-    const guidance = getBe3U08TeachingGuidance(activityId)
-    if (!summary || !guidance) return []
-
-    const includeGuidance =
-      selectedGuidanceIds.has(activityId) &&
-      guidance.availability === 'available' &&
-      guidance.text !== null
+    if (!summary) return []
 
     return [
       {
         selection: {
           activityId,
           includeActivity: true as const,
-          includeGuidance,
         },
         publisherEvidenceReference: {
           activityId,
@@ -198,13 +114,6 @@ export function buildBe3U08ActivityEnrichmentPocPackage(input: {
           evidenceSufficiency: summary.evidenceSufficiency,
           reviewStatus: summary.reviewStatus,
         },
-        guidance: includeGuidance
-          ? {
-              recordId: guidance.recordId,
-              text: guidance.text,
-              reviewStatus: guidance.reviewStatus,
-            }
-          : null,
       },
     ]
   })

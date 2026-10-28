@@ -69,16 +69,11 @@ import {
 import { ActivityEvidenceCard } from './ActivityEvidenceCard'
 import {
   getBe3U08ActivitySummary,
-  getBe3U08TeachingGuidance,
   isBe3U08ActivityEnrichmentPocEnabled,
-  isBe3U08ActivityId,
 } from './be3U08ActivityEnrichmentPoc'
 import {
   buildBe3U08ActivityEnrichmentPocPackage,
-  createDefaultBe3U08GuidanceSelection,
   isExactBe3U08ActivityEnrichmentPocScope,
-  setBe3U08GuidanceSelected,
-  type Be3U08GuidanceSelectionState,
 } from './buildBe3U08ActivityEnrichmentPocPackage'
 import {
   ActivityReviewBookPage,
@@ -362,10 +357,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
-  const [be3U08GuidanceSelection, setBe3U08GuidanceSelection] =
-    useState<Be3U08GuidanceSelectionState>(() =>
-      createDefaultBe3U08GuidanceSelection(),
-    )
   const activityEnrichmentPocEnabled =
     isBe3U08ActivityEnrichmentPocEnabled() &&
     isExactBe3U08ActivityEnrichmentPocScope(activityCards)
@@ -398,13 +389,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setBe3SeriesHandoff(null)
       setSbOnlyHandoff(null)
       setLessonShape('single')
-      setBe3U08GuidanceSelection(createDefaultBe3U08GuidanceSelection())
       return
     }
 
     setStepId('student_book')
     setLessonShape('single')
-    setBe3U08GuidanceSelection(createDefaultBe3U08GuidanceSelection())
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -514,15 +503,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         ? buildBe3U08ActivityEnrichmentPocPackage({
             cards: activityCards,
             activitySelection: sbActivitySelection,
-            guidanceSelection: be3U08GuidanceSelection,
           })
         : null,
-    [
-      activityCards,
-      activityEnrichmentPocEnabled,
-      be3U08GuidanceSelection,
-      sbActivitySelection,
-    ],
+    [activityCards, activityEnrichmentPocEnabled, sbActivitySelection],
   )
   const selectedActivityVocabulary = useMemo(
     () => selectedSbActivityVocabulary(handoffActivitySelection),
@@ -932,17 +915,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               )}
                               onSelectedChange={(selected) => {
                                 onSbActivitySelectionChange(card.id, selected)
-                                if (!selected && activityEnrichmentPocEnabled) {
-                                  setBe3U08GuidanceSelection((current) =>
-                                    setBe3U08GuidanceSelected({
-                                      cards: activityCards,
-                                      activitySelection: sbActivitySelection,
-                                      guidanceSelection: current,
-                                      activityId: card.references.activityId,
-                                      selected: false,
-                                    }),
-                                  )
-                                }
                               }}
                               checkboxId={`current-activity-${card.id}`}
                               experimentalSummary={
@@ -951,33 +923,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                       card.references.activityId,
                                     )
                                   : null
-                              }
-                              experimentalGuidance={
-                                activityEnrichmentPocEnabled
-                                  ? getBe3U08TeachingGuidance(
-                                      card.references.activityId,
-                                    )
-                                  : null
-                              }
-                              guidanceSelected={
-                                isBe3U08ActivityId(card.references.activityId) &&
-                                be3U08GuidanceSelection.selectedGuidanceActivityIds.includes(
-                                  card.references.activityId,
-                                )
-                              }
-                              onGuidanceSelectedChange={
-                                activityEnrichmentPocEnabled
-                                  ? (selected) =>
-                                      setBe3U08GuidanceSelection((current) =>
-                                        setBe3U08GuidanceSelected({
-                                          cards: activityCards,
-                                          activitySelection: sbActivitySelection,
-                                          guidanceSelection: current,
-                                          activityId: card.references.activityId,
-                                          selected,
-                                        }),
-                                      )
-                                  : undefined
                               }
                             />
                           ))}
@@ -1447,9 +1392,6 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                   </p>
                                   <p className="mt-1 text-[11px] text-slate-500">
                                     Publisher evidence: {activity.publisherEvidenceReference.activityId}
-                                  </p>
-                                  <p className="mt-1 text-[11px] font-medium text-violet-700">
-                                    Guidance {activity.selection.includeGuidance ? 'included' : 'not included'}
                                   </p>
                                 </li>
                               ),

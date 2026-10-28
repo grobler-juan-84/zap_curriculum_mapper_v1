@@ -457,13 +457,15 @@ The NLP must assemble successfully when only verified source evidence (+ packagi
 
 **Status:** LOCKED
 
-**Decision:** Implement one bounded activity-enrichment proof of concept for the five human-verified Big English 3 Unit 8 Student Book activities on pp. 128–129. The POC keeps teacher-friendly summaries and optional teaching guidance in separate experimental sidecar records, preserves the original publisher evidence, defaults guidance selection to off, clears guidance when its activity is deselected, and projects selections into a lesson-specific experimental Neutral Lesson Package only. The UI is available only behind `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC`, which is default off, and only when the exact five-activity scope matches.
+**Decision:** Implement one bounded activity-enrichment proof of concept for the five human-verified Big English 3 Unit 8 Student Book activities on pp. 128–129. The active POC keeps teacher-friendly summaries in separate experimental sidecar records, preserves the original publisher evidence, and projects activity selections into a lesson-specific experimental Neutral Lesson Package that contains only selected activities, publisher-evidence references, and teacher-friendly summaries. The UI is available only behind `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC`, which is default off, and only when the exact five-activity scope matches.
 
-**Explicit non-locks:** This decision does **not** approve a broad Neutral Lesson Library implementation, production routing, database migrations, bulk enrichment, canonical Phase 1/SS changes, provider lock-in, or expansion beyond these five activities. The experimental package projection is not wired into Chalkie or any other generation adapter.
+**Amendment (2026-10-28):** Optional Teaching Guidance was removed from the active POC (UI, selection state, package fields, and guidance sidecar records). Guidance is parked for possible future reconsideration ([F025](./7-future.md)); do not leave dormant guidance code in this bounded experiment.
 
-**Reason:** Validate the practical separation among publisher evidence, derived summary, optional guidance, and lesson-specific selection before considering a larger library architecture. Activity 3 (`Play a game.`) is the deliberate insufficient-evidence case: the POC may describe the limitation but must not invent a procedure or selectable guidance.
+**Explicit non-locks:** This decision does **not** approve a broad Neutral Lesson Library implementation, production routing, database migrations, bulk enrichment, canonical Phase 1/SS changes, provider lock-in, expansion beyond these five activities, or reintroduction of optional teaching guidance without a separate approval. The experimental package projection is not wired into Chalkie or any other generation adapter.
 
-**Implications:** Owner review should evaluate accuracy, clarity, selection behaviour, and UI usefulness with the flag enabled. Any correction to the experimental text is a bounded POC revision; any wider data model, persistent store, source coverage, or production route requires separate approval.
+**Reason:** Validate the practical separation among publisher evidence, derived summary, and lesson-specific selection before considering a larger library architecture. Activity 3 (`Play a game.`) is the deliberate insufficient-evidence case: the POC may describe the limitation but must not invent a game procedure.
+
+**Implications:** Owner review should evaluate summary accuracy, clarity, selection behaviour, and UI usefulness with the flag enabled. Any correction to the experimental summary text is a bounded POC revision; any wider data model, persistent store, source coverage, production route, or guidance reintroduction requires separate approval.
 
 **Supersedes:** —
 
@@ -475,6 +477,7 @@ The NLP must assemble successfully when only verified source evidence (+ packagi
 
 | Date | Change |
 |---|---|
+| 2026-10-28 | Amended D023 — Optional Teaching Guidance removed from the active POC and parked (F025); summaries + activity selection remain. |
 | 2026-10-28 | Added D023 — exact-scope BE3 U8 activity-enrichment POC only; sidecars + experimental package projection; no broad library or production approval. |
 | 2026-10-25 | Added D022 — NLP is the durable handoff; BI optional `curriculum_interpretation` only; never page evidence. |
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |

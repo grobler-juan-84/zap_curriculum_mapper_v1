@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.1  
-**Last updated:** 2026-10-28 (F024 broad additive library/productization parked after bounded D023 POC)
+**Last updated:** 2026-10-28 (F025 Optional Teaching Guidance parked after D023 POC simplification)
 
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. **Immediate priorities:** workable Phase 2; practical Phase 4–7 pathway; clear teacher-facing options (horizontal mapping first). Phase 3 Vertical Mapping is parked as later priority (**D020 / F005**), not blocked by Phase 2 completion. D018 / Lesson Series remain **parked downstream experimentation** — retained, not cancelled.
 
@@ -34,6 +34,7 @@
 | F022 | Evidence-backed horizontal prior-learning coverage for lesson handoffs | **Required capability:** selectable, provenance-labelled candidates from earlier lessons in the same unit (`[PRIOR]`) and earlier units (`[HM]`). Supports remain optional, teacher-selected, and distinct from current-page evidence; prior exposure ≠ mastery. **Slice 1–3 implemented** on Step 2 (same-unit PRIOR + curated HM for BE2 U8 opener). **Still deferred:** generic retrieval, auto-inclusion, left-pane HM accordion, and further curated `[HM]` packs. | owner direction 2026-10-20; status clarified 2026-10-25 |
 | F023 | Relocate neutral current-lesson module cluster out of `features/chalkie/` | **Selection ownership shipped:** left-panel Book Activities is authoritative; Create-a-prompt reviews the same shared state; shared `ActivityEvidenceCard` disclosure. **Still parked:** relocating `currentLessonContext.ts` (and its activity/evidence/BI builder cluster) out of `features/chalkie/` without a half-neutral duplicate that still imports chalkie-named modules. | owner plan 2026-10-25; selection done same day |
 | F024 | Full additive Neutral Lesson Library and production enrichment pipeline | **PARKED / NOT APPROVED:** D023 authorizes only the default-off five-activity BE3 U8 POC. Persistent storage/schema, database migrations, bulk SB/WB enrichment, provider orchestration, production routing, generalized review workflow, and adapter consumption require separate architecture and owner approval. | owner boundary 2026-10-28 / D023 |
+| F025 | Optional Teaching Guidance on activity-enrichment cards / experimental packages | **PARKED for possible future reconsideration:** removed from the active D023 BE3 U8 POC (no guidance UI, selection state, package fields, or sidecar records). Reintroduction requires explicit owner approval and must not invent procedures from insufficient evidence. | D023 amendment 2026-10-28 |
 | F008 | Automated multi-book extraction factory | Manual Google AI Studio unit-batch + human verify is the learning loop now | process |
 | F009 | Wire Book Workspace to Storage-backed page models (replace Beehive mock spreads) | Valuable UX bridge; not required to finish Phase 1 evidence quality | app audit 2026-10-07 |
 | F010 | Persist Validation session notes | Useful ops polish; status writes already land in Postgres | Validation UI |
