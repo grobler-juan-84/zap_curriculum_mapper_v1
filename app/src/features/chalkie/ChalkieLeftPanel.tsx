@@ -9,10 +9,12 @@ import {
   Minus,
   Notebook,
   Plus,
+  ShieldCheck,
   SpellCheck2,
   Target,
 } from 'lucide-react'
 import type { BookFileBatch } from '../../types/validation'
+import type { CurriculumAuthorityState } from '../scope-sequence/scopeSequence'
 import type { SbActivityCard } from './chalkieActivitySelection'
 import {
   sbActivitySelectionStatus,
@@ -36,6 +38,8 @@ interface ChalkieLeftPanelProps {
   batch: BookFileBatch | null
   loading: boolean
   error: string | null
+  /** Publisher Scope & Sequence authority; read-only and never AI-derived. */
+  curriculumAuthority: CurriculumAuthorityState
   /** Neutral current-lesson package for the live PDF page scope. */
   currentLesson: CurrentLessonContext | null
   /** Authoritative SB activity selection (workspace-owned). */
@@ -87,22 +91,29 @@ function TopLevelAccordion(props: {
   summary: string
   open: boolean
   onToggle: () => void
-  tone: 'book' | 'intelligence'
+  tone: 'authority' | 'book' | 'intelligence'
   children: React.ReactNode
 }) {
   const { id, title, badge, summary, open, onToggle, tone, children } = props
   const panelId = `${id}-panel`
+  const isAuthority = tone === 'authority'
   const isBook = tone === 'book'
-  const shell = isBook
-    ? 'border-sky-200/90 bg-sky-50/40'
-    : 'border-violet-200/90 bg-violet-50/40'
-  const iconWrap = isBook
-    ? 'bg-sky-100 text-sky-700'
-    : 'bg-violet-100 text-violet-700'
-  const badgeClass = isBook
-    ? 'border-sky-200 bg-white text-sky-800'
-    : 'border-violet-200 bg-white text-violet-800'
-  const Icon = isBook ? BookOpen : Brain
+  const shell = isAuthority
+    ? 'border-emerald-300 bg-emerald-50/55'
+    : isBook
+      ? 'border-sky-200/90 bg-sky-50/40'
+      : 'border-violet-200/90 bg-violet-50/40'
+  const iconWrap = isAuthority
+    ? 'bg-emerald-100 text-emerald-800'
+    : isBook
+      ? 'bg-sky-100 text-sky-700'
+      : 'bg-violet-100 text-violet-700'
+  const badgeClass = isAuthority
+    ? 'border-emerald-300 bg-white text-emerald-900'
+    : isBook
+      ? 'border-sky-200 bg-white text-sky-800'
+      : 'border-violet-200 bg-white text-violet-800'
+  const Icon = isAuthority ? ShieldCheck : isBook ? BookOpen : Brain
 
   return (
     <section className={`overflow-hidden rounded-xl border ${shell}`}>
@@ -298,6 +309,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   batch,
   loading,
   error,
+  curriculumAuthority,
   currentLesson,
   sbActivitySelection,
   wbActivitySelection,
@@ -312,6 +324,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
       }`
     : 'empty'
 
+  const [authorityOpen, setAuthorityOpen] = useState(true)
   const [bookOpen, setBookOpen] = useState(true)
   const [intelligenceOpen, setIntelligenceOpen] = useState(false)
   const [nestedOpen, setNestedOpen] = useState<Record<NestedBookSectionId, boolean>>(
@@ -370,6 +383,14 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
   const intelligenceSummary = currentLesson
     ? buildBookIntelligenceCollapsedSummary(currentLesson.bookIntelligence)
     : ''
+  const authoritySummary =
+    curriculumAuthority.status === 'ready'
+      ? `Unit ${curriculumAuthority.unit.unitNumberRaw}: ${curriculumAuthority.unit.unitTitleRaw}`
+      : curriculumAuthority.status === 'loading'
+        ? 'Loading verified publisher requirements…'
+        : curriculumAuthority.status === 'unavailable'
+          ? 'Publisher requirements unavailable; book evidence remains available.'
+          : ''
 
   return (
     <div className="flex h-full select-none flex-col border-r border-slate-200 bg-white">
@@ -398,6 +419,60 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
           </p>
         ) : (
           <div className="space-y-2.5">
+            {curriculumAuthority.status !== 'not_configured' ? (
+              <TopLevelAccordion
+                id={`${baseId}-curriculum-authority`}
+                title="Curriculum Authority"
+                badge="Publisher SS · read-only"
+                summary={authoritySummary}
+                open={authorityOpen}
+                onToggle={() => setAuthorityOpen((open) => !open)}
+                tone="authority"
+              >
+                {curriculumAuthority.status === 'loading' ? (
+                  <p className="text-xs text-slate-500">
+                    Loading verified publisher requirements…
+                  </p>
+                ) : curriculumAuthority.status === 'unavailable' ? (
+                  <p className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-2 text-xs leading-relaxed text-amber-900">
+                    {curriculumAuthority.message}
+                  </p>
+                ) : (
+                  <div className="space-y-2.5">
+                    <div className="rounded-lg border border-emerald-200 bg-white px-2.5 py-2">
+                      <p className="text-xs font-bold text-emerald-950">
+                        Unit {curriculumAuthority.unit.unitNumberRaw}:{' '}
+                        {curriculumAuthority.unit.unitTitleRaw}
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-emerald-800">
+                        {curriculumAuthority.unit.studentBookPagesRaw}
+                      </p>
+                    </div>
+                    <dl className="space-y-2">
+                      {curriculumAuthority.unit.publisherCategories.map((category) => (
+                        <div
+                          key={`${category.columnOrder}-${category.categoryNameRaw}`}
+                          className="rounded-lg border border-emerald-100 bg-white px-2.5 py-2"
+                        >
+                          <dt className="mb-0.5 text-[11px] font-bold uppercase tracking-wide text-emerald-900">
+                            {category.categoryNameRaw}
+                          </dt>
+                          <dd className="text-xs leading-relaxed whitespace-pre-wrap text-slate-700">
+                            {category.rawText}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <p className="px-0.5 text-[10px] leading-relaxed text-slate-500">
+                      Source: {curriculumAuthority.document.sourceMetadata.sourceFilename} ·{' '}
+                      {curriculumAuthority.document.schemaVersion}. Publisher curriculum
+                      authority; separate from textbook evidence and AI interpretation.
+                    </p>
+                  </div>
+                )}
+              </TopLevelAccordion>
+            ) : null}
+
             <TopLevelAccordion
               id={`${baseId}-book-content`}
               title="Book Content"

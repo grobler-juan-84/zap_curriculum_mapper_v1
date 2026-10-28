@@ -24,6 +24,13 @@ import {
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { loadBookIntelligenceFromStorage } from '../book-intelligence/loadBookIntelligenceFromStorage'
 import {
+  findScopeSequenceUnit,
+  type CurriculumAuthorityState,
+  type ScopeSequenceDocument,
+} from '../scope-sequence/scopeSequence'
+import { loadScopeSequenceFromStorage } from '../scope-sequence/loadScopeSequenceFromStorage'
+import { hasScopeSequenceAuthority } from '../scope-sequence/scopeSequenceStorageRegistry'
+import {
   enterWorkbookPdfView,
   isStudentBook,
   lessonAnchorPrintedPages,
@@ -173,6 +180,14 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     useState<BookIntelligenceOverviewDocument | null>(null)
   const [bookIntelligenceLoading, setBookIntelligenceLoading] = useState(false)
 
+  const [scopeSequence, setScopeSequence] =
+    useState<ScopeSequenceDocument | null>(null)
+  const [scopeSequenceBookId, setScopeSequenceBookId] = useState<string | null>(
+    null,
+  )
+  const [scopeSequenceLoading, setScopeSequenceLoading] = useState(false)
+  const [scopeSequenceError, setScopeSequenceError] = useState<string | null>(null)
+
   const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
   const [activeLesson, setActiveLesson] = useState<ChalkieLessonContext | null>(null)
   const [scopeGuard, setScopeGuard] = useState<ChalkieLessonContext | null>(null)
@@ -199,6 +214,42 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const currentBatch =
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
   const currentUnitNumber = unitNumberFromBatch(currentBatch)
+
+  const curriculumAuthority = useMemo<CurriculumAuthorityState>(() => {
+    if (!hasScopeSequenceAuthority(book.catalogBookId)) {
+      return { status: 'not_configured' }
+    }
+    if (scopeSequenceBookId !== book.catalogBookId) {
+      return { status: 'loading' }
+    }
+    if (scopeSequenceLoading) return { status: 'loading' }
+    if (scopeSequenceError) {
+      return { status: 'unavailable', message: scopeSequenceError }
+    }
+    if (!scopeSequence) {
+      return {
+        status: 'unavailable',
+        message: 'Publisher Scope & Sequence is unavailable. Book evidence remains usable.',
+      }
+    }
+    const unit = findScopeSequenceUnit(scopeSequence, currentUnitNumber)
+    if (!unit) {
+      return {
+        status: 'unavailable',
+        message: currentUnitNumber
+          ? `No Scope & Sequence entry matched Unit ${currentUnitNumber}.`
+          : 'Select a unit to view its publisher Scope & Sequence.',
+      }
+    }
+    return { status: 'ready', document: scopeSequence, unit }
+  }, [
+    book.catalogBookId,
+    currentUnitNumber,
+    scopeSequence,
+    scopeSequenceBookId,
+    scopeSequenceError,
+    scopeSequenceLoading,
+  ])
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
   const wbPageMap = useMemo(
@@ -745,6 +796,37 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setSearchParams(next, { replace: true })
   }, [selectedBatchId, currentUnitNumber, searchParams, setSearchParams])
 
+  // Publisher SS authority — read-only and independent from SB/WB evidence and prompts.
+  useEffect(() => {
+    let cancelled = false
+    const catalogBookId = book.catalogBookId
+
+    setScopeSequenceBookId(catalogBookId ?? null)
+    setScopeSequence(null)
+    setScopeSequenceError(null)
+
+    if (!catalogBookId || !hasScopeSequenceAuthority(catalogBookId)) {
+      setScopeSequenceLoading(false)
+      return
+    }
+
+    setScopeSequenceLoading(true)
+    void (async () => {
+      const result = await loadScopeSequenceFromStorage(catalogBookId)
+      if (cancelled) return
+      if (result.ok) {
+        setScopeSequence(result.data)
+      } else {
+        setScopeSequenceError(result.errors.join(' '))
+      }
+      setScopeSequenceLoading(false)
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [book.catalogBookId])
+
   // Phase 2 Book Intelligence — read-only unit arc; never blocks Chalkie prep.
   useEffect(() => {
     let cancelled = false
@@ -1074,6 +1156,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
             batch={currentBatch}
             loading={batchesLoading || jsonLoading}
             error={jsonError}
+            curriculumAuthority={curriculumAuthority}
             currentLesson={summary ? liveCurrentLesson : null}
             sbActivitySelection={sbActivitySelection}
             wbActivitySelection={wbActivitySelection}
