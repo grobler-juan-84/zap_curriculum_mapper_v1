@@ -1,0 +1,1568 @@
+{
+  "schema_version": "ss-extraction-v2",
+  "extraction_metadata": {
+    "prompt_version": "SS-V2",
+    "target_level": "Big English 6"
+  },
+  "source_metadata": {
+    "source_filename": "BE6_SS.PDF",
+    "publisher": null,
+    "series": "Big English",
+    "level": "6",
+    "edition": null,
+    "pdf_pages": [
+      1
+    ]
+  },
+  "original_column_headings": [
+    "Unit",
+    "Vocabulary",
+    "Structures",
+    "CLIL/Culture",
+    "Writing",
+    "Life Skills/Project",
+    "Phonics",
+    "I can..."
+  ],
+  "units": [
+    {
+      "unit_number_raw": "1",
+      "unit_title_raw": "ALL ABOUT SCHOOL",
+      "student_book_pages_raw": "pp. 4–19",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "School Activities: do homework, finish a project, hand in an essay, study for a test\nAdvice: be more careful, do it earlier, do it again, pay attention to the time, take it away from",
+          "content_blocks": [
+            {
+              "heading_raw": "School Activities:",
+              "entries_raw": [
+                "do homework",
+                "finish a project",
+                "hand in an essay",
+                "study for a test"
+              ]
+            },
+            {
+              "heading_raw": "Advice:",
+              "entries_raw": [
+                "be more careful",
+                "do it earlier",
+                "do it again",
+                "pay attention to the time",
+                "take it away from"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Has she done her homework yet?\nYes, she's already done it./No, she hasn't done it yet.\nHave you ever hosted an exchange student?\nYes, I have./No, I haven't.\nMy computer has crashed two times today.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Has she done her homework yet?",
+                "Yes, she's already done it./No, she hasn't done it yet.",
+                "Have you ever hosted an exchange student?",
+                "Yes, I have./No, I haven't.",
+                "My computer has crashed two times today."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: School days in China\naverage, belief, bright, ceremony, gather, limited, packed, strengthen, study period, timetable, typical\nAround the World: An alternative school in Finland\ncomposting, curriculum, focused, memorising, pace, practical, workshop",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: School days in China",
+              "entries_raw": [
+                "average",
+                "belief",
+                "bright",
+                "ceremony",
+                "gather",
+                "limited",
+                "packed",
+                "strengthen",
+                "study period",
+                "timetable",
+                "typical"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: An alternative school in Finland",
+              "entries_raw": [
+                "composting",
+                "curriculum",
+                "focused",
+                "memorising",
+                "pace",
+                "practical",
+                "workshop"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Opinion paragraph",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Opinion paragraph"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Manage your time wisely.\nTalk about how you spend your time and how you manage it.\nCreate a graph to see how pupils spend their time.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Manage your time wisely.",
+                "Talk about how you spend your time and how you manage it.",
+                "Create a graph to see how pupils spend their time."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "spr, str, scr\nspring, sprint\nstreet, strong\nscreen, screw",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "spr, str, scr",
+                "spring, sprint",
+                "street, strong",
+                "screen, screw"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about school activities and homework.\n...say what I have and haven't done.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about school activities and homework.",
+                "...say what I have and haven't done."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "2",
+      "unit_title_raw": "AMAZING YOUNG PEOPLE",
+      "student_book_pages_raw": "pp. 20–35",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Achievements: become a doctor, climb a mountain, meet a world leader, play an instrument, speak another language, start a company, write and publish a book",
+          "content_blocks": [
+            {
+              "heading_raw": "Achievements:",
+              "entries_raw": [
+                "become a doctor",
+                "climb a mountain",
+                "meet a world leader",
+                "play an instrument",
+                "speak another language",
+                "start a company",
+                "write and publish a book"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "How long have you lived here? I've lived here (for five years/since I was six).\nHow long has she been singing?\nShe's been singing since she was four.\nWe went to Japan one year ago.\nI have never seen the Statue of Liberty.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "How long have you lived here? I've lived here (for five years/since I was six).",
+                "How long has she been singing?",
+                "She's been singing since she was four.",
+                "We went to Japan one year ago.",
+                "I have never seen the Statue of Liberty."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: Amazing young people\nability, co-found, compose, determined, exceptional talent, gifted, inspiration, keep in touch, legend, social media, symphony\nAdditional language: reflexive pronouns whom\nAround the World: Seeds of Peace\nconflict resolution, critical thinking, journalist, leader, neutral environment, peace",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: Amazing young people",
+              "entries_raw": [
+                "ability",
+                "co-found",
+                "compose",
+                "determined",
+                "exceptional talent",
+                "gifted",
+                "inspiration",
+                "keep in touch",
+                "legend",
+                "social media",
+                "symphony"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "reflexive pronouns whom"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Seeds of Peace",
+              "entries_raw": [
+                "conflict resolution",
+                "critical thinking",
+                "journalist",
+                "leader",
+                "neutral environment",
+                "peace"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Biography",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Biography"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Appreciate yourself.\nTalk about your amazing qualities and talents.\nMake an 'Amazing Me' collage and interview classmates about their amazing qualities and talents.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Appreciate yourself.",
+                "Talk about your amazing qualities and talents.",
+                "Make an 'Amazing Me' collage and interview classmates about their amazing qualities and talents."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "spl, squ, thr\nsplash, split\nsquash, squid\nthree, throat",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "spl, squ, thr",
+                "splash, split",
+                "squash, squid",
+                "three, throat"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about past experiences.\n...talk about amazing people's accomplishments (including my own).",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about past experiences.",
+                "...talk about amazing people's accomplishments (including my own)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "3",
+      "unit_title_raw": "DILEMMAS",
+      "student_book_pages_raw": "pp. 36–51",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Dilemmas: (tell/don't tell) the truth, (return/don't return) a wallet, (cheat/don't cheat) in a test\nResults and Consequences: be upset with, feel good, feel guilty, get into trouble",
+          "content_blocks": [
+            {
+              "heading_raw": "Dilemmas:",
+              "entries_raw": [
+                "(tell/don't tell) the truth",
+                "(return/don't return) a wallet",
+                "(cheat/don't cheat) in a test"
+              ]
+            },
+            {
+              "heading_raw": "Results and Consequences:",
+              "entries_raw": [
+                "be upset with",
+                "feel good",
+                "feel guilty",
+                "get into trouble"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "If you tell your parents you forgot, they'll be upset.\nYou should tell your parents if you've got a problem.\nIf we go near the bulls, they might chase us.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "If you tell your parents you forgot, they'll be upset.",
+                "You should tell your parents if you've got a problem.",
+                "If we go near the bulls, they might chase us."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: Ethics\nacceptable, according to, based on, ethical, ethics, excuse, harmless, morally, perspective, respectful, traits, treat\nAround the World: Proverbs\ncommon sense, consequences, hasty, pass on, proverb, reap, regret, sound advice, sow, weigh up",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: Ethics",
+              "entries_raw": [
+                "acceptable",
+                "according to",
+                "based on",
+                "ethical",
+                "ethics",
+                "excuse",
+                "harmless",
+                "morally",
+                "perspective",
+                "respectful",
+                "traits",
+                "treat"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Proverbs",
+              "entries_raw": [
+                "common sense",
+                "consequences",
+                "hasty",
+                "pass on",
+                "proverb",
+                "reap",
+                "regret",
+                "sound advice",
+                "sow",
+                "weigh up"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Story ending",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Story ending"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Do the right thing.\nDiscuss the right choice to make when faced with a dilemma.\nMake a class handbook about doing the right thing.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Do the right thing.",
+                "Discuss the right choice to make when faced with a dilemma.",
+                "Make a class handbook about doing the right thing."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "nch, nth, mpt\ncrunch, lunch\nmonth, tenth\nprompt, tempt",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "nch, nth, mpt",
+                "crunch, lunch",
+                "month, tenth",
+                "prompt, tempt"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about consequences and possibilities and give advice.\n...talk about doing the right thing.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about consequences and possibilities and give advice.",
+                "...talk about doing the right thing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "4",
+      "unit_title_raw": "DREAMS FOR THE FUTURE",
+      "student_book_pages_raw": "pp. 58–73",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Dreams: be famous, bring up a family, earn a good salary, go on adventurous holidays, live in another country, run a business, work in my dream job, work in the music industry",
+          "content_blocks": [
+            {
+              "heading_raw": "Dreams:",
+              "entries_raw": [
+                "be famous",
+                "bring up a family",
+                "earn a good salary",
+                "go on adventurous holidays",
+                "live in another country",
+                "run a business",
+                "work in my dream job",
+                "work in the music industry"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Where will you be living fifty years from now?\nIn fifty years, I'll probably be living in France.\nI definitely won't be living with my parents.\nWill you be bringing up a family? Yes, I will. / No, I won't.\n'Cars are a silly invention.'\nHe said that cars were a silly invention.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Where will you be living fifty years from now?",
+                "In fifty years, I'll probably be living in France.",
+                "I definitely won't be living with my parents.",
+                "Will you be bringing up a family? Yes, I will. / No, I won't.",
+                "'Cars are a silly invention.'",
+                "He said that cars were a silly invention."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science and Technology: Predictions for the future: Experts\narena, be applied to, futurist, imaginary, interact with, microscopic, nanotechnology, revolutionise, treat, virtual reality, wireless, 3-D\nAround the World: Predictions for the future: Kids\ncitizen, co-exist, gender, harmoniously, manual work, religion, shelter, shuttle, time machine, turn out",
+          "content_blocks": [
+            {
+              "heading_raw": "Science and Technology: Predictions for the future: Experts",
+              "entries_raw": [
+                "arena",
+                "be applied to",
+                "futurist",
+                "imaginary",
+                "interact with",
+                "microscopic",
+                "nanotechnology",
+                "revolutionise",
+                "treat",
+                "virtual reality",
+                "wireless",
+                "3-D"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Predictions for the future: Kids",
+              "entries_raw": [
+                "citizen",
+                "co-exist",
+                "gender",
+                "harmoniously",
+                "manual work",
+                "religion",
+                "shelter",
+                "shuttle",
+                "time machine",
+                "turn out"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Formal and informal emails",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Formal and informal emails"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Make good decisions.\nTalk about how the decisions you make now affect the future.\nPupils write letters to themselves in the future and share them with the class.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Make good decisions.",
+                "Talk about how the decisions you make now affect the future.",
+                "Pupils write letters to themselves in the future and share them with the class."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "/s/, /z/, /iz/\neats, cooks, sleeps\nruns, sings, swims\ndances, washes, watches",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "/s/, /z/, /iz/",
+                "eats, cooks, sleeps",
+                "runs, sings, swims",
+                "dances, washes, watches"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about and make predictions about the future.\n...talk about levels of certainty.\n...report actual speech.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about and make predictions about the future.",
+                "...talk about levels of certainty.",
+                "...report actual speech."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "5",
+      "unit_title_raw": "IF I COULD FLY...",
+      "student_book_pages_raw": "pp. 74–89",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Super Powers: become invisible, fly, have superhuman strength, read people's minds, run at lightning speed, travel through time",
+          "content_blocks": [
+            {
+              "heading_raw": "Super Powers:",
+              "entries_raw": [
+                "become invisible",
+                "fly",
+                "have superhuman strength",
+                "read people's minds",
+                "run at lightning speed",
+                "travel through time"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "If you could fly, where would you go?\nIf I could fly, I'd go to the moon.\nIf I won a lot of money, I might give some to my sister.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "If you could fly, where would you go?",
+                "If I could fly, I'd go to the moon.",
+                "If I won a lot of money, I might give some to my sister."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Super power or super science?\nactivate, adhesive, electrode, endless, experiment, fascinating, gecko, gesture, interact, skyscraper, spell out, work on\nAround the World: Superheroes\nandroid, bolt of lightning, bullet, cape, meteorite, mischievous, mission, originate, reflexes, superhuman, trauma",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Super power or super science?",
+              "entries_raw": [
+                "activate",
+                "adhesive",
+                "electrode",
+                "endless",
+                "experiment",
+                "fascinating",
+                "gecko",
+                "gesture",
+                "interact",
+                "skyscraper",
+                "spell out",
+                "work on"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Superheroes",
+              "entries_raw": [
+                "android",
+                "bolt of lightning",
+                "bullet",
+                "cape",
+                "meteorite",
+                "mischievous",
+                "mission",
+                "originate",
+                "reflexes",
+                "superhuman",
+                "trauma"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Character traits",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Character traits"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Take positive steps for the future.\nTalk about amazing achievements and things we can do to help the future of the world.\nMake a class book about positive steps for the future.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Take positive steps for the future.",
+                "Talk about amazing achievements and things we can do to help the future of the world.",
+                "Make a class book about positive steps for the future."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "/t/, /d/, /id/\nlooked, walked, watched\ncalled, cleaned, climbed\nended, printed, wanted",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "/t/, /d/, /id/",
+                "looked, walked, watched",
+                "called, cleaned, climbed",
+                "ended, printed, wanted"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about what I would, could and might do in different situations.\n...answer questions about unreal situations.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about what I would, could and might do in different situations.",
+                "...answer questions about unreal situations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "6",
+      "unit_title_raw": "THE COOLEST SCHOOL SUBJECTS",
+      "student_book_pages_raw": "pp. 90–105",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Areas of Study: Art, English, Literature, Maths, Music, P.E., Science (Biology), Social Science\nThings We Learn About in School: artists, democracy, exercise, grammar, legends, mammals, murals, myths, plants, playwrights, prime numbers, sports, vocabulary",
+          "content_blocks": [
+            {
+              "heading_raw": "Areas of Study:",
+              "entries_raw": [
+                "Art",
+                "English",
+                "Literature",
+                "Maths",
+                "Music",
+                "P.E.",
+                "Science (Biology)",
+                "Social Science"
+              ]
+            },
+            {
+              "heading_raw": "Things We Learn About in School:",
+              "entries_raw": [
+                "artists",
+                "democracy",
+                "exercise",
+                "grammar",
+                "legends",
+                "mammals",
+                "murals",
+                "myths",
+                "plants",
+                "playwrights",
+                "prime numbers",
+                "sports",
+                "vocabulary"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "My teacher gives more homework than your teacher.\nThere are fewer playwrights in the USA than the UK.\nMy brother's got the most homework of anyone I know.\nYou must be on time for activities. You must not be late.\nYou have to get up early at the camp. You don't have to do the dishes alone.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "My teacher gives more homework than your teacher.",
+                "There are fewer playwrights in the USA than the UK.",
+                "My brother's got the most homework of anyone I know.",
+                "You must be on time for activities. You must not be late.",
+                "You have to get up early at the camp. You don't have to do the dishes alone."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Amazing animals and plants\nabsorb, adapt, blink, break down, carnivore, digest, give birth, herbivore, infection, injure, nectar, nutrients, protein, rays, slippery\nAround the World: Legacies of ancient civilisations\nconcept, contribution, cultivation, elections, influence, inspiration, legacy, revolution, terraced farming",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Amazing animals and plants",
+              "entries_raw": [
+                "absorb",
+                "adapt",
+                "blink",
+                "break down",
+                "carnivore",
+                "digest",
+                "give birth",
+                "herbivore",
+                "infection",
+                "injure",
+                "nectar",
+                "nutrients",
+                "protein",
+                "rays",
+                "slippery"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Legacies of ancient civilisations",
+              "entries_raw": [
+                "concept",
+                "contribution",
+                "cultivation",
+                "elections",
+                "influence",
+                "inspiration",
+                "legacy",
+                "revolution",
+                "terraced farming"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "From story to play",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "From story to play"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Appreciate school.\nComplete a chart and discuss practical uses for the topics learnt at school.\nCreate a book of words/names from ancient Greece that are used today.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Appreciate school.",
+                "Complete a chart and discuss practical uses for the topics learnt at school.",
+                "Create a book of words/names from ancient Greece that are used today."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "er, est\ncheaper, easier, faster, happier\nbest, longest",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "er, est",
+                "cheaper, easier, faster, happier",
+                "best, longest"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about school subjects and what I learn.\n...identify some legacies of ancient civilisations.\n...compare things using more/most, fewer/fewest, less/least.\n...talk about rules and obligations.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about school subjects and what I learn.",
+                "...identify some legacies of ancient civilisations.",
+                "...compare things using more/most, fewer/fewest, less/least.",
+                "...talk about rules and obligations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "7",
+      "unit_title_raw": "MYSTERIES!",
+      "student_book_pages_raw": "pp. 112–127",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Mysteries: Atlantis, aurora borealis (Northern Lights), Bermuda Triangle, crop circles, Great Pyramids, Kryptos, Nazca Lines, Sailing Stones\nMystery-related Words: explanation, phenomenon, proof, scientific, theory, unsolved",
+          "content_blocks": [
+            {
+              "heading_raw": "Mysteries:",
+              "entries_raw": [
+                "Atlantis",
+                "aurora borealis (Northern Lights)",
+                "Bermuda Triangle",
+                "crop circles",
+                "Great Pyramids",
+                "Kryptos",
+                "Nazca Lines",
+                "Sailing Stones"
+              ]
+            },
+            {
+              "heading_raw": "Mystery-related Words:",
+              "entries_raw": [
+                "explanation",
+                "phenomenon",
+                "proof",
+                "scientific",
+                "theory",
+                "unsolved"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "The geoglyphs are in Peru, aren't they?\nAstronauts aren't going to Pluto, are they?\nExperts can explain aurora borealis, can't they?\nWe love mysteries, don't we?\nScientists haven't explained crop circles, have they?\nIt didn't make sense, did it?\nAfter a six-hour sleep, I feel half-asleep and bad-tempered all day.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "The geoglyphs are in Peru, aren't they?",
+                "Astronauts aren't going to Pluto, are they?",
+                "Experts can explain aurora borealis, can't they?",
+                "We love mysteries, don't we?",
+                "Scientists haven't explained crop circles, have they?",
+                "It didn't make sense, did it?",
+                "After a six-hour sleep, I feel half-asleep and bad-tempered all day."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Aurora borealis\naltitude, atmosphere, clapping, interaction, nitrogen, observe, oxygen, phenomenon, pole, solar wind, stand out, swirling\nAdditional language: whose\nAround the World: Mysterious findings\nconstruct, diameter, estimate, evidence, existence, footprint, spherical, ton",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Aurora borealis",
+              "entries_raw": [
+                "altitude",
+                "atmosphere",
+                "clapping",
+                "interaction",
+                "nitrogen",
+                "observe",
+                "oxygen",
+                "phenomenon",
+                "pole",
+                "solar wind",
+                "stand out",
+                "swirling"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "whose"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Mysterious findings",
+              "entries_raw": [
+                "construct",
+                "diameter",
+                "estimate",
+                "evidence",
+                "existence",
+                "footprint",
+                "spherical",
+                "ton"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Cause and effect",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Cause and effect"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Be curious.\nLearn the importance of fostering one's own curiosity.\nCreate a booklet about two mysteries.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Be curious.",
+                "Learn the importance of fostering one's own curiosity.",
+                "Create a booklet about two mysteries."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "un, inter, re, pre, super\nunhappy\ninternational\nrecycle, reduce\npreused\nSuperman",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "un, inter, re, pre, super",
+                "unhappy",
+                "international",
+                "recycle, reduce",
+                "preused",
+                "Superman"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...discuss mysterious phenomena.\n...confirm information using question tags.\n...agree using So/Neither.\n...use compound adjectives.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...discuss mysterious phenomena.",
+                "...confirm information using question tags.",
+                "...agree using So/Neither.",
+                "...use compound adjectives."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "8",
+      "unit_title_raw": "WHY IS IT FAMOUS?",
+      "student_book_pages_raw": "pp. 128–143",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Famous Places: Big Ben, City of Petra, Christ the Redeemer Statue, Easter Island, Forbidden City, Great Sphinx of Giza, Great Wall of China, Machu Picchu, Pyramid of Kukulcán, St Basil's Cathedral, Statue of Liberty, Stonehenge, Sydney Opera House, Taj Majal, Temple of Borobudur\nStructures: cathedral, mausoleum, monument, palace, pyramid, statue, temple, tower",
+          "content_blocks": [
+            {
+              "heading_raw": "Famous Places:",
+              "entries_raw": [
+                "Big Ben",
+                "City of Petra",
+                "Christ the Redeemer Statue",
+                "Easter Island",
+                "Forbidden City",
+                "Great Sphinx of Giza",
+                "Great Wall of China",
+                "Machu Picchu",
+                "Pyramid of Kukulcán",
+                "St Basil's Cathedral",
+                "Statue of Liberty",
+                "Stonehenge",
+                "Sydney Opera House",
+                "Taj Majal",
+                "Temple of Borobudur"
+              ]
+            },
+            {
+              "heading_raw": "Structures:",
+              "entries_raw": [
+                "cathedral",
+                "mausoleum",
+                "monument",
+                "palace",
+                "pyramid",
+                "statue",
+                "temple",
+                "tower"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Stonehenge was constructed more than 4,000 years ago.\nLouis XIV was a French king who ruled for 72 years.\nThe Statue of Liberty is a landmark that has become a symbol of welcome.\nI need to get my bike repaired.\nYou need to have the wheel replaced.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Stonehenge was constructed more than 4,000 years ago.",
+                "Louis XIV was a French king who ruled for 72 years.",
+                "The Statue of Liberty is a landmark that has become a symbol of welcome.",
+                "I need to get my bike repaired.",
+                "You need to have the wheel replaced."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "History: Archaeological discoveries\narchaeologist, artefact, carving, dig, excavate, goddess, mummified, pharaoh, pottery, tomb, treasure\nAround the World: Seven wonders of the modern world\nantiquity, compile, empire, gladiator, Hellenic, honorary, landmark, peninsula, sightseers, structure",
+          "content_blocks": [
+            {
+              "heading_raw": "History: Archaeological discoveries",
+              "entries_raw": [
+                "archaeologist",
+                "artefact",
+                "carving",
+                "dig",
+                "excavate",
+                "goddess",
+                "mummified",
+                "pharaoh",
+                "pottery",
+                "tomb",
+                "treasure"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Seven wonders of the modern world",
+              "entries_raw": [
+                "antiquity",
+                "compile",
+                "empire",
+                "gladiator",
+                "Hellenic",
+                "honorary",
+                "landmark",
+                "peninsula",
+                "sightseers",
+                "structure"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Report",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Report"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Take pride in your town or city.\nDescribe special places, monuments or other attractions of one's own town/city or a nearby city.\nCreate a map for a bicycle trip to famous or interesting places in one's town/city.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Take pride in your town or city.",
+                "Describe special places, monuments or other attractions of one's own town/city or a nearby city.",
+                "Create a map for a bicycle trip to famous or interesting places in one's town/city."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "able, ful, ly\ncomfortable, washable\nbeautiful, peaceful\ndeeply, slowly",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "able, ful, ly",
+                "comfortable, washable",
+                "beautiful, peaceful",
+                "deeply, slowly"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about famous places and structures around the world.\n...describe places and structures using the passive voice, relative clauses and the causative form.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about famous places and structures around the world.",
+                "...describe places and structures using the passive voice, relative clauses and the causative form."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "9",
+      "unit_title_raw": "THAT'S ENTERTAINMENT!",
+      "student_book_pages_raw": "pp. 144–159",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Entertainment: book signing, comic book exhibition, concert, festival, film premiere",
+          "content_blocks": [
+            {
+              "heading_raw": "Entertainment:",
+              "entries_raw": [
+                "book signing",
+                "comic book exhibition",
+                "concert",
+                "festival",
+                "film premiere"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "She said (that) the sequel wasn't as good as the first film.\nHe said (that) he was going to the concert.\nMum: 'Be good.'\nMy mum told me to be good.\nTeacher: 'Please don't talk in class.'\nThe teacher asked us not to talk in class.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "She said (that) the sequel wasn't as good as the first film.",
+                "He said (that) he was going to the concert.",
+                "Mum: 'Be good.'",
+                "My mum told me to be good.",
+                "Teacher: 'Please don't talk in class.'",
+                "The teacher asked us not to talk in class."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: The history of video games\narcade game, artificial intelligence, coins, compete, electronic device, gamer, games console, industry, intended, invent, multiplayer, shortage\nAround the World: Unique musical instruments\nbagpipes, concertina, distinctive sound, herdsmen, horn, mellow, note, sitar, steel drums",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: The history of video games",
+              "entries_raw": [
+                "arcade game",
+                "artificial intelligence",
+                "coins",
+                "compete",
+                "electronic device",
+                "gamer",
+                "games console",
+                "industry",
+                "intended",
+                "invent",
+                "multiplayer",
+                "shortage"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Unique musical instruments",
+              "entries_raw": [
+                "bagpipes",
+                "concertina",
+                "distinctive sound",
+                "herdsmen",
+                "horn",
+                "mellow",
+                "note",
+                "sitar",
+                "steel drums"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Film review",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Film review"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Appreciate different opinions.\nRead and discuss the opinions of several young people.\nMake an opinion map to summarise classmates' opinions about a topic.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Appreciate different opinions.",
+                "Read and discuss the opinions of several young people.",
+                "Make an opinion map to summarise classmates' opinions about a topic."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "sion, tion, ation\ndecision, television\nfiction, option\ncelebration, invitation",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "sion, tion, ation",
+                "decision, television",
+                "fiction, option",
+                "celebration, invitation"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about entertainment.\n...talk about people's opinions.\n...report what people say.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about entertainment.",
+                "...talk about people's opinions.",
+                "...report what people say."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checkpoints_and_reviews": [
+    {
+      "section_type": "checkpoint",
+      "title_raw": "Checkpoint Units 1–3",
+      "units_covered_raw": "Units 1–3",
+      "student_book_pages_raw": "pp. 52–55",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "title_raw": "Units 1–3 Exam Preparation",
+      "units_covered_raw": "Units 1–3",
+      "student_book_pages_raw": "pp. 56–57",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "checkpoint",
+      "title_raw": "Checkpoint Units 4–6",
+      "units_covered_raw": "Units 4–6",
+      "student_book_pages_raw": "pp. 106–109",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "title_raw": "Units 4–6 Exam Preparation",
+      "units_covered_raw": "Units 4–6",
+      "student_book_pages_raw": "pp. 110–111",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "checkpoint",
+      "title_raw": "Checkpoint Units 7–9",
+      "units_covered_raw": "Units 7–9",
+      "student_book_pages_raw": "pp. 160–163",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "title_raw": "Units 7–9 Exam Preparation",
+      "units_covered_raw": "Units 7–9",
+      "student_book_pages_raw": "pp. 164–165",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    }
+  ],
+  "back_matter": [
+    {
+      "section_type": "wordlist",
+      "title_raw": "Wordlist",
+      "student_book_pages_raw": "pp. 166–168",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "verb_list",
+      "title_raw": "Verb list",
+      "student_book_pages_raw": "p. 169",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    }
+  ],
+  "extraction_issues": [],
+  "qa_summary": {
+    "visible_unit_count": 9,
+    "extracted_unit_count": 9,
+    "all_columns_checked": true,
+    "row_alignment_checked": true,
+    "second_visual_transcription_pass_completed": true,
+    "total_issue_count": 0,
+    "unresolved_issue_count": 0
+  }
+}

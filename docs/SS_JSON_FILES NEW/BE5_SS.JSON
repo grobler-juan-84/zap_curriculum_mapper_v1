@@ -1,0 +1,1309 @@
+{
+  "schema_version": "ss-extraction-v2",
+  "extraction_metadata": {
+    "prompt_version": "SS-V2",
+    "target_level": "Big English 5"
+  },
+  "source_metadata": {
+    "source_filename": "BE5_SS.PDF",
+    "publisher": "Pearson",
+    "series": "Big English",
+    "level": "Big English 5",
+    "edition": null,
+    "pdf_pages": [
+      1
+    ]
+  },
+  "original_column_headings": [
+    "Unit",
+    "Vocabulary",
+    "Structures",
+    "CLIL/Culture",
+    "Writing",
+    "Life Skills/Project",
+    "Phonics",
+    "I can..."
+  ],
+  "units": [
+    {
+      "unit_number_raw": "1",
+      "unit_title_raw": "MY INTERESTS",
+      "student_book_pages_raw": "pp. 4-19",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Activities: act, build robots, do martial arts, draw, jog, paint, play chess, play sports, play the trumpet, write articles\nClubs/Teams: art club, athletics team, basketball team, drama club, football team, school newspaper, school orchestra, school play/musical, science club, tae kwon do club",
+          "content_blocks": [
+            {
+              "heading_raw": "Activities:",
+              "entries_raw": [
+                "act, build robots, do martial arts, draw, jog, paint, play chess, play sports, play the trumpet, write articles"
+              ]
+            },
+            {
+              "heading_raw": "Clubs/Teams:",
+              "entries_raw": [
+                "art club, athletics team, basketball team, drama club, football team, school newspaper, school orchestra, school play/musical, science club, tae kwon do club"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "How about joining the basketball team?\nHe likes writing articles.\nYou're good at acting.\nDo you sing? No, I don't sing. I play the piano.\nIs he coming? No, he isn't coming. He's studying right now.\nDid you sleep well? Yes, I slept well but I didn't study anything.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "How about joining the basketball team?",
+                "He likes writing articles.",
+                "You're good at acting.",
+                "Do you sing? No, I don't sing. I play the piano.",
+                "Is he coming? No, he isn't coming. He's studying right now.",
+                "Did you sleep well? Yes, I slept well but I didn't study anything."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: The two sides of the brain\nanalyse, determine, exchange, hemisphere, personality, practical, take care of\nAdditional language: Compound adjectives\nAround the World: Early Olympic events\ncompetition, event, motor vehicle, race course, sporting, variation",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: The two sides of the brain",
+              "entries_raw": [
+                "analyse, determine, exchange, hemisphere, personality, practical, take care of"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "Compound adjectives"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Early Olympic events",
+              "entries_raw": [
+                "competition, event, motor vehicle, race course, sporting, variation"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "News article",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "News article"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Be a team player.\nTalk about working together.\nMake a poster to find new members of a team, club or group.",
+          "content_blocks": [
+            {
+              "heading_raw": "Be a team player.",
+              "entries_raw": [
+                "Talk about working together.",
+                "Make a poster to find new members of a team, club or group."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "ce, ci, cir\ncell, centre\ncinema, city\ncircle, circus",
+          "content_blocks": [
+            {
+              "heading_raw": "ce, ci, cir",
+              "entries_raw": [
+                "cell, centre",
+                "cinema, city",
+                "circle, circus"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...make suggestions.\n...talk about my interests.\n...talk about the present and the past.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...make suggestions.",
+                "...talk about my interests.",
+                "...talk about the present and the past."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "2",
+      "unit_title_raw": "FAMILY TIES",
+      "student_book_pages_raw": "pp. 20-35",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Life events: be born, find/get a job, get married, graduate, move, open a restaurant, retire\nFamily members: aunt, baby sister, dad, mum, older brother, uncle",
+          "content_blocks": [
+            {
+              "heading_raw": "Life events:",
+              "entries_raw": [
+                "be born, find/get a job, get married, graduate, move, open a restaurant, retire"
+              ]
+            },
+            {
+              "heading_raw": "Family members:",
+              "entries_raw": [
+                "aunt, baby sister, dad, mum, older brother, uncle"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "We moved when I was ten, about two years ago.\nSue is taller than Yoko but Mark is the tallest of all.\nDid you use to swim? No, I didn't use to swim.\nI used to play football.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "We moved when I was ten, about two years ago.",
+                "Sue is taller than Yoko but Mark is the tallest of all.",
+                "Did you use to swim? No, I didn't use to swim.",
+                "I used to play football."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Animal mothers\nbehaviour, give birth, jaws, mammal, maternal instinct, offspring, powerful, sight\nAdditional language: Quantity: some, many, all\nAround the World: Traditions around the world\ninto, respectively, ribbon, sneak, stuff, symbolise, tradition, treat",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Animal mothers",
+              "entries_raw": [
+                "behaviour, give birth, jaws, mammal, maternal instinct, offspring, powerful, sight"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "Quantity: some, many, all"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Traditions around the world",
+              "entries_raw": [
+                "into, respectively, ribbon, sneak, stuff, symbolise, tradition, treat"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Autobiography",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Autobiography"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Keep family traditions.\nTalk about family traditions.\nMake a class book about family traditions.",
+          "content_blocks": [
+            {
+              "heading_raw": "Keep family traditions.",
+              "entries_raw": [
+                "Talk about family traditions.",
+                "Make a class book about family traditions."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "ge, gi, gy\ngel, gem\nginger, giraffe\ngym, gypsy",
+          "content_blocks": [
+            {
+              "heading_raw": "ge, gi, gy",
+              "entries_raw": [
+                "gel, gem",
+                "ginger, giraffe",
+                "gym, gypsy"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about important life events and habits of the past.\n...make comparisons.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about important life events and habits of the past.",
+                "...make comparisons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "3",
+      "unit_title_raw": "HELPING OTHERS",
+      "student_book_pages_raw": "pp. 36-51",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Fundraising activities: have an art fair, have a cake sale, have a concert, have a dance, make something, raise money, sell tickets\nAdvertising: design posters, make a video, post a video/article on the school website, write an article",
+          "content_blocks": [
+            {
+              "heading_raw": "Fundraising activities:",
+              "entries_raw": [
+                "have an art fair, have a cake sale, have a concert, have a dance, make something, raise money, sell tickets"
+              ]
+            },
+            {
+              "heading_raw": "Advertising:",
+              "entries_raw": [
+                "design posters, make a video, post a video/article on the school website, write an article"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "How could we raise money for our club? We could wash cars.\nAre you going to have a cake sale? Yes, we are./No, we aren't. She's going to write an article.\nHave you ever cooked? Yes, I have./No, I haven't.\nThey've been to London many times.\nHe's gone to Paris for a holiday.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "How could we raise money for our club? We could wash cars.",
+                "Are you going to have a cake sale? Yes, we are./No, we aren't. She's going to write an article.",
+                "Have you ever cooked? Yes, I have./No, I haven't.",
+                "They've been to London many times.",
+                "He's gone to Paris for a holiday."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Art: Effective posters or advertisements\nbold, effective, focus, get across, image, impatient, invisible, layout\nAdditional language: Zero conditionals with if\nAround the World: Helping others\nanimal shelter, benefit, cancer, cause, donate, fortune, proof, raise, rescue, supplies, tutoring, volunteer",
+          "content_blocks": [
+            {
+              "heading_raw": "Art: Effective posters or advertisements",
+              "entries_raw": [
+                "bold, effective, focus, get across, image, impatient, invisible, layout"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "Zero conditionals with if"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Helping others",
+              "entries_raw": [
+                "animal shelter, benefit, cancer, cause, donate, fortune, proof, raise, rescue, supplies, tutoring, volunteer"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Letter",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Letter"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Help others.\nTalk about international charities.\nWrite a fundraising plan and create an advert for an event.",
+          "content_blocks": [
+            {
+              "heading_raw": "Help others.",
+              "entries_raw": [
+                "Talk about international charities.",
+                "Write a fundraising plan and create an advert for an event."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "lk, mb\nchalk, talk, walk\nclimb, comb, lamb",
+          "content_blocks": [
+            {
+              "heading_raw": "lk, mb",
+              "entries_raw": [
+                "chalk, talk, walk",
+                "climb, comb, lamb"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about helping others and about fundraising activities.\n...talk about possibilities and experiences.\n...say what I'm going to do.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about helping others and about fundraising activities.",
+                "...talk about possibilities and experiences.",
+                "...say what I'm going to do."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "4",
+      "unit_title_raw": "SHOPPING AROUND",
+      "student_book_pages_raw": "pp. 58-73",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Things to buy: balloons, beaded bracelet, bouquet of roses, gadgets, headphones, picture frame, silver earrings, turquoise necklace\nPlaces to Shop: card shop, clothes shop, craft fair, department store, flower shop, jewellery shop, shopping centre",
+          "content_blocks": [
+            {
+              "heading_raw": "Things to buy:",
+              "entries_raw": [
+                "balloons, beaded bracelet, bouquet of roses, gadgets, headphones, picture frame, silver earrings, turquoise necklace"
+              ]
+            },
+            {
+              "heading_raw": "Places to Shop:",
+              "entries_raw": [
+                "card shop, clothes shop, craft fair, department store, flower shop, jewellery shop, shopping centre"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "The red shoes are (more/less) expensive than the blue shoes.\nThe black shoes are (the most/the least) expensive.\nThe blue shoes are not as expensive as the black shoes.\nThe T-shirt is too big. It isn't small enough.\nI like this bag. Not the blue, the red one.\nHow much is it? It's forty euros and ten cents.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "The red shoes are (more/less) expensive than the blue shoes.",
+                "The black shoes are (the most/the least) expensive.",
+                "The blue shoes are not as expensive as the black shoes.",
+                "The T-shirt is too big. It isn't small enough.",
+                "I like this bag. Not the blue, the red one.",
+                "How much is it? It's forty euros and ten cents."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "History: The history of money\nbartering, bronze, coin, currency, exchange, grain, livestock, seal, trade\nAdditional language: Prepositions: during, over, until\nAround the World: Shopping places\nbrowse, experience, features, haggle, products, user's manual, vendor",
+          "content_blocks": [
+            {
+              "heading_raw": "History: The history of money",
+              "entries_raw": [
+                "bartering, bronze, coin, currency, exchange, grain, livestock, seal, trade"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "Prepositions: during, over, until"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Shopping places",
+              "entries_raw": [
+                "browse, experience, features, haggle, products, user's manual, vendor"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Product review",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Product review"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Develop good money habits.\nTalk about what you do with your money.\nDesign a shopping bag that encourages good spending habits.",
+          "content_blocks": [
+            {
+              "heading_raw": "Develop good money habits.",
+              "entries_raw": [
+                "Talk about what you do with your money.",
+                "Design a shopping bag that encourages good spending habits."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "sc, ho\nmuscle, scene, science\necho, ghost, honest",
+          "content_blocks": [
+            {
+              "heading_raw": "sc, ho",
+              "entries_raw": [
+                "muscle, scene, science",
+                "echo, ghost, honest"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about shopping.\n...make comparisons.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about shopping.",
+                "...make comparisons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "5",
+      "unit_title_raw": "HOLIDAY TIME",
+      "student_book_pages_raw": "pp. 74-89",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Holiday activities: biking, camping, hiking, horse riding, kayaking, rafting, skiing, swimming\nHoliday-related items: anorak, campsite, helmet, insect repellent, life jacket, map, sunglasses, sunscreen, tent, warm jacket, water bottle",
+          "content_blocks": [
+            {
+              "heading_raw": "Holiday activities:",
+              "entries_raw": [
+                "biking, camping, hiking, horse riding, kayaking, rafting, skiing, swimming"
+              ]
+            },
+            {
+              "heading_raw": "Holiday-related items:",
+              "entries_raw": [
+                "anorak, campsite, helmet, insect repellent, life jacket, map, sunglasses, sunscreen, tent, warm jacket, water bottle"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What was he doing when he got hurt? He was riding a horse when he got hurt.\nThey got lost while they were hiking.\nWere you swimming? Yes, I was./No, I wasn't.\nWhy was she crying?\nWho was singing loudly?",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What was he doing when he got hurt? He was riding a horse when he got hurt.",
+                "They got lost while they were hiking.",
+                "Were you swimming? Yes, I was./No, I wasn't.",
+                "Why was she crying?",
+                "Who was singing loudly?"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Maths: Calculations\naddition, customer, item, multiplication, power cut, price list, receipt, serve, souvenir\nAdditional language: need to, needn't\nAround the World: Holiday destinations\narctic, expedition, fascinating, founder, frozen, guide, guided tour, head over, igloo, particularly, poison, poisonous",
+          "content_blocks": [
+            {
+              "heading_raw": "Maths: Calculations",
+              "entries_raw": [
+                "addition, customer, item, multiplication, power cut, price list, receipt, serve, souvenir"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "need to, needn't"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Holiday destinations",
+              "entries_raw": [
+                "arctic, expedition, fascinating, founder, frozen, guide, guided tour, head over, igloo, particularly, poison, poisonous"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Postcards",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Postcards"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Be safe on holiday.\nTalk about holidays and safety tips.\nMake a holiday safety poster.",
+          "content_blocks": [
+            {
+              "heading_raw": "Be safe on holiday.",
+              "entries_raw": [
+                "Talk about holidays and safety tips.",
+                "Make a holiday safety poster."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "cl, tw\nclap, clock, clown\ntwelve, twist, twin",
+          "content_blocks": [
+            {
+              "heading_raw": "cl, tw",
+              "entries_raw": [
+                "clap, clock, clown",
+                "twelve, twist, twin"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about holiday problems.\n...ask and answer about what was going on when something happened.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about holiday problems.",
+                "...ask and answer about what was going on when something happened."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "6",
+      "unit_title_raw": "THE FUTURE!",
+      "student_book_pages_raw": "pp. 90-105",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Electronic devices: laptop computer, mobile phone, mp3 player, robot, smartphone, tablet",
+          "content_blocks": [
+            {
+              "heading_raw": "Electronic devices:",
+              "entries_raw": [
+                "laptop computer, mobile phone, mp3 player, robot, smartphone, tablet"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Do you think we will use mobile phones 100 years from now?\nYes, we will./No, we won't.\nAnyone can learn to text.\nEveryone/Everybody will send video messages.\nNo one/Nobody will send letters.\nWill there be a lot of food?\nYes, there will./No, there won't.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Do you think we will use mobile phones 100 years from now?",
+                "Yes, we will./No, we won't.",
+                "Anyone can learn to text.",
+                "Everyone/Everybody will send video messages.",
+                "No one/Nobody will send letters.",
+                "Will there be a lot of food?",
+                "Yes, there will./No, there won't."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: How robots help us\nassistive, capabilities, complicated, gestures, procedures, repetitive, robotic, socially, special needs, surgical\nAround the World: Endangered languages\ncommunicate, dialect, dictionary, extinct, fluently, generation, healing, official, pass on, preserve",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: How robots help us",
+              "entries_raw": [
+                "assistive, capabilities, complicated, gestures, procedures, repetitive, robotic, socially, special needs, surgical"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Endangered languages",
+              "entries_raw": [
+                "communicate, dialect, dictionary, extinct, fluently, generation, healing, official, pass on, preserve"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Diary entry",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Diary entry"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Have dreams for the future.\nTalk about future dreams.\nDesign an advert for a product or service in the future.",
+          "content_blocks": [
+            {
+              "heading_raw": "Have dreams for the future.",
+              "entries_raw": [
+                "Talk about future dreams.",
+                "Design an advert for a product or service in the future."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "pp, bb, dd, mm, nn, tt\nhappy\nhobby\nladder\nsummer\ntennis\nbutter",
+          "content_blocks": [
+            {
+              "heading_raw": "pp, bb, dd, mm, nn, tt",
+              "entries_raw": [
+                "happy",
+                "hobby",
+                "ladder",
+                "summer",
+                "tennis",
+                "butter"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...ask questions and make predictions about the future.\n...talk about technology.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...ask questions and make predictions about the future.",
+                "...talk about technology."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "7",
+      "unit_title_raw": "WHAT'S THAT?",
+      "student_book_pages_raw": "pp. 112-127",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Gadgets (old and new): handheld game device, hands-free earpiece, instant camera, mobile phone, transistor radio, video game system",
+          "content_blocks": [
+            {
+              "heading_raw": "Gadgets (old and new):",
+              "entries_raw": [
+                "handheld game device, hands-free earpiece, instant camera, mobile phone, transistor radio, video game system"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What's it used for?\nIt is used to hold salt/It is used for holding salt.\nIt may/might be something to wear.\nIf/When she doesn't do homework, her mum gets angry.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What's it used for?",
+                "It is used to hold salt/It is used for holding salt.",
+                "It may/might be something to wear.",
+                "If/When she doesn't do homework, her mum gets angry."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: Important inventions\ncandle, cash register, combustion engine, fuel, invention/inventor, organise, plumbing, pump, vehicle, well, wheel\nAround the World: Cool transformations\ncombine, connect, dock, innovative, natural resource, speakers, supplier, transform",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: Important inventions",
+              "entries_raw": [
+                "candle, cash register, combustion engine, fuel, invention/inventor, organise, plumbing, pump, vehicle, well, wheel"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Cool transformations",
+              "entries_raw": [
+                "combine, connect, dock, innovative, natural resource, speakers, supplier, transform"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Description: Object",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Description: Object"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Appreciate history.\nTalk about your culture and learn the importance of appreciating history.\nMake a class book about items from different cultures.",
+          "content_blocks": [
+            {
+              "heading_raw": "Appreciate history.",
+              "entries_raw": [
+                "Talk about your culture and learn the importance of appreciating history.",
+                "Make a class book about items from different cultures."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "lt, lk, ld, lb\nbelt\nmilk, silk\ncold, field\nbulb",
+          "content_blocks": [
+            {
+              "heading_raw": "lt, lk, ld, lb",
+              "entries_raw": [
+                "belt",
+                "milk, silk",
+                "cold, field",
+                "bulb"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...guess what things are or might be.\n...say what things are used for or used to do.\n...make true sentences using conditionals.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...guess what things are or might be.",
+                "...say what things are used for or used to do.",
+                "...make true sentences using conditionals."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "8",
+      "unit_title_raw": "WHERE DO THEY COME FROM?",
+      "student_book_pages_raw": "pp. 128-143",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Materials: clay, cotton, metal, rubber, wool\nProducts: blankets, boots, cola cans, cookers, floors, flower pots, plates, rugs, scarves, towels, T-shirts, tyres",
+          "content_blocks": [
+            {
+              "heading_raw": "Materials:",
+              "entries_raw": [
+                "clay, cotton, metal, rubber, wool"
+              ]
+            },
+            {
+              "heading_raw": "Products:",
+              "entries_raw": [
+                "blankets, boots, cola cans, cookers, floors, flower pots, plates, rugs, scarves, towels, T-shirts, tyres"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Tomatoes and oranges are grown in Spain.\nThe first chocolate bar was made in Canada.\nThe person who came was my mum.\nThe place where we moved was nice.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Tomatoes and oranges are grown in Spain.",
+                "The first chocolate bar was made in Canada.",
+                "The person who came was my mum.",
+                "The place where we moved was nice."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: How fresh produce travels\ncountry of origin, diesel, distribution centre, fresh produce, imported, local, locally-grown, petrol, pollution, seasonal, shipping, typical\nAdditional language: Conjunction: so\nAround the World: Where products come from\nborders, chemical, county, engineer, explorer, fridge, novelty, power tools",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: How fresh produce travels",
+              "entries_raw": [
+                "country of origin, diesel, distribution centre, fresh produce, imported, local, locally-grown, petrol, pollution, seasonal, shipping, typical"
+              ]
+            },
+            {
+              "heading_raw": "Additional language:",
+              "entries_raw": [
+                "Conjunction: so"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Where products come from",
+              "entries_raw": [
+                "borders, chemical, county, engineer, explorer, fridge, novelty, power tools"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Persuasive writing",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Persuasive writing"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Appreciate what you eat and use every day.\nTalk about things you appreciate and where they come from.\nMake a poster about things you appreciate and where they come from.",
+          "content_blocks": [
+            {
+              "heading_raw": "Appreciate what you eat and use every day.",
+              "entries_raw": [
+                "Talk about things you appreciate and where they come from.",
+                "Make a poster about things you appreciate and where they come from."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "lf, lp, lm\nelf, golf\nhelp\nelm, film",
+          "content_blocks": [
+            {
+              "heading_raw": "lf, lp, lm",
+              "entries_raw": [
+                "elf, golf",
+                "help",
+                "elm, film"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about where goods come from.\n...talk about products and the materials used to make them.\n...use the passive voice and defining relative clauses.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about where goods come from.",
+                "...talk about products and the materials used to make them.",
+                "...use the passive voice and defining relative clauses."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "9",
+      "unit_title_raw": "HOW ADVENTUROUS ARE YOU?",
+      "student_book_pages_raw": "pp. 144-159",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Adjectives: delicious, different, popular, raw, sour, spicy, sweet, tasty, terrible, traditional, unusual, wonderful",
+          "content_blocks": [
+            {
+              "heading_raw": "Adjectives:",
+              "entries_raw": [
+                "delicious, different, popular, raw, sour, spicy, sweet, tasty, terrible, traditional, unusual, wonderful"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Have you ever tried sushi? Yes, I have./No, I haven't.\nWould they rather eat or play? They'd rather eat.\nI've saved money for three years.\nShe hasn't eaten since nine o'clock.\nHave you read all day? Yes, we have./No, we haven't.\nHow long have you known that family?",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Have you ever tried sushi? Yes, I have./No, I haven't.",
+                "Would they rather eat or play? They'd rather eat.",
+                "I've saved money for three years.",
+                "She hasn't eaten since nine o'clock.",
+                "Have you read all day? Yes, we have./No, we haven't.",
+                "How long have you known that family?"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: The effects of adrenalin\nadrenal glands, adrenalin, air, cells, heart, hormone, lungs, oxygen, prehistoric, protect, release, stress\nAround the World: Risky activities\naerialist, antenna, board, competitive diver, extreme sports, parachute, professional, risk, tightrope, trick, warrior",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: The effects of adrenalin",
+              "entries_raw": [
+                "adrenal glands, adrenalin, air, cells, heart, hormone, lungs, oxygen, prehistoric, protect, release, stress"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Risky activities",
+              "entries_raw": [
+                "aerialist, antenna, board, competitive diver, extreme sports, parachute, professional, risk, tightrope, trick, warrior"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Description: Experience",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Description: Experience"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Life Skills/Project",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "Explore your surroundings.\nTo learn the value of exploring your surroundings.\nMake a collage about things to explore in your community.",
+          "content_blocks": [
+            {
+              "heading_raw": "Explore your surroundings.",
+              "entries_raw": [
+                "To learn the value of exploring your surroundings.",
+                "Make a collage about things to explore in your community."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "ft, ct, mp, sk\nleft, raft\nfact\ncamp, lamp\nrisk",
+          "content_blocks": [
+            {
+              "heading_raw": "ft, ct, mp, sk",
+              "entries_raw": [
+                "left, raft",
+                "fact",
+                "camp, lamp",
+                "risk"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about experiences.\n...talk about preferences.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about experiences.",
+                "...talk about preferences."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checkpoints_and_reviews": [
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 1-3",
+      "student_book_pages_raw": "pp. 52-55",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "label_raw": "Units 1-3 Exam Preparation",
+      "student_book_pages_raw": "pp. 56-57",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 4-6",
+      "student_book_pages_raw": "pp. 106-109",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "label_raw": "Units 4-6 Exam Preparation",
+      "student_book_pages_raw": "pp. 110-111",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 7-9",
+      "student_book_pages_raw": "pp. 160-163",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "section_type": "exam_preparation",
+      "label_raw": "Units 7-9 Exam Preparation",
+      "student_book_pages_raw": "pp. 164-165",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    }
+  ],
+  "back_matter": [
+    {
+      "section_type": "wordlist",
+      "label_raw": "Wordlist",
+      "student_book_pages_raw": "pp. 166-169",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    }
+  ],
+  "extraction_issues": [],
+  "qa_summary": {
+    "visible_unit_count": 9,
+    "extracted_unit_count": 9,
+    "all_columns_checked": true,
+    "row_alignment_checked": true,
+    "second_visual_transcription_pass_completed": true,
+    "total_issue_count": 0,
+    "unresolved_issue_count": 0
+  }
+}

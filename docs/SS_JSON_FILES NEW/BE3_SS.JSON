@@ -1,0 +1,1300 @@
+{
+  "schema_version": "ss-extraction-v2",
+  "extraction_metadata": {
+    "prompt_version": "SS-V2",
+    "target_level": "Big English 3"
+  },
+  "source_metadata": {
+    "source_filename": "BE3_SS.PDF",
+    "publisher": "Pearson",
+    "series": "Big English",
+    "level": "3",
+    "edition": null,
+    "pdf_pages": [
+      1
+    ]
+  },
+  "original_column_headings": [
+    "Unit",
+    "Vocabulary",
+    "Structures",
+    "CLIL/Culture",
+    "Writing",
+    "Phonics",
+    "Values",
+    "I can..."
+  ],
+  "units": [
+    {
+      "unit_number_raw": "1",
+      "unit_title_raw": "Wake Up!",
+      "student_book_pages_raw": "pp. 4–19",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Daily routines: do my homework, eat breakfast, get dressed, go home, go to school, go to the park, play football, play video games, wake up, watch TV\nTimes: seven fifty-five, seven forty-five, seven thirty, in the afternoon, evening, morning",
+          "content_blocks": [
+            {
+              "heading_raw": "Daily routines:",
+              "entries_raw": [
+                "do my homework, eat breakfast, get dressed, go home, go to school, go to the park, play football, play video games, wake up, watch TV"
+              ]
+            },
+            {
+              "heading_raw": "Times:",
+              "entries_raw": [
+                "seven fifty-five, seven forty-five, seven thirty, in the afternoon, evening, morning"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What does (he) do before/after school?\nHe eats before/after school.\nWhen does he get dressed?\nHe gets dressed at seven ten.\nI always/usually/often/sometimes/never\neat eggs.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What does (he) do before/after school?",
+                "He eats before/after school.",
+                "When does he get dressed?",
+                "He gets dressed at seven ten.",
+                "I always/usually/often/sometimes/never eat eggs."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Keeping clean\nbacteria, cough, decay, germs, gum disease, health, healthy, ill, skin, sneeze, sweat\nAround the World: Time zones\nchat, dark, different, e-pals, globe, half-turn, map, online, Time Zone",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Keeping clean",
+              "entries_raw": [
+                "bacteria, cough, decay, germs, gum disease, health, healthy, ill, skin, sneeze, sweat"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Time zones",
+              "entries_raw": [
+                "chat, dark, different, e-pals, globe, half-turn, map, online, Time Zone"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Sentence:\nSubjects and\nVerbs",
+          "content_blocks": [
+            {
+              "heading_raw": "Sentence:",
+              "entries_raw": [
+                "Subjects and Verbs"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "a_e, i_e, o_e\ncake, face, game,\nshape\nbike, like, time, ride\nbone, home, note",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "a_e, i_e, o_e",
+                "cake, face, game, shape",
+                "bike, like, time, ride",
+                "bone, home, note"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Do your\nchores.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Do your chores."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about what people do before and after school.\n...talk about different times of the day.\n...talk about keeping clean.\n...find and use adverbs of frequency, subjects and\nverbs.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about what people do before and after school.",
+                "...talk about different times of the day.",
+                "...talk about keeping clean.",
+                "...find and use adverbs of frequency, subjects and verbs."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "2",
+      "unit_title_raw": "Lots of Jobs!",
+      "student_book_pages_raw": "pp. 20–35",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Jobs: cashier, farmer, firefighter, nurse, police officer, scientist, student, waiter\nPlaces: farm, fire station, hospital, laboratory, police station, restaurant, shop, university",
+          "content_blocks": [
+            {
+              "heading_raw": "Jobs:",
+              "entries_raw": [
+                "cashier, farmer, firefighter, nurse, police officer, scientist, student, waiter"
+              ]
+            },
+            {
+              "heading_raw": "Places:",
+              "entries_raw": [
+                "farm, fire station, hospital, laboratory, police station, restaurant, shop, university"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What does (he) do? He's a nurse.\nWhere does (she) work? She works\n(on a farm).\nThey play music every day.\nDoes he live in Park Street?\nYes, he does./No, he doesn't.\nThey don't wear suits to work.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What does (he) do? He's a nurse.",
+                "Where does (she) work? She works (on a farm).",
+                "They play music every day.",
+                "Does he live in Park Street?",
+                "Yes, he does./No, he doesn't.",
+                "They don't wear suits to work."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Social Science: Creative jobs\ncreate, drawings, galleries, materials, paintings,\nphoto shoot, piece of art, professional,\nsculptures, unusual\nAround the World: Communities\nbe proud of, collect, community, contest, donate,\nget lost, rubbish",
+          "content_blocks": [
+            {
+              "heading_raw": "Social Science: Creative jobs",
+              "entries_raw": [
+                "create, drawings, galleries, materials, paintings, photo shoot, piece of art, professional, sculptures, unusual"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Communities",
+              "entries_raw": [
+                "be proud of, collect, community, contest, donate, get lost, rubbish"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Sentence: Two\nSubjects and\nVerbs",
+          "content_blocks": [
+            {
+              "heading_raw": "Sentence:",
+              "entries_raw": [
+                "Two Subjects and Verbs"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "sm, st, sp, sk\nsmart, smile, smoke\nstar, stop, storm\nspace, Spain, spoon\nskates, ski, skin",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "sm, st, sp, sk",
+                "smart, smile, smoke",
+                "star, stop, storm",
+                "space, Spain, spoon",
+                "skates, ski, skin"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Respect\nothers.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Respect others."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about what people do and where they work.\n...talk about creative jobs.\n...find and use two subjects and two verbs.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about what people do and where they work.",
+                "...talk about creative jobs.",
+                "...find and use two subjects and two verbs."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "3",
+      "unit_title_raw": "Working Hard!",
+      "student_book_pages_raw": "pp. 36–51",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Chores: clean my room, do the dishes, feed the fish, make my bed, practise the piano, study for a test, take out the rubbish, walk the dog\nAdverbs of frequency: always, never, usually, sometimes",
+          "content_blocks": [
+            {
+              "heading_raw": "Chores:",
+              "entries_raw": [
+                "clean my room, do the dishes, feed the fish, make my bed, practise the piano, study for a test, take out the rubbish, walk the dog"
+              ]
+            },
+            {
+              "heading_raw": "Adverbs of frequency:",
+              "entries_raw": [
+                "always, never, usually, sometimes"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "I (always) make my bed.\nWhat does (we) have to do?\nWe have to (make our bed).\nYou like/love/hate sleeping.\nDoes he like/love/hate playing?\nI don't like/love/hate cleaning up.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "I (always) make my bed.",
+                "What does (we) have to do?",
+                "We have to (make our bed).",
+                "You like/love/hate sleeping.",
+                "Does he like/love/hate playing?",
+                "I don't like/love/hate cleaning up."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Maths: Pocket money\nadult, cash, cost, earn, let (someone) know, save, stranger, tidy, wash\nAround the World: Chores\nbusiness, entrance, noodles, pavement, share, shovel, task, tiring",
+          "content_blocks": [
+            {
+              "heading_raw": "Maths: Pocket money",
+              "entries_raw": [
+                "adult, cash, cost, earn, let (someone) know, save, stranger, tidy, wash"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Chores",
+              "entries_raw": [
+                "business, entrance, noodles, pavement, share, shovel, task, tiring"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Paragraph: Titles",
+          "content_blocks": [
+            {
+              "heading_raw": "Paragraph:",
+              "entries_raw": [
+                "Titles"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "ay, oy\nday, May, pay, ray,\nsay, way\nboy, joy, soy, toy",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "ay, oy",
+                "day, May, pay, ray, say, way",
+                "boy, joy, soy, toy"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Always be\nhappy to\nhelp.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Always be happy to help."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about how often people do things.\n...talk about what people like/don't like doing and have to do.\n...talk about chores and pocket money.\n...use capital letters in titles.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about how often people do things.",
+                "...talk about what people like/don't like doing and have to do.",
+                "...talk about chores and pocket money.",
+                "...use capital letters in titles."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "4",
+      "unit_title_raw": "Amazing Animals",
+      "student_book_pages_raw": "pp. 58–73",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Animals: bear, camel, deer, lizard, owl, penguin, sea lion, shark, toucan\nHabitats: desert, forest, ice and snow, jungle, lake, mountain, ocean, rainforest",
+          "content_blocks": [
+            {
+              "heading_raw": "Animals:",
+              "entries_raw": [
+                "bear, camel, deer, lizard, owl, penguin, sea lion, shark, toucan"
+              ]
+            },
+            {
+              "heading_raw": "Habitats:",
+              "entries_raw": [
+                "desert, forest, ice and snow, jungle, lake, mountain, ocean, rainforest"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What can (bears) do? They can climb but they can't talk.\nWhat can you do? I can/can't run.\nquiet - quietly\ngood - well",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What can (bears) do? They can climb but they can't talk.",
+                "What can you do? I can/can't run.",
+                "quiet - quietly",
+                "good - well"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Camouflage\nblend in, bottom of the sea, desert, rainforest, stone, surroundings, tree bark\nAround the World: Pets\nalligators, canaries, geckos, goldfish, parakeets, rodents, snakes, tarantulas",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Camouflage",
+              "entries_raw": [
+                "blend in, bottom of the sea, desert, rainforest, stone, surroundings, tree bark"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Pets",
+              "entries_raw": [
+                "alligators, canaries, geckos, goldfish, parakeets, rodents, snakes, tarantulas"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Paragraph: Topic\nSentences",
+          "content_blocks": [
+            {
+              "heading_raw": "Paragraph:",
+              "entries_raw": [
+                "Topic Sentences"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "ea, oi, oe\nbean, eat, meat,\npeach, sea, tea\nboil, coin, oil\nfoe, toe",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "ea, oi, oe",
+                "bean, eat, meat, peach, sea, tea",
+                "boil, coin, oil",
+                "foe, toe"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Protect\nanimals\nand their\nhabitats.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Protect animals and their habitats."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about what animals can/can't do and where they're found.\n...find and use adverbs.\n...find and use topic sentences.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about what animals can/can't do and where they're found.",
+                "...find and use adverbs.",
+                "...find and use topic sentences."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "5",
+      "unit_title_raw": "Wonderful Weather!",
+      "student_book_pages_raw": "pp. 74–89",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Weather: cloudy, cold, cool, hot, rainy, snowy, sunny, warm, windy\nClothes: coat, jumper, raincoat, sandals, scarf, shorts, sunglasses\ntoday, yesterday",
+          "content_blocks": [
+            {
+              "heading_raw": "Weather:",
+              "entries_raw": [
+                "cloudy, cold, cool, hot, rainy, snowy, sunny, warm, windy"
+              ]
+            },
+            {
+              "heading_raw": "Clothes:",
+              "entries_raw": [
+                "coat, jumper, raincoat, sandals, scarf, shorts, sunglasses"
+              ]
+            },
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "today, yesterday"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "What's the weather like today? It's (hot and\nsunny).\nWhat was the weather like yesterday?\nIt was (windy).\nI wasn't hot. We weren't cold.\nWe were/weren't freezing.\nWas she late? Yes, she was./No, she wasn't.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "What's the weather like today? It's (hot and sunny).",
+                "What was the weather like yesterday?",
+                "It was (windy).",
+                "I wasn't hot. We weren't cold.",
+                "We were/weren't freezing.",
+                "Was she late? Yes, she was./No, she wasn't."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Geography: Climate\naverage, climate, degrees Celsius, desert, dry, extreme, mild, minus\nAround the World: Weather\ncricket, fill up, kite, sledging, snow fight",
+          "content_blocks": [
+            {
+              "heading_raw": "Geography: Climate",
+              "entries_raw": [
+                "average, climate, degrees Celsius, desert, dry, extreme, mild, minus"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Weather",
+              "entries_raw": [
+                "cricket, fill up, kite, sledging, snow fight"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Paragraph:\nDetail Sentences",
+          "content_blocks": [
+            {
+              "heading_raw": "Paragraph:",
+              "entries_raw": [
+                "Detail Sentences"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "sc, sw, sn, sl\nscar, scarf, scout\nswan, sweet, swim\nsnack, snail, snow\nsleep, slim, slow",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "sc, sw, sn, sl",
+                "scar, scarf, scout",
+                "swan, sweet, swim",
+                "snack, snail, snow",
+                "sleep, slim, slow"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Prepare\nfor the\nweather.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Prepare for the weather."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about the weather today and in the past.\n...talk about clothes.\n...talk about climates around the world.\n...find and use detail sentences.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about the weather today and in the past.",
+                "...talk about clothes.",
+                "...talk about climates around the world.",
+                "...find and use detail sentences."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "6",
+      "unit_title_raw": "Smells Good!",
+      "student_book_pages_raw": "pp. 90–105",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Verb senses: feels, looks, sounds, tastes, smells\nAdjectives: awful, delicious, good, horrible, lovely, nice, soft, sweet, terrible, tight",
+          "content_blocks": [
+            {
+              "heading_raw": "Verb senses:",
+              "entries_raw": [
+                "feels, looks, sounds, tastes, smells"
+              ]
+            },
+            {
+              "heading_raw": "Adjectives:",
+              "entries_raw": [
+                "awful, delicious, good, horrible, lovely, nice, soft, sweet, terrible, tight"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "How does the apple pie taste?\nIt tastes (delicious).\nThe milkshake tastes sweet.\nThe shoes feel smooth.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "How does the apple pie taste?",
+                "It tastes (delicious).",
+                "The milkshake tastes sweet.",
+                "The shoes feel smooth."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Animal senses\navoid, brain, danger, echo, information, senses, sound waves, taste buds, tongue\nAround the World: Jobs\nclean, dreadful, fresh, look after, smelly, stink, wet",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Animal senses",
+              "entries_raw": [
+                "avoid, brain, danger, echo, information, senses, sound waves, taste buds, tongue"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Jobs",
+              "entries_raw": [
+                "clean, dreadful, fresh, look after, smelly, stink, wet"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Paragraph: Final\nSentences",
+          "content_blocks": [
+            {
+              "heading_raw": "Paragraph:",
+              "entries_raw": [
+                "Final Sentences"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "fl, pl, gl, bl\nflag, flip-flops, fly\nplant, play, plum\nglad, glass, glow\nblack, block, blow",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "fl, pl, gl, bl",
+                "flag, flip-flops, fly",
+                "plant, play, plum",
+                "glad, glass, glow",
+                "black, block, blow"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Try new\nthings.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Try new things."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...describe how things look, feel, taste, smell\nor sound.\n...talk about the five senses in people and animals.\n...find and use final sentences.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...describe how things look, feel, taste, smell or sound.",
+                "...talk about the five senses in people and animals.",
+                "...find and use final sentences."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "7",
+      "unit_title_raw": "Fabulous Food!",
+      "student_book_pages_raw": "pp. 112–127",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Food: bread, cucumbers, green peppers, lettuce, mushrooms,\nmustard, olives, onions, tomato sauce, turkey",
+          "content_blocks": [
+            {
+              "heading_raw": "Food:",
+              "entries_raw": [
+                "bread, cucumbers, green peppers, lettuce, mushrooms, mustard, olives, onions, tomato sauce, turkey"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Is there any (bread)? Yes, there is./No, there\nisn't.\nThere are some (peppers).\nThere aren't any (peppers).\nHe's got some/a lot of/a little meat.\nYou've got some/a lot of/a few potatoes.\nHow much fruit?/How many onions?",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Is there any (bread)? Yes, there is./No, there isn't.",
+                "There are some (peppers).",
+                "There aren't any (peppers).",
+                "He's got some/a lot of/a little meat.",
+                "You've got some/a lot of/a few potatoes.",
+                "How much fruit?/How many onions?"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Science: Vitamins\nblood, bone, brain, energy, fat/water, healthy,\niron, muscle, soluble, skin, teeth, vitamin\nAround the World: Breakfasts\nblueberries, boiled/fried eggs, cereal, doughnut,\nhoney, oats, porridge, toast",
+          "content_blocks": [
+            {
+              "heading_raw": "Science: Vitamins",
+              "entries_raw": [
+                "blood, bone, brain, energy, fat/water, healthy, iron, muscle, soluble, skin, teeth, vitamin"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Breakfasts",
+              "entries_raw": [
+                "blueberries, boiled/fried eggs, cereal, doughnut, honey, oats, porridge, toast"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Paragraphs",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Paragraphs"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "br, cr, dr, fr, gr, pr, tr\nbread, brick\ncream, cry\ndream, drive\nfrog,from\ngrass, green\ntrain, troll",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "br, cr, dr, fr, gr, pr, tr",
+                "bread, brick",
+                "cream, cry",
+                "dream, drive",
+                "frog,from",
+                "grass, green",
+                "train, troll"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Try\ndifferent\nfoods.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Try different foods."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...ask and answer about food.\n...talk about vitamins and how they help my body.\n...find different parts of a paragraph.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...ask and answer about food.",
+                "...talk about vitamins and how they help my body.",
+                "...find different parts of a paragraph."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "8",
+      "unit_title_raw": "Healthy Living",
+      "student_book_pages_raw": "pp. 128–143",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Healthy living: eat/have breakfast, eat/have healthy lunch,\ndrink water, get/do any exercise, get sleep, ride a bike\nenough",
+          "content_blocks": [
+            {
+              "heading_raw": "Healthy living:",
+              "entries_raw": [
+                "eat/have breakfast, eat/have healthy lunch, drink water, get/do any exercise, get sleep, ride a bike"
+              ]
+            },
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "enough"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Did (you) get enough sleep yesterday?\nYes, I did./No, I didn't.\nThey walked.\nShe saw a film.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Did (you) get enough sleep yesterday?",
+                "Yes, I did./No, I didn't.",
+                "They walked.",
+                "She saw a film."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "P.E.: Keeping healthy\nactive, activities, body, burn, calorie, fit, measure,\nput on weight, rest\nAround the World: Strange sports\ncontest, court, diving, net, puck, race, regatta,\nrowing, scuba, team",
+          "content_blocks": [
+            {
+              "heading_raw": "P.E.: Keeping healthy",
+              "entries_raw": [
+                "active, activities, body, burn, calorie, fit, measure, put on weight, rest"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Strange sports",
+              "entries_raw": [
+                "contest, court, diving, net, puck, race, regatta, rowing, scuba, team"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Combining\nSentences with\nand, but, or",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Combining Sentences with and, but, or"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "all, au, aw\nall, ball, call, tall, wall\nhaul, Paul\nclaw, draw, law, yawn",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "all, au, aw",
+                "all, ball, call, tall, wall",
+                "haul, Paul",
+                "claw, draw, law, yawn"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Get\nexercise.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Get exercise."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about healthy and unhealthy habits.\n...ask and answer about activities in the past.\n...use and, or and but in sentences.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about healthy and unhealthy habits.",
+                "...ask and answer about activities in the past.",
+                "...use and, or and but in sentences."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_number_raw": "9",
+      "unit_title_raw": "School Trips!",
+      "student_book_pages_raw": "pp. 144–159",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "publisher_categories": [
+        {
+          "category_name_raw": "Vocabulary",
+          "column_order": 1,
+          "cell_status": "present",
+          "raw_text": "Places: aquarium, art gallery, concert hall, dairy farm,\nnational park, science museum, theatre, zoo\nVerbs: ate, got, had, learned, saw, walked, was, went, were,\nliked",
+          "content_blocks": [
+            {
+              "heading_raw": "Places:",
+              "entries_raw": [
+                "aquarium, art gallery, concert hall, dairy farm, national park, science museum, theatre, zoo"
+              ]
+            },
+            {
+              "heading_raw": "Verbs:",
+              "entries_raw": [
+                "ate, got, had, learned, saw, walked, was, went, were, liked"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Structures",
+          "column_order": 2,
+          "cell_status": "present",
+          "raw_text": "Where did (they) go? They went to the (zoo).\nWhat did he see? He saw sharks.\nI didn't go to the theatre.\nThey didn't see any actors.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Where did (they) go? They went to the (zoo).",
+                "What did he see? He saw sharks.",
+                "I didn't go to the theatre.",
+                "They didn't see any actors."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "CLIL/Culture",
+          "column_order": 3,
+          "cell_status": "present",
+          "raw_text": "Art: Paintings\nartist, colourful, funny, happy, impressionist,\noil painting, painter, sad, sketch, strange,\nwatercolour\nAround the World: Stage performances\ndramatic, entertainment, flamenco, open-air\ntheatre, performance, play, popular, puppet,\nshow, stage",
+          "content_blocks": [
+            {
+              "heading_raw": "Art: Paintings",
+              "entries_raw": [
+                "artist, colourful, funny, happy, impressionist, oil painting, painter, sad, sketch, strange, watercolour"
+              ]
+            },
+            {
+              "heading_raw": "Around the World: Stage performances",
+              "entries_raw": [
+                "dramatic, entertainment, flamenco, open-air theatre, performance, play, popular, puppet, show, stage"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Writing",
+          "column_order": 4,
+          "cell_status": "present",
+          "raw_text": "Writing\nSentences",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Writing Sentences"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Phonics",
+          "column_order": 5,
+          "cell_status": "present",
+          "raw_text": "nt, ld, nd, st\nant, plant, tent\nchild, cold, old\nband, hand, sand\nchest, fast, nest",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "nt, ld, nd, st",
+                "ant, plant, tent",
+                "child, cold, old",
+                "band, hand, sand",
+                "chest, fast, nest"
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "Values",
+          "column_order": 6,
+          "cell_status": "present",
+          "raw_text": "Recognise\nyour\ntalents.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "Recognise your talents."
+              ]
+            }
+          ]
+        },
+        {
+          "category_name_raw": "I can...",
+          "column_order": 7,
+          "cell_status": "present",
+          "raw_text": "...talk about actions in the past and places to visit.\n...talk about paintings.\n...write sentences with a subject, verb and object.",
+          "content_blocks": [
+            {
+              "heading_raw": null,
+              "entries_raw": [
+                "...talk about actions in the past and places to visit.",
+                "...talk about paintings.",
+                "...write sentences with a subject, verb and object."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checkpoints_and_reviews": [
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 1–3",
+      "student_book_pages_raw": "pp. 52–55",
+      "covered_units_raw": "Units 1–3",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "additional_entries": [
+        {
+          "label_raw": "Units 1–3 Exam Preparation",
+          "student_book_pages_raw": "pp. 56–57"
+        }
+      ]
+    },
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 4–6",
+      "student_book_pages_raw": "pp. 106–109",
+      "covered_units_raw": "Units 4–6",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "additional_entries": [
+        {
+          "label_raw": "Units 4–6 Exam Preparation",
+          "student_book_pages_raw": "pp. 110–111"
+        }
+      ]
+    },
+    {
+      "section_type": "checkpoint",
+      "label_raw": "Checkpoint Units 7–9",
+      "student_book_pages_raw": "pp. 160–163",
+      "covered_units_raw": "Units 7–9",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      },
+      "additional_entries": [
+        {
+          "label_raw": "Units 7–9 Exam Preparation",
+          "student_book_pages_raw": "pp. 164–165"
+        }
+      ]
+    }
+  ],
+  "back_matter": [
+    {
+      "label_raw": "Wordlist",
+      "student_book_pages_raw": "pp. 166-169",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    },
+    {
+      "label_raw": "Big English Song",
+      "student_book_pages_raw": "p. 170",
+      "source_location": {
+        "pdf_pages": [
+          1
+        ]
+      }
+    }
+  ],
+  "extraction_issues": [],
+  "qa_summary": {
+    "visible_unit_count": 9,
+    "extracted_unit_count": 9,
+    "all_columns_checked": true,
+    "row_alignment_checked": true,
+    "second_visual_transcription_pass_completed": true,
+    "total_issue_count": 0,
+    "unresolved_issue_count": 0
+  }
+}
