@@ -49,7 +49,7 @@ test('modal review hides Type row; panel layout can still show it', () => {
   assert.match(cardSource, /evidence\.activityType/)
 })
 
-test('enrichment POC card keeps summary focus with lightbulb guidance and evidence disclosure', () => {
+test('enrichment POC card keeps summary focus with lightbulb guidance; publisher evidence stays out of the card UI', () => {
   const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
   assert.match(cardSource, /data-experimental-activity-enrichment/)
   assert.match(cardSource, /data-enrichment-layer="summary"/)
@@ -60,10 +60,10 @@ test('enrichment POC card keeps summary focus with lightbulb guidance and eviden
   assert.match(cardSource, /Optional teaching guidance/)
   assert.match(cardSource, /AI suggestion/)
   assert.match(cardSource, /Include guidance in experimental lesson package/)
-  assert.match(cardSource, /data-enrichment-layer="publisher_evidence"/)
-  assert.match(cardSource, /data-enrichment-evidence-toggle/)
-  assert.match(cardSource, /Original publisher evidence/)
-  assert.match(cardSource, /Human verified/)
+  // Publisher evidence remains in builders/selection; not shown on enrichment cards.
+  assert.ok(!cardSource.includes('data-enrichment-layer="publisher_evidence"'))
+  assert.ok(!cardSource.includes('Original publisher evidence'))
+  assert.ok(!cardSource.includes('data-enrichment-evidence-toggle'))
   // Presentation-only labels; sidecar wording is rendered from summary.text / guidance.text.
   assert.match(cardSource, /\{summary\.text\}/)
   assert.match(cardSource, /\{guidance\.text\}/)

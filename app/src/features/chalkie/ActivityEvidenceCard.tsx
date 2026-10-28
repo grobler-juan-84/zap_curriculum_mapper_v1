@@ -270,9 +270,7 @@ function ExperimentalActivityEnrichment({
 }) {
   const baseId = useId()
   const guidancePanelId = `${baseId}-guidance`
-  const evidencePanelId = `${baseId}-evidence`
   const [guidanceOpen, setGuidanceOpen] = useState(false)
-  const [evidenceOpen, setEvidenceOpen] = useState(false)
   const guidanceAvailable =
     guidance.availability === 'available' && guidance.text !== null
   const guidanceCheckboxId =
@@ -366,39 +364,10 @@ function ExperimentalActivityEnrichment({
           </div>
         ) : null}
       </div>
-
-      <div
-        className="rounded-md border border-slate-200/80 bg-white"
-        data-enrichment-layer="publisher_evidence"
-      >
-        <button
-          type="button"
-          aria-expanded={evidenceOpen}
-          aria-controls={evidencePanelId}
-          onClick={() => setEvidenceOpen((open) => !open)}
-          className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
-          data-enrichment-evidence-toggle
-        >
-          <span className="min-w-0 flex-1">Original publisher evidence</span>
-          <span className="shrink-0 text-[10px] font-normal text-slate-500">
-            Human verified
-          </span>
-          <ChevronRight
-            className={`h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform ${
-              evidenceOpen ? 'rotate-90' : ''
-            }`}
-            aria-hidden="true"
-          />
-        </button>
-        {evidenceOpen ? (
-          <div
-            id={evidencePanelId}
-            className="border-t border-slate-100 px-2.5 py-2.5"
-          >
-            <ActivityEvidenceDetails card={card} showActivityType={false} />
-          </div>
-        ) : null}
-      </div>
+      {/*
+        Publisher evidence remains in selection/package builders; it is not
+        shown on enrichment POC cards so the teacher-facing surface stays summary-first.
+      */}
     </div>
   )
 }

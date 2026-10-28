@@ -6315,3 +6315,14 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 367
+
+**Summary:** Hid the enrichment POC “Original publisher evidence / Human verified” card disclosure from teachers; verified evidence remains in selection and package builders. Focused tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
