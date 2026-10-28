@@ -56,6 +56,7 @@ test('enrichment POC card keeps summary focus without Optional Teaching Guidance
   assert.match(cardSource, /AI summary · experimental/)
   assert.match(cardSource, /Insufficient evidence for a fuller summary/)
   assert.match(cardSource, /\{summary\.text\}/)
+  assert.match(cardSource, /Be3U08ExperimentalSummaryDisplay/)
   assert.ok(!cardSource.includes('Optional teaching guidance'))
   assert.ok(!cardSource.includes('data-enrichment-layer="guidance"'))
   assert.ok(!cardSource.includes('data-enrichment-guidance-toggle'))
@@ -65,6 +66,17 @@ test('enrichment POC card keeps summary focus without Optional Teaching Guidance
   assert.ok(!cardSource.includes('data-enrichment-layer="publisher_evidence"'))
   assert.ok(!cardSource.includes('Original publisher evidence'))
   assert.ok(!cardSource.includes('data-enrichment-evidence-toggle'))
+})
+
+test('overlay wires the same enrichment presentation to gated Workbook companion cards', () => {
+  const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
+  assert.match(overlaySource, /workbookEnrichmentPocEnabled/)
+  assert.match(overlaySource, /getBe3U08WbActivitySummary/)
+  assert.match(overlaySource, /isExactBe3U08WorkbookEnrichmentPocScope/)
+  assert.match(overlaySource, /pagePrefix="WB"/)
+  assert.match(overlaySource, /experimentalSummary=\{/)
+  assert.match(overlaySource, /twoColumn=\{true\}/)
+  assert.match(overlaySource, /data-wb-activity-page/)
 })
 
 test('open-book spread keeps equal-height pages with independent list scroll', () => {

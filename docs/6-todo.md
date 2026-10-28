@@ -605,15 +605,17 @@
 
 - [x] **Modal activity-review open-book layout:** equal-height page panels + bounded scrollable activity cards (`layout="modal"`); left panel unchanged.
 
-- [x] **D023 limited BE3 U8 activity-enrichment POC:** five verified SB activities on pp. 128–129 only; immutable summary sidecars; Activity 3 insufficient-evidence honesty; experimental NLP projection of selected activities + evidence refs + summaries; default-off flag; focused tests + typecheck green. No canonical/SS, DB, bulk, production route, or adapter changes.
+- [x] **D023 limited BE3 U8 activity-enrichment POC:** five verified SB activities on pp. 128–129; immutable summary sidecars; Activity 3 insufficient-evidence honesty; experimental NLP projection; default-off flag. No canonical/SS, DB, bulk, production route, or adapter changes.
 
 - [x] **D023 enrichment POC UI polish:** natural-height modal cards; summary-first hierarchy; publisher evidence kept behind the scenes.
 
 - [x] **D023 POC simplification:** Optional Teaching Guidance removed from active POC (UI, state, package, sidecars); parked as F025.
 
+- [x] **D023 WB companion extension:** exact WB pp. 104–105 (four verified activities) behind the same default-off flag; separate WB summary sidecars; package `studentBookActivities` / `workbookActivities`; SB presentation unchanged.
+
 - [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
 
-- [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review all five summaries, Activity 3 insufficient-evidence handling, selection behaviour, and experimental package preview. Text revisions remain POC-only; expansion or guidance reintroduction requires new approval.
+- [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 
 - [x] **D022 NLP + BI realignment Phases 0–5:** decision + docs; `toBiPlanningContext`; Opener NLP `curriculumInterpretation`; detailed lesson plan BI section; optional Chalkie BI framing flag; archive unused BI PDF verifiers; stop BI book expansion pending owner accept.
 

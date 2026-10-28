@@ -10,7 +10,7 @@
  */
 import type { SbActivityCard } from './chalkieActivitySelection'
 import type { WbActivityCard } from './chalkieWorkbookActivitySelection'
-import type { Be3U08ActivitySummarySidecarRecord } from './be3U08ActivityEnrichmentPoc'
+import type { Be3U08ExperimentalSummaryDisplay } from './be3U08ActivityEnrichmentPoc'
 
 export type ActivityEvidenceCardModel = SbActivityCard | WbActivityCard
 
@@ -256,7 +256,7 @@ function ExperimentalActivityEnrichment({
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
-  summary: Be3U08ActivitySummarySidecarRecord
+  summary: Be3U08ExperimentalSummaryDisplay
 }) {
   return (
     <div className="min-w-0 flex-1 space-y-3" data-experimental-activity-enrichment>
@@ -307,7 +307,7 @@ export function ActivityEvidenceCard({
    */
   layout?: 'panel' | 'modal'
   /** Bounded BE3 U8 POC only; absent for all production/default-off paths. */
-  experimentalSummary?: Be3U08ActivitySummarySidecarRecord | null
+  experimentalSummary?: Be3U08ExperimentalSummaryDisplay | null
 }) {
   const selectable = typeof onSelectedChange === 'function'
   const checked = selected ?? true

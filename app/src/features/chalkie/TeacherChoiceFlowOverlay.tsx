@@ -69,11 +69,13 @@ import {
 import { ActivityEvidenceCard } from './ActivityEvidenceCard'
 import {
   getBe3U08ActivitySummary,
+  getBe3U08WbActivitySummary,
   isBe3U08ActivityEnrichmentPocEnabled,
 } from './be3U08ActivityEnrichmentPoc'
 import {
   buildBe3U08ActivityEnrichmentPocPackage,
   isExactBe3U08ActivityEnrichmentPocScope,
+  isExactBe3U08WorkbookEnrichmentPocScope,
 } from './buildBe3U08ActivityEnrichmentPocPackage'
 import {
   ActivityReviewBookPage,
@@ -360,6 +362,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const activityEnrichmentPocEnabled =
     isBe3U08ActivityEnrichmentPocEnabled() &&
     isExactBe3U08ActivityEnrichmentPocScope(activityCards)
+  const workbookEnrichmentPocEnabled =
+    activityEnrichmentPocEnabled &&
+    isExactBe3U08WorkbookEnrichmentPocScope({
+      cards: workbookActivityCards,
+      companion: lesson?.workbookCompanion ?? null,
+    })
 
   useEffect(() => {
     if (!open) {
@@ -503,9 +511,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         ? buildBe3U08ActivityEnrichmentPocPackage({
             cards: activityCards,
             activitySelection: sbActivitySelection,
+            workbookCards: workbookActivityCards,
+            workbookActivitySelection: wbActivitySelection,
+            workbookCompanion: lesson?.workbookCompanion ?? null,
           })
         : null,
-    [activityCards, activityEnrichmentPocEnabled, sbActivitySelection],
+    [
+      activityCards,
+      activityEnrichmentPocEnabled,
+      lesson?.workbookCompanion,
+      sbActivitySelection,
+      wbActivitySelection,
+      workbookActivityCards,
+    ],
   )
   const selectedActivityVocabulary = useMemo(
     () => selectedSbActivityVocabulary(handoffActivitySelection),
@@ -1004,6 +1022,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                                 onWbActivitySelectionChange(card.id, selected)
                               }
                               checkboxId={`workbook-activity-${card.id}`}
+                              experimentalSummary={
+                                workbookEnrichmentPocEnabled
+                                  ? getBe3U08WbActivitySummary(
+                                      card.references[0]?.activityId ?? '',
+                                    )
+                                  : null
+                              }
                             />
                           ))}
                         </ul>
@@ -1379,29 +1404,68 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                             Selections are copied into this lesson-specific view only. Sidecar and publisher records remain unchanged.
                           </p>
                         </div>
-                        {experimentalActivityEnrichmentPackage.activities.length > 0 ? (
-                          <ul className="space-y-2">
-                            {experimentalActivityEnrichmentPackage.activities.map(
-                              (activity) => (
-                                <li
-                                  key={activity.selection.activityId}
-                                  className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
-                                >
-                                  <p className="text-xs font-medium text-slate-800">
-                                    {activity.summary.text}
-                                  </p>
-                                  <p className="mt-1 text-[11px] text-slate-500">
-                                    Publisher evidence: {activity.publisherEvidenceReference.activityId}
-                                  </p>
-                                </li>
-                              ),
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                              Student Book activities
+                            </p>
+                            {experimentalActivityEnrichmentPackage.studentBookActivities
+                              .length > 0 ? (
+                              <ul className="mt-1.5 space-y-2">
+                                {experimentalActivityEnrichmentPackage.studentBookActivities.map(
+                                  (activity) => (
+                                    <li
+                                      key={`sb-${activity.selection.activityId}`}
+                                      className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
+                                    >
+                                      <p className="text-xs font-medium text-slate-800">
+                                        {activity.summary.text}
+                                      </p>
+                                      <p className="mt-1 text-[11px] text-slate-500">
+                                        SB evidence: {activity.publisherEvidenceReference.activityId}
+                                      </p>
+                                    </li>
+                                  ),
+                                )}
+                              </ul>
+                            ) : (
+                              <p className="mt-1.5 text-xs text-slate-500">
+                                No Student Book activities are included in this experimental package.
+                              </p>
                             )}
-                          </ul>
-                        ) : (
-                          <p className="text-xs text-slate-500">
-                            No activities are included in this experimental package.
-                          </p>
-                        )}
+                          </div>
+                          {experimentalActivityEnrichmentPackage.scope.workbook ? (
+                            <div>
+                              <p className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
+                                Workbook activities
+                              </p>
+                              {experimentalActivityEnrichmentPackage.workbookActivities
+                                .length > 0 ? (
+                                <ul className="mt-1.5 space-y-2">
+                                  {experimentalActivityEnrichmentPackage.workbookActivities.map(
+                                    (activity) => (
+                                      <li
+                                        key={`wb-${activity.selection.activityId}`}
+                                        className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
+                                      >
+                                        <p className="text-xs font-medium text-slate-800">
+                                          {activity.summary.text}
+                                        </p>
+                                        <p className="mt-1 text-[11px] text-slate-500">
+                                          WB evidence: {activity.publisherEvidenceReference.activityId}
+                                        </p>
+                                      </li>
+                                    ),
+                                  )}
+                                </ul>
+                              ) : (
+                                <p className="mt-1.5 text-xs text-slate-500">
+                                  No Workbook activities are included in this experimental package.
+                                </p>
+                              )}
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     ) : null}
                   </div>

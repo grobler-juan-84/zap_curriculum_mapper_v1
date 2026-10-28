@@ -6347,3 +6347,23 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 369
+
+**Summary:** Extended the D023 BE3 U8 activity-enrichment POC to the exact verified Workbook companion on pp. 104–105 (four human-verified activities) behind the same default-off flag. Added distinct WB summary sidecars, gated WB card presentation matching SB, and one experimental package with separate studentBookActivities / workbookActivities. Focused tests, typecheck, and lint green.
+
+**Files touched:**
+- `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
+- `app/src/features/chalkie/buildBe3U08ActivityEnrichmentPocPackage.ts` (updated)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

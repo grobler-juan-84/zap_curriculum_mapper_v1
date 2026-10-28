@@ -457,15 +457,22 @@ The NLP must assemble successfully when only verified source evidence (+ packagi
 
 **Status:** LOCKED
 
-**Decision:** Implement one bounded activity-enrichment proof of concept for the five human-verified Big English 3 Unit 8 Student Book activities on pp. 128–129. The active POC keeps teacher-friendly summaries in separate experimental sidecar records, preserves the original publisher evidence, and projects activity selections into a lesson-specific experimental Neutral Lesson Package that contains only selected activities, publisher-evidence references, and teacher-friendly summaries. The UI is available only behind `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC`, which is default off, and only when the exact five-activity scope matches.
+**Decision:** Implement one bounded activity-enrichment proof of concept for:
+
+- five human-verified Big English 3 Unit 8 Student Book activities on pp. 128–129
+- four human-verified Workbook companion activities on pp. 104–105 for relationship `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`
+
+The active POC keeps teacher-friendly summaries in separate experimental sidecar records (SB and WB sidecars remain distinct), preserves the original publisher evidence, uses summary-only teacher cards (no Optional Teaching Guidance; no teacher-facing publisher-evidence disclosure), and projects activity selections into one lesson-specific experimental Neutral Lesson Package with clearly separated `studentBookActivities` and `workbookActivities`. The UI is available only behind `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC`, which is default off. Workbook enrichment appears only when the flag is enabled, the SB scope matches exactly, the resolved companion is exactly WB pp. 104–105 for that relationship, and all four expected human-verified Workbook activity IDs match.
 
 **Amendment (2026-10-28):** Optional Teaching Guidance was removed from the active POC (UI, selection state, package fields, and guidance sidecar records). Guidance is parked for possible future reconsideration ([F025](./7-future.md)); do not leave dormant guidance code in this bounded experiment.
 
-**Explicit non-locks:** This decision does **not** approve a broad Neutral Lesson Library implementation, production routing, database migrations, bulk enrichment, canonical Phase 1/SS changes, provider lock-in, expansion beyond these five activities, or reintroduction of optional teaching guidance without a separate approval. The experimental package projection is not wired into Chalkie or any other generation adapter.
+**Amendment (2026-10-28):** Exact Workbook companion pp. 104–105 (four activities) added to the same default-off POC. This is not approval for general Workbook enrichment, bulk processing, or library productization ([F024](./7-future.md)).
 
-**Reason:** Validate the practical separation among publisher evidence, derived summary, and lesson-specific selection before considering a larger library architecture. Activity 3 (`Play a game.`) is the deliberate insufficient-evidence case: the POC may describe the limitation but must not invent a game procedure.
+**Explicit non-locks:** This decision does **not** approve a broad Neutral Lesson Library implementation, production routing, database migrations, bulk enrichment, general Workbook enrichment, canonical Phase 1/SS changes, provider lock-in, expansion beyond these nine activities, or reintroduction of optional teaching guidance without a separate approval. The experimental package projection is not wired into Chalkie or any other generation adapter.
 
-**Implications:** Owner review should evaluate summary accuracy, clarity, selection behaviour, and UI usefulness with the flag enabled. Any correction to the experimental summary text is a bounded POC revision; any wider data model, persistent store, source coverage, production route, or guidance reintroduction requires separate approval.
+**Reason:** Validate the practical separation among publisher evidence, derived summary, and lesson-specific selection (including SB vs WB source distinction) before considering a larger library architecture. SB Activity 3 (`Play a game.`) is the deliberate insufficient-evidence case: the POC may describe the limitation but must not invent a game procedure.
+
+**Implications:** Owner review should evaluate SB and WB summary accuracy, clarity, selection behaviour, and UI usefulness with the flag enabled. Any correction to the experimental summary text is a bounded POC revision; any wider data model, persistent store, source coverage, production route, guidance reintroduction, or general Workbook enrichment requires separate approval.
 
 **Supersedes:** —
 
@@ -477,6 +484,7 @@ The NLP must assemble successfully when only verified source evidence (+ packagi
 
 | Date | Change |
 |---|---|
+| 2026-10-28 | Amended D023 — exact WB companion pp. 104–105 (four activities) added to the same default-off summary-only POC; not general WB enrichment. |
 | 2026-10-28 | Amended D023 — Optional Teaching Guidance removed from the active POC and parked (F025); summaries + activity selection remain. |
 | 2026-10-28 | Added D023 — exact-scope BE3 U8 activity-enrichment POC only; sidecars + experimental package projection; no broad library or production approval. |
 | 2026-10-25 | Added D022 — NLP is the durable handoff; BI optional `curriculum_interpretation` only; never page evidence. |
