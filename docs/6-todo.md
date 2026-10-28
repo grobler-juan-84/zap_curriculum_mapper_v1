@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 365
+**Last updated:** Step 366
 
 
 
@@ -606,6 +606,8 @@
 - [x] **Modal activity-review open-book layout:** equal-height page panels + bounded scrollable activity cards (`layout="modal"`); left panel unchanged.
 
 - [x] **D023 limited BE3 U8 activity-enrichment POC:** five verified SB activities on pp. 128–129 only; separate immutable summary/guidance sidecars; guidance default off and cleared with activity deselection; Activity 3 guidance withheld; experimental NLP projection; default-off flag; focused tests + typecheck green. No canonical/SS, DB, bulk, production route, or adapter changes.
+
+- [x] **D023 enrichment POC UI polish:** natural-height modal cards; summary-first hierarchy; lightbulb guidance disclosure; expandable publisher evidence; presentation only.
 
 - [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
 

@@ -919,7 +919,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       facingPosition={column.position}
                     >
                       {column.cards.length > 0 ? (
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-3">
                           {column.cards.map((card) => (
                             <ActivityEvidenceCard
                               key={card.id}
@@ -1044,7 +1044,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                       facingPosition={panel.position}
                     >
                       {panel.cards.length > 0 ? (
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-3">
                           {panel.cards.map((card) => (
                             <ActivityEvidenceCard
                               key={card.id}

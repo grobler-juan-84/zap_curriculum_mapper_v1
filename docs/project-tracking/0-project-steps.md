@@ -6299,3 +6299,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 366
+
+**Summary:** UI-only polish for the BE3 U8 activity-enrichment POC cards: natural-height cards (no nested card scrollbars), summary-first hierarchy, lightbulb teaching-guidance disclosure, expandable publisher evidence, and lighter modal chrome. Sidecar wording, selection logic, and architecture unchanged. Focused tests + typecheck green.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/ActivityReviewBookSpread.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

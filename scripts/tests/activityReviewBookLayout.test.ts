@@ -1,5 +1,5 @@
 /**
- * Modal activity-review open-book layout contracts (bounded pages + cards).
+ * Modal activity-review open-book layout contracts.
  * Run: npx tsx --test scripts/tests/activityReviewBookLayout.test.ts
  */
 import assert from 'node:assert/strict'
@@ -7,8 +7,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 import test from 'node:test'
 import { fileURLToPath } from 'node:url'
-
-import { MODAL_ACTIVITY_CARD_HEIGHT_CLASS } from '../../app/src/features/chalkie/ActivityEvidenceCard.tsx'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const OVERLAY_PATH = path.join(
@@ -28,31 +26,47 @@ const LEFT_PANEL_PATH = path.join(
   'app/src/features/chalkie/ChalkieLeftPanel.tsx',
 )
 
-test('modal activity cards use one shared bounded height with scrollable evidence body', () => {
+test('modal activity cards expand naturally without nested card scrollbars', () => {
   const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
-  assert.equal(MODAL_ACTIVITY_CARD_HEIGHT_CLASS, 'h-[11.5rem]')
-  assert.match(cardSource, /MODAL_ACTIVITY_CARD_HEIGHT_CLASS/)
   assert.match(cardSource, /data-activity-card-layout="modal"/)
-  assert.match(cardSource, /data-activity-card-scroll/)
+  assert.match(cardSource, /data-activity-card-height="natural"/)
+  assert.ok(!cardSource.includes('data-activity-card-scroll'))
+  assert.ok(!cardSource.includes('MODAL_ACTIVITY_CARD_HEIGHT_CLASS'))
+  assert.ok(!cardSource.includes('h-[11.5rem]'))
   assert.match(cardSource, /layout === 'modal'/)
-  assert.match(cardSource, /overflow-y-auto/)
-  // Chrome (title / badges) stays outside the scroll region in modal layout.
   assert.match(cardSource, /ActivityChrome/)
   assert.match(cardSource, /ActivityEvidenceDetails/)
 })
 
 test('modal review hides Type row; panel layout can still show it', () => {
   const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
-  // Modal path explicitly suppresses the presentation-only Type row.
   assert.match(
     cardSource,
     /<ActivityEvidenceDetails card=\{card\} showActivityType=\{false\} \/>/,
   )
-  // Panel / left-panel path keeps default showActivityType (Type may render).
   assert.match(cardSource, /data-activity-type-row/)
   assert.match(cardSource, /showActivityType && evidence\.activityType/)
-  // Underlying evidence field remains in the model consumers / card data path.
   assert.match(cardSource, /evidence\.activityType/)
+})
+
+test('enrichment POC card keeps summary focus with lightbulb guidance and evidence disclosure', () => {
+  const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
+  assert.match(cardSource, /data-experimental-activity-enrichment/)
+  assert.match(cardSource, /data-enrichment-layer="summary"/)
+  assert.match(cardSource, /AI summary · experimental/)
+  assert.match(cardSource, /data-enrichment-layer="guidance"/)
+  assert.match(cardSource, /data-enrichment-guidance-toggle/)
+  assert.match(cardSource, /Lightbulb/)
+  assert.match(cardSource, /Optional teaching guidance/)
+  assert.match(cardSource, /AI suggestion/)
+  assert.match(cardSource, /Include guidance in experimental lesson package/)
+  assert.match(cardSource, /data-enrichment-layer="publisher_evidence"/)
+  assert.match(cardSource, /data-enrichment-evidence-toggle/)
+  assert.match(cardSource, /Original publisher evidence/)
+  assert.match(cardSource, /Human verified/)
+  // Presentation-only labels; sidecar wording is rendered from summary.text / guidance.text.
+  assert.match(cardSource, /\{summary\.text\}/)
+  assert.match(cardSource, /\{guidance\.text\}/)
 })
 
 test('open-book spread keeps equal-height pages with independent list scroll', () => {

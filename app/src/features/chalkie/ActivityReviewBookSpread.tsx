@@ -1,6 +1,6 @@
 /**
  * Equal-height open-book page panels for Create-a-prompt activity review.
- * Page lists scroll independently; cards use modal bounded height elsewhere.
+ * Page lists scroll independently; activity cards expand to their content.
  */
 import type { ReactNode } from 'react'
 

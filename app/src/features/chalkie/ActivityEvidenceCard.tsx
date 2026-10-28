@@ -2,9 +2,11 @@
  * Shared verified activity evidence disclosure for left panel and preparation review.
  * Selection controls are optional props — this component does not own workspace state.
  *
- * `layout="modal"` bounds card height and scrolls rich evidence inside the card so the
- * open-book review pages stay equal height. Left-panel callers keep the default layout.
+ * `layout="modal"` expands cards to their content; page columns scroll. Left-panel
+ * callers keep the default compact layout.
  */
+import { useId, useState } from 'react'
+import { ChevronRight, Lightbulb } from 'lucide-react'
 import type { SbActivityCard } from './chalkieActivitySelection'
 import type { WbActivityCard } from './chalkieWorkbookActivitySelection'
 import type {
@@ -13,9 +15,6 @@ import type {
 } from './be3U08ActivityEnrichmentPoc'
 
 export type ActivityEvidenceCardModel = SbActivityCard | WbActivityCard
-
-/** Shared modal card height so rich and sparse activities occupy the same footprint. */
-export const MODAL_ACTIVITY_CARD_HEIGHT_CLASS = 'h-[11.5rem]'
 
 function splitLanguageExchange(line: string): {
   prompt: string
@@ -74,30 +73,42 @@ function VocabularyChips({ terms }: { terms: readonly string[] }) {
 function ActivityChrome({
   card,
   pagePrefix,
+  emphasizeTitle = false,
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
+  emphasizeTitle?: boolean
 }) {
   const evidence = card.evidence
   const title =
     card.activityNumber != null ? `Activity ${card.activityNumber}` : 'Activity'
 
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <p className="text-xs font-semibold text-slate-900">{title}</p>
-      <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-600">
-        {pagePrefix} p.{card.printedPage}
-      </span>
-      {evidence.audioDependency ? (
-        <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-800">
-          Audio
+    <div className="min-w-0 space-y-1">
+      <p
+        className={
+          emphasizeTitle
+            ? 'text-sm font-semibold tracking-tight text-slate-900'
+            : 'text-xs font-semibold text-slate-900'
+        }
+      >
+        {title}
+      </p>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="text-[10px] font-medium text-slate-500">
+          {pagePrefix} p.{card.printedPage}
         </span>
-      ) : null}
-      {evidence.visualDependency ? (
-        <span className="rounded bg-sky-50 px-1.5 py-0.5 text-[10px] font-medium text-sky-800">
-          Visual
-        </span>
-      ) : null}
+        {evidence.audioDependency ? (
+          <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-800">
+            Audio
+          </span>
+        ) : null}
+        {evidence.visualDependency ? (
+          <span className="rounded bg-sky-50 px-1.5 py-0.5 text-[10px] font-medium text-sky-800">
+            Visual
+          </span>
+        ) : null}
+      </div>
     </div>
   )
 }
@@ -240,11 +251,9 @@ export function ActivityEvidenceBody({
   )
 }
 
-const modalCardScrollClass =
-  'min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-width:thin] [scrollbar-color:rgb(148_163_184)_transparent]'
-
 function ExperimentalActivityEnrichment({
   card,
+  pagePrefix,
   activitySelected,
   summary,
   guidance,
@@ -252,85 +261,144 @@ function ExperimentalActivityEnrichment({
   onGuidanceSelectedChange,
 }: {
   card: ActivityEvidenceCardModel
+  pagePrefix: 'SB' | 'WB'
   activitySelected: boolean
   summary: Be3U08ActivitySummarySidecarRecord
   guidance: Be3U08TeachingGuidanceSidecarRecord
   guidanceSelected: boolean
   onGuidanceSelectedChange?: (selected: boolean) => void
 }) {
+  const baseId = useId()
+  const guidancePanelId = `${baseId}-guidance`
+  const evidencePanelId = `${baseId}-evidence`
+  const [guidanceOpen, setGuidanceOpen] = useState(false)
+  const [evidenceOpen, setEvidenceOpen] = useState(false)
   const guidanceAvailable =
     guidance.availability === 'available' && guidance.text !== null
   const guidanceCheckboxId =
     `activity-guidance-${summary.sourceEvidence.activityId}`
 
   return (
-    <div className="space-y-2" data-experimental-activity-enrichment>
+    <div className="min-w-0 flex-1 space-y-3" data-experimental-activity-enrichment>
+      <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
+
       <section
-        className="rounded-md border border-indigo-100 bg-indigo-50/70 p-2"
         aria-label="Experimental teacher-friendly summary"
         data-enrichment-layer="summary"
       >
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
-          Teacher-friendly summary · Experimental interpretation
+        <p className="text-[10px] font-medium tracking-wide text-slate-500">
+          AI summary · experimental
         </p>
-        <p className="mt-1 text-xs leading-relaxed text-slate-800">{summary.text}</p>
+        <p className="mt-1 text-sm leading-relaxed text-slate-900">{summary.text}</p>
         {summary.evidenceSufficiency === 'insufficient' ? (
-          <p className="mt-1 text-[11px] font-medium text-amber-800">
+          <p className="mt-1.5 text-[11px] leading-relaxed text-amber-800">
             Insufficient evidence for a fuller summary.
           </p>
         ) : null}
       </section>
 
-      <details
-        className="rounded-md border border-violet-100 bg-violet-50/60 px-2 py-1.5"
+      <div
+        className="rounded-md border border-slate-200/80 bg-slate-50/50"
         data-enrichment-layer="guidance"
       >
-        <summary className="cursor-pointer text-[11px] font-semibold text-violet-800">
-          Optional teaching guidance · AI suggestion
-        </summary>
-        {guidanceAvailable ? (
-          <div className="mt-2 space-y-2">
-            <p className="text-xs leading-relaxed text-slate-700">{guidance.text}</p>
-            <label
-              htmlFor={guidanceCheckboxId}
-              className={`flex items-start gap-2 text-xs ${
-                activitySelected ? 'text-slate-800' : 'text-slate-400'
-              }`}
-            >
-              <input
-                id={guidanceCheckboxId}
-                type="checkbox"
-                checked={activitySelected && guidanceSelected}
-                disabled={!activitySelected || !onGuidanceSelectedChange}
-                onChange={(event) =>
-                  onGuidanceSelectedChange?.(event.target.checked)
-                }
-                className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-violet-600 focus:ring-violet-500"
-              />
-              <span>
-                Include guidance in experimental lesson package
-                {!activitySelected ? ' (select the activity first)' : ''}
-              </span>
-            </label>
+        <button
+          type="button"
+          aria-expanded={guidanceOpen}
+          aria-controls={guidancePanelId}
+          onClick={() => setGuidanceOpen((open) => !open)}
+          className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100/80"
+          data-enrichment-guidance-toggle
+        >
+          <Lightbulb
+            className={`h-3.5 w-3.5 shrink-0 ${
+              guidanceOpen ? 'text-amber-600' : 'text-slate-500'
+            }`}
+            aria-hidden="true"
+          />
+          <span className="min-w-0 flex-1">Optional teaching guidance</span>
+          <span className="shrink-0 text-[10px] font-normal text-slate-500">
+            AI suggestion
+          </span>
+          <ChevronRight
+            className={`h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform ${
+              guidanceOpen ? 'rotate-90' : ''
+            }`}
+            aria-hidden="true"
+          />
+        </button>
+        {guidanceOpen ? (
+          <div
+            id={guidancePanelId}
+            className="space-y-2 border-t border-slate-200/80 px-2.5 py-2.5"
+          >
+            {guidanceAvailable ? (
+              <>
+                <p className="text-xs leading-relaxed text-slate-700">
+                  {guidance.text}
+                </p>
+                <label
+                  htmlFor={guidanceCheckboxId}
+                  className={`flex items-start gap-2 text-xs ${
+                    activitySelected ? 'text-slate-800' : 'text-slate-400'
+                  }`}
+                >
+                  <input
+                    id={guidanceCheckboxId}
+                    type="checkbox"
+                    checked={activitySelected && guidanceSelected}
+                    disabled={!activitySelected || !onGuidanceSelectedChange}
+                    onChange={(event) =>
+                      onGuidanceSelectedChange?.(event.target.checked)
+                    }
+                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                  <span>
+                    Include guidance in experimental lesson package
+                    {!activitySelected ? ' (select the activity first)' : ''}
+                  </span>
+                </label>
+              </>
+            ) : (
+              <p className="text-xs leading-relaxed text-amber-800">
+                Guidance withheld: {guidance.withheldReason}
+              </p>
+            )}
           </div>
-        ) : (
-          <p className="mt-2 text-xs leading-relaxed text-amber-800">
-            Guidance withheld: {guidance.withheldReason}
-          </p>
-        )}
-      </details>
+        ) : null}
+      </div>
 
-      <details
-        className="rounded-md border border-slate-200 bg-white px-2 py-1.5"
+      <div
+        className="rounded-md border border-slate-200/80 bg-white"
         data-enrichment-layer="publisher_evidence"
       >
-        <summary className="cursor-pointer text-[11px] font-semibold text-slate-700">
-          Original publisher evidence · Human verified
-        </summary>
-        <div className="mt-2 border-t border-slate-100 pt-2">
-          <ActivityEvidenceDetails card={card} showActivityType={false} />
-        </div>
-      </details>
+        <button
+          type="button"
+          aria-expanded={evidenceOpen}
+          aria-controls={evidencePanelId}
+          onClick={() => setEvidenceOpen((open) => !open)}
+          className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
+          data-enrichment-evidence-toggle
+        >
+          <span className="min-w-0 flex-1">Original publisher evidence</span>
+          <span className="shrink-0 text-[10px] font-normal text-slate-500">
+            Human verified
+          </span>
+          <ChevronRight
+            className={`h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform ${
+              evidenceOpen ? 'rotate-90' : ''
+            }`}
+            aria-hidden="true"
+          />
+        </button>
+        {evidenceOpen ? (
+          <div
+            id={evidencePanelId}
+            className="border-t border-slate-100 px-2.5 py-2.5"
+          >
+            <ActivityEvidenceDetails card={card} showActivityType={false} />
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }
@@ -357,7 +425,7 @@ export function ActivityEvidenceCard({
   compact?: boolean
   /**
    * `panel` — natural height (left panel).
-   * `modal` — fixed shared height; chrome stays put; evidence scrolls inside.
+   * `modal` — natural height; page columns scroll (no nested card scrollbars).
    */
   layout?: 'panel' | 'modal'
   /** Bounded BE3 U8 POC only; absent for all production/default-off paths. */
@@ -376,20 +444,21 @@ export function ActivityEvidenceCard({
     isModal && experimentalSummary != null && experimentalGuidance != null
 
   const shellClass = [
+    'rounded-lg border',
     selectable
       ? checked
-        ? compact || isModal
-          ? 'rounded-lg border border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
-          : 'rounded-md border border-[#8bcfd9] bg-[#8bcfd9]/20 shadow-xs'
-        : compact || isModal
-          ? 'rounded-lg border border-slate-200 bg-slate-50/75'
-          : 'rounded-md border border-slate-200 bg-white shadow-xs'
-      : 'rounded-md border border-slate-200 bg-white shadow-xs',
-    isModal
-      ? `flex ${MODAL_ACTIVITY_CARD_HEIGHT_CLASS} flex-col overflow-hidden p-2`
-      : compact
-        ? 'p-2'
-        : 'px-2.5 py-2',
+        ? isModal
+          ? 'border-slate-300 bg-white shadow-xs ring-1 ring-sky-200/70'
+          : compact
+            ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
+            : 'border-[#8bcfd9] bg-[#8bcfd9]/20 shadow-xs'
+        : isModal
+          ? 'border-slate-200 bg-white'
+          : compact
+            ? 'border-slate-200 bg-slate-50/75'
+            : 'border-slate-200 bg-white shadow-xs'
+      : 'border-slate-200 bg-white shadow-xs',
+    isModal ? 'p-3' : compact ? 'p-2' : 'px-2.5 py-2',
   ].join(' ')
 
   const checkbox = selectable ? (
@@ -408,21 +477,14 @@ export function ActivityEvidenceCard({
       <li
         className={shellClass}
         data-activity-card-layout="modal"
-        data-activity-card-height="bounded"
+        data-activity-card-height="natural"
       >
-        <div className="flex shrink-0 gap-2.5">
+        <div className={selectable ? 'flex gap-2.5' : undefined}>
           {checkbox}
-          <div className="min-w-0 flex-1">
-            <ActivityChrome card={card} pagePrefix={pagePrefix} />
-          </div>
-        </div>
-        <div
-          className={`${modalCardScrollClass} mt-1.5 ${selectable ? 'pl-[1.625rem]' : ''}`}
-          data-activity-card-scroll
-        >
           {showExperimentalEnrichment ? (
             <ExperimentalActivityEnrichment
               card={card}
+              pagePrefix={pagePrefix}
               activitySelected={checked}
               summary={experimentalSummary}
               guidance={experimentalGuidance}
@@ -430,7 +492,10 @@ export function ActivityEvidenceCard({
               onGuidanceSelectedChange={onGuidanceSelectedChange}
             />
           ) : (
-            <ActivityEvidenceDetails card={card} showActivityType={false} />
+            <div className="min-w-0 flex-1 space-y-1.5">
+              <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
+              <ActivityEvidenceDetails card={card} showActivityType={false} />
+            </div>
           )}
         </div>
       </li>

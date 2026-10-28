@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 
-**Last updated:** Step 365
+**Last updated:** Step 366
 
 **Purpose:** Current project state. Read this first to understand where we are today.
 
@@ -31,9 +31,9 @@
 - **Neutral `CurrentLessonContext`:** left panel Book Content + Book Intelligence from one assembler; shared verified activity cards with Create-a-prompt.
 
 - **Left-panel activity selection:** workspace-owned SB/WB selection is authoritative; Create-a-prompt opens as review of the same state; shared `ActivityEvidenceCard`; deselections cannot re-enter handoff.
-- **Modal open-book review layout:** equal-height SB/WB page panels fill the modal body; activity cards share a fixed `11.5rem` height with scrollable evidence; left panel stays unbounded; focused tests + typecheck green.
+- **Modal open-book review layout:** equal-height SB/WB page panels fill the modal body; activity cards expand to content with page-column scroll only; left panel stays unbounded.
 
-- **D023 bounded activity-enrichment POC:** exact BE3 U8 SB pp. 128–129 five-activity scope; immutable experimental summary/guidance sidecars; guidance opt-in and activity-dependent; Activity 3 insufficient-evidence guard; lesson-specific experimental package projection; default-off development flag. No canonical/SS, database, bulk, production route, or generation-adapter changes.
+- **D023 bounded activity-enrichment POC:** exact BE3 U8 SB pp. 128–129 five-activity scope; immutable experimental summary/guidance sidecars; guidance opt-in and activity-dependent; Activity 3 insufficient-evidence guard; lesson-specific experimental package projection; default-off development flag. UI polish: summary-first cards, lightbulb guidance disclosure, expandable publisher evidence. No canonical/SS, database, bulk, production route, or generation-adapter changes.
 
 - Unused BI PDF/e2e verifier scripts archived under `scripts/archive/bi-pdf-verifiers/`. No further BI book expansion until Opener slice is owner-accepted.
 
