@@ -6278,3 +6278,24 @@
 
 ---
 
+### Step 365
+
+**Summary:** Implemented the D023 default-off BE3 Unit 8 activity-enrichment POC for the five verified SB pp. 128–129 activities. Added separate immutable summary/guidance sidecars, independent guidance selection with Activity 3 insufficient-evidence protection, and a lesson-specific experimental Neutral Lesson Package projection; canonical evidence, SS companions, database, bulk processing, production routing, and generation adapters remain unchanged. Focused tests, app typecheck, and lint completed.
+
+**Files touched:**
+- `.env.example` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (created)
+- `app/src/features/chalkie/buildBe3U08ActivityEnrichmentPocPackage.ts` (created)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (created)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

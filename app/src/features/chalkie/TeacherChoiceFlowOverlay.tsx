@@ -68,6 +68,19 @@ import {
 } from './chalkieWorkbookActivitySelection'
 import { ActivityEvidenceCard } from './ActivityEvidenceCard'
 import {
+  getBe3U08ActivitySummary,
+  getBe3U08TeachingGuidance,
+  isBe3U08ActivityEnrichmentPocEnabled,
+  isBe3U08ActivityId,
+} from './be3U08ActivityEnrichmentPoc'
+import {
+  buildBe3U08ActivityEnrichmentPocPackage,
+  createDefaultBe3U08GuidanceSelection,
+  isExactBe3U08ActivityEnrichmentPocScope,
+  setBe3U08GuidanceSelected,
+  type Be3U08GuidanceSelectionState,
+} from './buildBe3U08ActivityEnrichmentPocPackage'
+import {
   ActivityReviewBookPage,
   ActivityReviewBookSpread,
 } from './ActivityReviewBookSpread'
@@ -349,6 +362,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
+  const [be3U08GuidanceSelection, setBe3U08GuidanceSelection] =
+    useState<Be3U08GuidanceSelectionState>(() =>
+      createDefaultBe3U08GuidanceSelection(),
+    )
+  const activityEnrichmentPocEnabled =
+    isBe3U08ActivityEnrichmentPocEnabled() &&
+    isExactBe3U08ActivityEnrichmentPocScope(activityCards)
 
   useEffect(() => {
     if (!open) {
@@ -378,11 +398,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setBe3SeriesHandoff(null)
       setSbOnlyHandoff(null)
       setLessonShape('single')
+      setBe3U08GuidanceSelection(createDefaultBe3U08GuidanceSelection())
       return
     }
 
     setStepId('student_book')
     setLessonShape('single')
+    setBe3U08GuidanceSelection(createDefaultBe3U08GuidanceSelection())
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -485,6 +507,22 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const handoffActivitySelection = useMemo(
     () => createSbActivityHandoffSelection(activityCards, sbActivitySelection),
     [activityCards, sbActivitySelection],
+  )
+  const experimentalActivityEnrichmentPackage = useMemo(
+    () =>
+      activityEnrichmentPocEnabled
+        ? buildBe3U08ActivityEnrichmentPocPackage({
+            cards: activityCards,
+            activitySelection: sbActivitySelection,
+            guidanceSelection: be3U08GuidanceSelection,
+          })
+        : null,
+    [
+      activityCards,
+      activityEnrichmentPocEnabled,
+      be3U08GuidanceSelection,
+      sbActivitySelection,
+    ],
   )
   const selectedActivityVocabulary = useMemo(
     () => selectedSbActivityVocabulary(handoffActivitySelection),
@@ -892,10 +930,55 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               selected={sbActivitySelection.selectedCardIds.includes(
                                 card.id,
                               )}
-                              onSelectedChange={(selected) =>
+                              onSelectedChange={(selected) => {
                                 onSbActivitySelectionChange(card.id, selected)
-                              }
+                                if (!selected && activityEnrichmentPocEnabled) {
+                                  setBe3U08GuidanceSelection((current) =>
+                                    setBe3U08GuidanceSelected({
+                                      cards: activityCards,
+                                      activitySelection: sbActivitySelection,
+                                      guidanceSelection: current,
+                                      activityId: card.references.activityId,
+                                      selected: false,
+                                    }),
+                                  )
+                                }
+                              }}
                               checkboxId={`current-activity-${card.id}`}
+                              experimentalSummary={
+                                activityEnrichmentPocEnabled
+                                  ? getBe3U08ActivitySummary(
+                                      card.references.activityId,
+                                    )
+                                  : null
+                              }
+                              experimentalGuidance={
+                                activityEnrichmentPocEnabled
+                                  ? getBe3U08TeachingGuidance(
+                                      card.references.activityId,
+                                    )
+                                  : null
+                              }
+                              guidanceSelected={
+                                isBe3U08ActivityId(card.references.activityId) &&
+                                be3U08GuidanceSelection.selectedGuidanceActivityIds.includes(
+                                  card.references.activityId,
+                                )
+                              }
+                              onGuidanceSelectedChange={
+                                activityEnrichmentPocEnabled
+                                  ? (selected) =>
+                                      setBe3U08GuidanceSelection((current) =>
+                                        setBe3U08GuidanceSelected({
+                                          cards: activityCards,
+                                          activitySelection: sbActivitySelection,
+                                          guidanceSelection: current,
+                                          activityId: card.references.activityId,
+                                          selected,
+                                        }),
+                                      )
+                                  : undefined
+                              }
                             />
                           ))}
                         </ul>
@@ -1337,6 +1420,48 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                         No Student Book activities are selected.
                       </p>
                     )}
+
+                    {experimentalActivityEnrichmentPackage ? (
+                      <div
+                        className="space-y-2 border-t border-indigo-100 pt-3"
+                        data-experimental-neutral-lesson-package
+                      >
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+                            Experimental Neutral Lesson Package projection
+                          </p>
+                          <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                            Selections are copied into this lesson-specific view only. Sidecar and publisher records remain unchanged.
+                          </p>
+                        </div>
+                        {experimentalActivityEnrichmentPackage.activities.length > 0 ? (
+                          <ul className="space-y-2">
+                            {experimentalActivityEnrichmentPackage.activities.map(
+                              (activity) => (
+                                <li
+                                  key={activity.selection.activityId}
+                                  className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
+                                >
+                                  <p className="text-xs font-medium text-slate-800">
+                                    {activity.summary.text}
+                                  </p>
+                                  <p className="mt-1 text-[11px] text-slate-500">
+                                    Publisher evidence: {activity.publisherEvidenceReference.activityId}
+                                  </p>
+                                  <p className="mt-1 text-[11px] font-medium text-violet-700">
+                                    Guidance {activity.selection.includeGuidance ? 'included' : 'not included'}
+                                  </p>
+                                </li>
+                              ),
+                            )}
+                          </ul>
+                        ) : (
+                          <p className="text-xs text-slate-500">
+                            No activities are included in this experimental package.
+                          </p>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
                 </section>
 

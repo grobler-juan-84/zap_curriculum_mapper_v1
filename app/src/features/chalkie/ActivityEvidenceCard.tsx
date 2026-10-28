@@ -7,6 +7,10 @@
  */
 import type { SbActivityCard } from './chalkieActivitySelection'
 import type { WbActivityCard } from './chalkieWorkbookActivitySelection'
+import type {
+  Be3U08ActivitySummarySidecarRecord,
+  Be3U08TeachingGuidanceSidecarRecord,
+} from './be3U08ActivityEnrichmentPoc'
 
 export type ActivityEvidenceCardModel = SbActivityCard | WbActivityCard
 
@@ -239,6 +243,98 @@ export function ActivityEvidenceBody({
 const modalCardScrollClass =
   'min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-width:thin] [scrollbar-color:rgb(148_163_184)_transparent]'
 
+function ExperimentalActivityEnrichment({
+  card,
+  activitySelected,
+  summary,
+  guidance,
+  guidanceSelected,
+  onGuidanceSelectedChange,
+}: {
+  card: ActivityEvidenceCardModel
+  activitySelected: boolean
+  summary: Be3U08ActivitySummarySidecarRecord
+  guidance: Be3U08TeachingGuidanceSidecarRecord
+  guidanceSelected: boolean
+  onGuidanceSelectedChange?: (selected: boolean) => void
+}) {
+  const guidanceAvailable =
+    guidance.availability === 'available' && guidance.text !== null
+  const guidanceCheckboxId =
+    `activity-guidance-${summary.sourceEvidence.activityId}`
+
+  return (
+    <div className="space-y-2" data-experimental-activity-enrichment>
+      <section
+        className="rounded-md border border-indigo-100 bg-indigo-50/70 p-2"
+        aria-label="Experimental teacher-friendly summary"
+        data-enrichment-layer="summary"
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
+          Teacher-friendly summary · Experimental interpretation
+        </p>
+        <p className="mt-1 text-xs leading-relaxed text-slate-800">{summary.text}</p>
+        {summary.evidenceSufficiency === 'insufficient' ? (
+          <p className="mt-1 text-[11px] font-medium text-amber-800">
+            Insufficient evidence for a fuller summary.
+          </p>
+        ) : null}
+      </section>
+
+      <details
+        className="rounded-md border border-violet-100 bg-violet-50/60 px-2 py-1.5"
+        data-enrichment-layer="guidance"
+      >
+        <summary className="cursor-pointer text-[11px] font-semibold text-violet-800">
+          Optional teaching guidance · AI suggestion
+        </summary>
+        {guidanceAvailable ? (
+          <div className="mt-2 space-y-2">
+            <p className="text-xs leading-relaxed text-slate-700">{guidance.text}</p>
+            <label
+              htmlFor={guidanceCheckboxId}
+              className={`flex items-start gap-2 text-xs ${
+                activitySelected ? 'text-slate-800' : 'text-slate-400'
+              }`}
+            >
+              <input
+                id={guidanceCheckboxId}
+                type="checkbox"
+                checked={activitySelected && guidanceSelected}
+                disabled={!activitySelected || !onGuidanceSelectedChange}
+                onChange={(event) =>
+                  onGuidanceSelectedChange?.(event.target.checked)
+                }
+                className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-violet-600 focus:ring-violet-500"
+              />
+              <span>
+                Include guidance in experimental lesson package
+                {!activitySelected ? ' (select the activity first)' : ''}
+              </span>
+            </label>
+          </div>
+        ) : (
+          <p className="mt-2 text-xs leading-relaxed text-amber-800">
+            Guidance withheld: {guidance.withheldReason}
+          </p>
+        )}
+      </details>
+
+      <details
+        className="rounded-md border border-slate-200 bg-white px-2 py-1.5"
+        data-enrichment-layer="publisher_evidence"
+      >
+        <summary className="cursor-pointer text-[11px] font-semibold text-slate-700">
+          Original publisher evidence · Human verified
+        </summary>
+        <div className="mt-2 border-t border-slate-100 pt-2">
+          <ActivityEvidenceDetails card={card} showActivityType={false} />
+        </div>
+      </details>
+    </div>
+  )
+}
+
 export function ActivityEvidenceCard({
   card,
   pagePrefix,
@@ -247,6 +343,10 @@ export function ActivityEvidenceCard({
   checkboxId,
   compact = false,
   layout = 'panel',
+  experimentalSummary,
+  experimentalGuidance,
+  guidanceSelected = false,
+  onGuidanceSelectedChange,
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
@@ -260,12 +360,20 @@ export function ActivityEvidenceCard({
    * `modal` — fixed shared height; chrome stays put; evidence scrolls inside.
    */
   layout?: 'panel' | 'modal'
+  /** Bounded BE3 U8 POC only; absent for all production/default-off paths. */
+  experimentalSummary?: Be3U08ActivitySummarySidecarRecord | null
+  /** Kept separate from the summary because it is an optional AI suggestion. */
+  experimentalGuidance?: Be3U08TeachingGuidanceSidecarRecord | null
+  guidanceSelected?: boolean
+  onGuidanceSelectedChange?: (selected: boolean) => void
 }) {
   const selectable = typeof onSelectedChange === 'function'
   const checked = selected ?? true
   const inputId =
     checkboxId ?? `activity-evidence-${pagePrefix.toLowerCase()}-${card.id}`
   const isModal = layout === 'modal'
+  const showExperimentalEnrichment =
+    isModal && experimentalSummary != null && experimentalGuidance != null
 
   const shellClass = [
     selectable
@@ -312,7 +420,18 @@ export function ActivityEvidenceCard({
           className={`${modalCardScrollClass} mt-1.5 ${selectable ? 'pl-[1.625rem]' : ''}`}
           data-activity-card-scroll
         >
-          <ActivityEvidenceDetails card={card} showActivityType={false} />
+          {showExperimentalEnrichment ? (
+            <ExperimentalActivityEnrichment
+              card={card}
+              activitySelected={checked}
+              summary={experimentalSummary}
+              guidance={experimentalGuidance}
+              guidanceSelected={guidanceSelected}
+              onGuidanceSelectedChange={onGuidanceSelectedChange}
+            />
+          ) : (
+            <ActivityEvidenceDetails card={card} showActivityType={false} />
+          )}
         </div>
       </li>
     )

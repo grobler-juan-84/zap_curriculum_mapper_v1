@@ -451,10 +451,31 @@ The NLP must assemble successfully when only verified source evidence (+ packagi
 
 ---
 
+### D023 — Limited BE3 U8 activity-enrichment POC only
+
+**Date:** 2026-10-28
+
+**Status:** LOCKED
+
+**Decision:** Implement one bounded activity-enrichment proof of concept for the five human-verified Big English 3 Unit 8 Student Book activities on pp. 128–129. The POC keeps teacher-friendly summaries and optional teaching guidance in separate experimental sidecar records, preserves the original publisher evidence, defaults guidance selection to off, clears guidance when its activity is deselected, and projects selections into a lesson-specific experimental Neutral Lesson Package only. The UI is available only behind `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC`, which is default off, and only when the exact five-activity scope matches.
+
+**Explicit non-locks:** This decision does **not** approve a broad Neutral Lesson Library implementation, production routing, database migrations, bulk enrichment, canonical Phase 1/SS changes, provider lock-in, or expansion beyond these five activities. The experimental package projection is not wired into Chalkie or any other generation adapter.
+
+**Reason:** Validate the practical separation among publisher evidence, derived summary, optional guidance, and lesson-specific selection before considering a larger library architecture. Activity 3 (`Play a game.`) is the deliberate insufficient-evidence case: the POC may describe the limitation but must not invent a procedure or selectable guidance.
+
+**Implications:** Owner review should evaluate accuracy, clarity, selection behaviour, and UI usefulness with the flag enabled. Any correction to the experimental text is a bounded POC revision; any wider data model, persistent store, source coverage, or production route requires separate approval.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D001 evidence separation, D021 SB-first preparation, and D022 library-independent Neutral Lesson Package assembly.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-28 | Added D023 — exact-scope BE3 U8 activity-enrichment POC only; sidecars + experimental package projection; no broad library or production approval. |
 | 2026-10-25 | Added D022 — NLP is the durable handoff; BI optional `curriculum_interpretation` only; never page evidence. |
 | 2026-10-06 | Created canonical decision log; recorded D001–D004 from existing project doctrine. |
 | 2026-10-06 | Added D005 — Supabase backend platform locked. |
