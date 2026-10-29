@@ -1,35 +1,29 @@
 ---
-description: Auto-commit local changes after each file-changing prompt (never push)
+description: Require explicit user authorization before staging, committing, or pushing
 alwaysApply: true
 ---
 
-# Local Git Commit Workflow
+# Git Authorization Workflow
 
-At the **very end** of every prompt that **creates, modifies, renames, or deletes** any project file, create a **local git commit** for the changes from that prompt.
+Do not stage, commit, push, merge, amend, or otherwise publish changes unless the user explicitly authorizes that Git action. File-changing prompts may finish with uncommitted changes for owner review.
 
 ## Hard rules
 
-- **Commit locally only.** Never `git push`, never set upstream, never publish.
+- **Explicit authorization is required** for staging, committing, and pushing. Approval to edit files is not approval for a Git action.
+- A commit approval does not imply push approval. A push requires its own explicit authorization unless the user clearly approved both.
 - **Never update git config.**
 - **Never use destructive git commands** (`push --force`, `hard reset`, etc.).
 - **Never skip hooks** (`--no-verify`, etc.).
 - **Do not commit secrets** (`.env`, credentials, keys, tokens).
-- Prefer **one commit per prompt** covering that prompt’s work.
+- When authorized, prefer **one focused commit** covering only the approved work.
 
 ## When to commit
 
-Commit when this prompt changed project files.
-
-Do **not** commit when:
-
-- the session is **Ask mode**;
-- no files were changed;
-- the working tree is clean after maintenance writes;
-- the user explicitly says not to commit.
+Commit only when the user explicitly requests or approves a commit. Otherwise leave changes unstaged and uncommitted, review the diff, and report the working-tree status.
 
 ## What to include
 
-Stage the files changed by **this prompt** (including tracker/docs/rule updates made for the same prompt).
+When staging is authorized, stage only the files within the approved scope (including tracker/docs/rule updates approved for the same work).
 
 Do **not** sweep in unrelated local edits the user made outside this prompt unless the user asked to include them.
 
@@ -49,13 +43,13 @@ Format:
 
 Examples:
 
-- `Add local auto-commit Cursor rule for file-changing prompts.`
+- `Require explicit authorization for Git actions.`
 - `Fix truncated Beehive 1 Unit 4 extraction JSON.`
 - `Update dataset registry after Beehive 1 SB batch import.`
 
 Use conventional style when natural (`Add`, `Fix`, `Update`, `Refactor`, `Docs:`), but clarity beats rigid prefixes.
 
-## Required commit procedure
+## Authorized commit procedure
 
 Run these in parallel first:
 
@@ -73,7 +67,7 @@ PowerShell example:
 
 ```powershell
 git commit -m @"
-Add local auto-commit Cursor rule for file-changing prompts.
+Require explicit authorization for Git actions.
 
 Keep commits local only; do not push unless explicitly requested.
 "@
@@ -85,12 +79,12 @@ Keep commits local only; do not push unless explicitly requested.
 2. Update `docs/0-index.md` if docs inventory/status changed.
 3. Update operating trackers (`docs/4-decisions.md`, `docs/5-progress.md`, `docs/6-todo.md`, `docs/7-future.md`) as needed.
 4. Append `docs/project-tracking/0-project-steps.md`.
-5. **Then commit locally** as the final action.
+5. Review and report the diff. Stage, commit, or push only if explicitly authorized.
 
 ## Failure handling
 
-If commit fails (hooks, empty commit, partial stage), fix the issue and create a **new** commit. Do not amend unless the user’s amend conditions are fully met.
+If an authorized commit fails (hooks, empty commit, partial stage), report or fix it within the granted scope. Do not amend unless the user explicitly authorizes amending.
 
 ## Non-negotiable
 
-Never finish a file-changing Agent prompt with uncommitted changes from that prompt, unless the user forbade committing or Ask mode prevented writes.
+Never infer Git authorization from permission to edit files. It is valid to finish a file-changing prompt with reviewed, uncommitted changes.

@@ -60,6 +60,7 @@
 | D023 | Limited BE3 U8 activity-enrichment POC only | 2026-10-28 | LOCKED |
 | D024 | Minimal additive Neutral Lesson Library pilot | 2026-10-29 | LOCKED |
 | D025 | Complete NLL pilot through Cursor, then freeze features for repository audit | 2026-10-29 | LOCKED |
+| D026 | Repository consolidation begins with a read-only evidence audit | 2026-10-29 | LOCKED |
 
 ---
 
@@ -513,6 +514,8 @@ The pilot contains one component, nine memberships, nine existing summaries (`hi
 
 The NLL pilot remains incomplete until Cursor reports success for all three actions and the results are reviewed. After successful completion, freeze new feature development. The next milestone is **Project Consolidation & Repository Audit**, beginning read-only under the rule: audit first, delete second.
 
+**Completion annotation (2026-10-29):** All three actions completed and were reviewed. The pilot was committed and pushed on `main` at `f8a86c73f074409e5a366a4881ed4118062a87e2`; no deployment occurred. The feature-development freeze is active.
+
 **Reason:** Close the bounded pilot cleanly before assessing repository redundancy, unused experiments, conflicting documentation, outdated assumptions, and unnecessary complexity.
 
 **Alternatives rejected:** Expanding NLL features before persistence is verified; marking the pilot complete from local tests alone; combining deployment or cleanup with completion; deleting files before an evidence-based audit.
@@ -525,10 +528,35 @@ The NLL pilot remains incomplete until Cursor reports success for all three acti
 
 ---
 
+### D026 — Repository consolidation begins with a read-only evidence audit
+
+**Date:** 2026-10-29
+**Status:** LOCKED
+
+**Decision:** Begin the Project Consolidation & Repository Audit as a separate read-only milestone. Cursor performs the first technical audit and writes one evidence-backed report. ChatGPT Desktop independently challenges the important findings. The owner approves any cleanup in later, bounded batches.
+
+No file deletion, movement, archival, renaming, refactoring, dependency change, database/Storage mutation, canonical edit, commit, push, deployment, or new feature work is authorized during the first audit.
+
+**Progress annotation (2026-10-29):** Cursor's first-pass audit and ChatGPT Desktop's independent second pass are complete. The owner approved a bounded Batch 0 of documentation and operational-safety corrections only. Feature development remains frozen and production deployment remains deferred.
+
+**Reason:** The repository contains valuable experiments and evolving architecture. Consolidation should reduce real confusion and maintenance burden without deleting operational compatibility paths, canonical evidence, decisions, or useful history based on age or assumption.
+
+**Alternatives rejected:** Immediate cleanup; treating the NLL as proof that prior builders are obsolete; theoretical refactoring without usage evidence; deleting historical records before separating current authority from preserved evidence.
+
+**Implications:** Findings must cite exact locations and usage evidence, classify confidence and risk, and recommend Keep / Consolidate / Archive / Delete. Audit first; delete second. Feature development remains frozen.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D001, D021, D022, D024, D025, canonical-data safeguards, and the completed NLL pilot.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-29 | Annotated D025 completion and D026 audit completion; bounded Batch 0 documentation/operational-safety work approved, with freeze and no-deployment boundaries preserved. |
+| 2026-10-29 | Added D026 — repository consolidation starts with a delegated read-only evidence audit; no cleanup or feature work authorized. |
 | 2026-10-29 | Added D025 — delegate migration, persistence verification, and Git completion to Cursor; freeze features after success; next milestone is read-only repository consolidation/audit. |
 | 2026-10-29 | Added D024 — minimal additive NLL pilot for BE3 U8; stable activity-keyed summaries, four tables, hidden experimental seed, and default-off shadow retrieval/package. |
 | 2026-10-28 | Amended D023 — exact WB companion pp. 104–105 (four activities) added to the same default-off summary-only POC; not general WB enrichment. |

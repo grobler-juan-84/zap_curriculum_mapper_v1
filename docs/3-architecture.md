@@ -38,7 +38,9 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
-**Development priority vs phase numbers:** Conceptual phases stay in this architecture. Active bounded research focus is **horizontal mapping** within Phase 2 evidence/interpretation — teacher-directed cumulative applications from prior units in the same book — with Chalkie / **D018** packaging treated as **downstream** (preserved evidence; not the current priority). Series Intelligence / Vertical Mapping (Phase 3) remains **parked as a later priority (D020)** — not gated on Phase 2 completion or “sufficient” overviews. Near-term priorities: workable Phase 2, practical Phase 4–7 pathway, and clear teacher-facing option presentation. That does not collapse phase boundaries, lock horizontal-mapping ownership, or treat experimental prompts as production generation. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. The current milestone is **D026 — Project Consolidation & Repository Audit** after completion of the bounded D025 NLL pilot. Feature development is frozen and production deployment is deferred. Existing horizontal-mapping, Chalkie, experimental, and NLL evidence remains preserved; consolidation does not promote an experiment or shadow path into production. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+
+**Current knowledge/package lineages:** (1) bespoke BE3 handoffs provide the current teacher output, (2) neutral packages and limited canaries validate parity behind default-off flags, (3) the D023 enrichment POC supplies experimental summary sidecars, and (4) the D024/D025 NLL pilot supplies persistent reusable knowledge in default-off shadow mode. These lineages have different roles; none currently replaces another.
 
 ---
 

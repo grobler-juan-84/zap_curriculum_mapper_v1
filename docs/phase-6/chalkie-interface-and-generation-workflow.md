@@ -12,6 +12,10 @@ This is an operational reference for teachers, ChatGPT, and Cursor preparing or 
 
 **Architecture boundary:** this workflow is intentionally Chalkie-specific. It is the current adapter from a shared evidence-backed lesson package to Chalkie’s title, prompt, outline, vocabulary, and review flow. It must not become the only way the project stores curriculum intent. A future platform may need a different handoff template, but should reuse the same verified evidence, component mappings, teacher choices, and neutral lesson package. See [F021](../7-future.md).
 
+### Current knowledge/package lineages
+
+Four related lineages are intentionally preserved during D026: **bespoke BE3 handoffs** provide current teacher output; **neutral packages and limited canaries** validate parity behind default-off flags; the **D023 enrichment POC** provides experimental activity-summary sidecars; and the **D024/D025 NLL pilot** stores reusable activity knowledge and builds a default-off shadow package. They serve different roles. NLL is not wired into the UI or production routing, and none of these paths currently replaces another.
+
 **Teacher workflow lock ([D021](../4-decisions.md)):** standard lesson preparation is **Student Book–first**. Teachers choose the SB unit/component they are teaching; they are not asked to pick SB vs WB as the generation origin. Verified SB→WB companions may attach WB as consolidation/practice; unverified pairs must not be guessed. Workbook remains viewable.
 
 **Chalkie Workspace UI (2026-10-21):** Student Books only in the teacher book dropdown (display name without “Student Book”); optional **View Workbook** shows exact mapped WB pages with PDF navigation locked; prepare prompt remains SB-anchored. See [`../phase-5/p5-prototype-chalkie-workspace.md`](../phase-5/p5-prototype-chalkie-workspace.md).

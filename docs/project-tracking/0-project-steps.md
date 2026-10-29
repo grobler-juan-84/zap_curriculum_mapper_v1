@@ -6426,3 +6426,41 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 373
+
+**Summary:** Registered D026 Project Consolidation and Repository Audit as a read-only milestone and prepared the Cursor first-pass audit handover. The NLL pilot remains complete, feature development remains frozen, and only one audit-report artifact is authorized; no cleanup, refactoring, canonical/database change, commit, push, or deployment is approved.
+
+**Files touched:**
+- `docs/project-tracking/CURSOR_REPOSITORY_AUDIT.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 374
+
+**Summary:** Completed the approved D026 Batch 0 documentation and operational-safety corrections. Aligned the current milestone and D025/D026 boundary, documented the four preserved knowledge/package lineages and default-off NLL shadow flag, indexed the SS and repository audits, and changed Cursor rules so staging, commits, and pushes require explicit user authorization. Feature development remains frozen; production deployment remains deferred; no runtime or application-source files changed.
+
+**Files touched:**
+- `README.md` (updated)
+- `.env.example` (updated)
+- `.cursor/rules/github_commit_workflow.mdc` (updated)
+- `.cursor/rules/project_steps_rule.mdc` (updated)
+- `.cursor/rules/project_status_rule.mdc` (updated)
+- `.cursor/rules/operating_trackers.mdc` (updated)
+- `docs/0-index.md` (updated)
+- `docs/1-project-overview.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/phase-6/chalkie-interface-and-generation-workflow.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

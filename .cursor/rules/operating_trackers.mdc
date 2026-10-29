@@ -39,7 +39,7 @@ Before proposing major direction changes, read `4-decisions.md` and `5-progress.
 2. Update these operating trackers.
 3. Update `docs/project-tracking/1-project-status.md` only as a short pointer/sync note if that rule still applies; prefer `5-progress.md` as the live snapshot.
 4. Append `docs/project-tracking/0-project-steps.md` when the prompt changed files.
-5. Commit locally per `.cursor/rules/github_commit_workflow.mdc`.
+5. Review and report the resulting changes; stage, commit, or push only with explicit user authorization per `.cursor/rules/github_commit_workflow.mdc`.
 
 ## Non-negotiable
 

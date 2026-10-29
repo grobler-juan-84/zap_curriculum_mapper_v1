@@ -1,6 +1,6 @@
 # General Curriculum Mapper
 
-Textbook-agnostic curriculum intelligence system. Current focus: **Phase 1 — Curriculum Extraction & Dataset Development**.
+Textbook-agnostic curriculum intelligence system. **Current milestone: D026 — Project Consolidation & Repository Audit.** The D025 BE3 Unit 8 Neutral Lesson Library pilot is complete, feature development is frozen, and production deployment is deferred.
 
 ## Repository layout
 
@@ -48,7 +48,7 @@ See [`python/README.md`](./python/README.md).
 | AI | Google Gemini API | Not integrated; extraction via Google AI Studio manually |
 | Frontend hosting | Vercel | Not deployed from this repo |
 
-See [`docs/2-tech-stack.md`](./docs/2-tech-stack.md), [`docs/5-progress.md`](./docs/5-progress.md), and [`docs/4-decisions.md`](./docs/4-decisions.md).
+See [`docs/5-progress.md`](./docs/5-progress.md) for the current state, [`docs/4-decisions.md`](./docs/4-decisions.md) for locked boundaries, and [`docs/2-tech-stack.md`](./docs/2-tech-stack.md) for the implementation stack.
 
 ## Documentation
 

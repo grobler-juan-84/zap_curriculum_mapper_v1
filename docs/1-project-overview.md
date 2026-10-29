@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE / EVOLVING  
 **Project:** General Curriculum Mapper  
-**Current Development Focus:** Teacher-first workflow — immediate emphasis on **bounded horizontal mapping** for evidence-backed, teacher-controlled cumulative learning (within one book); Book Intelligence remains provisional under D017/D019; Chalkie / D018 is downstream  
+**Current Development Focus:** **D026 — Project Consolidation & Repository Audit.** D025 is complete; feature development is frozen; production deployment is deferred. Existing curriculum, Chalkie, experimental, and NLL paths are preserved while documentation and operational safety are consolidated.
 **Workflow:** [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md)
 
 ---

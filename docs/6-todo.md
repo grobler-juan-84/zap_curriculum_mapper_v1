@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 371
+**Last updated:** Step 374
 
 
 
@@ -621,9 +621,13 @@
 
 - [x] **Cursor Step 3 — commit and push:** reviewed diff (NLL pilot + tests + migration + docs only); committed and pushed `main` without force-push. No deployment.
 
-- [ ] **Completion review and feature freeze:** owner/reviewer confirms Cursor evidence; feature development remains frozen per D025.
+- [x] **Completion review and feature freeze:** Cursor evidence reviewed; D025 NLL pilot accepted complete; feature development frozen.
 
-- [ ] **Next milestone — Project Consolidation & Repository Audit:** begin separately and read-only. Audit first; delete second.
+- [x] **D026 first-pass repository audit:** Cursor completed the evidence-backed read-only report; no runtime cleanup, commit, push, or deployment.
+
+- [x] **Desktop second-pass audit review:** important findings independently verified; lineage roles clarified; smallest documentation/operational-safety batch proposed.
+
+- [x] **Batch 0 documentation and operational safety:** current milestone, D025/D026 boundary, four lineage roles, Cursor Git authorization rules, environment examples, SS audit index entry, freeze, and deployment deferral aligned. Leave uncommitted pending owner review.
 
 - [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
 
