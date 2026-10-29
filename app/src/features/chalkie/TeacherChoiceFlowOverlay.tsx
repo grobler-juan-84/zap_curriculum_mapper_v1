@@ -87,6 +87,17 @@ import {
   type NllCardComparisonByActivityId,
   type NllCardComparisonLoadStatus,
 } from './nllCardComparison'
+import {
+  assembleNllGeneralLessonPlanPilot,
+  invalidateNllGeneralLessonPlanPilotRequest,
+  isExactBe3U08OpenerNllGeneralLessonPlanScope,
+  isNllGeneralLessonPlanPilotEnabled,
+  NLL_GENERAL_LESSON_PLAN_FALLBACK_LINE,
+  openerNllGeneralLessonPlanScopeKey,
+  shouldApplyNllGeneralLessonPlanPilotResult,
+  shouldRunNllGeneralLessonPlanPilot,
+} from './nllGeneralLessonPlanPilot'
+import { renderGeneralLessonPlanFromNeutralPackage } from './renderGeneralLessonPlanFromNeutralPackage'
 import { supabase } from '../../lib/supabase'
 import {
   ActivityReviewBookPage,
@@ -327,6 +338,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
   const continueRef = useRef<HTMLButtonElement>(null)
+  const overlayOpenRef = useRef(open)
+  const generalLessonPlanRequestIdRef = useRef(0)
+  const generalLessonPlanRequestScopeKeyRef = useRef('')
+  const generalLessonPlanCurrentScopeKeyRef = useRef('')
+  const preparedOutputKindRef = useRef<PreparedOutputKind | null>(null)
   const [stepId, setStepId] = useState<TeacherChoiceStepId>('student_book')
   const [selectedIds, setSelectedIds] = useState<string[]>(() =>
     initialSelectedPriorLearningIds(),
@@ -340,8 +356,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [showChalkiePackaging, setShowChalkiePackaging] = useState(false)
   const [preparedOutputKind, setPreparedOutputKind] =
     useState<PreparedOutputKind | null>(null)
+  preparedOutputKindRef.current = preparedOutputKind
   const [promptPreview, setPromptPreview] = useState('')
   const [lessonPlanPreview, setLessonPlanPreview] = useState('')
+  const [lessonPlanPreparing, setLessonPlanPreparing] = useState(false)
   const [conciseOutline, setConciseOutline] = useState('')
   const [suggestedVocabulary, setSuggestedVocabulary] = useState('')
   const [suggestedVocabularyEmpty, setSuggestedVocabularyEmpty] = useState(false)
@@ -402,6 +420,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         companion: lesson?.workbookCompanion ?? null,
       })
     : ''
+  const generalLessonPlanScopeKey = openerNllGeneralLessonPlanScopeKey({
+    activityCards,
+    workbookActivityCards,
+    companion: lesson?.workbookCompanion ?? null,
+  })
+  generalLessonPlanCurrentScopeKeyRef.current = generalLessonPlanScopeKey
 
   useEffect(() => {
     const shouldLoad = shouldLoadNllCardComparison({
@@ -426,7 +450,27 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   ])
 
   useEffect(() => {
+    if (!open) return
+    if (
+      lessonPlanPreparing &&
+      generalLessonPlanRequestScopeKeyRef.current &&
+      generalLessonPlanRequestScopeKeyRef.current !== generalLessonPlanScopeKey
+    ) {
+      invalidateNllGeneralLessonPlanPilotRequest({
+        requestIdRef: generalLessonPlanRequestIdRef,
+      })
+      setLessonPlanPreparing(false)
+    }
+  }, [open, generalLessonPlanScopeKey, lessonPlanPreparing])
+
+  useEffect(() => {
+    overlayOpenRef.current = open
     if (!open) {
+      invalidateNllGeneralLessonPlanPilotRequest({
+        requestIdRef: generalLessonPlanRequestIdRef,
+      })
+      generalLessonPlanRequestScopeKeyRef.current = ''
+      preparedOutputKindRef.current = null
       setStepId('student_book')
       setSelectedIds(initialSelectedPriorLearningIds())
       setTeacherAdditions([])
@@ -439,6 +483,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setPreparedOutputKind(null)
       setPromptPreview('')
       setLessonPlanPreview('')
+      setLessonPlanPreparing(false)
       setConciseOutline('')
       setSuggestedVocabulary('')
       setSuggestedVocabularyEmpty(false)
@@ -647,7 +692,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   const handleBack = () => {
     if (showPromptPreview) {
+      if (preparedOutputKind === 'lesson_plan') {
+        invalidateNllGeneralLessonPlanPilotRequest({
+          requestIdRef: generalLessonPlanRequestIdRef,
+        })
+        setLessonPlanPreparing(false)
+      }
       setShowPromptPreview(false)
+      preparedOutputKindRef.current = null
       setPreparedOutputKind(null)
       setCopyStatus('idle')
       if (preparedOutputKind === 'chalkie') {
@@ -689,6 +741,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handlePrepareChalkiePrompt = () => {
+    invalidateNllGeneralLessonPlanPilotRequest({
+      requestIdRef: generalLessonPlanRequestIdRef,
+    })
+    setLessonPlanPreparing(false)
+    preparedOutputKindRef.current = 'chalkie'
     const assembled = buildChalkiePromptPreview({
       lesson,
       packageShape: effectiveLessonShape,
@@ -755,22 +812,21 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   }
 
   const handleChooseChalkie = () => {
+    invalidateNllGeneralLessonPlanPilotRequest({
+      requestIdRef: generalLessonPlanRequestIdRef,
+    })
+    setLessonPlanPreparing(false)
+    // Keep preparedOutputKind off General so an in-flight Stage 4 result cannot apply.
+    if (preparedOutputKindRef.current === 'lesson_plan') {
+      preparedOutputKindRef.current = null
+      setPreparedOutputKind(null)
+    }
     setShowChalkiePackaging(true)
   }
 
-  const handlePrepareDetailedLessonPlan = () => {
-    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
-    const plan = buildDetailedGeneralLessonPlan({
-      lesson,
-      selectedSuggestions,
-      teacherAdditions: selectedTeacherAdditions,
-      activitySelection: handoffActivitySelection,
-      workbookActivitySelection: handoffWorkbookActivitySelection,
-      bookIntelligenceUnit: biInputs.unit,
-      biArtifactRef: biInputs.biArtifactRef,
-    })
+  const resetPreviewChromeForLessonPlan = () => {
+    preparedOutputKindRef.current = 'lesson_plan'
     setPreparedOutputKind('lesson_plan')
-    setLessonPlanPreview(plan.detailedLessonPlan)
     setPromptPreview('')
     setBe3SeriesHandoff(null)
     setSbOnlyHandoff(null)
@@ -787,6 +843,86 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setLesson2OutlineCopyStatus('idle')
     setLesson1VocabCopyStatus('idle')
     setLesson2VocabCopyStatus('idle')
+  }
+
+  const buildExistingGeneralLessonPlanText = (fallbackLine?: string) => {
+    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
+    const plan = buildDetailedGeneralLessonPlan({
+      lesson,
+      selectedSuggestions,
+      teacherAdditions: selectedTeacherAdditions,
+      activitySelection: handoffActivitySelection,
+      workbookActivitySelection: handoffWorkbookActivitySelection,
+      bookIntelligenceUnit: biInputs.unit,
+      biArtifactRef: biInputs.biArtifactRef,
+    })
+    return fallbackLine
+      ? `${fallbackLine}\n\n${plan.detailedLessonPlan}`
+      : plan.detailedLessonPlan
+  }
+
+  const handlePrepareDetailedLessonPlan = () => {
+    const flagEnabled = isNllGeneralLessonPlanPilotEnabled()
+    const exactScopeEligible = isExactBe3U08OpenerNllGeneralLessonPlanScope({
+      activityCards,
+      workbookActivityCards,
+      companion: lesson.workbookCompanion ?? null,
+    })
+    const runPilot = shouldRunNllGeneralLessonPlanPilot({
+      flagEnabled,
+      exactScopeEligible,
+      generalLessonPlanRequested: true,
+    })
+
+    if (!runPilot) {
+      setLessonPlanPreparing(false)
+      resetPreviewChromeForLessonPlan()
+      setLessonPlanPreview(buildExistingGeneralLessonPlanText())
+      return
+    }
+
+    const requestId = generalLessonPlanRequestIdRef.current + 1
+    generalLessonPlanRequestIdRef.current = requestId
+    const requestScopeKey = generalLessonPlanScopeKey
+    generalLessonPlanRequestScopeKeyRef.current = requestScopeKey
+    setLessonPlanPreparing(true)
+    resetPreviewChromeForLessonPlan()
+    setLessonPlanPreview('Preparing general lesson plan…')
+
+    void assembleNllGeneralLessonPlanPilot({
+      flagEnabled: true,
+      activityCards,
+      workbookActivityCards,
+      companion: lesson.workbookCompanion ?? null,
+      sbSelection: handoffActivitySelection,
+      wbSelection: handoffWorkbookActivitySelection,
+      selectedSuggestions,
+      teacherAdditions: selectedTeacherAdditions,
+      client: supabase,
+    }).then((result) => {
+      if (
+        !shouldApplyNllGeneralLessonPlanPilotResult({
+          requestId,
+          latestRequestId: generalLessonPlanRequestIdRef.current,
+          overlayOpen: overlayOpenRef.current,
+          requestScopeKey,
+          currentScopeKey: generalLessonPlanCurrentScopeKeyRef.current,
+          preparedOutputKind: preparedOutputKindRef.current,
+        })
+      ) {
+        return
+      }
+      setLessonPlanPreparing(false)
+      if (result.ok) {
+        setLessonPlanPreview(
+          renderGeneralLessonPlanFromNeutralPackage(result.nlp),
+        )
+        return
+      }
+      setLessonPlanPreview(
+        buildExistingGeneralLessonPlanText(NLL_GENERAL_LESSON_PLAN_FALLBACK_LINE),
+      )
+    })
   }
 
   const handleCopyPrompt = async () => {
@@ -1659,12 +1795,15 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                 <button
                   type="button"
                   onClick={handlePrepareDetailedLessonPlan}
-                  className="group rounded-xl border border-slate-200 bg-white p-5 text-left shadow-xs transition hover:border-[#3766a3] hover:bg-sky-50/40 focus:outline-none focus:ring-2 focus:ring-[#3766a3]"
+                  disabled={lessonPlanPreparing}
+                  className="group rounded-xl border border-slate-200 bg-white p-5 text-left shadow-xs transition hover:border-[#3766a3] hover:bg-sky-50/40 focus:outline-none focus:ring-2 focus:ring-[#3766a3] disabled:cursor-wait disabled:opacity-70"
                 >
                   <span className="mb-4 inline-flex rounded-lg bg-sky-100 px-3 py-1.5 text-sm font-semibold text-[#3766a3]">General</span>
-                  <span className="block text-lg font-semibold text-slate-900">Lesson plan</span>
+                  <span className="block text-lg font-semibold text-slate-900">Prepare lesson plan</span>
                   <span className="mt-2 block text-sm leading-relaxed text-slate-600">
-                    Create a detailed, platform-neutral lesson plan from the selected evidence.
+                    {lessonPlanPreparing
+                      ? 'Preparing general lesson plan…'
+                      : 'Create a detailed, platform-neutral lesson plan from the selected evidence.'}
                   </span>
                 </button>
               </div>

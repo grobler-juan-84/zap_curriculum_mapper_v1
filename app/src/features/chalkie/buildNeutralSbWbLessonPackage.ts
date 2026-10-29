@@ -2,6 +2,11 @@ import {
   toBiPlanningContext,
   type BiPlanningContext,
 } from '../../lib/bookIntelligence/toBiPlanningContext'
+import type {
+  NllDisplayStatus,
+  NllReviewState,
+  NllSummaryStaleness,
+} from '../nll/neutralLessonLibrary'
 import type { BookIntelligenceUnitOverview } from '../../types/bookIntelligence'
 import {
   hasNoSelectedSbActivities,
@@ -137,6 +142,35 @@ export type NeutralPackageBoundaries = {
   readonly notes: readonly string[]
 }
 
+/**
+ * Ephemeral lesson-specific NLL projection for Stage 4.
+ * Not publisher evidence; not a reusable library. Preferred-summary inclusion
+ * is implied by presence (no redundant isPreferred flag).
+ */
+export type NeutralNllDerivedActivitySummary = {
+  readonly activityId: string
+  readonly summaryId: string
+  readonly version: number
+  readonly summaryText: string
+  readonly evidenceStatus: 'sufficient' | 'insufficient'
+  readonly displayStatus: NllDisplayStatus
+  readonly reviewState: NllReviewState
+  readonly provenance: Readonly<Record<string, unknown>>
+  readonly canonicalPath: string
+  readonly canonicalSha256: string
+  readonly activitySha256: string
+  readonly createdAt: string
+  readonly staleness: NllSummaryStaleness
+  readonly currentActivitySha256: string | null
+}
+
+export type NeutralNllDerivedKnowledge = {
+  readonly source: 'nll'
+  readonly componentKey: string
+  readonly componentId: string
+  readonly activitySummaries: readonly NeutralNllDerivedActivitySummary[]
+}
+
 export type NeutralSbWbLessonPackage = {
   readonly identity: {
     readonly packageReference:
@@ -161,6 +195,11 @@ export type NeutralSbWbLessonPackage = {
   readonly priorSupport: readonly NeutralPriorSupportRecord[]
   /** Optional labelled planning context (D022). Absent when BI unavailable. */
   readonly curriculumInterpretation?: NeutralCurriculumInterpretation
+  /**
+   * Optional Stage 4 NLL projection. Absent unless a pilot path attaches it.
+   * Never nested inside selectedActivities / publisher evidence.
+   */
+  readonly derivedKnowledge?: NeutralNllDerivedKnowledge
   /**
    * Reserved for future School Intelligence notes (parked).
    * Not implemented — keep absent until authorized.

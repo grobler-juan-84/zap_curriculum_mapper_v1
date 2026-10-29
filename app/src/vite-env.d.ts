@@ -14,6 +14,13 @@ interface ImportMetaEnv {
    * Independent of enrichment POC, NLL shadow pilot, and neutral canaries.
    */
   readonly VITE_CHALKIE_NLL_CARD_COMPARISON?: string
+  /**
+   * Opt-in Stage 4 NLL → NLP → General Lesson Plan pilot (default unset/false).
+   * Opener-only; General-plan path only; independent of Stage 3 comparison,
+   * enrichment POC, NLL shadow pilot, and neutral canaries. May read hidden
+   * experimental summaries without promoting them.
+   */
+  readonly VITE_NLL_GENERAL_LESSON_PLAN_PILOT?: string
 }
 
 interface ImportMeta {

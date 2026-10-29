@@ -6561,3 +6561,96 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 381
+
+**Summary:** Implemented bounded Stage 4 Opener pilot (`VITE_NLL_GENERAL_LESSON_PLAN_PILOT`, default off): package-level NLP `derivedKnowledge`, lazy General-plan NLL load, two-lesson tool-neutral renderer, overlay wiring with cancel/fallback, tests, and tracker/architecture wording. Left uncommitted pending independent review. No NLL promotion, NLP persistence, Stage 5, deploy, or D027 change.
+
+**Files touched:**
+- `.env.example` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/nllGeneralLessonPlanPilot.ts` (created)
+- `app/src/features/chalkie/renderGeneralLessonPlanFromNeutralPackage.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/nllGeneralLessonPlanPilot.test.ts` (created)
+- `scripts/tests/renderGeneralLessonPlanFromNeutralPackage.test.ts` (created)
+- `docs/3-architecture.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 382
+
+**Summary:** Applied ChatGPT Desktop Stage 4 review corrections within the same 16 authorized paths: fuller General-result invalidation (scope key + General still active; invalidate on close/back/Chalkie/scope change/supersede), BI block once, derived lesson-purpose labels, local prior-support mapper (no canary import), and matching tests. Automated verification run; manual smoke deferred; left uncommitted.
+
+**Files touched:**
+- `app/src/features/chalkie/nllGeneralLessonPlanPilot.ts` (updated)
+- `app/src/features/chalkie/renderGeneralLessonPlanFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/nllGeneralLessonPlanPilot.test.ts` (updated)
+- `scripts/tests/renderGeneralLessonPlanFromNeutralPackage.test.ts` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 383
+
+**Summary:** Stage 4 BI-exclusion addendum: stopped passing BI into Stage 4 assemble; removed BI rendering from the NLP-derived General plan; honest pilot objective line; derived purpose labels retained; tests prove no BI surface on Stage 4 output while flag-off GLP / D022 / shared NLP BI remain. Left uncommitted; smoke deferred.
+
+**Files touched:**
+- `app/src/features/chalkie/nllGeneralLessonPlanPilot.ts` (updated)
+- `app/src/features/chalkie/renderGeneralLessonPlanFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/nllGeneralLessonPlanPilot.test.ts` (updated)
+- `scripts/tests/renderGeneralLessonPlanFromNeutralPackage.test.ts` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 384
+
+**Summary:** Ran the authenticated Stage 4 smoke matrix on the uncommitted 16-path implementation (flag-off legacy GLP; Opener success with BI exclusion; NLL failure fallback; Story isolation; async invalidation; independence). Recorded smoke-verified status in Stage 4 trackers only. Restored `.env.local`; left uncommitted awaiting owner Git authorization.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 385
+
+**Summary:** Recorded owner acceptance of the bounded Stage 4 Opener NLL→NLP→General Lesson Plan pilot (automated verification + authenticated smoke already passed). Authorized commit and push of the verified 16 paths to `main` only. Successful Stage 4 output excludes experimental BI; legacy/fallback D022 BI preserved; summaries remain `hidden`/`experimental`; no deploy/persistence/promotion/POC retirement/Stage 5.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

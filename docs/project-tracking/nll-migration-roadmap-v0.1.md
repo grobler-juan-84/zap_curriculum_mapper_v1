@@ -3,11 +3,11 @@
 **Status:** ACTIVE / PLANNING AUTHORITY  
 **Version:** 0.1  
 **Date:** 2026-10-29  
-**Authority:** D027; Stage 2 planning authority; Stage 3 bounded comparison complete (owner-accepted)
+**Authority:** D027; Stage 2 planning authority; Stage 3 complete; Stage 4 local pilot owner-accepted
 **Scope:** BE3 Unit 8 Opener pilot first; broader coverage only in Stage 6
 
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did **not** itself authorize Stage 3 coding. Stage 3 was subsequently authorized as a bounded slice, authenticated-smoke-verified, and **owner-accepted** as a complete default-off Opener NLL↔POC card-comparison path. Acceptance does not declare NLL summaries available for normal use: the nine pilot summaries remain `hidden` + `experimental`; the enrichment POC remains in place; this is not NLL promotion or POC retirement. Stages 4–6 remain unauthorized. The wider D026 feature freeze remains active outside that bounded work. Production deployment remains deferred. Stage 3 acceptance does not reopen or supersede D027.
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did **not** itself authorize Stage 3 or Stage 4 coding. Stage 3 is **owner-accepted** (bounded default-off Opener card comparison). Stage 4 was subsequently authorized as a **bounded local Opener pilot** (`VITE_NLL_GENERAL_LESSON_PLAN_PILOT`, default off): lazy NLL → NLP package-level `derivedKnowledge` → two-lesson General Lesson Plan. Stage 4 is **owner-accepted** as a bounded default-off Opener pilot (review-corrected; deliberate BI exclusion from the successful pilot path; authenticated-smoke verified) — not deployed/promoted; no NLP persistence; no NLL visibility change; no POC retirement; D022 / shared NLP BI support unchanged (legacy/fallback GLP may still show labelled BI). Stages 5–6 remain unauthorized. The wider D026 feature freeze remains active outside bounded Stage 3/4 work. Production deployment remains deferred. Stage 3/4 work does not reopen or supersede D027. Local BE3 WB canonical absence remains a known limitation.
 
 ---
 
@@ -34,7 +34,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | 1 | Architecture lock | **Done** (D027 recorded) |
 | 2 | Migration roadmap and acceptance gates | **Done** (this document) |
 | 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
-| 4 | NLL knowledge → Neutral Lesson Package assembly | **Not authorized** |
+| 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Not authorized** |
 | 6 | Broader coverage and enrichment | **Not authorized** |
 
@@ -42,7 +42,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 3 — NLL summaries → teacher activity cards
 
-**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. No Stage 4–6 authorization. No deployment.
+**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. Stage 4 later received separate bounded local authorization. Stages 5–6 unauthorized. No deployment.
 
 | Field | Detail |
 |---|---|
@@ -50,7 +50,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | **Existing path preserved** | POC summaries via `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` in `be3U08ActivityEnrichmentPoc.ts`; current card/selection UX |
 | **Local connection** | `nllCardComparison.ts` → `subscribeNllCardComparisonLifecycle` + `loadNeutralLessonComponent('be3-u08-opener', { includeHiddenExperimental: true })` once per eligible overlay/scope (single-flight under React Strict Mode); `TeacherChoiceFlowOverlay` + modal `ActivityEvidenceCard` side-by-side POC/NLL with `· experimental` labels. No fingerprint reconstruction / no staleness chrome in this slice |
 | **Flag** | `VITE_CHALKIE_NLL_CARD_COMPARISON` — activity-card comparison only; **default off**. Independent of enrichment POC, `VITE_CHALKIE_NLL_SHADOW_PILOT`, and Opener/Story canaries |
-| **Hidden-summary rule** | All nine pilot summaries remain `hidden` + `experimental`. Do **not** promote any row to `available`. `includeHiddenExperimental: true` only inside the controlled comparison path |
+| **Hidden-summary rule** | All nine pilot summaries remain `hidden` + `experimental`. Do **not** promote any row to `available`. Stage 3 `includeHiddenExperimental: true` remains comparison-path only |
 | **Fallback** | Existing POC remains the functional fallback and comparison companion until replacement is accepted |
 | **Acceptance gates** | NLL cards preserve source boundaries; accurately describe activities (content review); preserve teacher activity selection; do not lose useful POC functionality; fail or fall back honestly when NLL data is unavailable. Functional and content review both required |
 | **Rollback** | Flag off → prior POC / publisher-evidence behavior; no DB visibility mutation |
@@ -61,17 +61,20 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 4 — NLL knowledge → Neutral Lesson Package assembly
 
-**Authorization status:** Not authorized.
+**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted**. Automated verification and authenticated smoke matrix passed. Successful Stage 4 output excludes experimental BI; legacy/fallback paths preserve D022 BI. Not deployed/promoted. No Stage 5–6 authorization. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC remains.
 
 | Field | Detail |
 |---|---|
-| **Scope** | Opener first; Story only after Opener accepted |
-| **Existing path preserved** | `buildNeutralSbWbLessonPackage`; D022 BI / evidence boundaries; selection and companion rules |
-| **Proposed connection** | Attach NLL preferred summaries as labelled derived fields (not `[SB]`/`[WB]` evidence); proposed SS links stay non-authoritative |
-| **Acceptance gates** | Package builds with/without NLL; exclusions still omit activities; publisher evidence unchanged; functional enrichment only |
-| **Rollback** | Assemble without NLL-derived fields |
-| **Non-goals** | Treating NLP as reusable library; Chalkie default-path change; visibility promotion |
-| **Owner decisions** | Persist NLP snapshots now or later; derived field names |
+| **Scope** | BE3 U8 Opener only (`be3-u08-opener` / nine activities); Story deferred |
+| **Existing path preserved** | `buildNeutralSbWbLessonPackage` (base package without `derivedKnowledge`); existing General plan when flag off / ineligible (retains D022 labelled BI); selection order; shared NLP BI types unchanged |
+| **Local connection** | `nllGeneralLessonPlanPilot.ts` lazy-loads NLL on General click; attaches package-level `derivedKnowledge` (not nested in publisher evidence); `renderGeneralLessonPlanFromNeutralPackage.ts` emits two-lesson SB→WB tool-neutral plan |
+| **BI boundary** | Experimental Book Intelligence is **deliberately excluded** from this Stage 4 pilot assembly/render. Future BI role in the modular additive model is undecided. No D022 decision or historical BI implementation was removed. |
+| **Flag** | `VITE_NLL_GENERAL_LESSON_PLAN_PILOT` — **default off**; General-plan path only; independent of Stage 3 comparison, POC, shadow, canaries |
+| **Hidden-summary rule** | Controlled Stage 4 path may read hidden experimental summaries with `includeHiddenExperimental: true`; rows stay `hidden`/`experimental` |
+| **Acceptance gates** | Package builds with/without NLL; exclusions omit activities; publisher evidence unchanged; NLL labelled experimental; Stage 4 plan has no BI block; fallback existing General plan + explicit line; no invented objectives/procedures |
+| **Rollback** | Flag off → existing General Lesson Plan behavior; no DB visibility mutation |
+| **Non-goals** | NLP persistence; treating NLP as reusable library; Chalkie/Stage 5; sequencing UI; visibility promotion; POC retirement; deleting D022/BI |
+| **Owner decisions pending** | Independent review acceptance; whether to persist NLP snapshots later; Stage 5 authorization; future BI role in modular model |
 
 ---
 

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 380
+**Last updated:** Step 385
 
 
 
@@ -641,9 +641,17 @@
 
 - [x] **Stage 3 owner acceptance + commit/push authorization:** owner accepted the bounded default-off comparison slice; authorized commit and push to `main` of the verified 13 paths only. Summaries remain `hidden`/`experimental`; POC remains; deployment deferred; Stages 4–6 unauthorized; D026 freeze otherwise active. Does not reopen D027.
 
-- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, or Stages 4–6 implementation without explicit approval.
+- [x] **Stage 4 — local NLL → NLP → General Lesson Plan pilot (bounded):** `VITE_NLL_GENERAL_LESSON_PLAN_PILOT` default-off Opener path; package-level `derivedKnowledge`; lazy General click; two-lesson renderer. Leave uncommitted until authorized.
 
-- [ ] **Stage 4 (gated):** NLL → NLP assembly via `buildNeutralSbWbLessonPackage`. **Not authorized.**
+- [x] **Stage 4 review corrections:** fuller apply-guard invalidation (scope key + General still active); derived lesson-purpose labels; local prior-support mapper (no canary import); automated verification run.
+
+- [x] **Stage 4 BI-exclusion addendum:** experimental BI deliberately omitted from Stage 4 assemble/render; shared NLP / flag-off GLP / D022 BI retained; future modular BI role undecided.
+
+- [x] **Stage 4 authenticated smoke matrix:** flag-off legacy GLP; successful Opener pilot with BI exclusion; NLL failure fallback (legacy BI allowed); Story/non-Opener isolation; async invalidation (back/Chalkie/close/supersede); Stage 3 independence + no Chalkie NLL load.
+
+- [x] **Stage 4 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener General Lesson Plan pilot; authorized commit and push to `main` of the verified 16 paths only. Successful Stage 4 output excludes experimental BI; legacy/fallback GLP retain D022 BI. Summaries remain `hidden`/`experimental`; POC remains; deployment deferred; Stages 5–6 unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022. Local BE3 WB canonical absence remains a known limitation.
+
+- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, or Stages 5–6 implementation without explicit approval.
 
 - [ ] **Stage 5 (gated):** NLP → Chalkie via `renderChalkieFromNeutralPackage`. **Not authorized.**
 

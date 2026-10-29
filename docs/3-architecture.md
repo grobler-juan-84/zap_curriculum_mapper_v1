@@ -38,7 +38,7 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
-**Development priority vs phase numbers:** Conceptual phases stay in this architecture. **D027** locks the durable layer model below. The D026 feature-development freeze remains active; Stages 3–6 of the NLL migration are not authorized. Production deployment is deferred. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md) and [`project-tracking/nll-migration-roadmap-v0.1.md`](./project-tracking/nll-migration-roadmap-v0.1.md).
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. **D027** locks the durable layer model below. The D026 feature-development freeze remains active outside bounded authorized slices. **Stage 3** (Opener NLL↔POC card comparison) is complete, bounded, default-off, and owner-accepted. **Stage 4** (Opener NLL → NLP → General Lesson Plan pilot) is complete, bounded, default-off, and owner-accepted (experimental BI excluded from the successful pilot path; legacy/fallback D022 BI preserved; not deployed/promoted). **Stages 5–6** remain unauthorized. Production deployment is deferred. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md) and [`project-tracking/nll-migration-roadmap-v0.1.md`](./project-tracking/nll-migration-roadmap-v0.1.md).
 
 **Durable layer model (D027):**
 
@@ -54,7 +54,7 @@ Adapters       — Chalkie now; future output platforms later
 
 SS/SB/WB remain independent canonical publisher evidence. NLL does not store canonical evidence, transient selections, NLP snapshots, or automatically every BI/teacher/school record. Generation adapters must not dictate NLL structure. See [`4-decisions.md`](./4-decisions.md) D027.
 
-**Transitional knowledge/package lineages (current implementation reality under D027):** (1) bespoke BE3 handoffs provide the current teacher output, (2) neutral packages and limited canaries validate parity behind default-off flags, (3) the D023 enrichment POC supplies experimental summary sidecars, and (4) the D024/D025 NLL pilot supplies persistent reusable knowledge in default-off shadow mode. These lineages have different roles today; none currently replaces another. Migration toward the D027 stack is planned in [`project-tracking/nll-migration-roadmap-v0.1.md`](./project-tracking/nll-migration-roadmap-v0.1.md) and requires separate stage authorization.
+**Transitional knowledge/package lineages (current implementation reality under D027):** (1) bespoke BE3 handoffs provide the current teacher output, (2) neutral packages and limited canaries validate parity behind default-off flags, (3) the D023 enrichment POC supplies experimental summary sidecars, (4) the D024/D025 NLL pilot supplies persistent reusable knowledge (summaries remain `hidden`/`experimental`), (5) Stage 3 default-off Opener card comparison reads NLL beside POC, and (6) Stage 4 default-off Opener pilot may attach selected NLL summaries as package-level NLP `derivedKnowledge` and render a tool-neutral General Lesson Plan (no NLP persistence; no visibility promotion; experimental Book Intelligence deliberately excluded from this pilot — future BI role undecided; D022 and shared NLP BI support unchanged). These lineages have different roles today; none currently replaces another. Later migration stages require separate authorization.
 
 ---
 

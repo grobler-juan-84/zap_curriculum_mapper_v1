@@ -488,3 +488,26 @@ test('Story package ignores BI even when a unit overview is supplied', () => {
     false,
   )
 })
+
+test('Stage 4 derivedKnowledge is optional; base Opener package omits it until pilot attach', () => {
+  const source = fs.readFileSync(
+    path.join(ROOT, 'app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts'),
+    'utf8',
+  )
+  assert.match(source, /derivedKnowledge\?: NeutralNllDerivedKnowledge/)
+  assert.match(source, /NeutralNllDerivedActivitySummary/)
+  const builderBody = source.slice(
+    source.indexOf('export function buildNeutralSbWbLessonPackage'),
+  )
+  assert.doesNotMatch(builderBody, /derivedKnowledge:/)
+
+  const lessonPackage = buildNeutralSbWbLessonPackage(allSelected([128, 129]))
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  for (const activity of [
+    ...lessonPackage.lesson1.selectedActivities,
+    ...lessonPackage.lesson2.selectedActivities,
+  ]) {
+    assert.equal('summaryText' in activity, false)
+    assert.equal('derivedKnowledge' in activity, false)
+  }
+})
