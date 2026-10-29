@@ -69,7 +69,7 @@ This pilot does not change canonical SS/SB/WB JSON, production lesson generation
 - New focused NLL tests: 7 passed.
 - App TypeScript validation: passed.
 - Existing Scope & Sequence regression suite: passed.
-- Existing WB-dependent local suites remain unable to start on this work PC because the local BE3 WB canonical file is absent; the authoritative remote WB object was read and hash-verified without creating a local replacement.
+- PC2 now has `data/phase1/big_english_3_wb/canonical/v1.json` locally. The whole `data/phase1/` tree remains gitignored, so this is local working data rather than tracked repository content; earlier missing-file verification records remain historical evidence from the prior PC state.
 
 ## Approved completion handover
 

@@ -649,7 +649,11 @@
 
 - [x] **Stage 4 authenticated smoke matrix:** flag-off legacy GLP; successful Opener pilot with BI exclusion; NLL failure fallback (legacy BI allowed); Story/non-Opener isolation; async invalidation (back/Chalkie/close/supersede); Stage 3 independence + no Chalkie NLL load.
 
-- [x] **Stage 4 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener General Lesson Plan pilot; authorized commit and push to `main` of the verified 16 paths only. Successful Stage 4 output excludes experimental BI; legacy/fallback GLP retain D022 BI. Summaries remain `hidden`/`experimental`; POC remains; deployment deferred; Stages 5–6 unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022. Local BE3 WB canonical absence remains a known limitation.
+- [x] **Stage 4 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener General Lesson Plan pilot; authorized commit and push to `main` of the verified 16 paths only. Successful Stage 4 output excludes experimental BI; legacy/fallback GLP retain D022 BI. Summaries remain `hidden`/`experimental`; POC remains; deployment deferred; Stages 5–6 unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022.
+
+- [x] **PC2 reconciliation:** corrected stale Stage 4 wording; set documented Stage 3/4 example flags to `false`; confirmed the local BE3 WB canonical file exists under gitignored `data/phase1/` and is not tracked.
+
+- [x] **Stage 5 owner-review draft:** documented the exact BE3 U8 Opener NLP → `renderChalkieFromNeutralPackage` proposal, current implementation seams, fallback, D022 boundary, risks, and acceptance matrix. No Stage 5 code or authorization.
 
 - [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, or Stages 5–6 implementation without explicit approval.
 

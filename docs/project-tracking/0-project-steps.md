@@ -6654,3 +6654,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 386
+
+**Summary:** Reconciled PC2 documentation and example configuration after Stage 4 acceptance, distinguishing the locally present gitignored BE3 WB canonical file from tracked repository state. Added a Stage 5 owner-review implementation brief grounded in the existing neutral package, dispatcher, canary, selection and Create-a-prompt paths; Stage 5 code, deployment and authorization remain excluded.
+
+**Files touched:**
+- `.env.example` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/nll-pilot-architecture-v0.1.md` (updated)
+- `docs/project-tracking/stage-5-implementation-brief-v0.1.md` (created)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
