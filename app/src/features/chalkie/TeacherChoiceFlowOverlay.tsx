@@ -113,6 +113,15 @@ import {
   shouldApplyNllChalkieAdapterPilotResult,
   shouldRunNllChalkieAdapterPilot,
 } from './nllChalkieAdapterPilot'
+import {
+  assembleNllStoryChalkieAdapterPilot,
+  invalidateNllStoryChalkieAdapterPilotRequest,
+  isExactBe3U08StoryNllChalkieAdapterScope,
+  isNllStoryChalkieAdapterPilotEnabled,
+  nllStoryChalkieAdapterRequestKey,
+  shouldApplyNllStoryChalkieAdapterPilotResult,
+  shouldRunNllStoryChalkieAdapterPilot,
+} from './nllStoryChalkieAdapterPilot'
 import { renderGeneralLessonPlanFromNeutralPackage } from './renderGeneralLessonPlanFromNeutralPackage'
 import { supabase } from '../../lib/supabase'
 import {
@@ -361,6 +370,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const nllChalkieAdapterRequestIdRef = useRef(0)
   const nllChalkieAdapterRequestKeyRef = useRef('')
   const nllChalkieAdapterCurrentRequestKeyRef = useRef('')
+  const nllStoryChalkieAdapterRequestIdRef = useRef(0)
+  const nllStoryChalkieAdapterRequestKeyRef = useRef('')
+  const nllStoryChalkieAdapterCurrentRequestKeyRef = useRef('')
   const preparedOutputKindRef = useRef<PreparedOutputKind | null>(null)
   const [stepId, setStepId] = useState<TeacherChoiceStepId>('student_book')
   const [selectedIds, setSelectedIds] = useState<string[]>(() =>
@@ -492,8 +504,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllChalkieAdapterPilotRequest({
         requestIdRef: nllChalkieAdapterRequestIdRef,
       })
+      invalidateNllStoryChalkieAdapterPilotRequest({
+        requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+      })
       generalLessonPlanRequestScopeKeyRef.current = ''
       nllChalkieAdapterRequestKeyRef.current = ''
+      nllStoryChalkieAdapterRequestKeyRef.current = ''
       preparedOutputKindRef.current = null
       setStepId('student_book')
       setSelectedIds(initialSelectedPriorLearningIds())
@@ -640,11 +656,25 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     selectedSuggestions,
     teacherAdditions: selectedTeacherAdditions,
   })
+  const nllStoryChalkieAdapterCurrentRequestKey = nllStoryChalkieAdapterRequestKey({
+    activityCards,
+    workbookActivityCards,
+    companion: lesson?.workbookCompanion ?? null,
+    sbSelection: handoffActivitySelection,
+    wbSelection: handoffWorkbookActivitySelection,
+    selectedSuggestions,
+    teacherAdditions: selectedTeacherAdditions,
+  })
 
   useLayoutEffect(() => {
     nllChalkieAdapterCurrentRequestKeyRef.current =
       nllChalkieAdapterCurrentRequestKey
   }, [nllChalkieAdapterCurrentRequestKey])
+
+  useLayoutEffect(() => {
+    nllStoryChalkieAdapterCurrentRequestKeyRef.current =
+      nllStoryChalkieAdapterCurrentRequestKey
+  }, [nllStoryChalkieAdapterCurrentRequestKey])
 
   useEffect(() => {
     if (!open) return
@@ -660,6 +690,21 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       setChalkiePreparing(false)
     }
   }, [chalkiePreparing, nllChalkieAdapterCurrentRequestKey, open])
+
+  useEffect(() => {
+    if (!open) return
+    if (
+      chalkiePreparing &&
+      nllStoryChalkieAdapterRequestKeyRef.current &&
+      nllStoryChalkieAdapterRequestKeyRef.current !==
+        nllStoryChalkieAdapterCurrentRequestKey
+    ) {
+      invalidateNllStoryChalkieAdapterPilotRequest({
+        requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+    }
+  }, [chalkiePreparing, nllStoryChalkieAdapterCurrentRequestKey, open])
   const experimentalActivityEnrichmentPackage = useMemo(
     () =>
       activityEnrichmentPocEnabled
@@ -756,6 +801,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
         invalidateNllChalkieAdapterPilotRequest({
           requestIdRef: nllChalkieAdapterRequestIdRef,
         })
+        invalidateNllStoryChalkieAdapterPilotRequest({
+          requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+        })
         setChalkiePreparing(false)
       }
       setShowPromptPreview(false)
@@ -780,6 +828,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     if (next === 'series' && !lesson.supportsTwoLessonSeries) return
     invalidateNllChalkieAdapterPilotRequest({
       requestIdRef: nllChalkieAdapterRequestIdRef,
+    })
+    invalidateNllStoryChalkieAdapterPilotRequest({
+      requestIdRef: nllStoryChalkieAdapterRequestIdRef,
     })
     setChalkiePreparing(false)
     setLessonShape(next)
@@ -881,41 +932,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setLesson2VocabCopyStatus('idle')
   }
 
-  const handlePrepareChalkiePrompt = () => {
-    invalidateNllGeneralLessonPlanPilotRequest({
-      requestIdRef: generalLessonPlanRequestIdRef,
-    })
-    setLessonPlanPreparing(false)
-    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
-    const flagEnabled = isNllChalkieAdapterPilotEnabled()
-    const exactScopeEligible = isExactBe3U08OpenerNllChalkieAdapterScope({
-      activityCards,
-      workbookActivityCards,
-      companion: lesson.workbookCompanion ?? null,
-    })
-    const seriesPackageRequested =
-      effectiveLessonShape === 'series' &&
-      lesson.twoLessonPackagingMode === 'sb_wb'
-    const runPilot = shouldRunNllChalkieAdapterPilot({
-      flagEnabled,
-      exactScopeEligible,
-      chalkieRequested: true,
-      seriesPackageRequested,
-    })
-
-    if (!runPilot) {
-      invalidateNllChalkieAdapterPilotRequest({
-        requestIdRef: nllChalkieAdapterRequestIdRef,
-      })
-      setChalkiePreparing(false)
-      applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
-      return
-    }
-
-    const requestId = nllChalkieAdapterRequestIdRef.current + 1
-    nllChalkieAdapterRequestIdRef.current = requestId
-    const requestKey = nllChalkieAdapterCurrentRequestKey
-    nllChalkieAdapterRequestKeyRef.current = requestKey
+  const beginChalkiePreparingChrome = () => {
     setChalkiePreparing(true)
     preparedOutputKindRef.current = 'chalkie'
     setPreparedOutputKind('chalkie')
@@ -928,6 +945,115 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     setSuggestedVocabularyEmpty(true)
     setShowPromptPreview(true)
     setShowChalkiePackaging(false)
+  }
+
+  const handlePrepareChalkiePrompt = () => {
+    invalidateNllGeneralLessonPlanPilotRequest({
+      requestIdRef: generalLessonPlanRequestIdRef,
+    })
+    setLessonPlanPreparing(false)
+    const biInputs = resolveOverlayBiInputs({ lesson, bookIntelligence })
+    const seriesPackageRequested =
+      effectiveLessonShape === 'series' &&
+      lesson.twoLessonPackagingMode === 'sb_wb'
+
+    const runStoryPilot = shouldRunNllStoryChalkieAdapterPilot({
+      flagEnabled: isNllStoryChalkieAdapterPilotEnabled(),
+      exactScopeEligible: isExactBe3U08StoryNllChalkieAdapterScope({
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+      }),
+      chalkieRequested: true,
+      seriesPackageRequested,
+    })
+
+    if (runStoryPilot) {
+      invalidateNllChalkieAdapterPilotRequest({
+        requestIdRef: nllChalkieAdapterRequestIdRef,
+      })
+      nllChalkieAdapterRequestKeyRef.current = ''
+      const requestId = nllStoryChalkieAdapterRequestIdRef.current + 1
+      nllStoryChalkieAdapterRequestIdRef.current = requestId
+      const requestKey = nllStoryChalkieAdapterCurrentRequestKey
+      nllStoryChalkieAdapterRequestKeyRef.current = requestKey
+      beginChalkiePreparingChrome()
+
+      void assembleNllStoryChalkieAdapterPilot({
+        flagEnabled: true,
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+        sbSelection: handoffActivitySelection,
+        wbSelection: handoffWorkbookActivitySelection,
+        selectedSuggestions,
+        teacherAdditions: selectedTeacherAdditions,
+        client: supabase,
+      }).then((result) => {
+        if (
+          !shouldApplyNllStoryChalkieAdapterPilotResult({
+            requestId,
+            latestRequestId: nllStoryChalkieAdapterRequestIdRef.current,
+            overlayOpen: overlayOpenRef.current,
+            requestKey,
+            currentRequestKey:
+              nllStoryChalkieAdapterCurrentRequestKeyRef.current,
+            preparedOutputKind: preparedOutputKindRef.current,
+          })
+        ) {
+          return
+        }
+
+        setChalkiePreparing(false)
+        if (!result.ok) {
+          applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
+          return
+        }
+
+        // Story remains BI-absent: do not apply Opener BI framing.
+        applyPreparedChalkieOutput({
+          assembled: result.handoff.detailedHandoff,
+          be3Handoff: result.handoff,
+          sbOnly: null,
+          outline: '',
+          suggested: { copyText: '', isEmpty: true },
+        })
+      })
+      return
+    }
+
+    const runOpenerPilot = shouldRunNllChalkieAdapterPilot({
+      flagEnabled: isNllChalkieAdapterPilotEnabled(),
+      exactScopeEligible: isExactBe3U08OpenerNllChalkieAdapterScope({
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+      }),
+      chalkieRequested: true,
+      seriesPackageRequested,
+    })
+
+    if (!runOpenerPilot) {
+      invalidateNllChalkieAdapterPilotRequest({
+        requestIdRef: nllChalkieAdapterRequestIdRef,
+      })
+      invalidateNllStoryChalkieAdapterPilotRequest({
+        requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+      applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
+      return
+    }
+
+    invalidateNllStoryChalkieAdapterPilotRequest({
+      requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+    })
+    nllStoryChalkieAdapterRequestKeyRef.current = ''
+    const requestId = nllChalkieAdapterRequestIdRef.current + 1
+    nllChalkieAdapterRequestIdRef.current = requestId
+    const requestKey = nllChalkieAdapterCurrentRequestKey
+    nllChalkieAdapterRequestKeyRef.current = requestKey
+    beginChalkiePreparingChrome()
 
     void assembleNllChalkieAdapterPilot({
       flagEnabled: true,
@@ -982,6 +1108,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     invalidateNllChalkieAdapterPilotRequest({
       requestIdRef: nllChalkieAdapterRequestIdRef,
     })
+    invalidateNllStoryChalkieAdapterPilotRequest({
+      requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+    })
     setLessonPlanPreparing(false)
     setChalkiePreparing(false)
     // Keep preparedOutputKind off General so an in-flight Stage 4 result cannot apply.
@@ -1032,6 +1161,9 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const handlePrepareDetailedLessonPlan = () => {
     invalidateNllChalkieAdapterPilotRequest({
       requestIdRef: nllChalkieAdapterRequestIdRef,
+    })
+    invalidateNllStoryChalkieAdapterPilotRequest({
+      requestIdRef: nllStoryChalkieAdapterRequestIdRef,
     })
     setChalkiePreparing(false)
     const flagEnabled = isNllGeneralLessonPlanPilotEnabled()

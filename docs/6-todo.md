@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 388
+**Last updated:** Step 391
 
 
 
@@ -667,9 +667,15 @@
 
 - [x] **Stage 6A Story knowledge readiness:** owner-accepted complete. Live NLL totals **2 / 14 / 14 / 3**; `be3-u08-story` draft; five preferred v1 summaries `hidden`/`experimental`; one Structures link `proposed`; WB p.107 excluded; Opener unchanged **1 / 9 / 9 / 2**. Migration `20261029180000` recorded as applied remotely. Story knowledge remains live but hidden/experimental — not promotion.
 
-- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5 expansion, Stage 6B, or broader Stage 6 without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
+- [x] **Stage 6B planning brief:** drafted the bounded Story-only NLL → selected NLP → `renderChalkieFromNeutralPackage` brief for owner review. Proposed flag: `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT=false`; existing Story canary/bespoke fallback and Story BI absence preserved.
 
-- [ ] **Stage 6B (gated):** Stage 6A complete. **Stage 6B Story adapter transfer, promotion, and deployment are not authorized.**
+- [x] **Stage 6B bounded local implementation (automated):** owner-authorized. Independent default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`; Story NLL → selected NLP → shared renderer; package-only summaries; Story BI-absent; stale guards; current Story canary/bespoke fallback. Automated: Stage 6B focused suite 10/10; combined focused/regression 74/74; app typecheck pass; lint warnings only. Uncommitted / unpushed / undeployed.
+
+- [x] **Stage 6B authenticated manual acceptance:** process-only flag on Vite `5174` (no `.env.local` change). All/partial/zero selection, SB Act 6 / WB Act 5 exclusions (no reconstruction), WB p.107 excluded-scope only, teacher inputs, five artifacts displayed/copied, no NLL/BI prose, Opener isolation, flag-off Story fallback, and Story NLL **200**s for `be3-u08-story` **passed**. Temporary Vite stopped. Owner formally accepted 2026-10-29.
+
+- [x] **Stage 6B owner formal acceptance + commit/push:** Stage 6B complete, owner-accepted, default-off and undeployed. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. Preparing-state placeholder flash recorded as non-blocking UX observation only.
+
+- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B expansion, Stage 7, or broader Stage 6 without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

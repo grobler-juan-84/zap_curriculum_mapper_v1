@@ -6745,3 +6745,75 @@
 - `supabase/migrations/20261029180000_seed_nll_be3_u08_story.sql` (included in authorized commit)
 
 ---
+
+### Step 391
+
+**Summary:** Recorded owner approval for Stage 6B planning only and drafted the bounded BE3 Unit 8 Story NLL → selected NLP → shared Chalkie implementation brief. The proposed independent default-off Story flag, five-path implementation boundary, selection integrity, D022 BI absence, stale-result guards, existing Story canary/bespoke fallback and automated/manual acceptance matrix are documented for owner review. No application/config/test implementation, canonical or live-data change, deployment, promotion, commit or push.
+
+**Files touched:**
+- `docs/project-tracking/stage-6b-story-adapter-implementation-brief-v0.1.md` (created)
+- `docs/project-tracking/stage-6-story-transfer-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 392
+
+**Summary:** Implemented the owner-authorized bounded Stage 6B BE3 U8 Story adapter behind default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`: lazy Story NLL load, selected NLP, package-only summaries, shared neutral renderer, Story BI absence, stale-result guards, and current Story canary/bespoke fallback. Automated verification passed (10/10 focused; 74/74 combined regressions; typecheck pass; lint warnings only). Uncommitted/unpushed; authenticated manual acceptance, promotion and deployment remain pending.
+
+**Files touched:**
+- `.env.example` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `app/src/features/chalkie/nllStoryChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/nllStoryChalkieAdapterPilot.test.ts` (created)
+- `docs/project-tracking/stage-6b-story-adapter-implementation-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 393
+
+**Summary:** Completed the Stage 6B authenticated manual acceptance walkthrough on process-only Vite `5174` (no `.env.local` change): all/partial/zero selection, SB Act 6 / WB Act 5 exclusions, p.107 absent, teacher inputs, five artifacts, no NLL/BI prose, Opener isolation, and flag-off fallback all passed. Recorded evidence; Vite stopped. Awaiting owner formal acceptance and separate commit/push authorization.
+
+**Files touched:**
+- `docs/project-tracking/stage-6b-story-adapter-implementation-brief-v0.1.md` (updated)
+- `docs/project-tracking/stage-6-story-transfer-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 394
+
+**Summary:** Recorded owner formal acceptance of Stage 6B (automated 74/74, typecheck/lint pass, authenticated manual acceptance passed). Updated brief and operating trackers to mark Stage 6B complete, owner-accepted, default-off and undeployed; Stage 5 Opener and Stage 6B Story noted as the two accepted reference implementations. Authorized commit/push of the verified 14 Stage 6B paths only.
+
+**Files touched:**
+- `docs/project-tracking/stage-6b-story-adapter-implementation-brief-v0.1.md` (updated)
+- `docs/project-tracking/stage-6-story-transfer-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

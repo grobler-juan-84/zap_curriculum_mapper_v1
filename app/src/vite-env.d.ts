@@ -26,6 +26,12 @@ interface ImportMetaEnv {
    * Exact BE3 U8 Opener two-lesson package only; NLL summaries stay package-only.
    */
   readonly VITE_NLL_CHALKIE_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Stage 6B NLL -> NLP -> Chalkie Story adapter pilot (default unset/false).
+   * Exact BE3 U8 Story two-lesson package only; independent of Stage 5 and Story canary.
+   * NLL summaries stay package-only; Story remains BI-absent.
+   */
+  readonly VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

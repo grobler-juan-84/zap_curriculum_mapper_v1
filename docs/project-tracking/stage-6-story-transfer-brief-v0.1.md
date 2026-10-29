@@ -1,10 +1,10 @@
 # Stage 6 Story Transfer Planning Brief v0.1
 
-**Status:** 6A OWNER-ACCEPTED / 6B UNAUTHORIZED  
-**Version:** 0.1  
-**Date:** 2026-10-29  
-**Authority:** Owner Stage 6 planning + Stage 6A acceptance; D022, D026 and D027 remain in force  
-**Implementation authorization:** Stage **6A complete** (Story NLL knowledge live, hidden/experimental). Stage **6B** adapter transfer, promotion, and deployment remain **not authorized**.
+**Status:** 6A OWNER-ACCEPTED / 6B OWNER-ACCEPTED — DEFAULT-OFF / UNDEPLOYED
+**Version:** 0.1
+**Date:** 2026-10-29
+**Authority:** Owner Stage 6 planning + Stage 6A/6B acceptance; D022, D026 and D027 remain in force
+**Implementation authorization:** Stage **6A complete** (Story NLL knowledge live, hidden/experimental). Stage **6B complete and owner-accepted** (default-off, undeployed). Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. Promotion, deployment, and Stage 7 remain **not authorized**.
 
 ---
 
@@ -32,7 +32,7 @@ The library grows. The package selects. The adapter generates. The teacher appro
 | Publisher evidence | Student Book pp.130-131 -> Workbook p.106 only |
 | Forbidden adjacent scope | Workbook p.107; it is Language in Action, not Story practice |
 | Target path | Story NLL knowledge -> selected Story NLP -> `renderChalkieFromNeutralPackage` |
-| Rollout if later authorized | A new Story-only, default-off pilot flag; exact name requires owner approval in the implementation brief |
+| Rollout if later authorized | Proposed Story-only `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT=false`; requires owner approval with the implementation brief |
 
 No other Unit 8 component, book, unit, adapter or enrichment type is in scope.
 
@@ -51,13 +51,13 @@ The following is implementation reality and must be reused rather than rediscove
 - Existing tests cover flag-off behavior, exact parity, SB Activity 6 exclusion, WB Activity 5 exclusion, partial and zero selection, teacher/prior inputs, diagnostics and the WB p.107 boundary.
 - Stage 5 is intentionally Opener-only. Its eligibility check, component key, NLL loader and returned handoff type must not be treated as Story-capable merely because the shared NLP and renderer already understand Story.
 
-## 4. Missing functionality - proposed Stage 6 work
+## 4. Stage 6 slices and current state
 
-The persistent NLL currently contains one component, `be3-u08-opener`, with nine hidden experimental summaries. It does **not** currently contain an approved Story component or Story summary set.
+The persistent NLL now contains both the accepted Opener component and the accepted Stage 6A Story component. Live totals are **2 / 14 / 14 / 3**. `be3-u08-story` remains `draft`; its five preferred v1 summaries remain `hidden`/`experimental`; its Structures link remains `proposed`; WB p.107 remains excluded.
 
-Before any Story adapter implementation can be authorized, Stage 6 therefore needs two separately reviewable slices:
+The two slices remain separately reviewable:
 
-### 6A - Story knowledge readiness
+### 6A - Story knowledge readiness — complete
 
 1. Inventory the exact eligible Story SB and WB activities from existing verified evidence.
 2. Draft teacher-friendly Story summaries with evidence sufficiency, provenance and source fingerprints.
@@ -66,9 +66,9 @@ Before any Story adapter implementation can be authorized, Stage 6 therefore nee
 5. Keep all proposed records `hidden` and `experimental`; no promotion or live write is implied.
 6. Present the proposed records and verification plan for separate owner approval before any migration, seed or Supabase write.
 
-### 6B - Story adapter transfer
+### 6B - Story adapter transfer — brief drafted, implementation gated
 
-Only after 6A content readiness is accepted, prepare a bounded implementation brief for:
+Stage 6A content readiness is accepted. The bounded implementation brief now specifies:
 
 1. exact Story-only eligibility;
 2. lazy loading of the accepted Story NLL component;
@@ -159,10 +159,10 @@ This planning approval does not authorize:
 
 ## 8. Risks and open questions
 
-1. **Story NLL content does not yet exist.** Adapter transfer cannot be honestly accepted before Story knowledge is authored and reviewed.
-2. **Opener-specific coupling may be hidden in Stage 5.** A later implementation brief must identify the smallest safe reuse boundary without refactor-first generalization.
+1. **Story NLL content remains hidden/experimental.** The bounded pilot may read it explicitly, but missing or incomplete Story knowledge must fall back and must not partially render.
+2. **Opener-specific coupling exists in Stage 5.** The Stage 6B brief therefore proposes a Story-only module and no refactor-first generalization.
 3. **Asymmetric scope is easy to broaden accidentally.** WB p.107 requires explicit negative assertions at data, package, renderer and UI levels.
-4. **Flag proliferation can become confusing.** The owner must approve whether Stage 6 receives a new Story-only flag and how it coexists with the older Story neutral canary.
+4. **Flag proliferation can become confusing.** The owner must approve the proposed Story-only flag and its documented precedence with the older Story neutral canary.
 5. **Content acceptance is not functional acceptance.** Passing code tests cannot approve experimental Story summaries, and content approval cannot prove selection/fallback behavior.
 6. **Enrichment is premature.** Broader teacher or school enrichment should wait until this first coverage transfer proves the pattern.
 
@@ -173,9 +173,10 @@ This planning approval does not authorize:
 1. ~~Approve or revise this Story-first Stage 6 transfer plan.~~ **Done.**
 2. ~~Authorize a bounded **6A Story knowledge-readiness** slice.~~ **Done — owner-accepted complete** (live **2 / 14 / 14 / 3**; migration `20261029180000` history reconciled).
 3. ~~Review and accept the proposed Story summaries and additive NLL records.~~ **Done** (five preferred v1 summaries remain `hidden`/`experimental`; one Structures link `proposed`; WB p.107 excluded).
-4. **Still required before 6B:** approve a separate 6B implementation brief, flag name, test matrix and authorized paths.
+4. ~~Prepare a separate 6B implementation brief, flag name, test matrix and authorized paths.~~ **Done — draft ready for owner review.**
+5. **Still required before implementation:** owner approves or revises the Stage 6B brief, proposed flag, five-path boundary, fallback precedence and acceptance matrix, then explicitly authorizes one bounded local slice.
 
-Stage **6B**, promotion, deployment, and broad `supabase db push` remain unauthorized. See [`stage-6a-story-knowledge-review-v0.1.md`](./stage-6a-story-knowledge-review-v0.1.md).
+Stage **6B** is owner-accepted, default-off and undeployed. Promotion, deployment, Stage 7, and broad `supabase db push` remain unauthorized. See [`stage-6a-story-knowledge-review-v0.1.md`](./stage-6a-story-knowledge-review-v0.1.md) and [`stage-6b-story-adapter-implementation-brief-v0.1.md`](./stage-6b-story-adapter-implementation-brief-v0.1.md).
 
 ---
 
@@ -183,6 +184,7 @@ Stage **6B**, promotion, deployment, and broad `supabase db push` remain unautho
 
 - [`nll-migration-roadmap-v0.1.md`](./nll-migration-roadmap-v0.1.md) - staged migration and acceptance-gate authority
 - [`stage-5-implementation-brief-v0.1.md`](./stage-5-implementation-brief-v0.1.md) - accepted Opener transfer pattern
+- [`stage-6b-story-adapter-implementation-brief-v0.1.md`](./stage-6b-story-adapter-implementation-brief-v0.1.md) - bounded Story adapter brief awaiting owner approval
 - [`../phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md`](../phase-5/chalkie-be3-u08-story-neutral-canary-proposal-v0.1.md) - existing Story canary and manual acceptance
 - [`../phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md`](../phase-5/chalkie-generic-sb-wb-handoff-adapter-audit-v0.1.md) - neutral package and renderer evidence
 - [`../4-decisions.md`](../4-decisions.md) - D022, D026 and D027
