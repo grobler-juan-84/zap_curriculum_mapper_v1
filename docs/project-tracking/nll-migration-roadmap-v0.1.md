@@ -3,11 +3,11 @@
 **Status:** ACTIVE / PLANNING AUTHORITY  
 **Version:** 0.1  
 **Date:** 2026-10-29  
-**Authority:** D027; Stage 2 planning authority; Stages 3–5 complete (bounded); Stage 6 unauthorized
-**Scope:** BE3 Unit 8 Opener pilot first; broader coverage only in Stage 6
+**Authority:** D027; Stage 2 planning authority; Stages 3–5 complete (bounded); Stage 6A Story knowledge owner-accepted; Stage 6B unauthorized
+**Scope:** BE3 Unit 8 Opener pilot first; BE3 Unit 8 Story Stage 6A knowledge live (hidden/experimental); Stage 6B adapter transfer still unauthorized
 
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3 and 4 are owner-accepted bounded default-off Opener pilots and remain undeployed/unpromoted. On 2026-10-29 the owner approved the Stage 5 brief, authorized one bounded Opener slice (`VITE_NLL_CHALKIE_ADAPTER_PILOT`, default off), then formally accepted automated verification plus authenticated manual cases A–F and authorized commit/push of the verified Stage 5 paths only: selected NLL summaries remain package-only while the NLP routes through `renderChalkieFromNeutralPackage`; D022 BI and existing canary/bespoke fallback remain intact. Stage 5 remains default-off and undeployed. Stage 6 remains unauthorized. The wider D026 feature freeze remains active outside these bounded slices. Production deployment remains deferred. This work does not reopen or supersede D027. On PC2, the local BE3 WB canonical file exists under gitignored `data/phase1/`; it is not tracked repository content.
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3 and 4 are owner-accepted bounded default-off Opener pilots and remain undeployed/unpromoted. On 2026-10-29 the owner approved the Stage 5 brief, authorized one bounded Opener slice (`VITE_NLL_CHALKIE_ADAPTER_PILOT`, default off), then formally accepted automated verification plus authenticated manual cases A–F and authorized commit/push of the verified Stage 5 paths only: selected NLL summaries remain package-only while the NLP routes through `renderChalkieFromNeutralPackage`; D022 BI and existing canary/bespoke fallback remain intact. Stage 5 remains default-off and undeployed. On 2026-10-29 the owner authorized Stage 6 planning, then Stage 6A Story knowledge readiness; Stage 6A is now **owner-accepted complete** (live NLL **2 / 14 / 14 / 3**; Story summaries `hidden`/`experimental`; migration `20261029180000` history reconciled as applied). **Stage 6B**, promotion, deployment, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk. The wider D026 feature freeze remains active outside these bounded slices. This work does not reopen or supersede D027. On PC2, the local BE3 WB canonical file exists under gitignored `data/phase1/`; it is not tracked repository content.
 
 ---
 
@@ -36,13 +36,13 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Complete (bounded, default off); owner-accepted A–F; undeployed / unpromoted** |
-| 6 | Broader coverage and enrichment | **Not authorized** |
+| 6 | Broader coverage and enrichment | **6A complete (owner-accepted); 6B Story adapter / promotion / deploy not authorized** |
 
 ---
 
 ## Stage 3 — NLL summaries → teacher activity cards
 
-**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. Stage 4 later received separate bounded local authorization. Stages 5–6 unauthorized. No deployment.
+**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. Stages 4 and 5 later received separate bounded authorization and are complete; Stage 6 Story planning is authorized, but implementation remains unauthorized. No deployment.
 
 | Field | Detail |
 |---|---|
@@ -55,13 +55,13 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | **Acceptance gates** | NLL cards preserve source boundaries; accurately describe activities (content review); preserve teacher activity selection; do not lose useful POC functionality; fail or fall back honestly when NLL data is unavailable. Functional and content review both required |
 | **Rollback** | Flag off → prior POC / publisher-evidence behavior; no DB visibility mutation |
 | **Non-goals** | Promoting summaries; bulk books; handoff/adapter changes; Stage 4–6 work |
-| **Owner decisions pending** | Content acceptance of nine summaries for any future normal-use promotion; when POC display may retire; whether to authorize Stages 4–6 |
+| **Owner decisions pending** | Content acceptance of nine summaries for any future normal-use promotion; when POC display may retire; review of the Stage 6 Story transfer plan |
 
 ---
 
 ## Stage 4 — NLL knowledge → Neutral Lesson Package assembly
 
-**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted**. Automated verification and authenticated smoke matrix passed. Successful Stage 4 output excludes experimental BI; legacy/fallback paths preserve D022 BI. Not deployed/promoted. A separate bounded Stage 5 Opener slice was later authorized; Stage 6 remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC remains.
+**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted**. Automated verification and authenticated smoke matrix passed. Successful Stage 4 output excludes experimental BI; legacy/fallback paths preserve D022 BI. Not deployed/promoted. A separate bounded Stage 5 Opener slice was later authorized; Stage 6 Story planning is now authorized, but implementation remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC remains.
 
 | Field | Detail |
 |---|---|
@@ -74,13 +74,13 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | **Acceptance gates** | Package builds with/without NLL; exclusions omit activities; publisher evidence unchanged; NLL labelled experimental; Stage 4 plan has no BI block; fallback existing General plan + explicit line; no invented objectives/procedures |
 | **Rollback** | Flag off → existing General Lesson Plan behavior; no DB visibility mutation |
 | **Non-goals** | NLP persistence; treating NLP as reusable library; Chalkie/Stage 5; sequencing UI; visibility promotion; POC retirement; deleting D022/BI |
-| **Owner decisions pending** | Independent review acceptance; whether to persist NLP snapshots later; Stage 5 authorization; future BI role in modular model |
+| **Owner decisions pending** | Whether to persist NLP snapshots later; future BI role in the modular model; review of the Stage 6 Story transfer plan |
 
 ---
 
 ## Stage 5 — Neutral Lesson Package → Chalkie adapter
 
-**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted** (automated verification + authenticated manual A–F, 2026-10-29). Commit/push of verified Stage 5 paths authorized. Not deployed/promoted. Stage 6 remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC and canaries remain.
+**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted** (automated verification + authenticated manual A–F, 2026-10-29). Commit/push of verified Stage 5 paths authorized. Not deployed/promoted. Stage 6 Story planning is authorized; implementation remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC and canaries remain.
 
 | Field | Detail |
 |---|---|
@@ -91,23 +91,24 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | **Acceptance gates** | Automated all-selected, partial, zero, key-exclusion, failure, stale-result and BI cases pass; Create-a-prompt returns expected artifacts; authenticated manual A–F PASS |
 | **Rollback** | Flag off/ineligible/failure → unchanged current path, including separately configured canary and bespoke fallback |
 | **Non-goals** | Multi-platform adapters; OpenAI revive; classroom-validation claims; Story routing; Stage 6 |
-| **Owner decisions pending** | Whether to deploy later; whether NLL summary prose may enter Chalkie; POC/canary retirement; Stage 6 authorization |
+| **Owner decisions pending** | Whether to deploy later; whether NLL summary prose may enter Chalkie; POC/canary retirement; review of the Stage 6 Story transfer plan |
 
 ---
 
 ## Stage 6 — Broader coverage and enrichment
 
-**Authorization status:** Not authorized.
+**Authorization status:** Stage **6A complete and owner-accepted**. Story NLL knowledge is live but remains `hidden`/`experimental` (not promoted). Stage **6B**, promotion, deployment, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a deferred audit risk.
 
 | Field | Detail |
 |---|---|
-| **Scope** | Additional components/books only after Stages 3–5 prove replacement for the pilot |
-| **Existing path preserved** | Canonical SS/SB/WB; accepted adapter path; experiment/audit history |
-| **Proposed connection** | Reuse Stage 3–5 patterns per new scope |
-| **Acceptance gates** | Per-scope functional + content gates; no silent bulk promotion |
-| **Rollback** | Limit to previously accepted scopes |
-| **Non-goals** | Governance bureaucracy; deleting audit/experiment history |
-| **Owner decisions** | Which next unit/component; archive vs delete of superseded POC/bespoke |
+| **First transfer scope** | BE3 U8 Story: `be3_sb_wb_rel_u08_story_sb130-131_wb106` (SB pp.130–131 → WB p.106 only; WB p.107 forbidden) |
+| **Existing path preserved** | Canonical SS/SB/WB; existing Story bespoke builder; accepted Story neutral-package renderer and default-off canary; accepted Opener Stage 3–5 paths; experiment/audit history |
+| **6A readiness (accepted)** | Live totals **2 / 14 / 14 / 3**; `be3-u08-story` `draft`; five preferred v1 summaries `hidden`/`experimental`; one Structures link `proposed`; Opener unchanged **1 / 9 / 9 / 2**; migration `20261029180000` recorded applied remotely |
+| **Proposed sequence** | 6A Story knowledge readiness (**done**); then a separately approved 6B Story NLL → selected NLP → shared Chalkie adapter transfer |
+| **Acceptance gates** | Exact scope; content + functional review; all/partial/zero selection; SB Activity 6 and WB Activity 5 exclusions; no WB p.107; teacher inputs; failure/stale fallback; five-artifact authenticated workflow; D022 unchanged |
+| **Rollback** | New Story-only default-off control if later approved; failure/ineligible/flag-off returns the current Story canary/bespoke path |
+| **Non-goals** | Stage 6B without separate brief; canonical changes; deployment; promotion; NLL prose in Chalkie; POC/canary retirement; other components/books; broader enrichment; broad `supabase db push` |
+| **Owner decisions** | 6A accepted; later approve a 6B implementation brief and flag |
 
 ---
 
@@ -132,4 +133,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 - [`../4-decisions.md`](../4-decisions.md) — D027  
 - [`nll-pilot-architecture-v0.1.md`](./nll-pilot-architecture-v0.1.md) — pilot facts  
 - [`stage-5-implementation-brief-v0.1.md`](./stage-5-implementation-brief-v0.1.md) — approved brief and local implementation/verification record
+- [`stage-6-story-transfer-brief-v0.1.md`](./stage-6-story-transfer-brief-v0.1.md) — BE3 U8 Story transfer brief (6A accepted; 6B gated)
+- [`stage-6a-story-knowledge-review-v0.1.md`](./stage-6a-story-knowledge-review-v0.1.md) — Stage 6A acceptance / migration-history record
 - [`../5-progress.md`](../5-progress.md) — current freeze / status  
+

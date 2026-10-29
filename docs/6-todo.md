@@ -659,11 +659,17 @@
 
 - [x] **Stage 5 authenticated UI acceptance:** Create-a-prompt BE3 U8 Opener cases **A–F PASS** (2026-10-29) on controlled Vite 5174; NLL table evidence on Opener path; Story/non-Opener isolation; flag-off no `nll_*` loads; artifacts/teacher-added/exclusions/zero-selection verified.
 
-- [x] **Stage 5 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener NLP → Chalkie pilot; authorized commit and push to `main` of the verified 14 Stage 5 paths only. Summaries remain `hidden`/`experimental` and package-only in Chalkie; POC/canaries remain; deployment deferred; Stage 5 expansion and Stage 6 unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022.
+- [x] **Stage 5 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener NLP → Chalkie pilot; authorized commit and push to `main` of the verified 14 Stage 5 paths only. Summaries remain `hidden`/`experimental` and package-only in Chalkie; POC/canaries remain; deployment deferred; Stage 5 expansion unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022.
 
-- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5 expansion, or Stage 6 implementation without explicit approval.
+- [x] **Stage 6 planning authorization:** documentation-only BE3 U8 Story transfer brief drafted for owner review. Existing Story NLP/renderer/canary foundations distinguished from missing Story NLL content. No implementation, refactoring, configuration, canonical, Supabase, deployment or promotion change.
 
-- [ ] **Stage 6 (gated):** broader coverage and enrichment. **Not authorized.**
+- [x] **Owner review — Stage 6 Story transfer brief:** brief approved with 6A knowledge-readiness gate before any 6B adapter work.
+
+- [x] **Stage 6A Story knowledge readiness:** owner-accepted complete. Live NLL totals **2 / 14 / 14 / 3**; `be3-u08-story` draft; five preferred v1 summaries `hidden`/`experimental`; one Structures link `proposed`; WB p.107 excluded; Opener unchanged **1 / 9 / 9 / 2**. Migration `20261029180000` recorded as applied remotely. Story knowledge remains live but hidden/experimental — not promotion.
+
+- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5 expansion, Stage 6B, or broader Stage 6 without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
+
+- [ ] **Stage 6B (gated):** Stage 6A complete. **Stage 6B Story adapter transfer, promotion, and deployment are not authorized.**
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

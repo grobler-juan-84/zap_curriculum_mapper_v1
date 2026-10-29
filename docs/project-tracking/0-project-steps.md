@@ -6710,3 +6710,38 @@
 - Plus Stage 5 implementation paths included in the authorized commit/push batch (see commit)
 
 ---
+
+### Step 389
+
+**Summary:** Recorded owner authorization for **Stage 6 planning only** and drafted the BE3 Unit 8 Story transfer brief. The plan distinguishes existing Story neutral-package, shared-renderer and accepted-canary foundations from the missing persistent Story NLL knowledge; it gates any future adapter transfer behind a separately approved Story knowledge-readiness/content slice. No application code, refactoring, configuration, canonical data, Supabase/Storage, deployment, NLL promotion, POC/canary retirement or Stage 6 implementation.
+
+**Files touched:**
+- `docs/project-tracking/stage-6-story-transfer-brief-v0.1.md` (created)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 390
+
+**Summary:** Recorded owner formal acceptance of Stage 6A Story knowledge readiness (live NLL 2/14/14/3; hidden/experimental; migration `20261029180000` history reconciled). Updated Stage 6 trackers; Stage 6B, promotion, deployment, and broad `supabase db push` remain unauthorized. Authorized commit/push of the verified 11 Stage 6A paths only.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/stage-6-story-transfer-brief-v0.1.md` (updated)
+- `docs/project-tracking/stage-6a-story-knowledge-review-v0.1.md` (updated)
+- `scripts/tests/nllBe3U08StorySeedStage6a.test.ts` (included in authorized commit)
+- `supabase/migrations/20261029180000_seed_nll_be3_u08_story.sql` (included in authorized commit)
+
+---
