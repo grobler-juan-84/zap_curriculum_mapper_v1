@@ -6350,7 +6350,7 @@
 
 ### Step 369
 
-**Summary:** Extended the D023 BE3 U8 activity-enrichment POC to the exact verified Workbook companion on pp. 104–105 (four human-verified activities) behind the same default-off flag. Added distinct WB summary sidecars, gated WB card presentation matching SB, and one experimental package with separate studentBookActivities / workbookActivities. Focused tests, typecheck, and lint green.
+**Summary:** Extended the D023 BE3 U8 activity-enrichment POC to the exact verified Workbook companion on pp. 104ï¿½105 (four human-verified activities) behind the same default-off flag. Added distinct WB summary sidecars, gated WB card presentation matching SB, and one experimental package with separate studentBookActivities / workbookActivities. Focused tests, typecheck, and lint green.
 
 **Files touched:**
 - `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
@@ -6363,6 +6363,65 @@
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
 - `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 370
+
+**Summary:** Implemented the locally verified D024 Neutral Lesson Library pilot for BE3 Unit 8 Opener. Added the four-table additive migration and bounded 1/9/9/2 seed, stable activity-keyed summary versioning, remote source hashes and activity fingerprints, read-only retrieval, a default-off shadow package, focused tests, and architecture/operating documentation. Canonical SS/SB/WB data and existing production workflows were unchanged. Remote migration application remains pending Supabase CLI/database credentials; no commit, push, or deployment was performed.
+
+**Files touched:**
+- `supabase/migrations/20261029120000_create_nll_pilot.sql` (created)
+- `app/src/features/nll/neutralLessonLibrary.ts` (created)
+- `app/src/features/nll/buildNllShadowLessonPackage.ts` (created)
+- `scripts/tests/neutralLessonLibraryPilot.test.ts` (created)
+- `docs/project-tracking/nll-pilot-architecture-v0.1.md` (created)
+- `supabase/README.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 371
+
+**Summary:** Prepared the D025 Cursor completion handover for the locally implemented BE3 Unit 8 NLL pilot. Recorded exactly three delegated pending actions: apply the existing migration to the confirmed Supabase target, verify persistent counts/RLS/canonical integrity, then commit and push only after success. The pilot remains incomplete; deployment is excluded; feature development freezes after completion and the next milestone is a separate read-only Project Consolidation and Repository Audit.
+
+**Files touched:**
+- `docs/project-tracking/CURSOR_NLL_PILOT_COMPLETION.md` (created)
+- `docs/project-tracking/nll-pilot-architecture-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 372
+
+**Summary:** Completed D025 Steps 2-3 after the NLL migration was applied manually on Supabase project kivvmobjphtcgxoltqbc. Verified persistent 1/9/9/2 seed, opener retrieval, hidden/experimental summaries, proposed-only SS links, teacher-read / admin-write / teacher-write-reject RLS, and unchanged remote SB/WB/SS hashes; reconfirmed 7/7 focused NLL tests and the missing local BE3 WB working-copy limitation; committed and pushed the pilot on main without deployment.
+
+**Files touched:**
+- `supabase/migrations/20261029120000_create_nll_pilot.sql` (created)
+- `app/src/features/nll/neutralLessonLibrary.ts` (created)
+- `app/src/features/nll/buildNllShadowLessonPackage.ts` (created)
+- `scripts/tests/neutralLessonLibraryPilot.test.ts` (created)
+- `docs/project-tracking/nll-pilot-architecture-v0.1.md` (created/updated)
+- `docs/project-tracking/CURSOR_NLL_PILOT_COMPLETION.md` (created/updated)
+- `supabase/README.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
 - `docs/project-tracking/1-project-status.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
 

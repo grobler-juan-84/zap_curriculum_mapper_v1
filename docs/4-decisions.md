@@ -57,6 +57,9 @@
 | D020 | Phase 3 Vertical Mapping parked as later priority; cross-book prior-learning reuse | 2026-10-19 | LOCKED |
 | D021 | Student Book–first lesson preparation | 2026-10-21 | LOCKED |
 | D022 | Neutral Lesson Package is the durable handoff; BI is optional curriculum interpretation | 2026-10-25 | LOCKED |
+| D023 | Limited BE3 U8 activity-enrichment POC only | 2026-10-28 | LOCKED |
+| D024 | Minimal additive Neutral Lesson Library pilot | 2026-10-29 | LOCKED |
+| D025 | Complete NLL pilot through Cursor, then freeze features for repository audit | 2026-10-29 | LOCKED |
 
 ---
 
@@ -480,10 +483,54 @@ The active POC keeps teacher-friendly summaries in separate experimental sidecar
 
 ---
 
+### D024 — Minimal additive Neutral Lesson Library pilot
+
+**Date:** 2026-10-29
+**Status:** LOCKED
+
+**Decision:** Implement the BE3 Unit 8 Opener as the first persistent Neutral Lesson Library pilot using four additive Supabase tables: `nll_components`, `nll_component_activities`, `nll_activity_summaries`, and `nll_ss_component_links`. Canonical SS/SB/WB JSON remains unchanged in Storage.
+
+Activity summaries belong directly to stable canonical `activity_id` values, not lesson components. Summary versions can be replaced independently; at most one version is preferred per activity. Source path, dataset SHA-256, and a stable activity fingerprint preserve provenance and identify potentially stale summaries after canonical activity changes.
+
+The pilot contains one component, nine memberships, nine existing summaries (`hidden` + `experimental`), and two `proposed` Unit 8 SS links. Retrieval is read-only. Shadow packaging is default-off, selection-specific, and keeps publisher evidence, AI summaries, and proposed SS relationships distinct.
+
+**Reason:** Establish the smallest useful persistent library that can improve individual knowledge without rewriting canonical evidence or existing lesson components.
+
+**Explicit boundaries:** No production lesson-generation changes, teacher workflow changes, canonical edits, horizontal progression, teacher editing, persistent lesson packages/selections, activity-level SS claims, multi-school model, deployment, or expansion beyond BE3 U8. Remote migration application remains pending because this checkout lacks a linked Supabase CLI/database connection credential.
+
+**Supersedes:** D023's non-lock on persistent NLL work only for this exact pilot. D023 remains the historical bounded sidecar POC decision.
+
+**Compatibility:** Preserves D001, D006, D021, D022, and SS authority.
+
+---
+
+### D025 — Complete NLL pilot through Cursor, then freeze features for repository audit
+
+**Date:** 2026-10-29
+**Status:** LOCKED
+
+**Decision:** Delegate exactly three remaining NLL pilot actions to Cursor: (1) safely apply the existing D024 migration to the confirmed existing Supabase project, (2) verify the persistent 1/9/9/2 seed, retrieval, visibility, proposed-SS boundary, RLS behavior, and unchanged canonical foundation, and (3) review, commit, and push only after the first two steps succeed. Deployment is excluded.
+
+The NLL pilot remains incomplete until Cursor reports success for all three actions and the results are reviewed. After successful completion, freeze new feature development. The next milestone is **Project Consolidation & Repository Audit**, beginning read-only under the rule: audit first, delete second.
+
+**Reason:** Close the bounded pilot cleanly before assessing repository redundancy, unused experiments, conflicting documentation, outdated assumptions, and unnecessary complexity.
+
+**Alternatives rejected:** Expanding NLL features before persistence is verified; marking the pilot complete from local tests alone; combining deployment or cleanup with completion; deleting files before an evidence-based audit.
+
+**Implications:** No additional NLL units, horizontal progression, teacher enrichment, adapters, UI redesign, or production NLL integration after completion. Cursor must stop on unsafe connection/target ambiguity or failed verification rather than invent credentials or claim success.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D024's exact pilot scope, all canonical-data safeguards, and the existing no-deployment boundary.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-29 | Added D025 — delegate migration, persistence verification, and Git completion to Cursor; freeze features after success; next milestone is read-only repository consolidation/audit. |
+| 2026-10-29 | Added D024 — minimal additive NLL pilot for BE3 U8; stable activity-keyed summaries, four tables, hidden experimental seed, and default-off shadow retrieval/package. |
 | 2026-10-28 | Amended D023 — exact WB companion pp. 104–105 (four activities) added to the same default-off summary-only POC; not general WB enrichment. |
 | 2026-10-28 | Amended D023 — Optional Teaching Guidance removed from the active POC and parked (F025); summaries + activity selection remain. |
 | 2026-10-28 | Added D023 — exact-scope BE3 U8 activity-enrichment POC only; sidecars + experimental package projection; no broad library or production approval. |

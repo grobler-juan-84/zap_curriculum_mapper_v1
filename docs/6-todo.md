@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 366
+**Last updated:** Step 371
 
 
 
@@ -612,6 +612,18 @@
 - [x] **D023 POC simplification:** Optional Teaching Guidance removed from active POC (UI, state, package, sidecars); parked as F025.
 
 - [x] **D023 WB companion extension:** exact WB pp. 104–105 (four verified activities) behind the same default-off flag; separate WB summary sidecars; package `studentBookActivities` / `workbookActivities`; SB presentation unchanged.
+
+- [x] **D024 local NLL pilot implementation:** four-table migration and bounded BE3 U8 seed; activity-keyed versioned summaries; source fingerprints; read-only retrieval; default-off shadow builder; 7 focused tests and app typecheck passed.
+
+- [x] **Cursor Step 1 — apply D024 migration:** applied manually to confirmed project `kivvmobjphtcgxoltqbc` (`20261029120000_create_nll_pilot.sql`).
+
+- [x] **Cursor Step 2 — verify persistent NLL:** confirmed exact 1 / 9 / 9 / 2 counts, opener retrieval, summary identities and hidden/experimental state, proposed SS boundary, authenticated teacher reads, admin writes, rejected teacher writes, and unchanged SB/WB/SS Storage hashes.
+
+- [x] **Cursor Step 3 — commit and push:** reviewed diff (NLL pilot + tests + migration + docs only); committed and pushed `main` without force-push. No deployment.
+
+- [ ] **Completion review and feature freeze:** owner/reviewer confirms Cursor evidence; feature development remains frozen per D025.
+
+- [ ] **Next milestone — Project Consolidation & Repository Audit:** begin separately and read-only. Audit first; delete second.
 
 - [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
 

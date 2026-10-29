@@ -33,10 +33,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [1-project-overview.md](./1-project-overview.md) | Project purpose, seven-phase architecture, and teacher-first priorities; **immediate emphasis: horizontal mapping**; Phase 3 Vertical Mapping later priority (D020) for cross-book prior-learning reuse; D018/Chalkie downstream; D017/D019 provisional. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
 | [3-architecture.md](./3-architecture.md) | System architecture: phase boundaries and data flow; horizontal mapping within Phase 2; Phase 3 Vertical Mapping parked as later priority (D020) — teacher-facing cross-book reuse, not Phase-2-gated; D018 downstream. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D023**: exact-scope BE3 U8 activity-enrichment POC (five SB + four WB companion activities; summaries only; guidance parked as F025); no broad library/production approval; D022 NLP handoff and D021 SB-first preserved. | 1.0 | ACTIVE |
-| [5-progress.md](./5-progress.md) | Current project state (Done / In progress / Next / Blocked), including the default-off D023 enrichment POC (SB + WB companion) awaiting owner review. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actionable tasks; next POC action is manual review, while broad enrichment/library expansion remains held. | 1.0 | ACTIVE |
-| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority, F023 neutral-module relocation remainder, F024 full additive library/productization, and F025 Optional Teaching Guidance remain parked. | 1.1 | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D025**: Cursor completes migration/verification/Git, then feature development freezes for a read-only consolidation and repository audit. | 1.0 | ACTIVE |
+| [5-progress.md](./5-progress.md) | Current project state: D024/D025 NLL pilot complete and frozen; next milestone is read-only consolidation/repository audit. | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Concrete near-term actions: NLL Cursor steps done; completion review/freeze confirmation, then read-only repository audit. | 1.0 | ACTIVE |
+| [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority, F023 neutral-module relocation, NLL expansion beyond D024, and F025 Optional Teaching Guidance remain parked. | 1.1 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
 | [10-storage-architecture.md](./10-storage-architecture.md) | Object-storage plan: R2-only textbook PDFs (D012; Stages A–E PASS), Supabase for JSON/covers; unused Supabase PDF copies retained. | 1.2 | ACTIVE |
@@ -51,6 +51,8 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [project-tracking/2-internal-brainstorming.md](./project-tracking/2-internal-brainstorming.md) | Evolving internal brainstorming space for open questions, options, and possible solutions (incl. R2 cutover details after D010). | 1.0 | ACTIVE |
 | [project-tracking/3-project-decisions.md](./project-tracking/3-project-decisions.md) | Legacy pointer to [`4-decisions.md`](./4-decisions.md); kept for older links. | 1.0 | ACTIVE |
 | [project-tracking/4-mock-data-registry.md](./project-tracking/4-mock-data-registry.md) | Distinguishes live Supabase catalog/Storage/Validation data from remaining UI mocks/prototypes (Beehive spreads, teacher AI, Storage-backed BE3 BI preview not in `book_files`). | — | ACTIVE |
+| [project-tracking/CURSOR_NLL_PILOT_COMPLETION.md](./project-tracking/CURSOR_NLL_PILOT_COMPLETION.md) | Completed Cursor handover record: NLL migration applied, persistence/RLS verified, committed and pushed; no deployment or feature expansion. | — | ACTIVE |
+| [project-tracking/nll-pilot-architecture-v0.1.md](./project-tracking/nll-pilot-architecture-v0.1.md) | NLL founding principle and applied BE3 U8 pilot: four additive tables, stable activity-keyed summaries, source fingerprints, read-only retrieval, and default-off shadow packaging. | 0.1 | ACTIVE |
 
 ### Phase 1
 
@@ -220,7 +222,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 134 | Current working docs, including index, operating trackers, Chalkie coverage map, Activity Selection and Teacher Intelligence contracts, Prior Learning / Horizontal Mapping audit + curated `[HM]` pack authoring contract, Unit Learning Spine, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener + Story limited canaries (manually accepted), Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 136 | Current working docs, including index, operating trackers, the NLL pilot architecture and Cursor completion handover, Chalkie coverage map, Activity Selection and Teacher Intelligence contracts, Prior Learning / Horizontal Mapping audit + curated `[HM]` pack authoring contract, Unit Learning Spine, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener + Story limited canaries (manually accepted), Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 
