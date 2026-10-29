@@ -249,6 +249,30 @@ export function ActivityEvidenceBody({
   )
 }
 
+function ExperimentalSummarySection({
+  summary,
+  label,
+  ariaLabel,
+}: {
+  summary: Be3U08ExperimentalSummaryDisplay
+  label: string
+  ariaLabel: string
+}) {
+  return (
+    <section aria-label={ariaLabel} data-enrichment-layer="summary">
+      <p className="text-[10px] font-medium tracking-wide text-slate-500">
+        {label}
+      </p>
+      <p className="mt-1 text-sm leading-relaxed text-slate-900">{summary.text}</p>
+      {summary.evidenceSufficiency === 'insufficient' ? (
+        <p className="mt-1.5 text-[11px] leading-relaxed text-amber-800">
+          Insufficient evidence for a fuller summary.
+        </p>
+      ) : null}
+    </section>
+  )
+}
+
 function ExperimentalActivityEnrichment({
   card,
   pagePrefix,
@@ -262,26 +286,126 @@ function ExperimentalActivityEnrichment({
     <div className="min-w-0 flex-1 space-y-3" data-experimental-activity-enrichment>
       <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
 
-      <section
-        aria-label="Experimental teacher-friendly summary"
-        data-enrichment-layer="summary"
-      >
-        <p className="text-[10px] font-medium tracking-wide text-slate-500">
-          AI summary · experimental
-        </p>
-        <p className="mt-1 text-sm leading-relaxed text-slate-900">{summary.text}</p>
-        {summary.evidenceSufficiency === 'insufficient' ? (
-          <p className="mt-1.5 text-[11px] leading-relaxed text-amber-800">
-            Insufficient evidence for a fuller summary.
-          </p>
-        ) : null}
-      </section>
+      <ExperimentalSummarySection
+        summary={summary}
+        label="AI summary · experimental"
+        ariaLabel="Experimental teacher-friendly summary"
+      />
       {/*
         Publisher evidence remains in selection/package builders; it is not
         shown on enrichment POC cards so the teacher-facing surface stays summary-first.
       */}
     </div>
   )
+}
+
+const POC_COMPARISON_LABEL = 'POC summary · experimental'
+const NLL_COMPARISON_LABEL = 'NLL summary · experimental'
+
+function NllComparisonColumn({
+  status,
+  summary,
+}: {
+  status: NllCardComparisonDisplayState['status']
+  summary: Be3U08ExperimentalSummaryDisplay | null
+}) {
+  if (status === 'loading') {
+    return (
+      <section
+        aria-label={NLL_COMPARISON_LABEL}
+        data-nll-comparison-column="loading"
+      >
+        <p className="text-[10px] font-medium tracking-wide text-slate-500">
+          {NLL_COMPARISON_LABEL}
+        </p>
+        <p className="mt-1 text-sm italic leading-relaxed text-slate-500">
+          Loading NLL summary…
+        </p>
+      </section>
+    )
+  }
+  if (status === 'success' && summary) {
+    return (
+      <div data-nll-comparison-column="success">
+        <ExperimentalSummarySection
+          summary={summary}
+          label={NLL_COMPARISON_LABEL}
+          ariaLabel={NLL_COMPARISON_LABEL}
+        />
+      </div>
+    )
+  }
+  const message =
+    status === 'unavailable'
+      ? 'NLL summary unavailable.'
+      : status === 'error'
+        ? 'NLL summary could not be loaded.'
+        : 'NLL summary not available for this activity.'
+  return (
+    <section
+      aria-label={NLL_COMPARISON_LABEL}
+      data-nll-comparison-column={status}
+    >
+      <p className="text-[10px] font-medium tracking-wide text-slate-500">
+        {NLL_COMPARISON_LABEL}
+      </p>
+      <p className="mt-1 text-sm italic leading-relaxed text-slate-500">{message}</p>
+    </section>
+  )
+}
+
+function NllCardComparisonEnrichment({
+  card,
+  pagePrefix,
+  pocSummary,
+  nllComparison,
+}: {
+  card: ActivityEvidenceCardModel
+  pagePrefix: 'SB' | 'WB'
+  pocSummary: Be3U08ExperimentalSummaryDisplay | null
+  nllComparison: NllCardComparisonDisplayState
+}) {
+  return (
+    <div
+      className="min-w-0 flex-1 space-y-3"
+      data-experimental-activity-enrichment
+      data-nll-card-comparison="true"
+    >
+      <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="min-w-0" data-poc-comparison-column>
+          {pocSummary ? (
+            <ExperimentalSummarySection
+              summary={pocSummary}
+              label={POC_COMPARISON_LABEL}
+              ariaLabel={POC_COMPARISON_LABEL}
+            />
+          ) : (
+            <section aria-label={POC_COMPARISON_LABEL}>
+              <p className="text-[10px] font-medium tracking-wide text-slate-500">
+                {POC_COMPARISON_LABEL}
+              </p>
+              <p className="mt-1 text-sm italic leading-relaxed text-slate-500">
+                POC summary not available for this activity.
+              </p>
+            </section>
+          )}
+        </div>
+        <div className="min-w-0">
+          <NllComparisonColumn
+            status={nllComparison.status}
+            summary={nllComparison.summary}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/** Stage 3 NLL side of POC↔NLL card comparison (modal Opener scope only). */
+export type NllCardComparisonDisplayState = {
+  readonly status: 'loading' | 'success' | 'empty' | 'unavailable' | 'error'
+  readonly summary: Be3U08ExperimentalSummaryDisplay | null
 }
 
 export function ActivityEvidenceCard({
@@ -293,6 +417,7 @@ export function ActivityEvidenceCard({
   compact = false,
   layout = 'panel',
   experimentalSummary,
+  nllComparison = null,
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
@@ -308,13 +433,20 @@ export function ActivityEvidenceCard({
   layout?: 'panel' | 'modal'
   /** Bounded BE3 U8 POC only; absent for all production/default-off paths. */
   experimentalSummary?: Be3U08ExperimentalSummaryDisplay | null
+  /**
+   * When set on modal cards, shows labelled POC + NLL summaries side by side.
+   * Ignored for left-panel (`panel`) layout. Never blank the whole card.
+   */
+  nllComparison?: NllCardComparisonDisplayState | null
 }) {
   const selectable = typeof onSelectedChange === 'function'
   const checked = selected ?? true
   const inputId =
     checkboxId ?? `activity-evidence-${pagePrefix.toLowerCase()}-${card.id}`
   const isModal = layout === 'modal'
-  const showExperimentalEnrichment = isModal && experimentalSummary != null
+  const showNllComparison = isModal && nllComparison != null
+  const showExperimentalEnrichment =
+    isModal && !showNllComparison && experimentalSummary != null
 
   const shellClass = [
     'rounded-lg border',
@@ -354,7 +486,14 @@ export function ActivityEvidenceCard({
       >
         <div className={selectable ? 'flex gap-2.5' : undefined}>
           {checkbox}
-          {showExperimentalEnrichment ? (
+          {showNllComparison ? (
+            <NllCardComparisonEnrichment
+              card={card}
+              pagePrefix={pagePrefix}
+              pocSummary={experimentalSummary ?? null}
+              nllComparison={nllComparison}
+            />
+          ) : showExperimentalEnrichment ? (
             <ExperimentalActivityEnrichment
               card={card}
               pagePrefix={pagePrefix}

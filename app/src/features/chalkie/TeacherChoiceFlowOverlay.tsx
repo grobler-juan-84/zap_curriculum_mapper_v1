@@ -78,6 +78,17 @@ import {
   isExactBe3U08WorkbookEnrichmentPocScope,
 } from './buildBe3U08ActivityEnrichmentPocPackage'
 import {
+  isExactBe3U08OpenerNllCardComparisonScope,
+  isNllCardComparisonEnabled,
+  openerNllCardComparisonScopeKey,
+  shouldLoadNllCardComparison,
+  subscribeNllCardComparisonLifecycle,
+  toNllCardComparisonDisplayState,
+  type NllCardComparisonByActivityId,
+  type NllCardComparisonLoadStatus,
+} from './nllCardComparison'
+import { supabase } from '../../lib/supabase'
+import {
   ActivityReviewBookPage,
   ActivityReviewBookSpread,
 } from './ActivityReviewBookSpread'
@@ -359,6 +370,10 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
+  const [nllComparisonLoadStatus, setNllComparisonLoadStatus] =
+    useState<NllCardComparisonLoadStatus>('idle')
+  const [nllComparisonByActivityId, setNllComparisonByActivityId] =
+    useState<NllCardComparisonByActivityId | null>(null)
   const activityEnrichmentPocEnabled =
     isBe3U08ActivityEnrichmentPocEnabled() &&
     isExactBe3U08ActivityEnrichmentPocScope(activityCards)
@@ -368,6 +383,47 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       cards: workbookActivityCards,
       companion: lesson?.workbookCompanion ?? null,
     })
+  const nllCardComparisonFlagOn = isNllCardComparisonEnabled()
+  const nllCardComparisonExactScope = isExactBe3U08OpenerNllCardComparisonScope({
+    activityCards,
+    workbookActivityCards,
+    companion: lesson?.workbookCompanion ?? null,
+  })
+  const nllCardComparisonEligible =
+    nllCardComparisonFlagOn && nllCardComparisonExactScope
+  const showSbExperimentalSummary =
+    activityEnrichmentPocEnabled || nllCardComparisonEligible
+  const showWbExperimentalSummary =
+    workbookEnrichmentPocEnabled || nllCardComparisonEligible
+  const nllComparisonScopeKey = nllCardComparisonEligible
+    ? openerNllCardComparisonScopeKey({
+        activityCards,
+        workbookActivityCards,
+        companion: lesson?.workbookCompanion ?? null,
+      })
+    : ''
+
+  useEffect(() => {
+    const shouldLoad = shouldLoadNllCardComparison({
+      open,
+      comparisonFlagEnabled: nllCardComparisonFlagOn,
+      exactScopeEligible: nllCardComparisonExactScope,
+    })
+    return subscribeNllCardComparisonLifecycle({
+      shouldLoad,
+      scopeKey: nllComparisonScopeKey,
+      client: supabase,
+      apply: (next) => {
+        setNllComparisonLoadStatus(next.status)
+        setNllComparisonByActivityId(next.byActivityId)
+      },
+    })
+  }, [
+    open,
+    nllCardComparisonFlagOn,
+    nllCardComparisonExactScope,
+    nllComparisonScopeKey,
+  ])
 
   useEffect(() => {
     if (!open) {
@@ -936,10 +992,19 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               }}
                               checkboxId={`current-activity-${card.id}`}
                               experimentalSummary={
-                                activityEnrichmentPocEnabled
+                                showSbExperimentalSummary
                                   ? getBe3U08ActivitySummary(
                                       card.references.activityId,
                                     )
+                                  : null
+                              }
+                              nllComparison={
+                                nllCardComparisonEligible
+                                  ? toNllCardComparisonDisplayState({
+                                      loadStatus: nllComparisonLoadStatus,
+                                      byActivityId: nllComparisonByActivityId,
+                                      activityId: card.references.activityId,
+                                    })
                                   : null
                               }
                             />
@@ -1023,10 +1088,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
                               }
                               checkboxId={`workbook-activity-${card.id}`}
                               experimentalSummary={
-                                workbookEnrichmentPocEnabled
+                                showWbExperimentalSummary
                                   ? getBe3U08WbActivitySummary(
                                       card.references[0]?.activityId ?? '',
                                     )
+                                  : null
+                              }
+                              nllComparison={
+                                nllCardComparisonEligible
+                                  ? toNllCardComparisonDisplayState({
+                                      loadStatus: nllComparisonLoadStatus,
+                                      byActivityId: nllComparisonByActivityId,
+                                      activityId:
+                                        card.references[0]?.activityId ?? '',
+                                    })
                                   : null
                               }
                             />

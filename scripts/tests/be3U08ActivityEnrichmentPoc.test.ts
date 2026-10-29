@@ -454,3 +454,24 @@ test('no Optional Teaching Guidance or publisher-evidence controls remain on enr
   assert.ok(!overlaySource.includes('includeGuidance'))
   assert.ok(!overlaySource.includes('Guidance included'))
 })
+
+test('POC-only path remains when comparison is off; selection wiring stays intact', () => {
+  const cardSource = fs.readFileSync(CARD_SOURCE_PATH, 'utf8')
+  assert.match(cardSource, /AI summary · experimental/)
+  assert.match(cardSource, /data-experimental-activity-enrichment/)
+  assert.match(cardSource, /showExperimentalEnrichment/)
+  assert.match(cardSource, /onSelectedChange/)
+  assert.match(cardSource, /type="checkbox"/)
+
+  const overlaySource = fs.readFileSync(OVERLAY_SOURCE_PATH, 'utf8')
+  assert.match(overlaySource, /activityEnrichmentPocEnabled/)
+  assert.match(overlaySource, /workbookEnrichmentPocEnabled/)
+  assert.match(overlaySource, /showSbExperimentalSummary/)
+  assert.match(overlaySource, /showWbExperimentalSummary/)
+  assert.match(overlaySource, /onSbActivitySelectionChange/)
+  assert.match(overlaySource, /onWbActivitySelectionChange/)
+  assert.match(overlaySource, /experimentalSummary=\{/)
+  // Comparison is additive and default-off; POC getters remain the summary source.
+  assert.match(overlaySource, /getBe3U08ActivitySummary/)
+  assert.match(overlaySource, /getBe3U08WbActivitySummary/)
+})

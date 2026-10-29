@@ -6480,3 +6480,84 @@
 - `docs/project-tracking/1-project-status.md` (updated)
 
 ---
+
+### Step 376
+
+**Summary:** Implemented bounded Stage 3 NLL↔POC activity-card comparison for the nine BE3 U8 Opener activities under default-off `VITE_CHALKIE_NLL_CARD_COMPARISON`. One NLL load per eligible overlay; POC fallback retained; nine summaries remain hidden/experimental. Left uncommitted for independent review; Stages 4–6 and deployment not authorized.
+
+**Files touched:**
+- `app/src/features/chalkie/nllCardComparison.ts` (created)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/nllCardComparison.test.ts` (created)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+
+---
+
+### Step 377
+
+**Summary:** Applied Stage 3 independent-review corrections: single-flight NLL comparison lifecycle that survives React Strict Mode remounts, wired into the overlay effect; visible `POC/NLL summary · experimental` labels; lifecycle test now exercises `subscribeNllCardComparisonLifecycle`. Still uncommitted; Stages 4–6 and deployment not authorized.
+
+**Files touched:**
+- `app/src/features/chalkie/nllCardComparison.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `scripts/tests/nllCardComparison.test.ts` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+
+---
+
+### Step 378
+
+**Summary:** Corrected Stage 3 current-state wording in the documentation index and operating trackers so D027/Stage 2 are not described as authorizing Stage 3, while recording that Stage 3 was later authorized as a bounded local implementation (default off, uncommitted, pending authenticated smoke and owner acceptance; not complete; not a POC replacement). Stages 4–6 remain unauthorized; D026 freeze and deferred deployment preserved. Opened the local app for owner sign-in before the smoke matrix.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 379
+
+**Summary:** Completed the authenticated Stage 3 smoke matrix while signed in (A1–A2, B3–B4, single-flight NLL load, selection persistence, offline NLL failure honesty, Story/non-Opener isolation, nine-activity live review). All cases passed; no code fixes applied. Restored `.env.local` exactly; left Stage 3 implementation uncommitted pending owner acceptance. Stages 4–6, deploy, and POC retirement still unauthorized.
+
+**Files touched:**
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 380
+
+**Summary:** Recorded owner acceptance of Stage 3 as a complete bounded default-off Opener NLL↔POC card-comparison slice (smoke already passed). Nine summaries remain `hidden`/`experimental`; POC retained; deployment deferred; Stages 4–6 unauthorized; D026 freeze otherwise active; D027 unchanged. Owner authorized commit and push of the verified 13 paths to `main` only.
+
+**Files touched:**
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

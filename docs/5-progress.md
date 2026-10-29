@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 375
+**Last updated:** Step 380
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,32 +10,31 @@
 ## Done
 
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
-- **D017–D027** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters.
-- **D024 / D025 NLL pilot complete on `main`:** migration applied; persistent 1 / 9 / 9 / 2 seed and RLS verified; committed at `f8a86c7`.
-- **D026 Batch 0 complete and pushed** at `c504fd7` (docs/orientation and operational safety). Audit brief + report preserved at `998e7f5`.
-- **Stage 1 + Stage 2 recorded:** D027 architecture lock and `nll-migration-roadmap-v0.1.md` (Stages 3–6 planning only).
-- Feature development remains frozen under D026. No runtime, database, Storage, canonical-data, or deployment changes in Stage 1.
+- **D017–D027** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters (D027 / Stage 2 roadmap did not themselves authorize Stage 3). Stage 3 acceptance does not reopen or supersede D027.
+- **D024 / D025 NLL pilot complete on `main`:** migration applied; persistent 1 / 9 / 9 / 2 seed and RLS verified.
+- **D026 Batch 0** and audit evidence are on `main`. Stage 1–2 docs (D027 + roadmap) recorded.
+- **Stage 3 complete (bounded):** authenticated smoke passed; **owner accepted** the default-off Opener NLL↔POC card-comparison slice. Nine NLL summaries remain `hidden` + `experimental` (not available for normal use). POC remains in place. This is not NLL promotion and not POC retirement.
 
 ## In progress
 
-- Independent review of the uncommitted Stage 1 documentation diff.
-- Production deployment remains deferred. NLL remains default-off / shadow; nine pilot summaries stay `hidden` + `experimental`.
+- None for Stage 3. Hold for separate authorization before Stages 4–6, deployment, visibility promotion, or POC retirement.
 
 ## Next
 
-- Owner review / explicit Git authorization for the Stage 1 docs commit when ready.
-- Stages 3–6 remain unauthorized; Stage 3 card-comparison approach is recorded in the roadmap only (`VITE_CHALKIE_NLL_CARD_COMPARISON`, default off, side-by-side with POC fallback).
+- Do not authorize Stages 4–6, deploy, promote NLL visibility, or retire the POC without separate explicit approval.
+- Keep `VITE_CHALKIE_NLL_CARD_COMPARISON` and enrichment POC flags default-off in shared environments.
 
 ## Blocked
 
-- Stages 3–6 implementation pending separate owner authorization and acceptance gates.
-- Runtime cleanup and broader consolidation batches remain separately approved only.
-- Local BE3 WB canonical working copy still absent on this PC; do not reconcile as part of architecture work.
-- New features, deployment, production NLL integration, bulk enrichment, and UI redesign remain frozen.
+- Stages 4–6 implementation not authorized.
+- Production deployment remains deferred.
+- Wider D026 feature freeze remains active outside the completed Stage 3 slice.
+- Local BE3 WB canonical working copy still absent on this PC; do not reconcile as part of Stage 3.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `main` (tip before this uncommitted Stage 1 work: `998e7f5`).
-- D025 NLL: `f8a86c7`. D026 Batch 0: `c504fd7`. Audit evidence: `998e7f5`.
+- Active Git branch: `main`.
+- Stage 3 acceptance authorizes commit/push of the verified 13-path implementation only.
+- No database, Storage, migration, or canonical-data changes in Stage 3.

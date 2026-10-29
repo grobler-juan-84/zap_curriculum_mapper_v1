@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 374
+**Last updated:** Step 380
 
 
 
@@ -633,9 +633,15 @@
 
 - [x] **Stage 2 — Migration roadmap:** `docs/project-tracking/nll-migration-roadmap-v0.1.md` recorded with Stages 3–6 gates; planning authority only.
 
-- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, or Stages 3–6 implementation without explicit approval.
+- [x] **Stage 3 — local card comparison (bounded):** `VITE_CHALKIE_NLL_CARD_COMPARISON` default-off path implemented for the nine Opener activities; POC retained; NLL rows stay `hidden`/`experimental`.
 
-- [ ] **Stage 3 (gated):** NLL summaries → teacher activity cards. Approach approved in roadmap only: future `VITE_CHALKIE_NLL_CARD_COMPARISON` (default off), side-by-side with POC fallback, nine rows stay `hidden`/`experimental`. **Not authorized to implement.**
+- [x] **Stage 3 review corrections:** single-flight lifecycle (Strict Mode–safe) wired into overlay; visible `POC/NLL summary · experimental` labels; lifecycle test exercises the real primitive.
+
+- [x] **Stage 3 authenticated smoke matrix:** signed-in matrix A1–A2 / B3–B4 / single-flight / selection persistence / offline NLL failure / Story isolation / nine-activity live review — all observed pass; `.env.local` restored.
+
+- [x] **Stage 3 owner acceptance + commit/push authorization:** owner accepted the bounded default-off comparison slice; authorized commit and push to `main` of the verified 13 paths only. Summaries remain `hidden`/`experimental`; POC remains; deployment deferred; Stages 4–6 unauthorized; D026 freeze otherwise active. Does not reopen D027.
+
+- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, or Stages 4–6 implementation without explicit approval.
 
 - [ ] **Stage 4 (gated):** NLL → NLP assembly via `buildNeutralSbWbLessonPackage`. **Not authorized.**
 

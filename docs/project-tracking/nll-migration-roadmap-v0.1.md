@@ -3,10 +3,11 @@
 **Status:** ACTIVE / PLANNING AUTHORITY  
 **Version:** 0.1  
 **Date:** 2026-10-29  
-**Authority:** D027; Stage 2 planning only  
-**Scope:** BE3 Unit 8 Opener pilot first; broader coverage only in Stage 6  
+**Authority:** D027; Stage 2 planning authority; Stage 3 bounded comparison complete (owner-accepted)
+**Scope:** BE3 Unit 8 Opener pilot first; broader coverage only in Stage 6
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It does **not** authorize implementation of Stages 3–6. D026’s feature-development freeze remains active until each later stage is separately approved.
+
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did **not** itself authorize Stage 3 coding. Stage 3 was subsequently authorized as a bounded slice, authenticated-smoke-verified, and **owner-accepted** as a complete default-off Opener NLL↔POC card-comparison path. Acceptance does not declare NLL summaries available for normal use: the nine pilot summaries remain `hidden` + `experimental`; the enrichment POC remains in place; this is not NLL promotion or POC retirement. Stages 4–6 remain unauthorized. The wider D026 feature freeze remains active outside that bounded work. Production deployment remains deferred. Stage 3 acceptance does not reopen or supersede D027.
 
 ---
 
@@ -32,7 +33,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 |---|---|---|
 | 1 | Architecture lock | **Done** (D027 recorded) |
 | 2 | Migration roadmap and acceptance gates | **Done** (this document) |
-| 3 | NLL summaries → teacher activity cards | **Not authorized** |
+| 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly | **Not authorized** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Not authorized** |
 | 6 | Broader coverage and enrichment | **Not authorized** |
@@ -41,20 +42,20 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 3 — NLL summaries → teacher activity cards
 
-**Authorization status:** Approach approved for planning only. Implementation not authorized.
+**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. No Stage 4–6 authorization. No deployment.
 
 | Field | Detail |
 |---|---|
-| **Scope** | BE3 U8 Opener nine activities only |
+| **Scope** | BE3 U8 Opener nine activities only (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`) |
 | **Existing path preserved** | POC summaries via `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` in `be3U08ActivityEnrichmentPoc.ts`; current card/selection UX |
-| **Proposed connection** | `loadNeutralLessonComponent` + `assembleNeutralLessonComponent` (`neutralLessonLibrary.ts`); optional `fingerprintCanonicalActivity` for staleness. Display NLL beside POC under a dedicated default-off flag |
-| **Future flag** | `VITE_CHALKIE_NLL_CARD_COMPARISON` — activity-card comparison only; default off. Do **not** reuse package-level `VITE_CHALKIE_NLL_SHADOW_PILOT` / `isNllShadowPilotEnabled` / `buildNllShadowLessonPackage` |
-| **Hidden-summary rule** | Keep all nine pilot summaries `hidden` + `experimental`. Do **not** promote any row to `available`. `includeHiddenExperimental: true` only inside the controlled comparison path |
-| **Fallback** | Existing POC remains the functional fallback until replacement is accepted |
+| **Local connection** | `nllCardComparison.ts` → `subscribeNllCardComparisonLifecycle` + `loadNeutralLessonComponent('be3-u08-opener', { includeHiddenExperimental: true })` once per eligible overlay/scope (single-flight under React Strict Mode); `TeacherChoiceFlowOverlay` + modal `ActivityEvidenceCard` side-by-side POC/NLL with `· experimental` labels. No fingerprint reconstruction / no staleness chrome in this slice |
+| **Flag** | `VITE_CHALKIE_NLL_CARD_COMPARISON` — activity-card comparison only; **default off**. Independent of enrichment POC, `VITE_CHALKIE_NLL_SHADOW_PILOT`, and Opener/Story canaries |
+| **Hidden-summary rule** | All nine pilot summaries remain `hidden` + `experimental`. Do **not** promote any row to `available`. `includeHiddenExperimental: true` only inside the controlled comparison path |
+| **Fallback** | Existing POC remains the functional fallback and comparison companion until replacement is accepted |
 | **Acceptance gates** | NLL cards preserve source boundaries; accurately describe activities (content review); preserve teacher activity selection; do not lose useful POC functionality; fail or fall back honestly when NLL data is unavailable. Functional and content review both required |
-| **Rollback** | Flag off → POC-only display; no DB visibility mutation |
+| **Rollback** | Flag off → prior POC / publisher-evidence behavior; no DB visibility mutation |
 | **Non-goals** | Promoting summaries; bulk books; handoff/adapter changes; Stage 4–6 work |
-| **Owner decisions** | Authorize implementation; content acceptance of nine summaries; when POC display may retire |
+| **Owner decisions pending** | Content acceptance of nine summaries for any future normal-use promotion; when POC display may retire; whether to authorize Stages 4–6 |
 
 ---
 
