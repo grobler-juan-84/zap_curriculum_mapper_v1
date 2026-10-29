@@ -379,8 +379,218 @@ test('prior support preserves provenance and explicit lesson targets', () => {
   )
 })
 
-test('assembler rejects resolver-wired relationships outside the two accepted pairs', () => {
+test('LiA all-selected package preserves exact SB132–133 / WB107–108 scope and order', () => {
   const input = allSelected([132, 133])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+
+  assert.equal(
+    lessonPackage.identity.packageReference,
+    'be3-sb-wb-u08-p132-133-wb107-108',
+  )
+  assert.equal(
+    lessonPackage.identity.relationshipId,
+    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  )
+  assert.equal(lessonPackage.identity.componentKey, 'lia')
+  assert.equal(lessonPackage.identity.componentTitle, 'Language in Action')
+  assert.equal(lessonPackage.packaging.type, 'two_lesson_sb_wb')
+  assert.deepEqual(lessonPackage.lesson1.scope, {
+    source: 'SB',
+    catalogBookId: 'big_english_3_sb',
+    pageIds: ['bep3_sb_p132', 'bep3_sb_p133'],
+    printedPages: [132, 133],
+  })
+  assert.deepEqual(lessonPackage.lesson2.scope, {
+    source: 'WB',
+    catalogBookId: 'big_english_3_wb',
+    pageIds: ['bep_3_wb_p107', 'bep_3_wb_p108'],
+    printedPages: [107, 108],
+  })
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['8', '9', '10', '11', '12'],
+  )
+  assert.deepEqual(
+    lessonPackage.lesson2.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['7', '8', '9', '10'],
+  )
+  assert.equal(lessonPackage.lesson1.selection.status, 'all_selected')
+  assert.equal(lessonPackage.lesson2.selection.status, 'all_selected')
+  assert.equal(lessonPackage.lesson1.selection.selectedActivityCount, 5)
+  assert.equal(lessonPackage.lesson2.selection.selectedActivityCount, 4)
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  assert.doesNotMatch(JSON.stringify(lessonPackage), /bep3_sb_p130|bep_3_wb_p106|bep3_sb_p134|bep_3_wb_p109/)
+})
+
+test('LiA partial and zero selection stay selection-honest without reconstruction', () => {
+  const input = allSelected([132, 133])
+  const act8 = input.sbCards.find((card) => card.activityNumber === '8')
+  const act7 = input.wbCards.find((card) => card.activityNumber === '7')
+  assert.ok(act8)
+  assert.ok(act7)
+
+  const partial = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(
+      input.sbCards,
+      setSbActivityCardSelected({
+        cards: input.sbCards,
+        state: createDefaultSbActivitySelection(input.sbCards),
+        cardId: act8.id,
+        selected: false,
+      }),
+    ),
+    wbSelection: createWbActivityHandoffSelection(
+      input.wbCards,
+      setWbActivityCardSelected({
+        cards: input.wbCards,
+        state: createDefaultWbActivitySelection(input.wbCards),
+        cardId: act7.id,
+        selected: false,
+      }),
+    ),
+  })
+  assert.equal(partial.lesson1.selection.status, 'partial_selection')
+  assert.equal(partial.lesson2.selection.status, 'partial_selection')
+  assert.deepEqual(
+    partial.lesson1.selectedActivities.map((activity) => activity.activityNumber),
+    ['9', '10', '11', '12'],
+  )
+  assert.deepEqual(
+    partial.lesson2.selectedActivities.map((activity) => activity.activityNumber),
+    ['8', '9', '10'],
+  )
+  assert.equal(
+    partial.lesson1.audioReferences.some((reference) =>
+      /155/.test(reference.sourceDependencyNote ?? ''),
+    ),
+    false,
+  )
+  assert.equal(
+    partial.lesson2.audioReferences.some((reference) =>
+      /156/.test(reference.sourceDependencyNote ?? ''),
+    ),
+    false,
+  )
+
+  const zero = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(input.sbCards, {
+      selectedCardIds: [],
+    }),
+    wbSelection: createWbActivityHandoffSelection(input.wbCards, {
+      selectedCardIds: [],
+    }),
+  })
+  assert.equal(zero.lesson1.selection.status, 'zero_selected')
+  assert.equal(zero.lesson2.selection.status, 'zero_selected')
+  assert.deepEqual(zero.lesson1.selectedActivities, [])
+  assert.deepEqual(zero.lesson2.selectedActivities, [])
+  assert.deepEqual(zero.lesson1.audioReferences, [])
+  assert.deepEqual(zero.lesson2.audioReferences, [])
+})
+
+test('LiA prior support retains provenance and BI/NLL remain absent', () => {
+  const input = allSelected([132, 133])
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    priorSupport: [
+      {
+        id: 'prior-lia',
+        provenance: '[PRIOR]',
+        label: 'Earlier Unit 8 healthy-living frame',
+        frame: 'Did you eat breakfast?',
+        sourceReference: 'BE3 SB Unit 8 p.128',
+        evidenceReference: 'human-verified activity',
+        purpose: null,
+        targetLessons: ['lesson1'],
+      },
+      {
+        id: 'teacher-lia',
+        provenance: '[TEACHER-ADDED · UNVERIFIED]',
+        label: 'Class reminder',
+        frame: 'Answer with did or didn\'t.',
+        sourceReference: null,
+        evidenceReference: null,
+        purpose: 'Optional support',
+        targetLessons: ['lesson1', 'lesson2'],
+      },
+    ],
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_08',
+      unitNumber: '8',
+      title: 'Healthy Living',
+      vocabulary: 'MUST-NOT-ENTER',
+      grammarStructures: 'MUST-NOT-ENTER',
+      communicativeFunctions: 'LiA must not attach BI.',
+      learningOutcomes: 'LiA must not attach BI.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'MUST-NOT-ENTER',
+      values: 'MUST-NOT-ENTER',
+      phonics: 'MUST-NOT-ENTER',
+    },
+  })
+
+  assert.equal(lessonPackage.identity.componentKey, 'lia')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  assert.deepEqual(
+    lessonPackage.priorSupport.map((support) => [
+      support.provenance,
+      support.targetLessons,
+    ]),
+    [
+      ['[PRIOR]', ['lesson1']],
+      ['[TEACHER-ADDED · UNVERIFIED]', ['lesson1', 'lesson2']],
+    ],
+  )
+  assert.doesNotMatch(JSON.stringify(lessonPackage), /MUST-NOT-ENTER/)
+})
+
+test('LiA fails closed when verified scope fields are altered', () => {
+  const input = allSelected([132, 133])
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookCatalogId: 'big_english_2_sb',
+        },
+      }),
+    /Verified scope does not match/,
+  )
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookPrintedPages: [132],
+        },
+      }),
+    /Verified scope does not match/,
+  )
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookPageIds: ['bep3_sb_p132'],
+        },
+      }),
+    /Verified scope does not match/,
+  )
+})
+
+test('assembler rejects resolver-wired relationships outside the accepted pairs', () => {
+  const input = allSelected([134, 135])
   assert.throws(
     () => buildNeutralSbWbLessonPackage(input),
     /not enabled for relationship/,

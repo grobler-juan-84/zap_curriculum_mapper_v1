@@ -6817,3 +6817,72 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 395
+
+**Summary:** Completed the owner-authorized documentation-only BE3 Unit 8 Language in Action planning exercise. Grounded the exact SB pp.132–133 → WB pp.107–108 relationship in nine verified activities and SS authority, distinguished existing resolver/View Workbook support from missing NLL/package/renderer foundations, and defined three separately gated slices: LiA-A knowledge readiness, LiA-B neutral-package parity, and LiA-C adapter integration. No application, configuration, test, canonical, database, migration, deployment, promotion, commit or push change.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md` (created)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 396
+
+**Summary:** Completed owner-authorized LiA-A Step A evidence and knowledge preparation only. Reviewed all nine LiA activities against canonical SB/WB evidence, computed fingerprints against the existing NLL convention, prepared proposed draft/hidden/experimental records with Structures and I can... SS links proposed (Vocabulary withheld), and confirmed live read-only availability (`be3-u08-lia` unused; totals still 2/14/14/3). No persistent NLL write, migration, seed, application change, LiA-B, LiA-C, commit or push.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-lia-knowledge-review-v0.1.md` (created)
+- `docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 397
+
+**Summary:** Completed the owner-authorized LiA-A Step B insertion. Added one bounded collision-aborting migration and focused seed-validation suite, reverified the live 2/14/14/3 baseline with zero LiA collisions, inserted `be3-u08-lia` as `draft` with nine ordered memberships, nine preferred v1 `hidden`/`experimental` summaries and two `proposed` SS links, and confirmed live totals 3/23/23/5 with Opener/Story unchanged. Automated seed + retained Opener/Story verification passed 13/13. Migration `20261029213000` was recorded as applied remotely. No app/config change, LiA-B, LiA-C, deployment, promotion, commit or push.
+
+**Files touched:**
+- `supabase/migrations/20261029213000_seed_nll_be3_u08_lia.sql` (created)
+- `scripts/tests/nllBe3U08LiaSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-lia-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 398
+
+**Summary:** Formally accepted LiA-A and LiA-B. LiA-A retains the live draft component, nine ordered memberships, nine hidden/experimental preferred summaries and two proposed SS links at totals **3 / 23 / 23 / 5**. LiA-B adds the exact BI/NLL-absent SB pp.132–133 → WB pp.107–108 neutral package and non-serving five-artifact renderer, with media-honest partial states, explicit lesson-target provenance and complete fail-closed identity checks. Final verification passed **27/27** focused tests, **90/90** retained Opener/Story/resolver/`sb_only` regressions and app typecheck. Current LiA serving remains `sb_only`; LiA-C, deployment and promotion remain unauthorized. Owner authorized one combined reviewed commit/push and work-PC handoff.
+
+**Files touched:**
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08LiaNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderBe3U08LiaNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `docs/project-tracking/be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md` (created/accepted)
+- `docs/project-tracking/be3-u08-lia-b-cursor-implementation-prompt-v0.1.md` (created/executed)
+- LiA-A and operating-tracker paths listed in Steps 395–397 (updated for acceptance)
+
+---

@@ -28,6 +28,7 @@ import type { VerifiedSbWbCompanion } from './resolveVerifiedSbWbCompanion'
 import {
   BE3_U08_SB128_129_WB104_105,
   BE3_U08_SB130_131_WB106,
+  BE3_U08_SB132_133_WB107_108,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
 
@@ -176,6 +177,7 @@ export type NeutralSbWbLessonPackage = {
     readonly packageReference:
       | 'be3-sb-wb-u08-p128-129-wb104-105'
       | 'be3-sb-wb-u08-p130-131-wb106'
+      | 'be3-sb-wb-u08-p132-133-wb107-108'
     readonly relationshipId: string
     readonly relationshipType: 'workbook_practice_for'
     readonly verificationStatus: 'human_verified'
@@ -183,7 +185,7 @@ export type NeutralSbWbLessonPackage = {
     readonly workbookCatalogId: string
     readonly unitNumber: number
     readonly unitTitle: string
-    readonly componentKey: 'opener' | 'story'
+    readonly componentKey: 'opener' | 'story' | 'lia'
     readonly componentTitle: string
   }
   readonly packaging: {
@@ -268,9 +270,38 @@ const STORY_CONFIG: SupportedPackageConfig = {
   ],
 }
 
+const LIA_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB132_133_WB107_108,
+  packageReference: 'be3-sb-wb-u08-p132-133-wb107-108',
+  componentKey: 'lia',
+  componentTitle: 'Language in Action',
+  lesson1Purpose:
+    'Practise past-simple Did …? questions and short answers through the verified Language in Action activities.',
+  lesson2Purpose:
+    'Consolidate Did …? questions, did/didn\'t responses and past-activity comprehension through the verified Workbook practice.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143],
+      reason: 'Opener, Story, CLIL/P.E. and later Unit 8 Student Book pages are outside this package.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 109, 110, 111, 112, 113, 114, 115, 116, 117],
+      reason: 'Opener, Story, CLIL/P.E. and later Unit 8 Workbook pages are outside this package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Language in Action relationship; it is not a second presentation of Lesson 1.',
+    'Audio 155/156, stickers and illustrations may be referenced only as dependencies on selected activities; never invent transcripts, placements or unseen details.',
+    'Story (SB 130–131 / WB 106) and CLIL/P.E. (SB 134–135 / WB 109–110) must not enter this package.',
+  ],
+}
+
 const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [OPENER_CONFIG.companion.relationshipId, OPENER_CONFIG],
   [STORY_CONFIG.companion.relationshipId, STORY_CONFIG],
+  [LIA_CONFIG.companion.relationshipId, LIA_CONFIG],
 ])
 
 function arraysEqual<T>(left: readonly T[], right: readonly T[]): boolean {

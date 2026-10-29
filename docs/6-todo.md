@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 391
+**Last updated:** Step 398
 
 
 
@@ -675,7 +675,21 @@
 
 - [x] **Stage 6B owner formal acceptance + commit/push:** Stage 6B complete, owner-accepted, default-off and undeployed. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. Preparing-state placeholder flash recorded as non-blocking UX observation only.
 
-- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B expansion, Stage 7, or broader Stage 6 without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
+- [x] **Documentation-only LiA transfer planning:** exact BE3 U8 LiA relationship SB pp.132–133 → WB pp.107–108 reviewed (five SB + four WB activities). Plan separates LiA-A knowledge readiness, LiA-B neutral package/renderer parity and LiA-C NLL adapter integration. No implementation, NLL write, flag, canonical change, deployment or promotion.
+
+- [x] **LiA planning accepted; LiA-A Step A authorized and completed (docs/read-only):** nine-activity evidence review, fingerprints, proposed draft/hidden/experimental records, proposed Structures + I can... SS links, live availability/collision checks. See [`project-tracking/be3-u08-lia-knowledge-review-v0.1.md`](./project-tracking/be3-u08-lia-knowledge-review-v0.1.md). No NLL write.
+
+- [x] **LiA-A Step A owner gate:** summaries, identifiers, provenance and Structures + I can... proposals accepted; Step B insertion authorized.
+
+- [x] **LiA-A Step B insertion:** migration `20261029213000` applied as one collision-aborting transaction. Live totals **3 / 23 / 23 / 5**; `be3-u08-lia` remains `draft`; nine summaries remain `hidden`/`experimental`; two links remain `proposed`; Opener/Story unchanged; focused retained-regression verification **13/13**. Migration history reconciled as applied.
+
+- [x] **LiA-A Step B owner acceptance:** verified live state formally accepted. `be3-u08-lia` remains draft; nine summaries hidden/experimental; two SS links proposed; totals **3 / 23 / 23 / 5**.
+
+- [x] **LiA-B neutral-package/renderer parity:** exact SB pp.132–133 → WB pp.107–108 package and non-serving five-artifact renderer owner-accepted. Focused **27/27**, retained regression **90/90**, app typecheck pass; media-honesty and fail-closed corrections accepted; current serving remains `sb_only`.
+
+- [ ] **LiA-C adapter integration:** next separate owner gate. No NLL attachment, feature flag, overlay/resolver routing, deployment or promotion is authorized by LiA-A/B acceptance.
+
+- [ ] **Hold — feature freeze:** no LiA-C implementation, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B expansion, or broader Unit 8 work without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 
