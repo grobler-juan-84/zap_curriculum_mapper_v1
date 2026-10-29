@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 374
+**Last updated:** Step 375
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,32 +10,32 @@
 ## Done
 
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
-- **D017–D026** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff.
-- **D024 / D025 NLL pilot complete on `main`:** migration applied to Supabase project `kivvmobjphtcgxoltqbc`; persistent 1 / 9 / 9 / 2 seed, retrieval, visibility, proposed-only SS links, RLS, canonical hashes, commit, and push verified.
-- Local NLL verification passed 7/7 tests. The missing local BE3 WB working copy remains a recorded environment limitation; remote WB integrity is verified and no reconciliation is authorized.
-- **D026 audit complete:** Cursor's evidence-backed first pass and ChatGPT Desktop's independent second pass are complete.
-- **Batch 0 complete locally:** documentation orientation, operating safety, feature-flag examples, and lineage boundaries were corrected without runtime changes.
-- Feature development remains frozen.
+- **D017–D027** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters.
+- **D024 / D025 NLL pilot complete on `main`:** migration applied; persistent 1 / 9 / 9 / 2 seed and RLS verified; committed at `f8a86c7`.
+- **D026 Batch 0 complete and pushed** at `c504fd7` (docs/orientation and operational safety). Audit brief + report preserved at `998e7f5`.
+- **Stage 1 + Stage 2 recorded:** D027 architecture lock and `nll-migration-roadmap-v0.1.md` (Stages 3–6 planning only).
+- Feature development remains frozen under D026. No runtime, database, Storage, canonical-data, or deployment changes in Stage 1.
 
 ## In progress
 
-- Owner review of the uncommitted Batch 0 diff.
-- Production deployment remains deferred. NLL remains default-off and in shadow mode.
+- Independent review of the uncommitted Stage 1 documentation diff.
+- Production deployment remains deferred. NLL remains default-off / shadow; nine pilot summaries stay `hidden` + `experimental`.
 
 ## Next
 
-- Await explicit authorization before any Git staging, commit, push, cleanup batch, or deployment.
-- Keep later consolidation batches small, reversible, separately approved, and separately verified.
+- Owner review / explicit Git authorization for the Stage 1 docs commit when ready.
+- Stages 3–6 remain unauthorized; Stage 3 card-comparison approach is recorded in the roadmap only (`VITE_CHALKIE_NLL_CARD_COMPARISON`, default off, side-by-side with POC fallback).
 
 ## Blocked
 
-- Runtime cleanup remains blocked pending a separate bounded plan and owner approval.
-- Existing WB-dependent local regression suites cannot start on this PC because the local BE3 WB canonical file is absent. Do not broaden the audit into data reconciliation.
-- New features, deployment, production NLL integration, wider NLL coverage, horizontal progression, teacher enrichment, presentation adapters, and UI redesign remain frozen.
+- Stages 3–6 implementation pending separate owner authorization and acceptance gates.
+- Runtime cleanup and broader consolidation batches remain separately approved only.
+- Local BE3 WB canonical working copy still absent on this PC; do not reconcile as part of architecture work.
+- New features, deployment, production NLL integration, bulk enrichment, and UI redesign remain frozen.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `main`.
-- D025 is complete at `f8a86c73f074409e5a366a4881ed4118062a87e2`; the D026 audits are complete. Batch 0 remains uncommitted for owner review.
+- Active Git branch: `main` (tip before this uncommitted Stage 1 work: `998e7f5`).
+- D025 NLL: `f8a86c7`. D026 Batch 0: `c504fd7`. Audit evidence: `998e7f5`.

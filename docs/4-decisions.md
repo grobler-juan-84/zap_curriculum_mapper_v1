@@ -61,6 +61,7 @@
 | D024 | Minimal additive Neutral Lesson Library pilot | 2026-10-29 | LOCKED |
 | D025 | Complete NLL pilot through Cursor, then freeze features for repository audit | 2026-10-29 | LOCKED |
 | D026 | Repository consolidation begins with a read-only evidence audit | 2026-10-29 | LOCKED |
+| D027 | Durable layer model: SS/SB/WB → NLL → NLP → adapters | 2026-10-29 | LOCKED |
 
 ---
 
@@ -551,10 +552,43 @@ No file deletion, movement, archival, renaming, refactoring, dependency change, 
 
 ---
 
+### D027 — Durable layer model: SS/SB/WB → NLL → NLP → adapters
+
+**Date:** 2026-10-29
+**Status:** LOCKED
+
+**Decision:** Adopt the durable architecture:
+
+- SS/SB/WB: canonical publisher evidence.
+- NLL: single persistent authority for reusable derived lesson knowledge.
+- NLP: lesson-specific package assembled from evidence, teacher selections and applicable NLL knowledge.
+- Adapters: Chalkie now and future output platforms later.
+
+“Single persistent store” means the single persistent authority for reusable derived lesson knowledge. It does not include canonical SS/SB/WB evidence, transient teacher selections, saved NLP reproducibility snapshots, or automatically every Book Intelligence, teacher or school record.
+
+A saved NLP is a reproducibility snapshot of one lesson preparation, not a competing reusable knowledge authority. Chalkie and future platforms remain adapters over the NLP.
+
+Preserve existing lightweight NLL safeguards: useful source references, activity fingerprints and preferred-summary versioning. Do not add elaborate approval workflows, governance systems or unnecessary bureaucracy.
+
+**Reason:** Keep publisher truth, reusable derived knowledge, lesson-specific packages and platform outputs distinct so the library can improve without rewriting books or making Chalkie the product spine.
+
+**Explicit boundaries:** D027 does not supersede D022–D026. It does not lift the D026 feature freeze. It does not authorize Stages 3–6, production NLL UI wiring, bulk enrichment, expansion beyond the BE3 U8 pilot, retirement of bespoke/neutral/POC paths, or deployment. Stage 2 is planning only. Stages 3–6 require separate owner authorization.
+
+**Alternatives rejected:** Treating Chalkie prompts as the durable store; treating NLP snapshots as the reusable library; merging derived summaries into canonical JSON; declaring NLL proof that D023, neutral canaries or bespoke builders are obsolete without verified replacement; heavyweight approval bureaucracy for summary edits.
+
+**Implications:** Documentation and later migrations must keep the four layers distinguishable. D022 remains the NLP/adapter lock; D023 remains the historical bounded POC; D024/D025 remain the NLL pilot facts; D026’s freeze remains until later stages are explicitly authorized. D022–D026 bodies remain unchanged.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D001, D021, D022, D023, D024, D025 and D026.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-29 | Added D027 — durable layer model SS/SB/WB → NLL → NLP → adapters; Stage 2 roadmap recorded; Stages 3–6 and freeze lift not authorized. |
 | 2026-10-29 | Annotated D025 completion and D026 audit completion; bounded Batch 0 documentation/operational-safety work approved, with freeze and no-deployment boundaries preserved. |
 | 2026-10-29 | Added D026 — repository consolidation starts with a delegated read-only evidence audit; no cleanup or feature work authorized. |
 | 2026-10-29 | Added D025 — delegate migration, persistence verification, and Git completion to Cursor; freeze features after success; next milestone is read-only repository consolidation/audit. |

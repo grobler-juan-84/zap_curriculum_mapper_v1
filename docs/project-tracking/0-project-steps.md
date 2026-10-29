@@ -6464,3 +6464,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 375
+
+**Summary:** Recorded D027 (durable SS/SB/WB -> NLL -> NLP -> adapters) and the Stage 2 migration roadmap. Stage 3 card-comparison approach (`VITE_CHALKIE_NLL_CARD_COMPARISON`, side-by-side with POC fallback, nine summaries remain hidden/experimental) was recorded but not implemented. D026 feature freeze remains; no application, database, Storage, canonical-data, or deployment changes occurred.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (created)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+
+---

@@ -17,7 +17,7 @@
 
 Lifecycle values are taken from each document’s own **Status** field and normalized to Active / Parked / Locked.
 
-Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. The current milestone is **D026 — Project Consolidation & Repository Audit** after completion of the D025 NLL pilot. Feature development is frozen, the NLL remains in shadow mode, and production deployment is deferred. Historical phase and experiment documents remain preserved evidence; they do not override the current operating trackers.
+Docs are organized under `docs/phase-1` … `docs/phase-6` where applicable. **D027** locks the durable SS/SB/WB → NLL → NLP → adapters model; the Stage 2 migration roadmap is recorded. The D026 feature-development freeze remains active; Stages 3–6 are not authorized. NLL remains in shadow mode; production deployment is deferred. Historical phase and experiment documents remain preserved evidence; they do not override the current operating trackers.
 
 AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress.md`](./5-progress.md), [`6-todo.md`](./6-todo.md), [`7-future.md`](./7-future.md).
 
@@ -32,10 +32,10 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [0-index.md](./0-index.md) | Master documentation index for the General Curriculum Mapper. Lists every project doc with a short summary, version, and lifecycle status. | 1.0 | ACTIVE |
 | [1-project-overview.md](./1-project-overview.md) | Project purpose and seven-phase architecture; current D026 consolidation milestone, active feature freeze, and deferred production deployment. | — | ACTIVE |
 | [2-tech-stack.md](./2-tech-stack.md) | Locked technology stack: Supabase Auth/Postgres; R2-only textbook PDFs (D010/D012); Supabase Storage for JSON/covers; pilot implementation status. | — | ACTIVE |
-| [3-architecture.md](./3-architecture.md) | System architecture, source/derived boundaries, and the four preserved knowledge/package lineages during D026 consolidation. | — | ACTIVE |
-| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D026**: NLL pilot and both audit passes complete; feature freeze and owner-approved bounded consolidation remain in force. | 1.0 | ACTIVE |
-| [5-progress.md](./5-progress.md) | Current project state: NLL complete, both D026 audit passes complete, Batch 0 uncommitted for owner review, feature freeze active, deployment deferred. | 1.0 | ACTIVE |
-| [6-todo.md](./6-todo.md) | Concrete near-term actions: review the completed Batch 0 diff; later cleanup requires separate bounded planning and approval. | 1.0 | ACTIVE |
+| [3-architecture.md](./3-architecture.md) | System architecture: D027 durable SS/SB/WB → NLL → NLP → adapters stack, source/derived boundary, and transitional four-lineage reality under freeze. | — | ACTIVE |
+| [4-decisions.md](./4-decisions.md) | Canonical decision log through **D027**: durable layer model locked; D022–D026 preserved; Stages 3–6 and freeze lift not authorized. | 1.0 | ACTIVE |
+| [5-progress.md](./5-progress.md) | Current project state: D027 + Stage 2 roadmap recorded; Batch 0 and audit evidence on `main`; feature freeze active; Stages 3–6 unauthorized. | 1.0 | ACTIVE |
+| [6-todo.md](./6-todo.md) | Near-term actions: Stage 1–2 docs done; Stages 3–6 explicitly gated; feature freeze hold. | 1.0 | ACTIVE |
 | [7-future.md](./7-future.md) | Parking lot for deferred work; F005 Phase 3 later priority, F023 neutral-module relocation, NLL expansion beyond D024, and F025 Optional Teaching Guidance remain parked. | 1.1 | ACTIVE |
 | [8-database-architecture.md](./8-database-architecture.md) | Hybrid storage: PostgreSQL catalog vs object storage (R2-only PDFs / Supabase JSON+covers) vs JSON curriculum; status field distinctions. | 1.1 | ACTIVE |
 | [9-naming-conventions.md](./9-naming-conventions.md) | Project-wide naming authority: style matrix, identity vocabulary, catalog/entity templates, Postgres UUID vs catalog collision, local PDF + unit-batch / optional `canonical/ss_v{N}.json` paths, asset/audit filename rules, legacy grandfathering, and backward-audit policy (D009). App TS uses `catalogBookId` / `bookUuid`. | 1.6 | ACTIVE |
@@ -55,6 +55,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [project-tracking/CURSOR_REPOSITORY_AUDIT.md](./project-tracking/CURSOR_REPOSITORY_AUDIT.md) | Delegated read-only Cursor audit brief covering code, experiments, documentation, AI instructions, architecture, dependencies, and reversible cleanup recommendations; no cleanup authorized. | — | ACTIVE |
 | [project-tracking/CURSOR_REPOSITORY_AUDIT_REPORT.md](./project-tracking/CURSOR_REPOSITORY_AUDIT_REPORT.md) | Completed D026 first-pass read-only repository audit; evidence and recommendations only, with no cleanup authorized by the report. | — | ACTIVE |
 | [project-tracking/nll-pilot-architecture-v0.1.md](./project-tracking/nll-pilot-architecture-v0.1.md) | NLL founding principle and applied BE3 U8 pilot: four additive tables, stable activity-keyed summaries, source fingerprints, read-only retrieval, and default-off shadow packaging. | 0.1 | ACTIVE |
+| [project-tracking/nll-migration-roadmap-v0.1.md](./project-tracking/nll-migration-roadmap-v0.1.md) | Stage 2 planning authority: Stages 3–6 migration gates, rollback, owner decisions; Stage 3 card-comparison approach recorded but not implemented. | 0.1 | ACTIVE |
 | [project-tracking/ss-canonical-v1-runtime-integration-audit-2026-10-28.md](./project-tracking/ss-canonical-v1-runtime-integration-audit-2026-10-28.md) | BE3–6 Scope & Sequence runtime integration, architecture, checksum verification, changed-object record, and rollback instructions. | — | ACTIVE |
 
 ### Phase 1
@@ -225,7 +226,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 
 | Lifecycle | Count | Notes |
 |---|---:|---|
-| ACTIVE | 137 | Current working docs, including index, operating trackers, the NLL pilot records, Cursor completion and repository-audit handovers, Chalkie coverage map, Activity Selection and Teacher Intelligence contracts, Prior Learning / Horizontal Mapping audit + curated `[HM]` pack authoring contract, Unit Learning Spine, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener + Story limited canaries (manually accepted), Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
+| ACTIVE | 138 | Current working docs, including index, operating trackers, D027/NLL migration roadmap, the NLL pilot records, Cursor completion and repository-audit handovers, Chalkie coverage map, Activity Selection and Teacher Intelligence contracts, Prior Learning / Horizontal Mapping audit + curated `[HM]` pack authoring contract, Unit Learning Spine, Chalkie Workspace prototype notes, generic SB→WB adapter audit, Opener + Story limited canaries (manually accepted), Chalkie Experiments 1–14 + BE3 U8 pilot/pairing docs, D017 BI artifacts, preserved D018 evidence, Phase 6 Chalkie ops guide, Phase 2/4 research inventory, naming conventions, storage architecture, audits, and project-tracking |
 | PARKED | 15 | Prior 4 parked docs plus restored historical Phase 3 vertical experiments, Phase 4 U8 enrich probe, and early Phase 5 Chalkie brief artifacts (not current product priority; D020 keeps Phase 3 later) |
 | LOCKED | 0 | None currently frozen |
 

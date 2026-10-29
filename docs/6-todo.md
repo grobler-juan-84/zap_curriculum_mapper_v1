@@ -627,9 +627,21 @@
 
 - [x] **Desktop second-pass audit review:** important findings independently verified; lineage roles clarified; smallest documentation/operational-safety batch proposed.
 
-- [x] **Batch 0 documentation and operational safety:** current milestone, D025/D026 boundary, four lineage roles, Cursor Git authorization rules, environment examples, SS audit index entry, freeze, and deployment deferral aligned. Leave uncommitted pending owner review.
+- [x] **Batch 0 documentation and operational safety:** committed and pushed on `main` at `c504fd7`; D026 audit evidence preserved at `998e7f5`.
 
-- [ ] **Hold:** pause further canaries. No bulk migration, Chalkie generation, or Activity Selection feature expansion without explicit approval.
+- [x] **Stage 1 — Architecture lock (D027):** durable SS/SB/WB → NLL → NLP → adapters recorded; D022–D026 unchanged; freeze not lifted.
+
+- [x] **Stage 2 — Migration roadmap:** `docs/project-tracking/nll-migration-roadmap-v0.1.md` recorded with Stages 3–6 gates; planning authority only.
+
+- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, or Stages 3–6 implementation without explicit approval.
+
+- [ ] **Stage 3 (gated):** NLL summaries → teacher activity cards. Approach approved in roadmap only: future `VITE_CHALKIE_NLL_CARD_COMPARISON` (default off), side-by-side with POC fallback, nine rows stay `hidden`/`experimental`. **Not authorized to implement.**
+
+- [ ] **Stage 4 (gated):** NLL → NLP assembly via `buildNeutralSbWbLessonPackage`. **Not authorized.**
+
+- [ ] **Stage 5 (gated):** NLP → Chalkie via `renderChalkieFromNeutralPackage`. **Not authorized.**
+
+- [ ] **Stage 6 (gated):** broader coverage and enrichment. **Not authorized.**
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

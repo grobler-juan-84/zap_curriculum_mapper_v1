@@ -38,9 +38,23 @@ and:
 
 > **what the system has interpreted, connected, recommended or generated.**
 
-**Development priority vs phase numbers:** Conceptual phases stay in this architecture. The current milestone is **D026 — Project Consolidation & Repository Audit** after completion of the bounded D025 NLL pilot. Feature development is frozen and production deployment is deferred. Existing horizontal-mapping, Chalkie, experimental, and NLL evidence remains preserved; consolidation does not promote an experiment or shadow path into production. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md).
+**Development priority vs phase numbers:** Conceptual phases stay in this architecture. **D027** locks the durable layer model below. The D026 feature-development freeze remains active; Stages 3–6 of the NLL migration are not authorized. Production deployment is deferred. See [`11-curriculum-mapping-workflow.md`](./11-curriculum-mapping-workflow.md) and [`project-tracking/nll-migration-roadmap-v0.1.md`](./project-tracking/nll-migration-roadmap-v0.1.md).
 
-**Current knowledge/package lineages:** (1) bespoke BE3 handoffs provide the current teacher output, (2) neutral packages and limited canaries validate parity behind default-off flags, (3) the D023 enrichment POC supplies experimental summary sidecars, and (4) the D024/D025 NLL pilot supplies persistent reusable knowledge in default-off shadow mode. These lineages have different roles; none currently replaces another.
+**Durable layer model (D027):**
+
+```text
+SS / SB / WB   — canonical publisher evidence
+        ↓
+NLL            — single persistent authority for reusable derived lesson knowledge
+        ↓
+NLP            — lesson-specific package; optional reproducibility snapshot
+        ↓
+Adapters       — Chalkie now; future output platforms later
+```
+
+SS/SB/WB remain independent canonical publisher evidence. NLL does not store canonical evidence, transient selections, NLP snapshots, or automatically every BI/teacher/school record. Generation adapters must not dictate NLL structure. See [`4-decisions.md`](./4-decisions.md) D027.
+
+**Transitional knowledge/package lineages (current implementation reality under D027):** (1) bespoke BE3 handoffs provide the current teacher output, (2) neutral packages and limited canaries validate parity behind default-off flags, (3) the D023 enrichment POC supplies experimental summary sidecars, and (4) the D024/D025 NLL pilot supplies persistent reusable knowledge in default-off shadow mode. These lineages have different roles today; none currently replaces another. Migration toward the D027 stack is planned in [`project-tracking/nll-migration-roadmap-v0.1.md`](./project-tracking/nll-migration-roadmap-v0.1.md) and requires separate stage authorization.
 
 ---
 
