@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 385
+**Last updated:** Step 388
 
 
 
@@ -653,11 +653,15 @@
 
 - [x] **PC2 reconciliation:** corrected stale Stage 4 wording; set documented Stage 3/4 example flags to `false`; confirmed the local BE3 WB canonical file exists under gitignored `data/phase1/` and is not tracked.
 
-- [x] **Stage 5 owner-review draft:** documented the exact BE3 U8 Opener NLP → `renderChalkieFromNeutralPackage` proposal, current implementation seams, fallback, D022 boundary, risks, and acceptance matrix. No Stage 5 code or authorization.
+- [x] **Stage 5 owner-review brief approved:** exact BE3 U8 Opener NLP → `renderChalkieFromNeutralPackage` scope, default-off flag, fallback, D022 boundary and acceptance matrix authorized for one bounded local slice.
 
-- [ ] **Hold — feature freeze:** no canaries expansion, bulk migration, Chalkie generation, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, or Stages 5–6 implementation without explicit approval.
+- [x] **Stage 5 bounded local implementation:** `VITE_NLL_CHALKIE_ADAPTER_PILOT=false`; selected NLL summaries attach to the NLP only; shared neutral Chalkie renderer returns the five artifacts; existing canary/bespoke path remains fallback; no Story or Stage 6 expansion. Automated verification: 69/69 focused/regression tests, typecheck and lint pass (warnings only).
 
-- [ ] **Stage 5 (gated):** NLP → Chalkie via `renderChalkieFromNeutralPackage`. **Not authorized.**
+- [x] **Stage 5 authenticated UI acceptance:** Create-a-prompt BE3 U8 Opener cases **A–F PASS** (2026-10-29) on controlled Vite 5174; NLL table evidence on Opener path; Story/non-Opener isolation; flag-off no `nll_*` loads; artifacts/teacher-added/exclusions/zero-selection verified.
+
+- [x] **Stage 5 owner acceptance + commit/push authorization:** owner accepted the bounded default-off Opener NLP → Chalkie pilot; authorized commit and push to `main` of the verified 14 Stage 5 paths only. Summaries remain `hidden`/`experimental` and package-only in Chalkie; POC/canaries remain; deployment deferred; Stage 5 expansion and Stage 6 unauthorized; D026 freeze otherwise active. Does not reopen D027 or D022.
+
+- [ ] **Hold — feature freeze:** no canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5 expansion, or Stage 6 implementation without explicit approval.
 
 - [ ] **Stage 6 (gated):** broader coverage and enrichment. **Not authorized.**
 

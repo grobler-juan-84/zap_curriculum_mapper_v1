@@ -1,27 +1,27 @@
 # Stage 5 Implementation Brief v0.1
 
-**Status:** ACTIVE / DRAFT — OWNER REVIEW
+**Status:** ACTIVE / IMPLEMENTED / MANUALLY ACCEPTED — LIMITED OPENER PILOT
 **Version:** 0.1
 **Date:** 2026-10-29
 **Authority:** D022, D027 and the NLL Migration Roadmap
-**Implementation authorization:** **Not authorized**
+**Implementation authorization:** **Authorized 2026-10-29 for one bounded local slice; owner accepted A–F on 2026-10-29 and authorized commit/push of the verified Stage 5 paths only**
 
 ## Purpose
 
 Define the smallest safe Stage 5 slice for Big English 3 Unit 8 Opener: take one lesson-specific Neutral Lesson Package (NLP) through the existing neutral Chalkie adapter while preserving teacher selections, D022 boundaries and every current fallback.
 
-This is a planning brief only. It does not authorize application code, a new environment flag, deployment, NLL promotion, POC retirement, canary retirement or Stage 6 work.
+The owner approved this brief and separately authorized the bounded local implementation on 2026-10-29. On 2026-10-29 the owner formally accepted the bounded implementation and authenticated manual acceptance cases A–F, and authorized commit/push of the verified Stage 5 paths only. The feature remains default-off and undeployed. It does not authorize NLL promotion, POC/canary retirement, Story routing or Stage 6 work.
 
 ## Scope
 
 - **Only relationship:** `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`.
 - **Only source scope:** Student Book pp. 128–129 and Workbook pp. 104–105.
 - **Target:** NLP → `renderChalkieFromNeutralPackage`.
-- **Proposed rollout flag:** `VITE_NLL_CHALKIE_ADAPTER_PILOT`, default `false`.
+- **Rollout flag:** `VITE_NLL_CHALKIE_ADAPTER_PILOT`, default `false`.
 - **Existing route remains default:** current bespoke handoff with existing Opener/Story canary behavior.
 - **Story is out of scope:** no Stage 5 routing for `be3_sb_wb_rel_u08_story_sb130-131_wb106`.
 
-## What already exists
+## What existed before this slice
 
 1. `buildNeutralSbWbLessonPackage` already supports the exact verified Opener relationship, rejects scope drift, projects selected SB/WB evidence, records selection state and sets `reconstructExcludedActivities: false`.
 2. `renderChalkieFromNeutralPackage` already dispatches exact Opener and Story package identities to parity-proved neutral renderers and throws `UnsupportedNeutralPackageRendererError` for unsupported relationships.
@@ -31,9 +31,9 @@ This is a planning brief only. It does not authorize application code, a new env
 6. The Create-a-prompt Chalkie preparation handler is currently synchronous. It builds the detailed prompt through `buildChalkiePromptPreview` and separately builds the BE3 series handoff for the outline/vocabulary artifacts.
 7. D022 BI support already exists as optional, labelled `curriculumInterpretation`; the current Opener path keeps BI separate from page evidence and applies optional Chalkie BI framing through its own flag.
 
-## What Stage 5 would add
+## What the bounded Stage 5 slice adds
 
-Behind the new default-off flag, the Create-a-prompt Chalkie action would:
+Behind the new default-off flag, the Create-a-prompt Chalkie action now:
 
 1. confirm the exact Opener relationship, source pages and nine eligible activities;
 2. snapshot the current SB/WB selections, prior-support choices, teacher additions and D022 BI inputs;
@@ -49,17 +49,15 @@ If the flag is off, scope is ineligible, NLL is unavailable, package assembly fa
 
 The existing neutral Chalkie renderer does not read `derivedKnowledge`; it renders selected publisher evidence and prior support. The recommended Stage 5 v0.1 boundary is therefore **routing consolidation with no new NLL prose in Chalkie output**. `derivedKnowledge` remains attached to the NLP for traceability, but using summary text in Chalkie requires a separate owner decision and acceptance criteria.
 
-## Proposed implementation seam
+## Implemented seam
 
-If authorized later, keep the code surface narrow:
-
-- add one Stage 5 pilot module for the flag, exact-scope guard, lazy NLL load, package assembly, render call and typed fallback result;
+- `nllChalkieAdapterPilot.ts` owns the flag, exact-scope guard, request identity, lazy NLL load, package assembly, render call and typed fallback result;
 - reuse `loadNeutralLessonComponent`, `buildNeutralSbWbLessonPackage`, `attachSelectedNllDerivedKnowledge` and `renderChalkieFromNeutralPackage`;
-- make the smallest required `TeacherChoiceFlowOverlay` change to handle the asynchronous result and reuse one prepared output instead of building the prompt and handoff twice;
-- add the proposed flag to `app/src/vite-env.d.ts` and `.env.example` only if implementation is authorized;
-- leave the existing renderer, bespoke builders, canaries, POC, database and canonical data unchanged unless a reviewed implementation proves a smaller change is impossible.
+- `TeacherChoiceFlowOverlay` handles the asynchronous result, rejects stale results, reuses one five-artifact result on success and calls the pre-existing path on any bounded failure;
+- `VITE_NLL_CHALKIE_ADAPTER_PILOT=false` is documented in `.env.example` and typed in `app/src/vite-env.d.ts`;
+- the existing bespoke builders, canaries, POC, database, Storage and canonical data remain unchanged. Only the shared renderer's module comment was updated to acknowledge the new default-off caller.
 
-Do not call `assembleNllGeneralLessonPlanPilot` as the Stage 5 entry point: it is intentionally tied to the Stage 4 General Lesson Plan flag, result guards and BI-exclusion boundary. Reuse its small neutral/NLL helpers rather than coupling Chalkie to the Stage 4 UI path.
+Stage 5 does not call `assembleNllGeneralLessonPlanPilot`: that entry point remains tied to the Stage 4 General Lesson Plan flag, result guards and BI-exclusion boundary. Stage 5 reuses only the selected-summary attach helper.
 
 ## Selection integrity
 
@@ -93,6 +91,15 @@ Do not call `assembleNllGeneralLessonPlanPilot` as the Stage 5 entry point: it i
 | BI absent/present | Both assemble and render; D022 boundaries hold; source evidence and selection-derived fields are unchanged by BI. |
 | End-to-end workflow | Teacher completes SB review → WB review → prior skills → neutral review → choose Chalkie → choose package shape → prepare prompt → view/copy the five expected artifacts. |
 
+## Verification record
+
+- Stage 5 focused suite: 9/9 passed.
+- Surrounding neutral-package, Opener/Story canary, Stage 4, D022 BI, renderer and five-step teacher-flow regressions: 60/60 passed.
+- App typecheck: passed.
+- App lint: passed with pre-existing repository warnings and no errors.
+- Diff check: passed.
+- **Authenticated manual acceptance (2026-10-29):** cases **A–F PASS** on controlled Vite `5174` with process-only `VITE_NLL_CHALKIE_ADAPTER_PILOT=true` (Case F restarted flag-off). Evidence: Opener Stage 5 path; NLL `200` on `nll_components`, `nll_component_activities`, `nll_ss_component_links`, `nll_activity_summaries` (`component_key=be3-u08-opener`); all-selected + teacher-added + five/six copy artifacts with no NLL/summary/BI prose in Chalkie textboxes; partial exclude SB Act4 + WB Act3; zero selection; Story p.130 and Unit 1 non-Opener isolation (no Stage 5 NLL load); flag-off Opener path with no `nll_*` requests. `.env.local` unchanged. No deploy / DB / Storage / canonical / NLL promotion.
+
 ## Restrictions
 
 - No deployment.
@@ -104,15 +111,14 @@ Do not call `assembleNllGeneralLessonPlanPilot` as the Stage 5 entry point: it i
 - No canonical, Supabase migration, seed, Storage or RLS changes.
 - No new Chalkie prose sourced from experimental NLL summaries without a separate owner decision.
 
-## Risks and open questions
+## Remaining risks and open questions
 
-1. **NLL content use:** Should Stage 5 merely route an NLL-enriched NLP, as recommended, or should Chalkie visibly consume summary text? The latter is a content change and needs separate review.
-2. **Asynchronous UI safety:** The current Chalkie handler is synchronous. Stage 5 needs request/scope/selection invalidation equivalent to Stage 4 so stale loads cannot overwrite newer teacher choices.
-3. **Duplicate construction:** The overlay currently builds the prompt and BE3 handoff separately. An asynchronous Stage 5 path should produce one result and reuse it to avoid two NLL loads or mismatched snapshots.
-4. **Fallback precedence:** Recommended order is Stage 5 attempt → current existing path, which retains the separately configured canary → bespoke fallback. Owner should confirm.
-5. **Shared prior-support mapping:** Stage 4 and the canary currently have similar locally named mappers. An authorized implementation should reuse one neutral mapping contract without broad refactoring.
-6. **Hidden experimental summaries:** Stage 5 would continue the explicitly gated pilot exception. Rows remain `hidden`/`experimental`; this is not promotion.
+1. **Live UI acceptance:** completed and owner-accepted (A–F PASS, 2026-10-29).
+2. **NLL content use:** resolved for v0.1 as package-only. Any visible NLL summary prose in Chalkie remains a separate content decision.
+3. **Fallback precedence:** implemented as Stage 5 attempt → current existing path (including any separately enabled canary) → bespoke fallback.
+4. **Shared prior-support mapping:** Stage 5 keeps a small local mapper to avoid unrelated refactoring. Consolidation can wait for a separately approved cleanup.
+5. **Hidden experimental summaries:** the gated pilot exception continues. Rows remain `hidden`/`experimental`; this is not promotion. Flag-off Opener Create-a-prompt may still show D023 local POC experimental cards; that path is independent of Stage 5 NLL loads.
 
 ## Recommended owner decision
 
-Approve or revise this brief only. If approved, separately authorize one bounded implementation slice for the exact Opener scope under the proposed default-off flag, with the acceptance matrix above and no deployment. Approval of this document must not be interpreted as Stage 5 coding approval.
+Bounded Stage 5 Opener pilot is owner-accepted (A–F). Commit/push of the verified Stage 5 paths is separately authorized. Do not deploy, expand Stage 5 scope, promote NLL records, retire the POC/canaries or begin Stage 6.

@@ -6671,3 +6671,42 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 387
+
+**Summary:** After pushing the approved nine-file PC2 reconciliation batch to `main` at `1b0326f526feb69ac578eaae9b086373156df0d4`, implemented the separately authorized bounded Stage 5 BE3 U8 Opener slice behind default-off `VITE_NLL_CHALKIE_ADAPTER_PILOT`: lazy NLL load, selected NLP assembly, package-only summaries, `renderChalkieFromNeutralPackage`, five-artifact reuse, stale-result guards and existing canary/bespoke fallback. Automated verification passed 69/69 focused/regression tests plus typecheck and lint (warnings only). Browser control failed before connecting, so authenticated live Create-a-prompt acceptance remains pending. Stage 5 changes are uncommitted/unpushed; no deployment, `.env.local`, database, Storage, canonical, NLL promotion, POC/canary retirement, Story or Stage 6 changes.
+
+**Files touched:**
+- `.env.example` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `app/src/features/chalkie/nllChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (comment updated)
+- `scripts/tests/nllChalkieAdapterPilot.test.ts` (created)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/stage-5-implementation-brief-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 388
+
+**Summary:** Recorded owner formal acceptance of the bounded Stage 5 BE3 U8 Opener NLP → Chalkie pilot (authenticated manual A–F PASS) and authorized commit/push of the verified 14 Stage 5 paths only. Updated Stage 5 trackers; no deploy, `.env.local`, Supabase/Storage/canonical, NLL promotion, POC/canary retirement, Stage 5 expansion or Stage 6.
+
+**Files touched:**
+- `docs/project-tracking/stage-5-implementation-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- Plus Stage 5 implementation paths included in the authorized commit/push batch (see commit)
+
+---

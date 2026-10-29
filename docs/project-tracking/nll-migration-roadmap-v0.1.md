@@ -3,11 +3,11 @@
 **Status:** ACTIVE / PLANNING AUTHORITY  
 **Version:** 0.1  
 **Date:** 2026-10-29  
-**Authority:** D027; Stage 2 planning authority; Stage 3 complete; Stage 4 local pilot owner-accepted
+**Authority:** D027; Stage 2 planning authority; Stages 3–5 complete (bounded); Stage 6 unauthorized
 **Scope:** BE3 Unit 8 Opener pilot first; broader coverage only in Stage 6
 
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did **not** itself authorize Stage 3 or Stage 4 coding. Stage 3 is **owner-accepted** (bounded default-off Opener card comparison). Stage 4 was subsequently authorized as a **bounded local Opener pilot** (`VITE_NLL_GENERAL_LESSON_PLAN_PILOT`, default off): lazy NLL → NLP package-level `derivedKnowledge` → two-lesson General Lesson Plan. Stage 4 is **owner-accepted** as a bounded default-off Opener pilot (review-corrected; deliberate BI exclusion from the successful pilot path; authenticated-smoke verified) — not deployed/promoted; no NLP persistence; no NLL visibility change; no POC retirement; D022 / shared NLP BI support unchanged (legacy/fallback GLP may still show labelled BI). A Stage 5 implementation brief now exists for owner review only; Stages 5–6 remain unauthorized. The wider D026 feature freeze remains active outside bounded Stage 3/4 work. Production deployment remains deferred. Stage 3/4 work does not reopen or supersede D027. On PC2, the local BE3 WB canonical file exists under gitignored `data/phase1/`; it is not tracked repository content.
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3 and 4 are owner-accepted bounded default-off Opener pilots and remain undeployed/unpromoted. On 2026-10-29 the owner approved the Stage 5 brief, authorized one bounded Opener slice (`VITE_NLL_CHALKIE_ADAPTER_PILOT`, default off), then formally accepted automated verification plus authenticated manual cases A–F and authorized commit/push of the verified Stage 5 paths only: selected NLL summaries remain package-only while the NLP routes through `renderChalkieFromNeutralPackage`; D022 BI and existing canary/bespoke fallback remain intact. Stage 5 remains default-off and undeployed. Stage 6 remains unauthorized. The wider D026 feature freeze remains active outside these bounded slices. Production deployment remains deferred. This work does not reopen or supersede D027. On PC2, the local BE3 WB canonical file exists under gitignored `data/phase1/`; it is not tracked repository content.
 
 ---
 
@@ -35,7 +35,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | 2 | Migration roadmap and acceptance gates | **Done** (this document) |
 | 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
-| 5 | Neutral Lesson Package → Chalkie adapter | **Not authorized** |
+| 5 | Neutral Lesson Package → Chalkie adapter | **Complete (bounded, default off); owner-accepted A–F; undeployed / unpromoted** |
 | 6 | Broader coverage and enrichment | **Not authorized** |
 
 ---
@@ -61,7 +61,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 4 — NLL knowledge → Neutral Lesson Package assembly
 
-**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted**. Automated verification and authenticated smoke matrix passed. Successful Stage 4 output excludes experimental BI; legacy/fallback paths preserve D022 BI. Not deployed/promoted. No Stage 5–6 authorization. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC remains.
+**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted**. Automated verification and authenticated smoke matrix passed. Successful Stage 4 output excludes experimental BI; legacy/fallback paths preserve D022 BI. Not deployed/promoted. A separate bounded Stage 5 Opener slice was later authorized; Stage 6 remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC remains.
 
 | Field | Detail |
 |---|---|
@@ -80,17 +80,18 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 5 — Neutral Lesson Package → Chalkie adapter
 
-**Authorization status:** Not authorized. A draft implementation brief exists for owner review; it grants no coding approval.
+**Authorization status:** Bounded default-off Opener pilot **complete and owner-accepted** (automated verification + authenticated manual A–F, 2026-10-29). Commit/push of verified Stage 5 paths authorized. Not deployed/promoted. Stage 6 remains unauthorized. No NLP snapshot persistence. No NLL visibility promotion. Nine summaries remain `hidden`/`experimental`. POC and canaries remain.
 
 | Field | Detail |
 |---|---|
-| **Scope** | One accepted relationship first (Opener) |
+| **Scope** | One accepted relationship first (Opener): `be3_sb_wb_rel_u08_opener_sb128-129_wb104-105` |
 | **Existing path preserved** | Bespoke handoffs as fallback; Opener/Story canary wrappers (`buildBe3U08OpenerSbWbSeriesHandoffWithNeutralCanary`, `buildBe3U08StorySbWbSeriesHandoffWithNeutralCanary`) and mismatch diagnostics |
-| **Proposed connection** | NLP → `renderChalkieFromNeutralPackage` |
-| **Acceptance gates** | Functional replacement for all-selected and key exclusion cases; no reconstruction of unchecked activities; Create-a-prompt completes; not perfect AI prose |
-| **Rollback** | Bespoke default path |
-| **Non-goals** | Multi-platform adapters; OpenAI revive; classroom-validation claims |
-| **Owner decisions** | Whether to authorize the proposed default-off Opener pilot; keep NLL summaries package-only or render them; canary/fallback precedence; when bespoke may archive |
+| **Local connection** | `nllChalkieAdapterPilot.ts` lazily loads NLL, assembles the selected NLP, attaches selected package-only summaries and calls `renderChalkieFromNeutralPackage`; `TeacherChoiceFlowOverlay` reuses the returned five artifacts |
+| **Flag** | `VITE_NLL_CHALKIE_ADAPTER_PILOT` — **default off**; exact BE3 U8 Opener two-lesson Chalkie path only |
+| **Acceptance gates** | Automated all-selected, partial, zero, key-exclusion, failure, stale-result and BI cases pass; Create-a-prompt returns expected artifacts; authenticated manual A–F PASS |
+| **Rollback** | Flag off/ineligible/failure → unchanged current path, including separately configured canary and bespoke fallback |
+| **Non-goals** | Multi-platform adapters; OpenAI revive; classroom-validation claims; Story routing; Stage 6 |
+| **Owner decisions pending** | Whether to deploy later; whether NLL summary prose may enter Chalkie; POC/canary retirement; Stage 6 authorization |
 
 ---
 
@@ -121,6 +122,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` | `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` |
 | `buildNeutralSbWbLessonPackage` | `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` |
 | `renderChalkieFromNeutralPackage` | `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` |
+| `assembleNllChalkieAdapterPilot` | `app/src/features/chalkie/nllChalkieAdapterPilot.ts` |
 | Opener/Story canary wrappers | `be3U08OpenerNeutralCanary.ts` / `be3U08StoryNeutralCanary.ts` |
 
 ---
@@ -129,5 +131,5 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 - [`../4-decisions.md`](../4-decisions.md) — D027  
 - [`nll-pilot-architecture-v0.1.md`](./nll-pilot-architecture-v0.1.md) — pilot facts  
-- [`stage-5-implementation-brief-v0.1.md`](./stage-5-implementation-brief-v0.1.md) — draft Stage 5 owner-review brief
+- [`stage-5-implementation-brief-v0.1.md`](./stage-5-implementation-brief-v0.1.md) — approved brief and local implementation/verification record
 - [`../5-progress.md`](../5-progress.md) — current freeze / status  

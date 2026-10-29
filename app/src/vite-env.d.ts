@@ -21,6 +21,11 @@ interface ImportMetaEnv {
    * experimental summaries without promoting them.
    */
   readonly VITE_NLL_GENERAL_LESSON_PLAN_PILOT?: string
+  /**
+   * Opt-in Stage 5 NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Opener two-lesson package only; NLL summaries stay package-only.
+   */
+  readonly VITE_NLL_CHALKIE_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {
