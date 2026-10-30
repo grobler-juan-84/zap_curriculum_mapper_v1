@@ -6886,3 +6886,70 @@
 - LiA-A and operating-tracker paths listed in Steps 395–397 (updated for acceptance)
 
 ---
+
+### Step 399
+
+**Summary:** Implemented owner-authorized LiA-C as a default-off NLL→NLP→Chalkie adapter for exact BE3 U8 Language in Action (`be3-u08-lia`). Added independent flag `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`, adapter module, Create-a-prompt overlay wiring with stale-result guards and `sb_only` fallback, and focused suite **13/13** (synthetic fixtures). Softened the accepted LiA renderer identity check to allow package-level `derivedKnowledge` without using NLL as Chalkie prose. App typecheck and lint passed. WB canonical absent on this machine blocked retained package/renderer/Opener/Story/`sb_only` regressions. No DB write, `.env.local` change, promotion, deploy, commit or push.
+
+**Files touched:**
+- `app/src/features/chalkie/nllLiaChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/renderBe3U08LiaNeutralPackageToChalkieShadow.ts` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/nllLiaChalkieAdapterPilot.test.ts` (created)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 400
+
+**Summary:** Applied a bounded LiA-C review-correction pass: fail-closed ordered nine-membership NLL completeness (exact IDs/positions, uniqueness, preferred summaries) and stronger Workbook card eligibility (book/unit/page IDs, single unambiguous reference). Extended the focused suite with explicit rejection cases. Re-ran focused suite, typecheck, lint, and whitespace check. Status remains implemented locally / awaiting retained regression and authenticated manual acceptance. No commit, push, DB write, deploy, or promotion.
+
+**Files touched:**
+- `app/src/features/chalkie/nllLiaChalkieAdapterPilot.ts` (updated)
+- `scripts/tests/nllLiaChalkieAdapterPilot.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 401
+
+**Summary:** Formally accepted LiA-C on 2026-10-30 and promoted operating docs. Recorded default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT` for exact `be3-u08-lia` / `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` / `be3-sb-wb-u08-p132-133-wb107-108` with lazy hidden/experimental NLL, selected NLP, package-level NLL only, shared renderer, BI absence, stale-result guards, and current `sb_only` fallback. Verification: focused 15/15, retained 81/81 + 76/76 (172/172), typecheck pass, lint warnings only, `git diff --check` clean; trusted WB canonical restored and hash-verified (gitignored). Authenticated manual matrix passed; manual stale-result not safely observable (automated coverage accepted). Included seven reviewed Unit 8 planning briefs as docs-only / separately gated. No deployment, NLL promotion, DB/Storage write, `.env.local` change, or next-component implementation. Owner-authorized one scoped commit/push.
+
+**Files touched:**
+- .env.example (updated)
+- pp/src/vite-env.d.ts (updated)
+- pp/src/features/chalkie/nllLiaChalkieAdapterPilot.ts (created)
+- pp/src/features/chalkie/TeacherChoiceFlowOverlay.tsx (updated)
+- pp/src/features/chalkie/renderBe3U08LiaNeutralPackageToChalkieShadow.ts (updated)
+- scripts/tests/nllLiaChalkieAdapterPilot.test.ts (created)
+- docs/0-index.md (updated)
+- docs/3-architecture.md (updated)
+- docs/5-progress.md (updated)
+- docs/6-todo.md (updated)
+- docs/project-tracking/0-project-steps.md (updated)
+- docs/project-tracking/1-project-status.md (updated)
+- docs/project-tracking/be3-u08-lia-transfer-planning-brief-v0.1.md (updated)
+- docs/project-tracking/nll-migration-roadmap-v0.1.md (updated)
+- docs/project-tracking/be3-u08-clil-pe-transfer-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-grammar-transfer-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-culture-transfer-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-writing-transfer-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-phonics-transfer-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md (created)
+- docs/project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md (created)
+
+---

@@ -73,7 +73,7 @@ function assertAcceptedLiaPackage(
     arraysEqual(lesson2.scope.printedPages, [107, 108]) &&
     arraysEqual(lesson2.scope.pageIds, ['bep_3_wb_p107', 'bep_3_wb_p108']) &&
     lessonPackage.curriculumInterpretation == null &&
-    lessonPackage.derivedKnowledge == null &&
+    // derivedKnowledge may be attached by LiA-C at package level only; never used as Chalkie prose.
     !hasSchoolContext
 
   if (!valid) {

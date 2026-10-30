@@ -32,6 +32,12 @@ interface ImportMetaEnv {
    * NLL summaries stay package-only; Story remains BI-absent.
    */
   readonly VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT?: string
+  /**
+   * Opt-in LiA-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Language in Action two-lesson series only; independent of Opener/Story.
+   * NLL summaries stay package-only; LiA remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

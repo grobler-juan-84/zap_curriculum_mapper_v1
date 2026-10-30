@@ -4,10 +4,10 @@
 **Version:** 0.1  
 **Date:** 2026-10-29  
 **Authority:** D027; Stage 2 planning authority; Stages 3–5 complete (bounded); Stage 6A Story knowledge owner-accepted; Stage 6B Story adapter owner-accepted / default-off / undeployed
-**Scope:** BE3 Unit 8 Opener and Story reference implementations accepted; LiA-A hidden knowledge and LiA-B non-serving parity accepted; LiA-C unauthorized
+**Scope:** BE3 Unit 8 Opener and Story reference implementations accepted; LiA-A/B/C accepted; remaining Unit 8 planning documented and separately gated
 
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3–5 and Story 6A/6B are complete within their accepted boundaries; Stage 5 Opener and Stage 6B Story remain the two accepted reference implementations. On 2026-10-29 the owner accepted LiA-A after the nine-activity evidence review and bounded insertion. Migration `20261029213000` inserted `be3-u08-lia` as `draft` with nine preferred v1 `hidden`/`experimental` summaries and two `proposed` SS links; live totals are now **3 / 23 / 23 / 5** and the migration is recorded as applied. Opener and Story identities remain unchanged. The owner also accepted LiA-B: an exact BI/NLL-absent neutral package and non-serving five-artifact renderer proof for SB pp.132–133 → WB pp.107–108. Focused verification passed **27/27**, retained regressions passed **90/90**, app typecheck passed, and current LiA serving remains `sb_only`. LiA-C adapter integration remains separately gated and unauthorized. Promotion, deployment, NLL visibility promotion, POC/canary retirement, broader Unit 8 expansion, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk. The wider D026 feature freeze remains active outside these bounded slices. This work does not reopen or supersede D027. On PC2, the local BE3 WB canonical file exists under gitignored `data/phase1/`; it is not tracked repository content.
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3–5 and Story 6A/6B are complete within their accepted boundaries; Stage 5 Opener and Stage 6B Story remain the two accepted reference implementations. On 2026-10-29 the owner accepted LiA-A after the nine-activity evidence review and bounded insertion. Migration `20261029213000` inserted `be3-u08-lia` as `draft` with nine preferred v1 `hidden`/`experimental` summaries and two `proposed` SS links; live totals are now **3 / 23 / 23 / 5** and the migration is recorded as applied. Opener and Story identities remain unchanged. The owner also accepted LiA-B: an exact BI/NLL-absent neutral package and five-artifact renderer for SB pp.132–133 → WB pp.107–108. On **2026-10-30** the owner accepted **LiA-C** behind default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT` (focused **15/15**; retained **172/172**; typecheck/lint/`git diff --check` pass; authenticated manual matrix passed). Flag-off LiA serving remains `sb_only` and the resolver default is unchanged. Remaining Unit 8 planning briefs are documented and separately gated. Promotion, deployment, NLL visibility promotion, POC/canary retirement, next-component implementation, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk. The wider D026 feature freeze remains active outside these bounded slices. This work does not reopen or supersede D027.
 
 ---
 
@@ -36,7 +36,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Complete (bounded, default off); owner-accepted A–F; undeployed / unpromoted** |
-| 6 | Broader coverage and enrichment | **6A/6B complete; LiA-A knowledge + LiA-B non-serving parity accepted; LiA-C, promotion and deploy not authorized** |
+| 6 | Broader coverage and enrichment | **6A/6B complete; LiA-A/B/C accepted; remaining Unit 8 planning docs-only / separately gated; promotion and deploy not authorized** |
 
 ---
 
@@ -97,7 +97,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 6 — Broader coverage and enrichment
 
-**Authorization status:** Stage **6A complete and owner-accepted**. Story NLL knowledge is live but remains `hidden`/`experimental` (not promoted). Stage **6B complete and owner-accepted** behind default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`. Undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. LiA-A and LiA-B are complete and owner-accepted; LiA-B is non-serving and leaves current LiA packaging `sb_only`. LiA-C, promotion, deployment and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a deferred audit risk.
+**Authorization status:** Stage **6A complete and owner-accepted**. Story NLL knowledge is live but remains `hidden`/`experimental` (not promoted). Stage **6B complete and owner-accepted** behind default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`. Undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. LiA-A, LiA-B, and LiA-C are complete and owner-accepted. LiA-C remains default-off behind `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; flag-off LiA packaging remains `sb_only`. Promotion, deployment and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a deferred audit risk.
 
 | Field | Detail |
 |---|---|
@@ -114,18 +114,20 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Next component transfer — BE3 Unit 8 Language in Action
 
-**Authorization status:** Planning accepted. **LiA-A and LiA-B are complete and owner-accepted.** LiA-B is a non-serving package/renderer proof only. LiA-C adapter integration, flag, promotion and deployment remain unauthorized.
+**Authorization status:** Planning accepted. **LiA-A, LiA-B, and LiA-C are complete and owner-accepted (LiA-C on 2026-10-30).** Remaining Unit 8 planning is documented and separately gated. Promotion and deployment remain unauthorized.
 
 | Field | Detail |
 |---|---|
 | **Exact relationship** | `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108`; SB pp.132–133 → WB pp.107–108 |
+| **Exact package** | `be3-sb-wb-u08-p132-133-wb107-108` |
 | **Evidence inventory** | Five verified SB activities + four verified WB activities; fingerprints and proposed summaries recorded in Step A review |
 | **Existing foundation** | Human-verified companion; resolver/View Workbook support; current two-lesson mode remains `sb_only`; provisional SB-only single-lesson experiment history |
-| **Accepted foundation** | Exact neutral SB/WB package configuration and five-artifact renderer; non-serving, BI/NLL-absent, current `sb_only` serving unchanged |
+| **Accepted foundation** | Exact neutral SB/WB package configuration and five-artifact renderer; BI/NLL-absent at package/render authority; flag-off serving remains `sb_only` |
 | **LiA-A Steps A–B** | Owner-accepted: live `be3-u08-lia` draft component + nine memberships + nine hidden/experimental summaries + proposed Structures and I can... links; totals **3 / 23 / 23 / 5**; migration `20261029213000` applied |
 | **LiA-B** | Owner-accepted: source-contract + reviewed-artifact parity; focused **27/27**, retained regressions **90/90**, app typecheck pass |
-| **Proposed sequence** | LiA-A knowledge readiness → LiA-B neutral-package/renderer parity → LiA-C NLL adapter integration |
-| **Owner decision** | LiA-A/B accepted; keep LiA-C separately gated |
+| **LiA-C** | Owner-accepted 2026-10-30: default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; lazy hidden/experimental NLL; selected NLP; package-level NLL only; shared renderer; BI absence; stale-result guards; `sb_only` fallback; focused **15/15**; retained **172/172**; authenticated manual matrix passed |
+| **Proposed sequence** | LiA-A knowledge readiness → LiA-B neutral-package/renderer parity → LiA-C NLL adapter integration (complete) |
+| **Owner decision** | LiA-A/B/C accepted; remaining Unit 8 briefs docs-only / separately gated; promotion/deployment still unauthorized |
 | **Restrictions** | One component only; no adjacent pages; no bulk Unit 8 work; no change to Opener/Story; no promotion/deployment |
 
 See [`be3-u08-lia-transfer-planning-brief-v0.1.md`](./be3-u08-lia-transfer-planning-brief-v0.1.md), [`be3-u08-lia-knowledge-review-v0.1.md`](./be3-u08-lia-knowledge-review-v0.1.md) and [`be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md`](./be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md).
@@ -145,6 +147,7 @@ See [`be3-u08-lia-transfer-planning-brief-v0.1.md`](./be3-u08-lia-transfer-plann
 | `renderChalkieFromNeutralPackage` | `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` |
 | `assembleNllChalkieAdapterPilot` | `app/src/features/chalkie/nllChalkieAdapterPilot.ts` |
 | `assembleNllStoryChalkieAdapterPilot` | `app/src/features/chalkie/nllStoryChalkieAdapterPilot.ts` |
+| `assembleNllLiaChalkieAdapterPilot` | `app/src/features/chalkie/nllLiaChalkieAdapterPilot.ts` |
 | Opener/Story canary wrappers | `be3U08OpenerNeutralCanary.ts` / `be3U08StoryNeutralCanary.ts` |
 
 ---

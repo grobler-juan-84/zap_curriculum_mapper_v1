@@ -1,10 +1,11 @@
 # BE3 Unit 8 Language in Action Transfer Planning Brief v0.1
 
-**Status:** PLANNING ACCEPTED — LiA-A / LiA-B COMPLETE AND OWNER-ACCEPTED
+**Status (LiA-C):** OWNER-ACCEPTED 2026-10-30 — default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; undeployed / unpromoted; resolver `sb_only` default unchanged
+**Status:** PLANNING ACCEPTED — LiA-A / LiA-B / LiA-C COMPLETE AND OWNER-ACCEPTED
 **Version:** 0.1
 **Date:** 2026-10-29
-**Authority:** Owner-approved LiA planning direction; LiA-A and LiA-B completed and accepted separately; D022, D026 and D027 remain in force
-**Implementation authorization:** LiA-A knowledge insertion and LiA-B non-serving package/renderer parity are complete and owner-accepted. LiA-C, feature flags, serving-path changes, deployment and promotion remain unauthorized. See [`be3-u08-lia-knowledge-review-v0.1.md`](./be3-u08-lia-knowledge-review-v0.1.md) and [`be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md`](./be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md).
+**Authority:** Owner-approved LiA planning direction; LiA-A, LiA-B, and LiA-C completed and accepted separately; D022, D026 and D027 remain in force
+**Implementation authorization:** LiA-A knowledge insertion, LiA-B package/renderer parity, and LiA-C NLL→NLP→Chalkie adapter are complete and owner-accepted. Deployment, NLL visibility promotion, canary/POC/bespoke/fallback retirement, database/Storage writes, and next-component implementation remain unauthorized. See [`be3-u08-lia-knowledge-review-v0.1.md`](./be3-u08-lia-knowledge-review-v0.1.md) and [`be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md`](./be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md).
 
 ---
 
@@ -22,9 +23,9 @@ The library grows. The package selects. The adapter generates. The teacher appro
 ### Completion record
 
 - **LiA-A:** complete and owner-accepted. The live component remains `draft`; nine summaries remain `hidden`/`experimental`; two SS links remain `proposed`.
-- **LiA-B:** complete and owner-accepted. Exact neutral packaging and the five-artifact renderer are parity-proved, BI/NLL-absent and non-serving. Focused verification passed **27/27**, retained regressions **90/90**, and app typecheck passed.
-- **Current serving:** unchanged at `sb_only`.
-- **LiA-C:** remains a separate unauthorized adapter/integration gate.
+- **LiA-B:** complete and owner-accepted. Exact neutral packaging and the five-artifact renderer are parity-proved, BI/NLL-absent at package/render authority. Focused verification passed **27/27**, retained regressions **90/90**, and app typecheck passed.
+- **LiA-C:** complete and owner-accepted on **2026-10-30**. Default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; exact `be3-u08-lia` / `be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` / `be3-sb-wb-u08-p132-133-wb107-108`; lazy hidden/experimental NLL; selected NLP; package-level NLL only; shared renderer; BI absence; stale-result guards; current `sb_only` fallback. Focused **15/15**; retained **172/172**; authenticated manual matrix passed. Undeployed/unpromoted.
+- **Current resolver default / flag-off serving:** unchanged at `sb_only`.
 
 Sections below preserve the planning rationale and gate design that governed the completed LiA-A/B work; their pre-implementation descriptions are historical context, not the current status.
 
