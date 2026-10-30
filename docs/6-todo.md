@@ -691,9 +691,13 @@
 
 - [x] **LiA-C owner acceptance (2026-10-30):** retained **172/172** (15 focused + 81 LiA/shared/resolver + 76 Opener/Story); typecheck/lint/`git diff --check` pass; trusted WB canonical restored and hash-verified (gitignored); authenticated manual matrix passed (all selected; SB Act 8 / WB Act 7 exclusion; WB Act 10 without Act 9; zero WB/SB/both; prior/teacher-added; Opener/Story/Grammar isolation; flag-off). Manual stale-result not safely observable; automated stale-result coverage passed. Process-only flags only; no `.env.local` change. Undeployed/unpromoted; resolver `sb_only` default unchanged.
 
-- [x] **Remaining BE3 U8 planning briefs (docs-only):** CLIL/P.E., Grammar, Culture, Writing, Phonics, Review (provisional/evidence-blocked) and Values standalone architecture recorded. Separately gated; **no implementation authorized**.
+- [x] **Remaining BE3 U8 planning briefs (docs-only):** CLIL/P.E., Grammar, Culture, Writing, Phonics, Review (provisional/evidence-blocked where applicable) and Values standalone architecture recorded. Separately gated; **no implementation authorized**.
 
-- [ ] **Hold — feature freeze:** no promotion, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B/LiA-C expansion, or broader Unit 8 implementation without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
+- [x] **Grammar-A Step A owner acceptance (2026-10-30):** documentation/content only for proposed `be3-u08-grammar`; SB Acts 19–23 + WB Acts 15–19; ten hidden/experimental preferred v1 summary designs; Structures future `proposed` only; I can… withheld; no NLL insertion; serving remains `sb_only`.
+
+- [ ] **Grammar-A Step B (next possible owner gate — not active):** separately authorize migration/seed/NLL insertion only if desired. Collision checks, Grammar-B package/renderer, Grammar-C adapter, promotion, and deployment remain unauthorized.
+
+- [ ] **Hold — feature freeze:** no promotion, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B/LiA-C expansion, Grammar-A Step B / Grammar-B/C, or broader Unit 8 implementation without explicit approval. Broad `supabase db push` remains unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

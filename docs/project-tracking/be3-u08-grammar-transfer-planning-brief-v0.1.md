@@ -1,18 +1,18 @@
 # BE3 Unit 8 Grammar Transfer Planning Brief v0.1
 
-**Status:** PROVISIONAL / EVIDENCE-BLOCKED / DOCUMENTATION ONLY
+**Status:** DOCUMENTATION ONLY — Grammar-A Step A owner-accepted 2026-10-30; Grammar-A Step B / Grammar-B / Grammar-C unauthorized
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed documentation-only planning after a read-only repository audit; D022, D026 and D027 remain in force
-**Implementation authorization:** **None.** This document does **not** authorize Grammar-A, Grammar-B, Grammar-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+**Authority:** Owner-directed documentation-only planning; Grammar-A Step A content accepted 2026-10-30; D022, D026 and D027 remain in force
+**Implementation authorization:** **None for Step B / B / C.** This document does **not** authorize Grammar-A Step B, Grammar-B, Grammar-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
 
 ---
 
 ## 0. Standing constraints (read first)
 
-1. **LiA-C is owner-accepted and undeployed.** Remaining Unit 8 planning, including Grammar, is **documented and separately gated**; Grammar is **not** an active implementation stream.
-2. This brief is **provisional** because the BE3 Workbook canonical file is unavailable.
-3. Exact Workbook activity claims remain **blocked** by the missing canonical and must wait for evidence review after restoration and re-verification.
+1. **LiA-C is owner-accepted and undeployed.** Grammar remains **separately gated** and is **not** an active implementation stream beyond accepted Step A documentation.
+2. The earlier WB evidence blocker is **cleared**. Trusted SB (`3924fa23…67e6`) and WB (`811deea2…04fa`) canonicals are restored locally (gitignored).
+3. Exact Grammar inventory and summary designs are recorded in the owner-accepted knowledge review: [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md).
 4. Opener, Story, LiA, and provisional CLIL/P.E. briefs are architectural patterns only — not permission to reuse their content assumptions for Grammar.
 5. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
 
@@ -25,7 +25,7 @@
 | Component | Big English 3 Unit 8 Grammar only |
 | Strand | Past simple regular (*-ed* spelling) + irregular forms; yesterday speaking |
 | Student Book | pp.136–137; page IDs `bep3_sb_p136`, `bep3_sb_p137` |
-| Workbook companion | pp.111–112; page IDs `bep_3_wb_p111`, `bep_3_wb_p112` (companion identity only; activity inventory not re-verified) |
+| Workbook companion | pp.111–112; page IDs `bep_3_wb_p111`, `bep_3_wb_p112` (Activities 15–19 accepted in Grammar-A Step A knowledge review) |
 | Relationship | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` |
 | Stable reference | `be3-sb-wb-u08-p136-137-wb111-112` (`BE3_U08_GRAMMAR_STABLE_REF`) |
 | Relationship type | `workbook_practice_for` · `human_verified` (curated companion) |
@@ -83,27 +83,17 @@ Membership in the Grammar component does **not** select an activity. Only teache
 
 ---
 
-## 4. Workbook evidence blocker
+## 4. Workbook evidence status
 
-**Missing dependency:**
+**Evidence blocker cleared.** Trusted WB canonical is present locally (gitignored): `779981` bytes / SHA-256 `811deea2e5b04bef2a0c0223d5d75ffe94218bfb5aecc58a1898ecabf43504fa`.
 
-`data/phase1/big_english_3_wb/canonical/v1.json`
+Owner-accepted Grammar-A Step A inventory (see knowledge review):
 
-Its absence **blocks confirmation** of:
+| Position | activity_id | Page | Number |
+|---:|---|---:|---:|
+| 6–10 (after SB 19–23) | `bep_3_wb_act_111_15` … `bep_3_wb_act_112_19` | 111–112 | 15–19 |
 
-- exact WB activity IDs, order, and count;
-- fingerprints and hashes;
-- exact regular / irregular inventories on WB pages;
-- question / negative / base-form evidence;
-- audio, answer, table, and activity-chain dependencies;
-- safe derived summaries and NLL memberships;
-- package selection behavior against real WB evidence;
-- renderer parity against accepted artifact expectations;
-- canonical-dependent retained regressions for this relationship.
-
-### Historical documentation awaiting canonical re-verification
-
-Earlier pairing / pilot documents describe Workbook pp.111–112 in terms such as regulars charts, irregular writing, narrative cloze, and `Did…?` / negative extensions on the same past-simple strand, while excluding LiA 107–108 and CLIL 109–110. Those statements are **historical documentation only**. They are **not** re-verified facts in this brief and must not be treated as exact activity inventory until the WB canonical is restored and reviewed.
+No NLL memberships or summaries have been inserted. Grammar-A Step B remains unauthorized.
 
 ---
 
@@ -127,8 +117,8 @@ Grammar differs from Opener (vocab/song), Story (narrative reading + asymmetric 
 
 - Potentially relevant Unit 8 **Structures** include past affirmative examples (e.g. *They walked.* / *She saw a film.*) and `Did…?` / `did` / `didn’t` material that also relates to LiA.
 - Potentially relevant **I can…** evidence includes asking and answering about activities in the past.
-- These are **candidates only**.
-- **All SS links remain unproposed** until full SB/WB evidence review.
+- Grammar-A Step A accepted a future **Structures** link as **`proposed` only** (not inserted).
+- **I can…** ask/answer remains **withheld**; Vocabulary and unrelated SS columns remain **unsuitable**.
 - Do not conflate Grammar with LiA, Culture, Writing, Phonics, Values, or generic past-simple knowledge.
 - The SS remains curriculum authority. Experiment 10 does not.
 
@@ -140,22 +130,22 @@ These gates are **future consideration only**. None is authorized by this docume
 
 ### Grammar-A — knowledge readiness
 
-**Blocked pending WB canonical restoration and separate owner authorization.**
+**Step A owner-accepted 2026-10-30** (documentation/content only). See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md).
 
-Future consideration only:
+Accepted Step A outcomes (not inserted):
 
-- exact SB/WB inventory and source order;
-- evidence-grounded summaries;
-- fingerprints and provenance;
-- carefully reviewed proposed SS links (if any);
-- hidden/experimental NLL design;
-- separate owner authorization before any persistent insertion.
+- exact SB/WB inventory and source order (ten memberships);
+- evidence-grounded hidden/experimental preferred v1 summary designs;
+- fingerprints and provenance bindings to trusted SB/WB hashes;
+- Structures as a future `proposed` SS link only; I can… withheld.
 
-**Explicitly prohibited at this stage:** migration, seed, database write, live-NLL insert, promotion, or coding of package/renderer/adapter layers.
+**Grammar-A Step B** (migration/seed/NLL insertion) is the next possible owner gate and is **not** authorized.
+
+**Explicitly prohibited without separate authorization:** migration, seed, database write, live-NLL insert, promotion, or coding of package/renderer/adapter layers.
 
 ### Grammar-B — neutral package and renderer parity
 
-**Future consideration only, after Grammar-A acceptance.**
+**Future consideration only, after Grammar-A Step B (and full Grammar-A) acceptance.** Not authorized.
 
 Future consideration only:
 
@@ -198,42 +188,39 @@ Do not specify module names, flag identifiers, or overlay wiring details in this
 
 ## 8. Owner decisions (recorded)
 
-1. **LiA-C remains the primary active milestone.**
+1. **Grammar-A Step A is owner-accepted (2026-10-30)** as documentation/content only.
 2. **Grammar remains Core 5 / `grammar`.**
 3. **Experiment 10 is historical SB-only and teacher-correction evidence only.**
 4. **LiA prior support remains optional** and cannot replace Grammar evidence.
-5. **All SS links remain unproposed.**
+5. **Structures** may become a future `proposed` SS link only; **I can…** remains withheld; Vocabulary unsuitable.
 6. **Future parity** uses verified source contract plus owner-reviewed artifacts.
 7. **Default behavior remains `sb_only`.**
-8. **Grammar-A implementation is not authorized.**
-9. **No broader implementation authority is created** (no Culture/Writing/Phonics/Values/Review or other-unit work).
+8. **Grammar-A Step B, Grammar-B, and Grammar-C are not authorized.**
+9. **No broader implementation authority is created** (no CLIL/P.E./Culture/Writing/Phonics/Values/Review or other-unit work).
 
 ---
 
 ## 9. Explicit non-actions
 
-This documentation-only brief does **not** authorize:
+This brief does **not** authorize:
 
-- edits outside this document;
+- Grammar-A Step B migration, seed, or NLL insertion;
 - application, configuration, or test work;
-- canonical creation or modification;
-- NLL summaries, hashes, memberships, migrations, or seeds;
-- Supabase CLI or database operations;
+- canonical mutation;
+- Supabase CLI, database writes, or Storage mutations;
 - feature flags;
 - package, renderer, adapter, overlay, or resolver changes;
 - promotion or deployment;
-- LiA-C or CLIL/P.E. edits;
-- work on later Unit 8 components;
-- staging, commit, or push.
+- CLIL/P.E./Culture/Writing/Phonics/Values/Review implementation;
+- staging, commit, or push unless separately authorized.
 
 ---
 
 ## 10. Recommendation for next owner action
 
-1. Continue LiA-C retained verification and authenticated manual acceptance as the primary stream.
-2. Restore `data/phase1/big_english_3_wb/canonical/v1.json` before any Grammar evidence review.
-3. Keep this brief provisional until ChatGPT Desktop / owner review decides whether to unlock a later Grammar-A planning authorization.
-4. Do not start Grammar coding, NLL design execution, or tracker promotion from this file alone.
+1. Treat Grammar-A Step B as the next **possible** owner gate — not active work.
+2. Do not start Grammar coding, NLL insertion, package/renderer/adapter work, or serving changes from this file alone.
+3. Keep CLIL/P.E., Culture, Writing, Phonics, Values, and Review at their existing docs-only statuses.
 
 ---
 

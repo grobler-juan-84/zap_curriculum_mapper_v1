@@ -6350,7 +6350,7 @@
 
 ### Step 369
 
-**Summary:** Extended the D023 BE3 U8 activity-enrichment POC to the exact verified Workbook companion on pp. 104�105 (four human-verified activities) behind the same default-off flag. Added distinct WB summary sidecars, gated WB card presentation matching SB, and one experimental package with separate studentBookActivities / workbookActivities. Focused tests, typecheck, and lint green.
+**Summary:** Extended the D023 BE3 U8 activity-enrichment POC to the exact verified Workbook companion on pp. 104-105 (four human-verified activities) behind the same default-off flag. Added distinct WB summary sidecars, gated WB card presentation matching SB, and one experimental package with separate studentBookActivities / workbookActivities. Focused tests, typecheck, and lint green.
 
 **Files touched:**
 - `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
@@ -6951,5 +6951,21 @@
 - docs/project-tracking/be3-u08-phonics-transfer-planning-brief-v0.1.md (created)
 - docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md (created)
 - docs/project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md (created)
+
+---
+
+### Step 402
+
+**Summary:** Recorded formal owner acceptance of Grammar-A Step A on 2026-10-30 as a documentation/content milestone only. Accepted proposed `be3-u08-grammar` designs for `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` / `be3-sb-wb-u08-p136-137-wb111-112`: SB Acts 19-23 + WB Acts 15-19 (ten ordered memberships); ten hidden/experimental preferred v1 summary designs (`evidence_status = sufficient`); SB bind `3924fa23...67e6`; WB bind `811deea2...04fa`; future Structures `proposed` only; I can... withheld; grammar-box langs `08_03`/`08_04` as p.136 page context. Cleared the Grammar planning-brief evidence blocker and pointed to the accepted knowledge review. Grammar-A Step B is the next possible owner gate (not active). No NLL insertion, migration, seed, database/Storage mutation, application change, deployment, or promotion. Canonicals untouched. Changes left unstaged.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-grammar-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-grammar-transfer-planning-brief-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
 
 ---

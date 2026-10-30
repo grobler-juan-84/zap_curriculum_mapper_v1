@@ -4,10 +4,10 @@
 **Version:** 0.1  
 **Date:** 2026-10-29  
 **Authority:** D027; Stage 2 planning authority; Stages 3–5 complete (bounded); Stage 6A Story knowledge owner-accepted; Stage 6B Story adapter owner-accepted / default-off / undeployed
-**Scope:** BE3 Unit 8 Opener and Story reference implementations accepted; LiA-A/B/C accepted; remaining Unit 8 planning documented and separately gated
+**Scope:** BE3 Unit 8 Opener and Story reference implementations accepted; LiA-A/B/C accepted; Grammar-A Step A content accepted (no NLL insert); remaining Unit 8 planning documented and separately gated
 
 
-This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3–5 and Story 6A/6B are complete within their accepted boundaries; Stage 5 Opener and Stage 6B Story remain the two accepted reference implementations. On 2026-10-29 the owner accepted LiA-A after the nine-activity evidence review and bounded insertion. Migration `20261029213000` inserted `be3-u08-lia` as `draft` with nine preferred v1 `hidden`/`experimental` summaries and two `proposed` SS links; live totals are now **3 / 23 / 23 / 5** and the migration is recorded as applied. Opener and Story identities remain unchanged. The owner also accepted LiA-B: an exact BI/NLL-absent neutral package and five-artifact renderer for SB pp.132–133 → WB pp.107–108. On **2026-10-30** the owner accepted **LiA-C** behind default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT` (focused **15/15**; retained **172/172**; typecheck/lint/`git diff --check` pass; authenticated manual matrix passed). Flag-off LiA serving remains `sb_only` and the resolver default is unchanged. Remaining Unit 8 planning briefs are documented and separately gated. Promotion, deployment, NLL visibility promotion, POC/canary retirement, next-component implementation, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk. The wider D026 feature freeze remains active outside these bounded slices. This work does not reopen or supersede D027.
+This document is the approved **Stage 2** migration roadmap and acceptance-gate authority. It did not itself authorize later coding. Stages 3–5 and Story 6A/6B are complete within their accepted boundaries; Stage 5 Opener and Stage 6B Story remain the two accepted reference implementations. On 2026-10-29 the owner accepted LiA-A after the nine-activity evidence review and bounded insertion. Migration `20261029213000` inserted `be3-u08-lia` as `draft` with nine preferred v1 `hidden`/`experimental` summaries and two `proposed` SS links; live totals are now **3 / 23 / 23 / 5** and the migration is recorded as applied. Opener and Story identities remain unchanged. The owner also accepted LiA-B: an exact BI/NLL-absent neutral package and five-artifact renderer for SB pp.132–133 → WB pp.107–108. On **2026-10-30** the owner accepted **LiA-C** behind default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT` (focused **15/15**; retained **172/172**; typecheck/lint/`git diff --check` pass; authenticated manual matrix passed). Flag-off LiA serving remains `sb_only` and the resolver default is unchanged. On **2026-10-30** the owner also accepted **Grammar-A Step A** as documentation/content only for proposed `be3-u08-grammar` (ten activity summary designs; no NLL insertion; serving remains `sb_only`). Grammar-A Step B / Grammar-B / Grammar-C remain unauthorized. Remaining Unit 8 planning briefs stay docs-only / separately gated. Promotion, deployment, NLL visibility promotion, POC/canary retirement, and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a separate deferred audit risk. The wider D026 feature freeze remains active outside these bounded slices. This work does not reopen or supersede D027.
 
 ---
 
@@ -36,7 +36,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Complete (bounded, default off); owner-accepted A–F; undeployed / unpromoted** |
-| 6 | Broader coverage and enrichment | **6A/6B complete; LiA-A/B/C accepted; remaining Unit 8 planning docs-only / separately gated; promotion and deploy not authorized** |
+| 6 | Broader coverage and enrichment | **6A/6B complete; LiA-A/B/C accepted; Grammar-A Step A content accepted (no insert); remaining Unit 8 planning docs-only / separately gated; promotion and deploy not authorized** |
 
 ---
 
@@ -97,7 +97,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 6 — Broader coverage and enrichment
 
-**Authorization status:** Stage **6A complete and owner-accepted**. Story NLL knowledge is live but remains `hidden`/`experimental` (not promoted). Stage **6B complete and owner-accepted** behind default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`. Undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. LiA-A, LiA-B, and LiA-C are complete and owner-accepted. LiA-C remains default-off behind `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; flag-off LiA packaging remains `sb_only`. Promotion, deployment and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a deferred audit risk.
+**Authorization status:** Stage **6A complete and owner-accepted**. Story NLL knowledge is live but remains `hidden`/`experimental` (not promoted). Stage **6B complete and owner-accepted** behind default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`. Undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations. LiA-A, LiA-B, and LiA-C are complete and owner-accepted. LiA-C remains default-off behind `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; flag-off LiA packaging remains `sb_only`. Grammar-A Step A is owner-accepted as documentation/content only (no live Grammar NLL). Promotion, deployment and broad `supabase db push` remain unauthorized. Older remote-empty migration-history entries remain a deferred audit risk.
 
 | Field | Detail |
 |---|---|
@@ -131,6 +131,27 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 | **Restrictions** | One component only; no adjacent pages; no bulk Unit 8 work; no change to Opener/Story; no promotion/deployment |
 
 See [`be3-u08-lia-transfer-planning-brief-v0.1.md`](./be3-u08-lia-transfer-planning-brief-v0.1.md), [`be3-u08-lia-knowledge-review-v0.1.md`](./be3-u08-lia-knowledge-review-v0.1.md) and [`be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md`](./be3-u08-lia-neutral-package-renderer-parity-brief-v0.1.md).
+
+---
+
+## Next component knowledge — BE3 Unit 8 Grammar (Grammar-A)
+
+**Authorization status:** **Grammar-A Step A owner-accepted 2026-10-30** as documentation/content only. No Grammar NLL component, memberships, summaries, or SS links have been inserted. Live NLL totals remain **3 / 23 / 23 / 5**. Grammar-A Step B, Grammar-B, and Grammar-C remain unauthorized. Default serving remains **`sb_only`**.
+
+| Field | Detail |
+|---|---|
+| **Proposed component key** | `be3-u08-grammar` (not created) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`; SB pp.136–137 → WB pp.111–112 |
+| **Stable reference** | `be3-sb-wb-u08-p136-137-wb111-112` |
+| **Accepted inventory** | SB Activities 19–23 + WB Activities 15–19; ten ordered proposed memberships |
+| **Accepted summary designs** | Ten preferred v1; `hidden` / `experimental`; `evidence_status = sufficient`; not inserted |
+| **Source bindings** | SB `3924fa23…67e6`; WB `811deea2…04fa` |
+| **SS decisions** | Structures future `proposed` only; I can… withheld; Vocabulary unsuitable |
+| **Page context** | `bep3_sb_lang_08_03` / `08_04` on p.136; not selectable memberships |
+| **Next possible gate** | Grammar-A Step B insertion — not active; requires separate owner authorization |
+| **Restrictions** | No Step B / B / C; no promotion/deployment; no resolver/`sb_only` change; CLIL/Culture/Writing/Phonics/Values/Review statuses unchanged |
+
+See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md) and [`be3-u08-grammar-transfer-planning-brief-v0.1.md`](./be3-u08-grammar-transfer-planning-brief-v0.1.md).
 
 ---
 
