@@ -1,20 +1,21 @@
 # BE3 Unit 8 Content Connection / P.E. Transfer Planning Brief v0.1
 
-**Status:** PROVISIONAL / EVIDENCE-BLOCKED / DOCUMENTATION ONLY
+**Status:** ACTIVE / CLIL-A APPLIED + CLIL-B/C AUTOMATED-ACCEPTED UNDER ADVANCE AUTHORIZATION
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed documentation-only planning after a read-only repository audit; D022, D026 and D027 remain in force
-**Implementation authorization:** **None.** This document does **not** authorize CLIL-A, CLIL-B, CLIL-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+**Authority:** Owner advance authorization for CLIL-A apply+verify and CLIL-B/C; D022, D026 and D027 remain in force
+**Implementation authorization:** Authorized isolated apply of `20261030170000` plus CLIL-B/C. **Does not** authorize promotion, deployment, additional migrations, commit, or push.
 
 ---
 
 ## 0. Standing constraints (read first)
 
-1. **LiA-C is owner-accepted and undeployed.** Remaining Unit 8 planning, including CLIL/P.E., is **documented and separately gated**; CLIL/P.E. is **not** an active implementation stream.
-2. This brief is **provisional** because the BE3 Workbook canonical file is unavailable on the audit machine.
-3. Exact Workbook activity claims must wait for evidence review after the WB canonical is restored and re-verified.
-4. Opener, Story, and LiA transfer briefs are architectural patterns only — not permission to reuse their content assumptions for CLIL/P.E.
-5. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
+1. **Grammar-B/C are committed and pushed** (`e99636ca066ac60b961934c1358f73fed45e0afa` on `main`).
+2. The historical **missing-Workbook blocker is cleared**: trusted WB canonical verified (`779981` / `811deea2…04fa`) alongside SB (`938463` / `3924fa23…67e6`).
+3. **CLIL-A Step B** is applied/verified/owner-accepted: live **5 / 44 / 44 / 6**; history **24 / 0 / 0**; zero CLIL SS links. See [`be3-u08-clil-pe-knowledge-review-v0.1.md`](./be3-u08-clil-pe-knowledge-review-v0.1.md).
+4. Opener, Story, LiA, and Grammar transfer briefs are architectural patterns only — not permission to reuse their content assumptions for CLIL/P.E.
+5. Default serving for this relationship remains **`sb_only`**. Flag-off path unchanged.
+6. **CLIL-B/C are implemented and automated-accepted** behind default-off `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT`; undeployed/unpromoted; local/uncommitted.
 
 ---
 
@@ -57,36 +58,20 @@ These are **current repository facts**, not future proposals.
 | Prior pairing acceptance | Docs-only acceptance recorded in the Unit 8 SB→WB pairing-gap / production-pilot docs (companion only; handoff/Chalkie not authorized) |
 | Experiment 14 | Historical **SB-only** single-lesson evidence for pp.134–135; provisional; not a methodology lock; not an SB→WB series oracle |
 | Local SB inventory | Human-verified Activities **13–18** on pp.134–135 (`bep3_sb_act_08_13` … `bep3_sb_act_08_18`) |
-| Neutral package builder | Does **not** support this relationship (supported configs: Opener, Story, LiA only) |
-| Shared renderer dispatch | Does **not** dispatch CLIL/P.E.; relationship used as unsupported-dispatch test fixture |
-| Bespoke five-artifact SB→WB baseline | **Does not exist** |
-| NLL component / package / renderer / adapter / flag | **None** for CLIL/P.E. (`be3-u08-opener`, `be3-u08-story`, `be3-u08-lia` only in migrations) |
+| Neutral package builder | Supports exact CLIL relationship (`clil_pe`) alongside Opener, Story, LiA, Grammar |
+| Shared renderer dispatch | Dispatches exact CLIL package to dedicated five-artifact renderer |
+| Bespoke five-artifact SB→WB baseline | Present (`renderBe3U08ClilPeNeutralPackageToChalkieShadow`) |
+| NLL component / package / renderer / adapter / flag | Live `be3-u08-clil-pe`; default-off `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT` |
 
 Coverage map and packaging/companion tests protect companion identity and `sb_only` packaging for this spread.
 
 ---
 
-## 3. Evidence blocker
+## 3. Evidence blocker — CLEARED
 
-**Missing dependency:**
+**Cleared 2026-10-30** by direct verification of trusted local canonicals (size + SHA-256 + JSON parse). Exact WB inventory is recorded in the CLIL knowledge review: Activities **11–14** + Think Big on pp.109–110 (`bep_3_wb_act_109_11` … `bep_3_wb_act_110_tb`).
 
-`data/phase1/big_english_3_wb/canonical/v1.json`
-
-Its absence **blocks confirmation** of:
-
-- exact WB activity IDs;
-- activity order and count;
-- fingerprints and hashes;
-- audio, visual, answer, diagram, and cross-activity dependencies;
-- safe derived summaries;
-- NLL memberships and records;
-- package selection behavior against real WB evidence;
-- renderer parity against accepted artifact expectations;
-- canonical-dependent retained regressions for this relationship.
-
-### Historical documentation awaiting canonical re-verification
-
-Earlier pairing / pilot documents describe Workbook pp.109–110 in terms such as cloze, listening/circle, matching, activity diagrams, Think Big healthy choices, and shared calorie/energy/active vocabulary. Those statements are **historical documentation only**. They are **not** re-verified facts in this brief and must not be treated as exact activity inventory until the WB canonical is restored and reviewed.
+Earlier pairing / pilot documents remain historical context only where they conflict with the knowledge-review inventory.
 
 ---
 
@@ -132,19 +117,18 @@ These gates are **future consideration only**. None is authorized by this docume
 
 ### CLIL-A — knowledge readiness
 
-**Blocked pending WB canonical restoration and owner authorization.**
+**Accepted under advance authorization (2026-10-30) / Step B prepared locally / not applied.**
 
-Future consideration only:
+Completed:
 
-- exact SB/WB inventory and source order;
-- side-by-side evidence review;
-- content-safe derived summaries;
+- exact SB/WB inventory (11 activities) and source order;
 - fingerprints and provenance;
-- carefully reviewed proposed SS links (if any);
-- hidden/experimental NLL design;
-- separate owner authorization before any persistent insertion.
+- eleven preferred v1 hidden/experimental summaries;
+- **zero** SS links (CLIL/Culture category conflates Strange sports);
+- local fail-closed migration `20261030170000` + focused static suite;
+- read-only live preflight still **4 / 33 / 33 / 6**; intended post-apply **5 / 44 / 44 / 6**.
 
-**Explicitly prohibited at this stage:** migration, seed, database write, live-NLL insert, promotion, or coding of package/renderer/adapter layers.
+**Still prohibited without a new gate:** applying the migration; database/Storage mutation; CLIL-B/C; promotion; deployment; commit/push of CLIL work.
 
 ### CLIL-B — neutral package and renderer parity
 

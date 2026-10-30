@@ -134,26 +134,43 @@ See [`be3-u08-lia-transfer-planning-brief-v0.1.md`](./be3-u08-lia-transfer-plann
 
 ---
 
-## Next component knowledge — BE3 Unit 8 Grammar (Grammar-A)
+## Next component knowledge — BE3 Unit 8 Grammar (Grammar-A/B/C)
 
-**Authorization status:** **Grammar-A Step A owner-accepted 2026-10-30** as documentation/content only. **Grammar-A Step B** is implemented locally (`supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql` + focused suite) but remains **unapplied** — no live Grammar NLL component, memberships, summaries, or SS links. Live NLL totals remain **3 / 23 / 23 / 5**. Migration-history reconciliation is complete; linked dry-run lists only Grammar. Grammar-B and Grammar-C remain unauthorized. Default serving remains **`sb_only`**.
+**Authorization status:** **Grammar-A/B/C complete.** Grammar-A live at **4 / 33 / 33 / 6**. Grammar-B/C committed and pushed on `main` (`e99636ca066ac60b961934c1358f73fed45e0afa`). Default-off `VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT`; undeployed/unpromoted. Default serving remains **`sb_only`**.
 
 | Field | Detail |
 |---|---|
-| **Proposed component key** | `be3-u08-grammar` (local migration prepared; not live) |
+| **Component key** | `be3-u08-grammar` (live draft) |
 | **Exact relationship** | `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`; SB pp.136–137 → WB pp.111–112 |
 | **Stable reference** | `be3-sb-wb-u08-p136-137-wb111-112` |
-| **Accepted inventory** | SB Activities 19–23 + WB Activities 15–19; ten ordered memberships in local migration |
-| **Local Step B payloads** | Ten preferred v1; `hidden` / `experimental`; one proposed Structures link; not applied |
-| **Source bindings** | SB `3924fa23…67e6`; WB `811deea2…04fa` |
-| **SS decisions** | Structures `proposed` only in migration; I can… withheld; Vocabulary unsuitable |
-| **Page context** | `bep3_sb_lang_08_03` / `08_04` on p.136; not selectable memberships |
-| **Verification** | Focused Grammar suite **4/4**; retained Opener/schema + Story + LiA **13/13** |
-| **History** | 22 remotely recorded; Grammar sole local-only pending version |
-| **Next owner gate** | Separately authorize Grammar-only DB application of `20261030160000` |
-| **Restrictions** | No apply without new gate; no Grammar-B/C; no promotion/deployment; no resolver/`sb_only` change; CLIL/Culture/Writing/Phonics/Values/Review statuses unchanged |
+| **Accepted inventory** | SB Activities 19–23 + WB Activities 15–19 |
+| **SS decisions** | one Structures `proposed`; I can…/Vocabulary withheld |
+| **History** | Was **23 recorded / 0 pending / 0 remote-only** before CLIL; now **24 / 0 / 0** after CLIL-A Step B |
 
-See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md), [`be3-u08-grammar-transfer-planning-brief-v0.1.md`](./be3-u08-grammar-transfer-planning-brief-v0.1.md), [`be3-u08-grammar-step-b-insertion-plan-v0.1.md`](./be3-u08-grammar-step-b-insertion-plan-v0.1.md), and [`supabase-migration-history-reconciliation-plan-v0.1.md`](./supabase-migration-history-reconciliation-plan-v0.1.md).
+See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md), [`be3-u08-grammar-transfer-planning-brief-v0.1.md`](./be3-u08-grammar-transfer-planning-brief-v0.1.md), and [`be3-u08-grammar-step-b-insertion-plan-v0.1.md`](./be3-u08-grammar-step-b-insertion-plan-v0.1.md).
+
+---
+
+## BE3 Unit 8 Content Connection / P.E. (CLIL-A/B/C)
+
+**Authorization status:** **CLIL-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **CLIL-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **5 / 44 / 44 / 6**. History **24 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT` default-off. Undeployed/unpromoted; no CLIL commit/push in this acceptance.
+
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-clil-pe` (live draft `…000005`) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110`; SB pp.134–135 → WB pp.109–110 |
+| **Stable reference** | `be3-sb-wb-u08-p134-135-wb109-110` |
+| **Accepted inventory** | SB Activities 13–18 + WB Activities 11–14 + Think Big = **eleven** |
+| **Live Step B payloads** | Eleven preferred v1 `hidden`/`experimental`; **zero** SS links |
+| **Source bindings** | SB `3924fa23…67e6`; WB `811deea2…04fa` |
+| **SS decisions** | No link — CLIL/Culture category conflates Strange sports |
+| **Migration** | `20261030170000_seed_nll_be3_u08_clil_pe.sql` (**applied**) |
+| **Live totals** | **5 / 44 / 44 / 6** |
+| **CLIL-B/C** | Exact package + five-artifact renderer + default-off adapter; dedicated focused **13/13**; retained **233/233** |
+| **Next owner gate** | Separately authorize CLIL commit/push and any later Unit 8 component |
+| **Restrictions** | No promotion/deployment; no flag-on default; no resolver/`sb_only` change; no further migration without new gate |
+
+See [`be3-u08-clil-pe-knowledge-review-v0.1.md`](./be3-u08-clil-pe-knowledge-review-v0.1.md) and [`be3-u08-clil-pe-transfer-planning-brief-v0.1.md`](./be3-u08-clil-pe-transfer-planning-brief-v0.1.md).
 
 ---
 

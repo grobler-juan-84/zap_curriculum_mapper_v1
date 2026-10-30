@@ -7016,3 +7016,50 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 405
+
+**Summary:** Phase 1: committed and pushed accepted Grammar-B/C as `e99636ca066ac60b961934c1358f73fed45e0afa` on `main`/`origin/main` (exactly 20 paths; clean checkpoint). Phase 2: completed CLIL-A automated knowledge readiness for BE3 U8 Content Connection / P.E. (WB blocker cleared; 11 activities; zero SS links), prepared local fail-closed migration `20261030170000` + focused suite, confirmed live preflight still 4/33/33/6, and left migration unapplied. CLIL-B/C not started; no CLIL commit/push.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-clil-pe-knowledge-review-v0.1.md` (created)
+- `supabase/migrations/20261030170000_seed_nll_be3_u08_clil_pe.sql` (created)
+- `scripts/tests/nllBe3U08ClilPeSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-clil-pe-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 406
+
+**Summary:** Owner-authorized CLIL-A Step B applied only `20261030170000` to `kivvmobjphtcgxoltqbc` via isolated workdir (live **5 / 44 / 44 / 6**; history **24 / 0 / 0**; eleven memberships; zero CLIL SS links). Implemented CLIL-B/C: exact package/renderer, default-off `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT`, overlay stale guards, `sb_only` fallback. Automated gates passed (dedicated focused **13/13**; retained **233/233**; typecheck pass; lint warnings only; whitespace/encoding clean). Undeployed/unpromoted; no commit/push.
+
+**Files touched:**
+- `supabase/migrations/20261030170000_seed_nll_be3_u08_clil_pe.sql` (applied remotely; local file retained)
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08ClilPeNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/nllClilPeChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/nllBe3U08ClilPeSeedStepB.test.ts` (created)
+- `scripts/tests/nllClilPeChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/renderBe3U08ClilPeNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `docs/project-tracking/be3-u08-clil-pe-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-clil-pe-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

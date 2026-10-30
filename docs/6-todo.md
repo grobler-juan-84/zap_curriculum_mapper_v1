@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 403
+**Last updated:** Step 406
 
 
 
@@ -701,9 +701,17 @@
 
 - [x] **Grammar-A Step B database application + owner acceptance (2026-10-30):** linked non-dry-run push of only `20261030160000` on `kivvmobjphtcgxoltqbc`. Live totals **4 / 33 / 33 / 6**; `be3-u08-grammar` draft; ten memberships/summaries; one proposed Structures link; Opener/Story/LiA unchanged. History **23 recorded / 0 pending / 0 remote-only**.
 
-- [x] **Grammar-B/C implementation + automated acceptance (2026-10-30):** exact Grammar neutral package/renderer; default-off `VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT`; overlay wiring with stale guards and `sb_only` fallback. Focused Grammar suites **19/19**; retained regressions **141/141** (with focused); typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; resolver `sb_only` unchanged. No commit/push unless separately authorized.
+- [x] **Grammar-B/C implementation + automated acceptance (2026-10-30):** exact Grammar neutral package/renderer; default-off `VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT`; overlay wiring with stale guards and `sb_only` fallback. Focused Grammar suites **19/19**; retained regressions **141/141** (with focused); typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; resolver `sb_only` unchanged.
 
-- [ ] **Hold — feature freeze:** no promotion, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, Stage 5/6B/LiA-C/Grammar-C expansion, or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
+- [x] **Grammar-B/C commit + push (2026-10-30):** `e99636ca066ac60b961934c1358f73fed45e0afa` on `main` / `origin/main`; clean worktree after push; exactly 20 accepted paths.
+
+- [x] **CLIL-A automated knowledge + local Step B prep (2026-10-30):** WB canonical blocker cleared; eleven-activity inventory; fingerprints; zero SS links; migration `20261030170000` + focused suite prepared.
+
+- [x] **CLIL-A Step B apply + verify (2026-10-30):** authorized isolated `db push` of only `20261030170000` to `kivvmobjphtcgxoltqbc`; live **5 / 44 / 44 / 6**; history **24 / 0 / 0**; eleven memberships; zero CLIL SS links; Opener/Story/LiA/Grammar unchanged. Owner-accepted under advance authorization.
+
+- [x] **CLIL-B/C implementation + automated acceptance (2026-10-30):** exact CLIL package/renderer; default-off `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **13/13**; retained regressions **233/233**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no CLIL commit/push.
+
+- [ ] **Hold — feature freeze:** no promotion, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, additional migrations, or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized. CLIL commit/push remains separately gated.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

@@ -29,6 +29,7 @@ import {
   BE3_U08_SB128_129_WB104_105,
   BE3_U08_SB130_131_WB106,
   BE3_U08_SB132_133_WB107_108,
+  BE3_U08_SB134_135_WB109_110,
   BE3_U08_SB136_137_WB111_112,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
@@ -332,10 +333,43 @@ const GRAMMAR_CONFIG: SupportedPackageConfig = {
   ],
 }
 
+const CLIL_PE_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB134_135_WB109_110,
+  packageReference: 'be3-sb-wb-u08-p134-135-wb109-110',
+  componentKey: 'clil_pe',
+  componentTitle: 'Content Connection / P.E.',
+  lesson1Purpose:
+    'Support reading/content/P.E. work on What Is a Calorie? through the verified Content Connection activities on SB pp.134–135.',
+  lesson2Purpose:
+    'Consolidate calorie/energy/activity Content Connection practice through the verified Workbook activities on pp.109–110.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 132, 133, 136, 137, 138, 139, 140, 141, 142, 143],
+      reason:
+        'Opener, Story, Language in Action, Grammar, Culture and later Unit 8 Student Book pages are outside this package.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 107, 108, 111, 112, 113, 114, 115, 116, 117],
+      reason:
+        'Opener, Story, Language in Action, Grammar, Culture and later Unit 8 Workbook pages are outside this package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Content Connection / P.E. relationship; it is not a second presentation of Lesson 1.',
+    'Audio 157/158, the article, Exercise Chart, and Inside/Outside diagram may be referenced only as dependencies on selected activities; never invent transcripts, figures, placements, or visuals.',
+    'Do not reconstruct excluded linked activities (14→15/17, 12→13) from NLL membership, page memory, or historical Experiment 14 material.',
+    'Do not invent nutritional, calorie, exercise, or medical guidance beyond verified publisher task boundaries.',
+    'Learning-spine role remains support / reading_content — not Core.',
+  ],
+}
+
 const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [OPENER_CONFIG.companion.relationshipId, OPENER_CONFIG],
   [STORY_CONFIG.companion.relationshipId, STORY_CONFIG],
   [LIA_CONFIG.companion.relationshipId, LIA_CONFIG],
+  [CLIL_PE_CONFIG.companion.relationshipId, CLIL_PE_CONFIG],
   [GRAMMAR_CONFIG.companion.relationshipId, GRAMMAR_CONFIG],
 ])
 
