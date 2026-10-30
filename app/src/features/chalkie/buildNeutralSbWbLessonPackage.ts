@@ -33,6 +33,8 @@ import {
   BE3_U08_SB136_137_WB111_112,
   BE3_U08_SB138_139_WB113_114,
   BE3_U08_SB140_WB115,
+  BE3_U08_SB141_WB116,
+  BE3_U08_SB143_WB117,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
 
@@ -186,6 +188,8 @@ export type NeutralSbWbLessonPackage = {
       | 'be3-sb-wb-u08-p136-137-wb111-112'
       | 'be3-sb-wb-u08-p138-139-wb113-114'
       | 'be3-sb-wb-u08-p140-wb115'
+      | 'be3-sb-wb-u08-p141-wb116'
+      | 'be3-sb-wb-u08-p143-wb117'
     readonly relationshipId: string
     readonly relationshipType: 'workbook_practice_for'
     readonly verificationStatus: 'human_verified'
@@ -201,6 +205,8 @@ export type NeutralSbWbLessonPackage = {
       | 'grammar'
       | 'culture'
       | 'writing'
+      | 'phonics'
+      | 'review'
     readonly componentTitle: string
   }
   readonly packaging: {
@@ -444,6 +450,73 @@ const WRITING_CONFIG: SupportedPackageConfig = {
   ],
 }
 
+const PHONICS_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB141_WB116,
+  packageReference: 'be3-sb-wb-u08-p141-wb116',
+  componentKey: 'phonics',
+  componentTitle: 'Phonics',
+  lesson1Purpose:
+    'Support Phonics / all, au, aw through the verified activities on SB p.141.',
+  lesson2Purpose:
+    'Consolidate Phonics practice through the verified Workbook activities on p.116.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 142, 143],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Grammar, Culture, Writing, Values and Review Student Book pages are outside this package.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 117],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Grammar, Culture, Writing and Review Workbook pages are outside this package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Phonics relationship; it is not a second presentation of Lesson 1.',
+    'Do not combine SB p.141 and WB p.116 into one lesson; do not merge Phonics with Writing p.140 / p.115 or Values p.142.',
+    'Limit target evidence to graphemes all, au, and aw only; never invent IPA, pronunciation rules, accent variants, exceptions, minimal pairs, or extra words.',
+    'Audio 163–167 are official-book dependencies without transcripts.',
+    'Protect Activity 34 keyed blends, Activity 33 visual dependency, Activity 35 chant identity/role (no full chant text), and WB circle/underline/connect/write/chant-gap boundaries.',
+    'Excluding Activity 35 removes chant evidence everywhere; zero selection must not invent a phonics drill.',
+    'Learning-spine role remains support / phonics — not Core.',
+  ],
+}
+
+const REVIEW_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB143_WB117,
+  packageReference: 'be3-sb-wb-u08-p143-wb117',
+  componentKey: 'review',
+  componentTitle: 'Review',
+  lesson1Purpose:
+    'Support Review through the verified Student Book activities on SB p.143.',
+  lesson2Purpose:
+    'Consolidate Review practice through the verified Workbook activities on p.117.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142],
+      reason:
+        'Earlier Unit 8 Student Book components and Values are outside this Review package; Review is mixed consolidation, not whole-unit aggregation.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116],
+      reason:
+        'Earlier Unit 8 Workbook components and Phonics are outside this Review package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Review relationship; it is not a second presentation of Lesson 1.',
+    'Review is mixed consolidation only — never import earlier component summaries, links, packages, memberships, or prose.',
+    'Do not invent SB audio; preserve page-level visual dependency; protect keyed answers; preserve open survey without invented responses.',
+    'WB gerund-as-subject evidence remains Workbook-only and must not be back-ported into SB Review summaries.',
+    'Zero selection must not create a generic Unit 8 wrap-up; optional prior learning cannot replace current Review evidence.',
+    'Keep Values SB p.142 isolated; Learning-spine role remains review_support / values_review — not Core.',
+  ],
+}
+
 const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [OPENER_CONFIG.companion.relationshipId, OPENER_CONFIG],
   [STORY_CONFIG.companion.relationshipId, STORY_CONFIG],
@@ -452,6 +525,8 @@ const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [GRAMMAR_CONFIG.companion.relationshipId, GRAMMAR_CONFIG],
   [CULTURE_CONFIG.companion.relationshipId, CULTURE_CONFIG],
   [WRITING_CONFIG.companion.relationshipId, WRITING_CONFIG],
+  [PHONICS_CONFIG.companion.relationshipId, PHONICS_CONFIG],
+  [REVIEW_CONFIG.companion.relationshipId, REVIEW_CONFIG],
 ])
 
 function arraysEqual<T>(left: readonly T[], right: readonly T[]): boolean {

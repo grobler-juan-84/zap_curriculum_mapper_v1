@@ -172,6 +172,26 @@ import {
   shouldRunNllWritingChalkieAdapterPilot,
   type Be3U08WritingSeriesHandoff,
 } from './nllWritingChalkieAdapterPilot'
+import {
+  assembleNllPhonicsChalkieAdapterPilot,
+  invalidateNllPhonicsChalkieAdapterPilotRequest,
+  isExactBe3U08PhonicsNllChalkieAdapterScope,
+  isNllPhonicsChalkieAdapterPilotEnabled,
+  nllPhonicsChalkieAdapterRequestKey,
+  shouldApplyNllPhonicsChalkieAdapterPilotResult,
+  shouldRunNllPhonicsChalkieAdapterPilot,
+  type Be3U08PhonicsSeriesHandoff,
+} from './nllPhonicsChalkieAdapterPilot'
+import {
+  assembleNllReviewChalkieAdapterPilot,
+  invalidateNllReviewChalkieAdapterPilotRequest,
+  isExactBe3U08ReviewNllChalkieAdapterScope,
+  isNllReviewChalkieAdapterPilotEnabled,
+  nllReviewChalkieAdapterRequestKey,
+  shouldApplyNllReviewChalkieAdapterPilotResult,
+  shouldRunNllReviewChalkieAdapterPilot,
+  type Be3U08ReviewSeriesHandoff,
+} from './nllReviewChalkieAdapterPilot'
 import { renderGeneralLessonPlanFromNeutralPackage } from './renderGeneralLessonPlanFromNeutralPackage'
 import { supabase } from '../../lib/supabase'
 import {
@@ -204,6 +224,8 @@ type Be3U08SeriesHandoff =
   | Be3U08ClilPeSeriesHandoff
   | Be3U08CultureSeriesHandoff
   | Be3U08WritingSeriesHandoff
+  | Be3U08PhonicsSeriesHandoff
+  | Be3U08ReviewSeriesHandoff
 
 function isBe3U08SeriesCompanion(
   companion: { relationshipId?: string | null } | null | undefined,
@@ -445,6 +467,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const nllWritingChalkieAdapterRequestIdRef = useRef(0)
   const nllWritingChalkieAdapterRequestKeyRef = useRef('')
   const nllWritingChalkieAdapterCurrentRequestKeyRef = useRef('')
+  const nllPhonicsChalkieAdapterRequestIdRef = useRef(0)
+  const nllPhonicsChalkieAdapterRequestKeyRef = useRef('')
+  const nllPhonicsChalkieAdapterCurrentRequestKeyRef = useRef('')
+  const nllReviewChalkieAdapterRequestIdRef = useRef(0)
+  const nllReviewChalkieAdapterRequestKeyRef = useRef('')
+  const nllReviewChalkieAdapterCurrentRequestKeyRef = useRef('')
   const preparedOutputKindRef = useRef<PreparedOutputKind | null>(null)
   const [stepId, setStepId] = useState<TeacherChoiceStepId>('student_book')
   const [selectedIds, setSelectedIds] = useState<string[]>(() =>
@@ -594,6 +622,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       generalLessonPlanRequestScopeKeyRef.current = ''
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
@@ -602,6 +636,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       preparedOutputKindRef.current = null
       setStepId('student_book')
       setSelectedIds(initialSelectedPriorLearningIds())
@@ -806,6 +842,26 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       selectedSuggestions,
       teacherAdditions: selectedTeacherAdditions,
     })
+  const nllPhonicsChalkieAdapterCurrentRequestKey =
+    nllPhonicsChalkieAdapterRequestKey({
+      activityCards,
+      workbookActivityCards,
+      companion: lesson?.workbookCompanion ?? null,
+      sbSelection: handoffActivitySelection,
+      wbSelection: handoffWorkbookActivitySelection,
+      selectedSuggestions,
+      teacherAdditions: selectedTeacherAdditions,
+    })
+  const nllReviewChalkieAdapterCurrentRequestKey =
+    nllReviewChalkieAdapterRequestKey({
+      activityCards,
+      workbookActivityCards,
+      companion: lesson?.workbookCompanion ?? null,
+      sbSelection: handoffActivitySelection,
+      wbSelection: handoffWorkbookActivitySelection,
+      selectedSuggestions,
+      teacherAdditions: selectedTeacherAdditions,
+    })
 
   useLayoutEffect(() => {
     nllChalkieAdapterCurrentRequestKeyRef.current =
@@ -841,6 +897,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     nllWritingChalkieAdapterCurrentRequestKeyRef.current =
       nllWritingChalkieAdapterCurrentRequestKey
   }, [nllWritingChalkieAdapterCurrentRequestKey])
+
+  useLayoutEffect(() => {
+    nllPhonicsChalkieAdapterCurrentRequestKeyRef.current =
+      nllPhonicsChalkieAdapterCurrentRequestKey
+  }, [nllPhonicsChalkieAdapterCurrentRequestKey])
+
+  useLayoutEffect(() => {
+    nllReviewChalkieAdapterCurrentRequestKeyRef.current =
+      nllReviewChalkieAdapterCurrentRequestKey
+  }, [nllReviewChalkieAdapterCurrentRequestKey])
 
   useEffect(() => {
     if (!open) return
@@ -907,6 +973,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       setChalkiePreparing(false)
     }
   }, [chalkiePreparing, nllGrammarChalkieAdapterCurrentRequestKey, open])
@@ -927,6 +999,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       })
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+      })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
       })
       setChalkiePreparing(false)
     }
@@ -954,9 +1032,67 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       setChalkiePreparing(false)
     }
   }, [chalkiePreparing, nllCultureChalkieAdapterCurrentRequestKey, nllWritingChalkieAdapterCurrentRequestKey, open])
+
+useEffect(() => {
+    if (!open) return
+    if (
+      chalkiePreparing &&
+      nllCultureChalkieAdapterRequestKeyRef.current &&
+      nllCultureChalkieAdapterRequestKeyRef.current !==
+        nllCultureChalkieAdapterCurrentRequestKey
+    ) {
+      invalidateNllCultureChalkieAdapterPilotRequest({
+        requestIdRef: nllCultureChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+    }
+    if (
+      chalkiePreparing &&
+      nllPhonicsChalkieAdapterRequestKeyRef.current &&
+      nllPhonicsChalkieAdapterRequestKeyRef.current !==
+        nllPhonicsChalkieAdapterCurrentRequestKey
+    ) {
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+    }
+  }, [chalkiePreparing, nllPhonicsChalkieAdapterCurrentRequestKey, open])
+
+useEffect(() => {
+    if (!open) return
+    if (
+      chalkiePreparing &&
+      nllCultureChalkieAdapterRequestKeyRef.current &&
+      nllCultureChalkieAdapterRequestKeyRef.current !==
+        nllCultureChalkieAdapterCurrentRequestKey
+    ) {
+      invalidateNllCultureChalkieAdapterPilotRequest({
+        requestIdRef: nllCultureChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+    }
+    if (
+      chalkiePreparing &&
+      nllReviewChalkieAdapterRequestKeyRef.current &&
+      nllReviewChalkieAdapterRequestKeyRef.current !==
+        nllReviewChalkieAdapterCurrentRequestKey
+    ) {
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
+      setChalkiePreparing(false)
+    }
+  }, [chalkiePreparing, nllReviewChalkieAdapterCurrentRequestKey, open])
 
   const experimentalActivityEnrichmentPackage = useMemo(
     () =>
@@ -1072,6 +1208,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
         setChalkiePreparing(false)
       }
       setShowPromptPreview(false)
@@ -1114,6 +1256,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     })
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+      })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
       })
     setChalkiePreparing(false)
     setLessonShape(next)
@@ -1245,6 +1393,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     const clilPeSeriesPackageRequested = effectiveLessonShape === 'series'
     const cultureSeriesPackageRequested = effectiveLessonShape === 'series'
     const writingSeriesPackageRequested = effectiveLessonShape === 'series'
+    const phonicsSeriesPackageRequested = effectiveLessonShape === 'series'
+    const reviewSeriesPackageRequested = effectiveLessonShape === 'series'
 
     const runStoryPilot = shouldRunNllStoryChalkieAdapterPilot({
       flagEnabled: isNllStoryChalkieAdapterPilotEnabled(),
@@ -1276,12 +1426,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllLiaChalkieAdapterRequestKeyRef.current = ''
       nllGrammarChalkieAdapterRequestKeyRef.current = ''
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllStoryChalkieAdapterRequestIdRef.current + 1
       nllStoryChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllStoryChalkieAdapterCurrentRequestKey
@@ -1361,12 +1519,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
       nllGrammarChalkieAdapterRequestKeyRef.current = ''
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllLiaChalkieAdapterRequestIdRef.current + 1
       nllLiaChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllLiaChalkieAdapterCurrentRequestKey
@@ -1449,6 +1615,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
       nllLiaChalkieAdapterRequestKeyRef.current = ''
@@ -1456,6 +1628,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllClilPeChalkieAdapterRequestIdRef.current + 1
       nllClilPeChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllClilPeChalkieAdapterCurrentRequestKey
@@ -1539,6 +1713,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
       nllLiaChalkieAdapterRequestKeyRef.current = ''
@@ -1546,6 +1726,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllCultureChalkieAdapterRequestIdRef.current + 1
       nllCultureChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllCultureChalkieAdapterCurrentRequestKey
@@ -1629,6 +1811,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
       nllLiaChalkieAdapterRequestKeyRef.current = ''
@@ -1636,6 +1824,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllWritingChalkieAdapterRequestIdRef.current + 1
       nllWritingChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllWritingChalkieAdapterCurrentRequestKey
@@ -1686,6 +1876,202 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       return
     }
 
+    const runPhonicsPilot = shouldRunNllPhonicsChalkieAdapterPilot({
+      flagEnabled: isNllPhonicsChalkieAdapterPilotEnabled(),
+      exactScopeEligible: isExactBe3U08PhonicsNllChalkieAdapterScope({
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+      }),
+      chalkieRequested: true,
+      seriesPackageRequested: phonicsSeriesPackageRequested,
+    })
+
+    if (runPhonicsPilot) {
+      invalidateNllChalkieAdapterPilotRequest({
+        requestIdRef: nllChalkieAdapterRequestIdRef,
+      })
+      invalidateNllStoryChalkieAdapterPilotRequest({
+        requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+      })
+      invalidateNllLiaChalkieAdapterPilotRequest({
+        requestIdRef: nllLiaChalkieAdapterRequestIdRef,
+      })
+      invalidateNllGrammarChalkieAdapterPilotRequest({
+        requestIdRef: nllGrammarChalkieAdapterRequestIdRef,
+      })
+      invalidateNllClilPeChalkieAdapterPilotRequest({
+        requestIdRef: nllClilPeChalkieAdapterRequestIdRef,
+      })
+      invalidateNllCultureChalkieAdapterPilotRequest({
+        requestIdRef: nllCultureChalkieAdapterRequestIdRef,
+      })
+      invalidateNllWritingChalkieAdapterPilotRequest({
+        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+      })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
+      nllChalkieAdapterRequestKeyRef.current = ''
+      nllStoryChalkieAdapterRequestKeyRef.current = ''
+      nllLiaChalkieAdapterRequestKeyRef.current = ''
+      nllGrammarChalkieAdapterRequestKeyRef.current = ''
+      nllClilPeChalkieAdapterRequestKeyRef.current = ''
+      nllCultureChalkieAdapterRequestKeyRef.current = ''
+      nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
+      const requestId = nllPhonicsChalkieAdapterRequestIdRef.current + 1
+      nllPhonicsChalkieAdapterRequestIdRef.current = requestId
+      const requestKey = nllPhonicsChalkieAdapterCurrentRequestKey
+      nllPhonicsChalkieAdapterRequestKeyRef.current = requestKey
+      beginChalkiePreparingChrome()
+
+      void assembleNllPhonicsChalkieAdapterPilot({
+        flagEnabled: true,
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+        sbSelection: handoffActivitySelection,
+        wbSelection: handoffWorkbookActivitySelection,
+        selectedSuggestions,
+        teacherAdditions: selectedTeacherAdditions,
+        client: supabase,
+      }).then((result) => {
+        if (
+          !shouldApplyNllPhonicsChalkieAdapterPilotResult({
+            requestId,
+            latestRequestId: nllPhonicsChalkieAdapterRequestIdRef.current,
+            overlayOpen: overlayOpenRef.current,
+            requestKey,
+            currentRequestKey:
+              nllPhonicsChalkieAdapterCurrentRequestKeyRef.current,
+            preparedOutputKind: preparedOutputKindRef.current,
+          })
+        ) {
+          return
+        }
+
+        setChalkiePreparing(false)
+        if (!result.ok) {
+          // Phonics-C failure: retain current sb_only path with captured selections.
+          applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
+          return
+        }
+
+        // Phonics remains BI-absent: do not apply Opener BI framing.
+        applyPreparedChalkieOutput({
+          assembled: result.handoff.detailedHandoff,
+          be3Handoff: result.handoff,
+          sbOnly: null,
+          outline: '',
+          suggested: { copyText: '', isEmpty: true },
+        })
+      })
+      return
+    }
+
+    const runReviewPilot = shouldRunNllReviewChalkieAdapterPilot({
+      flagEnabled: isNllReviewChalkieAdapterPilotEnabled(),
+      exactScopeEligible: isExactBe3U08ReviewNllChalkieAdapterScope({
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+      }),
+      chalkieRequested: true,
+      seriesPackageRequested: reviewSeriesPackageRequested,
+    })
+
+    if (runReviewPilot) {
+      invalidateNllChalkieAdapterPilotRequest({
+        requestIdRef: nllChalkieAdapterRequestIdRef,
+      })
+      invalidateNllStoryChalkieAdapterPilotRequest({
+        requestIdRef: nllStoryChalkieAdapterRequestIdRef,
+      })
+      invalidateNllLiaChalkieAdapterPilotRequest({
+        requestIdRef: nllLiaChalkieAdapterRequestIdRef,
+      })
+      invalidateNllGrammarChalkieAdapterPilotRequest({
+        requestIdRef: nllGrammarChalkieAdapterRequestIdRef,
+      })
+      invalidateNllClilPeChalkieAdapterPilotRequest({
+        requestIdRef: nllClilPeChalkieAdapterRequestIdRef,
+      })
+      invalidateNllCultureChalkieAdapterPilotRequest({
+        requestIdRef: nllCultureChalkieAdapterRequestIdRef,
+      })
+      invalidateNllWritingChalkieAdapterPilotRequest({
+        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+      })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
+      nllChalkieAdapterRequestKeyRef.current = ''
+      nllStoryChalkieAdapterRequestKeyRef.current = ''
+      nllLiaChalkieAdapterRequestKeyRef.current = ''
+      nllGrammarChalkieAdapterRequestKeyRef.current = ''
+      nllClilPeChalkieAdapterRequestKeyRef.current = ''
+      nllCultureChalkieAdapterRequestKeyRef.current = ''
+      nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
+      const requestId = nllReviewChalkieAdapterRequestIdRef.current + 1
+      nllReviewChalkieAdapterRequestIdRef.current = requestId
+      const requestKey = nllReviewChalkieAdapterCurrentRequestKey
+      nllReviewChalkieAdapterRequestKeyRef.current = requestKey
+      beginChalkiePreparingChrome()
+
+      void assembleNllReviewChalkieAdapterPilot({
+        flagEnabled: true,
+        activityCards,
+        workbookActivityCards,
+        companion: lesson.workbookCompanion ?? null,
+        sbSelection: handoffActivitySelection,
+        wbSelection: handoffWorkbookActivitySelection,
+        selectedSuggestions,
+        teacherAdditions: selectedTeacherAdditions,
+        client: supabase,
+      }).then((result) => {
+        if (
+          !shouldApplyNllReviewChalkieAdapterPilotResult({
+            requestId,
+            latestRequestId: nllReviewChalkieAdapterRequestIdRef.current,
+            overlayOpen: overlayOpenRef.current,
+            requestKey,
+            currentRequestKey:
+              nllReviewChalkieAdapterCurrentRequestKeyRef.current,
+            preparedOutputKind: preparedOutputKindRef.current,
+          })
+        ) {
+          return
+        }
+
+        setChalkiePreparing(false)
+        if (!result.ok) {
+          // Review-C failure: retain current sb_only path with captured selections.
+          applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
+          return
+        }
+
+        // Review remains BI-absent: do not apply Opener BI framing.
+        applyPreparedChalkieOutput({
+          assembled: result.handoff.detailedHandoff,
+          be3Handoff: result.handoff,
+          sbOnly: null,
+          outline: '',
+          suggested: { copyText: '', isEmpty: true },
+        })
+      })
+      return
+    }
+
 
     const runGrammarPilot = shouldRunNllGrammarChalkieAdapterPilot({
       flagEnabled: isNllGrammarChalkieAdapterPilotEnabled(),
@@ -1717,12 +2103,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       nllChalkieAdapterRequestKeyRef.current = ''
       nllStoryChalkieAdapterRequestKeyRef.current = ''
       nllLiaChalkieAdapterRequestKeyRef.current = ''
       nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
       const requestId = nllGrammarChalkieAdapterRequestIdRef.current + 1
       nllGrammarChalkieAdapterRequestIdRef.current = requestId
       const requestKey = nllGrammarChalkieAdapterCurrentRequestKey
@@ -1806,6 +2200,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
       setChalkiePreparing(false)
       applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
       return
@@ -1829,12 +2229,20 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
     nllStoryChalkieAdapterRequestKeyRef.current = ''
     nllLiaChalkieAdapterRequestKeyRef.current = ''
     nllGrammarChalkieAdapterRequestKeyRef.current = ''
     nllClilPeChalkieAdapterRequestKeyRef.current = ''
       nllCultureChalkieAdapterRequestKeyRef.current = ''
       nllWritingChalkieAdapterRequestKeyRef.current = ''
+      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+      nllReviewChalkieAdapterRequestKeyRef.current = ''
     const requestId = nllChalkieAdapterRequestIdRef.current + 1
     nllChalkieAdapterRequestIdRef.current = requestId
     const requestKey = nllChalkieAdapterCurrentRequestKey
@@ -1912,6 +2320,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
       })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+      })
     setLessonPlanPreparing(false)
     setChalkiePreparing(false)
     // Keep preparedOutputKind off General so an in-flight Stage 4 result cannot apply.
@@ -1980,6 +2394,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     })
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+      })
+      invalidateNllPhonicsChalkieAdapterPilotRequest({
+        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+      })
+      invalidateNllReviewChalkieAdapterPilotRequest({
+        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
       })
     setChalkiePreparing(false)
     const flagEnabled = isNllGeneralLessonPlanPilotEnabled()

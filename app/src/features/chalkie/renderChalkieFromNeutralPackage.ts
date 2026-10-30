@@ -1,8 +1,8 @@
 /**
  * Shared Chalkie dispatcher for the parity-proved neutral SB→WB packages.
  *
- * Production UI may call Opener/Story/LiA/Grammar/CLIL/Culture/Writing only through their guarded
- * canaries or default-off NLL adapter pilots. Flag-off Grammar/CLIL/Culture/Writing remain sb_only.
+ * Production UI may call Opener/Story/LiA/Grammar/CLIL/Culture/Writing/Phonics/Review only through their guarded
+ * canaries or default-off NLL adapter pilots. Flag-off Grammar/CLIL/Culture/Writing/Phonics/Review remain sb_only.
  */
 import type { NeutralSbWbLessonPackage } from './buildNeutralSbWbLessonPackage'
 import { renderBe3U08ClilPeNeutralPackageToChalkieShadow } from './renderBe3U08ClilPeNeutralPackageToChalkieShadow'
@@ -10,6 +10,8 @@ import { renderBe3U08CultureNeutralPackageToChalkieShadow } from './renderBe3U08
 import { renderBe3U08GrammarNeutralPackageToChalkieShadow } from './renderBe3U08GrammarNeutralPackageToChalkieShadow'
 import { renderBe3U08LiaNeutralPackageToChalkieShadow } from './renderBe3U08LiaNeutralPackageToChalkieShadow'
 import { renderBe3U08OpenerNeutralPackageToChalkieShadow } from './renderBe3U08OpenerNeutralPackageToChalkieShadow'
+import { renderBe3U08PhonicsNeutralPackageToChalkieShadow } from './renderBe3U08PhonicsNeutralPackageToChalkieShadow'
+import { renderBe3U08ReviewNeutralPackageToChalkieShadow } from './renderBe3U08ReviewNeutralPackageToChalkieShadow'
 import { renderBe3U08StoryNeutralPackageToChalkieShadow } from './renderBe3U08StoryNeutralPackageToChalkieShadow'
 import { renderBe3U08WritingNeutralPackageToChalkieShadow } from './renderBe3U08WritingNeutralPackageToChalkieShadow'
 
@@ -27,6 +29,10 @@ const CULTURE_RELATIONSHIP_ID =
   'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114'
 const WRITING_RELATIONSHIP_ID =
   'be3_sb_wb_rel_u08_writing_sb140_wb115'
+const PHONICS_RELATIONSHIP_ID =
+  'be3_sb_wb_rel_u08_phonics_sb141_wb116'
+const REVIEW_RELATIONSHIP_ID =
+  'be3_sb_wb_rel_u08_review_sb143_wb117'
 
 export type ChalkieNeutralPackageRenderOutput = {
   readonly detailedHandoff: string
@@ -72,6 +78,10 @@ export function renderChalkieFromNeutralPackage(
       return renderBe3U08CultureNeutralPackageToChalkieShadow(lessonPackage)
     case WRITING_RELATIONSHIP_ID:
       return renderBe3U08WritingNeutralPackageToChalkieShadow(lessonPackage)
+    case PHONICS_RELATIONSHIP_ID:
+      return renderBe3U08PhonicsNeutralPackageToChalkieShadow(lessonPackage)
+    case REVIEW_RELATIONSHIP_ID:
+      return renderBe3U08ReviewNeutralPackageToChalkieShadow(lessonPackage)
     default:
       throw new UnsupportedNeutralPackageRendererError(
         lessonPackage.identity.relationshipId,

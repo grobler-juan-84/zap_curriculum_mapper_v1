@@ -62,6 +62,18 @@ interface ImportMetaEnv {
    * NLL summaries stay package-only; Writing remains BI-absent; resolver default stays sb_only.
    */
   readonly VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Phonics-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Phonics two-lesson series only; independent of every other component adapter.
+   * NLL summaries stay package-only; Phonics remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_PHONICS_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Review-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Review two-lesson series only; mixed consolidation, no earlier-component aggregation.
+   * NLL summaries stay package-only; Review remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

@@ -200,7 +200,7 @@ See [`be3-u08-culture-knowledge-review-v0.1.md`](./be3-u08-culture-knowledge-rev
 
 ## BE3 Unit 8 Writing (Writing-A/B/C)
 
-**Authorization status:** **WRITING-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **WRITING-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **7 / 60 / 60 / 8**. History **26 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT` default-off. Undeployed/unpromoted; Writing work uncommitted.
+**Authorization status:** **WRITING-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **WRITING-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Checkpointed on `main` at `cbd4d3a`. Live NLL **7 / 60 / 60 / 8**. History **26 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT` default-off. Undeployed/unpromoted.
 
 | Field | Detail |
 |---|---|
@@ -214,10 +214,60 @@ See [`be3-u08-culture-knowledge-review-v0.1.md`](./be3-u08-culture-knowledge-rev
 | **Migration** | `20261030190000_seed_nll_be3_u08_writing.sql` (**applied**) |
 | **Live totals** | **7 / 60 / 60 / 8** |
 | **Writing-B/C** | Exact package + five-artifact renderer + default-off adapter; retained **297/297** |
-| **Next owner gate** | Separately authorize commit/push, promotion, deployment, or Phonics |
+| **Next owner gate** | Separately authorize promotion/deployment; Unit 8 pipeline complete pending real workflow validation |
 | **Restrictions** | No combine SB+WB lesson; no Phonics merge; no promotion/deployment; no flag-on default |
 
 See [`be3-u08-writing-knowledge-review-v0.1.md`](./be3-u08-writing-knowledge-review-v0.1.md) and [`be3-u08-writing-transfer-planning-brief-v0.1.md`](./be3-u08-writing-transfer-planning-brief-v0.1.md).
+
+---
+
+## BE3 Unit 8 Phonics (Phonics-A/B/C)
+
+**Authorization status:** **PHONICS-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **PHONICS-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **9 / 74 / 74 / 9** after chained Review. History **28 / 0 / 0**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_PHONICS_ADAPTER_PILOT` default-off. Undeployed/unpromoted.
+
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-phonics` (live draft `…000008`) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_phonics_sb141_wb116`; SB p.141 → WB p.116 |
+| **Accepted inventory** | SB **32–35** + WB **27–30** = **eight** |
+| **SS links** | One proposed (`Phonics`, `…000801`) |
+| **Migration** | `20261030200000_seed_nll_be3_u08_phonics.sql` (**applied**) |
+| **Live post-Phonics totals** | **8 / 68 / 68 / 9** (then Review chained) |
+| **Delivery shape** | Exact non-serving two-lesson SB→WB (Lesson 1 = p.141; Lesson 2 = p.116) |
+| **Phonics-B/C** | Exact package + five-artifact renderer + default-off adapter; Unit 8 matrix **334/334** |
+| **Restrictions** | Graphemes `all`/`au`/`aw` only; no chant reproduction; no promotion/deployment; no flag-on default |
+
+See [`be3-u08-phonics-knowledge-review-v0.1.md`](./be3-u08-phonics-knowledge-review-v0.1.md).
+
+---
+
+## BE3 Unit 8 Values (architecture closure)
+
+**Authorization status:** **VALUES COMPLETE BY ARCHITECTURE DECISION / GENERIC SB_ONLY RETAINED / NO SPECIALIZED NLL OR A/B/C PIPELINE (D028).**
+
+No Values migration, NLL component, package, renderer, adapter, or flag. SB p.142 only; Activities **36–38**; publisher wording *Get exercise.* Retained through Unit 8 completion.
+
+See [`be3-u08-values-standalone-planning-brief-v0.1.md`](./be3-u08-values-standalone-planning-brief-v0.1.md).
+
+---
+
+## BE3 Unit 8 Review (Review-A/B/C)
+
+**Authorization status:** **REVIEW-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **REVIEW-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** **BE3 UNIT 8 COMPONENT PIPELINE COMPLETE / VALUES GENERIC PATH RETAINED.** Live NLL **9 / 74 / 74 / 9**. History **28 / 0 / 0**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT` default-off. Undeployed/unpromoted. Real workflow validation still pending.
+
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-review` (live draft `…000009`) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_review_sb143_wb117`; SB p.143 → WB p.117 |
+| **Accepted inventory** | SB **39–41** + WB **31–33** = **six** |
+| **SS links** | **Zero** (over-linking withheld) |
+| **Migration** | `20261030210000_seed_nll_be3_u08_review.sql` (**applied**) |
+| **Live totals** | **9 / 74 / 74 / 9** |
+| **Delivery shape** | Exact non-serving two-lesson SB→WB (Lesson 1 = p.143; Lesson 2 = p.117) |
+| **Review-B/C** | Exact package + five-artifact renderer + default-off adapter; anti-aggregation; Unit 8 matrix **334/334** |
+| **Restrictions** | No earlier-component aggregation; no Values merge; no promotion/deployment; no flag-on default |
+
+See [`be3-u08-review-knowledge-review-v0.1.md`](./be3-u08-review-knowledge-review-v0.1.md).
 
 ---
 

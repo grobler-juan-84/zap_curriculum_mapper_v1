@@ -7173,3 +7173,62 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 412
+
+**Summary:** Checkpointed accepted Writing A/B/C on `main` (`cbd4d3a`). Completed remainder-of-Unit-8 preparation: Phonics-A and Review-A knowledge reviews + local fail-closed migrations `20261030200000` / `20261030210000` + focused seed suites (intended totals 8/68/68/9 then 9/74/74/9); Values closed under D028 generic `sb_only` with no specialized pipeline. Live NLL unchanged **7 / 60 / 60 / 8**; neither Phonics nor Review migration applied; no remainder-of-Unit-8 commit/push/deploy/promote.
+
+**Files touched:**
+- `supabase/migrations/20261030200000_seed_nll_be3_u08_phonics.sql` (created)
+- `supabase/migrations/20261030210000_seed_nll_be3_u08_review.sql` (created)
+- `scripts/tests/nllBe3U08PhonicsSeedStepB.test.ts` (created)
+- `scripts/tests/nllBe3U08ReviewSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-phonics-knowledge-review-v0.1.md` (created)
+- `docs/project-tracking/be3-u08-review-knowledge-review-v0.1.md` (created)
+- `docs/project-tracking/be3-u08-phonics-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 413
+
+**Summary:** Applied Phonics then Review Step B migrations (`20261030200000` / `20261030210000`) via isolated workdirs; live NLL **9 / 74 / 74 / 9**; history **28 / 0 / 0**. Implemented Phonics-B/C and Review-B/C (packages, five-artifact renderers, default-off adapters, overlay wiring). Values D028 generic path retained. Unit 8 automated matrix **334/334**; typecheck pass; lint warnings only. Undeployed/unpromoted; no commit/push.
+
+**Files touched:**
+- `supabase/migrations/20261030200000_seed_nll_be3_u08_phonics.sql` (applied remotely; local unchanged)
+- `supabase/migrations/20261030210000_seed_nll_be3_u08_review.sql` (applied remotely; local unchanged)
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08PhonicsNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/renderBe3U08ReviewNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/nllPhonicsChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/nllReviewChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/renderBe3U08PhonicsNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/renderBe3U08ReviewNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/nllPhonicsChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/nllReviewChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `docs/project-tracking/be3-u08-phonics-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-review-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-phonics-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

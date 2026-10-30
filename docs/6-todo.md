@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 411
+**Last updated:** Step 413
 
 
 
@@ -725,9 +725,19 @@
 
 - [x] **Writing-A Step B apply + verify (2026-10-30):** authorized isolated `db push` of only `20261030190000` to `kivvmobjphtcgxoltqbc`; live **7 / 60 / 60 / 8**; history **26 / 0 / 0**; seven memberships; two proposed SS links; Opener/Story/LiA/Grammar/CLIL/Culture unchanged. Owner-accepted under advance authorization.
 
-- [x] **Writing-B/C implementation + automated acceptance (2026-10-30):** exact Writing package/renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Retained verification batch **297/297**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no Writing commit/push.
+- [x] **Writing-B/C implementation + automated acceptance (2026-10-30):** exact Writing package/renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Retained verification batch **297/297**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted.
 
-- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, Phonics, or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
+- [x] **Writing A/B/C checkpoint commit/push (2026-10-30):** `feat(nll): add accepted BE3 U8 Writing A/B/C pilot` at `cbd4d3a9ed85db7ff9ddc689ffac833aff75a9f4` on `main` / `origin/main`.
+
+- [x] **Phonics-A + Review-A local preparation + Values closure (2026-10-30):** Phonics/Review knowledge reviews + local migrations `20261030200000` / `20261030210000` + focused suites; Values closed under D028 generic `sb_only`.
+
+- [x] **Phonics-A Step B apply + verify (2026-10-30):** isolated linked push of only `20261030200000`; live **8 / 68 / 68 / 9**; history **27 recorded / Review local-only / 0 remote-only**; eight memberships; one proposed Phonics SS link.
+
+- [x] **Review-A Step B apply + verify (2026-10-30):** isolated linked push of only `20261030210000`; live **9 / 74 / 74 / 9**; history **28 / 0 / 0**; six memberships; zero Review SS links; Phonics retained.
+
+- [x] **Phonics-B/C + Review-B/C implementation + Unit 8 automated acceptance (2026-10-30):** exact packages/renderers; default-off `VITE_NLL_CHALKIE_PHONICS_ADAPTER_PILOT` / `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only; Values generic path retained. Unit 8 matrix **334/334**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no commit/push.
+
+- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, or next-unit work without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

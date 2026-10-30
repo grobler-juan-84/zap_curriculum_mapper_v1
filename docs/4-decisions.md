@@ -62,6 +62,7 @@
 | D025 | Complete NLL pilot through Cursor, then freeze features for repository audit | 2026-10-29 | LOCKED |
 | D026 | Repository consolidation begins with a read-only evidence audit | 2026-10-29 | LOCKED |
 | D027 | Durable layer model: SS/SB/WB → NLL → NLP → adapters | 2026-10-29 | LOCKED |
+| D028 | BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C | 2026-10-30 | LOCKED |
 
 ---
 
@@ -584,10 +585,30 @@ Preserve existing lightweight NLL safeguards: useful source references, activity
 
 ---
 
+### D028 — BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C
+
+**Date:** 2026-10-30
+**Status:** LOCKED
+
+**Decision:** BE3 Unit 8 Values (SB p.142 only; publisher wording *Get exercise.*) is complete by architecture decision: retain the existing generic `sb_only` path; do not invent a Workbook companion; do not create a Values NLL component, A/B/C transfer pipeline, specialized package, renderer, adapter, or flag.
+
+**Reason:** Values has no curated Workbook companion. Forcing a paired SB→WB A/B/C milestone would invent packaging that the evidence does not support and would duplicate an already-working generic SB-only path.
+
+**Alternatives rejected:** Inventing a WB companion from Phonics p.116 or Review p.117; creating Values-A/B/C for consistency with paired components; specialized Values Chalkie routing; Values NLL seed without a concrete benefit case over generic `sb_only`.
+
+**Implications:** Values work stops at architecture/documentation closure plus retained generic-path tests. Phonics and Review remain separately gated paired components. No Values migration may be prepared or applied under this decision.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D021, D022, D026, and D027.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-10-30 | Added D028 — BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C pipeline. |
 | 2026-10-29 | Added D027 — durable layer model SS/SB/WB → NLL → NLP → adapters; Stage 2 roadmap recorded; Stages 3–6 and freeze lift not authorized. |
 | 2026-10-29 | Annotated D025 completion and D026 audit completion; bounded Batch 0 documentation/operational-safety work approved, with freeze and no-deployment boundaries preserved. |
 | 2026-10-29 | Added D026 — repository consolidation starts with a delegated read-only evidence audit; no cleanup or feature work authorized. |

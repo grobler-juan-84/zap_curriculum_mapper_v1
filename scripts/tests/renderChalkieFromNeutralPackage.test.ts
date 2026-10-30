@@ -158,11 +158,29 @@ test('exact Writing package dispatches to the Writing renderer', () => {
   assert.match(output.lesson2Outline, /Workbook p\. 115 only/)
 })
 
+test('exact Phonics package dispatches to the Phonics renderer', () => {
+  const output = renderChalkieFromNeutralPackage(packageForPages([141]))
+  assert.match(output.detailedHandoff, /exact Phonics relationship/)
+  assert.match(output.detailedHandoff, /Student Book printed page 141/)
+  assert.match(output.detailedHandoff, /Workbook printed page 116/)
+  assert.match(output.lesson1Outline, /Student Book p\. 141 only/)
+  assert.match(output.lesson2Outline, /Workbook p\. 116 only/)
+})
+
+test('exact Review package dispatches to the Review renderer', () => {
+  const output = renderChalkieFromNeutralPackage(packageForPages([143]))
+  assert.match(output.detailedHandoff, /exact Review relationship/)
+  assert.match(output.detailedHandoff, /Student Book printed page 143/)
+  assert.match(output.detailedHandoff, /Workbook printed page 117/)
+  assert.match(output.lesson1Outline, /Student Book p\. 143 only/)
+  assert.match(output.lesson2Outline, /Workbook p\. 117 only/)
+})
+
 test('unsupported neutral relationship throws a typed error without fallback output', () => {
   const unsupportedPackage = {
     identity: {
-      relationshipId: 'be3_sb_wb_rel_u08_phonics_sb141_wb116',
-      packageReference: 'be3-sb-wb-u08-p141-wb116',
+      relationshipId: 'be3_sb_wb_rel_u08_values_sb142_unsupported',
+      packageReference: 'be3-sb-wb-u08-p142-unsupported',
     },
   } as unknown as NeutralSbWbLessonPackage
 
@@ -173,9 +191,9 @@ test('unsupported neutral relationship throws a typed error without fallback out
       assert.equal(error.code, 'unsupported_neutral_package_renderer')
       assert.equal(
         error.relationshipId,
-        'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+        'be3_sb_wb_rel_u08_values_sb142_unsupported',
       )
-      assert.equal(error.packageReference, 'be3-sb-wb-u08-p141-wb116')
+      assert.equal(error.packageReference, 'be3-sb-wb-u08-p142-unsupported')
       assert.match(error.message, /No test-only Chalkie renderer is registered/)
       return true
     },

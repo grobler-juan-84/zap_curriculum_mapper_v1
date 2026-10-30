@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 411
+**Last updated:** Step 413
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -10,21 +10,23 @@
 ## Done
 
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
-- **D017–D027** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters.
+- **D017–D028** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters; **D028** locks Values as generic `sb_only` with no specialized NLL/A/B/C.
 - **Stages 3–5 / 6A / 6B** complete and owner-accepted where applicable; Opener and Story remain the two accepted reference implementations (default-off / undeployed).
-- **LiA-A/B/C**, **Grammar-A/B/C**, **CLIL-A/B/C**, and **Culture-A/B/C** complete and owner-accepted; Culture committed/pushed on `main` at `de6ef31f0cf16f897bbb31e62e8427637b4eab09`.
-- **Writing-A Step B APPLIED / VERIFIED:** live NLL **7 / 60 / 60 / 8**; history **26 / 0 / 0**; seven memberships; two proposed SS links.
-- **Writing-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION:** exact Writing package/renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Focused/retained **297/297**; typecheck pass; lint warnings only.
+- **LiA / Grammar / CLIL / Culture / Writing / Phonics / Review A/B/C** complete and owner-accepted under advance authorization for Unit 8.
+- Writing checkpointed on `main` at `cbd4d3a`; Phonics+Review apply + B/C implemented locally (uncommitted).
+- Live NLL **9 / 74 / 74 / 9**; history **28 / 0 / 0**.
+- **Values** remains D028 generic `sb_only` (no NLL component / specialized code).
+- Unit 8 automated matrix **334/334**; typecheck pass; lint warnings only.
 
 ## In progress
 
-- None. Writing A/B/C complete for this authorization; undeployed/unpromoted; uncommitted.
+- None for further Unit 8 component implementation. Real Create-a-prompt workflow validation still pending.
 
 ## Next
 
 - Hold promotion, deployment, NLL visibility changes, and flag-on defaults.
-- Optional later: owner-authorized Writing commit/push (not part of this gate).
-- Phonics and remaining Unit 8 components remain separately gated.
+- Separately authorize commit/push of Phonics+Review remainder work if desired.
+- Owner/manual Create-a-prompt smoke validation across Unit 8 components when ready.
 
 ## Blocked
 
@@ -36,6 +38,8 @@
 
 ## Snapshot notes
 
-- Active Git branch: `main` at `de6ef31` plus local uncommitted Writing A/B/C work.
-- Live NLL: Opener + Story + LiA + Grammar + CLIL + Culture + Writing = **7 / 60 / 60 / 8**.
-- Writing default serving remains resolver `sb_only`; Writing flag default-off.
+- Active Git branch: `main` at `cbd4d3a` plus local uncommitted Phonics/Review apply evidence + B/C implementation.
+- Live components: Opener + Story + LiA + Grammar + CLIL + Culture + Writing + Phonics + Review.
+- Default-off flags: `VITE_NLL_CHALKIE_PHONICS_ADAPTER_PILOT`, `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT` (and prior component flags).
+- Resolver default and failure fallback remain **`sb_only`**.
+- **BE3 UNIT 8 COMPONENT PIPELINE COMPLETE / VALUES GENERIC PATH RETAINED** — pending real workflow validation and any commit gate.

@@ -590,10 +590,18 @@ test('LiA fails closed when verified scope fields are altered', () => {
 })
 
 test('assembler rejects resolver-wired relationships outside the accepted pairs', () => {
-  // Phonics remains package-unsupported (Writing 140 is now accepted).
+  // All curated Unit 8 SB→WB companions through Review are now package-supported.
+  // Fabricate an unknown relationship id to prove fail-closed rejection remains.
   const input = allSelected([141])
   assert.throws(
-    () => buildNeutralSbWbLessonPackage(input),
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          relationshipId: 'be3_sb_wb_rel_u08_values_sb142_unsupported',
+        },
+      }),
     /not enabled for relationship/,
   )
 })
@@ -1293,6 +1301,76 @@ test('Writing partial and zero selection stay selection-honest without reconstru
   assert.equal(zeroBoth.lesson2.selection.status, 'zero_selected')
   assert.equal(zeroBoth.lesson1.selectedActivities.length, 0)
   assert.equal(zeroBoth.lesson2.selectedActivities.length, 0)
+})
+
+test('Phonics all-selected package preserves exact SB141 / WB116 scope and order', () => {
+  const input = allSelected([141])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+
+  assert.equal(
+    lessonPackage.identity.packageReference,
+    'be3-sb-wb-u08-p141-wb116',
+  )
+  assert.equal(
+    lessonPackage.identity.relationshipId,
+    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  )
+  assert.equal(lessonPackage.identity.componentKey, 'phonics')
+  assert.equal(lessonPackage.identity.componentTitle, 'Phonics')
+  assert.deepEqual(lessonPackage.lesson1.scope.printedPages, [141])
+  assert.deepEqual(lessonPackage.lesson2.scope.printedPages, [116])
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['32', '33', '34', '35'],
+  )
+  assert.deepEqual(
+    lessonPackage.lesson2.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['27', '28', '29', '30'],
+  )
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.doesNotMatch(
+    JSON.stringify(lessonPackage),
+    /bep3_sb_p140|bep_3_wb_p115|bep3_sb_p142|bep3_sb_p143/,
+  )
+})
+
+test('Review all-selected package preserves exact SB143 / WB117 scope and order', () => {
+  const input = allSelected([143])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+
+  assert.equal(
+    lessonPackage.identity.packageReference,
+    'be3-sb-wb-u08-p143-wb117',
+  )
+  assert.equal(
+    lessonPackage.identity.relationshipId,
+    'be3_sb_wb_rel_u08_review_sb143_wb117',
+  )
+  assert.equal(lessonPackage.identity.componentKey, 'review')
+  assert.equal(lessonPackage.identity.componentTitle, 'Review')
+  assert.deepEqual(lessonPackage.lesson1.scope.printedPages, [143])
+  assert.deepEqual(lessonPackage.lesson2.scope.printedPages, [117])
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['39', '40', '41'],
+  )
+  assert.deepEqual(
+    lessonPackage.lesson2.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['31', '32', '33'],
+  )
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.doesNotMatch(
+    JSON.stringify(lessonPackage),
+    /bep3_sb_p141|bep_3_wb_p116|bep3_sb_p142|bep3_sb_act_08_32/,
+  )
 })
 
 test('Writing remains BI-absent and fails closed on Phonics/adjacent scope', () => {
