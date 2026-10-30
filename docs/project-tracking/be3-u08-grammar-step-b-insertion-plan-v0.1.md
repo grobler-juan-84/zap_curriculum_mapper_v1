@@ -1,10 +1,10 @@
 # BE3 Unit 8 Grammar — Grammar-A Step B Insertion Plan v0.1
 
-**Status:** GRAMMAR-A STEP B / LOCAL MIGRATION + FOCUSED TEST CREATED / APPLICATION UNAUTHORIZED
+**Status:** GRAMMAR-A STEP B APPLIED + OWNER-ACCEPTED / LIVE `4 / 33 / 33 / 6`
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Binding content authority: [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md) (owner-accepted Step A, 2026-10-30). Owner later authorized local Step B file creation only.
-**Implementation authorization:** Local migration and focused static suite only. Created files: `supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql` and `scripts/tests/nllBe3U08GrammarSeedStepB.test.ts`. Does **not** authorize migration application, Supabase CLI setup/history reconciliation, database/Storage mutation, Grammar-B/C work, deployment, stage, commit, or push.
+**Authority:** Binding content authority: [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md) (owner-accepted Step A, 2026-10-30). Step B applied and owner-accepted 2026-10-30 on `kivvmobjphtcgxoltqbc`.
+**Implementation authorization:** Migration `20261030160000` applied via bounded linked `db push`. Live component `be3-u08-grammar` remains `draft`; summaries `hidden`/`experimental`; Structures link `proposed`. Grammar-B/C separately authorized and completed under automated acceptance. Does **not** authorize promotion, deployment, or NLL visibility changes.
 
 ---
 

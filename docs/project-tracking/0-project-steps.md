@@ -6988,3 +6988,31 @@
 - `docs/project-tracking/be3-u08-grammar-transfer-planning-brief-v0.1.md` (updated)
 
 ---
+
+### Step 404
+
+**Summary:** Implemented owner-authorized Grammar-B/C for exact BE3 U8 Grammar (`be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` / `be3-sb-wb-u08-p136-137-wb111-112`): neutral package config, dedicated five-artifact renderer, default-off `VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT` adapter with overlay stale-result guards and `sb_only` fallback. Grammar-A already live/accepted at 4/33/33/6. Automated gates passed (focused Grammar 19/19; retained regressions 141/141 with focused; typecheck pass; lint warnings only; git diff --check / encoding clean). Undeployed/unpromoted; no DB/Storage mutation in this step; no commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08GrammarNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/nllGrammarChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/nllGrammarChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/renderBe3U08GrammarNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `docs/project-tracking/be3-u08-grammar-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-grammar-step-b-insertion-plan-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

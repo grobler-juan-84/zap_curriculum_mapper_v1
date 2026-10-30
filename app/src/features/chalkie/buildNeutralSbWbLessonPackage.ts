@@ -29,6 +29,7 @@ import {
   BE3_U08_SB128_129_WB104_105,
   BE3_U08_SB130_131_WB106,
   BE3_U08_SB132_133_WB107_108,
+  BE3_U08_SB136_137_WB111_112,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
 
@@ -178,6 +179,7 @@ export type NeutralSbWbLessonPackage = {
       | 'be3-sb-wb-u08-p128-129-wb104-105'
       | 'be3-sb-wb-u08-p130-131-wb106'
       | 'be3-sb-wb-u08-p132-133-wb107-108'
+      | 'be3-sb-wb-u08-p136-137-wb111-112'
     readonly relationshipId: string
     readonly relationshipType: 'workbook_practice_for'
     readonly verificationStatus: 'human_verified'
@@ -185,7 +187,7 @@ export type NeutralSbWbLessonPackage = {
     readonly workbookCatalogId: string
     readonly unitNumber: number
     readonly unitTitle: string
-    readonly componentKey: 'opener' | 'story' | 'lia'
+    readonly componentKey: 'opener' | 'story' | 'lia' | 'grammar'
     readonly componentTitle: string
   }
   readonly packaging: {
@@ -298,10 +300,43 @@ const LIA_CONFIG: SupportedPackageConfig = {
   ],
 }
 
+const GRAMMAR_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB136_137_WB111_112,
+  packageReference: 'be3-sb-wb-u08-p136-137-wb111-112',
+  componentKey: 'grammar',
+  componentTitle: 'Grammar',
+  lesson1Purpose:
+    'Practise regular past *-ed* spelling, irregular past forms, and yesterday speaking through the verified Grammar activities on SB pp.136–137.',
+  lesson2Purpose:
+    'Consolidate regular/irregular past morphology and question/negative formation through the verified Grammar Workbook practice on pp.111–112.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 132, 133, 134, 135, 138, 139, 140, 141, 142, 143],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Culture and later Unit 8 Student Book pages are outside this package.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 107, 108, 109, 110, 113, 114, 115, 116, 117],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Culture and later Unit 8 Workbook pages are outside this package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Grammar relationship; it is not a second presentation of Lesson 1.',
+    'Grammar-box language rows on p.136 are page context only — not selectable memberships.',
+    'Audio 159 and visuals may be referenced only as dependencies on selected activities; never invent transcripts, illustration detail, or answer keys.',
+    'Do not reconstruct excluded charts, irregular inventories, clozes, speaking frames, questions, or negatives from NLL membership, LiA prior support, or page memory.',
+    'Distinguish Grammar morphology/formation practice from LiA communicative Did…? practice (SB 132–133 / WB 107–108).',
+  ],
+}
+
 const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [OPENER_CONFIG.companion.relationshipId, OPENER_CONFIG],
   [STORY_CONFIG.companion.relationshipId, STORY_CONFIG],
   [LIA_CONFIG.companion.relationshipId, LIA_CONFIG],
+  [GRAMMAR_CONFIG.companion.relationshipId, GRAMMAR_CONFIG],
 ])
 
 function arraysEqual<T>(left: readonly T[], right: readonly T[]): boolean {

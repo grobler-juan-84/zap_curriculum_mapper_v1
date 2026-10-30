@@ -38,6 +38,12 @@ interface ImportMetaEnv {
    * NLL summaries stay package-only; LiA remains BI-absent; resolver default stays sb_only.
    */
   readonly VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Grammar-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Grammar two-lesson series only; independent of Opener/Story/LiA.
+   * NLL summaries stay package-only; Grammar remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

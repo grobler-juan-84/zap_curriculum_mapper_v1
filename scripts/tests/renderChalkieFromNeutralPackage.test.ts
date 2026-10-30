@@ -166,3 +166,14 @@ test('Opener and Story dispatcher outputs remain available through the shared di
   assert.doesNotMatch(opener.detailedHandoff, /Language in Action relationship/)
   assert.doesNotMatch(story.detailedHandoff, /Language in Action relationship/)
 })
+
+test('exact Grammar package dispatches to the Grammar renderer', () => {
+  const output = renderChalkieFromNeutralPackage(packageForPages([136, 137]))
+  assert.match(output.detailedHandoff, /exact Grammar relationship/)
+  assert.match(output.detailedHandoff, /Student Book printed pages 136–137/)
+  assert.match(output.detailedHandoff, /Workbook printed pages 111–112/)
+  assert.match(output.lesson1Outline, /Grammar/)
+  assert.match(output.lesson2Outline, /Workbook pp\. 111–112 only/)
+  assert.doesNotMatch(output.detailedHandoff, /NLL-ONLY/)
+  assert.doesNotMatch(output.detailedHandoff, /Language in Action relationship/)
+})

@@ -721,3 +721,184 @@ test('Stage 4 derivedKnowledge is optional; base Opener package omits it until p
     assert.equal('derivedKnowledge' in activity, false)
   }
 })
+
+test('Grammar all-selected package preserves exact SB136–137 / WB111–112 scope and order', () => {
+  const input = allSelected([136, 137])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+
+  assert.equal(
+    lessonPackage.identity.packageReference,
+    'be3-sb-wb-u08-p136-137-wb111-112',
+  )
+  assert.equal(
+    lessonPackage.identity.relationshipId,
+    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  )
+  assert.equal(lessonPackage.identity.componentKey, 'grammar')
+  assert.equal(lessonPackage.identity.componentTitle, 'Grammar')
+  assert.deepEqual(lessonPackage.lesson1.scope, {
+    source: 'SB',
+    catalogBookId: 'big_english_3_sb',
+    pageIds: ['bep3_sb_p136', 'bep3_sb_p137'],
+    printedPages: [136, 137],
+  })
+  assert.deepEqual(lessonPackage.lesson2.scope, {
+    source: 'WB',
+    catalogBookId: 'big_english_3_wb',
+    pageIds: ['bep_3_wb_p111', 'bep_3_wb_p112'],
+    printedPages: [111, 112],
+  })
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['19', '20', '21', '22', '23'],
+  )
+  assert.deepEqual(
+    lessonPackage.lesson2.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['15', '16', '17', '18', '19'],
+  )
+  assert.equal(lessonPackage.lesson1.selection.status, 'all_selected')
+  assert.equal(lessonPackage.lesson2.selection.status, 'all_selected')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  assert.doesNotMatch(
+    JSON.stringify(lessonPackage),
+    /bep3_sb_p132|bep_3_wb_p107|bep3_sb_p134|bep_3_wb_p109|bep3_sb_p138/,
+  )
+})
+
+test('Grammar partial and zero selection stay selection-honest without reconstruction', () => {
+  const input = allSelected([136, 137])
+  const act19 = input.sbCards.find((card) => card.activityNumber === '19')
+  const act15 = input.wbCards.find((card) => card.activityNumber === '15')
+  assert.ok(act19)
+  assert.ok(act15)
+
+  const partial = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(
+      input.sbCards,
+      setSbActivityCardSelected({
+        cards: input.sbCards,
+        state: createDefaultSbActivitySelection(input.sbCards),
+        cardId: act19.id,
+        selected: false,
+      }),
+    ),
+    wbSelection: createWbActivityHandoffSelection(
+      input.wbCards,
+      setWbActivityCardSelected({
+        cards: input.wbCards,
+        state: createDefaultWbActivitySelection(input.wbCards),
+        cardId: act15.id,
+        selected: false,
+      }),
+    ),
+  })
+  assert.equal(partial.lesson1.selection.status, 'partial_selection')
+  assert.equal(partial.lesson2.selection.status, 'partial_selection')
+  assert.deepEqual(
+    partial.lesson1.selectedActivities.map((activity) => activity.activityNumber),
+    ['20', '21', '22', '23'],
+  )
+  assert.deepEqual(
+    partial.lesson2.selectedActivities.map((activity) => activity.activityNumber),
+    ['16', '17', '18', '19'],
+  )
+  assert.equal(
+    partial.lesson1.audioReferences.some((reference) =>
+      /159/.test(reference.sourceDependencyNote ?? ''),
+    ),
+    false,
+  )
+
+  const zero = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(input.sbCards, {
+      selectedCardIds: [],
+    }),
+    wbSelection: createWbActivityHandoffSelection(input.wbCards, {
+      selectedCardIds: [],
+    }),
+  })
+  assert.equal(zero.lesson1.selection.status, 'zero_selected')
+  assert.equal(zero.lesson2.selection.status, 'zero_selected')
+  assert.deepEqual(zero.lesson1.selectedActivities, [])
+  assert.deepEqual(zero.lesson2.selectedActivities, [])
+})
+
+test('Grammar prior support retains provenance and BI/NLL remain absent', () => {
+  const input = allSelected([136, 137])
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    priorSupport: [
+      {
+        id: 'prior-grammar',
+        provenance: '[PRIOR]',
+        label: 'Optional LiA prior support',
+        frame: 'Did you get enough sleep?',
+        sourceReference: 'BE3 SB Unit 8 p.132',
+        evidenceReference: 'human-verified activity',
+        purpose: null,
+        targetLessons: ['lesson1'],
+      },
+      {
+        id: 'teacher-grammar',
+        provenance: '[TEACHER-ADDED · UNVERIFIED]',
+        label: 'Class reminder',
+        frame: 'Use the base form after didn\'t.',
+        sourceReference: null,
+        evidenceReference: null,
+        purpose: 'Optional support',
+        targetLessons: ['lesson1', 'lesson2'],
+      },
+    ],
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_08',
+      unitNumber: '8',
+      title: 'Healthy Living',
+      vocabulary: 'MUST-NOT-ENTER',
+      grammarStructures: 'MUST-NOT-ENTER',
+      communicativeFunctions: 'Grammar must not attach BI.',
+      learningOutcomes: 'Grammar must not attach BI.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'MUST-NOT-ENTER',
+      values: 'MUST-NOT-ENTER',
+      phonics: 'MUST-NOT-ENTER',
+    },
+  })
+
+  assert.equal(lessonPackage.identity.componentKey, 'grammar')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  assert.doesNotMatch(JSON.stringify(lessonPackage), /MUST-NOT-ENTER/)
+})
+
+test('Grammar fails closed when verified scope fields are altered', () => {
+  const input = allSelected([136, 137])
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookCatalogId: 'big_english_2_sb',
+        },
+      }),
+    /Verified scope does not match/,
+  )
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookPrintedPages: [136],
+        },
+      }),
+    /Verified scope does not match/,
+  )
+})

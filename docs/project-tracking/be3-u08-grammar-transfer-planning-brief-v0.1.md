@@ -1,10 +1,10 @@
 # BE3 Unit 8 Grammar Transfer Planning Brief v0.1
 
-**Status:** DOCUMENTATION ONLY — Grammar-A Step A owner-accepted; Step B prepared locally but unapplied; Grammar-B / Grammar-C unauthorized
+**Status:** GRAMMAR-A LIVE + OWNER-ACCEPTED / GRAMMAR-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION — undeployed / unpromoted
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed planning; Grammar-A Step A content accepted 2026-10-30; Step B local artifacts prepared; D022, D026 and D027 remain in force
-**Implementation authorization:** Local Step B migration + static suite prepared. This document does **not** authorize applying `20261030160000`, Grammar-B, Grammar-C, live NLL insertion, deployment, or promotion.
+**Authority:** Owner-directed planning; Grammar-A Step A/B accepted; Grammar-B/C authorized 2026-10-30 with automated gates as acceptance authority; D022, D026 and D027 remain in force
+**Implementation authorization:** Grammar-A Step B applied live; Grammar-B/C implemented behind default-off `VITE_NLL_CHALKIE_GRAMMAR_ADAPTER_PILOT`. Does **not** authorize promotion, deployment, flag-on default, NLL visibility changes, or next-component work.
 
 ---
 
