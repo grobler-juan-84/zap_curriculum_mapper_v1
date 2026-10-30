@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 408
+**Last updated:** Step 411
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -12,19 +12,19 @@
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
 - **D017–D027** are locked. D021 keeps preparation SB-first; D022 keeps the Neutral Lesson Package as the durable handoff; **D027** locks SS/SB/WB → NLL → NLP → adapters.
 - **Stages 3–5 / 6A / 6B** complete and owner-accepted where applicable; Opener and Story remain the two accepted reference implementations (default-off / undeployed).
-- **LiA-A/B/C**, **Grammar-A/B/C**, and **CLIL-A/B/C** complete and owner-accepted; CLIL checkpoint on `main` at `3f5fcabdc7a498643051882734744e23710be018`.
-- **Culture-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION:** only `20261030180000` applied to `kivvmobjphtcgxoltqbc`; live NLL **6 / 53 / 53 / 6**; history **25 recorded / 0 pending / 0 remote-only**; nine memberships; zero Culture SS links.
-- **Culture-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION:** exact Culture package/renderer; default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **9/9**; retained batch **178/178**; typecheck pass; lint warnings only.
+- **LiA-A/B/C**, **Grammar-A/B/C**, **CLIL-A/B/C**, and **Culture-A/B/C** complete and owner-accepted; Culture committed/pushed on `main` at `de6ef31f0cf16f897bbb31e62e8427637b4eab09`.
+- **Writing-A Step B APPLIED / VERIFIED:** live NLL **7 / 60 / 60 / 8**; history **26 / 0 / 0**; seven memberships; two proposed SS links.
+- **Writing-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION:** exact Writing package/renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Focused/retained **297/297**; typecheck pass; lint warnings only.
 
 ## In progress
 
-- None. Culture A/B/C complete for this authorization; undeployed/unpromoted; uncommitted.
+- None. Writing A/B/C complete for this authorization; undeployed/unpromoted; uncommitted.
 
 ## Next
 
-- Hold promotion, deployment, NLL visibility changes, flag-on defaults, Writing, and other Unit 8 component work until separately authorized.
-- Optional later: owner-authorized Culture commit/push (not part of this gate).
-- Grant/RLS hardening for documented privilege supersets remains separately gated.
+- Hold promotion, deployment, NLL visibility changes, and flag-on defaults.
+- Optional later: owner-authorized Writing commit/push (not part of this gate).
+- Phonics and remaining Unit 8 components remain separately gated.
 
 ## Blocked
 
@@ -36,6 +36,6 @@
 
 ## Snapshot notes
 
-- Active Git branch: `main` at `3f5fcab` plus local uncommitted Culture A/B/C work.
-- Live NLL: Opener + Story + LiA + Grammar + CLIL + Culture = **6 / 53 / 53 / 6**.
-- Culture default serving remains resolver `sb_only`; Culture flag default-off.
+- Active Git branch: `main` at `de6ef31` plus local uncommitted Writing A/B/C work.
+- Live NLL: Opener + Story + LiA + Grammar + CLIL + Culture + Writing = **7 / 60 / 60 / 8**.
+- Writing default serving remains resolver `sb_only`; Writing flag default-off.

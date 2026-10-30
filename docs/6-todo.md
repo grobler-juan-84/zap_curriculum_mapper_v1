@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 407
+**Last updated:** Step 411
 
 
 
@@ -717,9 +717,17 @@
 
 - [x] **Culture-A Step B apply + verify (2026-10-30):** authorized isolated `db push` of only `20261030180000` to `kivvmobjphtcgxoltqbc`; live **6 / 53 / 53 / 6**; history **25 / 0 / 0**; nine memberships; zero Culture SS links; Opener/Story/LiA/Grammar/CLIL unchanged. Owner-accepted under advance authorization.
 
-- [x] **Culture-B/C implementation + automated acceptance (2026-10-30):** exact Culture package/renderer; default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **9/9**; retained batch **178/178**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no Culture commit/push.
+- [x] **Culture-B/C implementation + automated acceptance (2026-10-30):** exact Culture package/renderer; default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **9/9**; retained batch **178/178**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted.
 
-- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, Writing or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
+- [x] **Culture A/B/C commit/push checkpoint (2026-10-30):** `de6ef31f0cf16f897bbb31e62e8427637b4eab09` on `main` (`feat(nll): add accepted BE3 U8 Culture A/B/C pilot`); live NLL still **6 / 53 / 53 / 6**.
+
+- [x] **Writing-A automated knowledge + delivery-shape + local Step B prep (2026-10-30):** WB canonical blocker cleared; SB 28–31 + WB 24–26; fingerprints; two proposed SS links; non-serving two-lesson SB→WB delivery shape accepted for future Writing-B; migration `20261030190000` + focused suite.
+
+- [x] **Writing-A Step B apply + verify (2026-10-30):** authorized isolated `db push` of only `20261030190000` to `kivvmobjphtcgxoltqbc`; live **7 / 60 / 60 / 8**; history **26 / 0 / 0**; seven memberships; two proposed SS links; Opener/Story/LiA/Grammar/CLIL/Culture unchanged. Owner-accepted under advance authorization.
+
+- [x] **Writing-B/C implementation + automated acceptance (2026-10-30):** exact Writing package/renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Retained verification batch **297/297**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no Writing commit/push.
+
+- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, Phonics, or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

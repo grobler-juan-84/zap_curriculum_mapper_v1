@@ -56,6 +56,12 @@ interface ImportMetaEnv {
    * NLL summaries stay package-only; Culture remains BI-absent; resolver default stays sb_only.
    */
   readonly VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Writing-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Writing two-lesson series only; independent of Opener/Story/LiA/Grammar/CLIL/Culture.
+   * NLL summaries stay package-only; Writing remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

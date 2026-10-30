@@ -32,6 +32,7 @@ import {
   BE3_U08_SB134_135_WB109_110,
   BE3_U08_SB136_137_WB111_112,
   BE3_U08_SB138_139_WB113_114,
+  BE3_U08_SB140_WB115,
   type CuratedVerifiedSbWbCompanion,
 } from './verifiedSbWbCompanions'
 
@@ -184,6 +185,7 @@ export type NeutralSbWbLessonPackage = {
       | 'be3-sb-wb-u08-p134-135-wb109-110'
       | 'be3-sb-wb-u08-p136-137-wb111-112'
       | 'be3-sb-wb-u08-p138-139-wb113-114'
+      | 'be3-sb-wb-u08-p140-wb115'
     readonly relationshipId: string
     readonly relationshipType: 'workbook_practice_for'
     readonly verificationStatus: 'human_verified'
@@ -198,6 +200,7 @@ export type NeutralSbWbLessonPackage = {
       | 'clil_pe'
       | 'grammar'
       | 'culture'
+      | 'writing'
     readonly componentTitle: string
   }
   readonly packaging: {
@@ -407,6 +410,40 @@ const CULTURE_CONFIG: SupportedPackageConfig = {
   ],
 }
 
+const WRITING_CONFIG: SupportedPackageConfig = {
+  companion: BE3_U08_SB140_WB115,
+  packageReference: 'be3-sb-wb-u08-p140-wb115',
+  componentKey: 'writing',
+  componentTitle: 'Writing',
+  lesson1Purpose:
+    'Support Writing / Combining Sentences with and, but, or through the verified activities on SB p.140.',
+  lesson2Purpose:
+    'Consolidate Writing practice through the verified Workbook activities on p.115.',
+  excludedScopes: [
+    {
+      source: 'SB',
+      printedPages: [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 141, 142, 143],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Grammar, Culture, Phonics and later Unit 8 Student Book pages are outside this package.',
+    },
+    {
+      source: 'WB',
+      printedPages: [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 116, 117],
+      reason:
+        'Opener, Story, Language in Action, CLIL/P.E., Grammar, Culture, Phonics and later Unit 8 Workbook pages are outside this package.',
+    },
+  ],
+  boundaryNotes: [
+    'Lesson 2 consolidates the verified Writing relationship; it is not a second presentation of Lesson 1.',
+    'Do not combine SB p.140 and WB p.115 into one lesson; do not merge Writing with Phonics p.141 / p.116.',
+    'Audio 162 is listen-and-check only; never invent a transcript or dump keyed conjunction answers as student composition.',
+    'Preserve keyed craft (SB 28–30; WB 24–26) separately from open production (SB 31); do not invent sample responses, rubrics, checklists, audience, genre, criteria, or teaching procedures.',
+    'Preserve WB clause-box/visual and paragraph-cloze boundaries without inventing completed clauses or paragraphs.',
+    '“Healthy habits” is prompt context only — not permission to invent health content.',
+    'Learning-spine role remains support / writing — not Core.',
+  ],
+}
+
 const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [OPENER_CONFIG.companion.relationshipId, OPENER_CONFIG],
   [STORY_CONFIG.companion.relationshipId, STORY_CONFIG],
@@ -414,6 +451,7 @@ const SUPPORTED_CONFIGS = new Map<string, SupportedPackageConfig>([
   [CLIL_PE_CONFIG.companion.relationshipId, CLIL_PE_CONFIG],
   [GRAMMAR_CONFIG.companion.relationshipId, GRAMMAR_CONFIG],
   [CULTURE_CONFIG.companion.relationshipId, CULTURE_CONFIG],
+  [WRITING_CONFIG.companion.relationshipId, WRITING_CONFIG],
 ])
 
 function arraysEqual<T>(left: readonly T[], right: readonly T[]): boolean {

@@ -1,22 +1,22 @@
 # BE3 Unit 8 Writing Transfer Planning Brief v0.1
 
-**Status:** PROVISIONAL / EVIDENCE-BLOCKED / DOCUMENTATION ONLY
+**Status:** ACTIVE — Writing-A applied; Writing-B/C automated-accepted behind default-off flag; undeployed/unpromoted
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed documentation-only planning after a read-only repository audit; D022, D026 and D027 remain in force
-**Implementation authorization:** **None.** This document does **not** authorize Writing-A, Writing-B, Writing-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+**Authority:** Owner-directed planning after a read-only repository audit; D022, D026 and D027 remain in force. Writing-A advance authorization supersedes the historical missing-Workbook blocker via direct canonical verification (see knowledge review).
+**Implementation authorization:** Writing-A live; Writing-B/C behind default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`. Does **not** authorize promotion, deployment, flag-on default, commit, or push.
 
 ---
 
 ## 0. Standing constraints (read first)
 
-1. **LiA-C is owner-accepted and undeployed.** Remaining Unit 8 planning, including Writing, is **documented and separately gated**; Writing is **not** an active implementation stream.
-2. This brief is **provisional** because the BE3 Workbook canonical file is unavailable.
-3. Exact Workbook activity claims remain **blocked** by the missing canonical and must wait for evidence review after restoration and re-verification.
-4. **Future delivery shape remains undecided.** The exact one-page SB → one-page WB companion does **not** authorize an SB/WB two-lesson series or a combined single lesson.
-5. Opener, Story, LiA, and provisional CLIL/P.E., Grammar, and Culture briefs are architectural patterns only — not permission to reuse their content assumptions for Writing.
-6. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
-7. This brief does **not** authorize Writing-A/B/C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+1. Culture A/B/C are committed/pushed on `main` at `de6ef31f0cf16f897bbb31e62e8427637b4eab09`. Writing remains separately gated.
+2. **Historical WB canonical blocker is cleared** by trusted WB canonical verify (size `779981` / SHA-256 `811deea2…04fa`). Exact WB p.115 inventory is recorded in the Writing knowledge review.
+3. Exact Workbook activity claims for Writing now rest on that knowledge review — not on this brief’s earlier blocked wording.
+4. **Delivery shape accepted for future Writing-B only:** exact non-serving two-lesson SB→WB (Lesson 1 = SB p.140; Lesson 2 = WB p.115). Do not combine into one lesson; do not merge with Phonics; active serving remains `sb_only`.
+5. Opener, Story, LiA, CLIL/P.E., Grammar, and Culture briefs are architectural patterns only — not permission to invent Writing evidence.
+6. Default serving for this relationship remains **`sb_only`**. No serving-path change is authorized here.
+7. Writing-B/C remain unstarted pending a separate exact Writing database-application gate after Writing-A apply/verify.
 
 ---
 
@@ -27,7 +27,7 @@
 | Component | Big English 3 Unit 8 Writing only |
 | Strand | Writing — *Combining Sentences with and, but, or* |
 | Student Book | p.140 |
-| Workbook companion | p.115 (companion identity only; activity inventory not re-verified) |
+| Workbook companion | p.115 — Activities **24–26** (verified in Writing knowledge review) |
 | Relationship | `be3_sb_wb_rel_u08_writing_sb140_wb115` |
 | Stable reference | `be3-sb-wb-u08-p140-wb115` (`BE3_U08_WRITING_STABLE_REF`) |
 | Learning-spine position | **Support** / `writing` (**not** Core) |
@@ -42,12 +42,13 @@
 - No active SB→WB series title and no serving series handoff for Writing.
 - Active-lesson scope isolates p.140 when the visible PDF spread is 140–141.
 
-### Future delivery shape (explicitly undecided)
+### Future delivery shape (accepted for Writing-B planning; not implemented)
 
-The curated 1→1 companion identity does **not** decide packaging:
+Authority: [`be3-u08-writing-knowledge-review-v0.1.md`](./be3-u08-writing-knowledge-review-v0.1.md).
 
-- **No** authorization for an SB→WB two-lesson series.
+- **Accepted:** exact non-serving two-lesson SB→WB (SB p.140 Lesson 1; WB p.115 Lesson 2).
 - **No** authorization to combine SB and WB into one lesson.
+- **No** merge with Phonics; active serving remains `sb_only` until a separate serving gate.
 - Current **`sb_only`** behavior remains unchanged until a separate owner decision after complete WB evidence review.
 
 ### Explicit exclusions
@@ -92,26 +93,9 @@ Membership in the Writing component does **not** select an activity. Only teache
 
 ---
 
-## 4. Workbook evidence blocker
+## 4. Workbook evidence blocker (historical — cleared 2026-10-30)
 
-**Missing dependency:**
-
-`data/phase1/big_english_3_wb/canonical/v1.json`
-
-Its absence **blocks confirmation** of:
-
-- exact WB activity IDs, order, and count;
-- fingerprints and hashes;
-- exact conjunction, clause-box, cloze, answer, audio, and activity-chain evidence;
-- safe derived summaries and NLL memberships;
-- **future delivery-shape decision** (series vs combined single lesson vs other);
-- package selection behavior against real WB evidence;
-- renderer parity against accepted artifact expectations;
-- canonical-dependent retained regressions for this relationship.
-
-### Historical documentation awaiting canonical re-verification
-
-Earlier pairing / pilot documents describe Workbook p.115 in terms such as circling *and/but/or*, completing clauses from a box, paragraph cloze with *or/but/and*, and shared coordinating-conjunction writing work, while excluding Culture 113–114 and Phonics 116. Those statements are **historical documentation only**. They are **not** re-verified facts in this brief and must not be treated as exact activity inventory until the WB canonical is restored and reviewed.
+**Cleared:** trusted WB canonical `data/phase1/big_english_3_wb/canonical/v1.json` verified at size `779981` / SHA-256 `811deea2e5b04bef2a0c0223d5d75ffe94218bfb5aecc58a1898ecabf43504fa`. Exact WB p.115 inventory, fingerprints, summaries, SS proposals, and delivery-shape decision are recorded in [`be3-u08-writing-knowledge-review-v0.1.md`](./be3-u08-writing-knowledge-review-v0.1.md). This section is retained only as historical context for the earlier missing-file blocker.
 
 ---
 
@@ -133,12 +117,9 @@ Earlier pairing / pilot documents describe Workbook p.115 in terms such as circl
 
 ## 6. Curriculum-authority boundary
 
-- Candidate Writing authority: *Combining Sentences with and, but, or.*
-- Candidate “I can…” authority: use *and*, *or*, and *but* in sentences.
-- These remain **candidates only**.
-- **All SS links remain unproposed** until complete SB/WB evidence review.
+- Writing column + I can... proposed under Writing-A knowledge review (status `proposed` only; not promoted).
 - Do **not** conflate them with Grammar Structures, CLIL/Culture, Phonics, Values, or generic healthy-habit content.
-- The SS remains curriculum authority. Pairing docs and the absence of a dedicated Writing experiment do not replace it.
+- The SS remains curriculum authority. Pairing docs do not replace it.
 
 ---
 
@@ -148,22 +129,17 @@ These gates are **future consideration only**. None is authorized by this docume
 
 ### Writing-A — knowledge readiness
 
-**Blocked pending WB canonical restoration and owner authorization.**
+**Applied / verified under advance authorization (2026-10-30):** knowledge review + migration `20261030190000` applied to `kivvmobjphtcgxoltqbc`. Live totals **7 / 60 / 60 / 8**. History **26 / 0 / 0**.
 
-Future consideration only:
-
-- exact SB/WB inventory and source order;
-- separate summaries for keyed practice, scaffold, prompt, and open production;
-- fingerprints and provenance;
-- carefully reviewed proposed SS links (if any);
-- hidden/experimental NLL design;
-- separate owner authorization before any persistent insertion.
-
-**Explicitly prohibited at this stage:** migration, seed, database write, live-NLL insert, promotion, delivery-shape decision, or coding of package/renderer/adapter layers.
+**Still prohibited without a separate gate:** Writing-B/C coding, promotion, deployment, commit, or push.
 
 ### Writing-B — neutral package and renderer parity
 
-**Future consideration only, after Writing-A acceptance and a separate delivery-shape decision.**
+**Implemented / automated-accepted (2026-10-30):** exact non-serving two-lesson SB→WB package + five-artifact renderer. Flag-off Create-a-prompt remains `sb_only`.
+
+### Writing-C — adapter
+
+**Implemented / automated-accepted (2026-10-30):** default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT`; package-level NLL only; BI-absent; stale-result guards; `sb_only` fallback.
 
 Future consideration only:
 

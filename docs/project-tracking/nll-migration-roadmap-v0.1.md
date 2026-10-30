@@ -177,7 +177,7 @@ See [`be3-u08-clil-pe-knowledge-review-v0.1.md`](./be3-u08-clil-pe-knowledge-rev
 
 ## BE3 Unit 8 Culture Connection (Culture-A/B/C)
 
-**Authorization status:** **Culture-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **Culture-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **6 / 53 / 53 / 6**. History **25 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT` default-off. Undeployed/unpromoted; Culture work uncommitted.
+**Authorization status:** **Culture-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **Culture-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Committed and pushed on `main` at `de6ef31f0cf16f897bbb31e62e8427637b4eab09`. Live NLL **6 / 53 / 53 / 6**. History **25 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT` default-off. Undeployed/unpromoted.
 
 | Field | Detail |
 |---|---|
@@ -191,10 +191,33 @@ See [`be3-u08-clil-pe-knowledge-review-v0.1.md`](./be3-u08-clil-pe-knowledge-rev
 | **Migration** | `20261030180000_seed_nll_be3_u08_culture.sql` (**applied**) |
 | **Live totals** | **6 / 53 / 53 / 6** |
 | **Culture-B/C** | Exact package + five-artifact renderer + default-off adapter; dedicated focused **9/9**; retained **178/178** |
-| **Next owner gate** | Separately authorize commit/push, promotion, deployment, or later Unit 8 component work |
+| **Next owner gate** | Separately authorize promotion, deployment, or later Unit 8 component work |
 | **Restrictions** | No promotion/deployment; no flag-on default; no resolver/`sb_only` change; no further migration without new gate |
 
 See [`be3-u08-culture-knowledge-review-v0.1.md`](./be3-u08-culture-knowledge-review-v0.1.md) and [`be3-u08-culture-transfer-planning-brief-v0.1.md`](./be3-u08-culture-transfer-planning-brief-v0.1.md).
+
+---
+
+## BE3 Unit 8 Writing (Writing-A/B/C)
+
+**Authorization status:** **WRITING-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **WRITING-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **7 / 60 / 60 / 8**. History **26 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT` default-off. Undeployed/unpromoted; Writing work uncommitted.
+
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-writing` (live draft `…000007`) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_writing_sb140_wb115`; SB p.140 → WB p.115 |
+| **Stable reference** | `be3-sb-wb-u08-p140-wb115` |
+| **Accepted inventory** | SB Activities **28–31** + WB Activities **24–26** = **seven** |
+| **Live Step B payloads** | Seven preferred v1 `hidden`/`experimental`; **two** proposed SS links (Writing + I can...) |
+| **Source bindings** | SB `3924fa23…67e6`; WB `811deea2…04fa`; SS `f6f756e1…bb5a` |
+| **Delivery shape** | Accepted non-serving two-lesson SB→WB (Lesson 1 = p.140; Lesson 2 = p.115) |
+| **Migration** | `20261030190000_seed_nll_be3_u08_writing.sql` (**applied**) |
+| **Live totals** | **7 / 60 / 60 / 8** |
+| **Writing-B/C** | Exact package + five-artifact renderer + default-off adapter; retained **297/297** |
+| **Next owner gate** | Separately authorize commit/push, promotion, deployment, or Phonics |
+| **Restrictions** | No combine SB+WB lesson; no Phonics merge; no promotion/deployment; no flag-on default |
+
+See [`be3-u08-writing-knowledge-review-v0.1.md`](./be3-u08-writing-knowledge-review-v0.1.md) and [`be3-u08-writing-transfer-planning-brief-v0.1.md`](./be3-u08-writing-transfer-planning-brief-v0.1.md).
 
 ---
 

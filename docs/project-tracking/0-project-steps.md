@@ -7109,3 +7109,67 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 409
+
+**Summary:** Completed Writing-A automated knowledge readiness and delivery-shape decision for BE3 U8 Writing (WB canonical blocker cleared; SB 28–31 + WB 24–26 = seven activities; fingerprints; two proposed SS links; non-serving two-lesson SB→WB accepted for future Writing-B). Prepared local fail-closed migration `20261030190000` + focused suite; confirmed live preflight still 6/53/53/6 with history 25/0/0; left migration unapplied. Recorded Culture A/B/C committed/pushed at `de6ef31`. Writing-B/C not started; no Writing commit/push/apply.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-writing-knowledge-review-v0.1.md` (created)
+- `supabase/migrations/20261030190000_seed_nll_be3_u08_writing.sql` (created)
+- `scripts/tests/nllBe3U08WritingSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-writing-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 410
+
+**Summary:** Applied Writing-A Step B (`20261030190000`) to `kivvmobjphtcgxoltqbc` via isolated workdir (live **7 / 60 / 60 / 8**; history **26 / 0 / 0**; seven memberships; two proposed SS links). Confirmed Opener/Story/LiA/Grammar/CLIL/Culture unchanged. Focused+retained seed suites **29/29**. Writing-B/C not started; no Writing commit/push/deploy/promote.
+
+**Files touched:**
+- `supabase/migrations/20261030190000_seed_nll_be3_u08_writing.sql` (applied remotely; local file unchanged this step)
+- `docs/project-tracking/be3-u08-writing-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-writing-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 411
+
+**Summary:** Implemented Writing-B/C for BE3 U8 Writing: exact non-serving two-lesson SB→WB neutral package and five-artifact renderer; default-off `VITE_NLL_CHALKIE_WRITING_ADAPTER_PILOT` with overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Repaired brittle workbook-selection overlay source-slice assertion to full-module behavior checks. Automated gates passed (retained **297/297**; typecheck pass; lint warnings only). Live NLL unchanged **7 / 60 / 60 / 8**. Undeployed/unpromoted; no Writing commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08WritingNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/nllWritingChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/verifiedSbWbCompanions.ts` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/renderBe3U08WritingNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/nllWritingChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `docs/project-tracking/be3-u08-writing-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-writing-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

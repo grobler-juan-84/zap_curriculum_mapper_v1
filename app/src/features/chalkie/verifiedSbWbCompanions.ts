@@ -216,12 +216,12 @@ export const BE3_U08_SB138_139_WB113_114: CuratedVerifiedSbWbCompanion = {
 }
 
 /**
- * BE3 SB Unit 8 Writing → WB Writing (1→1).
+ * BE3 SB Unit 8 Writing → WB Writing (1→1 companion identity).
  *
- * Accepted after content review (*Combining Sentences with and, but, or*). Resolver-wired only:
- * no series handoff builder and no Chalkie generation authorized for this mapping.
- * Packaging note: 1→1 single lesson likely (not a two-lesson series).
- * Tracking ref (not a handoff package id): `be3-sb-wb-u08-p140-wb115`.
+ * Accepted after content review (*Combining Sentences with and, but, or*).
+ * Writing-B accepts a non-serving two-lesson SB→WB package (Lesson 1 = p.140; Lesson 2 = p.115).
+ * Resolver default packaging remains `sb_only` until a separate serving gate.
+ * Tracking / package ref: `be3-sb-wb-u08-p140-wb115`.
  */
 export const BE3_U08_WRITING_STABLE_REF = 'be3-sb-wb-u08-p140-wb115'
 
