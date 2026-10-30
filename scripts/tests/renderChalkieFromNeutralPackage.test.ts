@@ -140,11 +140,20 @@ test('exact CLIL/P.E. package dispatches to the CLIL renderer', () => {
   assert.match(output.lesson2Outline, /Workbook pp\. 109–110 only/)
 })
 
+test('exact Culture package dispatches to the Culture renderer', () => {
+  const output = renderChalkieFromNeutralPackage(packageForPages([138, 139]))
+  assert.match(output.detailedHandoff, /Culture Connection relationship/)
+  assert.match(output.detailedHandoff, /Student Book printed pages 138–139/)
+  assert.match(output.detailedHandoff, /Workbook printed pages 113–114/)
+  assert.match(output.lesson1Outline, /Culture Connection/)
+  assert.match(output.lesson2Outline, /Workbook pp\. 113–114 only/)
+})
+
 test('unsupported neutral relationship throws a typed error without fallback output', () => {
   const unsupportedPackage = {
     identity: {
-      relationshipId: 'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
-      packageReference: 'be3-sb-wb-u08-p138-139-wb113-114',
+      relationshipId: 'be3_sb_wb_rel_u08_writing_sb140_wb115',
+      packageReference: 'be3-sb-wb-u08-p140-wb115',
     },
   } as unknown as NeutralSbWbLessonPackage
 
@@ -155,12 +164,9 @@ test('unsupported neutral relationship throws a typed error without fallback out
       assert.equal(error.code, 'unsupported_neutral_package_renderer')
       assert.equal(
         error.relationshipId,
-        'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
+        'be3_sb_wb_rel_u08_writing_sb140_wb115',
       )
-      assert.equal(
-        error.packageReference,
-        'be3-sb-wb-u08-p138-139-wb113-114',
-      )
+      assert.equal(error.packageReference, 'be3-sb-wb-u08-p140-wb115')
       assert.match(error.message, /No test-only Chalkie renderer is registered/)
       return true
     },

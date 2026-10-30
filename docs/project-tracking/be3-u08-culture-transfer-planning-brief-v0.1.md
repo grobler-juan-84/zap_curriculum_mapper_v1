@@ -1,21 +1,21 @@
 # BE3 Unit 8 Culture Connection Transfer Planning Brief v0.1
 
-**Status:** PROVISIONAL / EVIDENCE-BLOCKED / DOCUMENTATION ONLY
+**Status:** ACTIVE / CULTURE-A APPLIED + CULTURE-B/C AUTOMATED-ACCEPTED — undeployed/unpromoted
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed documentation-only planning after a read-only repository audit; D022, D026 and D027 remain in force
-**Implementation authorization:** **None.** This document does **not** authorize Culture-A, Culture-B, Culture-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+**Authority:** Owner advance authorization for Culture-A apply + Culture-B/C automated acceptance; D022, D026 and D027 remain in force
+**Implementation authorization:** Culture-A live; Culture-B/C behind default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`. Does **not** authorize promotion, deployment, flag-on default, commit, or push.
 
 ---
 
 ## 0. Standing constraints (read first)
 
-1. **LiA-C is owner-accepted and undeployed.** Remaining Unit 8 planning, including Culture, is **documented and separately gated**; Culture is **not** an active implementation stream.
-2. This brief is **provisional** because the BE3 Workbook canonical file is unavailable.
-3. Exact Workbook activity claims remain **blocked** by the missing canonical and must wait for evidence review after restoration and re-verification.
-4. Opener, Story, LiA, and provisional CLIL/P.E. and Grammar briefs are architectural patterns only — not permission to reuse their content assumptions for Culture.
-5. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
-6. This brief does **not** authorize Culture-A/B/C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+1. **CLIL-A/B/C are committed and pushed** (`3f5fcabdc7a498643051882734744e23710be018` on `main`).
+2. The historical **missing-Workbook blocker is cleared**: trusted WB canonical verified (`779981` / `811deea2…04fa`) alongside SB (`938463` / `3924fa23…67e6`).
+3. **Culture-A Step B applied** (`20261030180000`): live NLL **6 / 53 / 53 / 6**; history **25 / 0 / 0**; zero Culture SS links. See [`be3-u08-culture-knowledge-review-v0.1.md`](./be3-u08-culture-knowledge-review-v0.1.md).
+4. Opener, Story, LiA, Grammar, and CLIL transfer briefs are architectural patterns only — not permission to reuse their content assumptions for Culture.
+5. Default serving for this relationship remains **`sb_only`**. Resolver default packaging mode unchanged.
+6. **Culture-B/C are implemented and automated-accepted** behind default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`; undeployed/unpromoted; local/uncommitted.
 
 ---
 
@@ -81,25 +81,11 @@ Membership in the Culture component does **not** select an activity. Only teache
 
 ---
 
-## 4. Workbook evidence blocker
+## 4. Workbook evidence blocker — CLEARED
 
-**Missing dependency:**
+**Cleared 2026-10-30** by direct verification of trusted local canonicals (size + SHA-256 + JSON parse). Exact WB inventory is recorded in the Culture knowledge review: Activities **20–23** + Think Big on pp.113–114 (`bep_3_wb_act_113_20` … `bep_3_wb_act_114_tb`).
 
-`data/phase1/big_english_3_wb/canonical/v1.json`
-
-Its absence **blocks confirmation** of:
-
-- exact WB activity IDs, order, and count;
-- hashes and fingerprints;
-- exact audio, image, answer, matching, T/F, chart, Think Big, and activity-chain dependencies;
-- safe derived summaries and NLL memberships;
-- package selection behavior against real WB evidence;
-- renderer parity against accepted artifact expectations;
-- canonical-dependent retained regressions for this relationship.
-
-### Historical documentation awaiting canonical re-verification
-
-Earlier pairing / pilot documents describe Workbook pp.113–114 in terms such as Culture Connection matching, listening, T/F, Think Big invent-a-sport work, and shared sports-strand vocabulary, while excluding Grammar 111–112 and Writing 115. Those statements are **historical documentation only**. They are **not** re-verified facts in this brief and must not be treated as exact activity inventory until the WB canonical is restored and reviewed.
+Earlier pairing / pilot documents remain historical context only where they conflict with the knowledge-review inventory.
 
 ---
 

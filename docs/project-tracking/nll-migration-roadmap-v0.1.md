@@ -153,7 +153,7 @@ See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-rev
 
 ## BE3 Unit 8 Content Connection / P.E. (CLIL-A/B/C)
 
-**Authorization status:** **CLIL-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **CLIL-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **5 / 44 / 44 / 6**. History **24 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT` default-off. Undeployed/unpromoted; no CLIL commit/push in this acceptance.
+**Authorization status:** **CLIL-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **CLIL-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Committed and pushed on `main` as `3f5fcabdc7a498643051882734744e23710be018`. Live NLL **5 / 44 / 44 / 6**. History **24 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT` default-off. Undeployed/unpromoted.
 
 | Field | Detail |
 |---|---|
@@ -167,10 +167,34 @@ See [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-rev
 | **Migration** | `20261030170000_seed_nll_be3_u08_clil_pe.sql` (**applied**) |
 | **Live totals** | **5 / 44 / 44 / 6** |
 | **CLIL-B/C** | Exact package + five-artifact renderer + default-off adapter; dedicated focused **13/13**; retained **233/233** |
-| **Next owner gate** | Separately authorize CLIL commit/push and any later Unit 8 component |
+| **Git checkpoint** | `3f5fcabdc7a498643051882734744e23710be018` on `main` / `origin/main` |
+| **Next owner gate** | Separately authorize later Unit 8 component work |
 | **Restrictions** | No promotion/deployment; no flag-on default; no resolver/`sb_only` change; no further migration without new gate |
 
 See [`be3-u08-clil-pe-knowledge-review-v0.1.md`](./be3-u08-clil-pe-knowledge-review-v0.1.md) and [`be3-u08-clil-pe-transfer-planning-brief-v0.1.md`](./be3-u08-clil-pe-transfer-planning-brief-v0.1.md).
+
+---
+
+## BE3 Unit 8 Culture Connection (Culture-A/B/C)
+
+**Authorization status:** **Culture-A Step B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **Culture-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** Live NLL **6 / 53 / 53 / 6**. History **25 recorded / 0 pending / 0 remote-only**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT` default-off. Undeployed/unpromoted; Culture work uncommitted.
+
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-culture` (live draft `…000006`) |
+| **Exact relationship** | `be3_sb_wb_rel_u08_culture_sb138-139_wb113-114`; SB pp.138–139 → WB pp.113–114 |
+| **Stable reference** | `be3-sb-wb-u08-p138-139-wb113-114` |
+| **Accepted inventory** | SB Activities 24–27 + WB Activities 20–23 + Think Big = **nine** |
+| **Live Step B payloads** | Nine preferred v1 `hidden`/`experimental`; **zero** SS links |
+| **Source bindings** | SB `3924fa23…67e6`; WB `811deea2…04fa` |
+| **SS decisions** | No link — combined `CLIL/Culture` cell conflates P.E. Keeping healthy |
+| **Migration** | `20261030180000_seed_nll_be3_u08_culture.sql` (**applied**) |
+| **Live totals** | **6 / 53 / 53 / 6** |
+| **Culture-B/C** | Exact package + five-artifact renderer + default-off adapter; dedicated focused **9/9**; retained **178/178** |
+| **Next owner gate** | Separately authorize commit/push, promotion, deployment, or later Unit 8 component work |
+| **Restrictions** | No promotion/deployment; no flag-on default; no resolver/`sb_only` change; no further migration without new gate |
+
+See [`be3-u08-culture-knowledge-review-v0.1.md`](./be3-u08-culture-knowledge-review-v0.1.md) and [`be3-u08-culture-transfer-planning-brief-v0.1.md`](./be3-u08-culture-transfer-planning-brief-v0.1.md).
 
 ---
 

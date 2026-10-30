@@ -50,6 +50,12 @@ interface ImportMetaEnv {
    * NLL summaries stay package-only; CLIL remains BI-absent; resolver default stays sb_only.
    */
   readonly VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT?: string
+  /**
+   * Opt-in Culture-C NLL -> NLP -> Chalkie adapter pilot (default unset/false).
+   * Exact BE3 U8 Culture Connection two-lesson series only; independent of Opener/Story/LiA/Grammar/CLIL.
+   * NLL summaries stay package-only; Culture remains BI-absent; resolver default stays sb_only.
+   */
+  readonly VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT?: string
 }
 
 interface ImportMeta {

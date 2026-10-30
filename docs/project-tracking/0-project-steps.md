@@ -7063,3 +7063,49 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 407
+
+**Summary:** Completed Culture-A automated knowledge readiness for BE3 U8 Culture Connection (WB blocker cleared; SB 24–27 + WB 20–23 + Think Big = nine activities; fingerprints; zero SS links), prepared local fail-closed migration `20261030180000` + focused suite, confirmed live preflight still 5/44/44/6 with history 24/0/0, and left migration unapplied. Culture-B/C not started; no Culture commit/push. Recorded CLIL checkpoint `3f5fcab` as pushed.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-culture-knowledge-review-v0.1.md` (created)
+- `supabase/migrations/20261030180000_seed_nll_be3_u08_culture.sql` (created)
+- `scripts/tests/nllBe3U08CultureSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-culture-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 408
+
+**Summary:** Applied Culture-A Step B (20261030180000) to `kivvmobjphtcgxoltqbc` via isolated workdir (live **6 / 53 / 53 / 6**; history **25 / 0 / 0**; nine memberships; zero Culture SS links). Implemented Culture-B/C: exact package/renderer, default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`, overlay stale guards, `sb_only` fallback. Automated gates passed (focused **9/9**; retained **178/178**; typecheck pass; lint warnings only). Undeployed/unpromoted; no Culture commit/push.
+
+**Files touched:**
+- `supabase/migrations/20261030180000_seed_nll_be3_u08_culture.sql` (applied remotely; local file unchanged this step)
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/renderBe3U08CultureNeutralPackageToChalkieShadow.ts` (created)
+- `app/src/features/chalkie/nllCultureChalkieAdapterPilot.ts` (created)
+- `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/vite-env.d.ts` (updated)
+- `.env.example` (updated)
+- `scripts/tests/renderBe3U08CultureNeutralPackageToChalkieShadow.test.ts` (created)
+- `scripts/tests/nllCultureChalkieAdapterPilot.test.ts` (created)
+- `scripts/tests/buildNeutralSbWbLessonPackage.test.ts` (updated)
+- `scripts/tests/renderChalkieFromNeutralPackage.test.ts` (updated)
+- `docs/project-tracking/be3-u08-culture-knowledge-review-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-culture-transfer-planning-brief-v0.1.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 406
+**Last updated:** Step 407
 
 
 
@@ -711,7 +711,15 @@
 
 - [x] **CLIL-B/C implementation + automated acceptance (2026-10-30):** exact CLIL package/renderer; default-off `VITE_NLL_CHALKIE_CLIL_PE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **13/13**; retained regressions **233/233**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no CLIL commit/push.
 
-- [ ] **Hold — feature freeze:** no promotion, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, deployment, additional migrations, or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized. CLIL commit/push remains separately gated.
+- [x] **CLIL-A/B/C commit + push (2026-10-30):** `3f5fcabdc7a498643051882734744e23710be018` on `main` / `origin/main`; clean worktree after push; exactly 21 accepted paths.
+
+- [x] **Culture-A automated knowledge + local Step B prep (2026-10-30):** WB canonical blocker cleared; nine-activity inventory; fingerprints; zero SS links; migration `20261030180000` + focused suite.
+
+- [x] **Culture-A Step B apply + verify (2026-10-30):** authorized isolated `db push` of only `20261030180000` to `kivvmobjphtcgxoltqbc`; live **6 / 53 / 53 / 6**; history **25 / 0 / 0**; nine memberships; zero Culture SS links; Opener/Story/LiA/Grammar/CLIL unchanged. Owner-accepted under advance authorization.
+
+- [x] **Culture-B/C implementation + automated acceptance (2026-10-30):** exact Culture package/renderer; default-off `VITE_NLL_CHALKIE_CULTURE_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only. Dedicated focused **9/9**; retained batch **178/178**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no Culture commit/push.
+
+- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, Writing or broader Unit 8 implementation without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 
 - [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
 

@@ -590,8 +590,8 @@ test('LiA fails closed when verified scope fields are altered', () => {
 })
 
 test('assembler rejects resolver-wired relationships outside the accepted pairs', () => {
-  // Culture Connection remains package-unsupported (CLIL 134–135 is now accepted).
-  const input = allSelected([138, 139])
+  // Writing remains package-unsupported (Culture 138–139 is now accepted).
+  const input = allSelected([140])
   assert.throws(
     () => buildNeutralSbWbLessonPackage(input),
     /not enabled for relationship/,
@@ -1042,6 +1042,147 @@ test('CLIL/P.E. remains BI-absent and fails closed on altered scope', () => {
         companion: {
           ...input.companion,
           studentBookPrintedPages: [134],
+        },
+      }),
+    /Verified scope does not match/,
+  )
+})
+
+test('Culture all-selected package preserves exact SB138–139 / WB113–114 scope and order', () => {
+  const input = allSelected([138, 139])
+  const lessonPackage = buildNeutralSbWbLessonPackage(input)
+
+  assert.equal(
+    lessonPackage.identity.packageReference,
+    'be3-sb-wb-u08-p138-139-wb113-114',
+  )
+  assert.equal(
+    lessonPackage.identity.relationshipId,
+    'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
+  )
+  assert.equal(lessonPackage.identity.componentKey, 'culture')
+  assert.equal(lessonPackage.identity.componentTitle, 'Culture Connection')
+  assert.deepEqual(lessonPackage.lesson1.scope, {
+    source: 'SB',
+    catalogBookId: 'big_english_3_sb',
+    pageIds: ['bep3_sb_p138', 'bep3_sb_p139'],
+    printedPages: [138, 139],
+  })
+  assert.deepEqual(lessonPackage.lesson2.scope, {
+    source: 'WB',
+    catalogBookId: 'big_english_3_wb',
+    pageIds: ['bep_3_wb_p113', 'bep_3_wb_p114'],
+    printedPages: [113, 114],
+  })
+  assert.deepEqual(
+    lessonPackage.lesson1.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['24', '25', '26', '27'],
+  )
+  assert.deepEqual(
+    lessonPackage.lesson2.selectedActivities.map(
+      (activity) => activity.activityNumber,
+    ),
+    ['20', '21', '22', '23', 'THINK BIG'],
+  )
+  assert.equal(lessonPackage.lesson1.selection.status, 'all_selected')
+  assert.equal(lessonPackage.lesson2.selection.status, 'all_selected')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.equal(lessonPackage.derivedKnowledge, undefined)
+  assert.doesNotMatch(
+    JSON.stringify(lessonPackage),
+    /bep3_sb_p134|bep_3_wb_p109|bep3_sb_p136|bep_3_wb_p111|bep3_sb_p140/,
+  )
+})
+
+test('Culture partial and zero selection stay selection-honest without reconstruction', () => {
+  const input = allSelected([138, 139])
+  const act25 = input.sbCards.find((card) => card.activityNumber === '25')
+  const act21 = input.wbCards.find((card) => card.activityNumber === '21')
+  assert.ok(act25)
+  assert.ok(act21)
+
+  const partial = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(
+      input.sbCards,
+      setSbActivityCardSelected({
+        cards: input.sbCards,
+        state: createDefaultSbActivitySelection(input.sbCards),
+        cardId: act25.id,
+        selected: false,
+      }),
+    ),
+    wbSelection: createWbActivityHandoffSelection(
+      input.wbCards,
+      setWbActivityCardSelected({
+        cards: input.wbCards,
+        state: createDefaultWbActivitySelection(input.wbCards),
+        cardId: act21.id,
+        selected: false,
+      }),
+    ),
+  })
+  assert.equal(partial.lesson1.selection.status, 'partial_selection')
+  assert.equal(partial.lesson2.selection.status, 'partial_selection')
+  assert.equal(
+    partial.lesson1.selectedActivities.some(
+      (activity) => activity.activityNumber === '25',
+    ),
+    false,
+  )
+  assert.equal(
+    partial.lesson2.selectedActivities.some(
+      (activity) => activity.activityNumber === '21',
+    ),
+    false,
+  )
+
+  const zeroBoth = buildNeutralSbWbLessonPackage({
+    companion: input.companion,
+    sbSelection: createSbActivityHandoffSelection(input.sbCards, {
+      selectedCardIds: [],
+    }),
+    wbSelection: createWbActivityHandoffSelection(input.wbCards, {
+      selectedCardIds: [],
+    }),
+  })
+  assert.equal(zeroBoth.lesson1.selection.status, 'zero_selected')
+  assert.equal(zeroBoth.lesson2.selection.status, 'zero_selected')
+  assert.equal(zeroBoth.lesson1.selectedActivities.length, 0)
+  assert.equal(zeroBoth.lesson2.selectedActivities.length, 0)
+})
+
+test('Culture remains BI-absent and fails closed on altered scope', () => {
+  const input = allSelected([138, 139])
+  const lessonPackage = buildNeutralSbWbLessonPackage({
+    ...input,
+    bookIntelligenceUnit: {
+      unitId: 'big_english_3_sb_unit_08',
+      unitNumber: '8',
+      title: 'Healthy Living',
+      vocabulary: 'MUST-NOT-ENTER',
+      grammarStructures: 'MUST-NOT-ENTER',
+      communicativeFunctions: 'Culture must not attach BI.',
+      learningOutcomes: 'Culture must not attach BI.',
+      learningOutcomesProvenance: 'ai_inferred',
+      clilCulture: 'MUST-NOT-ENTER',
+      values: 'MUST-NOT-ENTER',
+      phonics: 'MUST-NOT-ENTER',
+    },
+  })
+  assert.equal(lessonPackage.identity.componentKey, 'culture')
+  assert.equal(lessonPackage.curriculumInterpretation, undefined)
+  assert.doesNotMatch(JSON.stringify(lessonPackage), /MUST-NOT-ENTER/)
+
+  assert.throws(
+    () =>
+      buildNeutralSbWbLessonPackage({
+        ...input,
+        companion: {
+          ...input.companion,
+          studentBookPrintedPages: [138],
         },
       }),
     /Verified scope does not match/,

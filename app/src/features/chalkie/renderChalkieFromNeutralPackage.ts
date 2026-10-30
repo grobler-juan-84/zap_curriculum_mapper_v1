@@ -1,11 +1,12 @@
 /**
  * Shared Chalkie dispatcher for the parity-proved neutral SB→WB packages.
  *
- * Production UI may call Opener/Story/LiA/Grammar/CLIL only through their guarded
- * canaries or default-off NLL adapter pilots. Flag-off Grammar/CLIL remain sb_only.
+ * Production UI may call Opener/Story/LiA/Grammar/CLIL/Culture only through their guarded
+ * canaries or default-off NLL adapter pilots. Flag-off Grammar/CLIL/Culture remain sb_only.
  */
 import type { NeutralSbWbLessonPackage } from './buildNeutralSbWbLessonPackage'
 import { renderBe3U08ClilPeNeutralPackageToChalkieShadow } from './renderBe3U08ClilPeNeutralPackageToChalkieShadow'
+import { renderBe3U08CultureNeutralPackageToChalkieShadow } from './renderBe3U08CultureNeutralPackageToChalkieShadow'
 import { renderBe3U08GrammarNeutralPackageToChalkieShadow } from './renderBe3U08GrammarNeutralPackageToChalkieShadow'
 import { renderBe3U08LiaNeutralPackageToChalkieShadow } from './renderBe3U08LiaNeutralPackageToChalkieShadow'
 import { renderBe3U08OpenerNeutralPackageToChalkieShadow } from './renderBe3U08OpenerNeutralPackageToChalkieShadow'
@@ -21,6 +22,8 @@ const CLIL_PE_RELATIONSHIP_ID =
   'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110'
 const GRAMMAR_RELATIONSHIP_ID =
   'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112'
+const CULTURE_RELATIONSHIP_ID =
+  'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114'
 
 export type ChalkieNeutralPackageRenderOutput = {
   readonly detailedHandoff: string
@@ -62,6 +65,8 @@ export function renderChalkieFromNeutralPackage(
       return renderBe3U08ClilPeNeutralPackageToChalkieShadow(lessonPackage)
     case GRAMMAR_RELATIONSHIP_ID:
       return renderBe3U08GrammarNeutralPackageToChalkieShadow(lessonPackage)
+    case CULTURE_RELATIONSHIP_ID:
+      return renderBe3U08CultureNeutralPackageToChalkieShadow(lessonPackage)
     default:
       throw new UnsupportedNeutralPackageRendererError(
         lessonPackage.identity.relationshipId,
