@@ -6969,3 +6969,22 @@
 - `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
 
 ---
+
+### Step 403
+
+**Summary:** Work-PC checkpoint for home-PC transfer. Recorded local Grammar-A Step B artifacts (`20261030160000` migration + focused suite with 10 memberships, 10 preferred hidden/experimental summaries, one proposed Structures link; focused 4/4; retained Opener/schema + Story + LiA 13/13) as prepared but unapplied. Recorded completed migration-history reconciliation (20 history-only applied repairs; final matrix 22 recorded / Grammar local-only / 0 remote-only; linked dry-run lists only Grammar). Live NLL remains 3/23/23/5 with Grammar absent; catalog 3/14/150/14; buckets present. Broader authenticated grants acknowledged as separate hardening (RLS does not govern TRUNCATE/REFERENCES/TRIGGER). Next gate is separately authorized Grammar-only DB application. No Grammar apply, non-dry-run push, live NLL change, grant/policy/Storage change, deployment, or promotion.
+
+**Files touched:**
+- `supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql` (created)
+- `scripts/tests/nllBe3U08GrammarSeedStepB.test.ts` (created)
+- `docs/project-tracking/be3-u08-grammar-step-b-insertion-plan-v0.1.md` (created)
+- `docs/project-tracking/supabase-migration-history-reconciliation-plan-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-grammar-transfer-planning-brief-v0.1.md` (updated)
+
+---

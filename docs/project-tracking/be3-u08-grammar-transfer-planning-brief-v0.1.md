@@ -1,20 +1,22 @@
 # BE3 Unit 8 Grammar Transfer Planning Brief v0.1
 
-**Status:** DOCUMENTATION ONLY — Grammar-A Step A owner-accepted 2026-10-30; Grammar-A Step B / Grammar-B / Grammar-C unauthorized
+**Status:** DOCUMENTATION ONLY — Grammar-A Step A owner-accepted; Step B prepared locally but unapplied; Grammar-B / Grammar-C unauthorized
 **Version:** 0.1
 **Date:** 2026-10-30
-**Authority:** Owner-directed documentation-only planning; Grammar-A Step A content accepted 2026-10-30; D022, D026 and D027 remain in force
-**Implementation authorization:** **None for Step B / B / C.** This document does **not** authorize Grammar-A Step B, Grammar-B, Grammar-C, coding, NLL insertion, database work, deployment, promotion, commit, or push.
+**Authority:** Owner-directed planning; Grammar-A Step A content accepted 2026-10-30; Step B local artifacts prepared; D022, D026 and D027 remain in force
+**Implementation authorization:** Local Step B migration + static suite prepared. This document does **not** authorize applying `20261030160000`, Grammar-B, Grammar-C, live NLL insertion, deployment, or promotion.
 
 ---
 
 ## 0. Standing constraints (read first)
 
-1. **LiA-C is owner-accepted and undeployed.** Grammar remains **separately gated** and is **not** an active implementation stream beyond accepted Step A documentation.
+1. **LiA-C is owner-accepted and undeployed.** Grammar remains **separately gated**.
 2. The earlier WB evidence blocker is **cleared**. Trusted SB (`3924fa23…67e6`) and WB (`811deea2…04fa`) canonicals are restored locally (gitignored).
-3. Exact Grammar inventory and summary designs are recorded in the owner-accepted knowledge review: [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md).
-4. Opener, Story, LiA, and provisional CLIL/P.E. briefs are architectural patterns only — not permission to reuse their content assumptions for Grammar.
-5. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
+3. Exact Grammar inventory and summary designs are recorded in the owner-accepted knowledge review: [`be3-u08-grammar-knowledge-review-v0.1.md`](./be3-u08-grammar-knowledge-review-v0.1.md). Local Step B insertion plan: [`be3-u08-grammar-step-b-insertion-plan-v0.1.md`](./be3-u08-grammar-step-b-insertion-plan-v0.1.md).
+4. **Grammar-A Step B** migration `20261030160000` and focused suite exist locally (10 memberships, 10 preferred hidden/experimental summaries, one proposed Structures link; focused **4/4**; retained **13/13**) but remain **unapplied**. Live NLL is still **3 / 23 / 23 / 5** with Grammar absent.
+5. Migration-history reconciliation is complete (22 recorded / Grammar local-only). Next gate is separately authorized Grammar-only DB application.
+6. Opener, Story, LiA, and provisional CLIL/P.E. briefs are architectural patterns only — not permission to reuse their content assumptions for Grammar.
+7. Default serving for this relationship remains **`sb_only`**. No serving-path change is proposed here.
 
 ---
 
@@ -93,7 +95,7 @@ Owner-accepted Grammar-A Step A inventory (see knowledge review):
 |---:|---|---:|---:|
 | 6–10 (after SB 19–23) | `bep_3_wb_act_111_15` … `bep_3_wb_act_112_19` | 111–112 | 15–19 |
 
-No NLL memberships or summaries have been inserted. Grammar-A Step B remains unauthorized.
+No NLL memberships or summaries have been inserted live. Grammar-A Step B is prepared locally and remains **unapplied**.
 
 ---
 
@@ -139,9 +141,9 @@ Accepted Step A outcomes (not inserted):
 - fingerprints and provenance bindings to trusted SB/WB hashes;
 - Structures as a future `proposed` SS link only; I can… withheld.
 
-**Grammar-A Step B** (migration/seed/NLL insertion) is the next possible owner gate and is **not** authorized.
+**Grammar-A Step B** local migration and focused suite are prepared (`20261030160000`). **Database application** is the next owner gate and is **not** authorized by this checkpoint.
 
-**Explicitly prohibited without separate authorization:** migration, seed, database write, live-NLL insert, promotion, or coding of package/renderer/adapter layers.
+**Explicitly prohibited without separate authorization:** applying the Grammar migration, live-NLL insert, promotion, or coding of package/renderer/adapter layers (Grammar-B/C).
 
 ### Grammar-B — neutral package and renderer parity
 
@@ -195,7 +197,7 @@ Do not specify module names, flag identifiers, or overlay wiring details in this
 5. **Structures** may become a future `proposed` SS link only; **I can…** remains withheld; Vocabulary unsuitable.
 6. **Future parity** uses verified source contract plus owner-reviewed artifacts.
 7. **Default behavior remains `sb_only`.**
-8. **Grammar-A Step B, Grammar-B, and Grammar-C are not authorized.**
+8. **Grammar-A Step B database application, Grammar-B, and Grammar-C are not authorized** by this brief (local Step B artifacts may exist unapplied).
 9. **No broader implementation authority is created** (no CLIL/P.E./Culture/Writing/Phonics/Values/Review or other-unit work).
 
 ---
@@ -204,10 +206,10 @@ Do not specify module names, flag identifiers, or overlay wiring details in this
 
 This brief does **not** authorize:
 
-- Grammar-A Step B migration, seed, or NLL insertion;
-- application, configuration, or test work;
+- applying `20261030160000` / live Grammar NLL insertion;
+- Grammar-B / Grammar-C package, renderer, or adapter work;
 - canonical mutation;
-- Supabase CLI, database writes, or Storage mutations;
+- further migration-history repair or non-dry-run `db push`;
 - feature flags;
 - package, renderer, adapter, overlay, or resolver changes;
 - promotion or deployment;
@@ -218,8 +220,8 @@ This brief does **not** authorize:
 
 ## 10. Recommendation for next owner action
 
-1. Treat Grammar-A Step B as the next **possible** owner gate — not active work.
-2. Do not start Grammar coding, NLL insertion, package/renderer/adapter work, or serving changes from this file alone.
+1. Treat **Grammar-only DB application of `20261030160000`** as the next **possible** owner gate — not active work and not authorized by local preparation alone.
+2. Do not start Grammar-B/C coding, serving changes, or promotion from this file alone.
 3. Keep CLIL/P.E., Culture, Writing, Phonics, Values, and Review at their existing docs-only statuses.
 
 ---

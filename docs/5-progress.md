@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 402
+**Last updated:** Step 403
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -14,34 +14,35 @@
 - **D024 / D025 NLL pilot complete on `main`:** Opener migration applied; persistent seed and RLS verified.
 - **D026 Batch 0** and audit evidence are on `main`. Stage 1–2 docs (D027 + roadmap) recorded.
 - **Stages 3–5 complete (bounded):** owner-accepted default-off Opener pilots on `main`; undeployed/unpromoted. Opener summaries remain `hidden` + `experimental`.
-- **Stage 6A complete and owner-accepted:** BE3 U8 Story NLL knowledge live at totals **2 / 14 / 14 / 3** (`be3-u08-story` draft; five preferred v1 summaries `hidden`/`experimental`; one Structures link `proposed`; WB p.107 excluded). Migration `20261029180000` recorded as applied remotely. Opener remains **1 / 9 / 9 / 2**.
-- **Stage 6B complete and owner-accepted:** default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`; automated **74/74**, typecheck pass, lint pass (pre-existing warnings only); authenticated manual acceptance passed. Undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations.
-- **LiA-A complete and owner-accepted:** `be3-u08-lia` is live as `draft` with nine ordered memberships, nine preferred v1 summaries `hidden`/`experimental`, and Structures + I can... links `proposed` (Vocabulary withheld). Totals are **3 / 23 / 23 / 5**; migration `20261029213000` is recorded as applied.
-- **LiA-B complete and owner-accepted:** exact BI/NLL-absent neutral package for SB pp.132–133 → WB pp.107–108 (`be3_sb_wb_rel_u08_lia_sb132-133_wb107-108` / `be3-sb-wb-u08-p132-133-wb107-108`) plus five-artifact renderer.
-- **LiA-C complete and owner-accepted (2026-10-30):** default-off `VITE_NLL_CHALKIE_LIA_ADAPTER_PILOT`; exact-scope Create-a-prompt series path; focused **15/15**; retained **172/172**; undeployed/unpromoted; flag-off LiA remains `sb_only`.
-- **Grammar-A Step A owner-accepted (2026-10-30):** documentation/content only for proposed `be3-u08-grammar` / `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112` / `be3-sb-wb-u08-p136-137-wb111-112`. Exact inventory SB Acts 19–23 + WB Acts 15–19 (ten ordered memberships); ten hidden/experimental preferred v1 summary designs (`evidence_status = sufficient`); SB bind `3924fa23…67e6`; WB bind `811deea2…04fa`; future Structures `proposed` link only; I can… withheld; grammar-box langs `08_03`/`08_04` are p.136 page context only. **No NLL insertion.** Grammar-A Step B / Grammar-B / Grammar-C unauthorized. Serving remains `sb_only`.
-- **Remaining BE3 U8 planning documented (docs-only, separately gated):** provisional/evidence-blocked CLIL/P.E., Culture, Writing, Phonics, and Review transfer briefs plus Values standalone architecture brief. Statuses unchanged by Grammar-A Step A acceptance.
+- **Stage 6A complete and owner-accepted:** BE3 U8 Story NLL knowledge live; migration `20261029180000` recorded as applied remotely.
+- **Stage 6B complete and owner-accepted:** default-off `VITE_NLL_CHALKIE_STORY_ADAPTER_PILOT`; undeployed/unpromoted. Stage 5 Opener and Stage 6B Story are the two accepted reference implementations.
+- **LiA-A/B/C complete and owner-accepted:** live `be3-u08-lia` draft with nine memberships, nine hidden/experimental summaries, and two proposed SS links; totals **3 / 23 / 23 / 5**; migration `20261029213000` recorded applied; LiA-C default-off and undeployed.
+- **Grammar-A Step A owner-accepted (2026-10-30):** documentation/content only for proposed `be3-u08-grammar` designs (ten memberships / ten summaries / Structures proposed only).
+- **Grammar-A Step B implemented locally (2026-10-30) — unapplied:** migration `20261030160000_seed_nll_be3_u08_grammar.sql` and focused suite prepared; 10 memberships, 10 preferred hidden/experimental summaries, one proposed Structures link. Focused tests **4/4**; retained Opener/schema + Story + LiA seed suites **13/13**. **Not live. Not accepted as applied.**
+- **Migration-history reconciliation complete (2026-10-30):** twenty already-live migrations marked applied in remote history only (no SQL re-execution). Final matrix: **22** remotely recorded, **1** local-only Grammar (`20261030160000`), **0** remote-only. Linked dry-run listed only Grammar. Live NLL unchanged at **3 / 23 / 23 / 5**; catalog **3 / 14 / 150 / 14**; Storage buckets present. Broader `authenticated` grants (`TRUNCATE`/`REFERENCES`/`TRIGGER` outside RLS) acknowledged as a separate security-hardening question.
+- **Remaining BE3 U8 planning documented (docs-only, separately gated):** CLIL/P.E., Culture, Writing, Phonics, Review, Values.
 
 ## In progress
 
-- None. Grammar-A Step B is the next possible owner gate, not active work.
+- None. Next owner gate is a separately authorized Grammar-only database application of `20261030160000`.
 
 ## Next
 
-- Hold promotion, deployment, NLL visibility changes, canary/POC/bespoke/fallback retirement, Supabase CLI/database/Storage writes, `.env.local` changes, Grammar-A Step B, Grammar-B/C, and any CLIL/Culture/Writing/Phonics/Values/Review implementation until separately authorized.
-- Deferred audit risk: older local migrations still show empty remote history entries (including Opener `20261029120000`).
+- Separately authorize Grammar-only DB application of `20261030160000` if desired (do not treat this checkpoint as apply authorization).
+- Hold promotion, deployment, NLL visibility changes, canary/POC/bespoke/fallback retirement, unrelated migrations, `.env.local` changes, Grammar-B/C, and further component implementation until separately authorized.
+- Grant/RLS hardening for documented privilege supersets remains separately gated.
 
 ## Blocked
 
 - NLL promotion and production deployment are not authorized.
-- Broad `supabase db push` is not authorized.
+- Grammar-A Step B database application is not authorized by this checkpoint.
+- Broader `supabase db push` / `--include-all` remain unauthorized.
 - Wider D026 feature freeze remains active outside bounded authorized slices.
-- Grammar-A Step B and next-component implementation are not authorized by Step A acceptance.
 
 ---
 
 ## Snapshot notes
 
-- Active Git branch: `main` (Grammar-A Step A acceptance documentation for Step 402; uncommitted unless separately authorized).
-- Live NLL: Opener + Story + LiA = **3 / 23 / 23 / 5**; all summaries remain hidden/experimental and all SS links remain proposed. Grammar has **no** live NLL component.
+- Active Git branch: `main` (Step 403 checkpoint: local Grammar Step B artifacts + history reconciliation docs).
+- Live NLL: Opener + Story + LiA = **3 / 23 / 23 / 5**; Grammar remains **absent** from live NLL.
 - Stages 3–5, Stage 6B, and LiA-C remain default-off and undeployed.
