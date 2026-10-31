@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Read-only spine metadata enrichment for same-unit PRIOR candidates.
  * Run: npx tsx --test scripts/tests/attachUnitLearningSpineMetadata.test.ts
  */
@@ -213,7 +213,7 @@ test('existing candidate content and Step 2 selection behaviour are unchanged', 
   const suggestion = teacherChoiceSuggestionFromPriorLearningCandidate(candidate)
   assert.equal(
     suggestion.label,
-    'Healthy and unhealthy activities: Unit 08 pp.128-128',
+    'Healthy and unhealthy activities: Unit 08 p.128',
   )
   assert.equal(suggestion.frame, candidate.contentPreview)
   assert.equal(suggestion.provenanceTag, '[PRIOR]')

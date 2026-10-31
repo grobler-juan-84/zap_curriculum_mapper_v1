@@ -13,6 +13,7 @@ import {
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/AuthProvider'
 import { useWorkspace } from '../../features/shell/WorkspaceProvider'
+import { formatWorkspaceLocationChip } from '../../features/shell/workspaceLocationChip'
 import { curriculumService } from '../../services/curriculumService'
 
 function initialsFromProfile(
@@ -34,9 +35,23 @@ export function Sidebar() {
   const {
     sidebarCollapsed: collapsed,
     toggleSidebar,
-    openDefaultBeehiveSpread,
     selectSeries,
+    currentBook,
+    currentSpread,
+    activePrintedPages,
   } = useWorkspace()
+
+  const locationPages =
+    activePrintedPages ??
+    (currentSpread
+      ? currentSpread.leftPageNumber === currentSpread.rightPageNumber
+        ? [currentSpread.leftPageNumber]
+        : [currentSpread.leftPageNumber, currentSpread.rightPageNumber]
+      : null)
+  const locationChipLabel = formatWorkspaceLocationChip({
+    bookTitle: currentBook?.title ?? null,
+    printedPages: locationPages,
+  })
 
   const displayName =
     [profile?.first_name, profile?.last_name].filter(Boolean).join(' ') ||
@@ -151,14 +166,15 @@ export function Sidebar() {
             <button
               type="button"
               onClick={() => {
-                openDefaultBeehiveSpread()
                 navigate('/app/workspace')
               }}
+              title={locationChipLabel}
+              aria-label={`Current book location: ${locationChipLabel}`}
               className="flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-xs text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-slate-200"
             >
               <Clock className="h-3.5 w-3.5 shrink-0 text-amber-400" />
               <div className="truncate">
-                <span className="text-slate-300">Beehive 1</span> · pp. 6–7
+                <span className="text-slate-300">{locationChipLabel}</span>
               </div>
             </button>
             <button

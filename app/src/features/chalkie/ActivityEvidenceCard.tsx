@@ -14,6 +14,30 @@ import type { Be3U08ExperimentalSummaryDisplay } from './be3U08ActivityEnrichmen
 
 export type ActivityEvidenceCardModel = SbActivityCard | WbActivityCard
 
+/**
+ * Selection-chrome answer visibility (VAL-01).
+ * Default hides keyed answers; opt-in reveals them. Card evidence is never mutated.
+ */
+export function selectionChromeExpectedAnswerTexts(
+  card: ActivityEvidenceCardModel,
+  revealExpectedAnswers = false,
+): readonly string[] {
+  if (!revealExpectedAnswers) return []
+  const out: string[] = []
+  const evidence = card.evidence
+  if (evidence.expectedAnswer?.trim()) out.push(evidence.expectedAnswer.trim())
+  for (const item of evidence.items) {
+    if (item.expectedAnswer?.trim()) out.push(item.expectedAnswer.trim())
+  }
+  if (
+    card.preview.kind === 'expected_answer' &&
+    card.preview.values.length > 0
+  ) {
+    out.push(...card.preview.values.map((value) => value.trim()).filter(Boolean))
+  }
+  return out
+}
+
 function splitLanguageExchange(line: string): {
   prompt: string
   response: string | null
@@ -114,27 +138,41 @@ function ActivityChrome({
 function ActivityEvidenceDetails({
   card,
   showActivityType = true,
+  revealExpectedAnswers = false,
 }: {
   card: ActivityEvidenceCardModel
   /** Left panel may show the verified type slug; modal review hides it. */
   showActivityType?: boolean
+  /**
+   * Selection chrome hides item/activity expected answers by default so teachers
+   * choose evidence without keyed answer dumps. Opt in only for contexts that
+   * explicitly need answers; underlying card.evidence remains unchanged.
+   */
+  revealExpectedAnswers?: boolean
 }) {
   const evidence = card.evidence
-  const hasItems = evidence.items.some(
-    (item) => item.prompt || item.expectedAnswer,
-  )
+  const itemCount = evidence.items.length
+  const visibleItems = evidence.items.filter((item) => {
+    if (item.prompt?.trim()) return true
+    if (revealExpectedAnswers && item.expectedAnswer?.trim()) return true
+    return false
+  })
+  const hasItems = visibleItems.length > 0
   const hasLinkedVocab = card.pageDedicatedVocabulary.length > 0
   const hasPreviewValues =
-    card.preview.kind !== 'empty' && card.preview.values.length > 0
+    card.preview.kind !== 'empty' &&
+    card.preview.values.length > 0 &&
+    (revealExpectedAnswers || card.preview.kind !== 'expected_answer')
   const showEnrichment =
     (showActivityType && Boolean(evidence.activityType)) ||
     evidence.audioDependency ||
     evidence.visualDependency ||
     Boolean(evidence.languageFrame) ||
     Boolean(evidence.prompt) ||
-    Boolean(evidence.expectedAnswer) ||
+    (revealExpectedAnswers && Boolean(evidence.expectedAnswer)) ||
     Boolean(evidence.sourceDependencyNote) ||
     hasItems ||
+    (!revealExpectedAnswers && itemCount > 0) ||
     hasLinkedVocab ||
     hasPreviewValues
 
@@ -164,7 +202,7 @@ function ActivityEvidenceDetails({
               {evidence.prompt}
             </p>
           ) : null}
-          {evidence.expectedAnswer ? (
+          {revealExpectedAnswers && evidence.expectedAnswer ? (
             <p className="text-xs text-slate-700">
               <span className="font-medium text-slate-500">Expected answer:</span>{' '}
               {evidence.expectedAnswer}
@@ -172,8 +210,7 @@ function ActivityEvidenceDetails({
           ) : null}
           {hasItems ? (
             <ul className="space-y-1.5" aria-label="Activity items">
-              {evidence.items.map((item, index) => {
-                if (!item.prompt && !item.expectedAnswer) return null
+              {visibleItems.map((item, index) => {
                 return (
                   <li
                     key={`${card.id}-item-${item.itemNumber ?? index}`}
@@ -185,7 +222,7 @@ function ActivityEvidenceDetails({
                     {item.prompt ? (
                       <p className="text-xs text-slate-800">{item.prompt}</p>
                     ) : null}
-                    {item.expectedAnswer ? (
+                    {revealExpectedAnswers && item.expectedAnswer ? (
                       <p className="text-xs text-slate-600">
                         Answer: {item.expectedAnswer}
                       </p>
@@ -194,6 +231,10 @@ function ActivityEvidenceDetails({
                 )
               })}
             </ul>
+          ) : !revealExpectedAnswers && itemCount > 0 ? (
+            <p className="text-[11px] text-slate-500" data-activity-item-count>
+              {itemCount === 1 ? '1 item' : `${itemCount} items`}
+            </p>
           ) : null}
           {hasPreviewValues &&
           card.preview.kind !== 'language_model' &&
@@ -235,15 +276,20 @@ function ActivityEvidenceDetails({
 export function ActivityEvidenceBody({
   card,
   pagePrefix,
+  revealExpectedAnswers = false,
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
+  revealExpectedAnswers?: boolean
 }) {
   return (
     <div className="min-w-0 flex-1">
       <ActivityChrome card={card} pagePrefix={pagePrefix} />
       <div className="mt-1">
-        <ActivityEvidenceDetails card={card} />
+        <ActivityEvidenceDetails
+          card={card}
+          revealExpectedAnswers={revealExpectedAnswers}
+        />
       </div>
     </div>
   )
@@ -418,6 +464,7 @@ export function ActivityEvidenceCard({
   layout = 'panel',
   experimentalSummary,
   nllComparison = null,
+  revealExpectedAnswers = false,
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
@@ -438,6 +485,11 @@ export function ActivityEvidenceCard({
    * Ignored for left-panel (`panel`) layout. Never blank the whole card.
    */
   nllComparison?: NllCardComparisonDisplayState | null
+  /**
+   * Opt-in: show item/activity expected answers in selection chrome.
+   * Default false — answers stay on the card model for non-UI consumers.
+   */
+  revealExpectedAnswers?: boolean
 }) {
   const selectable = typeof onSelectedChange === 'function'
   const checked = selected ?? true
@@ -502,7 +554,11 @@ export function ActivityEvidenceCard({
           ) : (
             <div className="min-w-0 flex-1 space-y-1.5">
               <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
-              <ActivityEvidenceDetails card={card} showActivityType={false} />
+              <ActivityEvidenceDetails
+                card={card}
+                showActivityType={false}
+                revealExpectedAnswers={revealExpectedAnswers}
+              />
             </div>
           )}
         </div>
@@ -514,7 +570,11 @@ export function ActivityEvidenceCard({
     <li className={shellClass} data-activity-card-layout="panel">
       <div className={selectable ? 'flex gap-2.5' : undefined}>
         {checkbox}
-        <ActivityEvidenceBody card={card} pagePrefix={pagePrefix} />
+        <ActivityEvidenceBody
+          card={card}
+          pagePrefix={pagePrefix}
+          revealExpectedAnswers={revealExpectedAnswers}
+        />
       </div>
     </li>
   )

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { BookWorkspace } from './BookWorkspace'
@@ -7,11 +8,28 @@ export function BookWorkspacePage() {
   const {
     currentSeries,
     currentBook,
+    currentSpread,
     currentSpreadId,
     setCurrentSpreadId,
+    setActivePrintedPages,
     catalogLoading,
     catalogError,
   } = useWorkspace()
+
+  useEffect(() => {
+    if (!currentSpread) {
+      setActivePrintedPages(null)
+      return
+    }
+    if (currentSpread.leftPageNumber === currentSpread.rightPageNumber) {
+      setActivePrintedPages([currentSpread.leftPageNumber])
+      return
+    }
+    setActivePrintedPages([
+      currentSpread.leftPageNumber,
+      currentSpread.rightPageNumber,
+    ])
+  }, [currentSpread, setActivePrintedPages])
 
   if (catalogLoading) {
     return (

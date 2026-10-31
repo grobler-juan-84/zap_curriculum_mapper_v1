@@ -471,6 +471,7 @@ test('POC-only path remains when comparison is off; selection wiring stays intac
   assert.match(overlaySource, /onSbActivitySelectionChange/)
   assert.match(overlaySource, /onWbActivitySelectionChange/)
   assert.match(overlaySource, /experimentalSummary=\{/)
+  assert.match(overlaySource, /Activity enrichment experiment · not NLL adapter/)
   // Comparison is additive and default-off; POC getters remain the summary source.
   assert.match(overlaySource, /getBe3U08ActivitySummary/)
   assert.match(overlaySource, /getBe3U08WbActivitySummary/)

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Slice 3 — curated earlier-unit [HM] candidates.
  * Run: npx tsx --test scripts/tests/buildCuratedHorizontalMappingCandidates.test.ts
  */
@@ -353,7 +353,7 @@ test('BE2 resolver route stays optional/unchecked and handoff uses [HM] only whe
     selectedSuggestions: selected,
     teacherAdditions: [],
   })
-  assert.match(withHm, /\[HM\] Preference: Unit 07 pp\.113-116/)
+  assert.match(withHm, /\[HM\] Preference: Unit 07 pp\.113–116/)
 })
 
 test('BE3 ready route keeps PRIOR behavior and has no curated [HM] without entries', () => {

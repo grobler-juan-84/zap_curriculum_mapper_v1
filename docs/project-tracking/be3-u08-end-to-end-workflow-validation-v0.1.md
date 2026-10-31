@@ -410,7 +410,11 @@ Shared fix targets at freeze: **NAV-01, JUMP-01, NAV-02, SCOPE-01, SEL-01**.
 | SCOPE-01 | **fixed** (residual title/SS chrome completed — see §15b) |
 | SEL-01 | **fixed** (pending default until SB cards arrive; nav lock no longer freezes empty selection) |
 | COV-01 | **fixed** (coverage) |
-| VAL-01 / UX-01 / UX-02 / PRIOR-01 / ENV-01 | **deferred** (out of batch; not addressed in SCOPE-01 residual) |
+| VAL-01 | **fixed** (UI polish batch — see §15c) |
+| UX-01 | **fixed** (UI polish batch — see §15c) |
+| UX-02 | **fixed** (UI polish batch — see §15c) |
+| PRIOR-01 | **fixed** (UI polish batch — see §15c) |
+| ENV-01 | **owner-local hygiene** (not a repository defect — see §15c) |
 
 Original pre-fix evidence retained above and in `tmp/e2e-evidence/`.
 
@@ -449,17 +453,49 @@ Outside-unit pages already cleared lesson evidence/activities/companion, but gro
 | Re-enter pp.128–129 | Unit 8 title + evidence + companion restored |
 | Re-enter p.141 | Unit 8 title + evidence + companion restored |
 
-### Remaining issue inventory (unchanged deferred set)
+NAV-01, JUMP-01, NAV-02, SCOPE-01, SEL-01, COV-01 are **fixed** (nav/scope batch). VAL-01 / UX-01 / UX-02 / PRIOR-01 completed in §15c.
+
+---
+
+## 15c. Unit 8 UI polish batch (VAL-01 / UX-01 / UX-02 / PRIOR-01)
+
+**Starting checkpoint:** `d27a9f305a7f8f7d3bafcaad6384902c58fcdef8` on `main`.
+
+### Root causes and fixes
+
+| Issue | Root cause | Fix |
+|---|---|---|
+| VAL-01 | `ActivityEvidenceCard` rendered item `expectedAnswer` (`Answer: …`) in selection chrome | Hide expected answers by default; require `revealExpectedAnswers` opt-in; evidence data unchanged |
+| UX-01 | Enrichment POC Step 4 label read as Neutral Lesson Package / NLL | Gate remains POC-flag-only; relabel **Activity enrichment experiment · not NLL adapter**; adapters stay decoupled |
+| UX-02 | Sidebar Quick Jump hard-coded `Beehive 1 · pp. 6–7` | Shared workspace `activePrintedPages` + `formatWorkspaceLocationChip`; Chalkie/Book Workspace publish pages |
+| PRIOR-01 | `formatPriorSkillCardTitle` always used `pp.A-B` even when A=B | Shared single/multi formatter: `p.128` / `pp.128–129` |
+| ENV-01 | Local `app/.env.local` opener canary true | **Not edited.** Owner-local choice; process overrides still required for clean flag-off validation |
+
+### Automated evidence
+
+- Focused polish + related prior/enrichment suites: **78/78**
+- Canonical Unit 8 matrix: **353/353**
+- Typecheck pass; lint warnings only; `git diff --check` clean; encoding/secret scan clean
+
+### Browser evidence (`tmp/e2e-evidence/postfix-ui-polish.json`)
+
+| Check | Result |
+|---|---|
+| Values Activity 36 | No `Answer: healthy/unhealthy` in selection chrome |
+| Flag-off Opener | No enrichment projection / AI summary experimental chrome |
+| Enrichment-POC-on (adapters off) | Separated label + package attr; old projection title absent |
+| Sidebar two-page | `Big English 3 Student Book · pp.128–129` |
+| Sidebar single-page | `Big English 3 Student Book · p.141` |
+| Beehive switch | `Beehive 1 Student Book · pp.6–7` (no stale BE3) |
+| Prior collapse | `pp.128-128` absent in UI walk |
+
+### Remaining issue inventory
 
 | Issue | Disposition |
 |---|---|
-| VAL-01 | deferred |
-| UX-01 | deferred |
-| UX-02 | deferred |
-| PRIOR-01 | deferred |
-| ENV-01 | deferred |
+| ENV-01 | owner-local hygiene (`.env.local` unchanged; process overrides for validation) |
 
-NAV-01, JUMP-01, NAV-02, SCOPE-01, SEL-01, COV-01 are **fixed**.
+All originally frozen nav/scope + polish defects above are fixed except ENV-01 (local config, not a repo defect).
 
 ---
 
@@ -467,16 +503,16 @@ NAV-01, JUMP-01, NAV-02, SCOPE-01, SEL-01, COV-01 are **fixed**.
 
 ```text
 Branch: main
-HEAD: 0d135cda55b3245d3779f778f9131ae5f01f1630
+HEAD (checkpoint before polish): d27a9f305a7f8f7d3bafcaad6384902c58fcdef8
 ```
 
-Uncommitted: shared nav/scope + residual SCOPE-01 chrome code/tests + this report/trackers. **No commit/push performed.**
+Uncommitted: Unit 8 UI polish code/tests + this report/trackers. **No commit/push performed in the polish batch.**
 
 ---
 
 ## 17. Explicit non-mutation confirmation
 
-This combined validation + shared-nav + residual SCOPE-01 fix pass:
+This UI polish pass:
 
 - did **not** mutate the database or Storage;  
 - did **not** promote summaries/links or enable flags permanently;  
@@ -484,7 +520,6 @@ This combined validation + shared-nav + residual SCOPE-01 fix pass:
 - did **not** modify migrations, canonicals, or `.env.local`;  
 - did **not** change feature-flag defaults;  
 - did **not** commit or push;  
-- did **not** begin another unit or book;
-- did **not** address VAL-01, UX-01, UX-02, PRIOR-01, or ENV-01.
+- did **not** begin another unit or book.
 
 Temporary process env overrides and gitignored evidence under `tmp/e2e-evidence/` only. Credentials were not exposed in artifacts.

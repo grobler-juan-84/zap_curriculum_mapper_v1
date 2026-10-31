@@ -20,20 +20,36 @@ export type TeacherChoiceSuggestion = {
   evidenceKindLabel?: string
 }
 
-/** Card / prompt title: `Preference: Unit 07 pp.113-116` */
+/**
+ * Card / prompt title page scope.
+ * Single page → `Unit 08 p.128`; multi-page → `Unit 08 pp.128–129`.
+ * Keeps existing two-digit unit padding and page zero-pad for 1–2 digit pages.
+ */
+export function formatPriorSkillPageScope(input: {
+  unitNumber: number
+  pageStart: number
+  pageEnd: number
+}): string {
+  const unit = String(input.unitNumber).padStart(2, '0')
+  const start = String(input.pageStart).padStart(2, '0')
+  const end = String(input.pageEnd).padStart(2, '0')
+  if (input.pageStart === input.pageEnd) {
+    return `Unit ${unit} p.${start}`
+  }
+  return `Unit ${unit} pp.${start}–${end}`
+}
+
+/** Card / prompt title: `Preference: Unit 07 pp.113–116` */
 export function formatPriorSkillCardTitle(input: {
   unitNumber: number
   pageStart: number
   pageEnd: number
   skillName: string
 }): string {
-  const unit = String(input.unitNumber).padStart(2, '0')
-  const start = String(input.pageStart).padStart(2, '0')
-  const end = String(input.pageEnd).padStart(2, '0')
-  return `${input.skillName.trim()}: Unit ${unit} pp.${start}-${end}`
+  return `${input.skillName.trim()}: ${formatPriorSkillPageScope(input)}`
 }
 
-/** Split `Preference: Unit 07 pp.113-116` for UI (bold skill name only). */
+/** Split `Preference: Unit 07 pp.113–116` for UI (bold skill name only). */
 export function splitPriorSkillCardTitle(label: string): {
   skillName: string
   bookSources: string | null

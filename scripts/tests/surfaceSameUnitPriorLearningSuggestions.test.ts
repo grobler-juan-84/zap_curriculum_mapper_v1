@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Slice 2 — candidate-aware same-unit PRIOR suggestion surfacing.
  * Run: npx tsx --test scripts/tests/surfaceSameUnitPriorLearningSuggestions.test.ts
  */
@@ -160,7 +160,7 @@ test('surfaceSameUnitPriorLearningSuggestions maps PRIOR only and preserves orde
   assert.equal(surfaced[0]!.provenanceTag, '[PRIOR]')
   assert.equal(
     surfaced[0]!.label,
-    'Healthy and unhealthy activities: Unit 08 pp.128-128',
+    'Healthy and unhealthy activities: Unit 08 p.128',
   )
 })
 

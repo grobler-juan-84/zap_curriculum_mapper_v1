@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Focused concise-outline tests (local, no API).
  * Run: npx tsx --test scripts/tests/buildChalkieConciseOutline.test.ts
  */
@@ -431,7 +431,7 @@ test('BE2 curated detailed prompt behaviour remains intact', () => {
     selectedSuggestions: selected,
     teacherAdditions: [],
   })
-  assert.match(prompt, /\[HM\] Preference: Unit 07 pp\.113-116/)
+  assert.match(prompt, /\[HM\] Preference: Unit 07 pp\.113–116/)
 
   const outline = buildChalkieConciseOutline({
     lesson,

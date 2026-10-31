@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Slice 1 — same-unit read-only PRIOR candidate model tests.
  * Run: npx tsx --test scripts/tests/buildSameUnitPriorLearningCandidates.test.ts
  */
@@ -177,7 +177,7 @@ test('TeacherChoiceSuggestion adapter preserves existing Step 2 card behaviour',
   assert.equal(derived[0]?.evidenceKindLabel, 'Vocabulary')
   assert.equal(
     derived[0]?.label,
-    'Healthy and unhealthy activities: Unit 08 pp.128-128',
+    'Healthy and unhealthy activities: Unit 08 p.128',
   )
 })
 

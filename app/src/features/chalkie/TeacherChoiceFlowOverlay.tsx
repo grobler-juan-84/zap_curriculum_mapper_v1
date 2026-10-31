@@ -3145,14 +3145,22 @@ useEffect(() => {
                     {experimentalActivityEnrichmentPackage ? (
                       <div
                         className="space-y-2 border-t border-indigo-100 pt-3"
+                        data-experimental-activity-enrichment-package
                         data-experimental-neutral-lesson-package
                       >
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-                            Experimental Neutral Lesson Package projection
+                            Activity enrichment experiment · not NLL adapter
                           </p>
                           <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                            Selections are copied into this lesson-specific view only. Sidecar and publisher records remain unchanged.
+                            Bounded BE3 U8 activity-summary experiment (flag{' '}
+                            <span className="font-mono">
+                              VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC
+                            </span>
+                            ). Not production behaviour and not the Neutral Lesson
+                            Library component adapter. Selections are copied into this
+                            lesson-specific view only; sidecar and publisher records
+                            remain unchanged.
                           </p>
                         </div>
                         <div className="space-y-3">

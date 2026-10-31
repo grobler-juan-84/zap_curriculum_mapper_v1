@@ -16,6 +16,11 @@ interface WorkspaceContextValue {
   selectedSeriesId: string
   selectedBookUuid: string
   currentSpreadId: string
+  /**
+   * Authoritative printed-page scope for the active book surface (Chalkie lesson
+   * pages or Book Workspace spread). Null when unknown / cleared on book change.
+   */
+  activePrintedPages: readonly number[] | null
   sidebarCollapsed: boolean
   currentSeries: CurriculumSeries | null
   currentBook: Book | null
@@ -25,6 +30,7 @@ interface WorkspaceContextValue {
   selectSeries: (seriesId: string) => void
   selectBook: (bookUuid: string) => void
   setCurrentSpreadId: (spreadId: string) => void
+  setActivePrintedPages: (pages: readonly number[] | null) => void
   openDefaultBeehiveSpread: () => void
   reloadCatalog: () => void
 }
@@ -37,8 +43,35 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [catalogError, setCatalogError] = useState<string | null>(null)
   const [selectedSeriesId, setSelectedSeriesId] = useState('')
   const [selectedBookUuid, setSelectedBookUuid] = useState('')
-  const [currentSpreadId, setCurrentSpreadId] = useState('')
+  const [currentSpreadId, setCurrentSpreadIdState] = useState('')
+  const [activePrintedPages, setActivePrintedPagesState] = useState<
+    readonly number[] | null
+  >(null)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+
+  const setActivePrintedPages = useCallback((pages: readonly number[] | null) => {
+    if (pages == null) {
+      setActivePrintedPagesState(null)
+      return
+    }
+    const normalized = [
+      ...new Set(
+        pages
+          .filter((page) => Number.isFinite(page))
+          .map((page) => Math.floor(page)),
+      ),
+    ].sort((a, b) => a - b)
+    setActivePrintedPagesState(normalized.length ? normalized : null)
+  }, [])
+
+  const setCurrentSpreadId = useCallback(
+    (spreadId: string) => {
+      setCurrentSpreadIdState(spreadId)
+      // Clear until the active surface re-publishes pages for the new spread.
+      setActivePrintedPagesState(null)
+    },
+    [],
+  )
 
   useEffect(() => {
     let cancelled = false
@@ -53,7 +86,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         const defaults = curriculumService.getDefaultSelection()
         setSelectedSeriesId((current) => current || defaults.seriesId)
         setSelectedBookUuid((current) => current || defaults.bookUuid)
-        setCurrentSpreadId((current) => current || defaults.spreadId)
+        setCurrentSpreadIdState((current) => current || defaults.spreadId)
 
         // If previous selection disappeared after reload, fall back to defaults.
         if (seriesList.length > 0) {
@@ -61,7 +94,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
           if (selectedSeriesId && !seriesStillExists) {
             setSelectedSeriesId(defaults.seriesId)
             setSelectedBookUuid(defaults.bookUuid)
-            setCurrentSpreadId(defaults.spreadId)
+            setCurrentSpreadIdState(defaults.spreadId)
+            setActivePrintedPagesState(null)
           }
         }
       })
@@ -98,11 +132,12 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     const firstBook = series.books[0]
     if (firstBook) {
       setSelectedBookUuid(firstBook.id)
-      setCurrentSpreadId(firstBook.pageSpreads[0]?.id ?? '')
+      setCurrentSpreadIdState(firstBook.pageSpreads[0]?.id ?? '')
     } else {
       setSelectedBookUuid('')
-      setCurrentSpreadId('')
+      setCurrentSpreadIdState('')
     }
+    setActivePrintedPagesState(null)
   }, [])
 
   const selectBook = useCallback((bookUuid: string) => {
@@ -110,7 +145,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     if (!match) return
     setSelectedSeriesId(match.series.id)
     setSelectedBookUuid(match.book.id)
-    setCurrentSpreadId(match.book.pageSpreads[0]?.id ?? '')
+    setCurrentSpreadIdState(match.book.pageSpreads[0]?.id ?? '')
+    setActivePrintedPagesState(null)
   }, [])
 
   const openDefaultBeehiveSpread = useCallback(() => {
@@ -122,7 +158,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     }
     setSelectedSeriesId(match.series.id)
     setSelectedBookUuid(match.book.id)
-    setCurrentSpreadId(match.book.pageSpreads[0]?.id ?? '')
+    setCurrentSpreadIdState(match.book.pageSpreads[0]?.id ?? '')
+    setActivePrintedPagesState(null)
   }, [selectSeries])
 
   const toggleSidebar = useCallback(() => {
@@ -141,6 +178,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       selectedSeriesId,
       selectedBookUuid,
       currentSpreadId,
+      activePrintedPages,
       sidebarCollapsed,
       currentSeries,
       currentBook,
@@ -150,6 +188,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       selectSeries,
       selectBook,
       setCurrentSpreadId,
+      setActivePrintedPages,
       openDefaultBeehiveSpread,
       reloadCatalog,
     }),
@@ -159,6 +198,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       selectedSeriesId,
       selectedBookUuid,
       currentSpreadId,
+      activePrintedPages,
       sidebarCollapsed,
       currentSeries,
       currentBook,
@@ -166,6 +206,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       toggleSidebar,
       selectSeries,
       selectBook,
+      setCurrentSpreadId,
+      setActivePrintedPages,
       openDefaultBeehiveSpread,
       reloadCatalog,
     ],

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Focused teacher-choice flow tests (merged prior-learning + custom language).
  * Run: npx tsx --test scripts/tests/teacherChoiceFlow.test.ts
  */
@@ -330,7 +330,7 @@ test('combined prior-learning screen can select p.128 card and add custom langua
   const card = lesson.priorLearningSuggestions[0]
   selectedIds = toggleSelectedSuggestionId(selectedIds, card.id)
   assert.deepEqual(selectedIds, [card.id])
-  assert.match(card.label, /Healthy and unhealthy activities: Unit 08 pp\.128-128/)
+  assert.match(card.label, /Healthy and unhealthy activities: Unit 08 p\.128/)
 
   const added = appendTeacherAddedLanguage(
     teacherAdditions,
@@ -377,7 +377,7 @@ test('combined prior-learning screen can select p.128 card and add custom langua
     })),
   })
   assert.match(prompt, /\[PRIOR\]/)
-  assert.match(prompt, /Healthy and unhealthy activities: Unit 08 pp\.128-128/)
+  assert.match(prompt, /Healthy and unhealthy activities: Unit 08 p\.128/)
   assert.match(prompt, /have a big breakfast/)
   assert.match(prompt, /\[TEACHER-ADDED · UNVERIFIED\] Past habits: What did you do yesterday\?/)
   assert.match(prompt, /Purpose: Quick warm-up/)
@@ -472,6 +472,6 @@ test('BE2 curated prior-learning flow still reaches the local prompt', () => {
     selectedSuggestions: selected,
     teacherAdditions: [],
   })
-  assert.match(prompt, /\[HM\] Preference: Unit 07 pp\.113-116/)
+  assert.match(prompt, /\[HM\] Preference: Unit 07 pp\.113–116/)
   assert.doesNotMatch(prompt, /What do you choose/)
 })

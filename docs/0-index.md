@@ -79,7 +79,7 @@ AI-facing operating trackers: [`4-decisions.md`](./4-decisions.md), [`5-progress
 | [project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md](./project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md) | BE3 U8 Values architecture closed (D028): generic SB-only retained; no specialized NLL or A/B/C pipeline. | 0.1 | ACTIVE |
 | [project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md](./project-tracking/be3-u08-review-transfer-planning-brief-v0.1.md) | BE3 U8 Review transfer plan; Review-A applied; B/C behind default-off flag; zero SS links; Unit 8 pipeline complete. | 0.1 | ACTIVE |
 | [project-tracking/be3-u08-review-knowledge-review-v0.1.md](./project-tracking/be3-u08-review-knowledge-review-v0.1.md) | Review-A applied/verified; six memberships; zero SS links; B/C automated-accepted; anti-aggregation. | 0.1 | ACTIVE |
-| [project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md](./project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md) | BE3 U8 Create-a-prompt E2E: Story→Review flag-on matrices, frozen inventory, shared nav/scope + residual SCOPE-01 chrome dispositions. | 0.1 | ACTIVE |
+| [project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md](./project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md) | BE3 U8 Create-a-prompt E2E: frozen inventory, nav/scope fixes, residual SCOPE-01 chrome, and UI polish (VAL/UX/PRIOR) dispositions. | 0.1 | ACTIVE |
 | [project-tracking/ss-canonical-v1-runtime-integration-audit-2026-10-28.md](./project-tracking/ss-canonical-v1-runtime-integration-audit-2026-10-28.md) | BE3–6 Scope & Sequence runtime integration, architecture, checksum verification, changed-object record, and rollback instructions. | — | ACTIVE |
 
 ### Phase 1

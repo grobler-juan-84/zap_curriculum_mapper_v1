@@ -743,7 +743,9 @@
 
 - [x] **Residual ISSUE-SCOPE-01 unit title/SS chrome (2026-10-31):** shared `resolveGroundedUnitChrome`; Review 143 keeps Unit 8; p.144/146 clear Unit 8 / resolve Unit 9 from catalog; re-enter restores Unit 8; browser + automated evidence pass.
 
-- [ ] **Owner review E2E post-fix dispositions** and remaining deferred UX issues (VAL-01, UX-01/02, PRIOR-01, ENV-01).
+- [x] **Unit 8 UI polish VAL-01 / UX-01 / UX-02 / PRIOR-01 (2026-10-31):** hide selection-card answers by default; enrichment POC relabel + flag boundaries; dynamic sidebar location chip; prior `p.`/`pp.` labels; ENV-01 documented as owner-local only. Suite **353/353**; no `.env.local`/commit/push.
+
+- [ ] **Owner review E2E polish dispositions** and optional ENV-01 local canary hygiene (do not edit `.env.local` unless owner chooses).
 
 - [ ] **Complete deferred one-flag-on browser matrices** (Story, LiA, CLIL, Grammar, Culture, Writing, Phonics, Review) + opener NLL-failure `sb_only` fallback demo — validation-only until authorized.
 

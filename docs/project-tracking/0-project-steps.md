@@ -7287,3 +7287,30 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 417
+
+**Summary:** Bounded Unit 8 UI polish: hide selection-card expected answers by default (VAL-01); relabel/gate enrichment POC separate from NLL (UX-01); dynamic sidebar book/page chip from workspace state (UX-02); prior-learning `p.`/`pp.` labels (PRIOR-01); ENV-01 documented as owner-local only without editing `.env.local`. Suite 353/353; browser evidence pass; no commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/teacherChoiceSuggestions.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/shell/WorkspaceProvider.tsx` (updated)
+- `app/src/features/shell/workspaceLocationChip.ts` (created)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/book-workspace/BookWorkspacePage.tsx` (updated)
+- `scripts/tests/activityEvidenceCardAnswers.test.ts` (created)
+- `scripts/tests/workspaceLocationChip.test.ts` (created)
+- `scripts/tests/priorSkillPageLabel.test.ts` (created)
+- `scripts/tests/activityEnrichmentPocFlagBoundaries.test.ts` (created)
+- related prior/enrichment golden test updates
+- `docs/project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

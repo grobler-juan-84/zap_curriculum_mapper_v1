@@ -73,6 +73,7 @@ import {
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
 } from './lessonActivitySelection'
+import { useWorkspace } from '../shell/WorkspaceProvider'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -138,6 +139,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   onSelectBook,
   onBackToBooks,
 }) => {
+  const { setActivePrintedPages } = useWorkspace()
   const [searchParams, setSearchParams] = useSearchParams()
   const requestedUnit = searchParams.get('unit')
 
@@ -620,6 +622,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     [activePageInsideUnit, lessonScopePages],
   )
   const scopedCompanion = activePageInsideUnit ? verifiedCompanion : null
+
+  // Publish authoritative lesson page scope to the shared shell sidebar chip.
+  useEffect(() => {
+    if (lessonScopePages.length > 0) {
+      setActivePrintedPages(lessonScopePages)
+      return
+    }
+    if (activePrintedForUnitChrome != null) {
+      setActivePrintedPages([activePrintedForUnitChrome])
+      return
+    }
+    setActivePrintedPages(null)
+  }, [lessonScopePages, activePrintedForUnitChrome, setActivePrintedPages])
 
   // Book/BI unit chrome stays on the selected unit only while the active page
   // is inside that unit. Outside pages may still surface a catalog-resolved
