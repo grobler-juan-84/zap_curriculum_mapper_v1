@@ -62,7 +62,7 @@
 | D025 | Complete NLL pilot through Cursor, then freeze features for repository audit | 2026-10-29 | LOCKED |
 | D026 | Repository consolidation begins with a read-only evidence audit | 2026-10-29 | LOCKED |
 | D027 | Durable layer model: SS/SB/WB → NLL → NLP → adapters | 2026-10-29 | LOCKED |
-| D028 | BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C | 2026-10-30 | LOCKED |
+| D028 | BE3 U8 Values remains generic SB-only; knowledge-only NLL summaries allowed; no package/A/B/C | 2026-10-31 | LOCKED |
 
 ---
 
@@ -585,20 +585,22 @@ Preserve existing lightweight NLL safeguards: useful source references, activity
 
 ---
 
-### D028 — BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C
+### D028 — BE3 U8 Values remains generic SB-only; no specialized package/A/B/C (narrow revise)
 
-**Date:** 2026-10-30
+**Date:** 2026-10-30 (narrowly revised 2026-10-31)
 **Status:** LOCKED
 
-**Decision:** BE3 Unit 8 Values (SB p.142 only; publisher wording *Get exercise.*) is complete by architecture decision: retain the existing generic `sb_only` path; do not invent a Workbook companion; do not create a Values NLL component, A/B/C transfer pipeline, specialized package, renderer, adapter, or flag.
+**Decision:** BE3 Unit 8 Values (SB p.142 only; publisher wording *Get exercise.*) retains the existing generic `sb_only` delivery path. Do **not** invent a Workbook companion. Do **not** create a specialized Values package, renderer, delivery adapter, or Values-specific serving flag. Do **not** authorize a Values A/B/C transfer pipeline.
 
-**Reason:** Values has no curated Workbook companion. Forcing a paired SB→WB A/B/C milestone would invent packaging that the evidence does not support and would duplicate an already-working generic SB-only path.
+A Values Neutral Lesson Library **knowledge** component (`be3-u08-values`) is now allowed **solely** to supply preferred activity summaries to the shared Unit 8 modal activity-summary module (`VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`). Migration preparation is allowed; migration application remains a separate explicit gate.
 
-**Alternatives rejected:** Inventing a WB companion from Phonics p.116 or Review p.117; creating Values-A/B/C for consistency with paired components; specialized Values Chalkie routing; Values NLL seed without a concrete benefit case over generic `sb_only`.
+**Reason:** Values still has no curated Workbook companion, so paired packaging remains inventable and rejected. Concise Create-a-prompt card summaries, however, need the same NLL `summary_text` path as other Unit 8 lessons; a knowledge-only component avoids inventing delivery specialization while closing the Values summary gap.
 
-**Implications:** Values work stops at architecture/documentation closure plus retained generic-path tests. Phonics and Review remain separately gated paired components. No Values migration may be prepared or applied under this decision.
+**Alternatives rejected:** Inventing a WB companion from Phonics p.116 or Review p.117; creating Values-A/B/C for consistency with paired components; specialized Values Chalkie routing/package/renderer/adapter/flag; keeping Values permanently outside the shared NLL summary loader.
 
-**Supersedes:** —
+**Implications:** Generic `sb_only` delivery and existing package/renderer/adapter behavior are unchanged. Migration `20261030220000_seed_nll_be3_u08_values.sql` seeds draft `be3-u08-values` with three SB p.142 memberships, three preferred hidden/experimental summaries, and **one proposed** SS link (Unit 8 Values column_order 6; exact locator *Get exercise.* on approved SS pin `f6f756…bb5a`). Owner-authorized linked apply completed 2026-10-31; live NLL totals **10 / 77 / 77 / 10**; history **29 / 0 / 0**. Shared modal loader may now surface Values summaries behind `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (default off).
+
+**Supersedes:** Prior D028 wording that forbade any Values NLL component or migration preparation.
 
 **Compatibility:** Preserves D021, D022, D026, and D027.
 
@@ -608,6 +610,8 @@ Preserve existing lightweight NLL safeguards: useful source references, activity
 
 | Date | Change |
 |---|---|
+| 2026-10-31 | Owner-authorized apply of Values knowledge migration `20261030220000` — live **10 / 77 / 77 / 10**; history **29 / 0 / 0**; generic `sb_only` unchanged. |
+| 2026-10-31 | Narrowly revised D028 — Values stays generic `sb_only` with no package/A/B/C; knowledge-only NLL component allowed for shared modal summaries; apply remains gated. |
 | 2026-10-30 | Added D028 — BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C pipeline. |
 | 2026-10-29 | Added D027 — durable layer model SS/SB/WB → NLL → NLP → adapters; Stage 2 roadmap recorded; Stages 3–6 and freeze lift not authorized. |
 | 2026-10-29 | Annotated D025 completion and D026 audit completion; bounded Batch 0 documentation/operational-safety work approved, with freeze and no-deployment boundaries preserved. |

@@ -6,6 +6,8 @@
 **Scope:** Validation-only milestone for BE3 Unit 8 Create-a-prompt. Issue inventory before fixes.  
 **Authority boundary:** No application/tests/migrations/canonicals/`.env.local` edits; no DB/Storage mutation; no promotion; no permanent flag-on; no deploy; no fixes; no commit/push; no next unit/book.
 
+> **Superseded live state (do not rewrite the tables below):** as of the 2026-10-31 Values knowledge apply + NLL activity-summary checkpoint, live NLL is **10 / 77 / 77 / 10** and migration history is **29 / 0 / 0**. This document remains the historical E2E inventory at **9 / 74 / 74 / 9** / history **28 / 0 / 0**. Current modal AI summaries use shared `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (default off), not the Opener-only POC/comparison path.
+
 ---
 
 ## 1. Checkpoint and automated-suite result
@@ -16,8 +18,8 @@
 | HEAD | `0d135cda55b3245d3779f778f9131ae5f01f1630` |
 | `origin/main` | `0d135cda55b3245d3779f778f9131ae5f01f1630` |
 | Worktree (app/docs at start) | Clean for shipped Unit 8 checkpoint (only later untracked temp helper under `scripts/` appeared during this pass) |
-| Migration history | **28 / 0 / 0** |
-| Live NLL totals | **9 / 74 / 74 / 9** (components / activities / summaries / SS links) |
+| Migration history | **28 / 0 / 0** *(historical at this validation; current **29 / 0 / 0**)* |
+| Live NLL totals | **9 / 74 / 74 / 9** (components / activities / summaries / SS links) *(historical at this validation; current **10 / 77 / 77 / 10**)* |
 | Full Unit 8 automated suite (pre-fix) | **334 / 334** pass |
 | Full Unit 8 automated suite (post-fix) | **343 / 343** pass (`tmp/e2e-u08-suite-postfix.txt`) |
 | Full Unit 8 automated suite (SCOPE-01 residual) | **353 / 353** pass (`tmp/e2e-u08-suite-scope01.txt`) |

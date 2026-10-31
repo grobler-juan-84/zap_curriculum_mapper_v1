@@ -5,12 +5,15 @@
  * `layout="modal"` expands cards to their content; page columns scroll. Left-panel
  * callers keep the default compact layout.
  *
- * Bounded BE3 U8 enrichment POC cards (when enabled) show checkbox, activity chrome,
- * AI summary, and insufficient-evidence warning only.
+ * When `nllActivitySummary` is set (NLL preferred summary), modal cards show
+ * checkbox, activity chrome, AI summary, and insufficient-evidence warning only —
+ * no raw item-bank / expected-answer dump. Historical POC / comparison props remain
+ * for deprecated paths and tests only.
  */
 import type { SbActivityCard } from './chalkieActivitySelection'
 import type { WbActivityCard } from './chalkieWorkbookActivitySelection'
 import type { Be3U08ExperimentalSummaryDisplay } from './be3U08ActivityEnrichmentPoc'
+import type { NllActivitySummaryDisplay } from './nllActivitySummaries'
 
 export type ActivityEvidenceCardModel = SbActivityCard | WbActivityCard
 
@@ -323,13 +326,20 @@ function ExperimentalActivityEnrichment({
   card,
   pagePrefix,
   summary,
+  source = 'legacy-poc',
 }: {
   card: ActivityEvidenceCardModel
   pagePrefix: 'SB' | 'WB'
-  summary: Be3U08ExperimentalSummaryDisplay
+  summary: Be3U08ExperimentalSummaryDisplay | NllActivitySummaryDisplay
+  source?: 'nll' | 'legacy-poc'
 }) {
   return (
-    <div className="min-w-0 flex-1 space-y-3" data-experimental-activity-enrichment>
+    <div
+      className="min-w-0 flex-1 space-y-3"
+      data-experimental-activity-enrichment
+      data-nll-activity-summary={source === 'nll' ? 'true' : undefined}
+      data-summary-source={source}
+    >
       <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
 
       <ExperimentalSummarySection
@@ -339,7 +349,7 @@ function ExperimentalActivityEnrichment({
       />
       {/*
         Publisher evidence remains in selection/package builders; it is not
-        shown on enrichment POC cards so the teacher-facing surface stays summary-first.
+        shown on summary-only cards so the teacher-facing surface stays summary-first.
       */}
     </div>
   )
@@ -462,6 +472,7 @@ export function ActivityEvidenceCard({
   checkboxId,
   compact = false,
   layout = 'panel',
+  nllActivitySummary = null,
   experimentalSummary,
   nllComparison = null,
   revealExpectedAnswers = false,
@@ -478,10 +489,15 @@ export function ActivityEvidenceCard({
    * `modal` — natural height; page columns scroll (no nested card scrollbars).
    */
   layout?: 'panel' | 'modal'
-  /** Bounded BE3 U8 POC only; absent for all production/default-off paths. */
+  /**
+   * Preferred NLL `summary_text` for summary-only modal cards.
+   * Takes precedence over deprecated POC / comparison props.
+   */
+  nllActivitySummary?: NllActivitySummaryDisplay | null
+  /** @deprecated Modal display uses `nllActivitySummary`. Retained for historical POC tests. */
   experimentalSummary?: Be3U08ExperimentalSummaryDisplay | null
   /**
-   * When set on modal cards, shows labelled POC + NLL summaries side by side.
+   * @deprecated Stage 3 Opener POC↔NLL comparison. Modal display uses `nllActivitySummary`.
    * Ignored for left-panel (`panel`) layout. Never blank the whole card.
    */
   nllComparison?: NllCardComparisonDisplayState | null
@@ -496,9 +512,14 @@ export function ActivityEvidenceCard({
   const inputId =
     checkboxId ?? `activity-evidence-${pagePrefix.toLowerCase()}-${card.id}`
   const isModal = layout === 'modal'
-  const showNllComparison = isModal && nllComparison != null
+  const showNllActivitySummary = isModal && nllActivitySummary != null
+  const showNllComparison =
+    isModal && !showNllActivitySummary && nllComparison != null
   const showExperimentalEnrichment =
-    isModal && !showNllComparison && experimentalSummary != null
+    isModal &&
+    !showNllActivitySummary &&
+    !showNllComparison &&
+    experimentalSummary != null
 
   const shellClass = [
     'rounded-lg border',
@@ -538,7 +559,14 @@ export function ActivityEvidenceCard({
       >
         <div className={selectable ? 'flex gap-2.5' : undefined}>
           {checkbox}
-          {showNllComparison ? (
+          {showNllActivitySummary ? (
+            <ExperimentalActivityEnrichment
+              card={card}
+              pagePrefix={pagePrefix}
+              summary={nllActivitySummary}
+              source="nll"
+            />
+          ) : showNllComparison ? (
             <NllCardComparisonEnrichment
               card={card}
               pagePrefix={pagePrefix}

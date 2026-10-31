@@ -7314,3 +7314,124 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 418
+
+**Summary:** Replaced Opener-only POC/comparison modal card summaries with shared default-off `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` loading preferred NLL `summary_text` once per Unit 8 lesson/component (summary-only cards; fail-closed evidence fallback; no POC getter fallback; no artifact leakage). Audited all 74 live preferred summaries; prepared (did not apply) Values knowledge migration `20261030220000` and narrowly revised D028. Suite **385/385**; typecheck pass; lint warnings only; browser Opener/Story NLL summaries + Values fail-closed confirmed. No DB/Storage mutation, migration apply, `.env.local` edit, commit, or push.
+
+**Files touched:**
+- `app/src/features/chalkie/nllActivitySummaries.ts` (created)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
+- `app/src/features/chalkie/nllCardComparison.ts` (updated)
+- `supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql` (created)
+- `scripts/tests/nllActivitySummaries.test.ts` (created)
+- `scripts/tests/nllBe3U08PreferredSummaryAudit.test.ts` (created)
+- `scripts/tests/nllBe3U08ValuesSeedKnowledge.test.ts` (created)
+- `scripts/tests/nllCardComparison.test.ts` (updated)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 419
+
+**Summary:** Completed authenticated flag-on Create-a-prompt browser matrix for BE3 Unit 8 NLL activity summaries at `127.0.0.1:5173` (Opener→Review PASS; 74 preferred NLL cards; Values fail-closed). Recorded stopped POC Vite as an environmental note only. No DB/Storage mutation, migration apply, commit, or push.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-nll-activity-summary-browser-matrix-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 420
+
+**Summary:** Recorded a documentation-only strategic context update without promoting exploratory ideas: BE3 Unit 8 is the whole teacher-journey review point; administrator validation is reviewed separately; Curriculum Mapper should be platform-neutral with Chalkie as one output; lesson-count ownership and planner/adapter boundaries remain open; eventual Beehive ingestion automation remains unapproved and human-verified. Feature freeze, repository-audit scope, locked decisions, canonical evidence, and NLL structures remain unchanged.
+
+**Files touched:**
+- `docs/project-tracking/2-internal-brainstorming.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 421
+
+**Summary:** Finalized the Values NLL pre-application gate: tightened Act 37–38 summaries to canonical evidence, confirmed one proposed SS link (*Get exercise.*), verified fingerprints, live baseline **9 / 74 / 74 / 9**, history **28 / Values local-only / 0 remote-only**, suite **386/386**, typecheck/lint/diff/encoding/secret clean. Migration **not applied**. Browser matrix evidence retained.
+
+**Files touched:**
+- `supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql` (updated)
+- `scripts/tests/nllBe3U08ValuesSeedKnowledge.test.ts` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 422
+
+**Summary:** Owner-authorized linked apply of only `20261030220000_seed_nll_be3_u08_values.sql` to `kivvmobjphtcgxoltqbc` via isolated workdir (`supabase@2.122.0`). Live NLL **10 / 77 / 77 / 10**; history **29 / 0 / 0**; focused Values browser check PASS. Updated D028/roadmap/Values brief/browser matrix. No other DB/Storage mutation; no commit/push.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-nll-activity-summary-browser-matrix-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 423
+
+**Summary:** Final Unit 8 NLL activity-summary checkpoint: confirmed shared `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (default off) as the sole Create-a-prompt modal AI-summary source for all ten lessons; removed competing overlay enrichment-POC package wiring; reconciled docs to live **10 / 77 / 77 / 10** and history **29 / 0 / 0**; automated matrix **415/415**; combined browser evidence **77/77**. No DB/Storage mutation, commit, or push.
+
+**Files touched:**
+- `app/src/features/chalkie/nllActivitySummaries.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` (updated)
+- `app/src/features/chalkie/nllCardComparison.ts` (updated)
+- `scripts/tests/nllActivitySummaries.test.ts` (created)
+- `scripts/tests/nllBe3U08PreferredSummaryAudit.test.ts` (created)
+- `scripts/tests/nllBe3U08ValuesSeedKnowledge.test.ts` (created)
+- `scripts/tests/be3U08ActivityEnrichmentPoc.test.ts` (updated)
+- `scripts/tests/nllCardComparison.test.ts` (updated)
+- `scripts/tests/activityReviewBookLayout.test.ts` (updated)
+- `scripts/tests/activityEnrichmentPocFlagBoundaries.test.ts` (updated)
+- `supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql` (created)
+- `docs/project-tracking/be3-u08-nll-activity-summary-browser-matrix-v0.1.md` (created/updated)
+- `docs/project-tracking/nll-migration-roadmap-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md` (updated)
+- `docs/project-tracking/be3-u08-values-standalone-planning-brief-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

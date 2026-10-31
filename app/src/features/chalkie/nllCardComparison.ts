@@ -1,6 +1,10 @@
 /**
- * Bounded Stage 3 NLL ↔ POC activity-card comparison helpers.
- * Default-off; Opener nine-activity scope only. Not generalized NLL infrastructure.
+ * @deprecated Bounded Stage 3 NLL ↔ POC activity-card comparison helpers.
+ * Default-off; Opener nine-activity scope only.
+ *
+ * Modal summary presentation now uses `nllActivitySummaries.ts`
+ * (`VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`). Retain this module for historical
+ * Stage 3 comparison tests only — do not wire new overlay display through it.
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
 import {

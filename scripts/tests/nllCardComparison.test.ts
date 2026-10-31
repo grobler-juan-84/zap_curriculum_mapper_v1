@@ -681,10 +681,11 @@ test('shouldLoad gates query; single-flight lifecycle covers Strict Mode, cancel
   assert.equal(appliedNew.at(-1)?.status, 'unavailable')
   stopNewScope()
 
-  // Overlay wires this lifecycle primitive (no duplicated cancel boolean).
+  // Overlay modal display moved to nllActivitySummaries; comparison module retained.
   const overlaySource = fs.readFileSync(OVERLAY_SOURCE, 'utf8')
-  assert.match(overlaySource, /subscribeNllCardComparisonLifecycle/)
-  assert.match(overlaySource, /toNllCardComparisonDisplayState/)
+  assert.doesNotMatch(overlaySource, /subscribeNllCardComparisonLifecycle/)
+  assert.doesNotMatch(overlaySource, /toNllCardComparisonDisplayState/)
+  assert.match(overlaySource, /subscribeNllActivitySummaryLifecycle/)
   assert.ok(!overlaySource.includes('loadNeutralLessonComponent('))
   assert.ok(!overlaySource.includes('loadNllCardComparisonSummaries('))
 
@@ -692,35 +693,38 @@ test('shouldLoad gates query; single-flight lifecycle covers Strict Mode, cancel
   assert.match(comparisonSource, /includeHiddenExperimental:\s*true/)
   assert.match(comparisonSource, /subscribeNllCardComparisonLifecycle/)
   assert.match(comparisonSource, /BE3_U08_OPENER_NLL_COMPONENT_KEY/)
+  assert.match(comparisonSource, /@deprecated/)
 
   resetNllCardComparisonSharedFlightForTests()
 })
 
-test('card and overlay keep POC-only path, selection props, and left-panel isolation', () => {
+test('card retains comparison chrome; overlay uses shared NLL summary path', () => {
   const cardSource = fs.readFileSync(CARD_SOURCE, 'utf8')
   assert.match(cardSource, /data-nll-card-comparison="true"/)
   assert.match(cardSource, /POC summary · experimental/)
   assert.match(cardSource, /NLL summary · experimental/)
   assert.match(cardSource, /AI summary · experimental/)
   assert.match(cardSource, /Insufficient evidence for a fuller summary/)
-  assert.match(cardSource, /showNllComparison = isModal && nllComparison != null/)
+  assert.match(cardSource, /showNllActivitySummary = isModal && nllActivitySummary != null/)
+  assert.match(cardSource, /data-nll-activity-summary/)
   assert.match(cardSource, /data-activity-card-layout="panel"/)
   assert.ok(!cardSource.includes('proposedSsLinks'))
   assert.ok(!cardSource.includes('staleness'))
 
   const overlaySource = fs.readFileSync(OVERLAY_SOURCE, 'utf8')
-  assert.match(overlaySource, /nllCardComparisonEligible/)
-  assert.match(overlaySource, /nllComparison=\{/)
+  assert.match(overlaySource, /nllActivitySummaryEligible/)
+  assert.match(overlaySource, /nllActivitySummary=\{/)
   assert.match(overlaySource, /onSelectedChange/)
-  assert.match(overlaySource, /showSbExperimentalSummary/)
-  assert.match(overlaySource, /showWbExperimentalSummary/)
-  assert.match(overlaySource, /getBe3U08ActivitySummary/)
-  assert.match(overlaySource, /getBe3U08WbActivitySummary/)
+  assert.doesNotMatch(overlaySource, /getBe3U08ActivitySummary/)
+  assert.doesNotMatch(overlaySource, /getBe3U08WbActivitySummary/)
+  assert.doesNotMatch(overlaySource, /showSbExperimentalSummary/)
+  assert.doesNotMatch(overlaySource, /nllCardComparisonEligible/)
 
   const leftPanel = fs.readFileSync(LEFT_PANEL_SOURCE, 'utf8')
   assert.ok(!leftPanel.includes('nllComparison'))
   assert.ok(!leftPanel.includes('nllCardComparison'))
   assert.ok(!leftPanel.includes('VITE_CHALKIE_NLL_CARD_COMPARISON'))
+  assert.ok(!leftPanel.includes('nllActivitySummary'))
 
   const comparisonSource = fs.readFileSync(COMPARISON_SOURCE, 'utf8')
   assert.match(comparisonSource, /isExactBe3U08ActivityEnrichmentPocScope/)

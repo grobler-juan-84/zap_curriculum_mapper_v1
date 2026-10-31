@@ -42,7 +42,7 @@ test('modal review hides Type row; panel layout can still show it', () => {
   const cardSource = fs.readFileSync(CARD_PATH, 'utf8')
   assert.match(
     cardSource,
-    /<ActivityEvidenceDetails card=\{card\} showActivityType=\{false\} \/>/,
+    /<ActivityEvidenceDetails[\s\S]*?showActivityType=\{false\}[\s\S]*?\/>/,
   )
   assert.match(cardSource, /data-activity-type-row/)
   assert.match(cardSource, /showActivityType && evidence\.activityType/)
@@ -68,13 +68,15 @@ test('enrichment POC card keeps summary focus without Optional Teaching Guidance
   assert.ok(!cardSource.includes('data-enrichment-evidence-toggle'))
 })
 
-test('overlay wires the same enrichment presentation to gated Workbook companion cards', () => {
+test('overlay wires NLL summary presentation to SB and WB modal cards', () => {
   const overlaySource = fs.readFileSync(OVERLAY_PATH, 'utf8')
-  assert.match(overlaySource, /workbookEnrichmentPocEnabled/)
-  assert.match(overlaySource, /getBe3U08WbActivitySummary/)
-  assert.match(overlaySource, /isExactBe3U08WorkbookEnrichmentPocScope/)
+  assert.match(overlaySource, /nllActivitySummary=\{/)
+  assert.match(overlaySource, /nllActivitySummaryEligible/)
   assert.match(overlaySource, /pagePrefix="WB"/)
-  assert.match(overlaySource, /experimentalSummary=\{/)
+  assert.match(overlaySource, /pagePrefix="SB"/)
+  assert.doesNotMatch(overlaySource, /experimentalSummary=\{/)
+  assert.doesNotMatch(overlaySource, /getBe3U08WbActivitySummary/)
+  assert.doesNotMatch(overlaySource, /workbookEnrichmentPocEnabled/)
   assert.match(overlaySource, /twoColumn=\{true\}/)
   assert.match(overlaySource, /data-wb-activity-page/)
 })

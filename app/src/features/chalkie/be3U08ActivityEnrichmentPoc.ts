@@ -1,14 +1,18 @@
 /**
- * Experimental BE3 Unit 8 activity-enrichment sidecars.
+ * Experimental BE3 Unit 8 activity-enrichment sidecars (historical Opener POC).
  *
- * This bounded POC keeps derived teacher-friendly summaries separate from the
- * Phase 1 publisher evidence. Records below reference, but never rewrite:
+ * Create-a-prompt modal cards use Neutral Lesson Library preferred summaries
+ * exclusively via `nllActivitySummaries.ts` (`VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`).
+ * This module retains static Opener POC summary fixtures, package helpers, and
+ * Stage 3 comparison fixtures for historical tests only — not a modal runtime
+ * fallback and not wired through `TeacherChoiceFlowOverlay`.
+ *
+ * Records below reference, but never rewrite:
  * - five human-verified SB activities on pp. 128-129
  * - four human-verified WB companion activities on pp. 104-105
  *   (relationship be3_sb_wb_rel_u08_opener_sb128-129_wb104-105)
  *
  * Optional teaching guidance remains parked (F025). Do not reintroduce it here.
- * SB and WB summary sidecars stay distinct; the shared display type is only for UI.
  */
 
 export const BE3_U08_ACTIVITY_ENRICHMENT_POC_ENV =

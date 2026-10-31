@@ -1,5 +1,5 @@
 /**
- * UX-01: enrichment POC chrome stays gated and labelled separate from NLL adapters.
+ * Historical enrichment-POC flag helpers remain testable; overlay runtime is NLL-only.
  * Run: npx tsx --test scripts/tests/activityEnrichmentPocFlagBoundaries.test.ts
  */
 import assert from 'node:assert/strict'
@@ -58,16 +58,19 @@ test('NLL adapter flags alone do not enable enrichment POC', () => {
   assert.equal(isBe3U08ActivityEnrichmentPocEnabled(env), false)
 })
 
-test('overlay gates package on enrichment POC and labels it separate from NLL', () => {
+test('overlay uses shared NLL summaries only; enrichment POC package is not runtime-wired', () => {
   const source = fs.readFileSync(OVERLAY_PATH, 'utf8')
-  assert.match(source, /activityEnrichmentPocEnabled/)
-  assert.match(
-    source,
-    /buildBe3U08ActivityEnrichmentPocPackage[\s\S]*activityEnrichmentPocEnabled/,
-  )
-  assert.match(source, /Activity enrichment experiment · not NLL adapter/)
-  assert.match(source, /data-experimental-activity-enrichment-package/)
+  // Sole modal AI-summary source is the shared NLL loader (default-off flag).
+  assert.match(source, /nllActivitySummaries/)
+  assert.match(source, /nllActivitySummaryEligible/)
+  assert.match(source, /nllActivitySummary=\{/)
+  assert.match(source, /VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES|isNllActivitySummariesEnabled/)
+  // Competing Opener POC package path removed from overlay runtime.
+  assert.doesNotMatch(source, /activityEnrichmentPocEnabled/)
+  assert.doesNotMatch(source, /buildBe3U08ActivityEnrichmentPocPackage/)
+  assert.doesNotMatch(source, /Activity enrichment experiment · not NLL adapter/)
+  assert.doesNotMatch(source, /data-experimental-activity-enrichment-package/)
   assert.ok(!source.includes('Experimental Neutral Lesson Package projection'))
-  // Flag default remains process/env driven — no hardcoded true default in overlay.
+  // No hardcoded true default for historical enrichment POC env in overlay.
   assert.ok(!/BE3_U08_ACTIVITY_ENRICHMENT_POC.*=.*true/.test(source))
 })

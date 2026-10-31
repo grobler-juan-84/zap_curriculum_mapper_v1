@@ -33,7 +33,7 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 |---|---|---|
 | 1 | Architecture lock | **Done** (D027 recorded) |
 | 2 | Migration roadmap and acceptance gates | **Done** (this document) |
-| 3 | NLL summaries → teacher activity cards | **Complete (bounded, default off); smoke passed; owner-accepted — not NLL promotion / not POC retirement** |
+| 3 | NLL summaries → teacher activity cards | **Superseded for Create-a-prompt modal display by shared `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (2026-10-31; default off; 10 components / 77 summaries). Historical Opener POC↔NLL comparison remains archived behind its own default-off flag — not NLL promotion** |
 | 4 | NLL knowledge → Neutral Lesson Package assembly (+ General Lesson Plan derived output) | **Complete (bounded, default off); owner-accepted; BI excluded from success path — not deployed/promoted** |
 | 5 | Neutral Lesson Package → Chalkie adapter | **Complete (bounded, default off); owner-accepted A–F; undeployed / unpromoted** |
 | 6 | Broader coverage and enrichment | **6A/6B complete; LiA-A/B/C accepted; Grammar-A Step A accepted; Step B local/unapplied; history reconciliation complete; remaining Unit 8 planning docs-only / separately gated; promotion and deploy not authorized** |
@@ -42,20 +42,20 @@ Acceptance gates prove **functional replacement** and preservation of existing b
 
 ## Stage 3 — NLL summaries → teacher activity cards
 
-**Authorization status:** Bounded default-off comparison **complete and owner-accepted**. Authenticated smoke matrix passed. Does **not** make NLL summaries available for normal use; nine summaries remain `hidden` + `experimental`; POC remains. Not NLL promotion / not POC retirement. Stages 4 and 5 later received separate bounded authorization and are complete; Stage 6 Story planning is authorized, but implementation remains unauthorized. No deployment.
+**Historical Stage 3 (Opener POC↔NLL comparison):** Bounded default-off comparison was complete and owner-accepted for Opener nine activities only (`VITE_CHALKIE_NLL_CARD_COMPARISON`). That path is **retained as archived test/fixture surface** (`nllCardComparison.ts`, POC getters) and is **not** the Create-a-prompt modal runtime summary source.
+
+**Current modal architecture (2026-10-31 — supersedes Stage 3 comparison for teacher-facing modal AI summaries):**
 
 | Field | Detail |
 |---|---|
-| **Scope** | BE3 U8 Opener nine activities only (`be3_sb_wb_rel_u08_opener_sb128-129_wb104-105`) |
-| **Existing path preserved** | POC summaries via `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` in `be3U08ActivityEnrichmentPoc.ts`; current card/selection UX |
-| **Local connection** | `nllCardComparison.ts` → `subscribeNllCardComparisonLifecycle` + `loadNeutralLessonComponent('be3-u08-opener', { includeHiddenExperimental: true })` once per eligible overlay/scope (single-flight under React Strict Mode); `TeacherChoiceFlowOverlay` + modal `ActivityEvidenceCard` side-by-side POC/NLL with `· experimental` labels. No fingerprint reconstruction / no staleness chrome in this slice |
-| **Flag** | `VITE_CHALKIE_NLL_CARD_COMPARISON` — activity-card comparison only; **default off**. Independent of enrichment POC, `VITE_CHALKIE_NLL_SHADOW_PILOT`, and Opener/Story canaries |
-| **Hidden-summary rule** | All nine pilot summaries remain `hidden` + `experimental`. Do **not** promote any row to `available`. Stage 3 `includeHiddenExperimental: true` remains comparison-path only |
-| **Fallback** | Existing POC remains the functional fallback and comparison companion until replacement is accepted |
-| **Acceptance gates** | NLL cards preserve source boundaries; accurately describe activities (content review); preserve teacher activity selection; do not lose useful POC functionality; fail or fall back honestly when NLL data is unavailable. Functional and content review both required |
-| **Rollback** | Flag off → prior POC / publisher-evidence behavior; no DB visibility mutation |
-| **Non-goals** | Promoting summaries; bulk books; handoff/adapter changes; Stage 4–6 work |
-| **Owner decisions pending** | Content acceptance of nine summaries for any future normal-use promotion; when POC display may retire; review of the Stage 6 Story transfer plan |
+| **Scope** | All ten BE3 Unit 8 lessons with NLL knowledge (Opener, Story, LiA, CLIL/P.E., Grammar, Culture, Writing, Phonics, Values, Review) — **77** preferred summaries |
+| **Sole runtime source** | Shared `nllActivitySummaries.ts` / `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (**default off**); overlay loads once per exact lesson/component scope |
+| **Presentation** | Concise Picture-1 summary-only cards (`AI summary · experimental`); selection preserved |
+| **Fallback** | Fail-closed to ordinary publisher evidence cards — **no** static POC getter fallback; **no** competing enrichment-package projection in overlay |
+| **Values** | Knowledge-only `be3-u08-values`; SB-only; generic `sb_only` delivery unchanged (D028) |
+| **Non-leakage** | NLL `summary_text` is modal-display only — not passed into Chalkie artifact builders or lesson-plan prose |
+| **Rollback** | Flag off → ordinary evidence-card workflow (no hidden NLL fetch) |
+| **Not authorized** | NLL visibility promotion; permanent flag-on default; deployment; external AI/API summary generation |
 
 ---
 
@@ -241,11 +241,20 @@ See [`be3-u08-phonics-knowledge-review-v0.1.md`](./be3-u08-phonics-knowledge-rev
 
 ---
 
-## BE3 Unit 8 Values (architecture closure)
+## BE3 Unit 8 Values (knowledge-only NLL applied; generic sb_only retained)
 
-**Authorization status:** **VALUES COMPLETE BY ARCHITECTURE DECISION / GENERIC SB_ONLY RETAINED / NO SPECIALIZED NLL OR A/B/C PIPELINE (D028).**
+**Authorization status:** **D028 NARROW REVISE + OWNER-AUTHORIZED APPLY (2026-10-31) — GENERIC `sb_only` RETAINED / NO PACKAGE / RENDERER / ADAPTER / VALUES FLAG / NO A/B/C.** Knowledge-only NLL component live for shared modal summaries.
 
-No Values migration, NLL component, package, renderer, adapter, or flag. SB p.142 only; Activities **36–38**; publisher wording *Get exercise.* Retained through Unit 8 completion.
+| Field | Detail |
+|---|---|
+| **Component key** | `be3-u08-values` (live draft `…000010`) |
+| **Scope** | SB p.142 only; Activities **36–38**; publisher wording *Get exercise.* |
+| **Workbook** | **None** — no companion invented |
+| **SS links** | **One proposed** — Unit 8 `Values` `column_order` 6; approved SS pin `ss_v1.json` / `f6f756…bb5a`; exact locator *Get exercise.* |
+| **Migration** | `20261030220000_seed_nll_be3_u08_values.sql` (**applied 2026-10-31**; owner-authorized; isolated workdir) |
+| **Live totals** | **10 / 77 / 77 / 10** |
+| **History** | **29 recorded / 0 pending / 0 remote-only** |
+| **Serving** | Shared `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` only (default off); generic `sb_only` unchanged; no Values package/renderer/adapter |
 
 See [`be3-u08-values-standalone-planning-brief-v0.1.md`](./be3-u08-values-standalone-planning-brief-v0.1.md).
 
@@ -253,7 +262,7 @@ See [`be3-u08-values-standalone-planning-brief-v0.1.md`](./be3-u08-values-standa
 
 ## BE3 Unit 8 Review (Review-A/B/C)
 
-**Authorization status:** **REVIEW-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **REVIEW-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** **BE3 UNIT 8 COMPONENT PIPELINE COMPLETE / VALUES GENERIC PATH RETAINED.** Live NLL **9 / 74 / 74 / 9**. History **28 / 0 / 0**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT` default-off. Undeployed/unpromoted. Real workflow validation still pending.
+**Authorization status:** **REVIEW-A STEP B APPLIED / VERIFIED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION (2026-10-30).** **REVIEW-B/C IMPLEMENTED / AUTOMATED VERIFICATION PASSED / OWNER-ACCEPTED UNDER ADVANCE AUTHORIZATION.** **BE3 UNIT 8 COMPONENT PIPELINE COMPLETE / VALUES KNOWLEDGE APPLIED (2026-10-31).** Post-Values live NLL **10 / 77 / 77 / 10**. History **29 / 0 / 0**. Default serving remains **`sb_only`**. Flag `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT` default-off. Undeployed/unpromoted.
 
 | Field | Detail |
 |---|---|
@@ -262,7 +271,7 @@ See [`be3-u08-values-standalone-planning-brief-v0.1.md`](./be3-u08-values-standa
 | **Accepted inventory** | SB **39–41** + WB **31–33** = **six** |
 | **SS links** | **Zero** (over-linking withheld) |
 | **Migration** | `20261030210000_seed_nll_be3_u08_review.sql` (**applied**) |
-| **Live totals** | **9 / 74 / 74 / 9** |
+| **Live totals at Review apply** | **9 / 74 / 74 / 9** (post-Values **10 / 77 / 77 / 10**) |
 | **Delivery shape** | Exact non-serving two-lesson SB→WB (Lesson 1 = p.143; Lesson 2 = p.117) |
 | **Review-B/C** | Exact package + five-artifact renderer + default-off adapter; anti-aggregation; Unit 8 matrix **334/334** |
 | **Restrictions** | No earlier-component aggregation; no Values merge; no promotion/deployment; no flag-on default |
@@ -279,7 +288,8 @@ See [`be3-u08-review-knowledge-review-v0.1.md`](./be3-u08-review-knowledge-revie
 | `loadNeutralLessonComponent` | `app/src/features/nll/neutralLessonLibrary.ts` |
 | `fingerprintCanonicalActivity` | `app/src/features/nll/neutralLessonLibrary.ts` |
 | `isNllShadowPilotEnabled` / `buildNllShadowLessonPackage` | `app/src/features/nll/buildNllShadowLessonPackage.ts` |
-| `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` | `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` |
+| `isNllActivitySummariesEnabled` / `subscribeNllActivitySummaryLifecycle` | `app/src/features/chalkie/nllActivitySummaries.ts` — **sole Create-a-prompt modal AI-summary source** (default off) |
+| `getBe3U08ActivitySummary` / `getBe3U08WbActivitySummary` | `app/src/features/chalkie/be3U08ActivityEnrichmentPoc.ts` — **historical POC getters only** (not overlay modal runtime) |
 | `buildNeutralSbWbLessonPackage` | `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` |
 | `renderChalkieFromNeutralPackage` | `app/src/features/chalkie/renderChalkieFromNeutralPackage.ts` |
 | `assembleNllChalkieAdapterPilot` | `app/src/features/chalkie/nllChalkieAdapterPilot.ts` |

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 414
+**Last updated:** Step 423
 
 
 
@@ -745,9 +745,21 @@
 
 - [x] **Unit 8 UI polish VAL-01 / UX-01 / UX-02 / PRIOR-01 (2026-10-31):** hide selection-card answers by default; enrichment POC relabel + flag boundaries; dynamic sidebar location chip; prior `p.`/`pp.` labels; ENV-01 documented as owner-local only. Suite **353/353**; no `.env.local`/commit/push.
 
+- [x] **Unit 8 NLL activity-summary modal path (2026-10-31):** shared default-off `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`; summary-only cards from NLL; POC getters removed from overlay modal; Values knowledge migration prepared (apply gated); D028 narrow revise; suite **385/385**; no DB apply / `.env.local` / commit / push.
+
+- [x] **Flag-on NLL activity-summary browser matrix (2026-10-31):** Opener→Review PASS at `127.0.0.1:5173` with `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES=true`; 74 preferred summaries; Values fail-closed; stopped POC Vite noted as environment only. Evidence: [`project-tracking/be3-u08-nll-activity-summary-browser-matrix-v0.1.md`](./project-tracking/be3-u08-nll-activity-summary-browser-matrix-v0.1.md).
+
+- [x] **Values NLL pre-application gate (2026-10-31):** migration `20261030220000` finalized locally (3 memberships / 3 summaries / 1 proposed SS link; intended **10 / 77 / 77 / 10**); live baseline **9 / 74 / 74 / 9**; history **28 / local-only Values / 0 remote-only**; suite **386/386**.
+
+- [x] **Values NLL migration apply (2026-10-31):** owner-authorized linked push of only `20261030220000` to `kivvmobjphtcgxoltqbc` via isolated workdir; live **10 / 77 / 77 / 10**; history **29 / 0 / 0**; focused Values browser PASS; no other DB/Storage mutation.
+
+- [x] **Unit 8 NLL activity-summary final checkpoint (2026-10-31):** sole modal AI-summary source is shared NLL (`VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`, default off); overlay POC enrichment-package wiring removed; 10 components / **77/77** preferred summaries; combined browser evidence 74+3; suite **415/415**; typecheck/lint/diff/encoding/secret clean. No commit/push yet.
+
+- [ ] **Owner authorize one reviewed commit** for the NLL activity-summary checkpoint (exclude unrelated `7-future` / brainstorming strategic edits; never `.env.local`).
+
 - [ ] **Owner review E2E polish dispositions** and optional ENV-01 local canary hygiene (do not edit `.env.local` unless owner chooses).
 
-- [ ] **Complete deferred one-flag-on browser matrices** (Story, LiA, CLIL, Grammar, Culture, Writing, Phonics, Review) + opener NLL-failure `sb_only` fallback demo — validation-only until authorized.
+- [ ] **Optional flag-off sample** for the NLL activity-summary modal path (deferred; matrix ran flag-on only).
 
 - [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, or next-unit work without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 

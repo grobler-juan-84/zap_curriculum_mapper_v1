@@ -75,25 +75,16 @@ import {
 } from './chalkieWorkbookActivitySelection'
 import { ActivityEvidenceCard } from './ActivityEvidenceCard'
 import {
-  getBe3U08ActivitySummary,
-  getBe3U08WbActivitySummary,
-  isBe3U08ActivityEnrichmentPocEnabled,
-} from './be3U08ActivityEnrichmentPoc'
-import {
-  buildBe3U08ActivityEnrichmentPocPackage,
-  isExactBe3U08ActivityEnrichmentPocScope,
-  isExactBe3U08WorkbookEnrichmentPocScope,
-} from './buildBe3U08ActivityEnrichmentPocPackage'
-import {
-  isExactBe3U08OpenerNllCardComparisonScope,
-  isNllCardComparisonEnabled,
-  openerNllCardComparisonScopeKey,
-  shouldLoadNllCardComparison,
-  subscribeNllCardComparisonLifecycle,
-  toNllCardComparisonDisplayState,
-  type NllCardComparisonByActivityId,
-  type NllCardComparisonLoadStatus,
-} from './nllCardComparison'
+  isExactBe3U08NllActivitySummaryScope,
+  isNllActivitySummariesEnabled,
+  nllActivitySummaryScopeKey,
+  resolveBe3U08NllActivitySummarySpec,
+  shouldLoadNllActivitySummaries,
+  subscribeNllActivitySummaryLifecycle,
+  toNllActivitySummaryDisplay,
+  type NllActivitySummaryByActivityId,
+  type NllActivitySummaryLoadStatus,
+} from './nllActivitySummaries'
 import {
   assembleNllGeneralLessonPlanPilot,
   invalidateNllGeneralLessonPlanPilotRequest,
@@ -520,33 +511,28 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   )
   const [sbOnlyHandoff, setSbOnlyHandoff] = useState<SbOnlyTwoLessonHandoff | null>(null)
   const [lessonShape, setLessonShape] = useState<LessonPackageShape>('single')
-  const [nllComparisonLoadStatus, setNllComparisonLoadStatus] =
-    useState<NllCardComparisonLoadStatus>('idle')
-  const [nllComparisonByActivityId, setNllComparisonByActivityId] =
-    useState<NllCardComparisonByActivityId | null>(null)
-  const activityEnrichmentPocEnabled =
-    isBe3U08ActivityEnrichmentPocEnabled() &&
-    isExactBe3U08ActivityEnrichmentPocScope(activityCards)
-  const workbookEnrichmentPocEnabled =
-    activityEnrichmentPocEnabled &&
-    isExactBe3U08WorkbookEnrichmentPocScope({
-      cards: workbookActivityCards,
-      companion: lesson?.workbookCompanion ?? null,
-    })
-  const nllCardComparisonFlagOn = isNllCardComparisonEnabled()
-  const nllCardComparisonExactScope = isExactBe3U08OpenerNllCardComparisonScope({
+  const [nllActivitySummaryLoadStatus, setNllActivitySummaryLoadStatus] =
+    useState<NllActivitySummaryLoadStatus>('idle')
+  const [nllActivitySummaryByActivityId, setNllActivitySummaryByActivityId] =
+    useState<NllActivitySummaryByActivityId | null>(null)
+  const nllActivitySummariesFlagOn = isNllActivitySummariesEnabled()
+  const nllActivitySummarySpec = resolveBe3U08NllActivitySummarySpec({
     activityCards,
     workbookActivityCards,
     companion: lesson?.workbookCompanion ?? null,
   })
-  const nllCardComparisonEligible =
-    nllCardComparisonFlagOn && nllCardComparisonExactScope
-  const showSbExperimentalSummary =
-    activityEnrichmentPocEnabled || nllCardComparisonEligible
-  const showWbExperimentalSummary =
-    workbookEnrichmentPocEnabled || nllCardComparisonEligible
-  const nllComparisonScopeKey = nllCardComparisonEligible
-    ? openerNllCardComparisonScopeKey({
+  const nllActivitySummaryExactScope = isExactBe3U08NllActivitySummaryScope({
+    activityCards,
+    workbookActivityCards,
+    companion: lesson?.workbookCompanion ?? null,
+  })
+  const nllActivitySummaryEligible =
+    nllActivitySummariesFlagOn &&
+    nllActivitySummaryExactScope &&
+    nllActivitySummarySpec != null
+  const nllActivitySummaryScope = nllActivitySummaryEligible
+    ? nllActivitySummaryScopeKey({
+        componentKey: nllActivitySummarySpec.componentKey,
         activityCards,
         workbookActivityCards,
         companion: lesson?.workbookCompanion ?? null,
@@ -560,25 +546,28 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   generalLessonPlanCurrentScopeKeyRef.current = generalLessonPlanScopeKey
 
   useEffect(() => {
-    const shouldLoad = shouldLoadNllCardComparison({
+    const shouldLoad = shouldLoadNllActivitySummaries({
       open,
-      comparisonFlagEnabled: nllCardComparisonFlagOn,
-      exactScopeEligible: nllCardComparisonExactScope,
+      flagEnabled: nllActivitySummariesFlagOn,
+      exactScopeEligible: nllActivitySummaryExactScope,
     })
-    return subscribeNllCardComparisonLifecycle({
+    return subscribeNllActivitySummaryLifecycle({
       shouldLoad,
-      scopeKey: nllComparisonScopeKey,
+      scopeKey: nllActivitySummaryScope,
+      componentKey: nllActivitySummarySpec?.componentKey ?? '',
+      expectedActivityIds: nllActivitySummarySpec?.expectedActivityIds ?? [],
       client: supabase,
       apply: (next) => {
-        setNllComparisonLoadStatus(next.status)
-        setNllComparisonByActivityId(next.byActivityId)
+        setNllActivitySummaryLoadStatus(next.status)
+        setNllActivitySummaryByActivityId(next.byActivityId)
       },
     })
   }, [
     open,
-    nllCardComparisonFlagOn,
-    nllCardComparisonExactScope,
-    nllComparisonScopeKey,
+    nllActivitySummariesFlagOn,
+    nllActivitySummaryExactScope,
+    nllActivitySummaryScope,
+    nllActivitySummarySpec,
   ])
 
   useEffect(() => {
@@ -1094,26 +1083,6 @@ useEffect(() => {
     }
   }, [chalkiePreparing, nllReviewChalkieAdapterCurrentRequestKey, open])
 
-  const experimentalActivityEnrichmentPackage = useMemo(
-    () =>
-      activityEnrichmentPocEnabled
-        ? buildBe3U08ActivityEnrichmentPocPackage({
-            cards: activityCards,
-            activitySelection: sbActivitySelection,
-            workbookCards: workbookActivityCards,
-            workbookActivitySelection: wbActivitySelection,
-            workbookCompanion: lesson?.workbookCompanion ?? null,
-          })
-        : null,
-    [
-      activityCards,
-      activityEnrichmentPocEnabled,
-      lesson?.workbookCompanion,
-      sbActivitySelection,
-      wbActivitySelection,
-      workbookActivityCards,
-    ],
-  )
   const selectedActivityVocabulary = useMemo(
     () => selectedSbActivityVocabulary(handoffActivitySelection),
     [handoffActivitySelection],
@@ -2667,18 +2636,12 @@ useEffect(() => {
                                 onSbActivitySelectionChange(card.id, selected)
                               }}
                               checkboxId={`current-activity-${card.id}`}
-                              experimentalSummary={
-                                showSbExperimentalSummary
-                                  ? getBe3U08ActivitySummary(
-                                      card.references.activityId,
-                                    )
-                                  : null
-                              }
-                              nllComparison={
-                                nllCardComparisonEligible
-                                  ? toNllCardComparisonDisplayState({
-                                      loadStatus: nllComparisonLoadStatus,
-                                      byActivityId: nllComparisonByActivityId,
+                              nllActivitySummary={
+                                nllActivitySummaryEligible
+                                  ? toNllActivitySummaryDisplay({
+                                      loadStatus: nllActivitySummaryLoadStatus,
+                                      byActivityId:
+                                        nllActivitySummaryByActivityId,
                                       activityId: card.references.activityId,
                                     })
                                   : null
@@ -2763,18 +2726,12 @@ useEffect(() => {
                                 onWbActivitySelectionChange(card.id, selected)
                               }
                               checkboxId={`workbook-activity-${card.id}`}
-                              experimentalSummary={
-                                showWbExperimentalSummary
-                                  ? getBe3U08WbActivitySummary(
-                                      card.references[0]?.activityId ?? '',
-                                    )
-                                  : null
-                              }
-                              nllComparison={
-                                nllCardComparisonEligible
-                                  ? toNllCardComparisonDisplayState({
-                                      loadStatus: nllComparisonLoadStatus,
-                                      byActivityId: nllComparisonByActivityId,
+                              nllActivitySummary={
+                                nllActivitySummaryEligible
+                                  ? toNllActivitySummaryDisplay({
+                                      loadStatus: nllActivitySummaryLoadStatus,
+                                      byActivityId:
+                                        nllActivitySummaryByActivityId,
                                       activityId:
                                         card.references[0]?.activityId ?? '',
                                     })
@@ -3141,92 +3098,6 @@ useEffect(() => {
                         No Student Book activities are selected.
                       </p>
                     )}
-
-                    {experimentalActivityEnrichmentPackage ? (
-                      <div
-                        className="space-y-2 border-t border-indigo-100 pt-3"
-                        data-experimental-activity-enrichment-package
-                        data-experimental-neutral-lesson-package
-                      >
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-                            Activity enrichment experiment · not NLL adapter
-                          </p>
-                          <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                            Bounded BE3 U8 activity-summary experiment (flag{' '}
-                            <span className="font-mono">
-                              VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC
-                            </span>
-                            ). Not production behaviour and not the Neutral Lesson
-                            Library component adapter. Selections are copied into this
-                            lesson-specific view only; sidecar and publisher records
-                            remain unchanged.
-                          </p>
-                        </div>
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
-                              Student Book activities
-                            </p>
-                            {experimentalActivityEnrichmentPackage.studentBookActivities
-                              .length > 0 ? (
-                              <ul className="mt-1.5 space-y-2">
-                                {experimentalActivityEnrichmentPackage.studentBookActivities.map(
-                                  (activity) => (
-                                    <li
-                                      key={`sb-${activity.selection.activityId}`}
-                                      className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
-                                    >
-                                      <p className="text-xs font-medium text-slate-800">
-                                        {activity.summary.text}
-                                      </p>
-                                      <p className="mt-1 text-[11px] text-slate-500">
-                                        SB evidence: {activity.publisherEvidenceReference.activityId}
-                                      </p>
-                                    </li>
-                                  ),
-                                )}
-                              </ul>
-                            ) : (
-                              <p className="mt-1.5 text-xs text-slate-500">
-                                No Student Book activities are included in this experimental package.
-                              </p>
-                            )}
-                          </div>
-                          {experimentalActivityEnrichmentPackage.scope.workbook ? (
-                            <div>
-                              <p className="text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
-                                Workbook activities
-                              </p>
-                              {experimentalActivityEnrichmentPackage.workbookActivities
-                                .length > 0 ? (
-                                <ul className="mt-1.5 space-y-2">
-                                  {experimentalActivityEnrichmentPackage.workbookActivities.map(
-                                    (activity) => (
-                                      <li
-                                        key={`wb-${activity.selection.activityId}`}
-                                        className="rounded-md border border-indigo-100 bg-indigo-50/50 p-2.5"
-                                      >
-                                        <p className="text-xs font-medium text-slate-800">
-                                          {activity.summary.text}
-                                        </p>
-                                        <p className="mt-1 text-[11px] text-slate-500">
-                                          WB evidence: {activity.publisherEvidenceReference.activityId}
-                                        </p>
-                                      </li>
-                                    ),
-                                  )}
-                                </ul>
-                              ) : (
-                                <p className="mt-1.5 text-xs text-slate-500">
-                                  No Workbook activities are included in this experimental package.
-                                </p>
-                              )}
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
-                    ) : null}
                   </div>
                 </section>
 

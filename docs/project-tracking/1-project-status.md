@@ -1,8 +1,8 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)
-**Last synced:** Step 417
+**Last synced:** Step 423
 
 ## One-line state
 
-- On **`main`** at `d27a9f305a7f8f7d3bafcaad6384902c58fcdef8` with uncommitted Unit 8 UI polish (VAL/UX/PRIOR). Live NLL **9 / 74 / 74 / 9**; history **28 / 0 / 0**. E2E nav/scope + polish issues fixed; ENV-01 owner-local only. Undeployed/unpromoted; no commit/push.
+- On **`main`** at `5ab6ea4` with uncommitted NLL activity-summary checkpoint. Live NLL **10 / 77 / 77 / 10**; history **29 / 0 / 0**. Shared default-off modal summaries are the sole runtime AI-summary source (77/77). Suite **415/415**. Undeployed/unpromoted; awaiting commit authorization.
