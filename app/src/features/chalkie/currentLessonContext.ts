@@ -126,9 +126,15 @@ export function buildCurrentLessonContext(input: {
   bookIntelligence?: BookIntelligenceOverviewDocument | null
   bookIntelligenceLoading?: boolean
   unitNumber?: string | number | null
+  /**
+   * Optional catalog-resolved unit label when the active page maps to a unit
+   * other than the loaded summary (never invent; caller supplies only from
+   * authoritative page ranges).
+   */
+  groundedUnitLabel?: string | null
 }): CurrentLessonContext {
   const sbPrintedPages = input.sbPrintedPages.filter(Number.isFinite).map(Math.floor)
-  const unitView = input.summary ? buildUnitSummaryView(input.summary) : null
+  const summaryUnitView = input.summary ? buildUnitSummaryView(input.summary) : null
   const pagesView = buildVisiblePagesView(input.summary, sbPrintedPages)
   const sbActivities = buildSbActivityCards({
     summary: input.summary,
@@ -143,27 +149,42 @@ export function buildCurrentLessonContext(input: {
         })
       : []
 
+  // Explicit null clears grounded unit chrome (outside selected unit pages).
+  // Undefined keeps the previous fallback to summary.units[0].
   const unitNumber =
-    input.unitNumber ??
-    input.summary?.units[0]?.unitNumber ??
-    null
+    input.unitNumber === null
+      ? null
+      : input.unitNumber !== undefined && String(input.unitNumber).trim() !== ''
+        ? input.unitNumber
+        : input.summary?.units[0]?.unitNumber ?? null
+
+  const summaryUnitNumber = input.summary?.units[0]?.unitNumber ?? null
+  const unitNumberMatchesSummary =
+    unitNumber != null &&
+    summaryUnitNumber != null &&
+    String(unitNumber).trim() === String(summaryUnitNumber).trim()
+
+  // Only attach the loaded summary’s unit view when it matches the grounded
+  // unit — never reuse Unit N evidence chrome for a different resolved unit.
+  const groundedUnitView = unitNumberMatchesSummary ? summaryUnitView : null
+  const catalogLabel = input.groundedUnitLabel?.trim() || null
 
   const bookIntelligence = buildChalkieUnitIntelligenceView({
     loading: input.bookIntelligenceLoading,
     document: input.bookIntelligence ?? null,
-    unitNumber,
+    unitNumber: unitNumberMatchesSummary ? unitNumber : null,
   })
 
   return {
     scope: {
       sbPrintedPages,
       rangeLabel: rangeLabelFor(sbPrintedPages),
-      unitLabel: unitView?.unitLabel ?? null,
-      unitPageRange: unitView?.pageRange ?? null,
+      unitLabel: groundedUnitView?.unitLabel ?? catalogLabel,
+      unitPageRange: groundedUnitView?.pageRange ?? null,
     },
     bookContent: {
       pagesView,
-      unitView,
+      unitView: groundedUnitView,
       sbActivities,
       wbActivities,
       workbookCompanion: companion,

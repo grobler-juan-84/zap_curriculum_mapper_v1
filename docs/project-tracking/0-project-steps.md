@@ -7232,3 +7232,58 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 414
+
+**Summary:** Ran BE3 Unit 8 real Create-a-prompt E2E validation-only: confirmed checkpoint `0d135cd`, history 28/0/0, live NLL 9/74/74/9, suite 334/334; flag-off baseline + Opener flag-on + Story isolation + Values `sb_only`; recorded full issue inventory. No implementation, DB/Storage mutation, promotion, deploy, commit, or push.
+
+**Files touched:**
+- `docs/project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md` (created)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 415
+
+**Summary:** Completed BE3 U8 Story?Review independent flag-on Create-a-prompt matrices, fallback/stale-result checks, and froze the E2E issue inventory. Then implemented the bounded shared lesson-anchor navigation/scope/selection batch (NAV-01, JUMP-01, NAV-02, SCOPE-01, SEL-01), with focused + full Unit 8 suite 343/343, typecheck/lint/scans, and post-fix browser verification. No DB/Storage/migration/canonical/`.env.local`/deploy/commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieLessonNavigation.ts` (created)
+- `app/src/features/chalkie/chalkieStudentBookUi.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `scripts/tests/chalkieLessonNavigation.test.ts` (created)
+- `scripts/tests/chalkieStudentBookUi.test.ts` (updated)
+- `scripts/tests/lessonActivitySelection.test.ts` (updated)
+- `docs/project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 416
+
+**Summary:** Completed residual ISSUE-SCOPE-01: shared page→unit grounded chrome so outside Unit 8 pages no longer keep Unit 8 title/SS as active grounded chrome (catalog may resolve Unit 9); Review p.143 and re-entry restore Unit 8. Suite 353/353; typecheck/lint/scans; browser 143/144/146 + re-enter pass. Did not touch VAL/UX/PRIOR/ENV; no commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieLessonNavigation.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `app/src/features/chalkie/currentLessonContext.ts` (updated)
+- `scripts/tests/chalkieLessonNavigation.test.ts` (updated)
+- `scripts/tests/currentLessonContext.test.ts` (updated)
+- `docs/project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

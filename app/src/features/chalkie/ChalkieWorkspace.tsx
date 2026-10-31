@@ -31,6 +31,14 @@ import {
 import { loadScopeSequenceFromStorage } from '../scope-sequence/loadScopeSequenceFromStorage'
 import { hasScopeSequenceAuthority } from '../scope-sequence/scopeSequenceStorageRegistry'
 import {
+  isPrintedPageInsideUnitRange,
+  listLessonAnchorsForUnit,
+  resolveGroundedUnitChrome,
+  resolveLessonPagesForPrintedPage,
+  resolveNextLessonStep,
+  resolvePreviousLessonStep,
+} from './chalkieLessonNavigation'
+import {
   enterWorkbookPdfView,
   isStudentBook,
   lessonAnchorPrintedPages,
@@ -215,41 +223,27 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     batches.find((batch) => batch.id === selectedBatchId) ?? batches[0] ?? null
   const currentUnitNumber = unitNumberFromBatch(currentBatch)
 
-  const curriculumAuthority = useMemo<CurriculumAuthorityState>(() => {
-    if (!hasScopeSequenceAuthority(book.catalogBookId)) {
-      return { status: 'not_configured' }
+  const bookUnitPageRanges = useMemo(() => {
+    if (fromCanonical && canonicalRaw != null) {
+      return listUnitsFromJson(canonicalRaw).map((unit) => ({
+        unitNumber: unit.unitNumber,
+        title: unit.title ?? null,
+        printedPageStart: unit.printedPageStart,
+        printedPageEnd: unit.printedPageEnd,
+      }))
     }
-    if (scopeSequenceBookId !== book.catalogBookId) {
-      return { status: 'loading' }
-    }
-    if (scopeSequenceLoading) return { status: 'loading' }
-    if (scopeSequenceError) {
-      return { status: 'unavailable', message: scopeSequenceError }
-    }
-    if (!scopeSequence) {
-      return {
-        status: 'unavailable',
-        message: 'Publisher Scope & Sequence is unavailable. Book evidence remains usable.',
-      }
-    }
-    const unit = findScopeSequenceUnit(scopeSequence, currentUnitNumber)
-    if (!unit) {
-      return {
-        status: 'unavailable',
-        message: currentUnitNumber
-          ? `No Scope & Sequence entry matched Unit ${currentUnitNumber}.`
-          : 'Select a unit to view its publisher Scope & Sequence.',
-      }
-    }
-    return { status: 'ready', document: scopeSequence, unit }
-  }, [
-    book.catalogBookId,
-    currentUnitNumber,
-    scopeSequence,
-    scopeSequenceBookId,
-    scopeSequenceError,
-    scopeSequenceLoading,
-  ])
+    return (summary?.units ?? [])
+      .filter(
+        (unit): unit is typeof unit & { unitNumber: string | number } =>
+          unit.unitNumber != null && String(unit.unitNumber).trim() !== '',
+      )
+      .map((unit) => ({
+        unitNumber: unit.unitNumber,
+        title: unit.title ?? null,
+        printedPageStart: unit.printedPageStart ?? null,
+        printedPageEnd: unit.printedPageEnd ?? null,
+      }))
+  }, [fromCanonical, canonicalRaw, summary?.units])
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])
   const wbPageMap = useMemo(
@@ -304,12 +298,15 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         visiblePrintedPages: anchorSbPages,
         activePrintedPage: effectiveActivePrintedPage,
         studentBookCanonical,
+        unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
       }),
     [
       book.catalogBookId,
       anchorSbPages,
       effectiveActivePrintedPage,
       studentBookCanonical,
+      currentBatch?.unitNumber,
+      summary?.units,
     ],
   )
 
@@ -319,7 +316,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const activeLessonPageLabel = useMemo(() => {
     if (
-      activeLessonScope.scopeSource === 'exact_visible_spread' &&
+      (activeLessonScope.scopeSource === 'exact_visible_spread' ||
+        activeLessonScope.scopeSource === 'lesson_anchor') &&
       lessonScopePages.length > 1
     ) {
       const first = lessonScopePages[0]
@@ -393,41 +391,286 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setActivePrintedPage(Math.floor(printedPage))
   }, [])
 
+  const unitNavMeta = useMemo(() => {
+    const unit = summary?.units[0]
+    return {
+      catalogBookId: book.catalogBookId,
+      unitNumber: currentBatch?.unitNumber ?? unit?.unitNumber ?? null,
+      unitTitle: unit?.title ?? null,
+      printedPageStart:
+        typeof unit?.printedPageStart === 'number' ? unit.printedPageStart : null,
+      printedPageEnd:
+        typeof unit?.printedPageEnd === 'number' ? unit.printedPageEnd : null,
+    }
+  }, [book.catalogBookId, currentBatch?.unitNumber, summary?.units])
+
+  const lessonAnchorsForUnit = useMemo(
+    () =>
+      listLessonAnchorsForUnit({
+        studentBookCatalogId: unitNavMeta.catalogBookId,
+        unitNumber: unitNavMeta.unitNumber,
+      }),
+    [unitNavMeta.catalogBookId, unitNavMeta.unitNumber],
+  )
+
+  const activePrintedForUnitChrome =
+    effectiveActivePrintedPage ??
+    (lessonScopePages.length ? lessonScopePages[0]! : null)
+
+  const activePageInsideUnit = useMemo(() => {
+    if (activePrintedForUnitChrome == null) return true
+    return isPrintedPageInsideUnitRange({
+      printedPage: activePrintedForUnitChrome,
+      unitPrintedPageStart: unitNavMeta.printedPageStart,
+      unitPrintedPageEnd: unitNavMeta.printedPageEnd,
+    })
+  }, [
+    activePrintedForUnitChrome,
+    unitNavMeta.printedPageStart,
+    unitNavMeta.printedPageEnd,
+  ])
+
+  const groundedUnitChrome = useMemo(
+    () =>
+      resolveGroundedUnitChrome({
+        printedPage: activePrintedForUnitChrome,
+        selectedUnitNumber: unitNavMeta.unitNumber,
+        selectedUnitTitle: unitNavMeta.unitTitle,
+        selectedUnitPrintedPageStart: unitNavMeta.printedPageStart,
+        selectedUnitPrintedPageEnd: unitNavMeta.printedPageEnd,
+        bookUnits: bookUnitPageRanges,
+      }),
+    [
+      activePrintedForUnitChrome,
+      unitNavMeta.unitNumber,
+      unitNavMeta.unitTitle,
+      unitNavMeta.printedPageStart,
+      unitNavMeta.printedPageEnd,
+      bookUnitPageRanges,
+    ],
+  )
+
+  const curriculumAuthority = useMemo<CurriculumAuthorityState>(() => {
+    if (!hasScopeSequenceAuthority(book.catalogBookId)) {
+      return { status: 'not_configured' }
+    }
+    if (scopeSequenceBookId !== book.catalogBookId) {
+      return { status: 'loading' }
+    }
+    if (scopeSequenceLoading) return { status: 'loading' }
+    if (scopeSequenceError) {
+      return { status: 'unavailable', message: scopeSequenceError }
+    }
+    if (!scopeSequence) {
+      return {
+        status: 'unavailable',
+        message:
+          'Publisher Scope & Sequence is unavailable. Book evidence remains usable.',
+      }
+    }
+
+    if (groundedUnitChrome.status === 'outside_unresolved') {
+      return {
+        status: 'unavailable',
+        message:
+          'Current PDF page is outside the selected unit’s Student Book page range. Unit publisher requirements are hidden until you return to that unit’s pages.',
+      }
+    }
+
+    const authorityUnitNumber =
+      groundedUnitChrome.status === 'outside_resolved_other'
+        ? groundedUnitChrome.groundedUnitNumber
+        : currentUnitNumber
+    const unit = findScopeSequenceUnit(scopeSequence, authorityUnitNumber)
+    if (!unit) {
+      if (groundedUnitChrome.status === 'outside_resolved_other') {
+        return {
+          status: 'unavailable',
+          message: groundedUnitChrome.groundedUnitLabel
+            ? `PDF page maps to ${groundedUnitChrome.groundedUnitLabel}, but no Scope & Sequence entry is loaded for that unit while another unit is selected.`
+            : 'PDF page maps to another unit; select that unit to view its publisher Scope & Sequence.',
+        }
+      }
+      return {
+        status: 'unavailable',
+        message: currentUnitNumber
+          ? `No Scope & Sequence entry matched Unit ${currentUnitNumber}.`
+          : 'Select a unit to view its publisher Scope & Sequence.',
+      }
+    }
+    return { status: 'ready', document: scopeSequence, unit }
+  }, [
+    book.catalogBookId,
+    currentUnitNumber,
+    groundedUnitChrome,
+    scopeSequence,
+    scopeSequenceBookId,
+    scopeSequenceError,
+    scopeSequenceLoading,
+  ])
+
+  const navigateToLessonPages = useCallback(
+    (pages: readonly number[], activePrinted?: number | null) => {
+      const normalized = [
+        ...new Set(
+          pages.filter((n) => Number.isFinite(n)).map((n) => Math.floor(n)),
+        ),
+      ].sort((a, b) => a - b)
+      if (!normalized.length) return false
+      const pdfPages = exactPdfPagesForPrinted(summary?.pages ?? [], [
+        normalized[0]!,
+      ])
+      const pdfStart = pdfPages?.[0] ?? pdfForPrinted(pageMap, normalized[0]!)
+      if (pdfStart == null) return false
+      // Do not arm pendingSbRestore here — that locks the PDF pane to mapped
+      // pages and disables Next/Prev/Go until cleared. Lesson-anchor scope
+      // expansion already preserves companions without that lock.
+      setPendingSbRestorePages(null)
+      setSbVisiblePrintedPages(normalized)
+      setActivePrintedPage(
+        activePrinted != null && normalized.includes(Math.floor(activePrinted))
+          ? Math.floor(activePrinted)
+          : normalized[0]!,
+      )
+      setPdfJumpRequest((prev) => ({
+        pdfPage: pdfStart,
+        requestId: (prev?.requestId ?? 0) + 1,
+      }))
+      return true
+    },
+    [summary?.pages, pageMap],
+  )
+
+  const handleLessonGo = useCallback(
+    (printedPage: number) => {
+      const page = Math.floor(printedPage)
+      if (!Number.isFinite(page)) return false
+      const lessonPages = resolveLessonPagesForPrintedPage({
+        studentBookCatalogId: unitNavMeta.catalogBookId,
+        unitNumber: unitNavMeta.unitNumber,
+        printedPage: page,
+      })
+      if (lessonPages?.length) {
+        return navigateToLessonPages(lessonPages, page)
+      }
+      return navigateToLessonPages([page], page)
+    },
+    [unitNavMeta.catalogBookId, unitNavMeta.unitNumber, navigateToLessonPages],
+  )
+
+  const handleLessonNext = useCallback(() => {
+    const step = resolveNextLessonStep({
+      studentBookCatalogId: unitNavMeta.catalogBookId,
+      unitNumber: unitNavMeta.unitNumber,
+      currentLessonPages: lessonScopePages,
+      activePrintedPage: effectiveActivePrintedPage,
+    })
+    if (step.kind === 'end_of_unit') return true
+    return navigateToLessonPages(step.anchor.studentBookPrintedPages)
+  }, [
+    unitNavMeta.catalogBookId,
+    unitNavMeta.unitNumber,
+    lessonScopePages,
+    effectiveActivePrintedPage,
+    navigateToLessonPages,
+  ])
+
+  const handleLessonPrev = useCallback(() => {
+    const step = resolvePreviousLessonStep({
+      studentBookCatalogId: unitNavMeta.catalogBookId,
+      unitNumber: unitNavMeta.unitNumber,
+      currentLessonPages: lessonScopePages,
+      activePrintedPage: effectiveActivePrintedPage,
+    })
+    if (step.kind === 'start_of_unit') return true
+    if (step.kind === 'end_of_unit') return true
+    return navigateToLessonPages(step.anchor.studentBookPrintedPages)
+  }, [
+    unitNavMeta.catalogBookId,
+    unitNavMeta.unitNumber,
+    lessonScopePages,
+    effectiveActivePrintedPage,
+    navigateToLessonPages,
+  ])
+
+  const atUnitLessonEnd = useMemo(() => {
+    if (!lessonAnchorsForUnit.length) return false
+    const last = lessonAnchorsForUnit[lessonAnchorsForUnit.length - 1]!
+    const current = [...lessonScopePages].sort((a, b) => a - b)
+    const expected = [...last.studentBookPrintedPages]
+    return (
+      current.length === expected.length &&
+      current.every((page, index) => page === expected[index])
+    )
+  }, [lessonAnchorsForUnit, lessonScopePages])
+
+  const atUnitLessonStart = useMemo(() => {
+    if (!lessonAnchorsForUnit.length) return false
+    const first = lessonAnchorsForUnit[0]!
+    const current = [...lessonScopePages].sort((a, b) => a - b)
+    const expected = [...first.studentBookPrintedPages]
+    return (
+      current.length === expected.length &&
+      current.every((page, index) => page === expected[index])
+    )
+  }, [lessonAnchorsForUnit, lessonScopePages])
+
+  const scopedLessonPages = useMemo(
+    () => (activePageInsideUnit ? lessonScopePages : []),
+    [activePageInsideUnit, lessonScopePages],
+  )
+  const scopedCompanion = activePageInsideUnit ? verifiedCompanion : null
+
+  // Book/BI unit chrome stays on the selected unit only while the active page
+  // is inside that unit. Outside pages may still surface a catalog-resolved
+  // label (never invented) without reusing the selected unit’s evidence view.
+  const groundedLessonUnitNumber =
+    groundedUnitChrome.status === 'inside_selected'
+      ? currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null
+      : null
+  const groundedUnitLabel =
+    groundedUnitChrome.status === 'outside_unresolved'
+      ? null
+      : groundedUnitChrome.groundedUnitLabel
+
   const liveLessonContext = useMemo(
     () =>
       resolveChalkieLessonContext({
         book,
         summary,
-        visiblePrintedPages: lessonScopePages,
-        unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+        visiblePrintedPages: scopedLessonPages,
+        unitNumber: groundedLessonUnitNumber,
       }),
-    [book, summary, lessonScopePages, currentBatch?.unitNumber],
+    [book, summary, scopedLessonPages, groundedLessonUnitNumber],
   )
 
   /**
    * Live curriculum context for the left panel — same verified activity builders
    * the Create-a-prompt modal uses, scoped to the current PDF lesson pages.
+   * Outside the selected unit page range, clear Unit evidence / title chrome
+   * rather than retaining the previous unit’s grounded labeling.
    */
   const liveCurrentLesson = useMemo(
     () =>
       buildCurrentLessonContext({
         summary,
-        sbPrintedPages: lessonScopePages,
+        sbPrintedPages: scopedLessonPages,
         workbookSummary,
-        workbookCompanion: verifiedCompanion,
+        workbookCompanion: scopedCompanion,
         bookIntelligence,
         bookIntelligenceLoading,
-        unitNumber:
-          currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
+        unitNumber: groundedLessonUnitNumber,
+        groundedUnitLabel,
       }),
     [
       summary,
-      lessonScopePages,
+      scopedLessonPages,
       workbookSummary,
-      verifiedCompanion,
+      scopedCompanion,
       bookIntelligence,
       bookIntelligenceLoading,
-      currentBatch?.unitNumber,
+      groundedLessonUnitNumber,
+      groundedUnitLabel,
     ],
   )
 
@@ -470,16 +713,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     () =>
       buildLessonActivitySelectionScopeKey({
         catalogBookId: book.catalogBookId,
-        unitNumber: currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null,
-        sbPrintedPages: lessonScopePages,
-        companionRelationshipId: verifiedCompanion?.relationshipId ?? null,
+        unitNumber: activePageInsideUnit
+          ? currentBatch?.unitNumber ?? summary?.units[0]?.unitNumber ?? null
+          : null,
+        sbPrintedPages: scopedLessonPages,
+        companionRelationshipId: scopedCompanion?.relationshipId ?? null,
       }),
     [
       book.catalogBookId,
       currentBatch?.unitNumber,
       summary?.units,
-      lessonScopePages,
-      verifiedCompanion?.relationshipId,
+      scopedLessonPages,
+      scopedCompanion?.relationshipId,
+      activePageInsideUnit,
     ],
   )
 
@@ -504,15 +750,34 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const selectionSbCardIdsKey = activityCardIdsKey(selectionSbCards)
   const selectionWbCardIdsKey = activityCardIdsKey(selectionWbCards)
+  const pendingSelectionDefaultScopeRef = useRef<string | null>(null)
 
   useEffect(() => {
     const scopeChanged = activeSelectionScopeKey !== selectionScopeKeyRef.current
     if (scopeChanged) {
+      selectionScopeKeyRef.current = activeSelectionScopeKey
+      pendingSelectionDefaultScopeRef.current = activeSelectionScopeKey
+      knownSbCardIdsRef.current = []
+      knownWbCardIdsRef.current = []
+    }
+
+    if (pendingSelectionDefaultScopeRef.current === activeSelectionScopeKey) {
       setSbActivitySelection(createDefaultSbActivitySelection(selectionSbCards))
       setWbActivitySelection(createDefaultWbActivitySelection(selectionWbCards))
       knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
       knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
-      selectionScopeKeyRef.current = activeSelectionScopeKey
+      // Keep re-defaulting until SB cards for the new lesson arrive (or the lesson
+      // is confirmed empty). Clearing on WB-only arrival left SB stuck at 0 of N.
+      if (selectionSbCards.length > 0) {
+        pendingSelectionDefaultScopeRef.current = null
+      } else if (
+        selectionSbCardIdsKey === '' &&
+        selectionWbCardIdsKey === '' &&
+        !scopeChanged
+      ) {
+        // Stable empty lesson (no SB/WB cards) — stop retrying.
+        pendingSelectionDefaultScopeRef.current = null
+      }
       return
     }
 
@@ -1153,7 +1418,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           className="flex h-full shrink-0 flex-col overflow-hidden"
         >
           <ChalkieLeftPanel
-            batch={currentBatch}
+            batch={
+              groundedUnitChrome.status === 'inside_selected' ? currentBatch : null
+            }
             loading={batchesLoading || jsonLoading}
             error={jsonError}
             curriculumAuthority={curriculumAuthority}
@@ -1214,12 +1481,37 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
               jumpRequest={pdfJumpRequest}
               navigationLocked={pdfRendererProps.navigationLocked}
               allowedPdfPages={pdfRendererProps.allowedPdfPages}
+              onLessonNavigateNext={
+                pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
+                  ? handleLessonNext
+                  : undefined
+              }
+              onLessonNavigatePrev={
+                pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
+                  ? handleLessonPrev
+                  : undefined
+              }
+              onLessonNavigateGo={
+                pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
+                  ? handleLessonGo
+                  : undefined
+              }
+              lessonNavAtEnd={
+                pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
+                  ? atUnitLessonEnd
+                  : false
+              }
+              lessonNavAtStart={
+                pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
+                  ? atUnitLessonStart
+                  : false
+              }
             />
           </div>
 
           {pdfViewMode === 'workbook' ||
-          activeLessonPageLabel ||
-          verifiedCompanion ? (
+          (activePageInsideUnit && activeLessonPageLabel) ||
+          scopedCompanion ? (
             <div className="flex shrink-0 items-center justify-between gap-2 border-t border-slate-200 bg-white px-3 py-2">
               <div className="min-w-0 text-[11px] leading-snug text-slate-500">
                 {pdfViewMode === 'workbook' ? (
@@ -1229,8 +1521,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
                   </p>
                 ) : (
                   <>
-                    {activeLessonPageLabel ? <p>{activeLessonPageLabel}</p> : null}
-                    {verifiedCompanion ? (
+                    {activePageInsideUnit && activeLessonPageLabel ? (
+                      <p>{activeLessonPageLabel}</p>
+                    ) : null}
+                    {scopedCompanion ? (
                       <p>
                         Verified Workbook companion available for the current lesson
                         page.
@@ -1239,7 +1533,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
                   </>
                 )}
               </div>
-              {verifiedCompanion ? (
+              {pdfViewMode === 'workbook' || scopedCompanion ? (
                 <button
                   type="button"
                   onClick={handleTogglePdfSource}

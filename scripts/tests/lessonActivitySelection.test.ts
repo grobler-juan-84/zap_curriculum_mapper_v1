@@ -450,3 +450,80 @@ test('verified WB selection stays separately addressable from SB', () => {
   assert.equal(wbHandoff.selectedEvidence.length, 0)
   assert.ok(deselected.selectedCardIds.length === sbCards.length - 1)
 })
+
+test('scope change drops stale IDs and defaults new lesson without cross-component leak', () => {
+  const openerCards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const phonicsCards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [141],
+  })
+  assert.ok(openerCards.length > 0)
+  assert.ok(phonicsCards.length > 0)
+
+  const openerKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  })
+  const phonicsKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [141],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+  })
+  assert.notEqual(openerKey, phonicsKey)
+
+  const openerSelection = createDefaultSbActivitySelection(openerCards)
+  const partial = setSbActivityCardSelected({
+    cards: openerCards,
+    state: openerSelection,
+    cardId: openerCards[0]!.id,
+    selected: false,
+  })
+
+  // Simulate scope change: ignore prior deselection; default the new lesson fully.
+  const afterScopeChange = createDefaultSbActivitySelection(phonicsCards)
+  assert.deepEqual(
+    [...afterScopeChange.selectedCardIds].sort(),
+    phonicsCards.map((c) => c.id).sort(),
+  )
+  assert.ok(
+    afterScopeChange.selectedCardIds.every(
+      (id) => !openerCards.some((card) => card.id === id),
+    ),
+  )
+
+  // Within the same resolved lesson, deliberate deselection sticks across card refresh.
+  const sameScopeReconcile = reconcileSbActivitySelection({
+    cards: openerCards,
+    previous: partial,
+    previousCardIds: openerCards.map((c) => c.id),
+  })
+  assert.ok(!sameScopeReconcile.selectedCardIds.includes(openerCards[0]!.id))
+  assert.equal(
+    sameScopeReconcile.selectedCardIds.length,
+    openerCards.length - 1,
+  )
+
+  // Transient empty prior cards must not leave new lesson at 0 of N.
+  const fromEmpty = reconcileSbActivitySelection({
+    cards: phonicsCards,
+    previous: { selectedCardIds: [] },
+    previousCardIds: [],
+  })
+  assert.deepEqual(
+    [...fromEmpty.selectedCardIds].sort(),
+    phonicsCards.map((c) => c.id).sort(),
+  )
+  assert.equal(
+    includedActivitiesCountLabel(
+      fromEmpty.selectedCardIds.length,
+      phonicsCards.length,
+    ),
+    `${phonicsCards.length} of ${phonicsCards.length} activities included`,
+  )
+})

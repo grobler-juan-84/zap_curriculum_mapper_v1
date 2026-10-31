@@ -6,6 +6,10 @@
 import type { Book } from '../../types/curriculum'
 import { exactPdfPagesForPrinted } from '../validation/pdfPageMap'
 import {
+  findLessonAnchorForPrintedPage,
+  resolveLessonPagesForPrintedPage,
+} from './chalkieLessonNavigation'
+import {
   resolveVerifiedSbWbCompanion,
   type VerifiedSbWbCompanion,
 } from './resolveVerifiedSbWbCompanion'
@@ -67,6 +71,7 @@ export function resolveCompanionForSbPages(input: {
 
 export type ActiveLessonScopeSource =
   | 'exact_visible_spread'
+  | 'lesson_anchor'
   | 'active_one_page'
   | 'none'
 
@@ -76,14 +81,17 @@ export type ActiveLessonScopeSource =
  *
  * Order:
  * 1) Exact curated match on the full visible spread (true two-page components).
- * 2) Else the Go / page-control active printed page alone (one-page components).
- * Never invents composite mappings or guesses among visible pages.
+ * 2) Else expand Go / active page via registered lesson anchors (curated companions
+ *    + companion-free allowlist) so two-page lessons keep full SB pages + WB.
+ * 3) Else the active printed page alone (unknown one-page scope).
+ * Never invents composite mappings across unrelated visible pages.
  */
 export function resolveActiveLessonScope(input: {
   studentBookCatalogId: string | null | undefined
   visiblePrintedPages: number[]
   activePrintedPage: number | null
   studentBookCanonical?: Record<string, unknown> | null
+  unitNumber?: number | string | null
 }): {
   lessonPrintedPages: number[]
   visiblePrintedPages: number[]
@@ -112,16 +120,46 @@ export function resolveActiveLessonScope(input: {
     }
   }
 
-  if (active != null) {
+  const anchorPage =
+    active ?? (visible.length === 1 ? visible[0]! : null)
+  if (anchorPage != null) {
+    const lessonPages = resolveLessonPagesForPrintedPage({
+      studentBookCatalogId: input.studentBookCatalogId,
+      unitNumber: input.unitNumber,
+      printedPage: anchorPage,
+    })
+    if (lessonPages?.length) {
+      const anchor = findLessonAnchorForPrintedPage({
+        studentBookCatalogId: input.studentBookCatalogId,
+        unitNumber: input.unitNumber,
+        printedPage: anchorPage,
+      })
+      const companion = resolveCompanionForSbPages({
+        studentBookCatalogId: input.studentBookCatalogId,
+        studentBookPrintedPages: lessonPages,
+        studentBookCanonical: input.studentBookCanonical,
+      })
+      // Companion-free anchors (Values) intentionally keep companion null.
+      if (companion || anchor?.companionRelationshipId == null) {
+        return {
+          lessonPrintedPages: lessonPages,
+          visiblePrintedPages: visible,
+          activePrintedPage: active ?? anchorPage,
+          companion,
+          scopeSource: 'lesson_anchor',
+        }
+      }
+    }
+
     const onePageCompanion = resolveCompanionForSbPages({
       studentBookCatalogId: input.studentBookCatalogId,
-      studentBookPrintedPages: [active],
+      studentBookPrintedPages: [anchorPage],
       studentBookCanonical: input.studentBookCanonical,
     })
     return {
-      lessonPrintedPages: [active],
+      lessonPrintedPages: [anchorPage],
       visiblePrintedPages: visible,
-      activePrintedPage: active,
+      activePrintedPage: active ?? anchorPage,
       companion: onePageCompanion,
       scopeSource: 'active_one_page',
     }

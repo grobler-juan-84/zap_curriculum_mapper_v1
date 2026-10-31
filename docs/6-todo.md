@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 413
+**Last updated:** Step 414
 
 
 
@@ -736,6 +736,16 @@
 - [x] **Review-A Step B apply + verify (2026-10-30):** isolated linked push of only `20261030210000`; live **9 / 74 / 74 / 9**; history **28 / 0 / 0**; six memberships; zero Review SS links; Phonics retained.
 
 - [x] **Phonics-B/C + Review-B/C implementation + Unit 8 automated acceptance (2026-10-30):** exact packages/renderers; default-off `VITE_NLL_CHALKIE_PHONICS_ADAPTER_PILOT` / `VITE_NLL_CHALKIE_REVIEW_ADAPTER_PILOT`; overlay stale guards and `sb_only` fallback; BI-absent; package-level NLL only; Values generic path retained. Unit 8 matrix **334/334**; typecheck pass; lint warnings only; `git diff --check`/encoding clean. Undeployed/unpromoted; no commit/push.
+
+- [x] **BE3 U8 real E2E workflow validation v0.1 (2026-10-31):** checkpoint `0d135cd`; suite **334/334**; live **9/74/74/9**; history **28/0/0**; flag-off baseline + Opener flag-on + Story isolation + Values `sb_only`; issue inventory in [`project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md`](./project-tracking/be3-u08-end-to-end-workflow-validation-v0.1.md). No fixes/DB writes/commit/push.
+
+- [x] **BE3 U8 E2E Story→Review flag-on + freeze + shared nav/scope batch (2026-10-31):** matrices complete; inventory frozen; NAV-01/JUMP-01/NAV-02/SEL-01 fixed; SCOPE-01 partial then residual chrome completed; suite **353/353**; no DB/Storage/migration/canonical/`.env.local`/commit/push.
+
+- [x] **Residual ISSUE-SCOPE-01 unit title/SS chrome (2026-10-31):** shared `resolveGroundedUnitChrome`; Review 143 keeps Unit 8; p.144/146 clear Unit 8 / resolve Unit 9 from catalog; re-enter restores Unit 8; browser + automated evidence pass.
+
+- [ ] **Owner review E2E post-fix dispositions** and remaining deferred UX issues (VAL-01, UX-01/02, PRIOR-01, ENV-01).
+
+- [ ] **Complete deferred one-flag-on browser matrices** (Story, LiA, CLIL, Grammar, Culture, Writing, Phonics, Review) + opener NLL-failure `sb_only` fallback demo — validation-only until authorized.
 
 - [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, or next-unit work without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 

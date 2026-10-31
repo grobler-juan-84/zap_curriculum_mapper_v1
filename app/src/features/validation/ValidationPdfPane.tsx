@@ -53,6 +53,17 @@ interface ValidationPdfPaneProps {
    */
   navigationLocked?: boolean
   /**
+   * Host-owned lesson-anchor navigation (Chalkie). Return true when handled so the
+   * pane does not fall back to a fixed two-page PDF increment.
+   */
+  onLessonNavigateNext?: () => boolean
+  onLessonNavigatePrev?: () => boolean
+  onLessonNavigateGo?: (printedPage: number) => boolean
+  /** When true with lesson navigation, disable Next at the unit's last lesson. */
+  lessonNavAtEnd?: boolean
+  /** When true with lesson navigation, disable Prev at the unit's first lesson. */
+  lessonNavAtStart?: boolean
+  /**
    * When set, show only these printed pages (mapped via `pageMap` → pdf indices).
    * Prefer `allowedPdfPages` when verified source `pdf_page` values are available.
    */
@@ -84,6 +95,11 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   onActivePrintedPageChange,
   jumpRequest = null,
   navigationLocked = false,
+  onLessonNavigateNext,
+  onLessonNavigatePrev,
+  onLessonNavigateGo,
+  lessonNavAtEnd = false,
+  lessonNavAtStart = false,
   allowedPrintedPages = null,
   allowedPdfPages = null,
 }) => {
@@ -118,8 +134,17 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   const leftPage = spread.leftPdfPage
   const rightPage = spread.rightPdfPage
   const pagesLocked = Boolean(resolvedAllowedPdfPages?.length)
-  const canPrev = !navigationLocked && !pagesLocked && pairStart > 1
-  const canNext = !navigationLocked && !pagesLocked && pairStart < numPages
+  const lessonNavEnabled = Boolean(
+    onLessonNavigateNext || onLessonNavigatePrev || onLessonNavigateGo,
+  )
+  const canPrev =
+    !navigationLocked &&
+    !pagesLocked &&
+    (lessonNavEnabled ? !lessonNavAtStart : pairStart > 1)
+  const canNext =
+    !navigationLocked &&
+    !pagesLocked &&
+    (lessonNavEnabled ? !lessonNavAtEnd : pairStart < numPages)
 
   // Align pairStart with forced mapped pages (keeps jump label honest).
   useEffect(() => {
@@ -233,7 +258,8 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
       : null
 
   const goPrev = () => {
-    if (navigationLocked || pagesLocked) return
+    if (navigationLocked || pagesLocked || !canPrev) return
+    if (onLessonNavigatePrev?.()) return
     setPairStart((current) => {
       const next = clampPage(current - 2, numPages)
       const printed = printedLabel(next)
@@ -244,7 +270,8 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   }
 
   const goNext = () => {
-    if (navigationLocked || pagesLocked) return
+    if (navigationLocked || pagesLocked || !canNext) return
+    if (onLessonNavigateNext?.()) return
     setPairStart((current) => {
       const next = clampPage(current + 2, numPages)
       const printed = printedLabel(next)
@@ -258,11 +285,13 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
    * Go to a printed page: keep a consecutive facing pair visible for reading when
    * the target is the right-hand page, and report the Go target as the active
    * lesson page (one-page components on a two-page PDF spread).
+   * Host lesson-anchor Go expands to the full lesson when registered.
    */
   const jumpToPage = () => {
     if (navigationLocked || pagesLocked) return
     const parsed = Number.parseInt(jumpValue, 10)
     if (!Number.isFinite(parsed) || !numPages) return
+    if (onLessonNavigateGo?.(parsed)) return
     const targetPdf = pdfForPrinted(pageMap, parsed)
     const prevPdf = pdfForPrinted(pageMap, parsed - 1)
     // If target is the right page of a consecutive PDF pair, start at the left.

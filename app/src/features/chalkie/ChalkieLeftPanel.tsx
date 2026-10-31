@@ -413,7 +413,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
           <div className="rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
             {error}
           </div>
-        ) : !currentLesson || !currentLesson.bookContent.unitView ? (
+        ) : !currentLesson ? (
           <p className="p-2 text-sm text-slate-500">
             Select a unit to inspect curriculum evidence.
           </p>
@@ -477,7 +477,11 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
               id={`${baseId}-book-content`}
               title="Book Content"
               badge="Verified source"
-              summary={bookSummary}
+              summary={
+                currentLesson.bookContent.unitView
+                  ? bookSummary
+                  : 'Outside selected unit pages — Unit evidence chrome cleared'
+              }
               open={bookOpen}
               onToggle={() => setBookOpen((open) => !open)}
               tone="book"
@@ -485,10 +489,18 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
               <div className="space-y-2">
                 <p className="px-0.5 text-[11px] leading-relaxed text-slate-500">
                   Textbook-grounded evidence for {scopeBadge}
-                  {currentLesson.scope.unitLabel
+                  {currentLesson.bookContent.unitView && currentLesson.scope.unitLabel
                     ? ` · ${currentLesson.scope.unitLabel}`
                     : ''}
-                  {batch?.label ? ` · ${batch.label}` : ''}.
+                  {currentLesson.bookContent.unitView && batch?.label
+                    ? ` · ${batch.label}`
+                    : ''}
+                  {!currentLesson.bookContent.unitView
+                    ? currentLesson.scope.unitLabel
+                      ? ` · PDF page maps to ${currentLesson.scope.unitLabel} (select that unit for its book evidence)`
+                      : ' · current PDF page is outside the selected unit'
+                    : ''}
+                  .
                 </p>
 
                 {objectives.length > 0 ? (

@@ -277,6 +277,68 @@ test('Book Intelligence stays separate from page-scoped book content', () => {
   assert.equal(summaryLine.includes('BI-ONLY'), false)
 })
 
+test('explicit null unitNumber clears Unit grounded chrome (SCOPE-01)', () => {
+  const summary = summaryWithActivities(
+    [
+      {
+        activity_id: 'big_english_3_sb_act_u08',
+        book_id: 'big_english_3_sb',
+        page_id: 'big_english_3_sb_p143',
+        printed_page: 143,
+        activity_number: '1',
+        instruction: 'Review.',
+        verification_status: 'human_verified',
+      },
+    ],
+    [{ page_id: 'big_english_3_sb_p143', printed_page: 143 }],
+  )
+  // Pretend the loaded summary is Unit 8.
+  summary.units[0] = {
+    unitNumber: 8,
+    title: 'Healthy Living',
+    printedPageStart: 128,
+    printedPageEnd: 143,
+  }
+
+  const inside = buildCurrentLessonContext({
+    summary,
+    sbPrintedPages: [143],
+    unitNumber: 8,
+  })
+  assert.equal(inside.scope.unitLabel, 'Unit 8: Healthy Living')
+  assert.ok(inside.bookContent.unitView)
+
+  const outsideCleared = buildCurrentLessonContext({
+    summary,
+    sbPrintedPages: [],
+    unitNumber: null,
+  })
+  assert.equal(outsideCleared.scope.unitLabel, null)
+  assert.equal(outsideCleared.bookContent.unitView, null)
+  assert.equal(outsideCleared.bookIntelligence.status, 'unavailable')
+
+  const outsideOtherCatalog = buildCurrentLessonContext({
+    summary,
+    sbPrintedPages: [],
+    unitNumber: null,
+    groundedUnitLabel: 'Unit 9: School Trips',
+  })
+  assert.equal(outsideOtherCatalog.scope.unitLabel, 'Unit 9: School Trips')
+  assert.equal(outsideOtherCatalog.bookContent.unitView, null)
+  assert.equal(
+    outsideOtherCatalog.scope.unitLabel?.includes('Unit 8'),
+    false,
+  )
+
+  const mismatchedUnitNumber = buildCurrentLessonContext({
+    summary,
+    sbPrintedPages: [],
+    unitNumber: 9,
+  })
+  assert.equal(mismatchedUnitNumber.bookContent.unitView, null)
+  assert.equal(mismatchedUnitNumber.scope.unitLabel, null)
+})
+
 test('unverified activities are excluded from current-lesson book content', () => {
   const summary = summaryWithActivities(
     [

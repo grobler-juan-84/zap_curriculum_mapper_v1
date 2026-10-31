@@ -128,10 +128,11 @@ function be3U08SummaryStub(): BatchJsonSummary {
 test('active p.140 on visible 140–141 resolves Writing → WB 115; handoff scope is p.140 only', () => {
   const scope = resolveActiveLessonScope({
     studentBookCatalogId: 'big_english_3_sb',
+    unitNumber: 8,
     visiblePrintedPages: [140, 141],
     activePrintedPage: 140,
   })
-  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.equal(scope.scopeSource, 'lesson_anchor')
   assert.deepEqual(scope.lessonPrintedPages, [140])
   assert.deepEqual(scope.visiblePrintedPages, [140, 141])
   assert.ok(scope.companion)
@@ -156,10 +157,11 @@ test('active p.140 on visible 140–141 resolves Writing → WB 115; handoff sco
 test('active p.141 on visible 140–141 resolves Phonics → WB 116; handoff scope is p.141 only', () => {
   const scope = resolveActiveLessonScope({
     studentBookCatalogId: 'big_english_3_sb',
+    unitNumber: 8,
     visiblePrintedPages: [140, 141],
     activePrintedPage: 141,
   })
-  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.equal(scope.scopeSource, 'lesson_anchor')
   assert.deepEqual(scope.lessonPrintedPages, [141])
   assert.ok(scope.companion)
   assert.equal(scope.companion?.relationshipId, 'be3_sb_wb_rel_u08_phonics_sb141_wb116')
@@ -182,10 +184,11 @@ test('active p.141 on visible 140–141 resolves Phonics → WB 116; handoff sco
 test('active p.142 on visible 142–143 has no companion; lesson scope is p.142 only', () => {
   const scope = resolveActiveLessonScope({
     studentBookCatalogId: 'big_english_3_sb',
+    unitNumber: 8,
     visiblePrintedPages: [142, 143],
     activePrintedPage: 142,
   })
-  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.equal(scope.scopeSource, 'lesson_anchor')
   assert.deepEqual(scope.lessonPrintedPages, [142])
   assert.equal(scope.companion, null)
 })
@@ -193,10 +196,11 @@ test('active p.142 on visible 142–143 has no companion; lesson scope is p.142 
 test('active p.143 on visible 142–143 resolves Review → WB 117; handoff scope is p.143 only', () => {
   const scope = resolveActiveLessonScope({
     studentBookCatalogId: 'big_english_3_sb',
+    unitNumber: 8,
     visiblePrintedPages: [142, 143],
     activePrintedPage: 143,
   })
-  assert.equal(scope.scopeSource, 'active_one_page')
+  assert.equal(scope.scopeSource, 'lesson_anchor')
   assert.deepEqual(scope.lessonPrintedPages, [143])
   assert.ok(scope.companion)
   assert.equal(scope.companion?.relationshipId, 'be3_sb_wb_rel_u08_review_sb143_wb117')
