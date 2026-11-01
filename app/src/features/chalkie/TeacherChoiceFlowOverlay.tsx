@@ -73,6 +73,7 @@ import {
   type WbActivityHandoffSelection,
   type WbActivitySelectionState,
 } from './chalkieWorkbookActivitySelection'
+import { isCompanionFreeAllowlistedLesson } from './chalkieLessonNavigation'
 import { ActivityEvidenceCard } from './ActivityEvidenceCard'
 import {
   isExactBe3U08NllActivitySummaryScope,
@@ -185,6 +186,13 @@ import {
 } from './nllReviewChalkieAdapterPilot'
 import { renderGeneralLessonPlanFromNeutralPackage } from './renderGeneralLessonPlanFromNeutralPackage'
 import { supabase } from '../../lib/supabase'
+import { useAuth } from '../auth/AuthProvider'
+import {
+  buildNllNlpInspectionReport,
+  shouldShowNllNlpInspectorCard,
+} from './nllNlpInspector'
+import { requestNllNlpInspectorAccess } from '../../services/nllNlpInspectorAccessService'
+import type { ScopeSequenceUnit } from '../scope-sequence/scopeSequence'
 import {
   ActivityReviewBookPage,
   ActivityReviewBookSpread,
@@ -246,11 +254,11 @@ function resolveOverlayBiInputs(input: {
   const biArtifactRef = artifact?.storagePath ?? null
   const planningContext = unit
     ? toBiPlanningContext({
-        catalogBookId: input.lesson.catalogBookId,
-        unit,
-        biArtifactRef,
-        expectedUnitNumber: input.lesson.unitNumber,
-      })
+      catalogBookId: input.lesson.catalogBookId,
+      unit,
+      biArtifactRef,
+      expectedUnitNumber: input.lesson.unitNumber,
+    })
     : null
   return { unit, planningContext, biArtifactRef }
 }
@@ -313,6 +321,8 @@ interface TeacherChoiceFlowOverlayProps {
   workbookActivityCards: readonly WbActivityCard[]
   /** Optional loaded BI document for NLP interpretation attach (D022). */
   bookIntelligence?: BookIntelligenceOverviewDocument | null
+  /** Optional unit-level Scope & Sequence already loaded in the workspace. */
+  scopeSequenceUnit?: ScopeSequenceUnit | null
   /** Shared workspace selection — same state as the left panel. */
   sbActivitySelection: SbActivitySelectionState
   wbActivitySelection: WbActivitySelectionState
@@ -425,11 +435,14 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   activityCards,
   workbookActivityCards,
   bookIntelligence = null,
+  scopeSequenceUnit = null,
   sbActivitySelection,
   wbActivitySelection,
   onSbActivitySelectionChange,
   onWbActivitySelectionChange,
 }) => {
+  const { profile } = useAuth()
+  const showNllNlpInspector = shouldShowNllNlpInspectorCard(profile?.role)
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
   const continueRef = useRef<HTMLButtonElement>(null)
@@ -476,6 +489,12 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   const [addPriorSkillExpanded, setAddPriorSkillExpanded] = useState(false)
   const [showPromptPreview, setShowPromptPreview] = useState(false)
   const [showChalkiePackaging, setShowChalkiePackaging] = useState(false)
+  const [showInspectionReport, setShowInspectionReport] = useState(false)
+  const [inspectionReportMarkdown, setInspectionReportMarkdown] = useState('')
+  const [inspectionReportPreparing, setInspectionReportPreparing] =
+    useState(false)
+  const [inspectionCopyStatus, setInspectionCopyStatus] =
+    useState<CopyFeedback>('idle')
   const [preparedOutputKind, setPreparedOutputKind] =
     useState<PreparedOutputKind | null>(null)
   preparedOutputKindRef.current = preparedOutputKind
@@ -532,11 +551,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     nllActivitySummarySpec != null
   const nllActivitySummaryScope = nllActivitySummaryEligible
     ? nllActivitySummaryScopeKey({
-        componentKey: nllActivitySummarySpec.componentKey,
-        activityCards,
-        workbookActivityCards,
-        companion: lesson?.workbookCompanion ?? null,
-      })
+      componentKey: nllActivitySummarySpec.componentKey,
+      activityCards,
+      workbookActivityCards,
+      companion: lesson?.workbookCompanion ?? null,
+    })
     : ''
   const generalLessonPlanScopeKey = openerNllGeneralLessonPlanScopeKey({
     activityCards,
@@ -722,16 +741,28 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     [activityCards, lesson?.visiblePrintedPages],
   )
   /**
-   * Facing-page "Not included" placeholders only belong on verified SB→WB pair
-   * routes. Ordinary Student Book-only lessons show in-scope pages only.
+   * Facing-page "Not included" placeholders belong on verified SB→WB pair
+   * routes and companion-free allowlisted lessons (Values). Ordinary
+   * Student Book-only lessons show in-scope pages only.
    */
   const hasVerifiedWorkbookCompanion = Boolean(lesson?.workbookCompanion)
+  const retainEmptyWorkbookSpread = Boolean(
+    lesson &&
+      !lesson.workbookCompanion &&
+      isCompanionFreeAllowlistedLesson({
+        studentBookCatalogId: lesson.catalogBookId,
+        unitNumber: lesson.unitNumber,
+        printedPages: lesson.visiblePrintedPages,
+      }),
+  )
+  const usesPairedBookLayout =
+    hasVerifiedWorkbookCompanion || retainEmptyWorkbookSpread
   const visibleSbActivityPageColumns = useMemo(
     () =>
-      hasVerifiedWorkbookCompanion
+      usesPairedBookLayout
         ? activityPageColumns
         : activityPageColumns.filter((column) => column.includedInLessonScope),
-    [activityPageColumns, hasVerifiedWorkbookCompanion],
+    [activityPageColumns, usesPairedBookLayout],
   )
   const sbActivityUsesTwoColumnLayout = visibleSbActivityPageColumns.length > 1
 
@@ -744,8 +775,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       buildWbActivityPagePanels({
         cards: workbookActivityCards,
         companion: lesson?.workbookCompanion ?? null,
+        emptySpread: retainEmptyWorkbookSpread,
       }),
-    [workbookActivityCards, lesson?.workbookCompanion],
+    [
+      workbookActivityCards,
+      lesson?.workbookCompanion,
+      retainEmptyWorkbookSpread,
+    ],
   )
   const workbookActivitySelectionStatus = useMemo(
     () =>
@@ -903,7 +939,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllChalkieAdapterRequestKeyRef.current &&
       nllChalkieAdapterRequestKeyRef.current !==
-        nllChalkieAdapterCurrentRequestKey
+      nllChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllChalkieAdapterPilotRequest({
         requestIdRef: nllChalkieAdapterRequestIdRef,
@@ -918,7 +954,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllStoryChalkieAdapterRequestKeyRef.current &&
       nllStoryChalkieAdapterRequestKeyRef.current !==
-        nllStoryChalkieAdapterCurrentRequestKey
+      nllStoryChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllStoryChalkieAdapterPilotRequest({
         requestIdRef: nllStoryChalkieAdapterRequestIdRef,
@@ -933,7 +969,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllLiaChalkieAdapterRequestKeyRef.current &&
       nllLiaChalkieAdapterRequestKeyRef.current !==
-        nllLiaChalkieAdapterCurrentRequestKey
+      nllLiaChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllLiaChalkieAdapterPilotRequest({
         requestIdRef: nllLiaChalkieAdapterRequestIdRef,
@@ -948,7 +984,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllGrammarChalkieAdapterRequestKeyRef.current &&
       nllGrammarChalkieAdapterRequestKeyRef.current !==
-        nllGrammarChalkieAdapterCurrentRequestKey
+      nllGrammarChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllGrammarChalkieAdapterPilotRequest({
         requestIdRef: nllGrammarChalkieAdapterRequestIdRef,
@@ -978,7 +1014,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllClilPeChalkieAdapterRequestKeyRef.current &&
       nllClilPeChalkieAdapterRequestKeyRef.current !==
-        nllClilPeChalkieAdapterCurrentRequestKey
+      nllClilPeChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllClilPeChalkieAdapterPilotRequest({
         requestIdRef: nllClilPeChalkieAdapterRequestIdRef,
@@ -1005,7 +1041,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllCultureChalkieAdapterRequestKeyRef.current &&
       nllCultureChalkieAdapterRequestKeyRef.current !==
-        nllCultureChalkieAdapterCurrentRequestKey
+      nllCultureChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllCultureChalkieAdapterPilotRequest({
         requestIdRef: nllCultureChalkieAdapterRequestIdRef,
@@ -1016,7 +1052,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       chalkiePreparing &&
       nllWritingChalkieAdapterRequestKeyRef.current &&
       nllWritingChalkieAdapterRequestKeyRef.current !==
-        nllWritingChalkieAdapterCurrentRequestKey
+      nllWritingChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllWritingChalkieAdapterPilotRequest({
         requestIdRef: nllWritingChalkieAdapterRequestIdRef,
@@ -1031,13 +1067,13 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     }
   }, [chalkiePreparing, nllCultureChalkieAdapterCurrentRequestKey, nllWritingChalkieAdapterCurrentRequestKey, open])
 
-useEffect(() => {
+  useEffect(() => {
     if (!open) return
     if (
       chalkiePreparing &&
       nllCultureChalkieAdapterRequestKeyRef.current &&
       nllCultureChalkieAdapterRequestKeyRef.current !==
-        nllCultureChalkieAdapterCurrentRequestKey
+      nllCultureChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllCultureChalkieAdapterPilotRequest({
         requestIdRef: nllCultureChalkieAdapterRequestIdRef,
@@ -1048,7 +1084,7 @@ useEffect(() => {
       chalkiePreparing &&
       nllPhonicsChalkieAdapterRequestKeyRef.current &&
       nllPhonicsChalkieAdapterRequestKeyRef.current !==
-        nllPhonicsChalkieAdapterCurrentRequestKey
+      nllPhonicsChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllPhonicsChalkieAdapterPilotRequest({
         requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
@@ -1057,13 +1093,13 @@ useEffect(() => {
     }
   }, [chalkiePreparing, nllPhonicsChalkieAdapterCurrentRequestKey, open])
 
-useEffect(() => {
+  useEffect(() => {
     if (!open) return
     if (
       chalkiePreparing &&
       nllCultureChalkieAdapterRequestKeyRef.current &&
       nllCultureChalkieAdapterRequestKeyRef.current !==
-        nllCultureChalkieAdapterCurrentRequestKey
+      nllCultureChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllCultureChalkieAdapterPilotRequest({
         requestIdRef: nllCultureChalkieAdapterRequestIdRef,
@@ -1074,7 +1110,7 @@ useEffect(() => {
       chalkiePreparing &&
       nllReviewChalkieAdapterRequestKeyRef.current &&
       nllReviewChalkieAdapterRequestKeyRef.current !==
-        nllReviewChalkieAdapterCurrentRequestKey
+      nllReviewChalkieAdapterCurrentRequestKey
     ) {
       invalidateNllReviewChalkieAdapterPilotRequest({
         requestIdRef: nllReviewChalkieAdapterRequestIdRef,
@@ -1097,6 +1133,7 @@ useEffect(() => {
   const includeWorkbookStep = includeTeacherChoiceWorkbookStep({
     hasVerifiedWorkbookCompanion,
     workbookActivityCardCount: workbookActivityCards.length,
+    retainEmptyWorkbookSpread,
   })
   const totalSteps = teacherChoiceTotalSteps(includeWorkbookStep)
   const resolvedStepId =
@@ -1138,16 +1175,30 @@ useEffect(() => {
   const showChooseOutput =
     resolvedStepId === 'choose_output' &&
     !showPromptPreview &&
-    !showChalkiePackaging
+    !showChalkiePackaging &&
+    !showInspectionReport
+  const backDisabled =
+    resolvedStepId === 'student_book' &&
+    !showPromptPreview &&
+    !showChalkiePackaging &&
+    !showInspectionReport
 
   const handleContinue = () => {
     if (resolvedStepId === 'choose_output') return
     setShowPromptPreview(false)
+    setShowInspectionReport(false)
     setCopyStatus('idle')
     setStepId(advanceTeacherChoiceStepId(resolvedStepId, includeWorkbookStep))
   }
 
   const handleBack = () => {
+    if (showInspectionReport) {
+      setShowInspectionReport(false)
+      setInspectionReportMarkdown('')
+      setInspectionReportPreparing(false)
+      setInspectionCopyStatus('idle')
+      return
+    }
     if (showPromptPreview) {
       if (preparedOutputKind === 'lesson_plan') {
         invalidateNllGeneralLessonPlanPilotRequest({
@@ -1174,15 +1225,15 @@ useEffect(() => {
         invalidateNllCultureChalkieAdapterPilotRequest({
           requestIdRef: nllCultureChalkieAdapterRequestIdRef,
         })
-      invalidateNllWritingChalkieAdapterPilotRequest({
-        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
-      })
-      invalidateNllPhonicsChalkieAdapterPilotRequest({
-        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
-      })
-      invalidateNllReviewChalkieAdapterPilotRequest({
-        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
-      })
+        invalidateNllWritingChalkieAdapterPilotRequest({
+          requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+        })
+        invalidateNllPhonicsChalkieAdapterPilotRequest({
+          requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+        })
+        invalidateNllReviewChalkieAdapterPilotRequest({
+          requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+        })
         setChalkiePreparing(false)
       }
       setShowPromptPreview(false)
@@ -1223,15 +1274,15 @@ useEffect(() => {
     invalidateNllCultureChalkieAdapterPilotRequest({
       requestIdRef: nllCultureChalkieAdapterRequestIdRef,
     })
-      invalidateNllWritingChalkieAdapterPilotRequest({
-        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
-      })
-      invalidateNllPhonicsChalkieAdapterPilotRequest({
-        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
-      })
-      invalidateNllReviewChalkieAdapterPilotRequest({
-        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
-      })
+    invalidateNllWritingChalkieAdapterPilotRequest({
+      requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+    })
+    invalidateNllPhonicsChalkieAdapterPilotRequest({
+      requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+    })
+    invalidateNllReviewChalkieAdapterPilotRequest({
+      requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+    })
     setChalkiePreparing(false)
     setLessonShape(next)
     setTitleCopyStatus('idle')
@@ -2195,23 +2246,23 @@ useEffect(() => {
     invalidateNllCultureChalkieAdapterPilotRequest({
       requestIdRef: nllCultureChalkieAdapterRequestIdRef,
     })
-      invalidateNllWritingChalkieAdapterPilotRequest({
-        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
-      })
-      invalidateNllPhonicsChalkieAdapterPilotRequest({
-        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
-      })
-      invalidateNllReviewChalkieAdapterPilotRequest({
-        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
-      })
+    invalidateNllWritingChalkieAdapterPilotRequest({
+      requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+    })
+    invalidateNllPhonicsChalkieAdapterPilotRequest({
+      requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+    })
+    invalidateNllReviewChalkieAdapterPilotRequest({
+      requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+    })
     nllStoryChalkieAdapterRequestKeyRef.current = ''
     nllLiaChalkieAdapterRequestKeyRef.current = ''
     nllGrammarChalkieAdapterRequestKeyRef.current = ''
     nllClilPeChalkieAdapterRequestKeyRef.current = ''
-      nllCultureChalkieAdapterRequestKeyRef.current = ''
-      nllWritingChalkieAdapterRequestKeyRef.current = ''
-      nllPhonicsChalkieAdapterRequestKeyRef.current = ''
-      nllReviewChalkieAdapterRequestKeyRef.current = ''
+    nllCultureChalkieAdapterRequestKeyRef.current = ''
+    nllWritingChalkieAdapterRequestKeyRef.current = ''
+    nllPhonicsChalkieAdapterRequestKeyRef.current = ''
+    nllReviewChalkieAdapterRequestKeyRef.current = ''
     const requestId = nllChalkieAdapterRequestIdRef.current + 1
     nllChalkieAdapterRequestIdRef.current = requestId
     const requestKey = nllChalkieAdapterCurrentRequestKey
@@ -2286,23 +2337,81 @@ useEffect(() => {
     invalidateNllCultureChalkieAdapterPilotRequest({
       requestIdRef: nllCultureChalkieAdapterRequestIdRef,
     })
-      invalidateNllWritingChalkieAdapterPilotRequest({
-        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
-      })
-      invalidateNllPhonicsChalkieAdapterPilotRequest({
-        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
-      })
-      invalidateNllReviewChalkieAdapterPilotRequest({
-        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
-      })
+    invalidateNllWritingChalkieAdapterPilotRequest({
+      requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+    })
+    invalidateNllPhonicsChalkieAdapterPilotRequest({
+      requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+    })
+    invalidateNllReviewChalkieAdapterPilotRequest({
+      requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+    })
     setLessonPlanPreparing(false)
     setChalkiePreparing(false)
+    setShowInspectionReport(false)
+    setInspectionReportMarkdown('')
+    setInspectionReportPreparing(false)
+    setInspectionCopyStatus('idle')
     // Keep preparedOutputKind off General so an in-flight Stage 4 result cannot apply.
     if (preparedOutputKindRef.current === 'lesson_plan') {
       preparedOutputKindRef.current = null
       setPreparedOutputKind(null)
     }
     setShowChalkiePackaging(true)
+  }
+
+  const handleOpenNllNlpInspector = () => {
+    if (!showNllNlpInspector || !lesson || inspectionReportPreparing) return
+    setShowChalkiePackaging(false)
+    setShowPromptPreview(false)
+    setInspectionCopyStatus('idle')
+    setInspectionReportPreparing(true)
+    setShowInspectionReport(true)
+    setInspectionReportMarkdown('')
+
+    void (async () => {
+      const access = await requestNllNlpInspectorAccess()
+      if (!access.ok) {
+        setInspectionReportMarkdown(
+          `# NLL/NLP Inspection Report\n\n**forbidden:** Administrator authorization required (${access.status}: ${access.message}).\n`,
+        )
+        return
+      }
+
+      try {
+        const report = await buildNllNlpInspectionReport({
+          lesson,
+          activityCards,
+          workbookActivityCards,
+          sbSelection: handoffActivitySelection,
+          wbSelection: handoffWorkbookActivitySelection,
+          selectedSuggestions,
+          teacherAdditions: selectedTeacherAdditions,
+          scopeSequenceUnit,
+          client: supabase,
+        })
+        setInspectionReportMarkdown(report.markdown)
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Inspection report failed.'
+        setInspectionReportMarkdown(
+          `# NLL/NLP Inspection Report\n\n**unavailable:** ${message}\n`,
+        )
+      }
+    })().finally(() => {
+      setInspectionReportPreparing(false)
+    })
+  }
+
+  const handleCopyInspectionReport = async () => {
+    if (!inspectionReportMarkdown) return
+    try {
+      await navigator.clipboard.writeText(inspectionReportMarkdown)
+      setInspectionCopyStatus('copied')
+      window.setTimeout(() => setInspectionCopyStatus('idle'), 2000)
+    } catch {
+      setInspectionCopyStatus('failed')
+    }
   }
 
   const resetPreviewChromeForLessonPlan = () => {
@@ -2361,15 +2470,15 @@ useEffect(() => {
     invalidateNllCultureChalkieAdapterPilotRequest({
       requestIdRef: nllCultureChalkieAdapterRequestIdRef,
     })
-      invalidateNllWritingChalkieAdapterPilotRequest({
-        requestIdRef: nllWritingChalkieAdapterRequestIdRef,
-      })
-      invalidateNllPhonicsChalkieAdapterPilotRequest({
-        requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
-      })
-      invalidateNllReviewChalkieAdapterPilotRequest({
-        requestIdRef: nllReviewChalkieAdapterRequestIdRef,
-      })
+    invalidateNllWritingChalkieAdapterPilotRequest({
+      requestIdRef: nllWritingChalkieAdapterRequestIdRef,
+    })
+    invalidateNllPhonicsChalkieAdapterPilotRequest({
+      requestIdRef: nllPhonicsChalkieAdapterRequestIdRef,
+    })
+    invalidateNllReviewChalkieAdapterPilotRequest({
+      requestIdRef: nllReviewChalkieAdapterRequestIdRef,
+    })
     setChalkiePreparing(false)
     const flagEnabled = isNllGeneralLessonPlanPilotEnabled()
     const exactScopeEligible = isExactBe3U08OpenerNllGeneralLessonPlanScope({
@@ -2556,10 +2665,10 @@ useEffect(() => {
       >
         <header className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-100 bg-white px-5 py-3.5 sm:px-6 lg:px-8">
           <div className="min-w-0">
-            <p className="text-xs text-slate-500">
+            <p className="text-lg font-semibold text-slate-500">
               Step {stepNumber} of {totalSteps}
               <span className="mx-2 text-slate-300" aria-hidden="true">
-                ·
+                -
               </span>
               <span className="text-slate-700">{stepName}</span>
             </p>
@@ -2567,18 +2676,17 @@ useEffect(() => {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-md px-2.5 py-1.5 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+            className="rounded-md px-2.5 py-1.5 text-md font-semibold text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
           >
             Cancel
           </button>
         </header>
 
         <div
-          className={`min-h-0 flex-1 bg-[#8bcfd9]/20 ${
-            resolvedStepId === 'student_book' || resolvedStepId === 'workbook'
-              ? 'flex flex-col overflow-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8'
-              : 'overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
-          }`}
+          className={`min-h-0 flex-1 bg-[#8bcfd9]/20 ${resolvedStepId === 'student_book' || resolvedStepId === 'workbook'
+            ? 'flex flex-col overflow-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-8'
+            : 'overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10'
+            }`}
           data-teacher-choice-body={
             resolvedStepId === 'student_book' || resolvedStepId === 'workbook'
               ? 'activity-review'
@@ -2590,7 +2698,7 @@ useEffect(() => {
               <section
                 className="flex min-h-0 flex-1 flex-col gap-3"
                 aria-label="Review selected Student Book activities"
-                data-sb-only-layout={hasVerifiedWorkbookCompanion ? undefined : 'true'}
+                data-sb-only-layout={usesPairedBookLayout ? undefined : 'true'}
                 data-activity-selection-review="student_book"
               >
                 <ActivityReviewBookSpread
@@ -2639,11 +2747,11 @@ useEffect(() => {
                               nllActivitySummary={
                                 nllActivitySummaryEligible
                                   ? toNllActivitySummaryDisplay({
-                                      loadStatus: nllActivitySummaryLoadStatus,
-                                      byActivityId:
-                                        nllActivitySummaryByActivityId,
-                                      activityId: card.references.activityId,
-                                    })
+                                    loadStatus: nllActivitySummaryLoadStatus,
+                                    byActivityId:
+                                      nllActivitySummaryByActivityId,
+                                    activityId: card.references.activityId,
+                                  })
                                   : null
                               }
                             />
@@ -2729,12 +2837,12 @@ useEffect(() => {
                               nllActivitySummary={
                                 nllActivitySummaryEligible
                                   ? toNllActivitySummaryDisplay({
-                                      loadStatus: nllActivitySummaryLoadStatus,
-                                      byActivityId:
-                                        nllActivitySummaryByActivityId,
-                                      activityId:
-                                        card.references[0]?.activityId ?? '',
-                                    })
+                                    loadStatus: nllActivitySummaryLoadStatus,
+                                    byActivityId:
+                                      nllActivitySummaryByActivityId,
+                                    activityId:
+                                      card.references[0]?.activityId ?? '',
+                                  })
                                   : null
                               }
                             />
@@ -2922,7 +3030,10 @@ useEffect(() => {
                         : 'border-dashed border-indigo-200/80 bg-white'
                         }`}
                     >
-                      <div className="flex h-full gap-3">
+                      <label
+                        htmlFor={checkboxId}
+                        className="flex h-full cursor-pointer gap-3"
+                      >
                         <input
                           id={checkboxId}
                           type="checkbox"
@@ -2932,9 +3043,9 @@ useEffect(() => {
                           aria-describedby={`${checkboxId}-details`}
                         />
                         <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                          <label htmlFor={checkboxId} className="block text-sm text-slate-900">
+                          <div className="block text-sm text-slate-900">
                             <span className="font-bold">{item.title}</span>
-                          </label>
+                          </div>
                           <p className="text-xs leading-relaxed text-slate-500">
                             {formatTeacherAddedProvenanceLine()}
                           </p>
@@ -2946,7 +3057,7 @@ useEffect(() => {
                             {item.purpose}
                           </p>
                         </div>
-                      </div>
+                      </label>
                     </li>
                   )
                 })}
@@ -2975,7 +3086,10 @@ useEffect(() => {
                         : 'border-slate-200/80 bg-white'
                         }`}
                     >
-                      <div className="flex h-full gap-3">
+                      <label
+                        htmlFor={checkboxId}
+                        className="flex h-full cursor-pointer gap-3"
+                      >
                         <input
                           id={checkboxId}
                           type="checkbox"
@@ -2985,9 +3099,9 @@ useEffect(() => {
                           aria-describedby={`${checkboxId}-details`}
                         />
                         <div id={`${checkboxId}-details`} className="min-w-0 flex-1 space-y-2.5">
-                          <label htmlFor={checkboxId} className="block text-sm text-slate-900">
+                          <div className="block text-sm text-slate-900">
                             <PriorSkillCardHeading label={suggestion.label} />
-                          </label>
+                          </div>
                           {isPrior ? (
                             <p className="text-xs leading-relaxed text-slate-500">
                               {formatSameUnitPriorProvenanceLine({
@@ -3016,7 +3130,7 @@ useEffect(() => {
                             {suggestion.whyItMayHelp}
                           </p>
                         </div>
-                      </div>
+                      </label>
                     </li>
                   )
                 })}
@@ -3025,25 +3139,16 @@ useEffect(() => {
           ) : null}
 
           {resolvedStepId === 'neutral_review' &&
-          !showPromptPreview &&
-          !showChalkiePackaging ? (
+            !showPromptPreview &&
+            !showChalkiePackaging ? (
             <div className="space-y-8">
-              <div className="max-w-3xl space-y-3">
+              <section className="max-w-3xl space-y-3" aria-label="Lesson focus">
                 <h2
                   id={titleId}
-                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                  className="text-sm font-medium text-slate-800"
                 >
-                  Review lesson package
+                  Lesson focus
                 </h2>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  A calm summary of the selected Student Book activities
-                  {includeWorkbookStep ? ', Workbook activities,' : ''} and prior skills.
-                  You will choose the output format next.
-                </p>
-              </div>
-
-              <section className="max-w-3xl space-y-3" aria-label="Lesson focus">
-                <h3 className="text-sm font-medium text-slate-800">Lesson focus</h3>
                 <div className="space-y-2 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
                   <p className="select-text text-sm leading-relaxed text-slate-800">
                     {neutralLessonTitle}
@@ -3143,7 +3248,7 @@ useEffect(() => {
                     </h3>
                     <div className="space-y-4 rounded-xl border border-slate-200/80 bg-white p-4 sm:p-5">
                       {selectedSuggestions.length === 0 &&
-                      selectedTeacherAdditions.length === 0 ? (
+                        selectedTeacherAdditions.length === 0 ? (
                         <p className="text-sm leading-relaxed text-slate-500">
                           No prior skills were selected for this lesson.
                         </p>
@@ -3225,13 +3330,118 @@ useEffect(() => {
                       : 'Create a detailed, platform-neutral lesson plan from the selected evidence.'}
                   </span>
                 </button>
+                {showNllNlpInspector ? (
+                  <button
+                    type="button"
+                    onClick={handleOpenNllNlpInspector}
+                    disabled={inspectionReportPreparing}
+                    className="group rounded-xl border border-amber-200 bg-white p-5 text-left shadow-xs transition hover:border-amber-400 hover:bg-amber-50/40 focus:outline-none focus:ring-2 focus:ring-amber-400 disabled:cursor-wait disabled:opacity-70"
+                  >
+                    <span className="mb-4 inline-flex rounded-lg bg-amber-600 px-3 py-1.5 text-sm font-semibold text-white">
+                      Admin
+                    </span>
+                    <span className="block text-lg font-semibold text-slate-900">
+                      NLL/NLP Inspector
+                    </span>
+                    <span className="mt-2 block text-sm leading-relaxed text-slate-600">
+                      {inspectionReportPreparing
+                        ? 'Building read-only inspection report…'
+                        : 'Generate a read-only Markdown report of NLL knowledge, teacher selections, and assembled NLP for this lesson.'}
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="Coming soon"
+                    className="cursor-not-allowed rounded-xl border border-slate-200 bg-slate-50 p-5 text-left opacity-60 shadow-xs"
+                  >
+                    <span className="mb-4 inline-flex rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-500">
+                      ChatGPT / Canva
+                    </span>
+                    <span className="block text-lg font-semibold text-slate-500">
+                      ChatGPT/Canva Prompt
+                    </span>
+                    <span className="mt-2 block text-sm leading-relaxed text-slate-400">
+                      Placeholder for a future ChatGPT/Canva output path. Not available yet.
+                    </span>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  title="Coming soon"
+                  className="cursor-not-allowed rounded-xl border border-slate-200 bg-slate-50 p-5 text-left opacity-60 shadow-xs"
+                >
+                  <span className="mb-4 inline-flex rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-500">
+                    Claude
+                  </span>
+                  <span className="block text-lg font-semibold text-slate-500">Claude Prompt</span>
+                  <span className="mt-2 block text-sm leading-relaxed text-slate-400">
+                    Placeholder for a future Claude output path. Not available yet.
+                  </span>
+                </button>
               </div>
             </div>
           ) : null}
 
           {resolvedStepId === 'choose_output' &&
-          !showPromptPreview &&
-          showChalkiePackaging ? (
+            showInspectionReport &&
+            showNllNlpInspector ? (
+            <div className="mx-auto w-full max-w-4xl space-y-6">
+              <div className="space-y-3">
+                <h2
+                  id={titleId}
+                  className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.75rem]"
+                >
+                  NLL/NLP Inspection Report
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Read-only diagnostic snapshot of lesson identity, Scope &amp; Sequence,
+                  NLL knowledge, teacher selections, and assembled NLP. Does not change
+                  selections or generation paths.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopyInspectionReport}
+                  disabled={!inspectionReportMarkdown || inspectionReportPreparing}
+                  className="inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {inspectionCopyStatus === 'copied' ? (
+                    <Check className="h-4 w-4" aria-hidden="true" />
+                  ) : (
+                    <Copy className="h-4 w-4" aria-hidden="true" />
+                  )}
+                  {inspectionCopyStatus === 'copied'
+                    ? 'Copied'
+                    : 'Copy inspection report'}
+                </button>
+              </div>
+              {inspectionCopyStatus === 'failed' ? (
+                <p className="text-sm text-slate-500">
+                  Copying was unavailable. Select the report text and copy it manually.
+                </p>
+              ) : null}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+                {inspectionReportPreparing && !inspectionReportMarkdown ? (
+                  <p className="text-sm text-slate-500">Building inspection report…</p>
+                ) : (
+                  <pre className="max-h-[min(60vh,40rem)] overflow-auto whitespace-pre-wrap break-words font-mono text-xs leading-relaxed text-slate-800">
+                    {inspectionReportMarkdown}
+                  </pre>
+                )}
+              </div>
+            </div>
+          ) : null}
+
+          {resolvedStepId === 'choose_output' &&
+            !showPromptPreview &&
+            !showInspectionReport &&
+            showChalkiePackaging ? (
             <div className="space-y-8">
               <div className="max-w-3xl space-y-3">
                 <h2
@@ -3924,22 +4134,20 @@ useEffect(() => {
               {(resolvedStepId === 'prior_skills' ||
                 resolvedStepId === 'neutral_review' ||
                 resolvedStepId === 'choose_output') &&
-              (selectedCount > 0 || teacherAddedCount > 0)
+                (selectedCount > 0 || teacherAddedCount > 0)
                 ? footerSelectionSummary(selectedCount, teacherAddedCount)
                 : null}
             </p>
             <div className="flex flex-wrap items-center justify-end gap-2">
-              {resolvedStepId !== 'student_book' ||
-              showPromptPreview ||
-              showChalkiePackaging ? (
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-                >
-                  {showPromptPreview ? 'Back to lesson inputs' : 'Back'}
-                </button>
-              ) : null}
+              <button
+                type="button"
+                onClick={handleBack}
+                disabled={backDisabled}
+                aria-disabled={backDisabled}
+                className="rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-slate-600"
+              >
+                Back
+              </button>
               <button
                 type="button"
                 onClick={onClose}
@@ -3956,15 +4164,6 @@ useEffect(() => {
                 >
                   Continue
                 </button>
-              ) : showPromptPreview ? (
-                <button
-                  ref={continueRef}
-                  type="button"
-                  onClick={onClose}
-                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c]"
-                >
-                  Back to workspace
-                </button>
               ) : showChalkiePackaging ? (
                 <button
                   ref={continueRef}
@@ -3974,6 +4173,16 @@ useEffect(() => {
                   className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2f578c] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {chalkiePreparing ? 'Preparing Chalkie prompt…' : 'Prepare Chalkie prompt'}
+                </button>
+              ) : showChooseOutput ? (
+                <button
+                  ref={continueRef}
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className="rounded-md bg-[#3766a3] px-4 py-2 text-sm font-medium text-white opacity-40 disabled:cursor-not-allowed"
+                >
+                  Continue
                 </button>
               ) : null}
             </div>

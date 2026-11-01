@@ -287,7 +287,7 @@ export function listUnitsFromJson(raw: unknown): Array<{
 
 /** Match a unit batch_json row by unit number in label or storage path. */
 export function findBatchForUnitNumber(
-  batches: BookFileBatch[],
+  batches: readonly BookFileBatch[],
   unitNumber: string,
 ): BookFileBatch | null {
   const n = Number(unitNumber)

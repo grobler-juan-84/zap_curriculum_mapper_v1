@@ -283,7 +283,7 @@ export function resolveChalkieLessonContext(input: {
       stableLessonReference: null,
       stableSeriesReference: null,
       scopeMessage:
-        'Open a page spread in the source PDF before preparing a Chalkie prompt.',
+        'Open a page spread in the source PDF before creating a prompt.',
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: null,
       unitContextNote: null,
@@ -350,7 +350,7 @@ export function resolveChalkieLessonContext(input: {
       seriesLessonTitle: null,
       stableLessonReference: null,
       stableSeriesReference: null,
-      scopeMessage: `The open pages (${visiblePageRangeLabel}) are outside ${unitLabel}. Open a page spread from this unit before preparing a Chalkie prompt.`,
+      scopeMessage: `The open pages (${visiblePageRangeLabel}) are outside ${unitLabel}. Open a page spread from this unit before creating a prompt.`,
       hasVerifiedPageEvidence: false,
       evidenceUnavailableMessage: null,
       unitContextNote: null,
@@ -463,7 +463,7 @@ export function resolveChalkieLessonContext(input: {
       stableSeriesReference: null,
       scopeMessage: null,
       hasVerifiedPageEvidence: false,
-      evidenceUnavailableMessage: `Source evidence is not available for these pages (${visiblePageRangeLabel}) yet. Open a spread with verified page evidence before preparing a Chalkie prompt.`,
+      evidenceUnavailableMessage: `Source evidence is not available for these pages (${visiblePageRangeLabel}) yet. Open a spread with verified page evidence before creating a prompt.`,
       unitContextNote: null,
     }
   }

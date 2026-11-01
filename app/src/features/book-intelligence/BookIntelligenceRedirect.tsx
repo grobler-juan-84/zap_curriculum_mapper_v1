@@ -4,13 +4,13 @@ import { curriculumService } from '../../services/curriculumService'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import {
   DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID,
-  chalkieWorkspacePath,
+  bookWorkspacePath,
 } from './bookIntelligenceStorageRegistry'
 
 /**
- * Legacy `/app/book-intelligence` → Chalkie Workspace redirect.
+ * Legacy `/app/book-intelligence` → Book Workspace redirect.
  * Selects the catalog book in workspace state when possible, then replaces the
- * URL with `/app/chalkie` (and `?unit=` when present). Dedicated BI preview UI is retired.
+ * URL with `/app/book-workspace` (and `?unit=` when present). Dedicated BI preview UI is retired.
  */
 export function BookIntelligenceRedirect() {
   const navigate = useNavigate()
@@ -33,7 +33,7 @@ export function BookIntelligenceRedirect() {
       selectBook(match.book.id)
     }
 
-    navigate(chalkieWorkspacePath(unitParam), { replace: true })
+    navigate(bookWorkspacePath(unitParam), { replace: true })
   }, [
     catalogLoading,
     catalogBookId,
@@ -45,7 +45,7 @@ export function BookIntelligenceRedirect() {
 
   return (
     <div className="flex h-full items-center justify-center bg-slate-50 text-sm text-slate-500">
-      Opening Chalkie Workspace…
+      Opening Book Workspace…
     </div>
   )
 }

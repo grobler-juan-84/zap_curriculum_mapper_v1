@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { describe, test } from 'node:test'
 import {
   findLessonAnchorForPrintedPage,
+  isCompanionFreeAllowlistedLesson,
   isPrintedPageInsideUnitRange,
   listLessonAnchorsForUnit,
   resolveGroundedUnitChrome,
@@ -44,6 +45,25 @@ const EXPECTED_U08_SEQUENCE = [
 ] as const
 
 describe('BE3 Unit 8 lesson anchors', () => {
+  test('Values is companion-free allowlisted; Writing is not', () => {
+    assert.equal(
+      isCompanionFreeAllowlistedLesson({
+        studentBookCatalogId: BE3,
+        unitNumber: U8,
+        printedPages: [142],
+      }),
+      true,
+    )
+    assert.equal(
+      isCompanionFreeAllowlistedLesson({
+        studentBookCatalogId: BE3,
+        unitNumber: U8,
+        printedPages: [140],
+      }),
+      false,
+    )
+  })
+
   test('lists the complete Unit 8 lesson sequence including Values', () => {
     const anchors = listLessonAnchorsForUnit({
       studentBookCatalogId: BE3,

@@ -1,36 +1,41 @@
 import React from 'react'
 import type { CurriculumSeries } from '../../types/curriculum'
 import { Breadcrumbs } from '../../components/shared/Breadcrumbs'
-import { CheckCircle2, ArrowRight, CircleDashed } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useCoverImageUrls } from '../../hooks/useCoverImageUrls'
-import { hasBookIntelligenceOverview } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import {
+  groupSeriesBooksIntoCourseLevels,
+  type CourseLevelCard,
+} from './groupSeriesBooksIntoCourseLevels'
 
 interface SeriesLibraryProps {
   series: CurriculumSeries
-  onSelectBook: (bookUuid: string) => void
-  onValidateBook?: (bookUuid: string) => void
-  /** Opens Chalkie Workspace (Unit Intelligence when BI overview is registered). */
-  onOpenChalkieWorkspace?: (catalogBookId: string) => void
+  /** Opens Book Workspace for a course level (Student Book primary). */
+  onSelectCourseLevel: (level: CourseLevelCard) => void
   onBackToCurriculum: () => void
+  /** Optional validated resume hints keyed by Student Book catalogBookId. */
+  resumeHintsByCatalogId?: Readonly<Record<string, string>>
 }
 
 export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
   series,
-  onSelectBook,
-  onValidateBook,
-  onOpenChalkieWorkspace,
+  onSelectCourseLevel,
   onBackToCurriculum,
+  resumeHintsByCatalogId,
 }) => {
-  const coverUrls = useCoverImageUrls(series.books.map((book) => book.coverPath))
+  const grouped = groupSeriesBooksIntoCourseLevels({
+    seriesName: series.name,
+    books: series.books,
+  })
+  const levels = grouped.ok ? grouped.levels : []
+  const coverPaths = levels
+    .map((level) => level.coverBook.coverPath)
+    .filter((path): path is string => Boolean(path))
+  const coverUrls = useCoverImageUrls(coverPaths)
   const breadcrumbItems = [
     { label: 'Curriculum Library', onClick: onBackToCurriculum },
     { label: series.name, active: true },
   ]
-  const anyBookHasBi = series.books.some(
-    (book) =>
-      Boolean(onOpenChalkieWorkspace) &&
-      hasBookIntelligenceOverview(book.catalogBookId),
-  )
 
   return (
     <div className="flex h-full select-none flex-col overflow-y-auto bg-slate-50">
@@ -47,64 +52,51 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
           <div className="mb-3 flex items-center justify-between">
             <div>
               <h2 className="text-sm font-bold tracking-wide text-slate-900 uppercase">
-                Available Teaching Books
+                Available Course Levels
               </h2>
               <p className="text-xs text-slate-500">
-                {anyBookHasBi
-                  ? 'Books loaded from Supabase for this series. Open Chalkie Workspace for Unit Intelligence when Phase 2 BI is available; Book Workspace remains secondary.'
-                  : 'Books loaded from Supabase for this series. Choose one to open its workspace.'}
+                Choose a level to open Book Workspace. Student Book is primary; Workbook attaches
+                when a verified companion mapping exists.
               </p>
             </div>
             <span className="font-mono text-xs text-slate-500">
-              {series.books.length} Books Ready for Inspection
+              {grouped.ok
+                ? `${levels.length} Level${levels.length === 1 ? '' : 's'} Ready`
+                : 'Levels unavailable'}
             </span>
           </div>
 
-          {series.books.length === 0 ? (
+          {!grouped.ok ? (
+            <div className="rounded-lg border border-dashed border-rose-300 bg-white p-8 text-center text-sm text-rose-700">
+              {grouped.error}
+            </div>
+          ) : levels.length === 0 ? (
             <div className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
-              No books linked to this series in Supabase yet.
+              No course levels linked to this series in Supabase yet.
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {series.books.map((book) => {
-                const hasInteractiveSpreads = book.pageSpreads.length > 0
-                const isFeatured = book.catalogBookId === 'beehive_1_sb'
-                const catalogBookId = book.catalogBookId
-                const showChalkiePrimary =
-                  Boolean(onOpenChalkieWorkspace) &&
-                  hasBookIntelligenceOverview(catalogBookId)
-                const coverSrc = book.coverPath
-                  ? coverUrls[book.coverPath]
-                  : book.coverImage
-
-                function openPrimary() {
-                  if (showChalkiePrimary && catalogBookId) {
-                    onOpenChalkieWorkspace?.(catalogBookId)
-                    return
-                  }
-                  onSelectBook(book.id)
-                }
+              {levels.map((level) => {
+                const coverSrc = level.coverBook.coverPath
+                  ? coverUrls[level.coverBook.coverPath]
+                  : level.coverBook.coverImage
 
                 return (
                   <div
-                    key={book.id}
-                    onClick={openPrimary}
-                    className={`group flex cursor-pointer flex-col overflow-hidden rounded-lg border bg-white shadow-xs transition-all hover:shadow-md ${
-                      isFeatured
-                        ? 'border-indigo-300 ring-1 ring-indigo-200'
-                        : 'border-slate-200 hover:border-slate-300'
-                    }`}
+                    key={level.levelKey}
+                    onClick={() => onSelectCourseLevel(level)}
+                    className="group flex cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xs transition-all hover:border-slate-300 hover:shadow-md"
                   >
                     <div className="border-b border-slate-100 px-4 pt-3 pb-2">
                       <h4 className="text-sm font-bold text-slate-900 transition-colors group-hover:text-indigo-600">
-                        {book.title}
+                        {level.displayTitle}
                       </h4>
                       <div className="mt-0.5 flex items-center gap-2 text-xs text-slate-500">
-                        <span>{book.type}</span>
+                        <span>{level.materialsLabel}</span>
                         <span>·</span>
-                        <span>{book.audience}</span>
-                        <span>·</span>
-                        <span className="font-mono">{book.totalUnits} Units</span>
+                        <span className="font-mono">
+                          {level.studentBook.totalUnits} Units
+                        </span>
                       </div>
                     </div>
 
@@ -112,7 +104,7 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                       {coverSrc ? (
                         <img
                           src={coverSrc}
-                          alt={`${book.title} Cover`}
+                          alt={`${level.displayTitle} Cover`}
                           className="max-h-52 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                           referrerPolicy="no-referrer"
                           loading="lazy"
@@ -124,66 +116,29 @@ export const SeriesLibrary: React.FC<SeriesLibraryProps> = ({
                       )}
                     </div>
 
-                    <div className="flex items-center justify-between gap-2 border-t border-slate-100 px-4 py-3">
-                      {hasInteractiveSpreads ? (
-                        <span className="flex items-center gap-1 text-[11px] font-medium text-emerald-700">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                          <span>Interactive Spreads Loaded</span>
+                    <div className="flex flex-col gap-2 border-t border-slate-100 px-4 py-3">
+                      {resumeHintsByCatalogId?.[level.studentBook.catalogBookId ?? ''] ? (
+                        <p className="text-[11px] text-slate-600">
+                          {
+                            resumeHintsByCatalogId[
+                              level.studentBook.catalogBookId ?? ''
+                            ]
+                          }
+                        </p>
+                      ) : null}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-medium text-slate-500">
+                          {level.workbook
+                            ? 'Workbook available as companion'
+                            : 'Student Book only'}
                         </span>
-                      ) : (
-                        <span className="flex items-center gap-1 text-[11px] font-medium text-slate-500">
-                          <CircleDashed className="h-3.5 w-3.5 text-slate-400" />
-                          <span>Catalog only (batches in Storage)</span>
-                        </span>
-                      )}
-                      <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                        {onValidateBook ? (
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onValidateBook(book.id)
-                            }}
-                            className="text-xs font-bold text-emerald-700 hover:text-emerald-900"
-                          >
-                            Validate
-                          </button>
-                        ) : null}
-                        {showChalkiePrimary && catalogBookId ? (
-                          <>
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                onOpenChalkieWorkspace?.(catalogBookId)
-                              }}
-                              className="flex items-center gap-1 text-xs font-bold text-indigo-700 hover:text-indigo-900"
-                              title="Open Chalkie Workspace (Unit Intelligence when available)"
-                            >
-                              <span>Open Chalkie Workspace</span>
-                              <ArrowRight className="h-3.5 w-3.5" />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                onSelectBook(book.id)
-                              }}
-                              className="text-xs font-medium text-slate-500 hover:text-slate-800"
-                              title="Open mock Book Workspace"
-                            >
-                              Workspace
-                            </button>
-                          </>
-                        ) : (
-                          <button
-                            type="button"
-                            className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
-                          >
-                            <span>Open Workspace</span>
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </button>
-                        )}
+                        <button
+                          type="button"
+                          className="flex items-center gap-1 text-xs font-bold text-indigo-600 transition-transform group-hover:translate-x-0.5"
+                        >
+                          <span>Open Book Workspace</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </button>
                       </div>
                     </div>
                   </div>

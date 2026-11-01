@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { generateChalkieLessonDraftPlugin } from './vite-plugins/generateChalkieLessonDraftPlugin.ts'
 import { generateChalkiePromptPlugin } from './vite-plugins/generateChalkiePromptPlugin.ts'
+import { nllNlpInspectorAccessPlugin } from './vite-plugins/nllNlpInspectorAccessPlugin.ts'
 import { signSourcePdfPlugin } from './vite-plugins/signSourcePdfPlugin.ts'
 
 const appRoot = resolve(fileURLToPath(new URL('.', import.meta.url)))
@@ -16,5 +17,6 @@ export default defineConfig({
     signSourcePdfPlugin(appRoot),
     generateChalkiePromptPlugin(appRoot),
     generateChalkieLessonDraftPlugin(appRoot),
+    nllNlpInspectorAccessPlugin(appRoot),
   ],
 })

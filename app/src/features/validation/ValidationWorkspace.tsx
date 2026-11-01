@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
+import { isAdminProfile } from '../auth/isAdminProfile'
 import type { Book, CurriculumSeries } from '../../types/curriculum'
 import type { BatchJsonSummary, BookFileBatch, BookFileStatus } from '../../types/validation'
 import {
@@ -11,7 +12,7 @@ import {
   validationService,
 } from '../../services/validationService'
 import {
-  chalkieWorkspacePath,
+  bookWorkspacePath,
   hasBookIntelligenceOverview,
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { ValidationHeader } from './ValidationHeader'
@@ -87,7 +88,7 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
   const { profile } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const requestedUnit = searchParams.get('unit')
-  const canWriteStatus = profile?.role === 'admin'
+  const canWriteStatus = isAdminProfile(profile?.role)
 
   /** Items shown in the unit picker (virtual units from canonical, or real batches). */
   const [batches, setBatches] = useState<BookFileBatch[]>([])
@@ -126,9 +127,9 @@ export const ValidationWorkspace: React.FC<ValidationWorkspaceProps> = ({
 
   const chalkieWorkspaceHref =
     hasBookIntelligenceOverview(book.catalogBookId) && currentUnitNumber
-      ? chalkieWorkspacePath(currentUnitNumber)
+      ? bookWorkspacePath(currentUnitNumber)
       : hasBookIntelligenceOverview(book.catalogBookId)
-        ? chalkieWorkspacePath()
+        ? bookWorkspacePath()
         : null
 
   const pageMap = useMemo(() => buildPageMap(summary?.pages ?? []), [summary])

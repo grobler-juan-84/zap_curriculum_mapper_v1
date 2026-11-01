@@ -1,20 +1,17 @@
 import {
-  Bookmark,
   BookOpen,
   CheckSquare,
   ChevronLeft,
   ChevronRight,
   Clock,
-  FileCode,
-  Layers,
   LayoutDashboard,
   LogOut,
 } from 'lucide-react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/AuthProvider'
+import { bookWorkspaceChooseBookPath } from '../../features/book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../../features/shell/WorkspaceProvider'
 import { formatWorkspaceLocationChip } from '../../features/shell/workspaceLocationChip'
-import { curriculumService } from '../../services/curriculumService'
 
 function initialsFromProfile(
   firstName: string | null | undefined,
@@ -35,7 +32,6 @@ export function Sidebar() {
   const {
     sidebarCollapsed: collapsed,
     toggleSidebar,
-    selectSeries,
     currentBook,
     currentSpread,
     activePrintedPages,
@@ -71,12 +67,7 @@ export function Sidebar() {
       icon: LayoutDashboard,
     },
     {
-      to: '/app/series',
-      label: 'Beehive Series',
-      icon: Layers,
-    },
-    {
-      to: '/app/workspace',
+      to: '/app/book-workspace',
       label: 'Book Workspace',
       icon: BookOpen,
     },
@@ -84,11 +75,6 @@ export function Sidebar() {
       to: '/app/validation',
       label: 'Validation',
       icon: CheckSquare,
-    },
-    {
-      to: '/app/chalkie',
-      label: 'Chalkie Workspace',
-      icon: FileCode,
     },
   ]
 
@@ -166,7 +152,7 @@ export function Sidebar() {
             <button
               type="button"
               onClick={() => {
-                navigate('/app/workspace')
+                navigate('/app/book-workspace')
               }}
               title={locationChipLabel}
               aria-label={`Current book location: ${locationChipLabel}`}
@@ -180,15 +166,13 @@ export function Sidebar() {
             <button
               type="button"
               onClick={() => {
-                const beehive = curriculumService.getSeriesByName('Beehive')
-                if (beehive) selectSeries(beehive.id)
-                navigate('/app/series')
+                navigate(bookWorkspaceChooseBookPath())
               }}
               className="flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-xs text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-slate-200"
             >
-              <Bookmark className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
+              <BookOpen className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
               <div className="truncate">
-                <span className="text-slate-300">All Beehive Books</span>
+                <span className="text-slate-300">Change book / level</span>
               </div>
             </button>
           </div>

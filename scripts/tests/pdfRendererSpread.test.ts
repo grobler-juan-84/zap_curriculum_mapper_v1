@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url'
 import { exactPdfPagesForPrinted } from '../../app/src/features/validation/pdfPageMap.ts'
 import {
   chalkieCompanionRendererProps,
+  isPdfPrintedPageOutsideLessonScope,
   resolvePdfRendererSpread,
 } from '../../app/src/features/validation/pdfRendererSpread.ts'
 
@@ -132,4 +133,39 @@ test('BE3 U8 opener host props supply exact renderer page pairs for SB→WB→SB
   })
   assert.equal(sbFreeProps.allowedPdfPages, null)
   assert.equal(sbFreeProps.navigationLocked, false)
+})
+
+test('one-page lesson scope marks the facing page outside overlay', () => {
+  const scope = [140]
+  assert.equal(isPdfPrintedPageOutsideLessonScope(140, scope), false)
+  assert.equal(isPdfPrintedPageOutsideLessonScope(141, scope), true)
+  // Right-page active lesson: left facing page is outside scope.
+  assert.equal(isPdfPrintedPageOutsideLessonScope(140, [141]), true)
+  assert.equal(isPdfPrintedPageOutsideLessonScope(141, [141]), false)
+})
+
+test('empty or missing lesson scope never shows out-of-scope overlay', () => {
+  assert.equal(isPdfPrintedPageOutsideLessonScope(140, null), false)
+  assert.equal(isPdfPrintedPageOutsideLessonScope(140, []), false)
+  assert.equal(isPdfPrintedPageOutsideLessonScope(null, [140]), false)
+})
+
+test('two-page lesson scope leaves both facing pages clear', () => {
+  const scope = [126, 127]
+  assert.equal(isPdfPrintedPageOutsideLessonScope(126, scope), false)
+  assert.equal(isPdfPrintedPageOutsideLessonScope(127, scope), false)
+})
+
+test('Book Workspace wires lesson-scope overlay into the PDF pane', () => {
+  const workspace = fs.readFileSync(
+    path.join(ROOT, 'app/src/features/chalkie/ChalkieWorkspace.tsx'),
+    'utf8',
+  )
+  const pane = fs.readFileSync(
+    path.join(ROOT, 'app/src/features/validation/ValidationPdfPane.tsx'),
+    'utf8',
+  )
+  assert.match(workspace, /lessonScopePrintedPages=\{/)
+  assert.match(pane, /data-pdf-out-of-scope-overlay/)
+  assert.match(pane, /This page is not used for creating the lesson prompt/)
 })

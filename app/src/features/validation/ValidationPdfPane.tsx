@@ -4,7 +4,10 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import { type PageMap, pdfForPrinted, printedForPdf } from './pdfPageMap'
-import { resolvePdfRendererSpread } from './pdfRendererSpread'
+import {
+  isPdfPrintedPageOutsideLessonScope,
+  resolvePdfRendererSpread,
+} from './pdfRendererSpread'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -36,7 +39,7 @@ interface ValidationPdfPaneProps {
   pageMap?: PageMap
   /** Fired whenever the visible PDF pair changes (load, Prev/Next, Go, or jump). */
   onVisibleRangeChange?: (range: PdfVisibleRange) => void
-  /** Called when the visible spread’s printed page numbers change (Chalkie Workspace). */
+  /** Called when the visible spread’s printed page numbers change (Book Workspace). */
   onVisiblePrintedPagesChange?: (printedPages: number[]) => void
   /**
    * Printed page selected via Go / Prev / Next (lesson scope for one-page components).
@@ -73,13 +76,55 @@ interface ValidationPdfPaneProps {
    * `pdf_page`). Takes precedence over `allowedPrintedPages`.
    */
   allowedPdfPages?: number[] | null
+  /**
+   * Printed pages included in Create-a-prompt / lesson prep. When the reading
+   * spread shows extra pages, those outside this set get a muted overlay.
+   * Omit or leave empty to disable overlays (Validation, Workbook view).
+   */
+  lessonScopePrintedPages?: number[] | null
 }
 
 const EMPTY_PAGE_MAP: PageMap = []
 
+const OUT_OF_LESSON_SCOPE_LABEL =
+  'This page is not used for creating the lesson prompt'
+
 function clampPage(page: number, numPages: number): number {
   if (numPages <= 0) return 1
   return Math.min(Math.max(1, Math.floor(page)), numPages)
+}
+
+function PdfPageFrame(props: {
+  pageNumber: number
+  outsideLessonScope: boolean
+}) {
+  const { pageNumber, outsideLessonScope } = props
+  return (
+    <div
+      className="relative overflow-hidden rounded border border-slate-300 bg-white shadow-sm"
+      data-pdf-page-frame={pageNumber}
+      data-outside-lesson-scope={outsideLessonScope ? 'true' : 'false'}
+    >
+      <Page
+        pageNumber={pageNumber}
+        width={360}
+        renderAnnotationLayer={false}
+        renderTextLayer={false}
+      />
+      {outsideLessonScope ? (
+        <div
+          className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-700/50 px-4"
+          data-pdf-out-of-scope-overlay="true"
+          role="note"
+          aria-label={OUT_OF_LESSON_SCOPE_LABEL}
+        >
+          <p className="max-w-[14rem] rounded-md bg-white/90 px-3 py-2 text-center text-xs font-semibold leading-snug text-slate-700 shadow-sm">
+            {OUT_OF_LESSON_SCOPE_LABEL}
+          </p>
+        </div>
+      ) : null}
+    </div>
+  )
 }
 
 export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
@@ -102,6 +147,7 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
   lessonNavAtStart = false,
   allowedPrintedPages = null,
   allowedPdfPages = null,
+  lessonScopePrintedPages = null,
 }) => {
   const [numPages, setNumPages] = useState(0)
   const [pairStart, setPairStart] = useState(1)
@@ -307,23 +353,23 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-md border border-slate-300 bg-white shadow-xs">
-      <div className="flex min-h-9 shrink-0 flex-wrap items-center justify-between gap-x-2 gap-y-1 border-b border-slate-200 bg-slate-50 px-3 py-1.5">
-        <div className="flex min-w-0 flex-1 items-center gap-2 text-xs font-bold text-slate-800">
-          <FileText className="h-3.5 w-3.5 shrink-0 text-slate-500" />
+      <div className="flex min-h-11 shrink-0 flex-wrap items-center justify-between gap-x-2 gap-y-1 border-b border-slate-200 bg-slate-50 px-3 py-2">
+        <div className="flex min-w-0 flex-1 items-center gap-2 text-base font-bold text-slate-800">
+          <FileText className="h-5 w-5 shrink-0 text-slate-500" />
           <span className="shrink-0">Source PDF</span>
-          <span className="truncate font-mono text-[10px] font-normal text-slate-500">
+          <span className="truncate font-mono text-sm font-normal text-slate-500">
             {bookTitle}
           </span>
           {pdfProvider ? (
             <span
-              className="shrink-0 rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wide text-slate-600"
+              className="shrink-0 rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-xs font-semibold uppercase tracking-wide text-slate-600"
               title="Object store that signed this PDF URL"
             >
               via {pdfProvider}
             </span>
           ) : null}
           {missingLabel ? (
-            <span className="shrink-0 rounded border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-[9px] font-semibold text-amber-800">
+            <span className="shrink-0 rounded border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-xs font-semibold text-amber-800">
               {missingLabel}
             </span>
           ) : null}
@@ -335,23 +381,23 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
               type="button"
               onClick={goPrev}
               disabled={!canPrev}
-              className="inline-flex h-6 items-center rounded border border-slate-300 bg-white px-1.5 text-slate-700 disabled:opacity-40"
+              className="inline-flex h-8 items-center rounded border border-slate-300 bg-white px-1.5 text-slate-700 disabled:opacity-40"
               aria-label="Previous two pages"
             >
-              <ChevronLeft className="h-3.5 w-3.5" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             {printedRangeLabel ? (
               <span
-                className="flex min-w-[5.5rem] flex-col items-center leading-tight"
+                className="flex min-w-[6.5rem] flex-col items-center leading-tight"
                 title="Printed page numbers (physical PDF index below)"
               >
-                <span className="font-mono text-[10px] font-semibold text-slate-700">
+                <span className="font-mono text-sm font-semibold text-slate-700">
                   {printedRangeLabel}
                 </span>
-                <span className="font-mono text-[9px] text-slate-400">PDF {pdfLabel}</span>
+                <span className="font-mono text-xs text-slate-400">PDF {pdfLabel}</span>
               </span>
             ) : (
-              <span className="min-w-[5.5rem] text-center font-mono text-[10px] text-slate-600">
+              <span className="min-w-[6.5rem] text-center font-mono text-sm text-slate-600">
                 {pdfLabel}
               </span>
             )}
@@ -359,13 +405,13 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
               type="button"
               onClick={goNext}
               disabled={!canNext}
-              className="inline-flex h-6 items-center rounded border border-slate-300 bg-white px-1.5 text-slate-700 disabled:opacity-40"
+              className="inline-flex h-8 items-center rounded border border-slate-300 bg-white px-1.5 text-slate-700 disabled:opacity-40"
               aria-label="Next two pages"
             >
-              <ChevronRight className="h-3.5 w-3.5" />
+              <ChevronRight className="h-5 w-5" />
             </button>
             {showMappedOnlyBadge ? (
-              <span className="ml-1 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[9px] font-semibold text-amber-900">
+              <span className="ml-1 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-xs font-semibold text-amber-900">
                 Mapped pages only
               </span>
             ) : (
@@ -386,11 +432,11 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
                   title="Printed page number"
                   value={jumpValue}
                   onChange={(e) => setJumpValue(e.target.value)}
-                  className="h-6 w-14 rounded border border-slate-300 px-1.5 font-mono text-[10px] text-slate-700"
+                  className="h-8 w-16 rounded border border-slate-300 px-1.5 font-mono text-sm text-slate-700"
                 />
                 <button
                   type="submit"
-                  className="h-6 rounded border border-slate-300 bg-white px-2 text-[10px] font-semibold text-slate-700"
+                  className="h-8 rounded border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-700"
                 >
                   Go
                 </button>
@@ -437,23 +483,21 @@ export const ValidationPdfPane: React.FC<ValidationPdfPaneProps> = ({
                   </div>
                 ) : (
                   <>
-                    <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
-                      <Page
-                        pageNumber={leftPage}
-                        width={360}
-                        renderAnnotationLayer={false}
-                        renderTextLayer={false}
-                      />
-                    </div>
+                    <PdfPageFrame
+                      pageNumber={leftPage}
+                      outsideLessonScope={isPdfPrintedPageOutsideLessonScope(
+                        leftPrinted,
+                        lessonScopePrintedPages,
+                      )}
+                    />
                     {rightPage ? (
-                      <div className="overflow-hidden rounded border border-slate-300 bg-white shadow-sm">
-                        <Page
-                          pageNumber={rightPage}
-                          width={360}
-                          renderAnnotationLayer={false}
-                          renderTextLayer={false}
-                        />
-                      </div>
+                      <PdfPageFrame
+                        pageNumber={rightPage}
+                        outsideLessonScope={isPdfPrintedPageOutsideLessonScope(
+                          rightPrinted,
+                          lessonScopePrintedPages,
+                        )}
+                      />
                     ) : spread.showingEndOfDocument ? (
                       <div className="flex h-[480px] w-[360px] items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 text-xs text-slate-400">
                         End of document

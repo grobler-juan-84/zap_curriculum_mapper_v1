@@ -13,7 +13,7 @@ interface ValidationHeaderProps {
   currentIndex: number
   /** True when picker units are sliced from one canonical_json file. */
   fromCanonical?: boolean
-  /** When set, show link to Chalkie Workspace (Unit Intelligence) for this book/unit. */
+  /** When set, show link to Book Workspace (Unit Intelligence) for this book/unit. */
   chalkieWorkspaceHref?: string | null
   onPrev: () => void
   onNext: () => void
@@ -21,10 +21,10 @@ interface ValidationHeaderProps {
   onSelectSeries: (seriesId: string) => void
   onSelectBook: (bookUuid: string) => void
   onBackToBooks: () => void
-  /** When false, hides batch verification status badge (Chalkie Workspace). Default true. */
+  /** When false, hides batch verification status badge (Book Workspace). Default true. */
   showVerificationStatus?: boolean
   /**
-   * Chalkie (D021): show only Student Books in the book dropdown.
+   * Book Workspace (D021): show only Student Books in the book dropdown.
    * Validation keeps the default `all`.
    */
   bookOptionsFilter?: 'all' | 'student_books_only'
@@ -85,11 +85,11 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           <Link
             to={chalkieWorkspaceHref}
             className="flex shrink-0 items-center gap-1 rounded px-2 py-1 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-50 hover:text-indigo-900"
-            title="Open Chalkie Workspace for this book and unit (Unit Intelligence)"
+            title="Open Book Workspace for this book and unit (Unit Intelligence)"
           >
             <FileCode className="h-3.5 w-3.5" />
-            <span className="hidden lg:inline">Open Chalkie Workspace</span>
-            <span className="hidden sm:inline lg:hidden">Chalkie</span>
+            <span className="hidden lg:inline">Open Book Workspace</span>
+            <span className="hidden sm:inline lg:hidden">Workspace</span>
           </Link>
         ) : null}
 

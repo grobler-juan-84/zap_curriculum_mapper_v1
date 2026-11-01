@@ -133,17 +133,17 @@ function TopLevelAccordion(props: {
         </span>
         <span className="min-w-0 flex-1 space-y-1">
           <span className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold tracking-tight text-slate-900">
+            <span className="text-sm font-bold tracking-tight text-slate-900">
               {title}
             </span>
             <span
-              className={`rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${badgeClass}`}
+              className={`rounded-full border px-1.5 py-0.5 text-xs font-medium ${badgeClass}`}
             >
               {badge}
             </span>
           </span>
           {!open ? (
-            <span className="block text-[11px] leading-relaxed text-slate-600">
+            <span className="block text-xs leading-relaxed text-slate-600">
               {summary}
             </span>
           ) : null}
@@ -324,8 +324,8 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
       }`
     : 'empty'
 
-  const [authorityOpen, setAuthorityOpen] = useState(true)
-  const [bookOpen, setBookOpen] = useState(true)
+  const [authorityOpen, setAuthorityOpen] = useState(false)
+  const [bookOpen, setBookOpen] = useState(false)
   const [intelligenceOpen, setIntelligenceOpen] = useState(false)
   const [nestedOpen, setNestedOpen] = useState<Record<NestedBookSectionId, boolean>>(
     {

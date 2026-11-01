@@ -43,6 +43,7 @@ import {
   isStudentBook,
   lessonAnchorPrintedPages,
   resolveActiveLessonScope,
+  resolveStudentBookRestorePdfTargets,
   restoreStudentBookPdfView,
   shouldApplyVisiblePagesFromPdf,
   studentBookDisplayTitle,
@@ -73,7 +74,9 @@ import {
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
 } from './lessonActivitySelection'
+import { useAuth } from '../auth/AuthProvider'
 import { useWorkspace } from '../shell/WorkspaceProvider'
+import { useBookWorkspaceResume } from '../book-workspace/resume/useBookWorkspaceResume'
 
 interface ChalkieWorkspaceProps {
   seriesList: CurriculumSeries[]
@@ -111,7 +114,7 @@ function buildCanonicalUnitNav(
 }
 
 function pickBatchIdForUnit(
-  batches: BookFileBatch[],
+  batches: readonly BookFileBatch[],
   unitNumber: string | null,
 ): string {
   if (!unitNumber) return batches[0]?.id ?? ''
@@ -131,6 +134,10 @@ function unitNumberFromBatch(batch: BookFileBatch | null): string | null {
   return null
 }
 
+function pagesKeyForResumeGuard(pages: readonly number[]): string {
+  return [...pages].sort((a, b) => a - b).join(',')
+}
+
 export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   seriesList,
   series,
@@ -140,6 +147,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   onBackToBooks,
 }) => {
   const { setActivePrintedPages } = useWorkspace()
+  const { user } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const requestedUnit = searchParams.get('unit')
 
@@ -209,6 +217,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const selectionScopeKeyRef = useRef('')
   const knownSbCardIdsRef = useRef<readonly string[]>([])
   const knownWbCardIdsRef = useRef<readonly string[]>([])
+  const resumeGuardPagesRef = useRef<number[] | null>(null)
+  const resumeGuardUntilRef = useRef(0)
   const [pdfJumpRequest, setPdfJumpRequest] = useState<{
     pdfPage: number
     requestId: number
@@ -313,7 +323,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   )
 
   const verifiedCompanion = activeLessonScope.companion
-  /** Pages used for companion + Prepare Chalkie prompt (not merely the PDF reading pair). */
+  /** Pages used for companion + Create-a-prompt (not merely the PDF reading pair). */
   const lessonScopePages = activeLessonScope.lessonPrintedPages
 
   const activeLessonPageLabel = useMemo(() => {
@@ -333,14 +343,53 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     return null
   }, [activeLessonScope, lessonScopePages])
 
+  /** Full-book page refs for restore when the unit slice omits a facing page. */
+  const fullBookSourcePages = useMemo(() => {
+    if (!canonicalRaw || typeof canonicalRaw !== 'object') return null
+    const pages = (canonicalRaw as { pages?: unknown }).pages
+    if (!Array.isArray(pages)) return null
+    return pages.map((entry) => {
+      const page = entry as {
+        printed_page?: unknown
+        pdf_page?: unknown
+        printedPage?: unknown
+        pdfPage?: unknown
+      }
+      const printedPage =
+        typeof page.printed_page === 'number'
+          ? page.printed_page
+          : typeof page.printedPage === 'number'
+            ? page.printedPage
+            : null
+      const pdfPage =
+        typeof page.pdf_page === 'number'
+          ? page.pdf_page
+          : typeof page.pdfPage === 'number'
+            ? page.pdfPage
+            : null
+      return { printedPage, pdfPage }
+    })
+  }, [canonicalRaw])
+
   /** Exact source pdf_page indices for the SB lesson spread (never printed-as-pdf). */
   const sbTargetPdfPages = useMemo(() => {
     const printed = pendingSbRestorePages?.length
       ? pendingSbRestorePages
       : anchorSbPages
     if (!printed.length) return null
-    return exactPdfPagesForPrinted(summary?.pages ?? [], printed)
-  }, [summary?.pages, pendingSbRestorePages, anchorSbPages])
+    return (
+      resolveStudentBookRestorePdfTargets({
+        printedPages: printed,
+        unitSourcePages: summary?.pages ?? [],
+        bookSourcePages: fullBookSourcePages,
+      })?.pdfPages ?? null
+    )
+  }, [
+    summary?.pages,
+    fullBookSourcePages,
+    pendingSbRestorePages,
+    anchorSbPages,
+  ])
 
   /** Exact source pdf_page indices for the verified WB companion pages. */
   const wbTargetPdfPages = useMemo(() => {
@@ -373,6 +422,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         })
       ) {
         return
+      }
+      // After resume apply, ignore mismatched PDF reports briefly so a stale
+      // unit-start or adjacent-spread report cannot clobber the restored lesson.
+      const guard = resumeGuardPagesRef.current
+      if (
+        guard?.length &&
+        Date.now() < resumeGuardUntilRef.current &&
+        pagesKeyForResumeGuard(pages) !== pagesKeyForResumeGuard(guard)
+      ) {
+        return
+      }
+      if (guard?.length && pagesKeyForResumeGuard(pages) === pagesKeyForResumeGuard(guard)) {
+        resumeGuardPagesRef.current = null
       }
       if (pendingSbRestorePages?.length) {
         setPendingSbRestorePages(null)
@@ -519,9 +581,11 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         ),
       ].sort((a, b) => a - b)
       if (!normalized.length) return false
-      const pdfPages = exactPdfPagesForPrinted(summary?.pages ?? [], [
-        normalized[0]!,
-      ])
+      // Prefer exact PDF indices for the full lesson spread (not only page[0])
+      // so resume/Go land on the correct pair when spreads are asymmetric.
+      const pdfPages =
+        exactPdfPagesForPrinted(summary?.pages ?? [], normalized) ??
+        exactPdfPagesForPrinted(summary?.pages ?? [], [normalized[0]!])
       const pdfStart = pdfPages?.[0] ?? pdfForPrinted(pageMap, normalized[0]!)
       if (pdfStart == null) return false
       // Do not arm pendingSbRestore here — that locks the PDF pane to mapped
@@ -542,6 +606,42 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     },
     [summary?.pages, pageMap],
   )
+
+  const applyResumeLessonPages = useCallback(
+    (pages: readonly number[]) => {
+      const normalized = [
+        ...new Set(
+          pages.filter((n) => Number.isFinite(n)).map((n) => Math.floor(n)),
+        ),
+      ].sort((a, b) => a - b)
+      if (!normalized.length) return false
+      const applied = navigateToLessonPages(normalized, normalized[0]!)
+      if (applied) {
+        resumeGuardPagesRef.current = normalized
+        resumeGuardUntilRef.current = Date.now() + 2500
+      }
+      return applied
+    },
+    [navigateToLessonPages],
+  )
+
+  // Resume persistence: explicit `?unit=` wins; otherwise restore saved unit/lesson once.
+  useBookWorkspaceResume({
+    userId: user?.id,
+    seriesList,
+    series,
+    book,
+    batches,
+    batchesLoading,
+    requestedUnit,
+    selectedBatchId,
+    currentUnitNumber,
+    lessonPrintedPages: lessonScopePages,
+    jsonLoading,
+    setSelectedBatchId,
+    applyLessonPages: applyResumeLessonPages,
+    pickBatchIdForUnit,
+  })
 
   const handleLessonGo = useCallback(
     (printedPage: number) => {
@@ -908,23 +1008,32 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       frozenSbPrintedPages,
       sbVisiblePrintedPages,
     })
-    setSbVisiblePrintedPages(next.sbVisiblePrintedPages)
+    const restoreTargets = resolveStudentBookRestorePdfTargets({
+      printedPages: next.pendingRestorePrintedPages,
+      unitSourcePages: summary?.pages ?? [],
+      bookSourcePages: fullBookSourcePages,
+    })
+    // Prefer resolvable printed pages when the unit slice omits a facing page
+    // (Review p.143 + Unit 9 p.144). Fall back to the frozen list for identity.
+    const restorePrintedPages =
+      restoreTargets?.printedPages ?? next.pendingRestorePrintedPages
+    setSbVisiblePrintedPages(restorePrintedPages)
     setFrozenSbPrintedPages(next.frozenSbPrintedPages)
     if (frozenActivePrintedPage != null) {
       setActivePrintedPage(frozenActivePrintedPage)
     }
     setFrozenActivePrintedPage(null)
-    setPendingSbRestorePages(next.pendingRestorePrintedPages)
+    setPendingSbRestorePages(restorePrintedPages)
     setPdfViewMode(next.pdfViewMode)
-    const sbPdf = exactPdfPagesForPrinted(
-      summary?.pages ?? [],
-      next.pendingRestorePrintedPages,
-    )
-    if (sbPdf?.[0] != null) {
+    // Always replace the Workbook jump index. Leaving WB pdfPage (e.g. 117)
+    // applied to the Student Book lands on the wrong printed spread (119–120).
+    if (restoreTargets?.pdfPages[0] != null) {
       setPdfJumpRequest((prev) => ({
-        pdfPage: sbPdf[0]!,
+        pdfPage: restoreTargets.pdfPages[0]!,
         requestId: (prev?.requestId ?? 0) + 1,
       }))
+    } else {
+      setPdfJumpRequest(null)
     }
   }, [
     pdfViewMode,
@@ -935,6 +1044,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     verifiedCompanion,
     workbookSummary?.pages,
     summary?.pages,
+    fullBookSourcePages,
   ])
 
   const handleCloseTeacherChoice = useCallback(() => {
@@ -981,16 +1091,31 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         frozenSbPrintedPages,
         sbVisiblePrintedPages,
       })
-      setSbVisiblePrintedPages(next.sbVisiblePrintedPages)
+      const restoreTargets = resolveStudentBookRestorePdfTargets({
+        printedPages: next.pendingRestorePrintedPages,
+        unitSourcePages: summary?.pages ?? [],
+        bookSourcePages: fullBookSourcePages,
+      })
+      const restorePrintedPages =
+        restoreTargets?.printedPages ?? next.pendingRestorePrintedPages
+      setSbVisiblePrintedPages(restorePrintedPages)
       setFrozenSbPrintedPages(next.frozenSbPrintedPages)
       if (frozenActivePrintedPage != null) {
         setActivePrintedPage(frozenActivePrintedPage)
       }
       setFrozenActivePrintedPage(null)
       setPendingSbRestorePages(
-        next.pendingRestorePrintedPages.length ? next.pendingRestorePrintedPages : null,
+        restorePrintedPages.length ? restorePrintedPages : null,
       )
       setPdfViewMode(next.pdfViewMode)
+      if (restoreTargets?.pdfPages[0] != null) {
+        setPdfJumpRequest((prev) => ({
+          pdfPage: restoreTargets.pdfPages[0]!,
+          requestId: (prev?.requestId ?? 0) + 1,
+        }))
+      } else {
+        setPdfJumpRequest(null)
+      }
     }
   }, [
     verifiedCompanion,
@@ -998,6 +1123,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     frozenSbPrintedPages,
     frozenActivePrintedPage,
     sbVisiblePrintedPages,
+    summary?.pages,
+    fullBookSourcePages,
   ])
 
   useEffect(() => {
@@ -1060,14 +1187,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     }
   }, [book.id])
 
-  // Apply `?unit=` (default first unit) once batches are ready — supports legacy BI redirects.
-  useEffect(() => {
-    if (batchesLoading || batches.length === 0) return
-    const nextId = pickBatchIdForUnit(batches, requestedUnit)
-    setSelectedBatchId((prev) => (prev === nextId ? prev : nextId))
-  }, [batchesLoading, batches, requestedUnit])
-
-  // Keep Chalkie `?unit=` aligned with the selected unit for deep links / Validation round-trips.
+  // Keep Book Workspace `?unit=` aligned with the selected unit for deep links / Validation round-trips.
   useEffect(() => {
     if (!selectedBatchId || !currentUnitNumber) return
     if (searchParams.get('unit') === currentUnitNumber) return
@@ -1422,7 +1542,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       {!batchesLoading && !batchesError && batches.length === 0 ? (
         <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-900">
           No curriculum JSON for <span className="font-semibold">{book.title}</span>. Load canonical
-          or batch JSON in Storage before using Chalkie Workspace.
+          or batch JSON in Storage before using Book Workspace.
         </div>
       ) : null}
 
@@ -1460,7 +1580,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
         <section
           id="chalkie-right-pane"
-          aria-label="Source PDF and Chalkie prompt"
+          aria-label="Source PDF and lesson preparation"
           className="relative flex h-full flex-1 flex-col overflow-hidden"
         >
           <div className="min-h-0 flex-1 overflow-hidden bg-slate-200/60 p-2">
@@ -1520,6 +1640,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
                 pdfViewMode === 'student_book' && lessonAnchorsForUnit.length
                   ? atUnitLessonStart
                   : false
+              }
+              lessonScopePrintedPages={
+                pdfViewMode === 'student_book' ? lessonScopePages : null
               }
             />
           </div>
@@ -1617,6 +1740,11 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         activityCards={activeLessonActivityCards}
         workbookActivityCards={activeLessonWorkbookActivityCards}
         bookIntelligence={bookIntelligence}
+        scopeSequenceUnit={
+          curriculumAuthority.status === 'ready'
+            ? curriculumAuthority.unit
+            : null
+        }
         sbActivitySelection={sbActivitySelection}
         wbActivitySelection={wbActivitySelection}
         onSbActivitySelectionChange={handleSbActivitySelectionChange}

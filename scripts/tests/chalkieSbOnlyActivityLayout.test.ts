@@ -1,5 +1,7 @@
 /**
- * SB-only Step 1 layout: no empty facing panel; SB→WB pairs keep two-source UI.
+ * SB-only Step 1 layout: ordinary SB-only lessons hide empty facing panels;
+ * verified SB→WB pairs and companion-free allowlisted lessons (Values) keep
+ * the paired two-source UI.
  * Run: npx tsx --test scripts/tests/chalkieSbOnlyActivityLayout.test.ts
  */
 import assert from 'node:assert/strict'
@@ -12,7 +14,13 @@ import {
   buildSbActivityCards,
   buildSbActivityPageColumns,
 } from '../../app/src/features/chalkie/chalkieActivitySelection.ts'
+import { isCompanionFreeAllowlistedLesson } from '../../app/src/features/chalkie/chalkieLessonNavigation.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
+import { includeTeacherChoiceWorkbookStep } from '../../app/src/features/chalkie/teacherChoiceFlow.ts'
+import {
+  buildEmptyWbActivityPagePanels,
+  buildWbActivityPagePanels,
+} from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
 import type { Book } from '../../app/src/types/curriculum.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
@@ -125,9 +133,9 @@ function be3UnitSummary(unitNumber: number): BatchJsonSummary {
   }
 }
 
-/** Mirror overlay filtering: SB-only hides facing placeholders. */
+/** Mirror overlay filtering: paired routes keep facing placeholders. */
 function visibleSbColumnsForLesson(input: {
-  hasVerifiedWorkbookCompanion: boolean
+  usesPairedBookLayout: boolean
   cards: ReturnType<typeof buildSbActivityCards>
   visiblePrintedPages: number[]
 }) {
@@ -135,7 +143,7 @@ function visibleSbColumnsForLesson(input: {
     input.cards,
     input.visiblePrintedPages,
   )
-  return input.hasVerifiedWorkbookCompanion
+  return input.usesPairedBookLayout
     ? columns
     : columns.filter((column) => column.includedInLessonScope)
 }
@@ -165,7 +173,7 @@ test('BE3 Unit 1 p.4 SB-only layout shows one full-width Student Book list', () 
   assert.equal(padded.filter((column) => !column.includedInLessonScope).length, 1)
 
   const visible = visibleSbColumnsForLesson({
-    hasVerifiedWorkbookCompanion: false,
+    usesPairedBookLayout: false,
     cards,
     visiblePrintedPages: [4],
   })
@@ -173,6 +181,68 @@ test('BE3 Unit 1 p.4 SB-only layout shows one full-width Student Book list', () 
   assert.equal(visible[0]?.printedPage, 4)
   assert.equal(visible[0]?.includedInLessonScope, true)
   assert.ok(visible.every((column) => column.includedInLessonScope))
+})
+
+test('BE3 U8 Values p.142 keeps paired SB facing + empty Workbook step', () => {
+  const summary = be3UnitSummary(8)
+  const lesson = resolveChalkieLessonContext({
+    book: bookStub({
+      catalogBookId: 'big_english_3_sb',
+      title: 'Big English 3 Student Book',
+    }),
+    summary,
+    visiblePrintedPages: [142],
+    unitNumber: 8,
+  })
+
+  assert.equal(lesson.status, 'ready')
+  assert.equal(lesson.workbookCompanion, null)
+  assert.deepEqual(lesson.visiblePrintedPages, [142])
+  assert.equal(
+    isCompanionFreeAllowlistedLesson({
+      studentBookCatalogId: lesson.catalogBookId,
+      unitNumber: lesson.unitNumber,
+      printedPages: lesson.visiblePrintedPages,
+    }),
+    true,
+  )
+  assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: false,
+      workbookActivityCardCount: 0,
+      retainEmptyWorkbookSpread: true,
+    }),
+    true,
+  )
+
+  const cards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [142],
+  })
+  const visible = visibleSbColumnsForLesson({
+    usesPairedBookLayout: true,
+    cards,
+    visiblePrintedPages: [142],
+  })
+  assert.equal(visible.length, 2)
+  assert.deepEqual(
+    visible.map((column) => column.printedPage),
+    [142, 143],
+  )
+  assert.deepEqual(
+    visible.map((column) => column.includedInLessonScope),
+    [true, false],
+  )
+
+  const wbPanels = buildWbActivityPagePanels({
+    cards: [],
+    companion: null,
+    emptySpread: true,
+  })
+  assert.deepEqual(wbPanels, buildEmptyWbActivityPagePanels())
+  assert.equal(wbPanels.length, 2)
+  assert.ok(wbPanels.every((panel) => !panel.includedInLessonScope))
+  assert.ok(wbPanels.every((panel) => panel.cards.length === 0))
 })
 
 test('verified BE3 U8 opener SB→WB route still exposes two-source layout hooks', () => {
@@ -198,7 +268,7 @@ test('verified BE3 U8 opener SB→WB route still exposes two-source layout hooks
     activeLessonPrintedPages: [128, 129],
   })
   const visible = visibleSbColumnsForLesson({
-    hasVerifiedWorkbookCompanion: true,
+    usesPairedBookLayout: true,
     cards,
     visiblePrintedPages: [128, 129],
   })
@@ -210,16 +280,20 @@ test('verified BE3 U8 opener SB→WB route still exposes two-source layout hooks
   assert.ok(visible.every((column) => column.includedInLessonScope))
 })
 
-test('overlay gates facing placeholders to verified companion routes only', () => {
+test('overlay gates facing placeholders to paired routes (companion or Values)', () => {
   const overlay = fs.readFileSync(OVERLAY_PATH, 'utf8')
   assert.match(overlay, /hasVerifiedWorkbookCompanion/)
+  assert.match(overlay, /retainEmptyWorkbookSpread/)
+  assert.match(overlay, /usesPairedBookLayout/)
+  assert.match(overlay, /isCompanionFreeAllowlistedLesson/)
   assert.match(overlay, /visibleSbActivityPageColumns/)
   assert.match(overlay, /data-sb-only-layout/)
   assert.match(overlay, /data-sb-wb-pair-layout/)
   assert.match(
     overlay,
-    /hasVerifiedWorkbookCompanion[\s\S]{0,120}activityPageColumns[\s\S]{0,80}filter/,
+    /usesPairedBookLayout[\s\S]{0,80}\?[\s\S]{0,40}activityPageColumns[\s\S]{0,80}filter/,
   )
+  assert.match(overlay, /emptySpread:\s*retainEmptyWorkbookSpread/)
   assert.match(overlay, /Not included in this lesson scope\./)
   assert.match(overlay, /data-wb-activity-section/)
 })

@@ -111,3 +111,23 @@ export function chalkieCompanionRendererProps(input: {
     navigationLocked: false,
   }
 }
+
+/**
+ * True when a visible PDF printed page should show the “not in lesson scope”
+ * overlay. Requires a non-empty lesson scope; pages inside that scope stay clear.
+ * Does not invent lesson rules — hosts pass resolved Create-a-prompt pages.
+ */
+export function isPdfPrintedPageOutsideLessonScope(
+  printedPage: number | null | undefined,
+  lessonScopePrintedPages: readonly number[] | null | undefined,
+): boolean {
+  if (printedPage == null || !Number.isFinite(printedPage)) return false
+  if (!lessonScopePrintedPages?.length) return false
+  const scope = new Set(
+    lessonScopePrintedPages
+      .filter((page) => Number.isFinite(page))
+      .map((page) => Math.floor(page)),
+  )
+  if (scope.size === 0) return false
+  return !scope.has(Math.floor(printedPage))
+}

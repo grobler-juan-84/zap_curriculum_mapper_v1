@@ -213,6 +213,14 @@ test('teacher-choice flow is five steps with optional Workbook skip', () => {
     false,
   )
   assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: false,
+      workbookActivityCardCount: 0,
+      retainEmptyWorkbookSpread: true,
+    }),
+    true,
+  )
+  assert.equal(
     teacherChoiceStepName('student_book'),
     'Review Student Book selection',
   )
@@ -221,7 +229,7 @@ test('teacher-choice flow is five steps with optional Workbook skip', () => {
     'Review Workbook selection',
   )
   assert.equal(teacherChoiceStepName('prior_skills'), 'Prior skills')
-  assert.equal(teacherChoiceStepName('neutral_review'), 'Review lesson package')
+  assert.equal(teacherChoiceStepName('neutral_review'), 'Lesson package')
   assert.equal(teacherChoiceStepName('choose_output'), 'Choose output')
   assert.equal(teacherChoiceStepName(2, true), 'Review Workbook selection')
   assert.equal(teacherChoiceStepName(2, false), 'Prior skills')
@@ -268,9 +276,23 @@ test('teacher-choice flow is five steps with optional Workbook skip', () => {
   assert.ok(overlaySource.includes('Purpose:'))
   assert.ok(overlaySource.includes('includeTeacherChoiceWorkbookStep'))
   assert.ok(overlaySource.includes('resolvedStepId === \'neutral_review\''))
-  assert.ok(overlaySource.includes('Review lesson package'))
+  assert.ok(!overlaySource.includes('Review lesson package'))
+  assert.ok(
+    !overlaySource.includes(
+      'A calm summary of the selected Student Book activities',
+    ),
+  )
+  assert.ok(overlaySource.includes('Lesson focus'))
   assert.ok(overlaySource.includes('showChooseOutput'))
   assert.ok(overlaySource.includes('showChalkiePackaging'))
+  assert.ok(overlaySource.includes('const backDisabled ='))
+  assert.ok(overlaySource.includes('disabled={backDisabled}'))
+  assert.ok(!overlaySource.includes('Back to workspace'))
+  assert.ok(overlaySource.includes(') : showChooseOutput ? ('))
+  assert.match(
+    overlaySource,
+    /showChooseOutput \? \([\s\S]*?disabled[\s\S]*?>\s*Continue\s*</,
+  )
   assert.ok(overlaySource.includes('data-teacher-choice-fixed-height="true"'))
   assert.ok(overlaySource.includes('h-[min(calc(78vh+120px),calc(52rem+120px))]'))
   assert.ok(!overlaySource.includes('max-h-[92vh]'))
@@ -300,8 +322,10 @@ test('handoff overlay has no model-draft UI and does not call the OpenAI endpoin
   assert.ok(overlaySource.includes('Lesson Outlines'))
   assert.ok(overlaySource.includes('Suggested Chalkie vocabulary'))
   assert.ok(overlaySource.includes('Concise teacher-controlled outline'))
-  assert.ok(overlaySource.includes('Back to lesson inputs'))
+  assert.ok(!overlaySource.includes('Back to lesson inputs'))
   assert.ok(overlaySource.includes('handleBack'))
+  assert.match(overlaySource, />\s*Back\s*</)
+
 
   assert.ok(fs.existsSync(DRAFT_SERVICE_PATH), 'draft service should remain dormant on disk')
   assert.ok(fs.existsSync(DRAFT_HANDLER_PATH), 'draft handler should remain dormant on disk')

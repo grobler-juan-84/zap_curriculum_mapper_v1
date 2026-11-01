@@ -1,8 +1,8 @@
 # General Curriculum Mapper — Future
 
 **Status:** ACTIVE  
-**Version:** 1.1  
-**Last updated:** 2026-10-28 (F025 Optional Teaching Guidance parked after D023 POC simplification)
+**Version:** 1.3  
+**Last updated:** 2026-11-01 (F027 NLL/NLP Inspector production access transport parked; Vite-dev only)
 
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. **Immediate priorities:** workable Phase 2; practical Phase 4–7 pathway; clear teacher-facing options (horizontal mapping first). Phase 3 Vertical Mapping is parked as later priority (**D020 / F005**), not blocked by Phase 2 completion. D018 / Lesson Series remain **parked downstream experimentation** — retained, not cancelled.
 
@@ -46,6 +46,8 @@
 | F016 | Complete Phase 1 for BH2, RH2B, RH3A and RH4A | Intentionally deferred by D015 while controlled Phase 2 experiments use the completed Big English sequence | D015 |
 | F017 | Optional Phase 1 extraction of publisher curriculum plans (Scope and Sequence), including exact “I Can” / publisher-stated outcomes with page refs; keep publisher evidence distinct from AI inference | Not needed for current D017 v2 working baseline (~92% coverage sufficient); avoid prompt/dataset churn while validating Book Intelligence | owner park 2026-10-13 |
 | F018 | Optional Phase 1 extraction of dedicated review / checkpoint sections outside normal units (e.g. Big English checkpoints after U1–3, U4–6, U7–9; other series may differ); identify what prior content is reviewed, reinforced, or assessed | Out of current Units 1–9 Book Intelligence scope; do not expand extraction until a clear downstream need appears | owner park 2026-10-13 |
+| F026 | Cross-device Book Workspace resume via user-scoped Supabase table (RLS) + local cache | Browser-local v1 is sufficient for validation; DB/migration not authorized; keep resume operational preference only (not completion) | Book Workspace resume 2026-11-01 |
+| F027 | Production trusted route for NLL/NLP Inspector admin access (`POST /api/nll-nlp-inspector/access` or equivalent) | Vite-dev plugin only today; fails closed without endpoint; required before production Inspector availability; does not change NLL/NLP/teacher/GLP/Chalkie | D029 environment availability 2026-11-01 |
 
 ### F017 / F018 notes (PARKED — not approved)
 

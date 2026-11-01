@@ -16,7 +16,7 @@ export const BOOK_INTELLIGENCE_STORAGE_BUCKET = 'book-datasets'
 
 /**
  * Default catalog book when a legacy `/app/book-intelligence` URL has no segment.
- * Dedicated BI preview UI is retired; Chalkie Workspace Unit Intelligence is the teacher surface.
+ * Dedicated BI preview UI is retired; Book Workspace Unit Intelligence is the teacher surface.
  */
 export const DEFAULT_BOOK_INTELLIGENCE_CATALOG_BOOK_ID = 'big_english_3_sb'
 
@@ -58,24 +58,37 @@ export function hasBookIntelligenceOverview(
 }
 
 /**
- * Teacher-facing path for Book Intelligence content (Chalkie Workspace Unit Intelligence).
- * Optional `unit` query is applied when Chalkie Workspace loads unit batches.
+ * Teacher-facing path for Book Workspace (Unit Intelligence + lesson preparation).
+ * Optional `unit` query is applied when Book Workspace loads unit batches.
  */
-export function chalkieWorkspacePath(unitNumber?: string | number | null): string {
+export function bookWorkspacePath(unitNumber?: string | number | null): string {
   if (unitNumber === undefined || unitNumber === null || unitNumber === '') {
-    return '/app/chalkie'
+    return '/app/book-workspace'
   }
-  return `/app/chalkie?unit=${encodeURIComponent(String(unitNumber))}`
+  return `/app/book-workspace?unit=${encodeURIComponent(String(unitNumber))}`
+}
+
+/** Book Workspace with in-workspace course-level chooser (first visit / change book). */
+export function bookWorkspaceChooseBookPath(): string {
+  return '/app/book-workspace?chooseBook=1'
 }
 
 /**
- * @deprecated Dedicated BI preview routes are retired. Prefer `chalkieWorkspacePath`.
- * Kept as a compatibility alias that returns the Chalkie Workspace path (book selection
+ * @deprecated Prefer `bookWorkspacePath`. Former Chalkie Workspace helper retained
+ * as a compatibility alias that now returns the canonical Book Workspace path.
+ */
+export function chalkieWorkspacePath(unitNumber?: string | number | null): string {
+  return bookWorkspacePath(unitNumber)
+}
+
+/**
+ * @deprecated Dedicated BI preview routes are retired. Prefer `bookWorkspacePath`.
+ * Kept as a compatibility alias that returns the Book Workspace path (book selection
  * is applied by the legacy-route redirect via workspace state).
  */
 export function bookIntelligencePath(
   _catalogBookId: string,
   unitNumber?: string | number,
 ): string {
-  return chalkieWorkspacePath(unitNumber)
+  return bookWorkspacePath(unitNumber)
 }

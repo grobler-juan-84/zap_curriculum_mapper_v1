@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { bookWorkspaceChooseBookPath } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { BookWorkspace } from './BookWorkspace'
 
@@ -67,10 +68,10 @@ export function BookWorkspacePage() {
         </p>
         <button
           type="button"
-          onClick={() => navigate('/app/series')}
+          onClick={() => navigate(bookWorkspaceChooseBookPath())}
           className="rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-500"
         >
-          Back to Series
+          Change book / level
         </button>
       </div>
     )
@@ -82,7 +83,7 @@ export function BookWorkspacePage() {
       book={currentBook}
       currentSpreadId={currentSpreadId}
       onChangeSpread={setCurrentSpreadId}
-      onBackToBooks={() => navigate('/app/series')}
+      onBackToBooks={() => navigate(bookWorkspaceChooseBookPath())}
     />
   )
 }

@@ -5,7 +5,9 @@
  * Review SB selection → Review WB selection → Prior skills → Neutral review →
  * Choose output.
  * When no verified Workbook companion/activity set exists, the Workbook
- * screen is omitted and progress renumbers to 4 steps.
+ * screen is usually omitted and progress renumbers to 4 steps.
+ * Companion-free allowlisted lessons (e.g. Values) still keep an empty
+ * Workbook step so the paired book workflow stays consistent.
  *
  * Activity selection is owned by the left-panel current-lesson surface; the
  * first screens confirm/adjust that shared selection rather than restarting it.
@@ -43,7 +45,13 @@ export type TeacherAddedLanguage = {
 export function includeTeacherChoiceWorkbookStep(input: {
   hasVerifiedWorkbookCompanion: boolean
   workbookActivityCardCount: number
+  /**
+   * Companion-free allowlisted lessons (Values) keep an empty Workbook step
+   * for the regular two-source modal workflow.
+   */
+  retainEmptyWorkbookSpread?: boolean
 }): boolean {
+  if (input.retainEmptyWorkbookSpread) return true
   return (
     input.hasVerifiedWorkbookCompanion && input.workbookActivityCardCount > 0
   )
@@ -105,7 +113,7 @@ export function teacherChoiceStepName(
   if (id === 'student_book') return 'Review Student Book selection'
   if (id === 'workbook') return 'Review Workbook selection'
   if (id === 'prior_skills') return 'Prior skills'
-  if (id === 'neutral_review') return 'Review lesson package'
+  if (id === 'neutral_review') return 'Lesson package'
   return 'Choose output'
 }
 

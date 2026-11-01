@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 423
+**Last updated:** Step 448
 
 
 
@@ -755,7 +755,35 @@
 
 - [x] **Unit 8 NLL activity-summary final checkpoint (2026-10-31):** sole modal AI-summary source is shared NLL (`VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES`, default off); overlay POC enrichment-package wiring removed; 10 components / **77/77** preferred summaries; combined browser evidence 74+3; suite **415/415**; typecheck/lint/diff/encoding/secret clean. No commit/push yet.
 
-- [ ] **Owner authorize one reviewed commit** for the NLL activity-summary checkpoint (exclude unrelated `7-future` / brainstorming strategic edits; never `.env.local`).
+- [x] **Unit 8 NLL activity-summary checkpoint committed/pushed (2026-11-01):** `63a28694` on `main`.
+
+- [x] **Book Workspace product hierarchy (2026-11-01):** course-level `/app/series` cards; canonical `/app/book-workspace`; Chalkie adapter-only wording; legacy redirects; `.env.example` NLL summary flag. Uncommitted pending owner review (preserve `7-future` / brainstorming).
+
+- [x] **Book Workspace resume persistence v1 (2026-11-01):** browser-local user+SB scoped resume; series-card hints; explicit `?unit=` override; F026 parked for Supabase; suite 19/19; Unit 8 matrix 415/415. Uncommitted pending verification-report review.
+
+- [x] **Workspace continuity (2026-11-01):** `/app` last-active → workspace else CL; per-series last book; CL → workspace; in-workspace `?chooseBook=1` chooser; Series nav demoted; F026 still parked. Uncommitted pending owner review.
+
+- [x] **Neutral-review intro copy removed (2026-11-01):** dropped “Review lesson package” heading/description; step label → Lesson package.
+
+- [x] **Create-a-prompt footer UX (2026-11-01):** Step 1 disabled Back; Step 5 choose-output disabled Continue; Chalkie/lesson-plan previews Back+Cancel only (no Back to workspace); Chalkie packaging keeps Prepare Chalkie prompt; Back label is plain “Back”.
+
+- [x] **Choose-output placeholder cards (2026-11-01):** disabled ChatGPT/Canva Prompt and Claude Prompt cards added beside live Chalkie / general lesson-plan options; not wired (F020 cosmetic only).
+
+- [x] **PDF out-of-scope overlay (2026-11-01):** Book Workspace dims facing pages outside Create-a-prompt lesson scope with a short label; driven by resolved `lessonScopePrintedPages` (not a locked lessons 7–10 rule).
+
+- [x] **D029 NLL/NLP Inspector (2026-11-01):** admin-only choose-output card; read-only Markdown A–G report reusing NLP assembly + NLL load; `isAdminProfile` / `authorizeAdminBearerUser`; architecture note; focused tests green. Teachers keep ChatGPT placeholder.
+
+- [x] **D029 Inspector audit hardening (2026-11-01):** independent status taxonomy; packaging-label clarification; compact overview; dual admin gate (`POST /api/nll-nlp-inspector/access`); Phonics/Values/status/access tests; architecture note expanded. No SB-only NLP builder; no speculative staleness hashes.
+
+- [x] **Owner authorize one reviewed commit (2026-11-01):** Book Workspace hierarchy + resume + continuity + Create-a-prompt UX + D029 Inspector checkpoint; F026/F027 recorded; brainstorming strategic edits excluded; `.env.local` excluded.
+
+- [x] **D029 Inspector environment availability recorded (2026-11-01):** Vite-dev-only access endpoint; production transport parked as F027; fails closed; Inspector-only scope (no NLL/NLP/teacher/GLP/Chalkie change).
+
+- [x] **NLL/NLP Inspector local Vite smoke-check (2026-11-01, revised scope):** Admin UI + access `200/allowed/admin` live; Phonics WB 30 exclusion + Values NLP-unavailable passed; read-only confirmed. Live teacher session: not performed — no separate teacher account available or required; teacher restrictions covered by automated tests + code inspection. Production transport remains F027.
+
+- [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
+
+- [ ] **Smoke-check one-page SB lessons** in a two-page PDF reading pair: unused side shows overlay; Create-a-prompt still uses only in-scope page(s).
 
 - [ ] **Owner review E2E polish dispositions** and optional ENV-01 local canary hygiene (do not edit `.env.local` unless owner chooses).
 

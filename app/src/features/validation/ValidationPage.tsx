@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { curriculumService } from '../../services/curriculumService'
+import { bookWorkspaceChooseBookPath } from '../book-intelligence/bookIntelligenceStorageRegistry'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { ValidationWorkspace } from './ValidationWorkspace'
 
@@ -67,7 +68,7 @@ export function ValidationPage() {
       book={currentBook}
       onSelectSeries={selectSeries}
       onSelectBook={selectBook}
-      onBackToBooks={() => navigate('/app/series')}
+      onBackToBooks={() => navigate(bookWorkspaceChooseBookPath())}
     />
   )
 }

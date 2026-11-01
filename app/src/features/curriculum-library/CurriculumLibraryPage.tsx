@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import {
-  chalkieWorkspacePath,
-  hasBookIntelligenceOverview,
+  bookWorkspaceChooseBookPath,
+  bookWorkspacePath,
 } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import { resolveCourseLevelBookIdentity } from '../series-library/groupSeriesBooksIntoCourseLevels'
+import { useAuth } from '../auth/AuthProvider'
+import { resolveLastStudentBookForSeries } from '../book-workspace/resume'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { curriculumService } from '../../services/curriculumService'
 import { CurriculumLibrary } from './CurriculumLibrary'
@@ -10,6 +13,7 @@ import { useCurriculumCatalog } from './hooks/useCurriculumCatalog'
 
 export function CurriculumLibraryPage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const { seriesList, loading, error, reload } = useCurriculumCatalog()
   const {
     selectSeries,
@@ -54,21 +58,43 @@ export function CurriculumLibraryPage() {
       seriesList={seriesList}
       onSelectSeries={(seriesId) => {
         selectSeries(seriesId)
-        navigate('/app/series')
+        const resumed = resolveLastStudentBookForSeries({
+          userId: user?.id,
+          seriesId,
+          seriesList,
+        })
+        if (resumed) {
+          selectBook(resumed.book.id)
+          navigate(bookWorkspacePath())
+          return
+        }
+        navigate(bookWorkspaceChooseBookPath())
       }}
       onDirectOpenBook={(bookUuid) => {
         const match = curriculumService.getBookByUuid(bookUuid)
-        const catalogBookId = match?.book.catalogBookId
-        if (catalogBookId && hasBookIntelligenceOverview(catalogBookId)) {
-          if (match) {
-            selectSeries(match.series.id)
-            selectBook(match.book.id)
-          }
-          navigate(chalkieWorkspacePath())
+        if (!match) {
+          selectBook(bookUuid)
+          navigate(bookWorkspacePath())
           return
         }
-        selectBook(bookUuid)
-        navigate('/app/workspace')
+
+        selectSeries(match.series.id)
+
+        const openedIdentity = resolveCourseLevelBookIdentity(match.book)
+        let primaryBook = match.book
+        if (openedIdentity?.role === 'workbook') {
+          const companionSb = match.series.books.find((entry) => {
+            const identity = resolveCourseLevelBookIdentity(entry)
+            return (
+              identity?.role === 'student_book' &&
+              identity.levelKey === openedIdentity.levelKey
+            )
+          })
+          if (companionSb) primaryBook = companionSb
+        }
+
+        selectBook(primaryBook.id)
+        navigate(bookWorkspacePath())
       }}
     />
   )

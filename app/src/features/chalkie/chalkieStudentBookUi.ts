@@ -1,5 +1,5 @@
 /**
- * Teacher-facing Student Book–first helpers for Chalkie Workspace (D021).
+ * Teacher-facing Student Book–first helpers for Book Workspace (D021).
  * Display/filter only — does not invent SB→WB companions.
  */
 
@@ -28,6 +28,65 @@ export function resolveViewerPdfPagesForPrinted(
   printedPages: number[],
 ): number[] | null {
   return exactPdfPagesForPrinted(sourcePages, printedPages)
+}
+
+/**
+ * Resolve Student Book restore targets after Workbook view.
+ *
+ * Unit-sliced page records omit facing pages from the next unit (e.g. Review
+ * p.143 facing Unit 9 p.144). Prefer the unit slice, then a fuller book page
+ * list, then the largest resolvable subset so restore never silently fails and
+ * leaves a stale Workbook PDF jump index applied to the Student Book.
+ */
+export function resolveStudentBookRestorePdfTargets(input: {
+  printedPages: readonly number[]
+  unitSourcePages: readonly SourcePagePdfRef[]
+  bookSourcePages?: readonly SourcePagePdfRef[] | null
+}): { printedPages: number[]; pdfPages: number[] } | null {
+  const wanted = normalizePrintedPages([...input.printedPages])
+  if (!wanted.length) return null
+
+  const tryResolve = (
+    pages: readonly SourcePagePdfRef[],
+    printed: number[],
+  ): { printedPages: number[]; pdfPages: number[] } | null => {
+    const pdfPages = exactPdfPagesForPrinted([...pages], printed)
+    if (!pdfPages?.length) return null
+    return { printedPages: printed, pdfPages }
+  }
+
+  const unitPages = input.unitSourcePages
+  const bookPages = input.bookSourcePages?.length
+    ? input.bookSourcePages
+    : null
+
+  const fullUnit = tryResolve(unitPages, wanted)
+  if (fullUnit) return fullUnit
+
+  if (bookPages) {
+    const fullBook = tryResolve(bookPages, wanted)
+    if (fullBook) return fullBook
+  }
+
+  const unitMapped = wanted.filter(
+    (printed) => exactPdfPagesForPrinted([...unitPages], [printed]) != null,
+  )
+  if (unitMapped.length) {
+    const subset = tryResolve(unitPages, unitMapped)
+    if (subset) return subset
+  }
+
+  if (bookPages) {
+    const bookMapped = wanted.filter(
+      (printed) => exactPdfPagesForPrinted([...bookPages], [printed]) != null,
+    )
+    if (bookMapped.length) {
+      const subset = tryResolve(bookPages, bookMapped)
+      if (subset) return subset
+    }
+  }
+
+  return null
 }
 
 /** True when the catalog book is a Student Book (not Workbook / TG). */
@@ -242,7 +301,8 @@ export function restoreStudentBookPdfView(input: {
 /**
  * While a Student Book restore is pending, ignore incomplete PDF visible-page
  * reports (e.g. only p.128) so the companion toggle / WB summary stay intact.
- * Accept once the PDF reports the full restored spread.
+ * Accept once every restored page is visible (exact match or facing-page
+ * superset when the locked restore was a single in-unit page).
  */
 export function shouldApplyVisiblePagesFromPdf(input: {
   pendingRestorePrintedPages: number[] | null
@@ -250,5 +310,10 @@ export function shouldApplyVisiblePagesFromPdf(input: {
 }): boolean {
   const pending = input.pendingRestorePrintedPages
   if (!pending?.length) return true
-  return printedPagesEqual(pending, input.reportedPages)
+  if (printedPagesEqual(pending, input.reportedPages)) return true
+  const reported = new Set(normalizePrintedPages(input.reportedPages))
+  return (
+    pending.length > 0 &&
+    normalizePrintedPages(pending).every((page) => reported.has(page))
+  )
 }

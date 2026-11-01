@@ -113,6 +113,25 @@ export function resolveLessonPagesForPrintedPage(input: {
   return anchor ? [...anchor.studentBookPrintedPages] : null
 }
 
+/**
+ * True when the lesson pages match a registered companion-free allowlist entry
+ * (e.g. BE3 U8 Values p.142). These keep the paired SB+empty-WB modal layout
+ * even though no Workbook companion exists.
+ */
+export function isCompanionFreeAllowlistedLesson(input: {
+  studentBookCatalogId: string | null | undefined
+  unitNumber: number | string | null | undefined
+  printedPages: readonly number[]
+}): boolean {
+  const pages = normalizePages(input.printedPages)
+  if (!pages.length) return false
+  return listLessonAnchorsForUnit(input).some(
+    (anchor) =>
+      anchor.companionRelationshipId == null &&
+      pagesEqual(pages, anchor.studentBookPrintedPages),
+  )
+}
+
 export type LessonNavStep =
   | { readonly kind: 'lesson'; readonly anchor: ChalkieLessonAnchor }
   | { readonly kind: 'end_of_unit' }

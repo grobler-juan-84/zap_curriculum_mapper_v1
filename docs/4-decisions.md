@@ -63,6 +63,7 @@
 | D026 | Repository consolidation begins with a read-only evidence audit | 2026-10-29 | LOCKED |
 | D027 | Durable layer model: SS/SB/WB → NLL → NLP → adapters | 2026-10-29 | LOCKED |
 | D028 | BE3 U8 Values remains generic SB-only; knowledge-only NLL summaries allowed; no package/A/B/C | 2026-10-31 | LOCKED |
+| D029 | Permanent admin-only NLL/NLP Inspector on Create-a-prompt Step 5; read-only; reuses NLP assembly | 2026-11-01 | LOCKED |
 
 ---
 
@@ -606,10 +607,33 @@ A Values Neutral Lesson Library **knowledge** component (`be3-u08-values`) is no
 
 ---
 
+### D029 — Permanent admin-only NLL/NLP Inspector (read-only; reuses NLP)
+
+**Date:** 2026-11-01  
+**Status:** LOCKED
+
+**Decision:** Create-a-prompt Step 5 (choose output) permanently hosts an **admin-only** **NLL/NLP Inspector** card. Teachers continue to see the ChatGPT/Canva placeholder (F020 unchanged for them). The Inspector builds a **read-only** Markdown inspection report (Sections A–G) from the **current overlay selections** by reusing `buildNeutralSbWbLessonPackage` for assembled NLP and existing NLL loaders when a component key is resolvable. It is **not** an adapter, does not invent a parallel selection/NLP pipeline, and does not mutate selections, NLL, Scope & Sequence, or NLP rules. v1 report generation stays **client-side** (same posture as Chalkie/GLP pilots). Product access is gated by `profiles.role === 'admin'` (`isAdminProfile`); `authorizeAdminBearerUser` closes the Node role gap for any future Inspector API. No new schema/migration.
+
+**Reason:** Admins need a durable, evidence-faithful diagnostic of NLL membership, teacher selection, and NLP assembly without changing teacher flows or packaging pilots.
+
+**Alternatives rejected:** Teacher-visible inspector; inventing a second NLP assembler; server-only report for v1; new privileged NLL read channel; mutating selections during inspect; charts or generation APIs in the report view.
+
+**Implications:** Architecture note [`project-tracking/nll-nlp-inspector-architecture-note-v0.1.md`](./project-tracking/nll-nlp-inspector-architecture-note-v0.1.md) records SOT/Project_Records path mismatches, auth/read posture, independent status dimensions, packaging-label semantics, experimental-summary policy, staleness limits, and **Vite-dev-only access transport** (production hosting must later provide an equivalent admin session/role route; fails closed if unavailable; does not affect NLL/NLP/teacher/GLP/Chalkie). BE3 U8 remains a verification fixture only — Inspector production logic does not hard-code page lists; component-key resolution reuses the shared Create-a-prompt resolver. Chalkie packaging, GLP assembly, and selection rules are unchanged. Product access is dual-gated (admin UI + `POST /api/nll-nlp-inspector/access`).
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D022, D027, D028, and F020 teacher placeholders.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-11-01 | Local Vite smoke-check (revised): live admin Phonics + Values; teacher live session not performed (automated tests + code inspection); F027 deferred. |
+| 2026-11-01 | Recorded D029 Inspector environment availability — Vite-dev access endpoint; production transport deferred; fails closed; Inspector-only scope. |
+| 2026-11-01 | Audit-hardened D029 Inspector — independent status taxonomy, packaging-label clarification, compact overview, trusted admin access API, focused verification tests. |
+| 2026-11-01 | Added D029 — permanent admin-only NLL/NLP Inspector; read-only; reuses NLP assembly; not an adapter. |
 | 2026-10-31 | Owner-authorized apply of Values knowledge migration `20261030220000` — live **10 / 77 / 77 / 10**; history **29 / 0 / 0**; generic `sb_only` unchanged. |
 | 2026-10-31 | Narrowly revised D028 — Values stays generic `sb_only` with no package/A/B/C; knowledge-only NLL component allowed for shared modal summaries; apply remains gated. |
 | 2026-10-30 | Added D028 — BE3 U8 Values remains generic SB-only; no specialized NLL/A/B/C pipeline. |

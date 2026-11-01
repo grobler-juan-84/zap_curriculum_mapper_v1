@@ -201,6 +201,21 @@ test('Values p.142 has no companion and produces no Workbook cards or panels', (
   assert.equal(companion, null)
   assert.deepEqual(cards, [])
   assert.deepEqual(buildWbActivityPagePanels({ cards, companion }), [])
+  // Modal workflow still paints two empty Workbook page slots when requested.
+  const emptySpread = buildWbActivityPagePanels({
+    cards,
+    companion,
+    emptySpread: true,
+  })
+  assert.equal(emptySpread.length, 2)
+  assert.deepEqual(
+    emptySpread.map((panel) => panel.includedInLessonScope),
+    [false, false],
+  )
+  assert.deepEqual(
+    emptySpread.map((panel) => panel.position),
+    ['left', 'right'],
+  )
 })
 
 test('all eligible Workbook cards start selected and stale IDs stay inert', () => {

@@ -15,6 +15,7 @@ import {
   lessonAnchorPrintedPages,
   resolveActiveLessonScope,
   resolveCompanionForSbPages,
+  resolveStudentBookRestorePdfTargets,
   resolveViewerPdfPagesForPrinted,
   restoreStudentBookPdfView,
   shouldApplyVisiblePagesFromPdf,
@@ -369,6 +370,64 @@ test('BE3 U8 opener resolves verified pdf_page targets for SB and WB (not printe
   assert.deepEqual(
     resolveViewerPdfPagesForPrinted(wbPages, companion!.workbookPrintedPages),
     [104, 105],
+  )
+})
+
+test('Review 143–144 restore uses full-book map when unit slice omits facing p.144', () => {
+  assert.ok(fs.existsSync(BE3_SB_PATH), 'BE3 SB canonical required')
+  assert.ok(fs.existsSync(BE3_WB_PATH), 'BE3 WB canonical required')
+
+  const bookPages = sourcePagesFromCanonical(BE3_SB_PATH)
+  const unit8Pages = bookPages.filter(
+    (page) =>
+      typeof page.printedPage === 'number' &&
+      page.printedPage >= 128 &&
+      page.printedPage <= 143,
+  )
+  const wbPages = sourcePagesFromCanonical(BE3_WB_PATH)
+
+  // Unit-sliced records cannot resolve the Unit 9 facing page.
+  assert.equal(
+    resolveViewerPdfPagesForPrinted(unit8Pages, [143, 144]),
+    null,
+  )
+
+  const entered = enterWorkbookPdfView([143, 144])
+  const restored = restoreStudentBookPdfView({
+    frozenSbPrintedPages: entered.frozenSbPrintedPages,
+    sbVisiblePrintedPages: [143],
+  })
+  assert.deepEqual(restored.pendingRestorePrintedPages, [143, 144])
+
+  const targets = resolveStudentBookRestorePdfTargets({
+    printedPages: restored.pendingRestorePrintedPages,
+    unitSourcePages: unit8Pages,
+    bookSourcePages: bookPages,
+  })
+  assert.ok(targets)
+  assert.deepEqual(targets?.printedPages, [143, 144])
+  assert.deepEqual(targets?.pdfPages, [141, 142])
+
+  // Stale Workbook PDF index 117 must not be treated as the SB restore target.
+  const wbPdf = resolveViewerPdfPagesForPrinted(wbPages, [117])
+  assert.deepEqual(wbPdf, [117])
+  assert.notEqual(targets?.pdfPages[0], wbPdf?.[0])
+})
+
+test('restore accepts facing-page supersets once pending pages are visible', () => {
+  assert.equal(
+    shouldApplyVisiblePagesFromPdf({
+      pendingRestorePrintedPages: [143],
+      reportedPages: [143, 144],
+    }),
+    true,
+  )
+  assert.equal(
+    shouldApplyVisiblePagesFromPdf({
+      pendingRestorePrintedPages: [128, 129],
+      reportedPages: [128],
+    }),
+    false,
   )
 })
 

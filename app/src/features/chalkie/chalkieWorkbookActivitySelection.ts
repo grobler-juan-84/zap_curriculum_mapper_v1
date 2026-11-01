@@ -400,15 +400,43 @@ export function buildWbActivityCards(input: {
 }
 
 /**
+ * Two empty Workbook page slots for companion-free allowlisted lessons
+ * (e.g. Values) that still use the paired modal workbook step.
+ */
+export function buildEmptyWbActivityPagePanels(): WbActivityPagePanel[] {
+  return [
+    {
+      pageId: null,
+      printedPage: null,
+      cards: [],
+      includedInLessonScope: false,
+      position: 'left',
+    },
+    {
+      pageId: null,
+      printedPage: null,
+      cards: [],
+      includedInLessonScope: false,
+      position: 'right',
+    },
+  ]
+}
+
+/**
  * Render the verified companion as a physical two-page spread. A missing
  * facing page is a visual-only placeholder and never enters card selection.
+ * When `emptySpread` is true and no companion pages exist, returns two empty
+ * placeholders so Values-style routes keep the regular workbook step chrome.
  */
 export function buildWbActivityPagePanels(input: {
   cards: readonly WbActivityCard[]
   companion: VerifiedSbWbCompanion | null
+  emptySpread?: boolean
 }): WbActivityPagePanel[] {
   const verifiedPages = verifiedCompanionPages(input.companion)
-  if (verifiedPages.length === 0) return []
+  if (verifiedPages.length === 0) {
+    return input.emptySpread ? buildEmptyWbActivityPagePanels() : []
+  }
 
   if (verifiedPages.length === 1) {
     const page = verifiedPages[0]!

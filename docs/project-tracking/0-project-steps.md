@@ -7409,6 +7409,14 @@
 
 **Summary:** Final Unit 8 NLL activity-summary checkpoint: confirmed shared `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES` (default off) as the sole Create-a-prompt modal AI-summary source for all ten lessons; removed competing overlay enrichment-POC package wiring; reconciled docs to live **10 / 77 / 77 / 10** and history **29 / 0 / 0**; automated matrix **415/415**; combined browser evidence **77/77**. No DB/Storage mutation, commit, or push.
 
+### Step 424 — Freeze current authority map and neutral adapter boundary
+
+**Status:** COMPLETE
+
+**Date:** 2026-11-01
+
+**Summary:** Added a concise current-authority map grounded in D027/D028: canonical SS/SB/WB evidence → reusable NLL knowledge → prepare-time NLP → replaceable delivery adapters. Recorded the current Unit 8 totals and exact default-off flag matrix, clarified that the modal precedes NLP assembly, preserved Values as knowledge-only/generic `sb_only`, and set the product-language boundary that “Chalkie” belongs only to an explicitly selected adapter—not neutral General Lesson Plan prompts or workflow chrome. Reconciled current status to pushed checkpoint `63a28694`; no app/configuration, database, Storage, deployment, or promotion change.
+
 **Files touched:**
 - `app/src/features/chalkie/nllActivitySummaries.ts` (created)
 - `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
@@ -7431,6 +7439,420 @@
 - `docs/0-index.md` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 425
+
+**Summary:** Corrected the teacher product hierarchy: Big English `/app/series` now shows six course-level cards (SB primary, WB companion); canonical Book Workspace is `/app/book-workspace` (rich prep UI); Chalkie remains an output adapter only; `/app/chalkie` and `/app/workspace` redirect with query preserved; mock UI hidden at `/app/legacy-mock-workspace`. Documented `VITE_CHALKIE_NLL_ACTIVITY_SUMMARIES=false` in `.env.example`. Updated authority map. No DB/Storage mutation, commit, or push; preserved owner `7-future` / brainstorming drafts.
+
+**Files touched:**
+- `app/src/features/series-library/groupSeriesBooksIntoCourseLevels.ts` (created)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/features/shell/PreserveQueryRedirect.tsx` (created)
+- `app/src/App.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
+- `app/src/features/book-intelligence/BookIntelligenceRedirect.tsx` (updated)
+- `app/src/features/chalkie/ChalkiePage.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/chalkieStudentBookUi.ts` (updated)
+- `app/src/features/chalkie/chalkieUnitIntelligence.ts` (updated)
+- `app/src/features/curriculum-library/CurriculumLibraryPage.tsx` (updated)
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `.env.example` (updated)
+- `scripts/tests/groupSeriesBooksIntoCourseLevels.test.ts` (created)
+- `scripts/tests/bookWorkspacePath.test.ts` (created)
+- `scripts/tests/bookWorkspaceProductSurface.test.ts` (created)
+- `scripts/tests/chalkieWorkspacePath.test.ts` (updated)
+- `docs/project-tracking/current-authority-map-v0.1.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 426
+
+**Summary:** Book Workspace left pane now opens with Curriculum Authority, Book Content, and Book Intelligence collapsed by default (headers + summary only until the teacher expands them).
+
+**Files touched:**
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 427
+
+**Summary:** Renamed the sidebar `/app/series` nav label from “Beehive Series” to static “Series,” matching the current-series destination without dynamic nav naming.
+
+**Files touched:**
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `scripts/tests/bookWorkspaceProductSurface.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 428
+
+**Summary:** Added Book Workspace browser-local resume persistence (user + primary Student Book scoped): restore/override precedence, series-card resume hints, last-active book entry bootstrap, no completion/auto-next. Documented F026 for future Supabase resume. Automated Unit 8 matrix 415/415; workspace-focused + resume suites 39/39. Left uncommitted pending owner verification-report review.
+
+**Files touched:**
+- `app/src/features/book-workspace/resume/bookWorkspaceResumeTypes.ts` (created)
+- `app/src/features/book-workspace/resume/bookWorkspaceResumeStorage.ts` (created)
+- `app/src/features/book-workspace/resume/resolveBookWorkspaceResumeLocation.ts` (created)
+- `app/src/features/book-workspace/resume/useBookWorkspaceResume.ts` (created)
+- `app/src/features/book-workspace/resume/index.ts` (created)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/ChalkiePage.tsx` (updated)
+- `app/src/features/series-library/SeriesLibraryPage.tsx` (updated)
+- `app/src/features/series-library/SeriesLibrary.tsx` (updated)
+- `scripts/tests/bookWorkspaceResume.test.ts` (created)
+- `scripts/tests/bookWorkspaceProductSurface.test.ts` (updated)
+- `docs/project-tracking/current-authority-map-v0.1.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 429
+
+**Summary:** Implemented teacher workspace continuity: `/app` restores last-active Book Workspace or falls back silently to Curriculum Library; per-series last-book memory; CL opens workspace (resume or in-workspace course-level chooser); Series nav demoted with `/app/series` → `?chooseBook=1`; F026 remains parked.
+
+**Files touched:**
+- `app/src/features/shell/AppEntryRedirect.tsx` (created)
+- `app/src/features/shell/SeriesToWorkspaceChooserRedirect.tsx` (created)
+- `app/src/App.tsx` (updated)
+- `app/src/features/book-workspace/resume/bookWorkspaceResumeStorage.ts` (updated)
+- `app/src/features/book-workspace/resume/resolveBookWorkspaceResumeLocation.ts` (updated)
+- `app/src/features/book-workspace/resume/useBookWorkspaceResume.ts` (updated)
+- `app/src/features/book-workspace/resume/index.ts` (updated)
+- `app/src/features/book-intelligence/bookIntelligenceStorageRegistry.ts` (updated)
+- `app/src/features/chalkie/ChalkiePage.tsx` (updated)
+- `app/src/features/curriculum-library/CurriculumLibraryPage.tsx` (updated)
+- `app/src/components/shared/Sidebar.tsx` (updated)
+- `app/src/features/validation/ValidationPage.tsx` (updated)
+- `app/src/features/book-workspace/BookWorkspacePage.tsx` (updated)
+- `scripts/tests/bookWorkspaceResume.test.ts` (updated)
+- `scripts/tests/bookWorkspaceProductSurface.test.ts` (updated)
+- `scripts/tests/bookWorkspacePath.test.ts` (updated)
+- `docs/project-tracking/current-authority-map-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 430
+
+**Summary:** Removed the Create-a-prompt neutral-review intro (“Review lesson package” + calm-summary description). The step now opens on Lesson focus content; chrome step label is “Lesson package”.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 431
+
+**Summary:** Create-a-prompt footer UX: Step 1 always shows a disabled Back button; detailed general lesson plan preview is Back + Cancel only (no Back to workspace); Chalkie packaging and other steps unchanged.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 432
+
+**Summary:** Renamed Create-a-prompt preview footer control from “Back to lesson inputs” to plain “Back”.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 433
+
+**Summary:** On Create-a-prompt step 5 (choose output), show a disabled Continue in the footer alongside Back and Cancel so the control row stays consistent while output is chosen via the cards.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 434
+
+**Summary:** Removed the Create-a-prompt “Back to workspace” footer button from prompt/lesson-plan preview screens; previews are now Back + Cancel only.
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 435
+
+**Summary:** Added two disabled choose-output placeholder cards (ChatGPT/Canva Prompt, Claude Prompt) beside the live Chalkie and general lesson-plan options; cosmetic only, not wired (aligned with F020).
+
+**Files touched:**
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/7-future.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 436
+
+**Summary:** Added a Book Workspace PDF overlay that mutes facing pages outside Create-a-prompt lesson scope and labels them as unused for the lesson prompt; driven by resolved lesson scope, not a hardcoded lessons 7–10 rule.
+
+**Files touched:**
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `app/src/features/validation/pdfRendererSpread.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/pdfRendererSpread.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 437
+
+**Summary:** Made teacher-choice modal checkbox cards fully clickable (Student Book, Workbook, Prior skills) by wrapping selectable card content in native `<label>` elements, including shared `ActivityEvidenceCard` panel layout.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 438
+
+**Summary:** Fixed Student Book restore after Workbook view for unit-boundary facing spreads (Review p.143 + Unit 9 p.144): resolve PDF targets via full-book page map when the unit slice omits the facing page, and always replace the Workbook jump index so SB no longer lands on printed 119–120.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieStudentBookUi.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/chalkieStudentBookUi.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 439
+
+**Summary:** Values (companion-free allowlisted) Create-a-prompt modal now keeps the paired two-page Student Book activity layout and an empty two-page Workbook step, matching other one-page lesson workflows while ordinary SB-only lessons stay single-column.
+
+**Files touched:**
+- `app/src/features/chalkie/chalkieLessonNavigation.ts` (updated)
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `app/src/features/chalkie/chalkieWorkbookActivitySelection.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/chalkieSbOnlyActivityLayout.test.ts` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/chalkieWorkbookActivitySelection.test.ts` (updated)
+- `scripts/tests/chalkieLessonNavigation.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 440
+
+**Summary:** Aligned modal Student Book / Workbook activity card selected/deselected colors with Prior skills (`bg-indigo-50` / white) so all selectable cards in the teacher-choice modal share the same visual state.
+
+**Files touched:**
+- `app/src/features/chalkie/ActivityEvidenceCard.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 441
+
+**Summary:** Increased left-panel Curriculum Authority / Book Content / Book Intelligence header typography one step (title `text-sm`, badge `text-xs`, summary `text-xs`).
+
+**Files touched:**
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 442
+
+**Summary:** Bumped Source PDF toolbar typography one step (labels, page range, badges, Go control) for easier reading in Book Workspace.
+
+**Files touched:**
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 443
+
+**Summary:** Bumped Source PDF toolbar typography a second step (title `text-base`, page/Go `text-sm`, badges `text-xs`).
+
+**Files touched:**
+- `app/src/features/validation/ValidationPdfPane.tsx` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 444
+
+**Summary:** Implemented D029 admin-only NLL/NLP Inspector on Create-a-prompt Step 5 — read-only Markdown A–G report reusing NLP assembly and NLL load; auth helpers; architecture note; focused tests.
+
+**Files touched:**
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (created)
+- `app/src/features/auth/isAdminProfile.ts` (created)
+- `app/server/authorizeAdminBearerUser.ts` (created)
+- `app/src/features/chalkie/nllNlpInspector.ts` (created)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/validation/ValidationWorkspace.tsx` (updated)
+- `scripts/tests/isAdminProfile.test.ts` (created)
+- `scripts/tests/authorizeAdminBearerUser.test.ts` (created)
+- `scripts/tests/nllNlpInspector.test.ts` (created)
+- `docs/4-decisions.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 445
+
+**Summary:** Audit-hardened D029 NLL/NLP Inspector — independent status taxonomy, packaging-label clarification, compact overview, trusted admin access API, expanded verification tests, and architecture-note update. No curriculum/NLP-builder behavior changes.
+
+**Files touched:**
+- `app/src/features/chalkie/nllNlpInspector.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/services/nllNlpInspectorAccessService.ts` (created)
+- `app/server/handleNllNlpInspectorAccessRequest.ts` (created)
+- `app/vite-plugins/nllNlpInspectorAccessPlugin.ts` (created)
+- `app/vite.config.ts` (updated)
+- `scripts/tests/nllNlpInspector.test.ts` (updated)
+- `scripts/tests/nllNlpInspectorAccess.test.ts` (created)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 446
+
+**Summary:** Documented D029 Inspector environment availability — Vite-dev-only access endpoint, fail-closed without it, production transport parked as F027; Inspector-only scope (no NLL/NLP/teacher/GLP/Chalkie change).
+
+**Files touched:**
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 447
+
+**Summary:** Completed revised local Vite NLL/NLP Inspector smoke-check — live admin Phonics (WB 30 exclusion) and Values (NLP unavailable); teacher live session not performed (no separate teacher account available/required; covered by automated tests + code inspection). F027 remains deferred.
+
+**Files touched:**
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 448
+
+**Summary:** Final verification and approved checkpoint commit for Book Workspace continuity + Create-a-prompt UX + D029 Inspector (typecheck fixes for resume `readonly` batches and admin import extension). Staged F026/F027 only from `7-future.md`; excluded brainstorming strategic edits and `.env.local`.
+
+**Files touched:**
+- Approved checkpoint app/server/docs/test paths (see commit)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/server/authorizeAdminBearerUser.ts` (updated)
+- `app/src/services/validationService.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated; F026/F027 only in commit)
 - `docs/project-tracking/1-project-status.md` (updated)
 - `docs/project-tracking/0-project-steps.md` (updated)
 

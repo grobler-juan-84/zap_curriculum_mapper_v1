@@ -526,12 +526,13 @@ export function ActivityEvidenceCard({
     selectable
       ? checked
         ? isModal
-          ? 'border-slate-300 bg-white shadow-xs ring-1 ring-sky-200/70'
+          ? // Match prior-skills selected cards in the teacher-choice modal.
+            'border-indigo-200 bg-indigo-50 shadow-xs transition-colors'
           : compact
             ? 'border-[#8bcfd9] bg-[#8bcfd9]/30 shadow-xs'
             : 'border-[#8bcfd9] bg-[#8bcfd9]/20 shadow-xs'
         : isModal
-          ? 'border-slate-200 bg-white'
+          ? 'border-slate-200/80 bg-white transition-colors'
           : compact
             ? 'border-slate-200 bg-slate-50/75'
             : 'border-slate-200 bg-white shadow-xs'
@@ -550,6 +551,37 @@ export function ActivityEvidenceCard({
     />
   ) : null
 
+  const modalBody = showNllActivitySummary ? (
+    <ExperimentalActivityEnrichment
+      card={card}
+      pagePrefix={pagePrefix}
+      summary={nllActivitySummary}
+      source="nll"
+    />
+  ) : showNllComparison ? (
+    <NllCardComparisonEnrichment
+      card={card}
+      pagePrefix={pagePrefix}
+      pocSummary={experimentalSummary ?? null}
+      nllComparison={nllComparison}
+    />
+  ) : showExperimentalEnrichment ? (
+    <ExperimentalActivityEnrichment
+      card={card}
+      pagePrefix={pagePrefix}
+      summary={experimentalSummary}
+    />
+  ) : (
+    <div className="min-w-0 flex-1 space-y-1.5">
+      <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
+      <ActivityEvidenceDetails
+        card={card}
+        showActivityType={false}
+        revealExpectedAnswers={revealExpectedAnswers}
+      />
+    </div>
+  )
+
   if (isModal) {
     return (
       <li
@@ -557,53 +589,36 @@ export function ActivityEvidenceCard({
         data-activity-card-layout="modal"
         data-activity-card-height="natural"
       >
-        <div className={selectable ? 'flex gap-2.5' : undefined}>
-          {checkbox}
-          {showNllActivitySummary ? (
-            <ExperimentalActivityEnrichment
-              card={card}
-              pagePrefix={pagePrefix}
-              summary={nllActivitySummary}
-              source="nll"
-            />
-          ) : showNllComparison ? (
-            <NllCardComparisonEnrichment
-              card={card}
-              pagePrefix={pagePrefix}
-              pocSummary={experimentalSummary ?? null}
-              nllComparison={nllComparison}
-            />
-          ) : showExperimentalEnrichment ? (
-            <ExperimentalActivityEnrichment
-              card={card}
-              pagePrefix={pagePrefix}
-              summary={experimentalSummary}
-            />
-          ) : (
-            <div className="min-w-0 flex-1 space-y-1.5">
-              <ActivityChrome card={card} pagePrefix={pagePrefix} emphasizeTitle />
-              <ActivityEvidenceDetails
-                card={card}
-                showActivityType={false}
-                revealExpectedAnswers={revealExpectedAnswers}
-              />
-            </div>
-          )}
-        </div>
+        {selectable ? (
+          <label htmlFor={inputId} className="flex cursor-pointer gap-2.5">
+            {checkbox}
+            {modalBody}
+          </label>
+        ) : (
+          modalBody
+        )}
       </li>
     )
   }
 
   return (
     <li className={shellClass} data-activity-card-layout="panel">
-      <div className={selectable ? 'flex gap-2.5' : undefined}>
-        {checkbox}
+      {selectable ? (
+        <label htmlFor={inputId} className="flex cursor-pointer gap-2.5">
+          {checkbox}
+          <ActivityEvidenceBody
+            card={card}
+            pagePrefix={pagePrefix}
+            revealExpectedAnswers={revealExpectedAnswers}
+          />
+        </label>
+      ) : (
         <ActivityEvidenceBody
           card={card}
           pagePrefix={pagePrefix}
           revealExpectedAnswers={revealExpectedAnswers}
         />
-      </div>
+      )}
     </li>
   )
 }

@@ -1,11 +1,19 @@
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { chalkieWorkspacePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
-import { curriculumService } from '../../services/curriculumService'
+import { bookWorkspacePath } from '../book-intelligence/bookIntelligenceStorageRegistry'
+import {
+  formatBookWorkspaceResumeHint,
+  readBookWorkspaceResumeState,
+  validateSavedBookWorkspaceResume,
+} from '../book-workspace/resume'
+import { useAuth } from '../auth/AuthProvider'
 import { useWorkspace } from '../shell/WorkspaceProvider'
 import { SeriesLibrary } from './SeriesLibrary'
+import type { CourseLevelCard } from './groupSeriesBooksIntoCourseLevels'
 
 export function SeriesLibraryPage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const {
     currentSeries,
     selectSeries,
@@ -13,6 +21,33 @@ export function SeriesLibraryPage() {
     catalogLoading,
     catalogError,
   } = useWorkspace()
+
+  const seriesList = useMemo(
+    () => (currentSeries ? [currentSeries] : []),
+    [currentSeries],
+  )
+
+  const resumeHintsByCatalogId = useMemo(() => {
+    const hints: Record<string, string> = {}
+    if (!user?.id || !currentSeries) return hints
+    for (const book of currentSeries.books) {
+      const catalogBookId = book.catalogBookId?.trim()
+      if (!catalogBookId) continue
+      if (book.type === 'Workbook' || book.type === "Teacher's Guide") continue
+      const raw = readBookWorkspaceResumeState({
+        userId: user.id,
+        catalogBookId,
+      })
+      const validated = validateSavedBookWorkspaceResume({
+        userId: user.id,
+        saved: raw,
+        seriesList,
+      })
+      const hint = formatBookWorkspaceResumeHint(validated)
+      if (hint) hints[catalogBookId] = hint
+    }
+    return hints
+  }, [user?.id, currentSeries, seriesList])
 
   if (catalogLoading) {
     return (
@@ -40,25 +75,19 @@ export function SeriesLibraryPage() {
     )
   }
 
+  const openCourseLevel = (level: CourseLevelCard) => {
+    selectSeries(currentSeries.id)
+    // Student Book is always the primary workspace book; Workbook attaches via companions.
+    selectBook(level.studentBook.id)
+    // No `?unit=` so Book Workspace restores the validated saved location (or Unit 1).
+    navigate(bookWorkspacePath())
+  }
+
   return (
     <SeriesLibrary
       series={currentSeries}
-      onSelectBook={(bookUuid) => {
-        selectBook(bookUuid)
-        navigate('/app/workspace')
-      }}
-      onValidateBook={(bookUuid) => {
-        selectBook(bookUuid)
-        navigate('/app/validation')
-      }}
-      onOpenChalkieWorkspace={(catalogBookId) => {
-        const match = curriculumService.getBookByCatalogId(catalogBookId)
-        if (match) {
-          selectSeries(match.series.id)
-          selectBook(match.book.id)
-        }
-        navigate(chalkieWorkspacePath())
-      }}
+      resumeHintsByCatalogId={resumeHintsByCatalogId}
+      onSelectCourseLevel={openCourseLevel}
       onBackToCurriculum={() => navigate('/app/curriculum')}
     />
   )
