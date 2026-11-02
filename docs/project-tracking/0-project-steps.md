@@ -7962,7 +7962,7 @@
 
 ### Step 455
 
-**Summary:** Implemented Priority 5 genuine Student-Book-only neutral NLP. Added `buildNeutralSbOnlyLessonPackage` (reuses SB selection + `allocateSbOnlyTwoLessonActivities`; packaging `two_lesson_sb_only`; never invents Workbook evidence) and wired the Inspector to assemble it when no verified companion exists, attaching selected NLL derivedKnowledge when available. Existing SB��WB package behaviour preserved. Focused SB-only 6/6; package 31/31; Inspector 13/13; typecheck clean. No adapter/GLP/commit/push.
+**Summary:** Implemented Priority 5 genuine Student-Book-only neutral NLP. Added `buildNeutralSbOnlyLessonPackage` (reuses SB selection + `allocateSbOnlyTwoLessonActivities`; packaging `two_lesson_sb_only`; never invents Workbook evidence) and wired the Inspector to assemble it when no verified companion exists, attaching selected NLL derivedKnowledge when available. Existing SB→WB package behaviour preserved. Focused SB-only 6/6; package 31/31; Inspector 13/13; typecheck clean. No adapter/GLP/commit/push.
 
 **Files touched:**
 - `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
@@ -7972,6 +7972,21 @@
 - `scripts/tests/nllNlpInspector.test.ts` (updated)
 - `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
 - `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 456
+
+**Summary:** Teacher Experience Fix #1 — verified SB→WB Workbook activities now default-selected. Pending lesson-scope defaults wait for companion WB cards or a loaded workbook summary (not SB-only arrival), and known-card-id refs are captured outside setState updaters so Strict Mode double-invoke cannot leave late WB cards known-but-deselected. Browser-verified Opener 5/5 + 4/4, deselection persistence, and Values 3/3 with no companion. Findings #2–#4 untouched. No commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/lessonActivitySelection.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/lessonActivitySelection.test.ts` (updated)
 - `docs/5-progress.md` (updated)
 - `docs/6-todo.md` (updated)
 - `docs/project-tracking/1-project-status.md` (updated)

@@ -45,11 +45,58 @@ export function activityCardIdsKey(
   return cards.map((card) => card.id).join('\n')
 }
 
+/** Companion relationship id is the 4th `|`-segment of the selection scope key. */
+export function selectionScopeHasCompanion(scopeKey: string): boolean {
+  const companionId = scopeKey.split('|')[3] ?? ''
+  return companionId.length > 0
+}
+
+/**
+ * When to stop re-defaulting after a lesson-scope change.
+ *
+ * Wait for Student Book cards (same as before). When the scope includes a
+ * verified companion, also wait until Workbook cards arrive or the companion
+ * workbook summary has finished loading — otherwise clearing on SB-only arrival
+ * leaves WB at 0 of N until a fragile late reconcile.
+ */
+export function shouldClearPendingLessonActivitySelectionDefault(input: {
+  scopeKey: string
+  sbCardCount: number
+  wbCardCount: number
+  workbookSummaryLoaded: boolean
+  scopeChanged: boolean
+  sbCardIdsKey: string
+  wbCardIdsKey: string
+}): boolean {
+  const awaitsCompanionWorkbook = selectionScopeHasCompanion(input.scopeKey)
+  const workbookReady =
+    !awaitsCompanionWorkbook ||
+    input.wbCardCount > 0 ||
+    input.workbookSummaryLoaded
+
+  if (input.sbCardCount > 0 && workbookReady) return true
+
+  if (
+    input.sbCardIdsKey === '' &&
+    input.wbCardIdsKey === '' &&
+    !input.scopeChanged &&
+    workbookReady
+  ) {
+    // Stable empty lesson (no SB/WB cards) — stop retrying.
+    return true
+  }
+
+  return false
+}
+
 /**
  * Reconcile selection to the current card set.
  * - Unknown / stale IDs drop out.
  * - Cards never seen before default to selected.
  * - Previously known deselections remain deselected.
+ *
+ * Callers must pass a stable previousCardIds snapshot and must not mutate the
+ * known-id ref inside React setState updaters (Strict Mode may invoke twice).
  */
 export function reconcileActivitySelection(input: {
   cardIds: readonly string[]

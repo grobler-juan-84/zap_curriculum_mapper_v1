@@ -73,6 +73,7 @@ import {
   buildLessonActivitySelectionScopeKey,
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
+  shouldClearPendingLessonActivitySelectionDefault,
 } from './lessonActivitySelection'
 import { useAuth } from '../auth/AuthProvider'
 import { useWorkspace } from '../shell/WorkspaceProvider'
@@ -881,28 +882,37 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       setWbActivitySelection(createDefaultWbActivitySelection(selectionWbCards))
       knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
       knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
-      // Keep re-defaulting until SB cards for the new lesson arrive (or the lesson
-      // is confirmed empty). Clearing on WB-only arrival left SB stuck at 0 of N.
-      if (selectionSbCards.length > 0) {
-        pendingSelectionDefaultScopeRef.current = null
-      } else if (
-        selectionSbCardIdsKey === '' &&
-        selectionWbCardIdsKey === '' &&
-        !scopeChanged
+      // Keep re-defaulting until SB cards arrive and, for companion lessons,
+      // until WB cards arrive or the workbook summary has finished loading.
+      // Clearing on SB-only arrival left verified WB companions at 0 of N.
+      if (
+        shouldClearPendingLessonActivitySelectionDefault({
+          scopeKey: activeSelectionScopeKey,
+          sbCardCount: selectionSbCards.length,
+          wbCardCount: selectionWbCards.length,
+          workbookSummaryLoaded: workbookSummary != null,
+          scopeChanged,
+          sbCardIdsKey: selectionSbCardIdsKey,
+          wbCardIdsKey: selectionWbCardIdsKey,
+        })
       ) {
-        // Stable empty lesson (no SB/WB cards) — stop retrying.
         pendingSelectionDefaultScopeRef.current = null
       }
       return
     }
 
+    // Capture known-id snapshots before setState. Mutating the refs inside
+    // updaters breaks Strict Mode double-invoke (late WB cards looked "known"
+    // but deselected → stuck at 0 of N).
+    const previousKnownSbCardIds = knownSbCardIdsRef.current
+    const previousKnownWbCardIds = knownWbCardIdsRef.current
+
     setSbActivitySelection((previous) => {
       const next = reconcileSbActivitySelection({
         cards: selectionSbCards,
         previous,
-        previousCardIds: knownSbCardIdsRef.current,
+        previousCardIds: previousKnownSbCardIds,
       })
-      knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
       const nextIds = activityCardIdsKey(
         next.selectedCardIds.map((id) => ({ id })),
       )
@@ -915,9 +925,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       const next = reconcileWbActivitySelection({
         cards: selectionWbCards,
         previous,
-        previousCardIds: knownWbCardIdsRef.current,
+        previousCardIds: previousKnownWbCardIds,
       })
-      knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
       const nextIds = activityCardIdsKey(
         next.selectedCardIds.map((id) => ({ id })),
       )
@@ -926,12 +935,15 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       )
       return nextIds === prevIds ? previous : next
     })
+    knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
+    knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
   }, [
     activeSelectionScopeKey,
     selectionSbCardIdsKey,
     selectionWbCardIdsKey,
     selectionSbCards,
     selectionWbCards,
+    workbookSummary,
   ])
 
   const handleSbActivitySelectionChange = useCallback(

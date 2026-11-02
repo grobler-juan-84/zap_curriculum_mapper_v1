@@ -31,6 +31,9 @@ import {
   includedActivitiesCountLabel,
   reconcileActivitySelection,
   reconcileSbActivitySelection,
+  reconcileWbActivitySelection,
+  selectionScopeHasCompanion,
+  shouldClearPendingLessonActivitySelectionDefault,
 } from '../../app/src/features/chalkie/lessonActivitySelection.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
@@ -405,6 +408,95 @@ test('neutral currentLessonContext still avoids Chalkie prompt/UI imports', () =
   assert.ok(source.includes('Folder location under features/chalkie is'))
   assert.ok(source.includes('transitional for the current route'))
   assert.ok(source.includes('Do not create a half-neutral duplicate'))
+})
+
+test('pending default waits for companion Workbook cards or loaded summary', () => {
+  const openerScope = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  })
+  const valuesScope = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [142],
+    companionRelationshipId: null,
+  })
+  assert.equal(selectionScopeHasCompanion(openerScope), true)
+  assert.equal(selectionScopeHasCompanion(valuesScope), false)
+
+  // SB ready but companion WB summary still loading → keep pending.
+  assert.equal(
+    shouldClearPendingLessonActivitySelectionDefault({
+      scopeKey: openerScope,
+      sbCardCount: 5,
+      wbCardCount: 0,
+      workbookSummaryLoaded: false,
+      scopeChanged: false,
+      sbCardIdsKey: 'sb-1',
+      wbCardIdsKey: '',
+    }),
+    false,
+  )
+
+  // Companion WB cards arrived → clear pending (defaults include 4/4).
+  assert.equal(
+    shouldClearPendingLessonActivitySelectionDefault({
+      scopeKey: openerScope,
+      sbCardCount: 5,
+      wbCardCount: 4,
+      workbookSummaryLoaded: true,
+      scopeChanged: false,
+      sbCardIdsKey: 'sb-1',
+      wbCardIdsKey: 'wb-1',
+    }),
+    true,
+  )
+
+  // SB-only Values: no companion wait; SB cards are enough.
+  assert.equal(
+    shouldClearPendingLessonActivitySelectionDefault({
+      scopeKey: valuesScope,
+      sbCardCount: 3,
+      wbCardCount: 0,
+      workbookSummaryLoaded: false,
+      scopeChanged: false,
+      sbCardIdsKey: 'sb-1',
+      wbCardIdsKey: '',
+    }),
+    true,
+  )
+})
+
+test('late Workbook cards default selected even after Strict Mode double reconcile', () => {
+  const wbIds = ['wb-1', 'wb-2', 'wb-3', 'wb-4']
+  // Simulate the poisoned path: first updater mutates known ids, second sees
+  // empty selection against those known ids. Capture-before-mutate avoids it.
+  let knownWb: readonly string[] = []
+  const previousKnown = knownWb
+  const first = reconcileActivitySelection({
+    cardIds: wbIds,
+    previousSelectedIds: [],
+    previousCardIds: previousKnown,
+  })
+  knownWb = wbIds // mutate after capture (as workspace now does)
+  const second = reconcileActivitySelection({
+    cardIds: wbIds,
+    previousSelectedIds: [],
+    previousCardIds: previousKnown, // still the pre-mutate snapshot
+  })
+  assert.deepEqual(first.selectedCardIds, wbIds)
+  assert.deepEqual(second.selectedCardIds, wbIds)
+
+  // Contrast: mutating known before the second call empties selection (the bug).
+  const poisoned = reconcileActivitySelection({
+    cardIds: wbIds,
+    previousSelectedIds: [],
+    previousCardIds: knownWb,
+  })
+  assert.deepEqual(poisoned.selectedCardIds, [])
+  assert.equal(typeof reconcileWbActivitySelection, 'function')
 })
 
 test('verified WB selection stays separately addressable from SB', () => {
