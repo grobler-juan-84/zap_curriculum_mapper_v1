@@ -64,6 +64,9 @@
 | D027 | Durable layer model: SS/SB/WB → NLL → NLP → adapters | 2026-10-29 | LOCKED |
 | D028 | BE3 U8 Values remains generic SB-only; knowledge-only NLL summaries allowed; no package/A/B/C | 2026-10-31 | LOCKED |
 | D029 | Permanent admin-only NLL/NLP Inspector on Create-a-prompt Step 5; read-only; reuses NLP assembly | 2026-11-01 | LOCKED |
+| D030 | Beauty in Simplicity is the canonical NLL assembly principle | 2026-11-02 | LOCKED |
+| D031 | Unit 8 NLL summaries accepted as sufficient, modular v1 knowledge | 2026-11-02 | LOCKED |
+| D032 | BE3 U8 nine-summary enrichment POC approved and closed; next = NLL Foundation Design Only | 2026-11-02 | LOCKED |
 
 ---
 
@@ -485,6 +488,8 @@ The active POC keeps teacher-friendly summaries in separate experimental sidecar
 
 **Compatibility:** Preserves D001 evidence separation, D021 SB-first preparation, and D022 library-independent Neutral Lesson Package assembly.
 
+**Completion annotation (2026-11-02):** Owner formally **APPROVED** and **CLOSED** this POC under [D032](#d032--be3-u8-nine-summary-enrichment-poc-approved-and-closed-next--nll-foundation-design-only). The nine summaries (five SB + four WB), publisher source evidence, and simplified teacher-facing activity-selection behaviour are preserved. Optional Teaching Guidance remains parked ([F025](./7-future.md)). POC approval does not implement or complete the durable persistent additive NLL; next authorized phase is **NLL Foundation — Design Only**.
+
 ---
 
 ### D024 — Minimal additive Neutral Lesson Library pilot
@@ -678,10 +683,47 @@ The owner directly confirms that the AI summary prose was produced by **ChatGPT 
 
 ---
 
+### D032 — BE3 U8 nine-summary enrichment POC approved and closed; next = NLL Foundation Design Only
+
+**Date:** 2026-11-02  
+**Status:** LOCKED  
+
+**Decision:** The nine-summary Big English 3 Unit 8 Student Book / Workbook activity-enrichment POC and the simplified teacher-facing activity-selection UI are formally **APPROVED** and **CLOSED**.
+
+Preserved outcomes (must remain intact unless separately authorized):
+
+- five Student Book Opener summary sidecars (pp. 128–129)
+- four Workbook companion summary sidecars (pp. 104–105)
+- original publisher source evidence (not mutated by the POC)
+- simplified teacher-facing activity-selection functionality used with those summaries
+
+Optional AI teaching guidance remains deliberately **parked** ([F025](./7-future.md)); it is not part of the approved POC surface.
+
+This approval does **not** mean the durable, persistent, additive Neutral Lesson Library (NLL) product layer is implemented or complete. Prior pilot/NLL work (including D024/D025/D031) remains historical context; it does not authorize further NLL productization from this closure.
+
+**Next phase:** **NLL Foundation — Design Only.** The immediate authorized preparation is a **read-only inventory** of existing Scope & Sequence (SS), Student Book (SB), Workbook (WB), summary, and lesson-package structures. Design notes and inventory only.
+
+**Explicit non-authorization:** Do not implement NLL features, change database schemas, refactor existing functionality, modify canonical curriculum content, deploy, promote NLL visibility, begin Finding #4, or expand enrichment beyond the closed POC without a new explicit owner approval.
+
+**Reason:** Close the bounded enrichment experiment cleanly after owner acceptance, keep useful POC artifacts and selection behaviour, and reset the next milestone to careful foundation design rather than premature library implementation.
+
+**Alternatives rejected:** Treating POC approval as NLL product completion; retiring the nine summaries or activity-selection improvements; reintroducing teaching guidance with this closure; starting schema/refactors under the guise of “foundation.”
+
+**Implications:** Trackers and planning should treat the enrichment POC as closed. Near-term AI work should prepare the read-only structure inventory only. Implementation requires a later explicit decision.
+
+**Supersedes:** —  
+
+**Amends:** D023 (completion / approval annotation only; historical POC scope unchanged).  
+
+**Compatibility:** Preserves D001, D021, D022, D023 outcomes, F025 parking, and does not reopen D024–D031 locks.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-11-02 | Added D032 — D023 nine-summary SB/WB enrichment POC + simplified activity-selection UI formally approved and closed; guidance remains parked (F025); durable NLL not treated as implemented by this closure; next phase = NLL Foundation Design Only (read-only inventory prep). |
 | 2026-11-02 | Added D031 — owner accepted all 77 BE3 Unit 8 summaries unchanged as sufficient, modular and replaceable v1 knowledge; ChatGPT Desktop authorship recorded; future provenance requirements established; live review states unchanged. |
 | 2026-11-02 | Added D030 — **Beauty in Simplicity** locked as the canonical NLL assembly principle: build reliable conditions from SS/SB/WB through NLL, teacher selection, NLP and replaceable adapters; teacher approval remains final. |
 | 2026-11-01 | Local Vite smoke-check (revised): live admin Phonics + Values; teacher live session not performed (automated tests + code inspection); F027 deferred. |

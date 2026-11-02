@@ -803,9 +803,13 @@
 
 - [x] **Teacher Experience Fix #3b — Session-only per-scope selection memory (2026-11-02, Step 459):** Known+selected SB/WB IDs; empty selection valid; first-visit defaults; clear at book-session boundaries; Create-a-prompt freeze unchanged. Tests **15/15**; browser Opener exclusions restored after Phonics. **F028** resolved. Committed `d258791`. Finding #4 not in scope.
 
-- [x] **Fix #3b correction — Unit swap while overlay open (2026-11-02, Step 461):** Freeze Create-a-prompt SB summary; skip memory writes when known ids remain but loaded cards are 0 (false deselection). Regression + exclusion/all-off restore tests **17/17**. Step 460 left untouched/uncommitted. Finding #4 not in scope.
+- [x] **Fix #3b correction — Unit swap while overlay open (2026-11-02, Step 461):** Freeze Create-a-prompt SB summary; skip memory writes when known ids remain but loaded cards are 0 (false deselection). Regression + exclusion/all-off restore tests **17/17**. Committed/pushed `178977b`. Finding #4 not in scope.
 
-- [x] **Restore LiA→Review lesson outlines/vocabulary (2026-11-02, Step 460):** Flag-off five-artifact fallback via `buildBe3U08NeutralSeriesHandoff` + resolver `sb_wb` for verified companions LiA through Review; Values stays SB-only; Story/Opener bespoke paths unchanged. Focused tests **7/7** + related suites green. Uncommitted. Finding #4 not in scope.
+- [x] **Restore LiA→Review lesson outlines/vocabulary (2026-11-02, Step 460):** Flag-off five-artifact fallback via `buildBe3U08NeutralSeriesHandoff` + resolver `sb_wb` for verified companions LiA through Review; Values stays SB-only; Story/Opener bespoke paths unchanged. Focused tests **7/7** + related suites green. Committed/pushed `b3831d2`. Finding #4 not in scope.
+
+- [x] **D023 enrichment POC approval & closure (2026-11-02, Step 462 / D032):** Nine-summary SB/WB POC + simplified teacher-facing activity-selection formally approved and closed. Five SB + four WB summaries, source evidence, and activity-selection preserved. Optional teaching guidance remains parked (F025). Durable NLL not treated as implemented by this closure. Next phase = **NLL Foundation — Design Only**. Docs-only.
+
+- [ ] **NLL Foundation — Design Only:** prepare/run a **read-only inventory** of existing SS, SB, WB, summary, and lesson-package structures. No NLL implementation, schema changes, refactors, or canonical edits without explicit approval.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 
@@ -815,9 +819,7 @@
 
 - [ ] **Optional flag-off sample** for the NLL activity-summary modal path (deferred; matrix ran flag-on only).
 
-- [ ] **Hold — feature freeze:** no promotion, deployment, canary expansion, bulk migration, Activity Selection expansion, NLL visibility promotion, POC retirement, or next-unit work without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
-
-- [ ] **Owner/manual POC review:** enable `VITE_CHALKIE_BE3_U08_ACTIVITY_ENRICHMENT_POC` locally and review five SB + four WB summaries, Activity 3 insufficient-evidence handling, selection behaviour, and combined experimental package preview. Text revisions remain POC-only; expansion, general WB enrichment, or guidance reintroduction requires new approval.
+- [ ] **Hold — no unauthorized NLL/product work:** no NLL implementation from D032, promotion, deployment, canary expansion, bulk migration, NLL visibility promotion, schema changes, refactors, canonical edits, Finding #4, or next-unit work without explicit approval. Non-dry-run / broad `supabase db push` and `--include-all` remain unauthorized.
 
 - [x] **D022 NLP + BI realignment Phases 0–5:** decision + docs; `toBiPlanningContext`; Opener NLP `curriculumInterpretation`; detailed lesson plan BI section; optional Chalkie BI framing flag; archive unused BI PDF verifiers; stop BI book expansion pending owner accept.
 

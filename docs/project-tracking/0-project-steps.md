@@ -8090,3 +8090,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 462
+
+**Summary:** Recorded formal owner approval and closure of the D023 nine-summary SB/WB enrichment POC and simplified teacher-facing activity-selection UI as D032. Confirmed five SB + four WB summaries, source evidence, and activity-selection remain preserved; optional teaching guidance stays parked (F025); durable NLL is not treated as implemented by this closure. Next phase set to NLL Foundation — Design Only (read-only structure inventory prep). Documentation only; no implementation.
+
+**Files touched:**
+- `docs/4-decisions.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

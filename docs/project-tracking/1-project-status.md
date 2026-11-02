@@ -1,8 +1,8 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)
-**Last synced:** Step 461
+**Last synced:** Step 462
 
 ## One-line state
 
-- Step 461: Fix #3b correction (freeze Create summary + skip unstable empty-card memory writes). Step 460 still separate/uncommitted. Commit/push require separate owner authorization.
+- Step 462 / D032: D023 nine-summary enrichment POC approved and closed. Next = NLL Foundation Design Only (read-only inventory). No NLL implementation authorized.
