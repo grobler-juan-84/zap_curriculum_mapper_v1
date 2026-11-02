@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 454
+**Last updated:** Step 455
 
 
 
@@ -791,7 +791,9 @@
 
 - [x] **Priority 3 Inspector authoritative staleness (2026-11-02, Step 453):** `buildCurrentActivitySha256ById` + Inspector wiring from already-loaded canonical raw; Grammar/Values fixture regressions with 13/13 migration-hash pins; suite 13/13. Warn-only `potentially_stale`; no summary/DB/migration/adapter/GLP changes. Committed/pushed `171138a`.
 
-- [x] **Priority 4 exact membership component lookup (2026-11-02, Step 454):** Inspector resolves NLL components via exact full-set available activity IDs against `nll_components` / `nll_component_activities`; ambiguous/unavailable fail closed; temporary BE3 U8 hard-coded fallback retained; focused **6/6** + Inspector **13/13**. No schema/migration/summary/NLP/adapter/UI change. Uncommitted pending owner review.
+- [x] **Priority 4 exact membership component lookup (2026-11-02, Step 454):** Inspector resolves NLL components via exact full-set available activity IDs against `nll_components` / `nll_component_activities`; ambiguous/unavailable fail closed; temporary BE3 U8 hard-coded fallback retained; focused **6/6** + Inspector **13/13**. Committed/pushed `1fb7926`.
+
+- [x] **Priority 5 genuine SB-only NLP (2026-11-02, Step 455):** `buildNeutralSbOnlyLessonPackage` + Inspector wiring; reuses SB selection + two-lesson allocation; attaches selected NLL derivedKnowledge; never invents Workbook evidence; SB→WB preserved. Focused **6/6**; package **31/31**; Inspector **13/13**. Uncommitted pending owner review.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

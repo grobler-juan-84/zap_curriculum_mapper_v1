@@ -7959,3 +7959,22 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 455
+
+**Summary:** Implemented Priority 5 genuine Student-Book-only neutral NLP. Added `buildNeutralSbOnlyLessonPackage` (reuses SB selection + `allocateSbOnlyTwoLessonActivities`; packaging `two_lesson_sb_only`; never invents Workbook evidence) and wired the Inspector to assemble it when no verified companion exists, attaching selected NLL derivedKnowledge when available. Existing SB°ÊWB package behaviour preserved. Focused SB-only 6/6; package 31/31; Inspector 13/13; typecheck clean. No adapter/GLP/commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/buildNeutralSbWbLessonPackage.ts` (updated)
+- `app/src/features/chalkie/nllGeneralLessonPlanPilot.ts` (updated)
+- `app/src/features/chalkie/nllNlpInspector.ts` (updated)
+- `scripts/tests/buildNeutralSbOnlyLessonPackage.test.ts` (created)
+- `scripts/tests/nllNlpInspector.test.ts` (updated)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

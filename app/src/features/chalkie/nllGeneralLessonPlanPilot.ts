@@ -7,6 +7,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { TeacherAddedLanguageInput } from './buildChalkiePromptPreview'
 import {
   buildNeutralSbWbLessonPackage,
+  type NeutralLessonPackage,
   type NeutralNllDerivedActivitySummary,
   type NeutralNllDerivedKnowledge,
   type NeutralPriorSupportInput,
@@ -172,7 +173,7 @@ export function canonicalActivityIdFromNeutralEvidence(
 }
 
 export function orderedSelectedActivityIdsFromNeutralPackage(
-  nlp: NeutralSbWbLessonPackage,
+  nlp: NeutralLessonPackage,
 ): readonly string[] {
   const ids: string[] = []
   for (const activity of nlp.lesson1.selectedActivities) {
@@ -213,10 +214,12 @@ function mapPreferredSummary(
   }
 }
 
-export function attachSelectedNllDerivedKnowledge(input: {
-  readonly nlp: NeutralSbWbLessonPackage
+export function attachSelectedNllDerivedKnowledge<
+  T extends NeutralLessonPackage,
+>(input: {
+  readonly nlp: T
   readonly resolved: ResolvedNllComponent
-}): NeutralSbWbLessonPackage {
+}): T {
   const orderedIds = orderedSelectedActivityIdsFromNeutralPackage(input.nlp)
   const activitySummaries: NeutralNllDerivedActivitySummary[] = []
   for (const activityId of orderedIds) {

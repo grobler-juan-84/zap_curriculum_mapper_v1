@@ -8,6 +8,7 @@ import type {
   NllSummaryStaleness,
 } from '../nll/neutralLessonLibrary'
 import type { BookIntelligenceUnitOverview } from '../../types/bookIntelligence'
+import { allocateSbOnlyTwoLessonActivities } from './allocateSbOnlyTwoLessonActivities'
 import {
   hasNoSelectedSbActivities,
   selectedSbActivityLanguage,
@@ -230,6 +231,38 @@ export type NeutralSbWbLessonPackage = {
   readonly schoolContext?: never
   readonly boundaries: NeutralPackageBoundaries
 }
+
+/**
+ * Genuine Student-Book-only neutral NLP. Both lessons use SB evidence only —
+ * never invents Workbook scope, activities, vocabulary, language, or evidence.
+ */
+export type NeutralSbOnlyLessonPackage = {
+  readonly identity: {
+    readonly packageReference: string
+    readonly verificationStatus: 'human_verified'
+    readonly studentBookCatalogId: string
+    readonly unitNumber: number
+    readonly unitTitle: string
+    readonly componentTitle: string
+    /** Optional lesson/NLL label only; never a Workbook relationship key. */
+    readonly componentKey: string | null
+  }
+  readonly packaging: {
+    readonly type: 'two_lesson_sb_only'
+    readonly lessonOrder: readonly ['lesson1', 'lesson2']
+  }
+  readonly lesson1: NeutralLessonPackageLesson
+  readonly lesson2: NeutralLessonPackageLesson
+  readonly priorSupport: readonly NeutralPriorSupportRecord[]
+  readonly curriculumInterpretation?: NeutralCurriculumInterpretation
+  readonly derivedKnowledge?: NeutralNllDerivedKnowledge
+  readonly schoolContext?: never
+  readonly boundaries: NeutralPackageBoundaries
+}
+
+export type NeutralLessonPackage =
+  | NeutralSbWbLessonPackage
+  | NeutralSbOnlyLessonPackage
 
 type SupportedPackageConfig = {
   readonly companion: CuratedVerifiedSbWbCompanion
@@ -885,6 +918,171 @@ export function buildNeutralSbWbLessonPackage(input: {
         printedPages: [...scope.printedPages],
       })),
       notes: [...config.boundaryNotes],
+    },
+  }
+}
+
+function uniqueSortedNumbers(values: readonly number[]): number[] {
+  return [...new Set(values)].sort((left, right) => left - right)
+}
+
+function uniqueStrings(values: readonly string[]): string[] {
+  const out: string[] = []
+  for (const value of values) {
+    const trimmed = value.trim()
+    if (!trimmed || out.includes(trimmed)) continue
+    out.push(trimmed)
+  }
+  return out
+}
+
+function sbOnlyLessonSelection(
+  allCards: readonly SbActivityCard[],
+  allocated: readonly SelectedSbActivityEvidence[],
+): SbActivityHandoffSelection {
+  return {
+    allCards: [...allCards],
+    selectedEvidence: [...allocated],
+  }
+}
+
+function buildSbOnlyLesson(input: {
+  readonly id: NeutralLessonId
+  readonly purpose: string
+  readonly scope: NeutralSourceScope
+  readonly allCards: readonly SbActivityCard[]
+  /** Full current-lesson teacher selection (for honest overall selection status). */
+  readonly overallSelected: readonly SelectedSbActivityEvidence[]
+  /** Activities allocated to this lesson only. */
+  readonly allocated: readonly SelectedSbActivityEvidence[]
+  readonly overallZeroSelected: boolean
+}): NeutralLessonPackageLesson {
+  // Vocab/language from allocated activities only — do not pull in
+  // unallocated (or Workbook) evidence for this lesson slot.
+  const lessonSelection = sbOnlyLessonSelection(input.allCards, input.allocated)
+  return {
+    id: input.id,
+    role: 'student_book',
+    purpose: input.purpose,
+    scope: input.scope,
+    selectedActivities: selectedActivities(input.allocated),
+    vocabulary: selectedSbActivityVocabulary(lessonSelection),
+    languageModels: selectedSbActivityLanguage(lessonSelection),
+    audioReferences: audioReferences(input.allocated),
+    selection: selectionState(
+      input.allCards,
+      input.overallSelected,
+      input.scope.printedPages,
+    ),
+    emptySelectionMessage:
+      input.allocated.length === 0
+        ? input.overallZeroSelected
+          ? 'No Student Book activities selected; do not reconstruct or substitute current-source content.'
+          : `No selected Student Book activities were allocated to ${input.id === 'lesson1' ? 'Lesson 1' : 'Lesson 2'}.`
+        : null,
+  }
+}
+
+/**
+ * Assemble a genuine SB-only neutral NLP from current-lesson SB selection.
+ * Reuses the existing mid-split allocation. Never invents Workbook evidence.
+ */
+export function buildNeutralSbOnlyLessonPackage(input: {
+  readonly studentBookCatalogId: string
+  readonly unitNumber: number
+  readonly unitTitle: string
+  readonly componentTitle: string
+  readonly packageReference: string
+  readonly componentKey?: string | null
+  readonly sbSelection: SbActivityHandoffSelection
+  readonly priorSupport?: readonly NeutralPriorSupportInput[]
+}): NeutralSbOnlyLessonPackage {
+  const catalogBookId = input.studentBookCatalogId.trim()
+  const packageReference = input.packageReference.trim()
+  const componentTitle = input.componentTitle.trim()
+  if (!catalogBookId || !packageReference || !componentTitle) {
+    throw new Error(
+      'SB-only neutral packages require studentBookCatalogId, packageReference, and componentTitle.',
+    )
+  }
+  if (!Number.isFinite(input.unitNumber) || input.unitNumber <= 0) {
+    throw new Error('SB-only neutral packages require a positive unitNumber.')
+  }
+
+  // Current-lesson SB cards only — never widen to other lessons or Workbook.
+  const allCards = input.sbSelection.allCards.filter(
+    (card) => card.source === 'SB',
+  )
+  const selectedIds = new Set(
+    input.sbSelection.selectedEvidence.map((evidence) => evidence.cardId),
+  )
+  const selectedEvidence = allCards
+    .filter((card) => selectedIds.has(card.id))
+    .map((card) => card.evidence)
+
+  const printedPages = uniqueSortedNumbers(
+    allCards.map((card) => card.printedPage),
+  )
+  const pageIds = uniqueStrings(allCards.map((card) => card.pageId))
+  const sbScope: NeutralSourceScope = {
+    source: 'SB',
+    catalogBookId,
+    pageIds,
+    printedPages,
+  }
+
+  const allocation = allocateSbOnlyTwoLessonActivities(selectedEvidence)
+  const overallZeroSelected = selectedEvidence.length === 0
+
+  return {
+    identity: {
+      packageReference,
+      verificationStatus: 'human_verified',
+      studentBookCatalogId: catalogBookId,
+      unitNumber: input.unitNumber,
+      unitTitle: input.unitTitle.trim() || `Unit ${input.unitNumber}`,
+      componentTitle,
+      componentKey: input.componentKey?.trim() || null,
+    },
+    packaging: {
+      type: 'two_lesson_sb_only',
+      lessonOrder: ['lesson1', 'lesson2'],
+    },
+    lesson1: buildSbOnlyLesson({
+      id: 'lesson1',
+      purpose:
+        'Introduce and work with the selected Student Book activities allocated to Lesson 1.',
+      scope: sbScope,
+      allCards,
+      overallSelected: selectedEvidence,
+      allocated: allocation.lesson1,
+      overallZeroSelected,
+    }),
+    lesson2: buildSbOnlyLesson({
+      id: 'lesson2',
+      purpose:
+        'Continue with the selected Student Book activities allocated to Lesson 2. No Workbook evidence is included.',
+      scope: sbScope,
+      allCards,
+      overallSelected: selectedEvidence,
+      allocated: allocation.lesson2,
+      overallZeroSelected,
+    }),
+    priorSupport: normalizePriorSupport(input.priorSupport ?? []),
+    boundaries: {
+      exactSourceScopeRequired: true,
+      reconstructExcludedActivities: false,
+      priorSupportMayReplaceCurrentEvidence: false,
+      inferAdjacentWorkbookPages: false,
+      inventSourceContent: false,
+      bookIntelligenceMayBecomeSourceEvidence: false,
+      excludedScopes: [],
+      notes: [
+        'Genuine Student-Book-only package: no Workbook companion, scope, activities, vocabulary, language, or evidence.',
+        'Lesson 1 and Lesson 2 split selected SB activities only via allocateSbOnlyTwoLessonActivities.',
+        'Excluded or unselected SB activities must not be reconstructed.',
+        'Zero selection remains honest empty lessons without restoring defaults.',
+      ],
     },
   }
 }

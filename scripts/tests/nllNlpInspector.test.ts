@@ -315,6 +315,7 @@ test('companion-free Values-like report stays partial without mutating selection
       workbookCompanion: null,
       singleLessonTitle: 'Values',
       currentFocus: 'Values',
+      stableLessonReference: 'be3-sb-u08-p142',
     }),
     activityCards: sbCards,
     workbookActivityCards: [],
@@ -330,15 +331,20 @@ test('companion-free Values-like report stays partial without mutating selection
     loadNll: async () => mockNll,
   })
 
-  assert.equal(report.nlp.status, 'unavailable')
+  assert.equal(report.nlp.status, 'assembled')
   assert.equal(report.nll.status, 'loaded')
   assert.equal(report.adapterOrConsumerInclusion, 'not_in_scope')
   assert.equal(report.lessonIdentity.twoLessonPackagingConfiguration, 'sb_only')
-  assert.equal(report.lessonIdentity.assembledPackageType, null)
+  assert.equal(report.lessonIdentity.assembledPackageType, 'two_lesson_sb_only')
+  assert.equal(report.nlp.package?.packaging.type, 'two_lesson_sb_only')
+  assert.equal(report.nlp.package?.lesson1.role, 'student_book')
+  assert.equal(report.nlp.package?.lesson2.role, 'student_book')
+  assert.equal(report.nlp.package?.lesson1.scope.source, 'SB')
+  assert.equal(report.nlp.package?.lesson2.scope.source, 'SB')
   assert.ok(report.markdown.includes('## Overview'))
   assert.ok(report.markdown.includes('Source/configuration mode'))
   assert.ok(
-    report.markdown.includes(
+    !report.markdown.includes(
       'provenance terminates at teacher selection',
     ),
   )
@@ -354,7 +360,7 @@ test('companion-free Values-like report stays partial without mutating selection
   )
   assert.ok(
     report.teacherSelections.every(
-      (row) => row.selectedByTeacher === true && row.includedInNlp === false,
+      (row) => row.selectedByTeacher === true && row.includedInNlp === true,
     ),
   )
   assert.ok(
@@ -1153,7 +1159,7 @@ test('Grammar Inspector authoritative hashes: current, potentially_stale, and un
   )
 })
 
-test('Values Inspector authoritative SB hashes work without companion or NLP', async () => {
+test('Values Inspector authoritative SB hashes work without companion (SB-only NLP)', async () => {
   const sbSummary = fixtureSummary('big_english_3_sb', VALUES_FIXTURE.studentBookActivities, [
     { page_id: 'bep3_sb_p142', printed_page: 142 },
   ])
@@ -1188,6 +1194,7 @@ test('Values Inspector authoritative SB hashes work without companion or NLP', a
       workbookCompanion: null,
       currentFocus: 'Values',
       singleLessonTitle: 'Values',
+      stableLessonReference: 'be3-sb-u08-p142',
     }),
     activityCards: sbCards,
     workbookActivityCards: [],
@@ -1209,17 +1216,18 @@ test('Values Inspector authoritative SB hashes work without companion or NLP', a
 
   assert.equal(report.nll.status, 'loaded')
   assert.equal(report.nll.componentKey, 'be3-u08-values')
-  assert.equal(report.nlp.status, 'unavailable')
+  assert.equal(report.nlp.status, 'assembled')
+  assert.equal(report.lessonIdentity.assembledPackageType, 'two_lesson_sb_only')
   assert.equal(report.lessonIdentity.companionRelationshipId, null)
   assert.deepEqual(report.lessonIdentity.workbookPages, [])
   assert.equal(report.overview.nllActivitiesAvailable, 3)
-  assert.equal(report.overview.includedInNlpCount, 0)
+  assert.equal(report.overview.includedInNlpCount, 3)
   assert.equal(report.overview.staleCount, 0)
   assert.equal(report.overview.stalenessUnverifiableCount, 0)
   assert.ok(report.teacherSelections.every((row) => row.nllStaleness === 'current'))
   assert.ok(
     report.teacherSelections.every(
-      (row) => row.selectedByTeacher === true && row.includedInNlp === false,
+      (row) => row.selectedByTeacher === true && row.includedInNlp === true,
     ),
   )
 
@@ -1233,6 +1241,7 @@ test('Values Inspector authoritative SB hashes work without companion or NLP', a
       workbookCompanion: null,
       currentFocus: 'Values',
       singleLessonTitle: 'Values',
+      stableLessonReference: 'be3-sb-u08-p142',
     }),
     activityCards: sbCards,
     workbookActivityCards: [],
@@ -1251,7 +1260,7 @@ test('Values Inspector authoritative SB hashes work without companion or NLP', a
     currentActivitySha256ById: partialCurrentMap,
     loadNll,
   })
-  assert.equal(partialReport.nlp.status, 'unavailable')
+  assert.equal(partialReport.nlp.status, 'assembled')
   assert.equal(partialReport.overview.stalenessUnverifiableCount, 1)
   assert.equal(partialReport.overview.staleCount, 0)
   const missing = partialReport.teacherSelections.find(

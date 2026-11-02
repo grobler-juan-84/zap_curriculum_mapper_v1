@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 0.1
-**Date:** 2026-11-02 (Priority 4 exact membership component lookup; prior Priority 3/contract/tooling notes retained)
+**Date:** 2026-11-02 (Priority 5 genuine SB-only NLP; prior Priority 3–4/contract/tooling notes retained)
 **Purpose:** Record inspect-first discrepancies, status taxonomy, packaging semantics, experimental-summary policy, staleness limits, authorization boundary, and verification posture for D029.
 
 ---
@@ -94,7 +94,7 @@ Section G uses precise kinds: `missing`, `excluded`, `unverified` (source only),
 | `twoLessonPackagingMode` / report “Source/configuration mode” | Create-a-prompt Chalkie Step 3 packaging: `sb_wb` (verified companion series) or `sb_only` (Student-Book-only split of the current spread). **Not** NLP `packaging.type`. |
 | NLP `packaging.type` | Actual assembled package shape from `buildNeutralSbWbLessonPackage` (today `two_lesson_sb_wb` when a companion assembles). |
 
-A Values lesson may show configuration `sb_only`, NLL loaded, selections present, and **NLP unavailable** — no fake companion is invented.
+A Values lesson may show configuration `sb_only`, NLL loaded, selections present, and an assembled NLP of type `two_lesson_sb_only` — no fake Workbook companion is invented.
 
 ---
 
@@ -126,7 +126,7 @@ A Values lesson may show configuration `sb_only`, NLL loaded, selections present
 | NLL load | `loadNeutralLessonComponent` (same as Create-a-prompt summaries / Stage 4) |
 | Current activity fingerprints | `buildCurrentActivitySha256ById` + `fingerprintCanonicalActivity` (Inspector-supplied map only in Step 453) |
 | Component key resolve | Exact full-set membership via `resolveNllComponentByExactActivityMembership` / `nll_components` + `nll_component_activities` (available lesson activity IDs, not teacher selection). Temporary BE3 U8 fallback: `resolveBe3U08NllActivitySummarySpec` when membership returns unavailable. Create-a-prompt modal still uses the BE3 U8 table directly. |
-| NLP assemble | `buildNeutralSbWbLessonPackage` |
+| NLP assemble | `buildNeutralSbWbLessonPackage` when a verified companion exists; otherwise `buildNeutralSbOnlyLessonPackage` for genuine SB-only (no fake Workbook companion) |
 | Derived knowledge attach | `attachSelectedNllDerivedKnowledge` |
 | Prior support mapping | `mapTeacherInputsToOpenerPriorSupportForGeneralLessonPlan` |
 | Selections | Current overlay in-memory `handoffActivitySelection` / `handoffWorkbookActivitySelection` |
@@ -155,6 +155,14 @@ These are the standard cross-PC setup and focused Inspector verification command
 ---
 
 ## Verification log
+
+### 2026-11-02 — Priority 5 genuine SB-only NLP (Step 455)
+
+**Scope:** Assemble neutral NLP for companion-free Student Book lessons without inventing Workbook evidence. Inspector wires the new builder; adapters/GLP unchanged.
+
+- `buildNeutralSbOnlyLessonPackage` reuses SB selection + `allocateSbOnlyTwoLessonActivities`; packaging type `two_lesson_sb_only`; both lessons `student_book`.
+- Selected NLL derivedKnowledge attaches via existing `attachSelectedNllDerivedKnowledge`.
+- Focused SB-only **6/6**; existing package **31/31**; Inspector **13/13**; typecheck exit 0.
 
 ### 2026-11-02 — Priority 4 exact membership component lookup (Step 454)
 
@@ -221,4 +229,4 @@ These are the standard cross-PC setup and focused Inspector verification command
 - Extending authoritative current-hash supply beyond the Inspector (modal summaries / Stage 4 / adapters) — Inspector Priority 3 complete; other callers remain omitted until separately authorized.
 - Separating teacher-friendly summary text from operational guardrails in NLL schema/content.
 - Removing the temporary BE3 U8 hard-coded fallback once Create-a-prompt modal also uses exact membership lookup (product work; not part of Priority 4).
-- True SB-only NLP builder (explicitly out of Inspector scope).
+- Adapter / General Lesson Prompt consumption of `two_lesson_sb_only` packages (not authorized in Priority 5).

@@ -13,8 +13,9 @@ import { isAdminProfile } from '../auth/isAdminProfile'
 import type { UserRole } from '../../types/user'
 import type { TeacherAddedLanguageInput } from './buildChalkiePromptPreview'
 import {
+  buildNeutralSbOnlyLessonPackage,
   buildNeutralSbWbLessonPackage,
-  type NeutralSbWbLessonPackage,
+  type NeutralLessonPackage,
 } from './buildNeutralSbWbLessonPackage'
 import type {
   SbActivityCard,
@@ -176,7 +177,7 @@ export type NllNlpInspectionReport = {
   readonly teacherSelections: readonly NllNlpInspectorActivityRow[]
   readonly nlp: {
     readonly status: 'assembled' | 'unavailable'
-    readonly package: NeutralSbWbLessonPackage | null
+    readonly package: NeutralLessonPackage | null
     readonly note: string
   }
   /**
@@ -252,7 +253,7 @@ function activityIdFromWb(card: WbActivityCard): string {
 }
 
 function nlpSelectedActivityIds(
-  nlp: NeutralSbWbLessonPackage | null,
+  nlp: NeutralLessonPackage | null,
 ): Set<string> {
   if (!nlp) return new Set()
   const ids = new Set<string>()
@@ -320,7 +321,7 @@ export function buildTeacherSelectionRows(input: {
   readonly sbSelection: SbActivityHandoffSelection
   readonly wbSelection: WbActivityHandoffSelection
   readonly nll: ResolvedNllComponent | null
-  readonly nlp: NeutralSbWbLessonPackage | null
+  readonly nlp: NeutralLessonPackage | null
 }): NllNlpInspectorActivityRow[] {
   const sbSelectedCards = new Set(
     input.sbSelection.selectedEvidence.map((e) => e.cardId),
@@ -434,7 +435,7 @@ export function collectInspectionIssues(input: {
     issues.push({
       kind: 'unavailable',
       message:
-        'Neutral Lesson Package could not be assembled (no verified SB→WB companion or package config supported by buildNeutralSbWbLessonPackage).',
+        'Neutral Lesson Package could not be assembled (verified SB→WB companion package failed, or genuine SB-only package could not be built from current Student Book selection).',
     })
   }
 
@@ -512,7 +513,7 @@ export function buildInspectionOverview(input: {
   readonly teacherSelections: readonly NllNlpInspectorActivityRow[]
   readonly nllStatus: 'loaded' | 'unavailable' | 'not_applicable'
   readonly nllActivityCount: number
-  readonly nlp: NeutralSbWbLessonPackage | null
+  readonly nlp: NeutralLessonPackage | null
   readonly nlpStatus: 'assembled' | 'unavailable'
   readonly issues: readonly NllNlpInspectionIssue[]
 }): NllNlpInspectionOverview {
@@ -779,8 +780,9 @@ export function renderNllNlpInspectionMarkdown(
 /**
  * Assemble a read-only inspection report from current Create-a-prompt state.
  * Does not mutate selections. Reuses buildNeutralSbWbLessonPackage when a
- * verified companion exists. Attaches NLL derivedKnowledge via the same
- * attachSelectedNllDerivedKnowledge helper used by Stage 4 / GLP.
+ * verified companion exists, or buildNeutralSbOnlyLessonPackage for genuine
+ * SB-only lessons (no fake Workbook companion). Attaches NLL derivedKnowledge
+ * via the same attachSelectedNllDerivedKnowledge helper used by Stage 4 / GLP.
  */
 export async function buildNllNlpInspectionReport(
   input: BuildNllNlpInspectionReportInput,
@@ -886,17 +888,18 @@ export async function buildNllNlpInspectionReport(
     }
   }
 
-  let nlp: NeutralSbWbLessonPackage | null = null
+  let nlp: NeutralLessonPackage | null = null
   let nlpStatus: NllNlpInspectionReport['nlp']['status'] = 'unavailable'
   let nlpNote =
-    'NLP assembly requires a verified SB→WB companion supported by buildNeutralSbWbLessonPackage. Genuine SB-only lessons (e.g. Values) correctly report NLP unavailable — no fake companion is invented.'
+    'NLP assembly requires either a verified SB→WB companion supported by buildNeutralSbWbLessonPackage, or enough Student Book lesson identity to build a genuine SB-only package. No fake Workbook companion is invented.'
+
+  const priorSupport = mapTeacherInputsToOpenerPriorSupportForGeneralLessonPlan({
+    selectedSuggestions: input.selectedSuggestions,
+    teacherAdditions: input.teacherAdditions,
+  })
 
   if (companion) {
     try {
-      const priorSupport = mapTeacherInputsToOpenerPriorSupportForGeneralLessonPlan({
-        selectedSuggestions: input.selectedSuggestions,
-        teacherAdditions: input.teacherAdditions,
-      })
       nlp = buildNeutralSbWbLessonPackage({
         companion,
         sbSelection: input.sbSelection,
@@ -917,6 +920,51 @@ export async function buildNllNlpInspectionReport(
         error instanceof Error
           ? `NLP assembly error: ${error.message}`
           : 'NLP assembly error.'
+    }
+  } else {
+    const catalogBookId = input.lesson.catalogBookId?.trim() ?? ''
+    const unitNumber = input.lesson.unitNumber
+    const packageReference =
+      input.lesson.stableLessonReference?.trim() ||
+      (catalogBookId && unitNumber != null
+        ? `${catalogBookId}_unit_${String(unitNumber).padStart(2, '0')}_sb_only`
+        : '')
+    const componentTitle =
+      input.lesson.singleLessonTitle?.trim() ||
+      input.lesson.currentFocus?.trim() ||
+      input.lesson.lessonTopic?.trim() ||
+      ''
+
+    if (catalogBookId && unitNumber != null && packageReference && componentTitle) {
+      try {
+        nlp = buildNeutralSbOnlyLessonPackage({
+          studentBookCatalogId: catalogBookId,
+          unitNumber,
+          unitTitle: input.lesson.unitTitle?.trim() || `Unit ${unitNumber}`,
+          componentTitle,
+          packageReference,
+          componentKey: resolvedNll?.component.component_key ?? null,
+          sbSelection: input.sbSelection,
+          priorSupport,
+        })
+        if (resolvedNll) {
+          nlp = attachSelectedNllDerivedKnowledge({ nlp, resolved: resolvedNll })
+        }
+        nlpStatus = 'assembled'
+        nlpNote = resolvedNll
+          ? 'NLP assembled via buildNeutralSbOnlyLessonPackage from current Student Book selection only (no Workbook companion invented); selected NLL derivedKnowledge attached via attachSelectedNllDerivedKnowledge when summaries exist.'
+          : 'NLP assembled via buildNeutralSbOnlyLessonPackage from current Student Book selection only (no Workbook companion invented); NLL derivedKnowledge not attached (NLL unavailable).'
+      } catch (error) {
+        nlp = null
+        nlpStatus = 'unavailable'
+        nlpNote =
+          error instanceof Error
+            ? `SB-only NLP assembly error: ${error.message}`
+            : 'SB-only NLP assembly error.'
+      }
+    } else {
+      nlpNote =
+        'Genuine SB-only NLP could not be assembled because Student Book lesson identity (catalog book, unit, package reference, or title) is incomplete. No Workbook companion was invented.'
     }
   }
 
