@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 0.1
-**Date:** 2026-11-02 (Priority 3 Inspector authoritative staleness; prior contract/tooling/Vite notes retained)
+**Date:** 2026-11-02 (Priority 4 exact membership component lookup; prior Priority 3/contract/tooling notes retained)
 **Purpose:** Record inspect-first discrepancies, status taxonomy, packaging semantics, experimental-summary policy, staleness limits, authorization boundary, and verification posture for D029.
 
 ---
@@ -125,7 +125,7 @@ A Values lesson may show configuration `sb_only`, NLL loaded, selections present
 |---|---|
 | NLL load | `loadNeutralLessonComponent` (same as Create-a-prompt summaries / Stage 4) |
 | Current activity fingerprints | `buildCurrentActivitySha256ById` + `fingerprintCanonicalActivity` (Inspector-supplied map only in Step 453) |
-| Component key resolve | `resolveBe3U08NllActivitySummarySpec` (shared Create-a-prompt resolver; currently BE3 U8 keyed — not an Inspector-only table) |
+| Component key resolve | Exact full-set membership via `resolveNllComponentByExactActivityMembership` / `nll_components` + `nll_component_activities` (available lesson activity IDs, not teacher selection). Temporary BE3 U8 fallback: `resolveBe3U08NllActivitySummarySpec` when membership returns unavailable. Create-a-prompt modal still uses the BE3 U8 table directly. |
 | NLP assemble | `buildNeutralSbWbLessonPackage` |
 | Derived knowledge attach | `attachSelectedNllDerivedKnowledge` |
 | Prior support mapping | `mapTeacherInputsToOpenerPriorSupportForGeneralLessonPlan` |
@@ -155,6 +155,15 @@ These are the standard cross-PC setup and focused Inspector verification command
 ---
 
 ## Verification log
+
+### 2026-11-02 — Priority 4 exact membership component lookup (Step 454)
+
+**Scope:** Inspector NLL component resolve becomes curriculum-agnostic via exact full-set activity membership against existing `nll_components` / `nll_component_activities`. No schema, migration, summary, NLP, adapter, or UI contract change.
+
+- Resolve from complete available lesson activity IDs (cards), not teacher selection.
+- Set equality only; no partial match / first-result / guess. Zero matches → unavailable; multiple → ambiguous (fail closed, no load).
+- Temporary BE3 U8 hard-coded resolver retained only as fallback when membership returns unavailable (Create-a-prompt modal still uses it directly).
+- Focused membership suite **6/6**; Inspector suite **13/13**; typecheck exit 0. Test-only in-memory catalogs; no Supabase writes.
 
 ### 2026-11-02 — Priority 3 Inspector authoritative staleness (Step 453)
 
@@ -211,5 +220,5 @@ These are the standard cross-PC setup and focused Inspector verification command
 - Server-side report assembly returning Markdown only after admin auth (optional hardening).
 - Extending authoritative current-hash supply beyond the Inspector (modal summaries / Stage 4 / adapters) — Inspector Priority 3 complete; other callers remain omitted until separately authorized.
 - Separating teacher-friendly summary text from operational guardrails in NLL schema/content.
-- Curriculum-agnostic component-key resolver beyond the shared BE3 U8 table (product work, not Inspector-only).
+- Removing the temporary BE3 U8 hard-coded fallback once Create-a-prompt modal also uses exact membership lookup (product work; not part of Priority 4).
 - True SB-only NLP builder (explicitly out of Inspector scope).

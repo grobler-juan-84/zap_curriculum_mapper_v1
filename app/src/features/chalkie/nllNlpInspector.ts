@@ -36,6 +36,10 @@ import {
   loadNeutralLessonComponent,
   type ResolvedNllComponent,
 } from '../nll/neutralLessonLibrary'
+import {
+  resolveNllComponentByExactActivityMembershipFromClient,
+  type ResolveNllComponentByExactMembershipResult,
+} from '../nll/resolveNllComponentByExactActivityMembership'
 import type { ScopeSequenceUnit } from '../scope-sequence/scopeSequence'
 
 export const NLL_NLP_INSPECTOR_ID = 'nll_nlp_inspector' as const
@@ -210,7 +214,33 @@ export type BuildNllNlpInspectionReportInput = {
     componentKey: string,
     options: NllInspectorLoadOptions,
   ) => Promise<ResolvedNllComponent | null>
+  /**
+   * Optional exact membership resolver (test injection / overrides).
+   * Default path queries `nll_components` + `nll_component_activities`.
+   */
+  readonly resolveNllComponentByExactMembership?: (
+    lessonActivityIds: readonly string[],
+  ) =>
+    | ResolveNllComponentByExactMembershipResult
+    | Promise<ResolveNllComponentByExactMembershipResult>
   readonly nowIso?: string
+}
+
+/** Complete available lesson activity IDs (cards), not teacher selection. */
+export function collectAvailableLessonActivityIds(input: {
+  readonly activityCards: readonly SbActivityCard[]
+  readonly workbookActivityCards: readonly WbActivityCard[]
+}): string[] {
+  const ids: string[] = []
+  for (const card of input.activityCards) {
+    const id = activityIdFromSb(card).trim()
+    if (id) ids.push(id)
+  }
+  for (const card of input.workbookActivityCards) {
+    const id = activityIdFromWb(card).trim()
+    if (id) ids.push(id)
+  }
+  return [...new Set(ids)]
 }
 
 function activityIdFromSb(card: SbActivityCard): string {
@@ -759,23 +789,66 @@ export async function buildNllNlpInspectionReport(
   const companion: VerifiedSbWbCompanion | null =
     input.lesson.workbookCompanion ?? null
 
-  // Shared Create-a-prompt NLL component resolver (currently BE3 U8 keyed).
-  // Inspector does not invent an alternate mapping table.
-  const nllSpec = resolveBe3U08NllActivitySummarySpec({
+  // Exact full-set membership lookup against nll_components /
+  // nll_component_activities (available lesson activity IDs, not selection).
+  // Temporary BE3 U8 hard-coded fallback retained only when membership
+  // resolve returns unavailable — Create-a-prompt modal still uses that table.
+  const lessonActivityIds = collectAvailableLessonActivityIds({
     activityCards: input.activityCards,
     workbookActivityCards: input.workbookActivityCards,
-    companion,
   })
 
-  let resolvedNll: ResolvedNllComponent | null = null
+  let membershipResolve: ResolveNllComponentByExactMembershipResult = {
+    kind: 'unavailable',
+  }
+  try {
+    if (input.resolveNllComponentByExactMembership) {
+      membershipResolve = await input.resolveNllComponentByExactMembership(
+        lessonActivityIds,
+      )
+    } else if (input.client) {
+      membershipResolve =
+        await resolveNllComponentByExactActivityMembershipFromClient(
+          input.client,
+          lessonActivityIds,
+        )
+    }
+  } catch {
+    // Membership catalog query failed — try temporary BE3 U8 fallback below.
+    membershipResolve = { kind: 'unavailable' }
+  }
+
+  let resolvedComponentKey: string | null = null
+  let resolvedVia: 'exact_membership' | 'be3_u08_fallback' | null = null
   let nllStatus: NllNlpInspectionReport['nll']['status'] = 'not_applicable'
   let nllNote =
-    'No NLL component mapping resolved for this lesson scope (shared Create-a-prompt resolver returned no component key).'
+    'No NLL component mapping resolved for this lesson scope (exact membership lookup found no matching component).'
+
+  if (membershipResolve.kind === 'ambiguous') {
+    nllStatus = 'unavailable'
+    const keys = membershipResolve.matches.map((match) => match.componentKey)
+    nllNote = `Ambiguous NLL component membership: ${membershipResolve.matches.length} components share this exact activity set (${keys.join(', ')}). No component was loaded.`
+  } else if (membershipResolve.kind === 'matched') {
+    resolvedComponentKey = membershipResolve.componentKey
+    resolvedVia = 'exact_membership'
+  } else {
+    const be3Spec = resolveBe3U08NllActivitySummarySpec({
+      activityCards: input.activityCards,
+      workbookActivityCards: input.workbookActivityCards,
+      companion,
+    })
+    if (be3Spec) {
+      resolvedComponentKey = be3Spec.componentKey
+      resolvedVia = 'be3_u08_fallback'
+    }
+  }
+
+  let resolvedNll: ResolvedNllComponent | null = null
 
   const experimentalSummaryPolicyNote =
     'Current Create-a-prompt / Stage 4 / GLP pilots load preferred summaries with includeHiddenExperimental: true. attachSelectedNllDerivedKnowledge attaches preferred summaries for selected NLP activities without filtering out review_state=experimental or display_status=hidden. Inspector reports that faithfully; it does not invent a new eligibility gate.'
 
-  if (nllSpec) {
+  if (resolvedComponentKey) {
     const client = input.client ?? null
     const load =
       input.loadNll ??
@@ -789,17 +862,19 @@ export async function buildNllNlpInspectionReport(
         // Authoritative current hashes come only from the caller-supplied map
         // (workspace canonical raw → fingerprint helper). Default remains
         // unverifiable when the map is omitted.
-        resolvedNll = await load(client, nllSpec.componentKey, {
+        resolvedNll = await load(client, resolvedComponentKey, {
           includeHiddenExperimental: true,
           currentActivitySha256ById: input.currentActivitySha256ById,
         })
         if (resolvedNll) {
           nllStatus = 'loaded'
           nllNote =
-            'NLL component loaded with preferred summaries (hidden experimental included for inspection, matching Stage 4 load posture).'
+            resolvedVia === 'exact_membership'
+              ? 'NLL component loaded via exact activity-membership match with preferred summaries (hidden experimental included for inspection, matching Stage 4 load posture).'
+              : 'NLL component loaded via temporary BE3 Unit 8 resolver fallback with preferred summaries (hidden experimental included for inspection, matching Stage 4 load posture).'
         } else {
           nllStatus = 'unavailable'
-          nllNote = `NLL component \`${nllSpec.componentKey}\` was not found.`
+          nllNote = `NLL component \`${resolvedComponentKey}\` was not found.`
         }
       } catch (error) {
         nllStatus = 'unavailable'
@@ -913,7 +988,8 @@ export async function buildNllNlpInspectionReport(
     scopeSequence,
     nll: {
       status: nllStatus,
-      componentKey: resolvedNll?.component.component_key ?? nllSpec?.componentKey ?? null,
+      componentKey:
+        resolvedNll?.component.component_key ?? resolvedComponentKey ?? null,
       componentId: resolvedNll?.component.id ?? null,
       componentTitle: resolvedNll?.component.title ?? null,
       activities: (resolvedNll?.activities ?? []).map((activity) => ({

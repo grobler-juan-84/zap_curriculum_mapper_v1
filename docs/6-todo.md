@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 453
+**Last updated:** Step 454
 
 
 
@@ -789,7 +789,9 @@
 
 - [x] **Priority 2 human review / D031 (2026-11-02):** owner accepted all 77 Unit 8 summaries unchanged as sufficient, modular and replaceable v1 knowledge; confirmed ChatGPT Desktop as the AI-summary source; established stronger future provenance requirements; deliberately left live review states unchanged pending a separate semantic decision.
 
-- [x] **Priority 3 Inspector authoritative staleness (2026-11-02, Step 453):** `buildCurrentActivitySha256ById` + Inspector wiring from already-loaded canonical raw; Grammar/Values fixture regressions with 13/13 migration-hash pins; suite 13/13. Warn-only `potentially_stale`; no summary/DB/migration/adapter/GLP changes.
+- [x] **Priority 3 Inspector authoritative staleness (2026-11-02, Step 453):** `buildCurrentActivitySha256ById` + Inspector wiring from already-loaded canonical raw; Grammar/Values fixture regressions with 13/13 migration-hash pins; suite 13/13. Warn-only `potentially_stale`; no summary/DB/migration/adapter/GLP changes. Committed/pushed `171138a`.
+
+- [x] **Priority 4 exact membership component lookup (2026-11-02, Step 454):** Inspector resolves NLL components via exact full-set available activity IDs against `nll_components` / `nll_component_activities`; ambiguous/unavailable fail closed; temporary BE3 U8 hard-coded fallback retained; focused **6/6** + Inspector **13/13**. No schema/migration/summary/NLP/adapter/UI change. Uncommitted pending owner review.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

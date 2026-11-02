@@ -7942,3 +7942,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 454
+
+**Summary:** Implemented Priority 4 Inspector-only exact full-set NLL component lookup against `nll_components` / `nll_component_activities` using available lesson activity IDs (not teacher selection). Zero matches return unavailable; multiple exact matches return ambiguous without loading. Temporary BE3 Unit 8 hard-coded resolver retained only as fallback when membership is unavailable. Create-a-prompt modal, NLP, adapters, summaries, migrations, and schema unchanged. Focused membership suite 6/6; Inspector 13/13; typecheck clean. No commit/push.
+
+**Files touched:**
+- `app/src/features/nll/resolveNllComponentByExactActivityMembership.ts` (created)
+- `app/src/features/chalkie/nllNlpInspector.ts` (updated)
+- `scripts/tests/resolveNllComponentByExactActivityMembership.test.ts` (created)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
