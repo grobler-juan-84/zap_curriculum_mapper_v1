@@ -22,6 +22,12 @@ import {
   buildBe3U08StorySbWbSeriesHandoff,
 } from '../../app/src/features/chalkie/buildBe3U08StorySbWbSeriesHandoff.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
+import { resolveBe3U08NeutralSeriesMeta } from '../../app/src/features/chalkie/buildBe3U08NeutralSeriesHandoff.ts'
+import {
+  buildSbActivityCards,
+  createDefaultSbActivitySelection,
+  createSbActivityHandoffSelection,
+} from '../../app/src/features/chalkie/chalkieActivitySelection.ts'
 import {
   buildWbActivityCards,
   createDefaultWbActivitySelection,
@@ -330,176 +336,143 @@ test('excluding one WB106 Story activity cannot leak through the bespoke handoff
   }
 })
 
-test('story SB→WB series is not used for LiA SB pp.132–133 (resolver companion only)', () => {
+function assertNeutralSeriesNotStory(input: {
+  readonly pages: readonly number[]
+  readonly relationshipId: string
+  readonly workbookPages: readonly number[]
+  readonly titlePattern: RegExp
+}) {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
       title: 'Big English 3 Student Book',
     }),
     summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [132, 133],
+    visiblePrintedPages: [...input.pages],
     unitNumber: 8,
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
+  const meta = resolveBe3U08NeutralSeriesMeta(lesson.workbookCompanion)
 
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [107, 108])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.equal(lesson.workbookCompanion?.relationshipId, input.relationshipId)
+  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [
+    ...input.workbookPages,
+  ])
+  assert.ok(meta)
+  assert.equal(lesson.seriesLessonTitle, meta!.seriesTitle)
+  assert.equal(lesson.stableSeriesReference, meta!.stableSeriesReference)
+  assert.match(lesson.seriesLessonTitle ?? '', input.titlePattern)
+  assert.doesNotMatch(lesson.seriesLessonTitle ?? '', /An Unhealthy Dinner/)
+  return lesson
+}
 
+test('story SB→WB series is not used for LiA SB pp.132–133 (neutral series instead)', () => {
+  const lesson = assertNeutralSeriesNotStory({
+    pages: [132, 133],
+    relationshipId: 'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+    workbookPages: [107, 108],
+    titlePattern: /Language in Action/,
+  })
+
+  const sbCards = buildSbActivityCards({
+    summary: be3Unit8SbSummary(),
+    activeLessonPrintedPages: [132, 133],
+  })
+  const wbRaw = loadJson(BE3_WB_PATH)
+  const wbCards = buildWbActivityCards({
+    summary: {
+      catalogBookId: 'big_english_3_wb',
+      units: [
+        {
+          unitNumber: 8,
+          title: 'Healthy Living',
+          printedPageStart: 104,
+          printedPageEnd: 117,
+        },
+      ],
+      vocabulary: [],
+      language: [],
+      activities: [],
+      pages: [],
+      raw: wbRaw,
+    },
+    companion: lesson.workbookCompanion,
+  })
   const prompt = buildChalkiePromptPreview({
     lesson,
     packageShape: 'series',
     selectedSuggestions: [],
     teacherAdditions: [],
+    activitySelection: createSbActivityHandoffSelection(
+      sbCards,
+      createDefaultSbActivitySelection(sbCards),
+    ),
+    workbookActivitySelection: createWbActivityHandoffSelection(
+      wbCards,
+      createDefaultWbActivitySelection(wbCards),
+    ),
   })
   assert.match(prompt, /TWO-LESSON series/)
-  assert.match(prompt, /ONLY Student Book/)
+  assert.match(prompt, /Language in Action|132/)
   assert.doesNotMatch(prompt, /An Unhealthy Dinner/)
   assert.doesNotMatch(prompt, /Workbook printed page 106/)
+  assert.doesNotMatch(prompt, /ONLY Student Book/)
 })
 
-test('story SB→WB series is not used for CLIL/P.E. SB pp.134–135 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [134, 135],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for CLIL/P.E. SB pp.134–135 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [134, 135],
+    relationshipId: 'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
+    workbookPages: [109, 110],
+    titlePattern: /Content Connection/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_clil_pe_sb134-135_wb109-110',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [109, 110])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story SB→WB series is not used for Grammar SB pp.136–137 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [136, 137],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for Grammar SB pp.136–137 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [136, 137],
+    relationshipId: 'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+    workbookPages: [111, 112],
+    titlePattern: /Grammar/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [111, 112])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story SB→WB series is not used for Culture SB pp.138–139 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [138, 139],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for Culture SB pp.138–139 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [138, 139],
+    relationshipId: 'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
+    workbookPages: [113, 114],
+    titlePattern: /Culture Connection/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_culture_sb138-139_wb113-114',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [113, 114])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story SB→WB series is not used for Writing SB p.140 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [140],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for Writing SB p.140 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [140],
+    relationshipId: 'be3_sb_wb_rel_u08_writing_sb140_wb115',
+    workbookPages: [115],
+    titlePattern: /Writing/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_writing_sb140_wb115',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [115])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story SB→WB series is not used for Phonics SB p.141 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [141],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for Phonics SB p.141 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [141],
+    relationshipId: 'be3_sb_wb_rel_u08_phonics_sb141_wb116',
+    workbookPages: [116],
+    titlePattern: /Phonics/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_phonics_sb141_wb116',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [116])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
-test('story SB→WB series is not used for Review SB p.143 (resolver companion only)', () => {
-  const lesson = resolveChalkieLessonContext({
-    book: bookStub({
-      catalogBookId: 'big_english_3_sb',
-      title: 'Big English 3 Student Book',
-    }),
-    summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [143],
-    unitNumber: 8,
-    workbookCanonical: loadJson(BE3_WB_PATH),
+test('story SB→WB series is not used for Review SB p.143 (neutral series instead)', () => {
+  assertNeutralSeriesNotStory({
+    pages: [143],
+    relationshipId: 'be3_sb_wb_rel_u08_review_sb143_wb117',
+    workbookPages: [117],
+    titlePattern: /Review/,
   })
-
-  assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_review_sb143_wb117',
-  )
-  assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [117])
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
 })
 
 test('story SB→WB series is not used for Values SB p.142 (SB-only; no companion)', () => {

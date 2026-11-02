@@ -322,7 +322,7 @@ test('Review-C stays isolated from Phonics package identity', () => {
   )
 })
 
-test('Create-a-prompt is wired to Review-C with sb_only fallback and no Review BI framing', () => {
+test('Create-a-prompt is wired to Review-C with neutral-series fallback and no Review BI framing', () => {
   const overlay = fs.readFileSync(
     path.join(ROOT, 'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx'),
     'utf8',
@@ -343,7 +343,7 @@ test('Create-a-prompt is wired to Review-C with sb_only fallback and no Review B
   )
   assert.match(
     overlay,
-    /Review-C failure: retain current sb_only path with captured selections/,
+    /Review-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

@@ -38,6 +38,7 @@ import {
   BE3_U08_STORY_SERIES_TITLE,
   isBe3U08StorySeriesCompanion,
 } from './buildBe3U08StorySbWbSeriesHandoff'
+import { resolveBe3U08NeutralSeriesMeta } from './buildBe3U08NeutralSeriesHandoff'
 import {
   resolveVerifiedSbWbCompanion,
   type VerifiedSbWbCompanion,
@@ -519,17 +520,19 @@ export function resolveChalkieLessonContext(input: {
   })
   const be3OpenerSeries = isBe3U08OpenerSeriesCompanion(workbookCompanion)
   const be3StorySeries = isBe3U08StorySeriesCompanion(workbookCompanion)
-  const be3Series = be3OpenerSeries || be3StorySeries
+  const be3NeutralSeriesMeta = resolveBe3U08NeutralSeriesMeta(workbookCompanion)
+  const be3Series =
+    be3OpenerSeries || be3StorySeries || be3NeutralSeriesMeta != null
   const seriesLessonTitle = be3OpenerSeries
     ? BE3_U08_OPENER_SERIES_TITLE
     : be3StorySeries
       ? BE3_U08_STORY_SERIES_TITLE
-      : null
+      : be3NeutralSeriesMeta?.seriesTitle ?? null
   const stableSeriesReference = be3OpenerSeries
     ? BE3_U08_OPENER_SERIES_STABLE_REF
     : be3StorySeries
       ? BE3_U08_STORY_SERIES_STABLE_REF
-      : null
+      : be3NeutralSeriesMeta?.stableSeriesReference ?? null
 
   return {
     ...base,
@@ -551,7 +554,7 @@ export function resolveChalkieLessonContext(input: {
     outlineActivities: visibleView!.outlineActivities,
     pageLabels: visibleView!.pageLabels.slice(0, 6),
     isBe2U08PrototypeRoute: false,
-    // SB→WB series for accepted BE3 opener/story; otherwise generic SB-only two-lesson.
+    // SB→WB series for accepted BE3 opener/story/LiA→Review; otherwise generic SB-only.
     twoLessonPackagingMode: be3Series ? 'sb_wb' : 'sb_only',
     supportsTwoLessonSeries: true,
     workbookCompanion,

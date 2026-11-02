@@ -327,7 +327,7 @@ test('CLIL-C stays isolated from Grammar package identity', () => {
   )
 })
 
-test('Create-a-prompt is wired to CLIL-C with sb_only fallback and no CLIL BI framing', () => {
+test('Create-a-prompt is wired to CLIL-C with neutral-series fallback and no CLIL BI framing', () => {
   const overlay = fs.readFileSync(
     path.join(ROOT, 'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx'),
     'utf8',
@@ -348,7 +348,7 @@ test('Create-a-prompt is wired to CLIL-C with sb_only fallback and no CLIL BI fr
   )
   assert.match(
     overlay,
-    /CLIL-C failure: retain current sb_only path with captured selections/,
+    /CLIL-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

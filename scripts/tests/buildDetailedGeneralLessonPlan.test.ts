@@ -224,7 +224,7 @@ test('BE3 U8 pp.132–133 single-lesson plan uses same selected SB evidence as C
   }
 })
 
-test('BE3 U8 pp.132–133 SB-only two-lesson plan matches Chalkie allocation', () => {
+test('BE3 U8 Values SB p.142 SB-only two-lesson plan matches Chalkie allocation', () => {
   const summary = be3Unit8SbSummary()
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -232,7 +232,7 @@ test('BE3 U8 pp.132–133 SB-only two-lesson plan matches Chalkie allocation', (
       title: 'Big English 3 Student Book',
     }),
     summary,
-    visiblePrintedPages: [132, 133],
+    visiblePrintedPages: [142],
     unitNumber: 8,
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
@@ -241,15 +241,14 @@ test('BE3 U8 pp.132–133 SB-only two-lesson plan matches Chalkie allocation', (
 
   const cards = buildSbActivityCards({
     summary,
-    activeLessonPrintedPages: [132, 133],
+    activeLessonPrintedPages: [142],
   })
   const selection = createSbActivityHandoffSelection(
     cards,
     createDefaultSbActivitySelection(cards),
   )
   const allocation = allocateSbOnlyTwoLessonActivities(selection.selectedEvidence)
-  assert.ok(allocation.lesson1.length >= 1)
-  assert.ok(allocation.lesson2.length >= 1)
+  assert.ok(allocation.lesson1.length + allocation.lesson2.length >= 1)
 
   const chalkie = buildChalkiePromptPreview({
     lesson,
@@ -278,7 +277,7 @@ test('BE3 U8 pp.132–133 SB-only two-lesson plan matches Chalkie allocation', (
   assert.doesNotMatch(plan.detailedLessonPlan, /Workbook printed page/)
 
   assert.match(chalkie, /TWO-LESSON series/)
-  assert.match(chalkie, /ONLY Student Book printed pages 132, 133/)
+  assert.match(chalkie, /ONLY Student Book printed pages 142/)
 
   for (const evidence of allocation.lesson1) {
     assert.match(

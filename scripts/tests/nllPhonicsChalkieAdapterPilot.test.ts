@@ -324,7 +324,7 @@ test('Phonics-C stays isolated from Writing package identity', () => {
   )
 })
 
-test('Create-a-prompt is wired to Phonics-C with sb_only fallback and no Phonics BI framing', () => {
+test('Create-a-prompt is wired to Phonics-C with neutral-series fallback and no Phonics BI framing', () => {
   const overlay = fs.readFileSync(
     path.join(ROOT, 'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx'),
     'utf8',
@@ -345,7 +345,7 @@ test('Create-a-prompt is wired to Phonics-C with sb_only fallback and no Phonics
   )
   assert.match(
     overlay,
-    /Phonics-C failure: retain current sb_only path with captured selections/,
+    /Phonics-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

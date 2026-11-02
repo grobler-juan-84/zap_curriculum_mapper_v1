@@ -1130,7 +1130,7 @@ test('request identity and apply guards prevent stale LiA-C results', () => {
   assert.equal(requestIdRef.current, 4)
 })
 
-test('Create-a-prompt is wired to LiA-C with sb_only fallback and no LiA BI framing', () => {
+test('Create-a-prompt is wired to LiA-C with neutral-series fallback and no LiA BI framing', () => {
   const overlay = fs.readFileSync(OVERLAY_SOURCE, 'utf8')
   const envExample = fs.readFileSync(ENV_EXAMPLE, 'utf8')
   const viteEnv = fs.readFileSync(VITE_ENV, 'utf8')
@@ -1148,7 +1148,7 @@ test('Create-a-prompt is wired to LiA-C with sb_only fallback and no LiA BI fram
   )
   assert.match(
     overlay,
-    /LiA-C failure: retain current sb_only path with captured selections/,
+    /LiA-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

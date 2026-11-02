@@ -1147,7 +1147,7 @@ test('request identity and apply guards prevent stale Grammar-C results', () => 
   assert.equal(requestIdRef.current, 4)
 })
 
-test('Create-a-prompt is wired to Grammar-C with sb_only fallback and no Grammar BI framing', () => {
+test('Create-a-prompt is wired to Grammar-C with neutral-series fallback and no Grammar BI framing', () => {
   const overlay = fs.readFileSync(OVERLAY_SOURCE, 'utf8')
   const envExample = fs.readFileSync(ENV_EXAMPLE, 'utf8')
   const viteEnv = fs.readFileSync(VITE_ENV, 'utf8')
@@ -1165,7 +1165,7 @@ test('Create-a-prompt is wired to Grammar-C with sb_only fallback and no Grammar
   )
   assert.match(
     overlay,
-    /Grammar-C failure: retain current sb_only path with captured selections/,
+    /Grammar-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

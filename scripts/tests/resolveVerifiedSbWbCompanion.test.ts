@@ -643,7 +643,7 @@ test('BE3 story companion resolves and enables story series packaging only', () 
   assert.equal(lesson.stableSeriesReference, 'be3-sb-wb-u08-p130-131-wb106')
 })
 
-test('BE3 LiA companion resolves without enabling SB→WB series titles', () => {
+test('BE3 LiA companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -663,15 +663,14 @@ test('BE3 LiA companion resolves without enabling SB→WB series titles', () => 
     'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [107, 108])
-  // Companion alone does not unlock SB→WB series titles; SB-only two-lesson is available.
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_LIA_STABLE_REF, 'be3-sb-wb-u08-p132-133-wb107-108')
 })
 
-test('BE3 CLIL/P.E. companion resolves without enabling SB→WB series titles', () => {
+test('BE3 CLIL/P.E. companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -692,13 +691,13 @@ test('BE3 CLIL/P.E. companion resolves without enabling SB→WB series titles', 
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [109, 110])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_CLIL_PE_STABLE_REF, 'be3-sb-wb-u08-p134-135-wb109-110')
 })
 
-test('BE3 Grammar companion resolves without enabling SB→WB series titles', () => {
+test('BE3 Grammar companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -719,13 +718,13 @@ test('BE3 Grammar companion resolves without enabling SB→WB series titles', ()
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [111, 112])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_GRAMMAR_STABLE_REF, 'be3-sb-wb-u08-p136-137-wb111-112')
 })
 
-test('BE3 Culture companion resolves without enabling SB→WB series titles', () => {
+test('BE3 Culture companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -746,13 +745,13 @@ test('BE3 Culture companion resolves without enabling SB→WB series titles', ()
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [113, 114])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_CULTURE_STABLE_REF, 'be3-sb-wb-u08-p138-139-wb113-114')
 })
 
-test('BE3 Writing companion resolves without enabling SB→WB series titles', () => {
+test('BE3 Writing companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -773,13 +772,13 @@ test('BE3 Writing companion resolves without enabling SB→WB series titles', ()
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [115])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_WRITING_STABLE_REF, 'be3-sb-wb-u08-p140-wb115')
 })
 
-test('BE3 Phonics companion resolves without enabling SB→WB series titles', () => {
+test('BE3 Phonics companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -800,13 +799,13 @@ test('BE3 Phonics companion resolves without enabling SB→WB series titles', ()
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [116])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_PHONICS_STABLE_REF, 'be3-sb-wb-u08-p141-wb116')
 })
 
-test('BE3 Review companion resolves without enabling SB→WB series titles', () => {
+test('BE3 Review companion resolves with neutral SB→WB series titles', () => {
   const wb = loadJson(BE3_WB_PATH)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -827,9 +826,9 @@ test('BE3 Review companion resolves without enabling SB→WB series titles', () 
   )
   assert.deepEqual(lesson.workbookCompanion?.workbookPrintedPages, [117])
   assert.equal(lesson.supportsTwoLessonSeries, true)
-  assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
-  assert.equal(lesson.seriesLessonTitle, null)
-  assert.equal(lesson.stableSeriesReference, null)
+  assert.equal(lesson.twoLessonPackagingMode, 'sb_wb')
+  assert.ok(lesson.seriesLessonTitle)
+  assert.ok(lesson.stableSeriesReference)
   assert.equal(BE3_U08_REVIEW_STABLE_REF, 'be3-sb-wb-u08-p143-wb117')
 })
 

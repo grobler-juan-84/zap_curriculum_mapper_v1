@@ -214,14 +214,14 @@ test('odd activity count gives the extra activity to Lesson 1', () => {
   assert.equal(allocation.lesson2[0]?.cardId, '3')
 })
 
-test('BE3 U8 SB pp.132–133 enables SB-only two-lesson packaging', () => {
+test('BE3 U8 Values SB p.142 enables SB-only two-lesson packaging', () => {
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
       catalogBookId: 'big_english_3_sb',
       title: 'Big English 3 Student Book',
     }),
     summary: be3Unit8SbSummary(),
-    visiblePrintedPages: [132, 133],
+    visiblePrintedPages: [142],
     unitNumber: 8,
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
@@ -231,14 +231,10 @@ test('BE3 U8 SB pp.132–133 enables SB-only two-lesson packaging', () => {
   assert.equal(lesson.twoLessonPackagingMode, 'sb_only')
   assert.equal(lesson.seriesLessonTitle, null)
   assert.equal(lesson.stableSeriesReference, null)
-  assert.ok(lesson.workbookCompanion)
-  assert.equal(
-    lesson.workbookCompanion?.relationshipId,
-    'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
-  )
+  assert.equal(lesson.workbookCompanion, null)
 })
 
-test('BE3 U8 SB pp.132–133 SB-only handoff uses only Student Book evidence', () => {
+test('BE3 U8 Values SB p.142 SB-only handoff uses only Student Book evidence', () => {
   const summary = be3Unit8SbSummary()
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -246,7 +242,7 @@ test('BE3 U8 SB pp.132–133 SB-only handoff uses only Student Book evidence', (
       title: 'Big English 3 Student Book',
     }),
     summary,
-    visiblePrintedPages: [132, 133],
+    visiblePrintedPages: [142],
     unitNumber: 8,
     workbookCanonical: loadJson(BE3_WB_PATH),
   })
@@ -255,16 +251,15 @@ test('BE3 U8 SB pp.132–133 SB-only handoff uses only Student Book evidence', (
 
   const cards = buildSbActivityCards({
     summary,
-    activeLessonPrintedPages: [132, 133],
+    activeLessonPrintedPages: [142],
   })
-  assert.ok(cards.length >= 2)
+  assert.ok(cards.length >= 1)
   const selection = createSbActivityHandoffSelection(
     cards,
     createDefaultSbActivitySelection(cards),
   )
   const allocation = allocateSbOnlyTwoLessonActivities(selection.selectedEvidence)
-  assert.ok(allocation.lesson1.length >= 1)
-  assert.ok(allocation.lesson2.length >= 1)
+  assert.ok(allocation.lesson1.length + allocation.lesson2.length >= 1)
 
   const handoff = buildSbOnlyTwoLessonHandoff({
     lesson,
@@ -291,7 +286,7 @@ test('BE3 U8 SB pp.132–133 SB-only handoff uses only Student Book evidence', (
   })
 
   assert.match(handoff.detailedHandoff, /TWO-LESSON series/)
-  assert.match(handoff.detailedHandoff, /ONLY Student Book printed pages 132, 133/)
+  assert.match(handoff.detailedHandoff, /ONLY Student Book printed pages 142/)
   assert.match(handoff.detailedHandoff, /Do not invent Workbook content/)
   assert.doesNotMatch(handoff.detailedHandoff, /Workbook printed page/)
   assert.doesNotMatch(handoff.detailedHandoff, /\[WB/)
@@ -322,7 +317,7 @@ test('BE3 U8 SB pp.132–133 SB-only handoff uses only Student Book evidence', (
     activitySelection: selection,
   })
   assert.match(viaPreview, /TWO-LESSON series/)
-  assert.match(viaPreview, /ONLY Student Book printed pages 132, 133/)
+  assert.match(viaPreview, /ONLY Student Book printed pages 142/)
   assert.doesNotMatch(viaPreview, /Workbook printed page/)
   assert.doesNotMatch(viaPreview, /An Unhealthy Dinner/)
 })

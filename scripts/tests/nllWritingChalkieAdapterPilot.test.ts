@@ -323,7 +323,7 @@ test('Writing-C stays isolated from Culture package identity', () => {
   )
 })
 
-test('Create-a-prompt is wired to Writing-C with sb_only fallback and no Writing BI framing', () => {
+test('Create-a-prompt is wired to Writing-C with neutral-series fallback and no Writing BI framing', () => {
   const overlay = fs.readFileSync(
     path.join(ROOT, 'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx'),
     'utf8',
@@ -344,7 +344,7 @@ test('Create-a-prompt is wired to Writing-C with sb_only fallback and no Writing
   )
   assert.match(
     overlay,
-    /Writing-C failure: retain current sb_only path with captured selections/,
+    /Writing-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,

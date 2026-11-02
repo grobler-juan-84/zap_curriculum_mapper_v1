@@ -19,6 +19,11 @@ import {
   isBe3U08StorySeriesCompanion,
   type Be3U08StorySeriesHandoff,
 } from './buildBe3U08StorySbWbSeriesHandoff'
+import {
+  buildBe3U08NeutralSeriesHandoff,
+  isBe3U08NeutralSeriesCompanion,
+  type Be3U08NeutralSeriesHandoff,
+} from './buildBe3U08NeutralSeriesHandoff'
 import { buildChalkieConciseOutline } from './buildChalkieConciseOutline'
 import {
   BE2_U08_SERIES_LESSON1_VOCAB,
@@ -226,13 +231,15 @@ type Be3U08SeriesHandoff =
   | Be3U08WritingSeriesHandoff
   | Be3U08PhonicsSeriesHandoff
   | Be3U08ReviewSeriesHandoff
+  | Be3U08NeutralSeriesHandoff
 
 function isBe3U08SeriesCompanion(
   companion: { relationshipId?: string | null } | null | undefined,
 ): boolean {
   return (
     isBe3U08OpenerSeriesCompanion(companion) ||
-    isBe3U08StorySeriesCompanion(companion)
+    isBe3U08StorySeriesCompanion(companion) ||
+    isBe3U08NeutralSeriesCompanion(companion)
   )
 }
 
@@ -297,6 +304,15 @@ function buildBe3U08SeriesHandoffForCompanion(
       activitySelection,
       workbookActivitySelection,
     }).handoff
+  }
+  if (isBe3U08NeutralSeriesCompanion(companion) && companion) {
+    return buildBe3U08NeutralSeriesHandoff({
+      companion,
+      selectedSuggestions,
+      teacherAdditions,
+      activitySelection,
+      workbookActivitySelection,
+    })
   }
   return null
 }
@@ -1420,7 +1436,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
     const seriesPackageRequested =
       effectiveLessonShape === 'series' &&
       lesson.twoLessonPackagingMode === 'sb_wb'
-    // LiA/Grammar/CLIL/Culture/Writing remain resolver sb_only; C-adapters activate on teacher-chosen series only.
+    // LiA→Review are resolver sb_wb with neutral five-artifact fallback; C-adapters still activate on teacher-chosen series when flagged on.
     const liaSeriesPackageRequested = effectiveLessonShape === 'series'
     const grammarSeriesPackageRequested = effectiveLessonShape === 'series'
     const clilPeSeriesPackageRequested = effectiveLessonShape === 'series'
@@ -1598,7 +1614,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // LiA-C failure: retain current sb_only path with captured selections.
+          // LiA-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -1696,7 +1712,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // CLIL-C failure: retain current sb_only path with captured selections.
+          // CLIL-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -1794,7 +1810,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // Culture-C failure: retain current sb_only path with captured selections.
+          // Culture-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -1892,7 +1908,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // Writing-C failure: retain current sb_only path with captured selections.
+          // Writing-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -1990,7 +2006,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // Phonics-C failure: retain current sb_only path with captured selections.
+          // Phonics-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -2088,7 +2104,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // Review-C failure: retain current sb_only path with captured selections.
+          // Review-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }
@@ -2183,7 +2199,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
         setChalkiePreparing(false)
         if (!result.ok) {
-          // Grammar-C failure: retain current sb_only path with captured selections.
+          // Grammar-C failure: retain neutral series (or SB-only) fallback with captured selections.
           applyPreparedChalkieOutput(buildExistingChalkieOutput(biInputs))
           return
         }

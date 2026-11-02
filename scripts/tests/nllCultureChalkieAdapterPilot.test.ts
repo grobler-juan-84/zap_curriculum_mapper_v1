@@ -325,7 +325,7 @@ test('Culture-C stays isolated from CLIL package identity', () => {
   )
 })
 
-test('Create-a-prompt is wired to Culture-C with sb_only fallback and no Culture BI framing', () => {
+test('Create-a-prompt is wired to Culture-C with neutral-series fallback and no Culture BI framing', () => {
   const overlay = fs.readFileSync(
     path.join(ROOT, 'app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx'),
     'utf8',
@@ -346,7 +346,7 @@ test('Create-a-prompt is wired to Culture-C with sb_only fallback and no Culture
   )
   assert.match(
     overlay,
-    /Culture-C failure: retain current sb_only path with captured selections/,
+    /Culture-C failure: retain neutral series \(or SB-only\) fallback with captured selections/,
   )
   assert.doesNotMatch(
     overlay,
