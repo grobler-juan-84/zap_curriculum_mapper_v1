@@ -7993,3 +7993,19 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 457
+
+**Summary:** Teacher Experience Fix #2 — genuine SB-only Create-a-prompt no longer shows an empty Workbook step. `includeTeacherChoiceWorkbookStep` ignores `retainEmptyWorkbookSpread` (layout-only for Values paired SB facing); verified SB→WB with WB cards still get the 5-step Workbook review. Browser-verified Values Step 1 of 4 → Prior skills Step 2 of 4 with selection persistence; Opener Step 1 of 5 → Workbook Step 2 of 5. Findings #3–#4 untouched. No commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/teacherChoiceFlow.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `scripts/tests/teacherChoiceFlow.test.ts` (updated)
+- `scripts/tests/chalkieSbOnlyActivityLayout.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

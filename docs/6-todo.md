@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 456
+**Last updated:** Step 457
 
 
 
@@ -795,7 +795,9 @@
 
 - [x] **Priority 5 genuine SB-only NLP (2026-11-02, Step 455):** `buildNeutralSbOnlyLessonPackage` + Inspector wiring; reuses SB selection + two-lesson allocation; attaches selected NLL derivedKnowledge; never invents Workbook evidence; SB→WB preserved. Focused **6/6**; package **31/31**; Inspector **13/13**. Uncommitted pending owner review.
 
-- [x] **Teacher Experience Fix #1 — Workbook selection defaults (2026-11-02, Step 456):** Companion WB activities default-selected with SB; deselections persist across steps; Values SB-only unaffected. Lesson-selection tests **12/12**. Uncommitted pending owner review. Findings #2–#4 not in scope.
+- [x] **Teacher Experience Fix #1 — Workbook selection defaults (2026-11-02, Step 456):** Companion WB activities default-selected with SB; deselections persist across steps; Values SB-only unaffected. Lesson-selection tests **12/12**. Committed `935f1bd`.
+
+- [x] **Teacher Experience Fix #2 — Skip empty Workbook step for SB-only (2026-11-02, Step 457):** `includeTeacherChoiceWorkbookStep` no longer force-includes via Values allowlist; Values is **Step N of 4** with no WB step; Opener retains **Step N of 5** WB review. Flow + SB-only layout tests pass. Uncommitted. Findings #3–#4 not in scope.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

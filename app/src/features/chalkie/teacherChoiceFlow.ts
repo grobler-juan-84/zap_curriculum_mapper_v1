@@ -4,10 +4,10 @@
  * Full path (verified Workbook activities available): 5 screens —
  * Review SB selection → Review WB selection → Prior skills → Neutral review →
  * Choose output.
- * When no verified Workbook companion/activity set exists, the Workbook
- * screen is usually omitted and progress renumbers to 4 steps.
- * Companion-free allowlisted lessons (e.g. Values) still keep an empty
- * Workbook step so the paired book workflow stays consistent.
+ * Genuine SB-only lessons (including companion-free allowlisted Values) omit
+ * the Workbook screen and renumber to 4 steps. Empty Workbook steps are never
+ * shown. Verified SB→WB companions with eligible Workbook cards keep the
+ * Workbook screen.
  *
  * Activity selection is owned by the left-panel current-lesson surface; the
  * first screens confirm/adjust that shared selection rather than restarting it.
@@ -46,12 +46,13 @@ export function includeTeacherChoiceWorkbookStep(input: {
   hasVerifiedWorkbookCompanion: boolean
   workbookActivityCardCount: number
   /**
-   * Companion-free allowlisted lessons (Values) keep an empty Workbook step
-   * for the regular two-source modal workflow.
+   * @deprecated No longer forces a Workbook step. Kept so callers that still
+   * pass companion-free layout flags (Values paired SB spread) do not break.
+   * Empty Workbook steps are never included.
    */
   retainEmptyWorkbookSpread?: boolean
 }): boolean {
-  if (input.retainEmptyWorkbookSpread) return true
+  void input.retainEmptyWorkbookSpread
   return (
     input.hasVerifiedWorkbookCompanion && input.workbookActivityCardCount > 0
   )

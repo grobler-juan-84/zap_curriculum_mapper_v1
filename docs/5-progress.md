@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 456
+**Last updated:** Step 457
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,21 +11,20 @@
 
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
 - **D017–D031** locked; D029 Inspector audit-hardened and smoke-checked under revised scope.
-- **Checkpoint on main:** through Step 454 / Priority 4 (`1fb7926`). Priority 3 (`171138a`) already on `origin/main`.
+- **Checkpoint on main:** through Step 456 / Fix #1 (`935f1bd`). Priority 5 SB-only NLP (`d08d53b`) already on local `main`.
 - **BE3 Unit 8** NLL activity-summary path remains on `main` lineage; live NLL **10 / 77 / 77 / 10**; history **29 / 0 / 0**.
-- **Priority 2–4 on main:** D031 summaries; Inspector authoritative staleness; exact membership component lookup.
-- **Priority 5 local (Step 455):** Genuine SB-only neutral NLP via `buildNeutralSbOnlyLessonPackage` (uncommitted).
-- **Teacher Experience Fix #1 (Step 456):** Verified SB→WB Workbook activities now default-selected. Pending scope wait includes companion WB readiness; known-id refs no longer mutate inside setState (Strict Mode-safe). Opener verified **5/5 + 4/4**; Values SB-only unaffected.
+- **Teacher Experience Fix #1 (Step 456):** Verified SB→WB Workbook activities default-selected (`935f1bd`).
+- **Teacher Experience Fix #2 (Step 457):** Genuine SB-only lessons (including Values) omit the empty Workbook step and renumber to 4; Opener keeps 5-step WB flow. Uncommitted.
 
 ## In progress
 
-- Steps 455–456 await owner review / commit authorization.
+- Step 457 awaits owner review / commit authorization.
 - Production Inspector transport remains parked (F027).
 
 ## Next
 
-- Owner review/commit of Steps 455–456 when ready (separately or together).
-- Remaining Teacher Experience findings #2–#4 only when explicitly approved one at a time.
+- Owner review/commit of Step 457 when ready.
+- Remaining Teacher Experience findings #3–#4 only when explicitly approved one at a time.
 - Hold NLL promotion, deployment, and permanent flag-on defaults until requested.
 - F027 production Inspector access only when hosting is chosen and explicitly authorized.
 
@@ -39,5 +38,5 @@
 
 ## Snapshot notes
 
-- Step 456 is selection-init only; no canonical/NLL/NLP/prompt/adapter changes.
+- Step 457 is Create-a-prompt step-gate only; no canonical/NLL/NLP/prompt/adapter changes.
 - Root untracked `package-lock.json` remains outside this task.

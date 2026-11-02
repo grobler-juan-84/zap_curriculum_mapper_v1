@@ -1142,10 +1142,11 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
 
   if (!open || !lesson) return null
 
+  // SB-only / Values: omit empty Workbook step (retainEmptyWorkbookSpread is
+  // layout-only for the Student Book spread, not a step-inclusion signal).
   const includeWorkbookStep = includeTeacherChoiceWorkbookStep({
     hasVerifiedWorkbookCompanion,
     workbookActivityCardCount: workbookActivityCards.length,
-    retainEmptyWorkbookSpread,
   })
   const totalSteps = teacherChoiceTotalSteps(includeWorkbookStep)
   const resolvedStepId =

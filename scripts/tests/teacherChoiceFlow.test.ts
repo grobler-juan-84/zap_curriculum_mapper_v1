@@ -212,11 +212,21 @@ test('teacher-choice flow is five steps with optional Workbook skip', () => {
     }),
     false,
   )
+  // Companion-free allowlisted lessons (Values) must not force an empty
+  // Workbook step — retainEmptyWorkbookSpread is layout-only now.
   assert.equal(
     includeTeacherChoiceWorkbookStep({
       hasVerifiedWorkbookCompanion: false,
       workbookActivityCardCount: 0,
       retainEmptyWorkbookSpread: true,
+    }),
+    false,
+  )
+  assert.equal(
+    includeTeacherChoiceWorkbookStep({
+      hasVerifiedWorkbookCompanion: true,
+      workbookActivityCardCount: 4,
+      retainEmptyWorkbookSpread: false,
     }),
     true,
   )

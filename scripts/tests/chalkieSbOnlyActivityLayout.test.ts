@@ -183,7 +183,7 @@ test('BE3 Unit 1 p.4 SB-only layout shows one full-width Student Book list', () 
   assert.ok(visible.every((column) => column.includedInLessonScope))
 })
 
-test('BE3 U8 Values p.142 keeps paired SB facing + empty Workbook step', () => {
+test('BE3 U8 Values p.142 keeps paired SB facing and skips empty Workbook step', () => {
   const summary = be3UnitSummary(8)
   const lesson = resolveChalkieLessonContext({
     book: bookStub({
@@ -206,13 +206,14 @@ test('BE3 U8 Values p.142 keeps paired SB facing + empty Workbook step', () => {
     }),
     true,
   )
+  // Allowlist retains paired SB layout only — never an empty Workbook step.
   assert.equal(
     includeTeacherChoiceWorkbookStep({
       hasVerifiedWorkbookCompanion: false,
       workbookActivityCardCount: 0,
       retainEmptyWorkbookSpread: true,
     }),
-    true,
+    false,
   )
 
   const cards = buildSbActivityCards({
@@ -234,6 +235,8 @@ test('BE3 U8 Values p.142 keeps paired SB facing + empty Workbook step', () => {
     [true, false],
   )
 
+  // Empty WB panel helper remains available for layout code, but the Create-a-
+  // prompt step gate above excludes it from the numbered workflow.
   const wbPanels = buildWbActivityPagePanels({
     cards: [],
     companion: null,
