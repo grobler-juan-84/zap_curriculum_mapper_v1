@@ -8027,3 +8027,20 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 459
+
+**Summary:** Teacher Experience Fix #3b — session-only per-scope activity-selection memory. Known and selected SB/WB card IDs stored separately; empty selection preserved as valid; first-visit defaults retained; memory cleared at book-session boundaries; Create-a-prompt freeze unchanged. F028 resolved. Finding #4 / navigation / curriculum / prompts / adapters untouched. Tests 15/15; browser-verified Opener exclusions restore after Phonics navigate-away. No commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/lessonActivitySelection.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/lessonActivitySelection.test.ts` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

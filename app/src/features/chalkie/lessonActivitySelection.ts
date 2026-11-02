@@ -2,8 +2,10 @@
  * Workspace-level activity selection scope and reconciliation.
  *
  * Selection is owned by the neutral current-lesson surface (left panel) and
- * shared with Create-a-prompt. Scope changes reset deterministically; within a
- * scope, new eligible cards default to selected and known deselections stick.
+ * shared with Create-a-prompt. Within a scope, new eligible cards default to
+ * selected and known deselections stick. Across scopes in the same Book
+ * Workspace book session, a memory map restores known+selected ids so teacher
+ * exclusions survive navigation; first visit to a scope still defaults all-on.
  */
 
 import {
@@ -148,4 +150,168 @@ export function includedActivitiesCountLabel(
 ): string {
   const noun = totalCount === 1 ? 'activity' : 'activities'
   return `${selectedCount} of ${totalCount} ${noun} included`
+}
+
+/**
+ * Session-only memory for one lesson-scope key. Empty selected arrays are valid
+ * teacher choices; absence from the map means uninitialized (first visit).
+ */
+export type LessonActivityScopeSelectionMemory = {
+  readonly knownSbCardIds: readonly string[]
+  readonly selectedSbCardIds: readonly string[]
+  readonly knownWbCardIds: readonly string[]
+  readonly selectedWbCardIds: readonly string[]
+}
+
+export type LessonActivityScopeSelectionMemoryMap = Map<
+  string,
+  LessonActivityScopeSelectionMemory
+>
+
+export function createLessonActivityScopeSelectionMemoryMap(): LessonActivityScopeSelectionMemoryMap {
+  return new Map()
+}
+
+export function clearLessonActivityScopeSelectionMemory(
+  map: LessonActivityScopeSelectionMemoryMap,
+): void {
+  map.clear()
+}
+
+export function readLessonActivityScopeSelectionMemory(
+  map: LessonActivityScopeSelectionMemoryMap,
+  scopeKey: string,
+): LessonActivityScopeSelectionMemory | undefined {
+  if (!scopeKey) return undefined
+  return map.get(scopeKey)
+}
+
+export function writeLessonActivityScopeSelectionMemory(
+  map: LessonActivityScopeSelectionMemoryMap,
+  scopeKey: string,
+  memory: LessonActivityScopeSelectionMemory,
+): void {
+  if (!scopeKey) return
+  map.set(scopeKey, {
+    knownSbCardIds: [...memory.knownSbCardIds],
+    selectedSbCardIds: [...memory.selectedSbCardIds],
+    knownWbCardIds: [...memory.knownWbCardIds],
+    selectedWbCardIds: [...memory.selectedWbCardIds],
+  })
+}
+
+export function captureLessonActivityScopeSelectionMemory(input: {
+  knownSbCardIds: readonly string[]
+  selectedSbCardIds: readonly string[]
+  knownWbCardIds: readonly string[]
+  selectedWbCardIds: readonly string[]
+}): LessonActivityScopeSelectionMemory {
+  return {
+    knownSbCardIds: [...input.knownSbCardIds],
+    selectedSbCardIds: [...input.selectedSbCardIds],
+    knownWbCardIds: [...input.knownWbCardIds],
+    selectedWbCardIds: [...input.selectedWbCardIds],
+  }
+}
+
+/** Union previous known ids with cards seen now (stable order: prior, then new). */
+export function mergeKnownActivityCardIds(
+  previousKnown: readonly string[],
+  currentCardIds: readonly string[],
+): readonly string[] {
+  const seen = new Set<string>()
+  const merged: string[] = []
+  for (const id of previousKnown) {
+    if (seen.has(id)) continue
+    seen.add(id)
+    merged.push(id)
+  }
+  for (const id of currentCardIds) {
+    if (seen.has(id)) continue
+    seen.add(id)
+    merged.push(id)
+  }
+  return merged
+}
+
+/**
+ * Keep selected ids for known cards that have not loaded yet, so a partial
+ * card set cannot drop a saved inclusion before the card arrives.
+ */
+export function retainSelectedIdsForUnloadedKnownCards(input: {
+  knownCardIds: readonly string[]
+  selectedCardIds: readonly string[]
+  loadedCardIds: readonly string[]
+  reconciledSelectedIds: readonly string[]
+}): readonly string[] {
+  const loaded = new Set(input.loadedCardIds)
+  const known = new Set(input.knownCardIds)
+  const retainedPending = input.selectedCardIds.filter(
+    (id) => known.has(id) && !loaded.has(id),
+  )
+  return mergeKnownActivityCardIds(input.reconciledSelectedIds, retainedPending)
+}
+
+/**
+ * Apply saved scope memory to the cards currently loaded.
+ * Uses saved known ids as reconcile previousCardIds so late-arriving previously
+ * deselected cards are not mistaken for new cards. Selected ids for known but
+ * not-yet-loaded cards are retained in memory until those cards appear.
+ */
+export function applyLessonActivityScopeSelectionMemory(input: {
+  memory: LessonActivityScopeSelectionMemory
+  sbCards: readonly SbActivityCard[]
+  wbCards: readonly WbActivityCard[]
+}): {
+  sbSelection: SbActivitySelectionState
+  wbSelection: WbActivitySelectionState
+  knownSbCardIds: readonly string[]
+  knownWbCardIds: readonly string[]
+  memory: LessonActivityScopeSelectionMemory
+} {
+  const sbLoadedIds = input.sbCards.map((card) => card.id)
+  const wbLoadedIds = input.wbCards.map((card) => card.id)
+  const sbSelection = reconcileSbActivitySelection({
+    cards: input.sbCards,
+    previous: { selectedCardIds: input.memory.selectedSbCardIds },
+    previousCardIds: input.memory.knownSbCardIds,
+  })
+  const wbSelection = reconcileWbActivitySelection({
+    cards: input.wbCards,
+    previous: { selectedCardIds: input.memory.selectedWbCardIds },
+    previousCardIds: input.memory.knownWbCardIds,
+  })
+  const knownSbCardIds = mergeKnownActivityCardIds(
+    input.memory.knownSbCardIds,
+    sbLoadedIds,
+  )
+  const knownWbCardIds = mergeKnownActivityCardIds(
+    input.memory.knownWbCardIds,
+    wbLoadedIds,
+  )
+  const selectedSbCardIds = retainSelectedIdsForUnloadedKnownCards({
+    knownCardIds: input.memory.knownSbCardIds,
+    selectedCardIds: input.memory.selectedSbCardIds,
+    loadedCardIds: sbLoadedIds,
+    reconciledSelectedIds: sbSelection.selectedCardIds,
+  })
+  const selectedWbCardIds = retainSelectedIdsForUnloadedKnownCards({
+    knownCardIds: input.memory.knownWbCardIds,
+    selectedCardIds: input.memory.selectedWbCardIds,
+    loadedCardIds: wbLoadedIds,
+    reconciledSelectedIds: wbSelection.selectedCardIds,
+  })
+  const memory = captureLessonActivityScopeSelectionMemory({
+    knownSbCardIds,
+    selectedSbCardIds,
+    knownWbCardIds,
+    selectedWbCardIds,
+  })
+  return {
+    sbSelection: { selectedCardIds: sbSelection.selectedCardIds },
+    wbSelection: { selectedCardIds: wbSelection.selectedCardIds },
+    knownSbCardIds,
+    knownWbCardIds,
+    memory,
+  }
 }

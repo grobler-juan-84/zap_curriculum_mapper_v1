@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 458
+**Last updated:** Step 459
 
 
 
@@ -799,7 +799,9 @@
 
 - [x] **Teacher Experience Fix #2 — Skip empty Workbook step for SB-only (2026-11-02, Step 457):** `includeTeacherChoiceWorkbookStep` no longer force-includes via Values allowlist; Values is **Step N of 4** with no WB step; Opener retains **Step N of 5** WB review. Flow + SB-only layout tests pass. Committed `5aef900`.
 
-- [x] **Teacher Experience Fix #3 — Prepared vs Viewed unit labels (2026-11-02, Step 458):** Header **Prepared unit** aria/titles; mismatch Book Content + SS copy; no auto-switch/clamp/selection changes. Product-surface tests pass. Uncommitted. Finding #3b parked as **F028**; Finding #4 not in scope.
+- [x] **Teacher Experience Fix #3 — Prepared vs Viewed unit labels (2026-11-02, Step 458):** Header **Prepared unit** aria/titles; mismatch Book Content + SS copy; no auto-switch/clamp/selection changes. Product-surface tests pass. Committed `6edfaec`. Finding #4 not in scope.
+
+- [x] **Teacher Experience Fix #3b — Session-only per-scope selection memory (2026-11-02, Step 459):** Known+selected SB/WB IDs; empty selection valid; first-visit defaults; clear at book-session boundaries; Create-a-prompt freeze unchanged. Tests **15/15**; browser Opener exclusions restored after Phonics. **F028** resolved. Uncommitted. Finding #4 not in scope.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

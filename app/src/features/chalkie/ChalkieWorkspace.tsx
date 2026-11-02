@@ -70,10 +70,16 @@ import {
 import { buildCurrentLessonContext } from './currentLessonContext'
 import {
   activityCardIdsKey,
+  applyLessonActivityScopeSelectionMemory,
   buildLessonActivitySelectionScopeKey,
+  captureLessonActivityScopeSelectionMemory,
+  clearLessonActivityScopeSelectionMemory,
+  createLessonActivityScopeSelectionMemoryMap,
+  readLessonActivityScopeSelectionMemory,
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
   shouldClearPendingLessonActivitySelectionDefault,
+  writeLessonActivityScopeSelectionMemory,
 } from './lessonActivitySelection'
 import { useAuth } from '../auth/AuthProvider'
 import { useWorkspace } from '../shell/WorkspaceProvider'
@@ -218,6 +224,10 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const selectionScopeKeyRef = useRef('')
   const knownSbCardIdsRef = useRef<readonly string[]>([])
   const knownWbCardIdsRef = useRef<readonly string[]>([])
+  /** Session-only per-scope selection memory (cleared at book-session boundaries). */
+  const selectionByScopeRef = useRef(createLessonActivityScopeSelectionMemoryMap())
+  const sbActivitySelectionRef = useRef(sbActivitySelection)
+  const wbActivitySelectionRef = useRef(wbActivitySelection)
   const resumeGuardPagesRef = useRef<number[] | null>(null)
   const resumeGuardUntilRef = useRef(0)
   const [pdfJumpRequest, setPdfJumpRequest] = useState<{
@@ -868,20 +878,136 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const selectionWbCardIdsKey = activityCardIdsKey(selectionWbCards)
   const pendingSelectionDefaultScopeRef = useRef<string | null>(null)
 
+  const persistActiveScopeSelectionMemory = useCallback(
+    (
+      scopeKey: string,
+      sbSelection: SbActivitySelectionState,
+      wbSelection: WbActivitySelectionState,
+      knownSb: readonly string[],
+      knownWb: readonly string[],
+    ) => {
+      if (!scopeKey) return
+      writeLessonActivityScopeSelectionMemory(
+        selectionByScopeRef.current,
+        scopeKey,
+        captureLessonActivityScopeSelectionMemory({
+          knownSbCardIds: knownSb,
+          selectedSbCardIds: sbSelection.selectedCardIds,
+          knownWbCardIds: knownWb,
+          selectedWbCardIds: wbSelection.selectedCardIds,
+        }),
+      )
+    },
+    [],
+  )
+
   useEffect(() => {
-    const scopeChanged = activeSelectionScopeKey !== selectionScopeKeyRef.current
+    sbActivitySelectionRef.current = sbActivitySelection
+  }, [sbActivitySelection])
+  useEffect(() => {
+    wbActivitySelectionRef.current = wbActivitySelection
+  }, [wbActivitySelection])
+
+  // Belt-and-suspenders: book session boundaries clear memory even if remount lags.
+  useEffect(() => {
+    clearLessonActivityScopeSelectionMemory(selectionByScopeRef.current)
+    selectionScopeKeyRef.current = ''
+    pendingSelectionDefaultScopeRef.current = null
+    knownSbCardIdsRef.current = []
+    knownWbCardIdsRef.current = []
+  }, [book.id])
+
+  useEffect(() => {
+    const previousScopeKey = selectionScopeKeyRef.current
+    const scopeChanged = activeSelectionScopeKey !== previousScopeKey
     if (scopeChanged) {
+      if (previousScopeKey) {
+        persistActiveScopeSelectionMemory(
+          previousScopeKey,
+          sbActivitySelectionRef.current,
+          wbActivitySelectionRef.current,
+          knownSbCardIdsRef.current,
+          knownWbCardIdsRef.current,
+        )
+      }
       selectionScopeKeyRef.current = activeSelectionScopeKey
+      const restored = readLessonActivityScopeSelectionMemory(
+        selectionByScopeRef.current,
+        activeSelectionScopeKey,
+      )
+      if (restored) {
+        pendingSelectionDefaultScopeRef.current = null
+        const applied = applyLessonActivityScopeSelectionMemory({
+          memory: restored,
+          sbCards: selectionSbCards,
+          wbCards: selectionWbCards,
+        })
+        setSbActivitySelection(applied.sbSelection)
+        setWbActivitySelection(applied.wbSelection)
+        knownSbCardIdsRef.current = applied.knownSbCardIds
+        knownWbCardIdsRef.current = applied.knownWbCardIds
+        writeLessonActivityScopeSelectionMemory(
+          selectionByScopeRef.current,
+          activeSelectionScopeKey,
+          applied.memory,
+        )
+        return
+      }
       pendingSelectionDefaultScopeRef.current = activeSelectionScopeKey
       knownSbCardIdsRef.current = []
       knownWbCardIdsRef.current = []
     }
 
+    const remembered = readLessonActivityScopeSelectionMemory(
+      selectionByScopeRef.current,
+      activeSelectionScopeKey,
+    )
+    if (
+      remembered &&
+      pendingSelectionDefaultScopeRef.current !== activeSelectionScopeKey
+    ) {
+      const applied = applyLessonActivityScopeSelectionMemory({
+        memory: remembered,
+        sbCards: selectionSbCards,
+        wbCards: selectionWbCards,
+      })
+      knownSbCardIdsRef.current = applied.knownSbCardIds
+      knownWbCardIdsRef.current = applied.knownWbCardIds
+      writeLessonActivityScopeSelectionMemory(
+        selectionByScopeRef.current,
+        activeSelectionScopeKey,
+        applied.memory,
+      )
+      setSbActivitySelection((previous) => {
+        const nextIds = activityCardIdsKey(
+          applied.sbSelection.selectedCardIds.map((id) => ({ id })),
+        )
+        const prevIds = activityCardIdsKey(
+          previous.selectedCardIds.map((id) => ({ id })),
+        )
+        return nextIds === prevIds ? previous : applied.sbSelection
+      })
+      setWbActivitySelection((previous) => {
+        const nextIds = activityCardIdsKey(
+          applied.wbSelection.selectedCardIds.map((id) => ({ id })),
+        )
+        const prevIds = activityCardIdsKey(
+          previous.selectedCardIds.map((id) => ({ id })),
+        )
+        return nextIds === prevIds ? previous : applied.wbSelection
+      })
+      return
+    }
+
     if (pendingSelectionDefaultScopeRef.current === activeSelectionScopeKey) {
-      setSbActivitySelection(createDefaultSbActivitySelection(selectionSbCards))
-      setWbActivitySelection(createDefaultWbActivitySelection(selectionWbCards))
-      knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
-      knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
+      const defaultSb = createDefaultSbActivitySelection(selectionSbCards)
+      const defaultWb = createDefaultWbActivitySelection(selectionWbCards)
+      const knownSb = selectionSbCards.map((card) => card.id)
+      const knownWb = selectionWbCards.map((card) => card.id)
+      setSbActivitySelection(defaultSb)
+      setWbActivitySelection(defaultWb)
+      knownSbCardIdsRef.current = knownSb
+      knownWbCardIdsRef.current = knownWb
       // Keep re-defaulting until SB cards arrive and, for companion lessons,
       // until WB cards arrive or the workbook summary has finished loading.
       // Clearing on SB-only arrival left verified WB companions at 0 of N.
@@ -897,6 +1023,13 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         })
       ) {
         pendingSelectionDefaultScopeRef.current = null
+        persistActiveScopeSelectionMemory(
+          activeSelectionScopeKey,
+          defaultSb,
+          defaultWb,
+          knownSb,
+          knownWb,
+        )
       }
       return
     }
@@ -906,37 +1039,47 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     // but deselected → stuck at 0 of N).
     const previousKnownSbCardIds = knownSbCardIdsRef.current
     const previousKnownWbCardIds = knownWbCardIdsRef.current
-
+    const nextSb = reconcileSbActivitySelection({
+      cards: selectionSbCards,
+      previous: sbActivitySelectionRef.current,
+      previousCardIds: previousKnownSbCardIds,
+    })
+    const nextWb = reconcileWbActivitySelection({
+      cards: selectionWbCards,
+      previous: wbActivitySelectionRef.current,
+      previousCardIds: previousKnownWbCardIds,
+    })
+    const nextKnownSb = selectionSbCards.map((card) => card.id)
+    const nextKnownWb = selectionWbCards.map((card) => card.id)
+    knownSbCardIdsRef.current = nextKnownSb
+    knownWbCardIdsRef.current = nextKnownWb
     setSbActivitySelection((previous) => {
-      const next = reconcileSbActivitySelection({
-        cards: selectionSbCards,
-        previous,
-        previousCardIds: previousKnownSbCardIds,
-      })
       const nextIds = activityCardIdsKey(
-        next.selectedCardIds.map((id) => ({ id })),
+        nextSb.selectedCardIds.map((id) => ({ id })),
       )
       const prevIds = activityCardIdsKey(
         previous.selectedCardIds.map((id) => ({ id })),
       )
-      return nextIds === prevIds ? previous : next
+      return nextIds === prevIds ? previous : nextSb
     })
     setWbActivitySelection((previous) => {
-      const next = reconcileWbActivitySelection({
-        cards: selectionWbCards,
-        previous,
-        previousCardIds: previousKnownWbCardIds,
-      })
       const nextIds = activityCardIdsKey(
-        next.selectedCardIds.map((id) => ({ id })),
+        nextWb.selectedCardIds.map((id) => ({ id })),
       )
       const prevIds = activityCardIdsKey(
         previous.selectedCardIds.map((id) => ({ id })),
       )
-      return nextIds === prevIds ? previous : next
+      return nextIds === prevIds ? previous : nextWb
     })
-    knownSbCardIdsRef.current = selectionSbCards.map((card) => card.id)
-    knownWbCardIdsRef.current = selectionWbCards.map((card) => card.id)
+    if (activeSelectionScopeKey) {
+      persistActiveScopeSelectionMemory(
+        activeSelectionScopeKey,
+        nextSb,
+        nextWb,
+        nextKnownSb,
+        nextKnownWb,
+      )
+    }
   }, [
     activeSelectionScopeKey,
     selectionSbCardIdsKey,
@@ -944,35 +1087,65 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     selectionSbCards,
     selectionWbCards,
     workbookSummary,
+    persistActiveScopeSelectionMemory,
   ])
 
   const handleSbActivitySelectionChange = useCallback(
     (cardId: string, selected: boolean) => {
-      setSbActivitySelection((current) =>
-        setSbActivityCardSelected({
+      setSbActivitySelection((current) => {
+        const next = setSbActivityCardSelected({
           cards: selectionSbCards,
           state: current,
           cardId,
           selected,
-        }),
-      )
+        })
+        persistActiveScopeSelectionMemory(
+          activeSelectionScopeKey,
+          next,
+          wbActivitySelectionRef.current,
+          knownSbCardIdsRef.current,
+          knownWbCardIdsRef.current,
+        )
+        return next
+      })
     },
-    [selectionSbCards],
+    [selectionSbCards, activeSelectionScopeKey, persistActiveScopeSelectionMemory],
   )
 
   const handleWbActivitySelectionChange = useCallback(
     (cardId: string, selected: boolean) => {
-      setWbActivitySelection((current) =>
-        setWbActivityCardSelected({
+      setWbActivitySelection((current) => {
+        const next = setWbActivityCardSelected({
           cards: selectionWbCards,
           state: current,
           cardId,
           selected,
-        }),
-      )
+        })
+        persistActiveScopeSelectionMemory(
+          activeSelectionScopeKey,
+          sbActivitySelectionRef.current,
+          next,
+          knownSbCardIdsRef.current,
+          knownWbCardIdsRef.current,
+        )
+        return next
+      })
     },
-    [selectionWbCards],
+    [
+      selectionWbCards,
+      activeSelectionScopeKey,
+      persistActiveScopeSelectionMemory,
+    ],
   )
+
+  const handleBackToBooks = useCallback(() => {
+    clearLessonActivityScopeSelectionMemory(selectionByScopeRef.current)
+    selectionScopeKeyRef.current = ''
+    pendingSelectionDefaultScopeRef.current = null
+    knownSbCardIdsRef.current = []
+    knownWbCardIdsRef.current = []
+    onBackToBooks()
+  }, [onBackToBooks])
 
   const handlePreparePrompt = useCallback(() => {
     const resolved = resolveChalkieLessonContext({
@@ -1539,7 +1712,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         onSelectBatch={handleSelectBatch}
         onSelectSeries={onSelectSeries}
         onSelectBook={onSelectBook}
-        onBackToBooks={onBackToBooks}
+        onBackToBooks={handleBackToBooks}
         showVerificationStatus={false}
         bookOptionsFilter="student_books_only"
         bookDisplayTitle={(entry) => studentBookDisplayTitle(entry.title)}

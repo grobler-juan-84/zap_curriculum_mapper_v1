@@ -27,13 +27,20 @@ import {
 import { buildCurrentLessonContext } from '../../app/src/features/chalkie/currentLessonContext.ts'
 import {
   activityCardIdsKey,
+  applyLessonActivityScopeSelectionMemory,
   buildLessonActivitySelectionScopeKey,
+  captureLessonActivityScopeSelectionMemory,
+  clearLessonActivityScopeSelectionMemory,
+  createLessonActivityScopeSelectionMemoryMap,
   includedActivitiesCountLabel,
+  mergeKnownActivityCardIds,
+  readLessonActivityScopeSelectionMemory,
   reconcileActivitySelection,
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
   selectionScopeHasCompanion,
   shouldClearPendingLessonActivitySelectionDefault,
+  writeLessonActivityScopeSelectionMemory,
 } from '../../app/src/features/chalkie/lessonActivitySelection.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
 import { resolveChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
@@ -618,4 +625,169 @@ test('scope change drops stale IDs and defaults new lesson without cross-compone
     ),
     `${phonicsCards.length} of ${phonicsCards.length} activities included`,
   )
+})
+
+test('scope selection memory restores exclusions and keeps empty selection valid', () => {
+  const map = createLessonActivityScopeSelectionMemoryMap()
+  const openerCards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  const openerKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  })
+  const knownIds = openerCards.map((card) => card.id)
+  const deselectedId = openerCards[0]!.id
+  const selectedIds = knownIds.filter((id) => id !== deselectedId)
+
+  writeLessonActivityScopeSelectionMemory(
+    map,
+    openerKey,
+    captureLessonActivityScopeSelectionMemory({
+      knownSbCardIds: knownIds,
+      selectedSbCardIds: selectedIds,
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+    }),
+  )
+
+  const restored = readLessonActivityScopeSelectionMemory(map, openerKey)
+  assert.ok(restored)
+  const applied = applyLessonActivityScopeSelectionMemory({
+    memory: restored!,
+    sbCards: openerCards,
+    wbCards: [],
+  })
+  assert.ok(!applied.sbSelection.selectedCardIds.includes(deselectedId))
+  assert.equal(applied.sbSelection.selectedCardIds.length, selectedIds.length)
+
+  // Empty selection is valid saved state — not treated as uninitialized.
+  writeLessonActivityScopeSelectionMemory(
+    map,
+    openerKey,
+    captureLessonActivityScopeSelectionMemory({
+      knownSbCardIds: knownIds,
+      selectedSbCardIds: [],
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+    }),
+  )
+  const emptyApplied = applyLessonActivityScopeSelectionMemory({
+    memory: readLessonActivityScopeSelectionMemory(map, openerKey)!,
+    sbCards: openerCards,
+    wbCards: [],
+  })
+  assert.deepEqual(emptyApplied.sbSelection.selectedCardIds, [])
+  assert.ok(readLessonActivityScopeSelectionMemory(map, openerKey))
+})
+
+test('scope selection memory keeps late-loaded deselected cards off', () => {
+  const allIds = ['sb-1', 'sb-2', 'sb-3', 'sb-4']
+  const memory = captureLessonActivityScopeSelectionMemory({
+    knownSbCardIds: allIds,
+    selectedSbCardIds: ['sb-1', 'sb-2', 'sb-3'], // sb-4 deselected
+    knownWbCardIds: ['wb-1', 'wb-2'],
+    selectedWbCardIds: ['wb-1'], // wb-2 deselected
+  })
+
+  // First only a subset of cards has loaded.
+  const early = applyLessonActivityScopeSelectionMemory({
+    memory,
+    sbCards: allIds.slice(0, 2).map((id) => ({ id }) as never),
+    wbCards: [{ id: 'wb-1' } as never],
+  })
+  assert.deepEqual(early.sbSelection.selectedCardIds, ['sb-1', 'sb-2'])
+  assert.deepEqual(early.wbSelection.selectedCardIds, ['wb-1'])
+
+  // Late cards arrive — previously known deselections stay off; not treated as new.
+  const late = applyLessonActivityScopeSelectionMemory({
+    memory: early.memory,
+    sbCards: allIds.map((id) => ({ id }) as never),
+    wbCards: [{ id: 'wb-1' } as never, { id: 'wb-2' } as never],
+  })
+  assert.deepEqual(late.sbSelection.selectedCardIds, ['sb-1', 'sb-2', 'sb-3'])
+  assert.ok(!late.sbSelection.selectedCardIds.includes('sb-4'))
+  assert.deepEqual(late.wbSelection.selectedCardIds, ['wb-1'])
+  assert.ok(!late.wbSelection.selectedCardIds.includes('wb-2'))
+
+  // Genuinely new card still defaults on.
+  const withNew = applyLessonActivityScopeSelectionMemory({
+    memory: late.memory,
+    sbCards: [...allIds, 'sb-5'].map((id) => ({ id }) as never),
+    wbCards: [{ id: 'wb-1' } as never, { id: 'wb-2' } as never],
+  })
+  assert.ok(withNew.sbSelection.selectedCardIds.includes('sb-5'))
+  assert.ok(!withNew.sbSelection.selectedCardIds.includes('sb-4'))
+})
+
+test('scope selection memory isolates keys and clears at session boundary', () => {
+  const map = createLessonActivityScopeSelectionMemoryMap()
+  const openerKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  })
+  const valuesKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [142],
+    companionRelationshipId: null,
+  })
+  const otherBookKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_2_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: null,
+  })
+  assert.notEqual(openerKey, valuesKey)
+  assert.notEqual(openerKey, otherBookKey)
+
+  writeLessonActivityScopeSelectionMemory(
+    map,
+    openerKey,
+    captureLessonActivityScopeSelectionMemory({
+      knownSbCardIds: ['a'],
+      selectedSbCardIds: [],
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+    }),
+  )
+  writeLessonActivityScopeSelectionMemory(
+    map,
+    valuesKey,
+    captureLessonActivityScopeSelectionMemory({
+      knownSbCardIds: ['b'],
+      selectedSbCardIds: ['b'],
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+    }),
+  )
+  assert.deepEqual(
+    readLessonActivityScopeSelectionMemory(map, openerKey)?.selectedSbCardIds,
+    [],
+  )
+  assert.deepEqual(
+    readLessonActivityScopeSelectionMemory(map, valuesKey)?.selectedSbCardIds,
+    ['b'],
+  )
+  assert.equal(readLessonActivityScopeSelectionMemory(map, otherBookKey), undefined)
+
+  clearLessonActivityScopeSelectionMemory(map)
+  assert.equal(readLessonActivityScopeSelectionMemory(map, openerKey), undefined)
+  assert.equal(readLessonActivityScopeSelectionMemory(map, valuesKey), undefined)
+  assert.deepEqual(mergeKnownActivityCardIds(['a'], ['a', 'b']), ['a', 'b'])
+
+  const workspace = fs.readFileSync(
+    path.join(ROOT, 'app/src/features/chalkie/ChalkieWorkspace.tsx'),
+    'utf8',
+  )
+  assert.ok(workspace.includes('createLessonActivityScopeSelectionMemoryMap'))
+  assert.ok(workspace.includes('applyLessonActivityScopeSelectionMemory'))
+  assert.ok(workspace.includes('clearLessonActivityScopeSelectionMemory'))
+  assert.ok(workspace.includes('handleBackToBooks'))
+  assert.ok(workspace.includes('[book.id]'))
 })
