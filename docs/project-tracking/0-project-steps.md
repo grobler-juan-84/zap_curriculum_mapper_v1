@@ -7906,3 +7906,18 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 452
+
+**Summary:** Closed Priority 2 and locked D031 after owner human review of all 77 BE3 Unit 8 NLL activity summaries. Accepted the existing texts unchanged as sufficient, modular and replaceable v1 knowledge—not perfect or permanently final. Recorded the owner's direct confirmation that ChatGPT Desktop produced the AI summary prose, preserved historical provenance without invented backfill, and established stronger provenance requirements for future NLL records. Deliberately left live `review_state` values unchanged pending a separate semantics decision. Documentation-only; no summary, code, migration, database, Storage, visibility, deployment, commit or push change.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/4-decisions.md` (updated; D031)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/current-authority-map-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

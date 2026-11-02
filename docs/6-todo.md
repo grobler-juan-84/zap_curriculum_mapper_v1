@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 451
+**Last updated:** Step 452
 
 
 
@@ -786,6 +786,8 @@
 - [x] **D030 Beauty in Simplicity principle locked (2026-11-02):** verified SS authority → SB/WB evidence → AI processing + human verification → persistent NLL knowledge → administrator-defined scope → teacher selection → lesson-specific NLP → replaceable adapters → teacher approval. Documentation-only; no implementation or production authorization.
 
 - [x] **Inspector test runner standardized (2026-11-02):** pinned `tsx` in `app`; `test:inspector` script; cross-PC commands `npm ci --prefix app` + `npm --prefix app run test:inspector`; focused suite 9/9 via repo-managed runner. No app/contract behavior change.
+
+- [x] **Priority 2 human review / D031 (2026-11-02):** owner accepted all 77 Unit 8 summaries unchanged as sufficient, modular and replaceable v1 knowledge; confirmed ChatGPT Desktop as the AI-summary source; established stronger future provenance requirements; deliberately left live review states unchanged pending a separate semantic decision.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

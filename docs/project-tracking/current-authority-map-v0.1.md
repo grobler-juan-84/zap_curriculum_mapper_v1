@@ -4,9 +4,9 @@
 
 **Date:** 2026-11-02
 
-**Authority:** D027 durable layer model; D028 Values exception; D029 Inspector; D030 Beauty in Simplicity
+**Authority:** D027 durable layer model; D028 Values exception; D029 Inspector; D030 Beauty in Simplicity; D031 Unit 8 summary acceptance
 
-**Current checkpoint:** `main` at `82ec0f7441a853ddc463206b01d89c006009d9c7`
+**Current checkpoint:** `main` at `94249d4fb38db9ab2313fb963cc512378477cedd`
 
 ## Purpose
 
@@ -67,6 +67,11 @@ Choose an output and prepare
 The modal is not itself a finished NLP. NLP assembly happens at the prepare/handoff boundary after the teacher has made selections.
 
 ## Current BE3 Unit 8 state
+
+- All **77** activity summaries were human-reviewed by the owner on 2026-11-02 and accepted unchanged as sufficient, modular and replaceable v1 knowledge; this is not a perfection/finality lock.
+- The owner confirms ChatGPT Desktop produced the AI summary prose. Historical stored provenance remains as originally recorded and is not retroactively embellished.
+- Live summary `review_state` values remain unchanged until their semantics and transition rules are explicitly agreed.
+- Future summary versions must strengthen authoring and review provenance while preserving prior versions and canonical SS/SB/WB evidence.
 
 - Live NLL: **10 components / 77 memberships / 77 summaries / 10 SS links**.
 - Migration history: **29 recorded / 0 pending / 0 remote-only**.

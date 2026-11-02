@@ -655,10 +655,34 @@ The complete responsibility chain is: verified Scope & Sequence defines what mus
 
 ---
 
+### D031 — Unit 8 NLL summaries accepted as sufficient, modular v1 knowledge
+
+**Date:** 2026-11-02
+**Status:** LOCKED
+
+**Decision:** The owner completed the Priority 2 human review of all **77 Big English 3 Unit 8 NLL activity summaries** and accepts them unchanged as **sufficient, modular and replaceable version-1 knowledge**. This is not a claim that every sentence is perfect, final or permanently locked.
+
+The owner directly confirms that the AI summary prose was produced by **ChatGPT Desktop**. Existing repository and database provenance must remain historically honest: where older records identify only `ai_assisted_draft`, a prompt version, provider/model for the Opener, or `human_authored_from_canonical_evidence` for Values, do not retroactively invent more granular actor metadata or rewrite applied migrations solely to normalize attribution.
+
+**Replacement rule:** Preserve the accepted 77 v1 rows unchanged. Future improvements should create a new summary version for the same stable `activity_id`, retain the old version for history, and change the preferred version through an explicit reviewed operation. Canonical SS/SB/WB evidence remains untouched.
+
+**Future provenance requirement:** Newly authored or revised NLL knowledge should record, where applicable: authoring surface or agent, provider, model, prompt/workflow version, source-evidence references and hashes, creation timestamp, human reviewer role or identity, review date, review decision, correction reason, and predecessor/version relationship. Unknown historical details must be recorded as unknown rather than inferred.
+
+**Review-state boundary:** This acceptance does **not** change the live `review_state` values. The meanings and transition rules for `experimental`, `reviewed` and `teacher_corrected` must be agreed explicitly before any database update. No migration, Supabase write, summary rewrite, visibility promotion or deployment is authorized by D031.
+
+**Reason:** The milestone confirms fitness for modular NLL use while preserving easy future replacement and avoiding a false “perfect/final” content lock. It also closes the known authorship question through direct owner testimony without pretending that older machine provenance captured details it did not capture.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves D024, D027, D029 and D030.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-11-02 | Added D031 — owner accepted all 77 BE3 Unit 8 summaries unchanged as sufficient, modular and replaceable v1 knowledge; ChatGPT Desktop authorship recorded; future provenance requirements established; live review states unchanged. |
 | 2026-11-02 | Added D030 — **Beauty in Simplicity** locked as the canonical NLL assembly principle: build reliable conditions from SS/SB/WB through NLL, teacher selection, NLP and replaceable adapters; teacher approval remains final. |
 | 2026-11-01 | Local Vite smoke-check (revised): live admin Phonics + Values; teacher live session not performed (automated tests + code inspection); F027 deferred. |
 | 2026-11-01 | Recorded D029 Inspector environment availability — Vite-dev access endpoint; production transport deferred; fails closed; Inspector-only scope. |
