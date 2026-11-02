@@ -55,6 +55,10 @@ export type NllNlpInspectorActivityRow = {
   readonly printedPage: number
   readonly availableInNll: boolean
   readonly selectedByTeacher: boolean
+  /**
+   * Currently unselected in the Create-a-prompt handoff (`!selectedByTeacher`).
+   * Not a separate intentional-exclusion event log.
+   */
   readonly excludedByTeacher: boolean
   readonly includedInNlp: boolean
   /** Source/activity verification from Phase 1 evidence references. */
@@ -67,6 +71,15 @@ export type NllNlpInspectorActivityRow = {
   readonly nllCurrentActivitySha256: string | null
   readonly nllStoredActivitySha256: string | null
 }
+
+/**
+ * Reserved consumer-lineage stub (GLP / adapters). Not wired to Stage 4 or Chalkie;
+ * reports `not_in_scope` until a separately authorized consumer probe exists.
+ */
+export type NllNlpAdapterOrConsumerInclusion =
+  | 'included'
+  | 'not_in_scope'
+  | 'unavailable'
 
 export type NllNlpInspectionIssueKind =
   | 'missing'
@@ -162,6 +175,11 @@ export type NllNlpInspectionReport = {
     readonly package: NeutralSbWbLessonPackage | null
     readonly note: string
   }
+  /**
+   * Whether a downstream adapter/consumer (e.g. General Lesson Prompt) inclusion
+   * is observable for this snapshot. Stub only — always `not_in_scope` in v1.
+   */
+  readonly adapterOrConsumerInclusion: NllNlpAdapterOrConsumerInclusion
   readonly issues: readonly NllNlpInspectionIssue[]
   readonly markdown: string
 }
@@ -516,6 +534,9 @@ export function renderNllNlpInspectionMarkdown(
   lines.push(`- NLL activities available: ${overview.nllActivitiesAvailable}`)
   lines.push(`- Teacher-selected activities: ${overview.teacherSelectedCount}`)
   lines.push(`- Teacher-excluded activities: ${overview.teacherExcludedCount}`)
+  lines.push(
+    `  - Note: Excluded means currently unselected in the Create-a-prompt handoff (\`!selected\`), not a separate intentional-exclusion event log.`,
+  )
   lines.push(`- Activities included in NLP: ${overview.includedInNlpCount}`)
   lines.push(
     `- Derived summaries included in NLP: ${overview.derivedSummariesInNlpCount}`,
@@ -528,9 +549,18 @@ export function renderNllNlpInspectionMarkdown(
   lines.push(
     `- Staleness-unverifiable records: ${overview.stalenessUnverifiableCount}`,
   )
+  lines.push(
+    `  - Note: \`unverifiable\` means an authoritative current activity hash was not supplied for comparison — it is not itself proof that NLL content is stale.`,
+  )
   lines.push(`- NLP assembly status: **${overview.nlpStatus}**`)
   lines.push(
     `- Assembled package type: ${overview.assembledPackageType ?? 'none'}`,
+  )
+  lines.push(
+    `- Adapter/consumer inclusion (stub): **${report.adapterOrConsumerInclusion}**`,
+  )
+  lines.push(
+    `  - Note: Downstream GLP/adapter consumption is not probed by this Inspector version; \`not_in_scope\` is expected.`,
   )
   lines.push(
     `- Prior-support candidate count: ${overview.priorSupportCandidateCount}`,
@@ -623,6 +653,10 @@ export function renderNllNlpInspectionMarkdown(
   lines.push('## D. Teacher activity selections')
   lines.push('')
   lines.push(
+    'Excluded = currently unselected (`!selected`). Selected and Excluded are inverses in this report version.',
+  )
+  lines.push('')
+  lines.push(
     '| Source | Activity | Page | In NLL | Selected | Excluded | In NLP | Source verification | Review | Evidence | Staleness |',
   )
   lines.push('|---|---|---|---|---|---|---|---|---|---|---|')
@@ -669,12 +703,22 @@ export function renderNllNlpInspectionMarkdown(
   lines.push(
     'Logical lineage where recorded: **Source evidence → NLL record → Teacher selection → NLP inclusion**.',
   )
+  if (report.nlp.status === 'unavailable') {
+    lines.push('')
+    lines.push(
+      'NLP assembly is **unavailable** for this snapshot, so provenance terminates at teacher selection: `nlp=false` does not mean missing NLL knowledge, and no assembled-package inclusion step exists to continue the chain.',
+    )
+  }
   lines.push('')
   for (const row of report.teacherSelections) {
     lines.push(
       `- ${row.source} \`${row.activityId}\`: source_verification=${row.sourceVerificationStatus ?? 'unavailable'}; NLL=${row.availableInNll ? row.nllSummaryId ?? 'membership without preferred summary' : 'not in loaded NLL'}; review=${row.nllReviewState ?? 'n/a'}; evidence=${row.nllEvidenceStatus ?? 'n/a'}; staleness=${row.nllStaleness ?? 'n/a'}; selected=${row.selectedByTeacher}; nlp=${row.includedInNlp}.`,
     )
   }
+  lines.push('')
+  lines.push(
+    `- Adapter/consumer inclusion stub: \`${report.adapterOrConsumerInclusion}\` (Inspector does not probe General Lesson Prompt or other adapters in this version).`,
+  )
   lines.push('')
 
   lines.push('## G. Findings and limitations')
@@ -884,6 +928,8 @@ export async function buildNllNlpInspectionReport(
       package: nlp,
       note: nlpNote,
     },
+    // Reserved contract field; Stage 4 GLP / adapters are not probed here.
+    adapterOrConsumerInclusion: 'not_in_scope',
     issues,
   }
 

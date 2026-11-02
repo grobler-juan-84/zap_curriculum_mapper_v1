@@ -1,8 +1,8 @@
 # NLL/NLP Inspector — Architecture Note v0.1
 
-**Status:** ACTIVE  
-**Version:** 0.1  
-**Date:** 2026-11-01 (audit hardening + local Vite verification same day)  
+**Status:** ACTIVE
+**Version:** 0.1
+**Date:** 2026-11-02 (contract clarifications + Grammar fixture + cross-PC `test:inspector` tooling; prior 2026-11-01 audit/Vite verification retained)
 **Purpose:** Record inspect-first discrepancies, status taxonomy, packaging semantics, experimental-summary policy, staleness limits, authorization boundary, and verification posture for D029.
 
 ---
@@ -79,6 +79,12 @@ Do **not** collapse these into a single “unverified” label:
 
 Section G uses precise kinds: `missing`, `excluded`, `unverified` (source only), `experimental`, `insufficient_evidence`, `stale`, `staleness_unverifiable`, `unavailable`, `untraceable`.
 
+**Excluded glossary:** report `excludedByTeacher` / “Teacher-excluded” means currently **unselected** in the Create-a-prompt handoff (`!selected`). It is not a separate intentional-exclusion event log.
+
+**Provenance termination:** when NLP assembly is `unavailable` (genuine SB-only / no supported companion package), Section F states that lineage terminates at teacher selection — `nlp=false` is not missing NLL knowledge.
+
+**Adapter/consumer stub:** report field `adapterOrConsumerInclusion` is reserved and currently always `not_in_scope` (Inspector does not probe Stage 4 GLP or other adapters).
+
 ---
 
 ## Packaging terminology
@@ -106,6 +112,7 @@ A Values lesson may show configuration `sb_only`, NLL loaded, selections present
 - `loadNeutralLessonComponent` only computes non-`unverifiable` staleness when `currentActivitySha256ById` is supplied.
 - Default Inspector / Stage 4 loads do **not** supply current hashes → `staleness: unverifiable`, `currentActivitySha256: null`.
 - Inspector preserves hashes and explains unverifiable comparison; it does not invent speculative current-hash lookups.
+- Admin-facing note: `unverifiable` means an authoritative **current** activity hash was not supplied for comparison — it is **not** itself proof that NLL content is stale.
 
 ---
 
@@ -130,7 +137,36 @@ Inspector report assembly must call the same NLP builder and NLL loaders used by
 
 ---
 
+## Cross-PC focused verification
+
+After `git pull`, use the repository-managed `app` toolchain (pinned `tsx` in `app/package.json` / `app/package-lock.json`). Do not rely on temporary `npx` installs or copied `node_modules`.
+
+```powershell
+npm ci --prefix app
+npm --prefix app run test:inspector
+```
+
+These are the standard cross-PC setup and focused Inspector verification commands (Work / Home / School / Cursor / ChatGPT Desktop). Environment files remain machine-local and are not transferred via Git.
+
+---
+
 ## Verification log
+
+### 2026-11-02 — Cross-PC Inspector test runner tooling
+
+**Scope:** Pin `tsx` under `app` and standardize focused Inspector verification. No application/contract behavior change.
+
+- Added pinned `tsx` devDependency + `npm --prefix app run test:inspector`.
+- Documented standard commands: `npm ci --prefix app` then `npm --prefix app run test:inspector`.
+- Verification: focused suite **9/9** via repository-managed script.
+
+### 2026-11-02 — Contract slice (Grammar fixture + wording)
+
+**Scope:** Authorized smallest contract slice after Grammar+Values inspection report — no SB-only NLP builder, no hash resolution, no GLP/adapter probing.
+
+- Added Grammar Inspector regression (SB 136–137 / WB 111–112; companion `be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112`; NLL `be3-u08-grammar`; config `sb_only` vs package `two_lesson_sb_wb`; WB `bep_3_wb_act_112_19` exclusion remains in NLL / absent from NLP + derivedKnowledge).
+- Report Markdown clarifications: excluded=unselected glossary; staleness-unverifiable admin note; provenance termination when NLP unavailable; `adapterOrConsumerInclusion: not_in_scope` stub.
+- Focused suite: `nllNlpInspector.test.ts` **9/9**.
 
 ### 2026-11-01 — Local Vite smoke-check (revised scope)
 

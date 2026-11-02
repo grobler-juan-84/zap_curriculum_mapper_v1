@@ -1,6 +1,6 @@
 /**
  * NLL/NLP Inspector report builder (D029) — audit hardening.
- * Run: npx tsx --test scripts/tests/nllNlpInspector.test.ts
+ * Run: npm --prefix app run test:inspector
  */
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -324,10 +324,26 @@ test('companion-free Values-like report stays partial without mutating selection
 
   assert.equal(report.nlp.status, 'unavailable')
   assert.equal(report.nll.status, 'loaded')
+  assert.equal(report.adapterOrConsumerInclusion, 'not_in_scope')
   assert.equal(report.lessonIdentity.twoLessonPackagingConfiguration, 'sb_only')
   assert.equal(report.lessonIdentity.assembledPackageType, null)
   assert.ok(report.markdown.includes('## Overview'))
   assert.ok(report.markdown.includes('Source/configuration mode'))
+  assert.ok(
+    report.markdown.includes(
+      'provenance terminates at teacher selection',
+    ),
+  )
+  assert.ok(
+    report.markdown.includes(
+      'Excluded means currently unselected',
+    ),
+  )
+  assert.ok(
+    report.markdown.includes(
+      'authoritative current activity hash was not supplied',
+    ),
+  )
   assert.ok(
     report.teacherSelections.every(
       (row) => row.selectedByTeacher === true && row.includedInNlp === false,
@@ -342,6 +358,175 @@ test('companion-free Values-like report stays partial without mutating selection
   assert.ok(report.issues.some((issue) => issue.kind === 'experimental'))
   assert.deepEqual(
     sbSelection.selectedEvidence.map((row) => row.cardId),
+    selectedBefore,
+  )
+})
+
+test('Grammar exclusion remains in NLL inventory and absent from NLP', async () => {
+  const pages = [136, 137]
+  const companion = resolveVerifiedSbWbCompanion({
+    studentBookCatalogId: 'big_english_3_sb',
+    studentBookCanonical: sbCanonical,
+    workbookCatalogId: 'big_english_3_wb',
+    workbookCanonical: wbCanonical,
+    studentBookPrintedPages: pages,
+  }).companion
+  assert.ok(companion)
+  assert.equal(
+    companion.relationshipId,
+    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  )
+
+  const sbCards = buildSbActivityCards({
+    summary: sbSummary,
+    activeLessonPrintedPages: pages,
+  })
+  const wbCards = buildWbActivityCards({
+    summary: wbSummary,
+    companion,
+  })
+  assert.ok(wbCards.length > 0)
+
+  let wbState = createDefaultWbActivitySelection(wbCards)
+  const excludedWb = wbCards[wbCards.length - 1]
+  assert.ok(excludedWb)
+  wbState = setWbActivityCardSelected({
+    cards: wbCards,
+    state: wbState,
+    cardId: excludedWb.id,
+    selected: false,
+  })
+
+  const sbSelection = createSbActivityHandoffSelection(
+    sbCards,
+    createDefaultSbActivitySelection(sbCards),
+  )
+  const wbSelection = createWbActivityHandoffSelection(wbCards, wbState)
+  const selectedBefore = [
+    ...sbSelection.selectedEvidence.map((row) => row.cardId),
+    ...wbSelection.selectedEvidence.map((row) => row.cardId),
+  ]
+
+  const allActivityIds = [
+    ...sbCards.map((card) => card.references.activityId),
+    ...wbCards
+      .map((card) => card.references[0]?.activityId)
+      .filter((id): id is string => Boolean(id)),
+  ]
+  assert.deepEqual(
+    [...allActivityIds].sort(),
+    [
+      'bep3_sb_act_08_19',
+      'bep3_sb_act_08_20',
+      'bep3_sb_act_08_21',
+      'bep3_sb_act_08_22',
+      'bep3_sb_act_08_23',
+      'bep_3_wb_act_111_15',
+      'bep_3_wb_act_111_16',
+      'bep_3_wb_act_111_17',
+      'bep_3_wb_act_112_18',
+      'bep_3_wb_act_112_19',
+    ].sort(),
+  )
+  const mockNll = mockNllForIds('be3-u08-grammar', allActivityIds)
+
+  const report = await buildNllNlpInspectionReport({
+    lesson: baseLesson({
+      visiblePrintedPages: pages,
+      visiblePageRangeLabel: '136–137',
+      workbookCompanion: companion,
+      twoLessonPackagingMode: 'sb_only',
+      currentFocus: 'Grammar',
+      singleLessonTitle: 'Grammar',
+    }),
+    activityCards: sbCards,
+    workbookActivityCards: wbCards,
+    sbSelection,
+    wbSelection,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    scopeSequenceUnit: {
+      unitNumberRaw: '8',
+      unitTitleRaw: 'Healthy Living',
+      publisherCategories: [
+        {
+          categoryNameRaw: 'Structures',
+          columnOrder: 1,
+          rawText: 'unit-level structures',
+        },
+      ],
+    } as never,
+    client: {} as never,
+    nowIso: '2026-11-02T00:00:00.000Z',
+    loadNll: async () => mockNll,
+  })
+
+  assert.equal(report.nlp.status, 'assembled')
+  assert.equal(report.nll.status, 'loaded')
+  assert.equal(report.nll.componentKey, 'be3-u08-grammar')
+  assert.equal(report.adapterOrConsumerInclusion, 'not_in_scope')
+  assert.equal(report.scopeSequence.status, 'unit_level')
+  assert.equal(
+    report.lessonIdentity.companionRelationshipId,
+    'be3_sb_wb_rel_u08_grammar_sb136-137_wb111-112',
+  )
+  assert.deepEqual(report.lessonIdentity.studentBookPages, [136, 137])
+  assert.deepEqual(report.lessonIdentity.workbookPages, [111, 112])
+  assert.equal(
+    report.lessonIdentity.twoLessonPackagingConfiguration,
+    'sb_only',
+  )
+  assert.equal(report.lessonIdentity.assembledPackageType, 'two_lesson_sb_wb')
+  assert.equal(
+    report.nlp.package?.identity.packageReference,
+    'be3-sb-wb-u08-p136-137-wb111-112',
+  )
+  assert.equal(report.nlp.package?.identity.componentTitle, 'Grammar')
+  assert.ok(report.markdown.includes('Assembled NLP package type: two_lesson_sb_wb'))
+  assert.ok(
+    !report.markdown.includes('provenance terminates at teacher selection'),
+  )
+  assert.ok(
+    report.markdown.includes(
+      'Excluded means currently unselected',
+    ),
+  )
+
+  const excludedActivityId = excludedWb.references[0]?.activityId ?? ''
+  assert.equal(excludedActivityId, 'bep_3_wb_act_112_19')
+  const excludedRow = report.teacherSelections.find(
+    (row) => row.cardId === excludedWb.id,
+  )
+  assert.ok(excludedRow)
+  assert.equal(excludedRow.availableInNll, true)
+  assert.equal(excludedRow.selectedByTeacher, false)
+  assert.equal(excludedRow.excludedByTeacher, true)
+  assert.equal(excludedRow.includedInNlp, false)
+
+  const derivedIds = new Set(
+    report.nlp.package?.derivedKnowledge?.activitySummaries.map(
+      (summary) => summary.activityId,
+    ) ?? [],
+  )
+  assert.equal(derivedIds.has(excludedActivityId), false)
+  assert.equal(report.overview.nllActivitiesAvailable, 10)
+  assert.equal(report.overview.teacherSelectedCount, 9)
+  assert.equal(report.overview.teacherExcludedCount, 1)
+  assert.equal(report.overview.includedInNlpCount, 9)
+  assert.equal(report.overview.derivedSummariesInNlpCount, 9)
+
+  assert.ok(
+    report.issues.some(
+      (issue) =>
+        issue.kind === 'excluded' && issue.message.includes(excludedActivityId),
+    ),
+  )
+
+  assert.deepEqual(
+    [
+      ...sbSelection.selectedEvidence.map((row) => row.cardId),
+      ...wbSelection.selectedEvidence.map((row) => row.cardId),
+    ],
     selectedBefore,
   )
 })

@@ -64,6 +64,28 @@ The most important architectural rule is:
 
 > **Do not mix source truth with derived intelligence.**
 
+The canonical assembly principle is **Beauty in Simplicity**:
+
+> **We are no longer asking AI to magically create a good lesson from a vague prompt. We are building the conditions under which AI has a much better chance of creating one.**
+
+Operationally:
+
+```text
+SS governs
+  -> SB/WB provide publisher evidence
+  -> AI processing + human verification produce source-traceable knowledge
+  -> NLL preserves persistent, additive, reusable knowledge
+  -> administrator-defined lesson boundaries establish the lesson scope
+  -> teacher selection + AI assistance choose relevant knowledge
+  -> NLP assembles the approved lesson-specific selection
+  -> replaceable adapters transform the NLP for a chosen destination
+  -> the teacher reviews and approves the output
+```
+
+The library grows without overwriting canonical sources. The package selects only what is relevant to one lesson. The adapter transforms; it does not invent curriculum authority. The teacher remains the final decision-maker.
+
+This principle is a design test, not decorative language: prefer clear authority, traceable evidence, deliberate selection and simple boundaries over vague prompts, hidden inference or adapter-specific complexity. See D030 in [`4-decisions.md`](./4-decisions.md).
+
 Curriculum evidence, AI interpretation, curriculum relationships, teacher enrichment and generated lesson material serve different purposes.
 
 They should remain distinguishable throughout the system.

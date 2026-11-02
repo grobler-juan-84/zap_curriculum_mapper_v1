@@ -626,10 +626,40 @@ A Values Neutral Lesson Library **knowledge** component (`be3-u08-values`) is no
 
 ---
 
+### D030 — Beauty in Simplicity is the canonical NLL assembly principle
+
+**Date:** 2026-11-02
+**Status:** LOCKED
+
+**Decision:** The canonical guiding principle for assembling and using the Neutral Lesson Library is:
+
+> **We are no longer asking AI to magically create a good lesson from a vague prompt. We are building the conditions under which AI has a much better chance of creating one.**
+
+Its operational shorthand is:
+
+> **SS governs → SB/WB provide evidence → the NLL preserves verified knowledge → the teacher selects → the NLP assembles → adapters generate.**
+
+The complete responsibility chain is: verified Scope & Sequence defines what must be taught; Student Book and Workbook provide publisher evidence; AI processing plus human verification produce teacher-friendly, source-traceable knowledge; the NLL stores that knowledge persistently and additively; administrator-defined lesson boundaries establish scope; teacher selection and AI assistance choose relevant knowledge; the NLP assembles the approved lesson-specific selection; replaceable provider-specific adapters transform the NLP; and the teacher reviews and approves the result.
+
+**Reason:** Reliable lesson generation should come from stronger conditions—clear curriculum authority, verified evidence, persistent knowledge, deliberate scope, teacher choice and traceable assembly—not from asking a model to compensate for missing structure through a larger or vaguer prompt. This is the project meaning of **Beauty in Simplicity**.
+
+**Required design test:** New NLL fields, selection rules, NLP contents and adapters must each have one clear responsibility and an identifiable source of authority. The NLL grows without overwriting canonical sources. The NLP selects only what is relevant to one lesson. Adapters transform an assembled NLP but do not create curriculum authority or silently broaden lesson scope. The teacher remains the final decision-maker.
+
+**Implications:** This principle governs NLL inspection-contract work and later NLL/NLP generalization. The Inspector must make the chain observable: knowledge available in NLL → teacher-selected knowledge → NLP inclusion → downstream consumption where applicable. Missing or unavailable stages must be reported honestly rather than filled with invented evidence. BE3 Unit 8 fixtures validate the architecture but must not become production hard-coding.
+
+**Authorization boundary:** This decision records architecture and review criteria only. It does not authorize implementation, database or Storage changes, migration application, NLL visibility promotion, adapter work, deployment, or the next roadmap milestone.
+
+**Supersedes:** —
+
+**Compatibility:** Preserves and clarifies D021, D022, D027, D028 and D029.
+
+---
+
 ## Change log
 
 | Date | Change |
 |---|---|
+| 2026-11-02 | Added D030 — **Beauty in Simplicity** locked as the canonical NLL assembly principle: build reliable conditions from SS/SB/WB through NLL, teacher selection, NLP and replaceable adapters; teacher approval remains final. |
 | 2026-11-01 | Local Vite smoke-check (revised): live admin Phonics + Values; teacher live session not performed (automated tests + code inspection); F027 deferred. |
 | 2026-11-01 | Recorded D029 Inspector environment availability — Vite-dev access endpoint; production transport deferred; fails closed; Inspector-only scope. |
 | 2026-11-01 | Audit-hardened D029 Inspector — independent status taxonomy, packaging-label clarification, compact overview, trusted admin access API, focused verification tests. |

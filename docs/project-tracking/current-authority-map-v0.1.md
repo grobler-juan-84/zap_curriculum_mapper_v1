@@ -2,11 +2,11 @@
 
 **Status:** ACTIVE
 
-**Date:** 2026-11-01
+**Date:** 2026-11-02
 
-**Authority:** D027 durable layer model; D028 Values exception
+**Authority:** D027 durable layer model; D028 Values exception; D029 Inspector; D030 Beauty in Simplicity
 
-**Current checkpoint:** `main` at `63a28694ba9c31893a8dfaa8c13443dd74a0c0a8`
+**Current checkpoint:** `main` at `82ec0f7441a853ddc463206b01d89c006009d9c7`
 
 ## Purpose
 
@@ -27,6 +27,26 @@ authority         knowledge package  Chalkie, future platforms
 | NLL | Activity-keyed reusable knowledge, preferred summaries, ordered component membership, proposed SS links | Canonical book content, transient selections, rendered lesson plans |
 | NLP | One prepared lesson's selected evidence plus applicable NLL knowledge | Long-term curriculum authority or platform-specific structure |
 | Adapter | Rendering an NLP for a chosen destination | Canonical evidence or NLL schema design |
+
+## Canonical assembly principle — Beauty in Simplicity
+
+> **We are no longer asking AI to magically create a good lesson from a vague prompt. We are building the conditions under which AI has a much better chance of creating one.**
+
+```text
+Verified SS authority
+  -> SB/WB publisher evidence
+  -> AI processing + human verification
+  -> persistent, additive, source-traceable NLL knowledge
+  -> administrator-defined lesson scope
+  -> teacher selection + AI assistance
+  -> lesson-specific NLP
+  -> replaceable provider-specific adapter
+  -> teacher-reviewed output
+```
+
+Short form: **SS governs → SB/WB provide evidence → NLL preserves knowledge → teacher selects → NLP assembles → adapters generate → teacher approves.**
+
+This is an operating constraint. Each layer has one clear responsibility; unavailable knowledge or package stages remain explicit; no downstream layer silently invents authority or rewrites an upstream source.
 
 SS links stored in NLL are locators, mostly `proposed`; they do not replace SS authority. SB/WB remain canonical JSON, and NLL binds to activities by ID and fingerprint rather than copying book blobs.
 
@@ -152,6 +172,8 @@ Book Workspace remembers the last **stable** location for each authenticated use
 7. Do not put provider names into neutral General Lesson Plan content.
 8. Do not present physical SB/WB catalog rows as separate teacher entry cards for paired series; group by course level.
 9. Do not treat Book Workspace resume as completion tracking or auto-advance; never invent next-lesson jumps from saved state.
+10. Apply D030's Beauty in Simplicity test: improve generation by strengthening verified inputs, scope and selection—not by hiding missing structure inside a vague or increasingly elaborate prompt.
+11. Keep the Inspector observational: show NLL availability, teacher selection, NLP inclusion and downstream consumption where applicable without becoming an assembler or adapter.
 
 ## Environment documentation
 

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 448
+**Last updated:** Step 451
 
 
 
@@ -780,6 +780,12 @@
 - [x] **D029 Inspector environment availability recorded (2026-11-01):** Vite-dev-only access endpoint; production transport parked as F027; fails closed; Inspector-only scope (no NLL/NLP/teacher/GLP/Chalkie change).
 
 - [x] **NLL/NLP Inspector local Vite smoke-check (2026-11-01, revised scope):** Admin UI + access `200/allowed/admin` live; Phonics WB 30 exclusion + Values NLP-unavailable passed; read-only confirmed. Live teacher session: not performed — no separate teacher account available or required; teacher restrictions covered by automated tests + code inspection. Production transport remains F027.
+
+- [x] **D029 Inspector contract slice (2026-11-02):** Grammar SB/WB exclusion regression; Markdown clarifications (excluded=unselected, staleness-unverifiable note, provenance termination when NLP unavailable); `adapterOrConsumerInclusion: not_in_scope` stub; focused tests 9/9. No SB-only NLP builder; no hash resolution; no GLP/adapter probe.
+
+- [x] **D030 Beauty in Simplicity principle locked (2026-11-02):** verified SS authority → SB/WB evidence → AI processing + human verification → persistent NLL knowledge → administrator-defined scope → teacher selection → lesson-specific NLP → replaceable adapters → teacher approval. Documentation-only; no implementation or production authorization.
+
+- [x] **Inspector test runner standardized (2026-11-02):** pinned `tsx` in `app`; `test:inspector` script; cross-PC commands `npm ci --prefix app` + `npm --prefix app run test:inspector`; focused suite 9/9 via repo-managed runner. No app/contract behavior change.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

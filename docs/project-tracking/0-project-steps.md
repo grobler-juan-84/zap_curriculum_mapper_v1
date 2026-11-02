@@ -7857,3 +7857,52 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 449
+
+**Summary:** Implemented the authorized D029 Inspector contract slice from the Grammar+Values inspection report: Grammar SB/WB exclusion regression, report Markdown clarifications (excluded glossary, staleness-unverifiable note, provenance termination when NLP unavailable), and `adapterOrConsumerInclusion: not_in_scope` stub. Focused suite 9/9. No SB-only NLP builder, hash resolution, or GLP/adapter probing.
+
+**Files touched:**
+- `app/src/features/chalkie/nllNlpInspector.ts` (updated)
+- `scripts/tests/nllNlpInspector.test.ts` (updated)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 450
+
+**Summary:** Locked D030, **Beauty in Simplicity**, as the canonical guiding principle for NLL assembly. Recorded the responsibility chain from verified SS authority and SB/WB evidence through AI processing + human verification, persistent additive NLL knowledge, administrator-defined lesson scope, teacher selection, lesson-specific NLP, replaceable adapters and final teacher approval. Established the principle as an operational design test: build reliable generation conditions rather than asking AI to compensate for missing structure through vague prompts. Documentation-only; no code, database, Storage, migration, promotion, deployment, commit or push authorization.
+
+**Files touched:**
+- `docs/0-index.md` (updated)
+- `docs/3-architecture.md` (updated)
+- `docs/4-decisions.md` (updated; D030)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/current-authority-map-v0.1.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 451
+
+**Summary:** Standardized D029 Inspector focused verification across PCs by pinning `tsx` under `app`, adding `npm --prefix app run test:inspector`, and documenting `npm ci --prefix app` + that script as the cross-PC setup/verification commands. Preserved Step 449 contract slice and D030 docs. No app/contract behavior change; no commit/push.
+
+**Files touched:**
+- `app/package.json` (updated)
+- `app/package-lock.json` (updated)
+- `scripts/tests/nllNlpInspector.test.ts` (updated)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

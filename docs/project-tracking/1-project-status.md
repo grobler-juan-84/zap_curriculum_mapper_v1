@@ -1,8 +1,8 @@
 # Project Status (legacy pointer)
 
 **Live snapshot:** [`../5-progress.md`](../5-progress.md)
-**Last synced:** Step 448
+**Last synced:** Step 451
 
 ## One-line state
 
-- Workspace continuity + D029 Inspector checkpoint committed for local Vite; F027 production transport deferred. No further implementation authorized tonight.
+- Inspector focused tests now run via pinned `app` `tsx` (`npm --prefix app run test:inspector`, 9/9). D029 contract slice + D030 docs preserved locally; F027 still deferred; commit/push only with explicit owner authorization.
