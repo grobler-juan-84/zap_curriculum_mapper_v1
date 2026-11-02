@@ -34,12 +34,14 @@ import {
   createLessonActivityScopeSelectionMemoryMap,
   includedActivitiesCountLabel,
   mergeKnownActivityCardIds,
+  persistLessonActivityScopeSelectionMemory,
   readLessonActivityScopeSelectionMemory,
   reconcileActivitySelection,
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
   selectionScopeHasCompanion,
   shouldClearPendingLessonActivitySelectionDefault,
+  shouldPersistLessonActivityScopeSelectionMemory,
   writeLessonActivityScopeSelectionMemory,
 } from '../../app/src/features/chalkie/lessonActivitySelection.ts'
 import { buildChalkiePromptPreview } from '../../app/src/features/chalkie/buildChalkiePromptPreview.ts'
@@ -721,6 +723,162 @@ test('scope selection memory keeps late-loaded deselected cards off', () => {
   })
   assert.ok(withNew.sbSelection.selectedCardIds.includes('sb-5'))
   assert.ok(!withNew.sbSelection.selectedCardIds.includes('sb-4'))
+})
+
+test('Unit 8→Unit 9 while Create-a-prompt open must not save false LiA deselection', () => {
+  const map = createLessonActivityScopeSelectionMemoryMap()
+  const liaCards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [132, 133],
+  })
+  assert.ok(liaCards.length >= 5, 'LiA SB cards must load for the regression')
+  const liaKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [132, 133],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_lia_sb132-133_wb107-108',
+  })
+  const knownSb = liaCards.map((card) => card.id)
+  const knownWb = ['wb-lia-1', 'wb-lia-2']
+
+  // Legitimate LiA defaults (5/5) saved while Unit 8 Create-a-prompt is open.
+  assert.equal(
+    persistLessonActivityScopeSelectionMemory({
+      map,
+      scopeKey: liaKey,
+      knownSbCardIds: knownSb,
+      selectedSbCardIds: knownSb,
+      knownWbCardIds: knownWb,
+      selectedWbCardIds: knownWb,
+      loadedSbCardCount: knownSb.length,
+      loadedWbCardCount: knownWb.length,
+    }),
+    true,
+  )
+
+  // Prepared unit advances to Unit 9 while overlay stays open: LiA pages are
+  // outside the Unit 9 summary → loaded cards drop to 0, UI selection clears,
+  // but known ids can still hold the LiA card set. Naively persisting that
+  // snapshot would record a false full deselection.
+  assert.equal(
+    shouldPersistLessonActivityScopeSelectionMemory({
+      loadedSbCardCount: 0,
+      loadedWbCardCount: 0,
+      knownSbCardIds: knownSb,
+      knownWbCardIds: knownWb,
+    }),
+    false,
+  )
+  assert.equal(
+    persistLessonActivityScopeSelectionMemory({
+      map,
+      scopeKey: liaKey,
+      knownSbCardIds: knownSb,
+      selectedSbCardIds: [], // emptied UI
+      knownWbCardIds: knownWb,
+      selectedWbCardIds: [],
+      loadedSbCardCount: 0,
+      loadedWbCardCount: 0,
+    }),
+    false,
+  )
+
+  // Cancel / return to Unit 8 LiA must restore the legitimate all-selected memory.
+  const restored = applyLessonActivityScopeSelectionMemory({
+    memory: readLessonActivityScopeSelectionMemory(map, liaKey)!,
+    sbCards: liaCards,
+    wbCards: knownWb.map((id) => ({ id }) as never),
+  })
+  assert.deepEqual(
+    [...restored.sbSelection.selectedCardIds].sort(),
+    [...knownSb].sort(),
+  )
+  assert.deepEqual(
+    [...restored.wbSelection.selectedCardIds].sort(),
+    [...knownWb].sort(),
+  )
+
+  const workspace = fs.readFileSync(WORKSPACE_PATH, 'utf8')
+  assert.ok(workspace.includes('preparedLessonSummary'))
+  assert.ok(workspace.includes('setPreparedLessonSummary'))
+  assert.ok(workspace.includes('persistLessonActivityScopeSelectionMemory'))
+  assert.ok(
+    workspace.includes('summary: preparedLessonSummary'),
+    'Create-a-prompt SB cards must freeze the open-time summary',
+  )
+})
+
+test('normal exclusions and explicit all-deselected still restore after persist guard', () => {
+  const map = createLessonActivityScopeSelectionMemoryMap()
+  const openerCards = buildSbActivityCards({
+    summary,
+    activeLessonPrintedPages: [128, 129],
+  })
+  assert.ok(openerCards.length > 1)
+  const openerKey = buildLessonActivitySelectionScopeKey({
+    catalogBookId: 'big_english_3_sb',
+    unitNumber: 8,
+    sbPrintedPages: [128, 129],
+    companionRelationshipId: 'be3_sb_wb_rel_u08_opener_sb128-129_wb104-105',
+  })
+  const knownSb = openerCards.map((card) => card.id)
+  const excludedId = openerCards[0]!.id
+  const partialSelected = knownSb.filter((id) => id !== excludedId)
+
+  // Partial exclusion with cards loaded — must persist and restore.
+  assert.equal(
+    shouldPersistLessonActivityScopeSelectionMemory({
+      loadedSbCardCount: knownSb.length,
+      loadedWbCardCount: 0,
+      knownSbCardIds: knownSb,
+      knownWbCardIds: [],
+    }),
+    true,
+  )
+  assert.equal(
+    persistLessonActivityScopeSelectionMemory({
+      map,
+      scopeKey: openerKey,
+      knownSbCardIds: knownSb,
+      selectedSbCardIds: partialSelected,
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+      loadedSbCardCount: knownSb.length,
+      loadedWbCardCount: 0,
+    }),
+    true,
+  )
+  const partialApplied = applyLessonActivityScopeSelectionMemory({
+    memory: readLessonActivityScopeSelectionMemory(map, openerKey)!,
+    sbCards: openerCards,
+    wbCards: [],
+  })
+  assert.ok(!partialApplied.sbSelection.selectedCardIds.includes(excludedId))
+  assert.equal(
+    partialApplied.sbSelection.selectedCardIds.length,
+    partialSelected.length,
+  )
+
+  // Explicit all-deselected with cards still loaded — valid empty memory.
+  assert.equal(
+    persistLessonActivityScopeSelectionMemory({
+      map,
+      scopeKey: openerKey,
+      knownSbCardIds: knownSb,
+      selectedSbCardIds: [],
+      knownWbCardIds: [],
+      selectedWbCardIds: [],
+      loadedSbCardCount: knownSb.length,
+      loadedWbCardCount: 0,
+    }),
+    true,
+  )
+  const emptyApplied = applyLessonActivityScopeSelectionMemory({
+    memory: readLessonActivityScopeSelectionMemory(map, openerKey)!,
+    sbCards: openerCards,
+    wbCards: [],
+  })
+  assert.deepEqual(emptyApplied.sbSelection.selectedCardIds, [])
 })
 
 test('scope selection memory isolates keys and clears at session boundary', () => {

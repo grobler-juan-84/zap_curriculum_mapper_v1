@@ -8044,3 +8044,49 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 460
+
+**Summary:** Restored missing Create-a-prompt lesson outlines and vocabulary for BE3 U8 LiA→Review. Verified companions now resolve as `sb_wb` with series titles/refs; flag-off / NLL-fail fallback builds five artifacts via neutral package + `renderChalkieFromNeutralPackage` instead of SB-only scopes. Opener/Story bespoke paths and Values SB-only unchanged. No NLL flag promotion, curriculum data, prompts, or Finding #4 work. Focused tests 7/7; related suites green. No commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/buildBe3U08NeutralSeriesHandoff.ts` (created)
+- `app/src/features/chalkie/resolveChalkieLessonContext.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/buildChalkiePromptPreview.ts` (updated)
+- `scripts/tests/buildBe3U08NeutralSeriesHandoff.test.ts` (created)
+- `scripts/tests/buildBe3U08StorySbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/buildBe3U08OpenerSbWbSeriesHandoff.test.ts` (updated)
+- `scripts/tests/resolveVerifiedSbWbCompanion.test.ts` (updated)
+- `scripts/tests/sbOnlyTwoLessonPackaging.test.ts` (updated)
+- `scripts/tests/buildDetailedGeneralLessonPlan.test.ts` (updated)
+- `scripts/tests/nllLiaChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllGrammarChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllClilPeChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllCultureChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllWritingChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllPhonicsChalkieAdapterPilot.test.ts` (updated)
+- `scripts/tests/nllReviewChalkieAdapterPilot.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---
+
+### Step 461
+
+**Summary:** Corrected Fix #3b so a prepared-unit change while Create-a-prompt is open cannot record a false full deselection. Create-a-prompt now freezes the open-time Student Book summary for modal cards, and scope memory writes skip when known ids remain but loaded cards are 0. Normal exclusions and explicit all-deselected still persist/restore. Step 460 left untouched and uncommitted. Tests 17/17. No commit/push.
+
+**Files touched:**
+- `app/src/features/chalkie/lessonActivitySelection.ts` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/tests/lessonActivitySelection.test.ts` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

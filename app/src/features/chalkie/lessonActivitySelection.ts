@@ -214,6 +214,66 @@ export function captureLessonActivityScopeSelectionMemory(input: {
   }
 }
 
+/**
+ * Block memory writes when known ids exist but the matching card set has
+ * unloaded (count 0). That is the Unit-swap-while-Create-a-prompt-open failure
+ * mode: UI selection goes empty while known ids remain, and a naive persist
+ * would record a false full deselection.
+ *
+ * Explicit teacher all-deselected always happens with cards still loaded, so
+ * those writes still proceed. Partial exclusions likewise.
+ */
+export function shouldPersistLessonActivityScopeSelectionMemory(input: {
+  readonly loadedSbCardCount: number
+  readonly loadedWbCardCount: number
+  readonly knownSbCardIds: readonly string[]
+  readonly knownWbCardIds: readonly string[]
+}): boolean {
+  const sbUnstable =
+    input.loadedSbCardCount === 0 && input.knownSbCardIds.length > 0
+  const wbUnstable =
+    input.loadedWbCardCount === 0 && input.knownWbCardIds.length > 0
+  return !sbUnstable && !wbUnstable
+}
+
+/**
+ * Write scope memory only when the loaded card sets are stable relative to
+ * known ids. Returns whether a write occurred.
+ */
+export function persistLessonActivityScopeSelectionMemory(input: {
+  readonly map: LessonActivityScopeSelectionMemoryMap
+  readonly scopeKey: string
+  readonly knownSbCardIds: readonly string[]
+  readonly selectedSbCardIds: readonly string[]
+  readonly knownWbCardIds: readonly string[]
+  readonly selectedWbCardIds: readonly string[]
+  readonly loadedSbCardCount: number
+  readonly loadedWbCardCount: number
+}): boolean {
+  if (!input.scopeKey) return false
+  if (
+    !shouldPersistLessonActivityScopeSelectionMemory({
+      loadedSbCardCount: input.loadedSbCardCount,
+      loadedWbCardCount: input.loadedWbCardCount,
+      knownSbCardIds: input.knownSbCardIds,
+      knownWbCardIds: input.knownWbCardIds,
+    })
+  ) {
+    return false
+  }
+  writeLessonActivityScopeSelectionMemory(
+    input.map,
+    input.scopeKey,
+    captureLessonActivityScopeSelectionMemory({
+      knownSbCardIds: input.knownSbCardIds,
+      selectedSbCardIds: input.selectedSbCardIds,
+      knownWbCardIds: input.knownWbCardIds,
+      selectedWbCardIds: input.selectedWbCardIds,
+    }),
+  )
+  return true
+}
+
 /** Union previous known ids with cards seen now (stable order: prior, then new). */
 export function mergeKnownActivityCardIds(
   previousKnown: readonly string[],

@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 459
+**Last updated:** Step 460
 
 
 
@@ -801,7 +801,11 @@
 
 - [x] **Teacher Experience Fix #3 — Prepared vs Viewed unit labels (2026-11-02, Step 458):** Header **Prepared unit** aria/titles; mismatch Book Content + SS copy; no auto-switch/clamp/selection changes. Product-surface tests pass. Committed `6edfaec`. Finding #4 not in scope.
 
-- [x] **Teacher Experience Fix #3b — Session-only per-scope selection memory (2026-11-02, Step 459):** Known+selected SB/WB IDs; empty selection valid; first-visit defaults; clear at book-session boundaries; Create-a-prompt freeze unchanged. Tests **15/15**; browser Opener exclusions restored after Phonics. **F028** resolved. Uncommitted. Finding #4 not in scope.
+- [x] **Teacher Experience Fix #3b — Session-only per-scope selection memory (2026-11-02, Step 459):** Known+selected SB/WB IDs; empty selection valid; first-visit defaults; clear at book-session boundaries; Create-a-prompt freeze unchanged. Tests **15/15**; browser Opener exclusions restored after Phonics. **F028** resolved. Committed `d258791`. Finding #4 not in scope.
+
+- [x] **Fix #3b correction — Unit swap while overlay open (2026-11-02, Step 461):** Freeze Create-a-prompt SB summary; skip memory writes when known ids remain but loaded cards are 0 (false deselection). Regression + exclusion/all-off restore tests **17/17**. Step 460 left untouched/uncommitted. Finding #4 not in scope.
+
+- [x] **Restore LiA→Review lesson outlines/vocabulary (2026-11-02, Step 460):** Flag-off five-artifact fallback via `buildBe3U08NeutralSeriesHandoff` + resolver `sb_wb` for verified companions LiA through Review; Values stays SB-only; Story/Opener bespoke paths unchanged. Focused tests **7/7** + related suites green. Uncommitted. Finding #4 not in scope.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

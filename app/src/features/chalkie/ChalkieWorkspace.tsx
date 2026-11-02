@@ -72,9 +72,9 @@ import {
   activityCardIdsKey,
   applyLessonActivityScopeSelectionMemory,
   buildLessonActivitySelectionScopeKey,
-  captureLessonActivityScopeSelectionMemory,
   clearLessonActivityScopeSelectionMemory,
   createLessonActivityScopeSelectionMemoryMap,
+  persistLessonActivityScopeSelectionMemory,
   readLessonActivityScopeSelectionMemory,
   reconcileSbActivitySelection,
   reconcileWbActivitySelection,
@@ -215,6 +215,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
 
   const [teacherChoiceOpen, setTeacherChoiceOpen] = useState(false)
   const [activeLesson, setActiveLesson] = useState<ChalkieLessonContext | null>(null)
+  /** Curriculum summary frozen at Create-a-prompt open (survives prepared-unit swaps). */
+  const [preparedLessonSummary, setPreparedLessonSummary] =
+    useState<BatchJsonSummary | null>(null)
   const [scopeGuard, setScopeGuard] = useState<ChalkieLessonContext | null>(null)
   /** Authoritative activity selection for left panel + Create-a-prompt. */
   const [sbActivitySelection, setSbActivitySelection] =
@@ -803,14 +806,16 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   /**
    * Modal cards freeze to the prepared lesson scope so selection matches what
    * the teacher confirmed at Create-a-prompt time (same builders as left panel).
+   * Student Book cards use the summary snapped at open so a prepared-unit change
+   * cannot empty LiA/companion cards mid-overlay.
    */
   const activeLessonActivityCards = useMemo(
     () =>
       buildSbActivityCards({
-        summary,
+        summary: preparedLessonSummary,
         activeLessonPrintedPages: activeLesson?.visiblePrintedPages ?? [],
       }),
-    [summary, activeLesson],
+    [preparedLessonSummary, activeLesson],
   )
   const activeLessonWorkbookActivityCards = useMemo(
     () =>
@@ -885,18 +890,19 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       wbSelection: WbActivitySelectionState,
       knownSb: readonly string[],
       knownWb: readonly string[],
+      loadedSbCardCount: number,
+      loadedWbCardCount: number,
     ) => {
-      if (!scopeKey) return
-      writeLessonActivityScopeSelectionMemory(
-        selectionByScopeRef.current,
+      persistLessonActivityScopeSelectionMemory({
+        map: selectionByScopeRef.current,
         scopeKey,
-        captureLessonActivityScopeSelectionMemory({
-          knownSbCardIds: knownSb,
-          selectedSbCardIds: sbSelection.selectedCardIds,
-          knownWbCardIds: knownWb,
-          selectedWbCardIds: wbSelection.selectedCardIds,
-        }),
-      )
+        knownSbCardIds: knownSb,
+        selectedSbCardIds: sbSelection.selectedCardIds,
+        knownWbCardIds: knownWb,
+        selectedWbCardIds: wbSelection.selectedCardIds,
+        loadedSbCardCount,
+        loadedWbCardCount,
+      })
     },
     [],
   )
@@ -928,6 +934,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           wbActivitySelectionRef.current,
           knownSbCardIdsRef.current,
           knownWbCardIdsRef.current,
+          selectionSbCards.length,
+          selectionWbCards.length,
         )
       }
       selectionScopeKeyRef.current = activeSelectionScopeKey
@@ -1029,6 +1037,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           defaultWb,
           knownSb,
           knownWb,
+          selectionSbCards.length,
+          selectionWbCards.length,
         )
       }
       return
@@ -1078,6 +1088,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         nextWb,
         nextKnownSb,
         nextKnownWb,
+        selectionSbCards.length,
+        selectionWbCards.length,
       )
     }
   }, [
@@ -1105,11 +1117,13 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           wbActivitySelectionRef.current,
           knownSbCardIdsRef.current,
           knownWbCardIdsRef.current,
+          selectionSbCards.length,
+          selectionWbCards.length,
         )
         return next
       })
     },
-    [selectionSbCards, activeSelectionScopeKey, persistActiveScopeSelectionMemory],
+    [selectionSbCards, selectionWbCards.length, activeSelectionScopeKey, persistActiveScopeSelectionMemory],
   )
 
   const handleWbActivitySelectionChange = useCallback(
@@ -1127,11 +1141,14 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           next,
           knownSbCardIdsRef.current,
           knownWbCardIdsRef.current,
+          selectionSbCards.length,
+          selectionWbCards.length,
         )
         return next
       })
     },
     [
+      selectionSbCards.length,
       selectionWbCards,
       activeSelectionScopeKey,
       persistActiveScopeSelectionMemory,
@@ -1159,11 +1176,13 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       setScopeGuard(resolved)
       setTeacherChoiceOpen(false)
       setActiveLesson(null)
+      setPreparedLessonSummary(null)
       return
     }
 
     setScopeGuard(null)
     setActiveLesson(resolved)
+    setPreparedLessonSummary(summary)
     setTeacherChoiceOpen(true)
   }, [book, summary, lessonScopePages, currentBatch?.unitNumber])
 
@@ -1235,6 +1254,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
   const handleCloseTeacherChoice = useCallback(() => {
     setTeacherChoiceOpen(false)
     setActiveLesson(null)
+    setPreparedLessonSummary(null)
   }, [])
 
   const handleJumpToUnitOpening = useCallback(() => {
@@ -1329,6 +1349,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
     setPendingSbRestorePages(null)
     setTeacherChoiceOpen(false)
     setActiveLesson(null)
+    setPreparedLessonSummary(null)
     setScopeGuard(null)
     setPdfJumpRequest(null)
 
