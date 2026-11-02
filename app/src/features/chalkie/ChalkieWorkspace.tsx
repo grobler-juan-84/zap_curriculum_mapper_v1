@@ -538,7 +538,7 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
       return {
         status: 'unavailable',
         message:
-          'Current PDF page is outside the selected unit’s Student Book page range. Unit publisher requirements are hidden until you return to that unit’s pages.',
+          'Current PDF page is outside the prepared unit’s Student Book page range. Unit publisher requirements are hidden until you return to that unit’s pages.',
       }
     }
 
@@ -552,8 +552,8 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         return {
           status: 'unavailable',
           message: groundedUnitChrome.groundedUnitLabel
-            ? `PDF page maps to ${groundedUnitChrome.groundedUnitLabel}, but no Scope & Sequence entry is loaded for that unit while another unit is selected.`
-            : 'PDF page maps to another unit; select that unit to view its publisher Scope & Sequence.',
+            ? `Viewed unit: ${groundedUnitChrome.groundedUnitLabel}, but no Scope & Sequence entry is loaded for that unit while another unit is prepared.`
+            : 'Viewed unit differs from the prepared unit; select the viewed unit only if you want to prepare it and view its publisher Scope & Sequence.',
         }
       }
       return {
@@ -1543,6 +1543,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
         showVerificationStatus={false}
         bookOptionsFilter="student_books_only"
         bookDisplayTitle={(entry) => studentBookDisplayTitle(entry.title)}
+        unitSelectAriaLabel="Prepared unit"
+        unitPrevTitle="Previous prepared unit (←)"
+        unitNextTitle="Next prepared unit (→)"
       />
 
       {batchesError ? (
@@ -1565,9 +1568,9 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
           className="flex h-full shrink-0 flex-col overflow-hidden"
         >
           <ChalkieLeftPanel
-            batch={
-              groundedUnitChrome.status === 'inside_selected' ? currentBatch : null
-            }
+            // Always pass the prepared-unit batch for labeling. Book evidence
+            // chrome still gates on unitView / grounded scope — not on batch.
+            batch={currentBatch}
             loading={batchesLoading || jsonLoading}
             error={jsonError}
             curriculumAuthority={curriculumAuthority}

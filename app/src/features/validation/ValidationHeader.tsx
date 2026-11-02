@@ -30,6 +30,13 @@ interface ValidationHeaderProps {
   bookOptionsFilter?: 'all' | 'student_books_only'
   /** Optional teacher-facing book label (e.g. strip “Student Book”). */
   bookDisplayTitle?: (book: Book) => string
+  /**
+   * Book Workspace: unit control means prepared unit (not the PDF pages
+   * currently viewed). Validation keeps the default “Select unit” wording.
+   */
+  unitSelectAriaLabel?: string
+  unitPrevTitle?: string
+  unitNextTitle?: string
 }
 
 function batchLabel(batch: BookFileBatch): string {
@@ -54,6 +61,9 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
   showVerificationStatus = true,
   bookOptionsFilter = 'all',
   bookDisplayTitle,
+  unitSelectAriaLabel = 'Select unit',
+  unitPrevTitle = 'Previous unit (←)',
+  unitNextTitle = 'Next unit (→)',
 }) => {
   const hasPrev = currentIndex > 0
   const hasNext = currentIndex >= 0 && currentIndex < batches.length - 1
@@ -150,7 +160,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           type="button"
           onClick={onPrev}
           disabled={!hasPrev}
-          title="Previous unit (←)"
+          title={unitPrevTitle}
           className={`flex items-center gap-1 rounded border px-2 py-1 text-xs font-medium transition-colors ${
             hasPrev
               ? 'cursor-pointer border-slate-300 bg-white text-slate-800 shadow-xs hover:bg-slate-50'
@@ -165,7 +175,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           value={currentBatch?.id ?? ''}
           onChange={(e) => onSelectBatch(e.target.value)}
           disabled={batches.length === 0}
-          aria-label="Select unit"
+          aria-label={unitSelectAriaLabel}
           className="max-w-[200px] cursor-pointer truncate rounded border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {batches.length === 0 ? (
@@ -183,7 +193,7 @@ export const ValidationHeader: React.FC<ValidationHeaderProps> = ({
           type="button"
           onClick={onNext}
           disabled={!hasNext}
-          title="Next unit (→)"
+          title={unitNextTitle}
           className={`flex items-center gap-1 rounded border px-2 py-1 text-xs font-medium transition-colors ${
             hasNext
               ? 'cursor-pointer border-slate-300 bg-white text-slate-800 shadow-xs hover:bg-slate-50'

@@ -8009,3 +8009,21 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 458
+
+**Summary:** Teacher Experience Fix #3 — Prepared unit vs Viewed unit labeling only. Book Workspace header uses Prepared unit aria/titles (Validation defaults unchanged); mismatch Book Content and SS copy use approved wording including “Select the viewed unit only if you want to prepare it”; prepared-unit batch kept available for mismatch labels. F028 parks Finding #3b. No auto-switch, clamp, or activity-selection behavior changes. Browser-verified Unit 8 prepared + p.144 viewed. No commit/push.
+
+**Files touched:**
+- `app/src/features/validation/ValidationHeader.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `app/src/features/chalkie/ChalkieLeftPanel.tsx` (updated)
+- `scripts/tests/bookWorkspaceProductSurface.test.ts` (updated)
+- `docs/7-future.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

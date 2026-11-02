@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 457
+**Last updated:** Step 458
 
 
 
@@ -797,7 +797,9 @@
 
 - [x] **Teacher Experience Fix #1 — Workbook selection defaults (2026-11-02, Step 456):** Companion WB activities default-selected with SB; deselections persist across steps; Values SB-only unaffected. Lesson-selection tests **12/12**. Committed `935f1bd`.
 
-- [x] **Teacher Experience Fix #2 — Skip empty Workbook step for SB-only (2026-11-02, Step 457):** `includeTeacherChoiceWorkbookStep` no longer force-includes via Values allowlist; Values is **Step N of 4** with no WB step; Opener retains **Step N of 5** WB review. Flow + SB-only layout tests pass. Uncommitted. Findings #3–#4 not in scope.
+- [x] **Teacher Experience Fix #2 — Skip empty Workbook step for SB-only (2026-11-02, Step 457):** `includeTeacherChoiceWorkbookStep` no longer force-includes via Values allowlist; Values is **Step N of 4** with no WB step; Opener retains **Step N of 5** WB review. Flow + SB-only layout tests pass. Committed `5aef900`.
+
+- [x] **Teacher Experience Fix #3 — Prepared vs Viewed unit labels (2026-11-02, Step 458):** Header **Prepared unit** aria/titles; mismatch Book Content + SS copy; no auto-switch/clamp/selection changes. Product-surface tests pass. Uncommitted. Finding #3b parked as **F028**; Finding #4 not in scope.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

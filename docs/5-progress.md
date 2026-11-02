@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 1.0
-**Last updated:** Step 457
+**Last updated:** Step 458
 **Purpose:** Current project state. Read this first to understand where we are today.
 
 ---
@@ -11,20 +11,20 @@
 
 - **Phase 1** remains paused at 14/18 COMPLETE (D015).
 - **D017–D031** locked; D029 Inspector audit-hardened and smoke-checked under revised scope.
-- **Checkpoint on main:** through Step 456 / Fix #1 (`935f1bd`). Priority 5 SB-only NLP (`d08d53b`) already on local `main`.
+- **Checkpoint on main:** through Step 457 / Fix #2 (`5aef900`). Fix #1 (`935f1bd`) also local.
 - **BE3 Unit 8** NLL activity-summary path remains on `main` lineage; live NLL **10 / 77 / 77 / 10**; history **29 / 0 / 0**.
-- **Teacher Experience Fix #1 (Step 456):** Verified SB→WB Workbook activities default-selected (`935f1bd`).
-- **Teacher Experience Fix #2 (Step 457):** Genuine SB-only lessons (including Values) omit the empty Workbook step and renumber to 4; Opener keeps 5-step WB flow. Uncommitted.
+- **Teacher Experience Fix #1–#2** committed locally (`935f1bd`, `5aef900`).
+- **Teacher Experience Fix #3 (Step 458):** Prepared unit vs Viewed unit labeling only. Header aria/titles; mismatch copy in Book Content + SS messages; F028 parked for #3b. Uncommitted.
 
 ## In progress
 
-- Step 457 awaits owner review / commit authorization.
+- Step 458 awaits owner review / commit authorization.
 - Production Inspector transport remains parked (F027).
 
 ## Next
 
-- Owner review/commit of Step 457 when ready.
-- Remaining Teacher Experience findings #3–#4 only when explicitly approved one at a time.
+- Owner review/commit of Step 458 when ready.
+- Finding #3b (F028) and Finding #4 only when explicitly approved.
 - Hold NLL promotion, deployment, and permanent flag-on defaults until requested.
 - F027 production Inspector access only when hosting is chosen and explicitly authorized.
 
@@ -38,5 +38,5 @@
 
 ## Snapshot notes
 
-- Step 457 is Create-a-prompt step-gate only; no canonical/NLL/NLP/prompt/adapter changes.
+- Step 458 is labeling/copy only: no navigation, unit auto-switch, clamp, or activity-selection behavior changes.
 - Root untracked `package-lock.json` remains outside this task.

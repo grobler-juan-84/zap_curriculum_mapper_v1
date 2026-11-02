@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE  
 **Version:** 1.3  
-**Last updated:** 2026-11-01 (F027 NLL/NLP Inspector production access transport parked; Vite-dev only)
+**Last updated:** 2026-11-02 (F028 live activity-selection-on-scroll parked; Fix #3 labeling only)
 
 **Purpose:** Parking lot for good ideas and deferred work that are explicitly **not now**. Keep them visible without contaminating current teacher-first work. **Immediate priorities:** workable Phase 2; practical Phase 4–7 pathway; clear teacher-facing options (horizontal mapping first). Phase 3 Vertical Mapping is parked as later priority (**D020 / F005**), not blocked by Phase 2 completion. D018 / Lesson Series remain **parked downstream experimentation** — retained, not cancelled.
 
@@ -48,6 +48,7 @@
 | F018 | Optional Phase 1 extraction of dedicated review / checkpoint sections outside normal units (e.g. Big English checkpoints after U1–3, U4–6, U7–9; other series may differ); identify what prior content is reviewed, reinforced, or assessed | Out of current Units 1–9 Book Intelligence scope; do not expand extraction until a clear downstream need appears | owner park 2026-10-13 |
 | F026 | Cross-device Book Workspace resume via user-scoped Supabase table (RLS) + local cache | Browser-local v1 is sufficient for validation; DB/migration not authorized; keep resume operational preference only (not completion) | Book Workspace resume 2026-11-01 |
 | F027 | Production trusted route for NLL/NLP Inspector admin access (`POST /api/nll-nlp-inspector/access` or equivalent) | Vite-dev plugin only today; fails closed without endpoint; required before production Inspector availability; does not change NLL/NLP/teacher/GLP/Chalkie | D029 environment availability 2026-11-01 |
+| F028 | Finding #3b — live activity selection changes during PDF navigation | Ordinary PDF scroll/Go may re-scope live lesson scope and live activity selections even though Create-a-prompt freezes a snapshot. Separate from Fix #3 Prepared/Viewed unit labeling. Investigation and any fix require explicit approval; do not fold into unit-label work. | Teacher Experience Fix #3 design 2026-11-02 |
 
 ### F017 / F018 notes (PARKED — not approved)
 
@@ -69,3 +70,4 @@
 ## Reminder
 
 If an idea starts steering today’s horizontal-mapping research (or later Chalkie / Teaching Intelligence work) toward an unproven schema, implementation, Vertical Mapping unlock, Phase 2 closure, or downstream product without an explicit user decision, park it here.
+

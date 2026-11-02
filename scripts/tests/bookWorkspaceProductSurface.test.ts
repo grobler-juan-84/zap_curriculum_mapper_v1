@@ -55,6 +55,50 @@ test('Validation header links use Book Workspace wording', () => {
   assert.doesNotMatch(source, /Open Chalkie Workspace/)
 })
 
+test('Book Workspace labels Prepared unit; Viewed unit only on mismatch copy', () => {
+  const header = read('app/src/features/validation/ValidationHeader.tsx')
+  const workspace = read('app/src/features/chalkie/ChalkieWorkspace.tsx')
+  const leftPanel = read('app/src/features/chalkie/ChalkieLeftPanel.tsx')
+
+  // Shared header keeps Validation defaults; Book Workspace overrides props.
+  assert.match(header, /unitSelectAriaLabel\s*=\s*'Select unit'/)
+  assert.match(header, /unitPrevTitle\s*=\s*'Previous unit \(←\)'/)
+  assert.match(header, /unitNextTitle\s*=\s*'Next unit \(→\)'/)
+  assert.match(workspace, /unitSelectAriaLabel="Prepared unit"/)
+  assert.match(workspace, /unitPrevTitle="Previous prepared unit \(←\)"/)
+  assert.match(workspace, /unitNextTitle="Next prepared unit \(→\)"/)
+
+  assert.match(
+    leftPanel,
+    /Viewing another unit — prepared unit unchanged/,
+  )
+  assert.match(
+    leftPanel,
+    /Select the viewed unit only if you want to prepare it/,
+  )
+  assert.match(leftPanel, /Prepared unit stays/)
+  assert.doesNotMatch(
+    leftPanel,
+    /Outside selected unit pages — Unit evidence chrome cleared/,
+  )
+  assert.doesNotMatch(leftPanel, /Select Viewed unit/)
+
+  // Prepared-unit batch stays available for mismatch labeling (evidence still
+  // gates on unitView, not on nulling batch).
+  assert.match(workspace, /batch=\{currentBatch\}/)
+  assert.doesNotMatch(
+    workspace,
+    /groundedUnitChrome\.status === 'inside_selected' \? currentBatch : null/,
+  )
+
+  assert.match(workspace, /outside the prepared unit/)
+  assert.match(workspace, /Viewed unit:/)
+  assert.match(
+    workspace,
+    /select the viewed unit only if you want to prepare it/,
+  )
+})
+
 test('CL opens Book Workspace with series resume or chooseBook; no /app/series handoff', () => {
   const page = read('app/src/features/curriculum-library/CurriculumLibraryPage.tsx')
   assert.match(page, /resolveLastStudentBookForSeries/)

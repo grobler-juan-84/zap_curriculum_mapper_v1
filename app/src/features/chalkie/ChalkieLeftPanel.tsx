@@ -480,7 +480,7 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
               summary={
                 currentLesson.bookContent.unitView
                   ? bookSummary
-                  : 'Outside selected unit pages — Unit evidence chrome cleared'
+                  : 'Viewing another unit — prepared unit unchanged'
               }
               open={bookOpen}
               onToggle={() => setBookOpen((open) => !open)}
@@ -497,8 +497,12 @@ export const ChalkieLeftPanel: React.FC<ChalkieLeftPanelProps> = ({
                     : ''}
                   {!currentLesson.bookContent.unitView
                     ? currentLesson.scope.unitLabel
-                      ? ` · PDF page maps to ${currentLesson.scope.unitLabel} (select that unit for its book evidence)`
-                      : ' · current PDF page is outside the selected unit'
+                      ? ` · Viewed unit: ${currentLesson.scope.unitLabel}${
+                          batch?.label
+                            ? ` · Prepared unit stays ${batch.label}`
+                            : ''
+                        } · Select the viewed unit only if you want to prepare it`
+                      : ' · current PDF page is outside the prepared unit'
                     : ''}
                   .
                 </p>
