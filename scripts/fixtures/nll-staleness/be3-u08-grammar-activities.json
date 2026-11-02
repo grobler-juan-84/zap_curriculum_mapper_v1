@@ -1,0 +1,478 @@
+{
+  "note": "Tracked exact BE3 U8 Grammar activity objects for Inspector staleness tests. expectedActivitySha256ById values are literal pins from supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql (activity_sha256). Not a substitute for Storage authority at runtime.",
+  "studentBookActivities": [
+    {
+      "activity_id": "bep3_sb_act_08_19",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p136",
+      "activity_number": "19",
+      "activity_type": "listen_and_read_dialogue",
+      "instruction": "Look, listen, and read. How did Donna's dad come home?",
+      "prompt": "How did Donna's dad come home?",
+      "expected_answer": "He came home on his bicycle / by bike.",
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 159",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_20",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p136",
+      "activity_number": "20",
+      "activity_type": "chart_completion_spelling",
+      "instruction": "Copy the chart in your notebook and complete. Use the words from the box.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "started",
+          "prompt": "bake, carry, change, climb, cry, drop, exercise, finish, help, join, love, tip, try, worry",
+          "expected_answer": "climbed, finished, helped, joined"
+        },
+        {
+          "item_number": "cried",
+          "prompt": null,
+          "expected_answer": "carried, tried, worried"
+        },
+        {
+          "item_number": "liked",
+          "prompt": null,
+          "expected_answer": "baked, changed, exercised, loved"
+        },
+        {
+          "item_number": "stopped",
+          "prompt": null,
+          "expected_answer": "dropped, tipped"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Classification of regular past simple verb spelling rules (-ed, -ied, -d, double consonant + -ed)",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_21",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p137",
+      "activity_number": "21",
+      "activity_type": "read_and_complete_text",
+      "instruction": "Read and complete.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1.1",
+          "prompt": "Ffyona Campbell's dad [work]",
+          "expected_answer": "worked"
+        },
+        {
+          "item_number": "1.2",
+          "prompt": "she [move] to a new house",
+          "expected_answer": "moved"
+        },
+        {
+          "item_number": "1.3",
+          "prompt": "[live] in a lot of different countries",
+          "expected_answer": "lived"
+        },
+        {
+          "item_number": "1.4",
+          "prompt": "she [travel] across Australia on foot",
+          "expected_answer": "traveled / travelled"
+        },
+        {
+          "item_number": "1.5",
+          "prompt": "She [walk] 50 miles a day",
+          "expected_answer": "walked"
+        },
+        {
+          "item_number": "1.6",
+          "prompt": "[complete] 32,000 miles from Sydney to Perth",
+          "expected_answer": "completed"
+        },
+        {
+          "item_number": "2.7",
+          "prompt": "Okan Kaya [play] the longest video game marathon",
+          "expected_answer": "played"
+        },
+        {
+          "item_number": "2.8",
+          "prompt": "It [last] 135 hours",
+          "expected_answer": "lasted"
+        },
+        {
+          "item_number": "2.9",
+          "prompt": "He only [stop] the game after seven days",
+          "expected_answer": "stopped"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_22",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p137",
+      "activity_number": "22",
+      "activity_type": "read_and_match",
+      "instruction": "Read and match.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "go",
+          "expected_answer": "d went"
+        },
+        {
+          "item_number": "2",
+          "prompt": "come",
+          "expected_answer": "f came"
+        },
+        {
+          "item_number": "3",
+          "prompt": "have",
+          "expected_answer": "e had"
+        },
+        {
+          "item_number": "4",
+          "prompt": "sleep",
+          "expected_answer": "b slept"
+        },
+        {
+          "item_number": "5",
+          "prompt": "fall",
+          "expected_answer": "h fell"
+        },
+        {
+          "item_number": "6",
+          "prompt": "write",
+          "expected_answer": "a wrote"
+        },
+        {
+          "item_number": "7",
+          "prompt": "fly",
+          "expected_answer": "g flew"
+        },
+        {
+          "item_number": "8",
+          "prompt": "put",
+          "expected_answer": "c put"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": "Matching present base verbs to irregular past forms",
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_23",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p137",
+      "activity_number": "23",
+      "activity_type": "pair_speaking",
+      "instruction": "Tell your partner about what you did yesterday.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Yesterday, I woke up early and walked to school. / Yesterday, I went to the park after school. I played soccer.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "workbookActivities": [
+    {
+      "activity_id": "bep_3_wb_act_111_15",
+      "book_id": "big_english_3_wb",
+      "unit_id": "big_english_3_wb_unit_08",
+      "page_id": "bep_3_wb_p111",
+      "activity_number": "15",
+      "activity_type": "categorization_chart",
+      "instruction": "Complete the chart. Use the words from the box.",
+      "prompt": "Sort verbs into columns: climbed (-ed), tried (-ied), changed (-d), dropped (double consonant + -ed)",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "words_to_sort",
+          "prompt": "arrive, clap, control, cook, dry, fry, jog, live, look, love, study, work",
+          "expected_answer": "climbed: cooked, looked, worked; tried: dried, fried, studied; changed: arrived, lived, loved; dropped: clapped, controlled, jogged"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep_3_wb_act_111_16",
+      "book_id": "big_english_3_wb",
+      "unit_id": "big_english_3_wb_unit_08",
+      "page_id": "bep_3_wb_p111",
+      "activity_number": "16",
+      "activity_type": "verb_form_writing",
+      "instruction": "Read and write.",
+      "prompt": "Write the simple past irregular forms",
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "eat",
+          "expected_answer": "ate"
+        },
+        {
+          "item_number": "2",
+          "prompt": "get",
+          "expected_answer": "got"
+        },
+        {
+          "item_number": "3",
+          "prompt": "hurt",
+          "expected_answer": "hurt"
+        },
+        {
+          "item_number": "4",
+          "prompt": "make",
+          "expected_answer": "made"
+        },
+        {
+          "item_number": "5",
+          "prompt": "ride",
+          "expected_answer": "rode"
+        },
+        {
+          "item_number": "6",
+          "prompt": "run",
+          "expected_answer": "ran"
+        },
+        {
+          "item_number": "7",
+          "prompt": "say",
+          "expected_answer": "said"
+        },
+        {
+          "item_number": "8",
+          "prompt": "sit",
+          "expected_answer": "sat"
+        },
+        {
+          "item_number": "9",
+          "prompt": "swim",
+          "expected_answer": "swam"
+        },
+        {
+          "item_number": "10",
+          "prompt": "wake",
+          "expected_answer": "woke"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep_3_wb_act_111_17",
+      "book_id": "big_english_3_wb",
+      "unit_id": "big_english_3_wb_unit_08",
+      "page_id": "bep_3_wb_p111",
+      "activity_number": "17",
+      "activity_type": "narrative_cloze",
+      "instruction": "Read and write. Use the correct form of the verb in parentheses.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "When Josh 1 ______ (come) home,",
+          "expected_answer": "came"
+        },
+        {
+          "item_number": "2",
+          "prompt": "he 2 ______ (go) to bed",
+          "expected_answer": "went"
+        },
+        {
+          "item_number": "3",
+          "prompt": "and 3 ______ (sleep) for ten hours.",
+          "expected_answer": "slept"
+        },
+        {
+          "item_number": "4",
+          "prompt": "He 4 ______ (be) so tired.",
+          "expected_answer": "was"
+        },
+        {
+          "item_number": "5",
+          "prompt": "When he 5 ______ (get) up,",
+          "expected_answer": "got"
+        },
+        {
+          "item_number": "6",
+          "prompt": "he 6 ______ (eat) a big breakfast",
+          "expected_answer": "ate"
+        },
+        {
+          "item_number": "7",
+          "prompt": "and then 7 ______ (ride) his bike for an hour.",
+          "expected_answer": "rode"
+        },
+        {
+          "item_number": "8",
+          "prompt": "He 8 ______ (visit) his favorite café",
+          "expected_answer": "visited"
+        },
+        {
+          "item_number": "9",
+          "prompt": "and 9 ______ (drink) some apple juice.",
+          "expected_answer": "drank"
+        },
+        {
+          "item_number": "10",
+          "prompt": "He 10 ______ (see) some friends in the afternoon.",
+          "expected_answer": "saw"
+        },
+        {
+          "item_number": "11",
+          "prompt": "In the evening, he 11 ______ (clean) his room",
+          "expected_answer": "cleaned"
+        },
+        {
+          "item_number": "12",
+          "prompt": "and then 12 ______ (start) to watch a movie.",
+          "expected_answer": "started"
+        },
+        {
+          "item_number": "13",
+          "prompt": "But he 13 ______ (fall) asleep in the first ten minutes!",
+          "expected_answer": "fell"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep_3_wb_act_112_18",
+      "book_id": "big_english_3_wb",
+      "unit_id": "big_english_3_wb_unit_08",
+      "page_id": "bep_3_wb_p112",
+      "activity_number": "18",
+      "activity_type": "question_answer_formation",
+      "instruction": "Complete the questions and answers.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Did [subject] [verb] ...? Yes, [subject] did. / No, [subject] didn't.",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "1 (she/have) ______ a healthy breakfast? Yes, ______ .",
+          "expected_answer": "Did she have; she did"
+        },
+        {
+          "item_number": "2",
+          "prompt": "2 (the boys/play) ______ tennis? No, ______ .",
+          "expected_answer": "Did the boys play; they didn't"
+        },
+        {
+          "item_number": "3",
+          "prompt": "3 (Rob/be) ______ tired this morning? Yes, ______ .",
+          "expected_answer": "Was Rob; he was"
+        },
+        {
+          "item_number": "4",
+          "prompt": "4 (she/ride) ______ her bike yesterday? Yes, ______ .",
+          "expected_answer": "Did she ride; she did"
+        },
+        {
+          "item_number": "5",
+          "prompt": "5 (you/be) ______ late for school? No, ______ .",
+          "expected_answer": "Were you; I wasn't"
+        },
+        {
+          "item_number": "6",
+          "prompt": "6 (they/sit) ______ together at lunch? Yes, ______ .",
+          "expected_answer": "Did they sit; they did"
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": true,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep_3_wb_act_112_19",
+      "book_id": "big_english_3_wb",
+      "unit_id": "big_english_3_wb_unit_08",
+      "page_id": "bep_3_wb_p112",
+      "activity_number": "19",
+      "activity_type": "sentence_transformation",
+      "instruction": "Write negative sentences.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "[Subject] didn't [verb] ...",
+      "items": [
+        {
+          "item_number": "1",
+          "prompt": "He drank lots of water.",
+          "expected_answer": "He didn't drink lots of water."
+        },
+        {
+          "item_number": "2",
+          "prompt": "We forgot to invite the neighbors.",
+          "expected_answer": "We didn't forget to invite the neighbors."
+        },
+        {
+          "item_number": "3",
+          "prompt": "They got a letter from the bank.",
+          "expected_answer": "They didn't get a letter from the bank."
+        }
+      ],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "expectedActivitySha256ById": {
+    "bep3_sb_act_08_19": "aa749d55fdc96f1b08efa95824c688bd06d5af786013c2ec9064397c5fe0133c",
+    "bep3_sb_act_08_20": "cf280c387907a1cdfe41919cc7845ccc442247273b78f306d4c86665d1ea12e4",
+    "bep3_sb_act_08_21": "3b39624df961791c53e2f095bbc57f9833146d8b209e431ed7e847223412237b",
+    "bep3_sb_act_08_22": "aabd99915eddb739229a9a3f24d7e1a03ef85021e5afda1dd8d8c62da2077ec7",
+    "bep3_sb_act_08_23": "50e5750d70b5af0f8816bfcf599945496db1ae9694bb30cb749f21722b5d6052",
+    "bep_3_wb_act_111_15": "c1cfb0e700232a8b83a074e73af78fa6bb4f5c0fb2a62440b38d183649e543b2",
+    "bep_3_wb_act_111_16": "5fe70c5bb93e7b475182257435f7d875e7e96d4372c3336fc04ad3a57b1d7678",
+    "bep_3_wb_act_111_17": "e49a9db3deec16cf04c1bb1a6d2118141eeac90b3444f5d2240667e7a4d28bbc",
+    "bep_3_wb_act_112_18": "c95ce7e9e36352db1d38107f5667d8c613b0944db36884a4e1a7fb718feb39f4",
+    "bep_3_wb_act_112_19": "3868686e77c2d55c8692ae183162fc28ec95d3e32d5feea77cf911ce5a018073"
+  },
+  "expectedActivitySha256Source": "supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql"
+}

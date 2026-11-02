@@ -184,6 +184,11 @@ export type NllNlpInspectionReport = {
   readonly markdown: string
 }
 
+export type NllInspectorLoadOptions = {
+  readonly includeHiddenExperimental: true
+  readonly currentActivitySha256ById?: Readonly<Record<string, string>>
+}
+
 export type BuildNllNlpInspectionReportInput = {
   readonly lesson: ChalkieLessonContext
   readonly activityCards: readonly SbActivityCard[]
@@ -194,10 +199,16 @@ export type BuildNllNlpInspectionReportInput = {
   readonly teacherAdditions: readonly TeacherAddedLanguageInput[]
   readonly scopeSequenceUnit?: ScopeSequenceUnit | null
   readonly client?: SupabaseClient | null
+  /**
+   * Optional authoritative current activity fingerprints (activity_id → sha256).
+   * When omitted, preferred summaries remain staleness `unverifiable`.
+   * Read-only; never written back to NLL.
+   */
+  readonly currentActivitySha256ById?: Readonly<Record<string, string>>
   readonly loadNll?: (
     client: SupabaseClient,
     componentKey: string,
-    options: { readonly includeHiddenExperimental: true },
+    options: NllInspectorLoadOptions,
   ) => Promise<ResolvedNllComponent | null>
   readonly nowIso?: string
 }
@@ -768,17 +779,19 @@ export async function buildNllNlpInspectionReport(
     const client = input.client ?? null
     const load =
       input.loadNll ??
-      ((c: SupabaseClient, key: string, options: { includeHiddenExperimental: true }) =>
+      ((c: SupabaseClient, key: string, options: NllInspectorLoadOptions) =>
         loadNeutralLessonComponent(c, key, options))
     if (!client) {
       nllStatus = 'unavailable'
       nllNote = 'NLL component key resolved but no Supabase client was provided.'
     } else {
       try {
-        // Staleness stays unverifiable unless a caller supplies current hashes
-        // via a custom loadNll; loadNeutralLessonComponent does not invent them.
+        // Authoritative current hashes come only from the caller-supplied map
+        // (workspace canonical raw → fingerprint helper). Default remains
+        // unverifiable when the map is omitted.
         resolvedNll = await load(client, nllSpec.componentKey, {
           includeHiddenExperimental: true,
+          currentActivitySha256ById: input.currentActivitySha256ById,
         })
         if (resolvedNll) {
           nllStatus = 'loaded'

@@ -30,7 +30,15 @@ import {
 } from '../../app/src/features/chalkie/chalkieWorkbookActivitySelection.ts'
 import type { ChalkieLessonContext } from '../../app/src/features/chalkie/resolveChalkieLessonContext.ts'
 import { resolveVerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
-import type { ResolvedNllComponent } from '../../app/src/features/nll/neutralLessonLibrary.ts'
+import type { VerifiedSbWbCompanion } from '../../app/src/features/chalkie/resolveVerifiedSbWbCompanion.ts'
+import { BE3_U08_SB136_137_WB111_112 } from '../../app/src/features/chalkie/verifiedSbWbCompanions.ts'
+import { buildCurrentActivitySha256ById } from '../../app/src/features/nll/buildCurrentActivitySha256ById.ts'
+import {
+  assembleNeutralLessonComponent,
+  fingerprintCanonicalActivity,
+  type NllActivitySummaryRow,
+  type ResolvedNllComponent,
+} from '../../app/src/features/nll/neutralLessonLibrary.ts'
 import type { BatchJsonSummary } from '../../app/src/types/validation.ts'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
@@ -784,4 +792,480 @@ test('buildTeacherSelectionRows keeps available/selected/excluded/included indep
   assert.equal(firstRow.selectedByTeacher, false)
   assert.equal(firstRow.excludedByTeacher, true)
   assert.equal(firstRow.includedInNlp, false)
+})
+
+const FIXTURES_DIR = path.join(ROOT, 'scripts/fixtures/nll-staleness')
+const GRAMMAR_FIXTURE = loadJson(
+  path.join(FIXTURES_DIR, 'be3-u08-grammar-activities.json'),
+) as {
+  readonly studentBookActivities: ReadonlyArray<Record<string, unknown>>
+  readonly workbookActivities: ReadonlyArray<Record<string, unknown>>
+  readonly expectedActivitySha256ById: Readonly<Record<string, string>>
+  readonly expectedActivitySha256Source: string
+}
+const VALUES_FIXTURE = loadJson(
+  path.join(FIXTURES_DIR, 'be3-u08-values-activities.json'),
+) as {
+  readonly studentBookActivities: ReadonlyArray<Record<string, unknown>>
+  readonly expectedActivitySha256ById: Readonly<Record<string, string>>
+  readonly expectedActivitySha256Source: string
+}
+
+/** Literal migration activity_sha256 pins — independent of runtime fingerprint output. */
+const GRAMMAR_MIGRATION_ACTIVITY_SHA256 = GRAMMAR_FIXTURE.expectedActivitySha256ById
+const VALUES_MIGRATION_ACTIVITY_SHA256 = VALUES_FIXTURE.expectedActivitySha256ById
+
+function fixtureSummary(
+  catalogBookId: string,
+  activities: ReadonlyArray<Record<string, unknown>>,
+  pages: ReadonlyArray<{ page_id: string; printed_page: number }>,
+): BatchJsonSummary {
+  return {
+    catalogBookId,
+    units: [
+      {
+        unitNumber: 8,
+        title: 'Healthy Living',
+        printedPageStart: 128,
+        printedPageEnd: 143,
+      },
+    ],
+    vocabulary: [],
+    language: [],
+    activities: [],
+    pages: [],
+    raw: {
+      units: [
+        {
+          unit_number: 8,
+          title: 'Healthy Living',
+          printed_page_start: 128,
+          printed_page_end: 143,
+        },
+      ],
+      pages: pages.map((page) => ({
+        ...page,
+        unit_id: `${catalogBookId}_unit_08`,
+        book_id: catalogBookId,
+        verification_status: 'human_verified',
+      })),
+      activities,
+      vocabulary: [],
+      language: [],
+    },
+  }
+}
+
+function rawPreferredSummary(
+  activityId: string,
+  activitySha256: string,
+): NllActivitySummaryRow {
+  return {
+    id: `sum-${activityId}`,
+    activity_id: activityId,
+    version: 1,
+    summary_text: `Summary for ${activityId}`,
+    canonical_path: 'fixture',
+    canonical_sha256: 'a'.repeat(64),
+    activity_sha256: activitySha256,
+    evidence_status: 'sufficient',
+    display_status: 'hidden',
+    review_state: 'experimental',
+    is_preferred: true,
+    provenance: {},
+    created_at: '2026-11-02T00:00:00.000Z',
+  }
+}
+
+function loadNllViaAssemble(
+  componentKey: string,
+  activityIds: readonly string[],
+  storedShaById: Readonly<Record<string, string>>,
+) {
+  return async (
+    _client: unknown,
+    key: string,
+    options: {
+      readonly includeHiddenExperimental: true
+      readonly currentActivitySha256ById?: Readonly<Record<string, string>>
+    },
+  ) => {
+    assert.equal(key, componentKey)
+    return assembleNeutralLessonComponent({
+      component: {
+        id: `nll-${componentKey}`,
+        component_key: componentKey,
+        title: componentKey,
+        status: 'draft',
+        created_at: '2026-11-02T00:00:00.000Z',
+      },
+      memberships: activityIds.map((activityId, index) => ({
+        component_id: `nll-${componentKey}`,
+        activity_id: activityId,
+        position: index + 1,
+      })),
+      summaries: activityIds.map((activityId) =>
+        rawPreferredSummary(activityId, storedShaById[activityId] ?? '0'.repeat(64)),
+      ),
+      ssLinks: [],
+      includeHiddenExperimental: options.includeHiddenExperimental,
+      currentActivitySha256ById: options.currentActivitySha256ById,
+    })
+  }
+}
+
+test('tracked Grammar and Values fixtures match migration activity_sha256 pins 13/13', async () => {
+  assert.equal(
+    GRAMMAR_FIXTURE.expectedActivitySha256Source,
+    'supabase/migrations/20261030160000_seed_nll_be3_u08_grammar.sql',
+  )
+  assert.equal(
+    VALUES_FIXTURE.expectedActivitySha256Source,
+    'supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql',
+  )
+  assert.equal(Object.keys(GRAMMAR_MIGRATION_ACTIVITY_SHA256).length, 10)
+  assert.equal(Object.keys(VALUES_MIGRATION_ACTIVITY_SHA256).length, 3)
+
+  const grammarActivities = [
+    ...GRAMMAR_FIXTURE.studentBookActivities,
+    ...GRAMMAR_FIXTURE.workbookActivities,
+  ]
+  for (const activity of grammarActivities) {
+    const activityId = String(activity.activity_id)
+    const pinned = GRAMMAR_MIGRATION_ACTIVITY_SHA256[activityId]
+    assert.ok(pinned, `missing Grammar migration pin for ${activityId}`)
+    assert.equal(
+      await fingerprintCanonicalActivity(activity),
+      pinned,
+      `Grammar fixture fingerprint must equal migration pin for ${activityId}`,
+    )
+  }
+  for (const activity of VALUES_FIXTURE.studentBookActivities) {
+    const activityId = String(activity.activity_id)
+    const pinned = VALUES_MIGRATION_ACTIVITY_SHA256[activityId]
+    assert.ok(pinned, `missing Values migration pin for ${activityId}`)
+    assert.equal(
+      await fingerprintCanonicalActivity(activity),
+      pinned,
+      `Values fixture fingerprint must equal migration pin for ${activityId}`,
+    )
+  }
+})
+
+test('buildCurrentActivitySha256ById fingerprints tracked fixtures and omits missing ids', async () => {
+  const grammarRaw = {
+    activities: [
+      ...GRAMMAR_FIXTURE.studentBookActivities,
+      ...GRAMMAR_FIXTURE.workbookActivities,
+    ],
+  }
+  const ids = grammarRaw.activities.map((row) => String(row.activity_id))
+  const map = await buildCurrentActivitySha256ById({
+    canonicalRaws: [grammarRaw],
+    activityIds: [...ids, 'missing_activity_id'],
+  })
+  assert.equal(Object.keys(map).length, 10)
+  assert.equal(map.missing_activity_id, undefined)
+  for (const activityId of ids) {
+    assert.equal(map[activityId], GRAMMAR_MIGRATION_ACTIVITY_SHA256[activityId])
+  }
+})
+
+test('Grammar Inspector authoritative hashes: current, potentially_stale, and unverifiable', async () => {
+  const companion: VerifiedSbWbCompanion = {
+    ...BE3_U08_SB136_137_WB111_112,
+    source: 'curated_verified',
+  }
+  const sbSummary = fixtureSummary('big_english_3_sb', GRAMMAR_FIXTURE.studentBookActivities, [
+    { page_id: 'bep3_sb_p136', printed_page: 136 },
+    { page_id: 'bep3_sb_p137', printed_page: 137 },
+  ])
+  const wbSummary = fixtureSummary('big_english_3_wb', GRAMMAR_FIXTURE.workbookActivities, [
+    { page_id: 'bep_3_wb_p111', printed_page: 111 },
+    { page_id: 'bep_3_wb_p112', printed_page: 112 },
+  ])
+  const sbCards = buildSbActivityCards({
+    summary: sbSummary,
+    activeLessonPrintedPages: [136, 137],
+  })
+  const wbCards = buildWbActivityCards({ summary: wbSummary, companion })
+  assert.equal(sbCards.length, 5)
+  assert.equal(wbCards.length, 5)
+
+  let wbState = createDefaultWbActivitySelection(wbCards)
+  const excludedWb = wbCards[wbCards.length - 1]
+  assert.ok(excludedWb)
+  wbState = setWbActivityCardSelected({
+    cards: wbCards,
+    state: wbState,
+    cardId: excludedWb.id,
+    selected: false,
+  })
+  const sbSelection = createSbActivityHandoffSelection(
+    sbCards,
+    createDefaultSbActivitySelection(sbCards),
+  )
+  const wbSelection = createWbActivityHandoffSelection(wbCards, wbState)
+
+  const allActivities = [
+    ...GRAMMAR_FIXTURE.studentBookActivities,
+    ...GRAMMAR_FIXTURE.workbookActivities,
+  ]
+  const activityIds = allActivities.map((row) => String(row.activity_id))
+  // Stored hashes come only from independently pinned migration values.
+  const storedMigrationPins = GRAMMAR_MIGRATION_ACTIVITY_SHA256
+  const currentMatchingMap = await buildCurrentActivitySha256ById({
+    canonicalRaws: [{ activities: allActivities }],
+    activityIds,
+  })
+  assert.equal(Object.keys(currentMatchingMap).length, 10)
+  for (const activityId of activityIds) {
+    assert.equal(currentMatchingMap[activityId], storedMigrationPins[activityId])
+  }
+
+  const loadNll = loadNllViaAssemble(
+    'be3-u08-grammar',
+    activityIds,
+    storedMigrationPins,
+  )
+  const lesson = baseLesson({
+    visiblePrintedPages: [136, 137],
+    visiblePageRangeLabel: '136–137',
+    workbookCompanion: companion,
+    twoLessonPackagingMode: 'sb_only',
+    currentFocus: 'Grammar',
+    singleLessonTitle: 'Grammar',
+  })
+
+  const currentReport = await buildNllNlpInspectionReport({
+    lesson,
+    activityCards: sbCards,
+    workbookActivityCards: wbCards,
+    sbSelection,
+    wbSelection,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    client: {} as never,
+    nowIso: '2026-11-02T12:00:00.000Z',
+    currentActivitySha256ById: currentMatchingMap,
+    loadNll,
+  })
+  assert.equal(currentReport.nll.status, 'loaded')
+  assert.equal(currentReport.nlp.status, 'assembled')
+  assert.equal(currentReport.overview.nllActivitiesAvailable, 10)
+  assert.equal(currentReport.overview.teacherSelectedCount, 9)
+  assert.equal(currentReport.overview.teacherExcludedCount, 1)
+  assert.equal(currentReport.overview.includedInNlpCount, 9)
+  assert.equal(currentReport.overview.derivedSummariesInNlpCount, 9)
+  assert.equal(currentReport.overview.staleCount, 0)
+  assert.equal(currentReport.overview.stalenessUnverifiableCount, 0)
+  assert.ok(
+    currentReport.teacherSelections.every((row) => row.nllStaleness === 'current'),
+  )
+  const excludedId = excludedWb.references[0]?.activityId ?? ''
+  assert.equal(excludedId, 'bep_3_wb_act_112_19')
+  const excludedRow = currentReport.teacherSelections.find(
+    (row) => row.activityId === excludedId,
+  )
+  assert.ok(excludedRow)
+  assert.equal(excludedRow.selectedByTeacher, false)
+  assert.equal(excludedRow.includedInNlp, false)
+  assert.equal(excludedRow.nllStaleness, 'current')
+  assert.equal(
+    excludedRow.nllStoredActivitySha256,
+    storedMigrationPins[excludedId],
+  )
+
+  const mutatedTarget = 'bep3_sb_act_08_21'
+  const mutatedActivities = allActivities.map((activity) => {
+    if (activity.activity_id !== mutatedTarget) return activity
+    return { ...activity, instruction: `${String(activity.instruction)} [mutated]` }
+  })
+  const staleCurrentMap = await buildCurrentActivitySha256ById({
+    canonicalRaws: [{ activities: mutatedActivities }],
+    activityIds,
+  })
+  assert.notEqual(staleCurrentMap[mutatedTarget], storedMigrationPins[mutatedTarget])
+  const staleReport = await buildNllNlpInspectionReport({
+    lesson,
+    activityCards: sbCards,
+    workbookActivityCards: wbCards,
+    sbSelection,
+    wbSelection,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    client: {} as never,
+    nowIso: '2026-11-02T12:00:00.000Z',
+    currentActivitySha256ById: staleCurrentMap,
+    loadNll,
+  })
+  assert.equal(staleReport.overview.staleCount, 1)
+  assert.equal(staleReport.overview.stalenessUnverifiableCount, 0)
+  assert.equal(staleReport.overview.includedInNlpCount, 9)
+  const staleRow = staleReport.teacherSelections.find(
+    (row) => row.activityId === mutatedTarget,
+  )
+  assert.ok(staleRow)
+  assert.equal(staleRow.nllStaleness, 'potentially_stale')
+  assert.equal(
+    staleRow.nllStoredActivitySha256,
+    storedMigrationPins[mutatedTarget],
+  )
+  assert.ok(
+    staleReport.teacherSelections
+      .filter((row) => row.activityId !== mutatedTarget)
+      .every((row) => row.nllStaleness === 'current'),
+  )
+
+  const partialCurrentMap = { ...currentMatchingMap }
+  delete partialCurrentMap[excludedId]
+  const unverifiableReport = await buildNllNlpInspectionReport({
+    lesson,
+    activityCards: sbCards,
+    workbookActivityCards: wbCards,
+    sbSelection,
+    wbSelection,
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    client: {} as never,
+    nowIso: '2026-11-02T12:00:00.000Z',
+    currentActivitySha256ById: partialCurrentMap,
+    loadNll,
+  })
+  assert.equal(unverifiableReport.overview.stalenessUnverifiableCount, 1)
+  assert.equal(unverifiableReport.overview.staleCount, 0)
+  const unverifiableRow = unverifiableReport.teacherSelections.find(
+    (row) => row.activityId === excludedId,
+  )
+  assert.ok(unverifiableRow)
+  assert.equal(unverifiableRow.nllStaleness, 'unverifiable')
+  assert.equal(unverifiableRow.nllCurrentActivitySha256, null)
+  assert.equal(
+    unverifiableRow.nllStoredActivitySha256,
+    storedMigrationPins[excludedId],
+  )
+  assert.equal(unverifiableRow.selectedByTeacher, false)
+  assert.equal(unverifiableRow.includedInNlp, false)
+  assert.ok(
+    unverifiableReport.teacherSelections
+      .filter((row) => row.activityId !== excludedId)
+      .every((row) => row.nllStaleness === 'current'),
+  )
+})
+
+test('Values Inspector authoritative SB hashes work without companion or NLP', async () => {
+  const sbSummary = fixtureSummary('big_english_3_sb', VALUES_FIXTURE.studentBookActivities, [
+    { page_id: 'bep3_sb_p142', printed_page: 142 },
+  ])
+  const sbCards = buildSbActivityCards({
+    summary: sbSummary,
+    activeLessonPrintedPages: [142],
+  })
+  assert.equal(sbCards.length, 3)
+  const activityIds = VALUES_FIXTURE.studentBookActivities.map((row) =>
+    String(row.activity_id),
+  )
+  const storedMigrationPins = VALUES_MIGRATION_ACTIVITY_SHA256
+  const currentMatchingMap = await buildCurrentActivitySha256ById({
+    canonicalRaws: [{ activities: VALUES_FIXTURE.studentBookActivities }],
+    activityIds,
+  })
+  assert.equal(Object.keys(currentMatchingMap).length, 3)
+  for (const activityId of activityIds) {
+    assert.equal(currentMatchingMap[activityId], storedMigrationPins[activityId])
+  }
+
+  const loadNll = loadNllViaAssemble(
+    'be3-u08-values',
+    activityIds,
+    storedMigrationPins,
+  )
+  const report = await buildNllNlpInspectionReport({
+    lesson: baseLesson({
+      visiblePrintedPages: [142],
+      visiblePageRangeLabel: '142',
+      twoLessonPackagingMode: 'sb_only',
+      workbookCompanion: null,
+      currentFocus: 'Values',
+      singleLessonTitle: 'Values',
+    }),
+    activityCards: sbCards,
+    workbookActivityCards: [],
+    sbSelection: createSbActivityHandoffSelection(
+      sbCards,
+      createDefaultSbActivitySelection(sbCards),
+    ),
+    wbSelection: createWbActivityHandoffSelection(
+      [],
+      createDefaultWbActivitySelection([]),
+    ),
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    client: {} as never,
+    nowIso: '2026-11-02T12:00:00.000Z',
+    currentActivitySha256ById: currentMatchingMap,
+    loadNll,
+  })
+
+  assert.equal(report.nll.status, 'loaded')
+  assert.equal(report.nll.componentKey, 'be3-u08-values')
+  assert.equal(report.nlp.status, 'unavailable')
+  assert.equal(report.lessonIdentity.companionRelationshipId, null)
+  assert.deepEqual(report.lessonIdentity.workbookPages, [])
+  assert.equal(report.overview.nllActivitiesAvailable, 3)
+  assert.equal(report.overview.includedInNlpCount, 0)
+  assert.equal(report.overview.staleCount, 0)
+  assert.equal(report.overview.stalenessUnverifiableCount, 0)
+  assert.ok(report.teacherSelections.every((row) => row.nllStaleness === 'current'))
+  assert.ok(
+    report.teacherSelections.every(
+      (row) => row.selectedByTeacher === true && row.includedInNlp === false,
+    ),
+  )
+
+  const partialCurrentMap = { ...currentMatchingMap }
+  delete partialCurrentMap.bep3_sb_act_08_38
+  const partialReport = await buildNllNlpInspectionReport({
+    lesson: baseLesson({
+      visiblePrintedPages: [142],
+      visiblePageRangeLabel: '142',
+      twoLessonPackagingMode: 'sb_only',
+      workbookCompanion: null,
+      currentFocus: 'Values',
+      singleLessonTitle: 'Values',
+    }),
+    activityCards: sbCards,
+    workbookActivityCards: [],
+    sbSelection: createSbActivityHandoffSelection(
+      sbCards,
+      createDefaultSbActivitySelection(sbCards),
+    ),
+    wbSelection: createWbActivityHandoffSelection(
+      [],
+      createDefaultWbActivitySelection([]),
+    ),
+    selectedSuggestions: [],
+    teacherAdditions: [],
+    client: {} as never,
+    nowIso: '2026-11-02T12:00:00.000Z',
+    currentActivitySha256ById: partialCurrentMap,
+    loadNll,
+  })
+  assert.equal(partialReport.nlp.status, 'unavailable')
+  assert.equal(partialReport.overview.stalenessUnverifiableCount, 1)
+  assert.equal(partialReport.overview.staleCount, 0)
+  const missing = partialReport.teacherSelections.find(
+    (row) => row.activityId === 'bep3_sb_act_08_38',
+  )
+  assert.ok(missing)
+  assert.equal(missing.nllStaleness, 'unverifiable')
+  assert.equal(
+    missing.nllStoredActivitySha256,
+    storedMigrationPins.bep3_sb_act_08_38,
+  )
+  assert.ok(
+    partialReport.teacherSelections
+      .filter((row) => row.activityId !== 'bep3_sb_act_08_38')
+      .every((row) => row.nllStaleness === 'current'),
+  )
 })

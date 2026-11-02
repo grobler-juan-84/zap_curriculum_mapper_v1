@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE
 **Version:** 0.1
-**Date:** 2026-11-02 (contract clarifications + Grammar fixture + cross-PC `test:inspector` tooling; prior 2026-11-01 audit/Vite verification retained)
+**Date:** 2026-11-02 (Priority 3 Inspector authoritative staleness; prior contract/tooling/Vite notes retained)
 **Purpose:** Record inspect-first discrepancies, status taxonomy, packaging semantics, experimental-summary policy, staleness limits, authorization boundary, and verification posture for D029.
 
 ---
@@ -107,12 +107,15 @@ A Values lesson may show configuration `sb_only`, NLL loaded, selections present
 
 ---
 
-## Staleness limitation
+## Staleness (Inspector Priority 3)
 
-- `loadNeutralLessonComponent` only computes non-`unverifiable` staleness when `currentActivitySha256ById` is supplied.
-- Default Inspector / Stage 4 loads do **not** supply current hashes → `staleness: unverifiable`, `currentActivitySha256: null`.
-- Inspector preserves hashes and explains unverifiable comparison; it does not invent speculative current-hash lookups.
-- Admin-facing note: `unverifiable` means an authoritative **current** activity hash was not supplied for comparison — it is **not** itself proof that NLL content is stale.
+- Authoritative fingerprint remains `fingerprintCanonicalActivity` over the **full** canonical activity object (`stableCanonicalJson` → SHA-256 lowercase hex).
+- Helper `buildCurrentActivitySha256ById` fingerprints already-loaded SB/WB canonical raw by `activity_id` and omits unresolved/failed IDs (fail closed per activity).
+- **Inspector path (Step 453):** Workspace passes already-loaded canonical raw into Create-a-prompt; overlay builds the hash map and forwards it to `loadNeutralLessonComponent` via `currentActivitySha256ById`. Match → `current`; mismatch → `potentially_stale` (warn only); missing → `unverifiable`.
+- Modal summary / Stage 4 / adapters are **unchanged** in this slice and still omit the map → their loads remain `unverifiable` unless separately authorized later.
+- Staleness stays independent of selection, NLP inclusion, review_state, evidence sufficiency, and Values SB-only / NLP-unavailable status.
+- No summary prose, stored hashes, preferred versions, or review states are written during inspection.
+- Admin-facing note: `unverifiable` means an authoritative **current** activity hash was not available for that activity — it is **not** itself proof that NLL content is stale.
 
 ---
 
@@ -121,6 +124,7 @@ A Values lesson may show configuration `sb_only`, NLL loaded, selections present
 | Concern | Function |
 |---|---|
 | NLL load | `loadNeutralLessonComponent` (same as Create-a-prompt summaries / Stage 4) |
+| Current activity fingerprints | `buildCurrentActivitySha256ById` + `fingerprintCanonicalActivity` (Inspector-supplied map only in Step 453) |
 | Component key resolve | `resolveBe3U08NllActivitySummarySpec` (shared Create-a-prompt resolver; currently BE3 U8 keyed — not an Inspector-only table) |
 | NLP assemble | `buildNeutralSbWbLessonPackage` |
 | Derived knowledge attach | `attachSelectedNllDerivedKnowledge` |
@@ -151,6 +155,15 @@ These are the standard cross-PC setup and focused Inspector verification command
 ---
 
 ## Verification log
+
+### 2026-11-02 — Priority 3 Inspector authoritative staleness (Step 453)
+
+**Scope:** Inspector-only read-only current-hash supply. No summary/DB/migration/adapter/GLP/modal-summary changes.
+
+- Workspace → overlay canonical raw → `buildCurrentActivitySha256ById` → Inspector → existing `resolveStaleness`.
+- Grammar + Values regressions on tracked fixtures under `scripts/fixtures/nll-staleness/`.
+- Fixture integrity: each of the **13** tracked activities asserts `fingerprintCanonicalActivity(fixture) ===` literal `activity_sha256` pins from `20261030160000` (Grammar 10) and `20261030220000` (Values 3). Mocked stored hashes use those migration pins; current hashes are computed separately from fixtures.
+- Focused suite: `nllNlpInspector.test.ts` **13/13**; loader pilot **7/7**; typecheck exit 0.
 
 ### 2026-11-02 — Cross-PC Inspector test runner tooling
 
@@ -196,7 +209,7 @@ These are the standard cross-PC setup and focused Inspector verification command
 
 - **Production transport** for `POST /api/nll-nlp-inspector/access` (or equivalent) on the selected hosting architecture — required before production Inspector availability (see Environment availability).
 - Server-side report assembly returning Markdown only after admin auth (optional hardening).
-- Supplying authoritative current activity hashes into NLL load for real staleness classification.
+- Extending authoritative current-hash supply beyond the Inspector (modal summaries / Stage 4 / adapters) — Inspector Priority 3 complete; other callers remain omitted until separately authorized.
 - Separating teacher-friendly summary text from operational guardrails in NLL schema/content.
 - Curriculum-agnostic component-key resolver beyond the shared BE3 U8 table (product work, not Inspector-only).
 - True SB-only NLP builder (explicitly out of Inspector scope).

@@ -191,6 +191,7 @@ import {
   buildNllNlpInspectionReport,
   shouldShowNllNlpInspectorCard,
 } from './nllNlpInspector'
+import { buildCurrentActivitySha256ById } from '../nll/buildCurrentActivitySha256ById'
 import { requestNllNlpInspectorAccess } from '../../services/nllNlpInspectorAccessService'
 import type { ScopeSequenceUnit } from '../scope-sequence/scopeSequence'
 import {
@@ -323,6 +324,15 @@ interface TeacherChoiceFlowOverlayProps {
   bookIntelligence?: BookIntelligenceOverviewDocument | null
   /** Optional unit-level Scope & Sequence already loaded in the workspace. */
   scopeSequenceUnit?: ScopeSequenceUnit | null
+  /**
+   * Already-loaded authoritative Student Book canonical JSON (full or unit-sliced).
+   * Used only for read-only Inspector staleness fingerprints — not for card UI.
+   */
+  studentBookCanonicalRaw?: unknown | null
+  /**
+   * Already-loaded Workbook canonical JSON when a companion exists; null for SB-only.
+   */
+  workbookCanonicalRaw?: unknown | null
   /** Shared workspace selection — same state as the left panel. */
   sbActivitySelection: SbActivitySelectionState
   wbActivitySelection: WbActivitySelectionState
@@ -436,6 +446,8 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
   workbookActivityCards,
   bookIntelligence = null,
   scopeSequenceUnit = null,
+  studentBookCanonicalRaw = null,
+  workbookCanonicalRaw = null,
   sbActivitySelection,
   wbActivitySelection,
   onSbActivitySelectionChange,
@@ -2379,6 +2391,16 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
       }
 
       try {
+        const activityIds = [
+          ...activityCards.map((card) => card.references.activityId),
+          ...workbookActivityCards
+            .map((card) => card.references[0]?.activityId)
+            .filter((id): id is string => Boolean(id)),
+        ]
+        const currentActivitySha256ById = await buildCurrentActivitySha256ById({
+          canonicalRaws: [studentBookCanonicalRaw, workbookCanonicalRaw],
+          activityIds,
+        })
         const report = await buildNllNlpInspectionReport({
           lesson,
           activityCards,
@@ -2389,6 +2411,7 @@ export const TeacherChoiceFlowOverlay: React.FC<TeacherChoiceFlowOverlayProps> =
           teacherAdditions: selectedTeacherAdditions,
           scopeSequenceUnit,
           client: supabase,
+          currentActivitySha256ById,
         })
         setInspectionReportMarkdown(report.markdown)
       } catch (error) {

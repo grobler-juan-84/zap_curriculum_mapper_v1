@@ -1,0 +1,86 @@
+{
+  "note": "Tracked exact BE3 U8 Values SB activity objects for Inspector staleness tests. expectedActivitySha256ById values are literal pins from supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql (activity_sha256).",
+  "studentBookActivities": [
+    {
+      "activity_id": "bep3_sb_act_08_36",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p142",
+      "activity_number": "36",
+      "activity_type": "values_listening_identification",
+      "instruction": "Look and listen. Point to and say the healthy activities.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [
+        {
+          "item_number": "a",
+          "prompt": "boy riding bike outdoors",
+          "expected_answer": "healthy"
+        },
+        {
+          "item_number": "b",
+          "prompt": "boy sitting in front of computer",
+          "expected_answer": "unhealthy"
+        },
+        {
+          "item_number": "c",
+          "prompt": "girl eating snack in bed with tablet",
+          "expected_answer": "unhealthy"
+        },
+        {
+          "item_number": "d",
+          "prompt": "boy playing volleyball",
+          "expected_answer": "healthy"
+        }
+      ],
+      "audio_dependency": true,
+      "visual_dependency": true,
+      "source_dependency_note": "Audio track 168",
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_37",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p142",
+      "activity_number": "37",
+      "activity_type": "speaking_imperatives",
+      "instruction": "Work with a partner. Tell your partner to do healthy things.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": "Don't watch TV. Go outside and play soccer! / Ride your bike at a park or in your neighborhood. It's fun, and it's good for you.",
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    },
+    {
+      "activity_id": "bep3_sb_act_08_38",
+      "book_id": "big_english_3_sb",
+      "unit_id": "big_english_3_sb_unit_08",
+      "page_id": "bep3_sb_p142",
+      "activity_number": "38",
+      "activity_type": "project",
+      "instruction": "Work with a group. Think of a new game you can play outside. Write down the rules. Teach the rest of the class your new game.",
+      "prompt": null,
+      "expected_answer": null,
+      "language_frame": null,
+      "items": [],
+      "audio_dependency": false,
+      "visual_dependency": false,
+      "source_dependency_note": null,
+      "notes": null,
+      "verification_status": "human_verified"
+    }
+  ],
+  "expectedActivitySha256ById": {
+    "bep3_sb_act_08_36": "904d555171527fc0edb93360096c82c48ba1031048209bddcf2f96ccf3b3fd97",
+    "bep3_sb_act_08_37": "28c0f42aa137bf610df5a35223101738043cf0a0f4d7fc6e2bd1c058431880b4",
+    "bep3_sb_act_08_38": "4b150a90e379b435969e2977869f48d972236ff56898575928177a58ba7f740e"
+  },
+  "expectedActivitySha256Source": "supabase/migrations/20261030220000_seed_nll_be3_u08_values.sql"
+}

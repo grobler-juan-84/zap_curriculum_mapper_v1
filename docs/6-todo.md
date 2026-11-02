@@ -10,7 +10,7 @@
 
 
 
-**Last updated:** Step 452
+**Last updated:** Step 453
 
 
 
@@ -788,6 +788,8 @@
 - [x] **Inspector test runner standardized (2026-11-02):** pinned `tsx` in `app`; `test:inspector` script; cross-PC commands `npm ci --prefix app` + `npm --prefix app run test:inspector`; focused suite 9/9 via repo-managed runner. No app/contract behavior change.
 
 - [x] **Priority 2 human review / D031 (2026-11-02):** owner accepted all 77 Unit 8 summaries unchanged as sufficient, modular and replaceable v1 knowledge; confirmed ChatGPT Desktop as the AI-summary source; established stronger future provenance requirements; deliberately left live review states unchanged pending a separate semantic decision.
+
+- [x] **Priority 3 Inspector authoritative staleness (2026-11-02, Step 453):** `buildCurrentActivitySha256ById` + Inspector wiring from already-loaded canonical raw; Grammar/Values fixture regressions with 13/13 migration-hash pins; suite 13/13. Warn-only `potentially_stale`; no summary/DB/migration/adapter/GLP changes.
 
 - [ ] **Before production release:** implement F027 equivalent trusted admin Inspector access route on the selected hosting architecture (not authorized now).
 

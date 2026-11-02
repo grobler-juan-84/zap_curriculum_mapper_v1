@@ -7921,3 +7921,24 @@
 - `docs/project-tracking/0-project-steps.md` (updated)
 
 ---
+
+### Step 453
+
+**Summary:** Implemented Priority 3 Inspector-only authoritative staleness checking. Workspace passes already-loaded SB/WB canonical raw into Create-a-prompt; overlay builds a read-only `currentActivitySha256ById` map via `buildCurrentActivitySha256ById` + existing `fingerprintCanonicalActivity`; Inspector forwards the map to `loadNeutralLessonComponent` / `resolveStaleness`. Grammar and Values fixture regressions cover `current`, isolated `potentially_stale`, and isolated `unverifiable`. Fixture integrity pins all 13 `activity_sha256` values from the applied Grammar/Values seed migrations independently of runtime current-hash computation. Focused suite 13/13; typecheck clean. No commit/push.
+
+**Files touched:**
+- `app/src/features/nll/buildCurrentActivitySha256ById.ts` (created)
+- `app/src/features/chalkie/nllNlpInspector.ts` (updated)
+- `app/src/features/chalkie/TeacherChoiceFlowOverlay.tsx` (updated)
+- `app/src/features/chalkie/ChalkieWorkspace.tsx` (updated)
+- `scripts/fixtures/nll-staleness/be3-u08-grammar-activities.json` (created)
+- `scripts/fixtures/nll-staleness/be3-u08-values-activities.json` (created)
+- `scripts/tests/nllNlpInspector.test.ts` (updated)
+- `docs/project-tracking/nll-nlp-inspector-architecture-note-v0.1.md` (updated)
+- `docs/0-index.md` (updated)
+- `docs/5-progress.md` (updated)
+- `docs/6-todo.md` (updated)
+- `docs/project-tracking/1-project-status.md` (updated)
+- `docs/project-tracking/0-project-steps.md` (updated)
+
+---

@@ -1745,6 +1745,12 @@ export const ChalkieWorkspace: React.FC<ChalkieWorkspaceProps> = ({
             ? curriculumAuthority.unit
             : null
         }
+        studentBookCanonicalRaw={studentBookCanonical}
+        workbookCanonicalRaw={
+          workbookSummary?.raw && typeof workbookSummary.raw === 'object'
+            ? workbookSummary.raw
+            : null
+        }
         sbActivitySelection={sbActivitySelection}
         wbActivitySelection={wbActivitySelection}
         onSbActivitySelectionChange={handleSbActivitySelectionChange}
